@@ -33,7 +33,7 @@ Release 18.07.2012
 	- Ability to use special keys in {} brackets e.g. sendText( "{tab}a{n}b" ) will start with a tabulator and break the line between 'a' and 'b'
 
 - Other commands
-		- sleep( time_in_milliseconds )
+	- sleep( time_in_milliseconds )
 	
 - 'About' dialog
 - Custom calendar
