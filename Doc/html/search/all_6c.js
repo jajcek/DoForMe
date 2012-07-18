@@ -11,7 +11,7 @@ var searchData=
   ['lua_5fengine_2ecpp',['lua_engine.cpp',['../lua__engine_8cpp.html',1,'']]],
   ['lua_5fengine_2eh',['lua_engine.h',['../lua__engine_8h.html',1,'']]],
   ['lua_5fheaders_2eh',['lua_headers.h',['../lua__headers_8h.html',1,'']]],
-  ['luaapiengine',['luaApiEngine',['../classlua_api_engine.html',1,'luaApiEngine'],['../class_lua_api_engine.html',1,'LuaApiEngine']]],
+  ['luaapiengine',['LuaApiEngine',['../class_lua_api_engine.html',1,'']]],
   ['luaengine',['LuaEngine',['../class_lua_engine.html',1,'LuaEngine'],['../class_lua_engine.html#a165d91bae4bef0670afd6f73a3e7e6a7',1,'LuaEngine::LuaEngine()']]],
   ['luastate',['luaState',['../class_lua_engine.html#a8f2ebf32095adde76c6f744ffb881b38',1,'LuaEngine']]]
 ];

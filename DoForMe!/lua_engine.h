@@ -29,7 +29,7 @@
 	\author Jacek Topolski
 	\version 1.0
 	\date 28.06.2012
-	\example luaEngine_example.cpp
+	\example LuaEngine_example.cpp
 	\brief Example of how to initialize lua's object, register functions for scripts, load the script and run it.
 */
 class LuaEngine : public QObject {

@@ -1,0 +1,57 @@
+\hypertarget{_lua_engine_example_8cpp-example}{\section{Lua\-Engine\-\_\-example.\-cpp}
+}
+Example of how to initialize lua's object, register functions for scripts, load the script and run it.
+
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{// create lua object}
+\hyperlink{class_lua_engine}{LuaEngine} lua;
+\hyperlink{class_lua_api_engine_ae3642a4f6256f202dd88726b70ed3936}{LuaApiEngine::setLuaEngine}( &m\_lua );
+\hyperlink{class_lua_api_engine_a7f614e9a85e02951c0a21e694654b83a}{LuaApiEngine::initSpecialKeys}();
+
+\textcolor{comment}{// register functions that will be used in lua's scripts}
+\textcolor{comment}{// in this example the functions are defined as static in LuaApiEngine class}
+lua.\hyperlink{class_lua_engine_a03530362918aceccd6f69a5cecf2a968}{registerFunction}( \textcolor{stringliteral}{"sleep"}, \hyperlink{class_lua_api_engine_a03308524bb7be3fca0e5865a0eba6c41}{LuaApiEngine::prepareSleep}
+      , \hyperlink{class_lua_api_engine_a6910c482ffa6327999b49504522991b7}{LuaApiEngine::sleep}, 1 );
+lua.\hyperlink{class_lua_engine_a03530362918aceccd6f69a5cecf2a968}{registerFunction}( \textcolor{stringliteral}{"leftDown"}, \hyperlink{class_lua_api_engine_a5e6c9c1b66d19a4f65d6c65d6ae849a2}{LuaApiEngine::prepareLeftDown}
+      , \hyperlink{class_lua_api_engine_a5942498f999031601960d890b259536b}{LuaApiEngine::leftDown}, 0 );
+lua.\hyperlink{class_lua_engine_a03530362918aceccd6f69a5cecf2a968}{registerFunction}( \textcolor{stringliteral}{"moveTo"}, \hyperlink{class_lua_api_engine_a700aa78e4509bca70b5b23cfe98ce7b3}{LuaApiEngine::prepareMoveTo}
+      , \hyperlink{class_lua_api_engine_a8512ba309e37218b1586f8a41cae4451}{LuaApiEngine::moveTo}, 2 );
+\textcolor{comment}{//...}
+
+\textcolor{comment}{// load script.apc and check if the script has been successfully loaded (by
+       checking its correctness)}
+\textcolor{comment}{// you can load it from file using LuaEngine::FILE, or from a buffer using
+       LuaEngine::BUFFER}
+\textcolor{keywordflow}{switch}( lua.\hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{loadScript}( \textcolor{stringliteral}{"script.apc"}, \hyperlink{class_lua_engine_a70152f6f27278ec4262bd4712823a72daac87617557f4c3f7c559f1aed56a1645}{LuaEngine::FILE} 
+      ) \{
+        \textcolor{keywordflow}{case} LUA\_ERRSYNTAX: \textcolor{comment}{// handle syntax error}
+        \textcolor{keywordflow}{case} LUA\_ERRMEM: \textcolor{comment}{// handle memory allocation error}
+        \textcolor{keywordflow}{case} 0: \{ \textcolor{comment}{// everything went ok}
+                \textcolor{comment}{// parse script and put api functions onto its lua's engine
+       stack}
+                \textcolor{keywordflow}{switch}( lua.\hyperlink{class_lua_engine_a5eae05f78704166f098ea20568c23fd7}{parseScript}() ) \{
+                        \textcolor{keywordflow}{case} LUA\_ERRRUN: \textcolor{comment}{// handle runtime error (e.g.
+       'function xyz doesn't exists' - we can get this with lua.getTextError())}
+                                QString \_error = lua.\hyperlink{class_lua_engine_af06d49221c25b93c334f9ed49571fa72}{getTextError}()
+      ;
+                                \textcolor{comment}{// ...}
+                        \}
+                        \textcolor{keywordflow}{case} LUA\_ERRMEM: \textcolor{comment}{// handle memory allocation error}
+                        \textcolor{keywordflow}{case} LUA\_ERRERR: \{
+                        \textcolor{comment}{// case LUA\_ERRERR: not needed, there's no defined
+       lua's function that handles errors}
+                        \textcolor{keywordflow}{case} 0: \textcolor{comment}{// everything went ok, not even needed}
+                                brea;
+                \}
+        \}
+\}
+
+\textcolor{comment}{// it is possible to change timer interval, e.g. now the commands will be
+       executed with 1 second delay}
+lua.\hyperlink{class_lua_engine_ac29f2b09b45797aac68bd5caa6fe2c90}{setGUIInterval}( 1000 );
+
+\textcolor{comment}{// start script (by taking commands from the LuaEngine's stack one by one)}
+lua.\hyperlink{class_lua_engine_a28e0795b54170d763a929256566fe2b5}{start}();
+\end{DoxyCodeInclude}
+ 

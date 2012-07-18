@@ -280,7 +280,10 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 		QString _specialKey = "";
 		if( _char == '{' ) {
 			// gets text between {} brackets, be aware that the getSpecialKey() function changes iterator of the looop
-			_specialKey = getSpecialKey( i, args );
+			int _symbolsNumber = getSpecialKey( _specialKey, args );
+			
+			// it is needed to increase the iterator with number of elements read
+			i += _symbolsNumber;
 
 			// if an error occured (no closing '}' bracket)
 			if( _specialKey == "err" ) {
@@ -331,8 +334,8 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 	SendInput( _inputs.size(), &_inputs.at( 0 ), sizeof( INPUT ) );
 }
 
-QString LuaApiEngine::getSpecialKey( int& i, std::deque<int>& args ) {
-	QString _specialKey = "";
+int LuaApiEngine::getSpecialKey( QString& specialKey, std::deque<int>& args ) {
+	unsigned int i = 0;
 	// remove '{' and get next symbol (and btw increase an iterator, because we dropped one argument)
 	args.pop_front();
 	++i;
@@ -341,7 +344,7 @@ QString LuaApiEngine::getSpecialKey( int& i, std::deque<int>& args ) {
 	// get everything from the {} brackets into _specialKey
 	while(  _char != '}' ) {
 		// store current symbol
-		_specialKey += _char;
+		specialKey += _char;
 		// current symbol has been stored, so we can remove it from the stack
 		args.pop_front();
 		++i;
@@ -349,7 +352,8 @@ QString LuaApiEngine::getSpecialKey( int& i, std::deque<int>& args ) {
 		// if there are no more symbols on the stack, it means that there's lack of '}' somewhere
 		// otherwise get next symbol
 		if( args.empty() ) {
-			return "err";
+			specialKey = "err";
+			return i;
 		} else {
 			// get next symbol from the stack
 			_char = args.front();
@@ -361,8 +365,7 @@ QString LuaApiEngine::getSpecialKey( int& i, std::deque<int>& args ) {
 	// the code will always go into this if, if not the return "err" from above will end the function
 	if( _char == '}' ) {
 		args.pop_front();
-
-		return _specialKey;
+		return i;
 	}
 }
 

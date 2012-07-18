@@ -1,5 +1,7 @@
 // create lua object
 LuaEngine lua;
+LuaApiEngine::setLuaEngine( &m_lua );
+LuaApiEngine::initSpecialKeys();
 
 // register functions that will be used in lua's scripts
 // in this example the functions are defined as static in LuaApiEngine class
@@ -23,12 +25,8 @@ switch( lua.loadScript( "script.apc", LuaEngine::FILE ) {
 			case LUA_ERRMEM: // handle memory allocation error
 			case LUA_ERRERR: {
 			// case LUA_ERRERR: not needed, there's no defined lua's function that handles errors
-			case 0: // everything went ok
-				// you have to copy created (by lua.parseScript()) stacks that contain
-				// commands and arguments. Actually these stacks are not created by lua.parseScript(),
-				// but using static api functions (registered using lua.registerFunction())
-				// from LuaApiEngine which are invoked by lua.parseScript()
-				lua.copyStacks( LuaApiEngine::getCommandsStack(), LuaApiEngine::getArgsStack() ); 
+			case 0: // everything went ok, not even needed
+				brea;
 		}
 	}
 }

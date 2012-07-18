@@ -7,6 +7,6 @@ var searchData=
   ['getkeycode',['getKeyCode',['../class_key.html#a0acebcc2e10270c2f31c1c5f96395fa7',1,'Key']]],
   ['getmode',['getMode',['../class_key.html#a3c6d49b9f94672a8e17ebf9f37ad3900',1,'Key']]],
   ['getpath',['getPath',['../class_action.html#aae0058c4c9a79b296b1ef89670da4167',1,'Action']]],
-  ['getspecialkey',['getSpecialKey',['../class_lua_api_engine.html#ae6514c96984b4c7eb3068c3a29648f69',1,'LuaApiEngine']]],
+  ['getspecialkey',['getSpecialKey',['../class_lua_api_engine.html#ac1b8a6a2ea07065dc1c3f7eed7937d8d',1,'LuaApiEngine']]],
   ['gettexterror',['getTextError',['../class_lua_engine.html#af06d49221c25b93c334f9ed49571fa72',1,'LuaEngine']]]
 ];
