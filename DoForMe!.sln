@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DoForMe!", "DoForMe!\DoForMe!.vcxproj", "{32175069-3581-4AC0-BF3A-6872A0C0BE91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32175069-3581-4AC0-BF3A-6872A0C0BE91}.Debug|Win32.ActiveCfg = Debug|Win32
+		{32175069-3581-4AC0-BF3A-6872A0C0BE91}.Debug|Win32.Build.0 = Debug|Win32
+		{32175069-3581-4AC0-BF3A-6872A0C0BE91}.Release|Win32.ActiveCfg = Release|Win32
+		{32175069-3581-4AC0-BF3A-6872A0C0BE91}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

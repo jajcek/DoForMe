@@ -1,6 +1,24 @@
-INSTALL.txt
-LICENSE.txt
-README.txt
-demos/
-extras/documentation
+# Compiled Object files
+*.slo
+*.lo
+*.o
 
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Visual Studio files/folders
+*.sdf
+ipch
+DoForMe!/Debug
+Win32
+
+# Doxygen
+Doxyfile
+
+# Some graphics
+*.psd

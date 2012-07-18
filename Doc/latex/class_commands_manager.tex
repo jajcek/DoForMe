@@ -1,0 +1,117 @@
+\hypertarget{class_commands_manager}{\section{Commands\-Manager Class Reference}
+\label{class_commands_manager}\index{Commands\-Manager@{Commands\-Manager}}
+}
+
+
+Manager for commands stored in the lua's engine.  
+
+
+
+
+{\ttfamily \#include $<$commands\-\_\-manager.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_commands_manager_a1044e5df37dbb2b174dc9bc6a894d833}{add\-Command} (void($\ast$p\-Cmd)(std\-::deque$<$ int $>$), std\-::deque$<$ int $>$ args)
+\begin{DoxyCompactList}\small\item\em Allows to add commands to the queue. \end{DoxyCompactList}\item 
+void \hyperlink{class_commands_manager_a6de7776ecdf30cb6cf09d11213c0dd29}{execute\-Next} ()
+\begin{DoxyCompactList}\small\item\em Executes a next commands from the queue. \end{DoxyCompactList}\item 
+bool \hyperlink{class_commands_manager_a1fe3f32d1a8fed15559bc14acc74aceb}{is\-Empty} () const 
+\begin{DoxyCompactList}\small\item\em Checks if there are any commands in the queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::deque$<$ void($\ast$)(std\-::deque\\*
+$<$ int $>$)$>$ \hyperlink{class_commands_manager_a99e904afc8d341f390efbd2c933c3321}{m\-\_\-commands}
+\begin{DoxyCompactList}\small\item\em Queue with all commands. \end{DoxyCompactList}\item 
+std\-::deque$<$ std\-::deque$<$ int $>$ $>$ \hyperlink{class_commands_manager_a47bce7001c94f824eb8b9acdccd7b1d5}{m\-\_\-args}
+\begin{DoxyCompactList}\small\item\em Queue with all arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manager for commands stored in the lua's engine. 
+
+This class allows to add commands with its arguments for further executing. By using \hyperlink{class_commands_manager_a1044e5df37dbb2b174dc9bc6a894d833}{add\-Command()} method we are able to put commands on some kind of queue (the queue is actually a std\-::deque). After putting command we can invoke \hyperlink{class_commands_manager_a6de7776ecdf30cb6cf09d11213c0dd29}{execute\-Next()} method. That method executes one command with its arguments from deque (it's assumed that the deque is used as a F\-I\-F\-O structure). After executing a command, the command is dropped from the deque with its arguments. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-07.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_commands_manager_a1044e5df37dbb2b174dc9bc6a894d833}{\index{Commands\-Manager@{Commands\-Manager}!add\-Command@{add\-Command}}
+\index{add\-Command@{add\-Command}!CommandsManager@{Commands\-Manager}}
+\subsubsection[{add\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void Commands\-Manager\-::add\-Command (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(std\-::deque$<$ int $>$)}]{p\-Cmd, }
+\item[{std\-::deque$<$ int $>$}]{args}
+\end{DoxyParamCaption}
+)}}\label{class_commands_manager_a1044e5df37dbb2b174dc9bc6a894d833}
+
+
+Allows to add commands to the queue. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\-Cmd} & Pointer to a function that is intended to be a command. \\
+\hline
+\mbox{\tt in}  & {\em args} & Queue with arguments for a specified command. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_commands_manager_a6de7776ecdf30cb6cf09d11213c0dd29}{\index{Commands\-Manager@{Commands\-Manager}!execute\-Next@{execute\-Next}}
+\index{execute\-Next@{execute\-Next}!CommandsManager@{Commands\-Manager}}
+\subsubsection[{execute\-Next}]{\setlength{\rightskip}{0pt plus 5cm}void Commands\-Manager\-::execute\-Next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_commands_manager_a6de7776ecdf30cb6cf09d11213c0dd29}
+
+
+Executes a next commands from the queue. 
+
+After execution the command is removed from the queue. \hypertarget{class_commands_manager_a1fe3f32d1a8fed15559bc14acc74aceb}{\index{Commands\-Manager@{Commands\-Manager}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!CommandsManager@{Commands\-Manager}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}bool Commands\-Manager\-::is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_commands_manager_a1fe3f32d1a8fed15559bc14acc74aceb}
+
+
+Checks if there are any commands in the queue. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & There are some commands. \\
+\hline
+{\em false} & There are no commands. \\
+\hline
+\end{DoxyRetVals}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_commands_manager_a47bce7001c94f824eb8b9acdccd7b1d5}{\index{Commands\-Manager@{Commands\-Manager}!m\-\_\-args@{m\-\_\-args}}
+\index{m\-\_\-args@{m\-\_\-args}!CommandsManager@{Commands\-Manager}}
+\subsubsection[{m\-\_\-args}]{\setlength{\rightskip}{0pt plus 5cm}std\-::deque$<$std\-::deque$<$int$>$ $>$ Commands\-Manager\-::m\-\_\-args\hspace{0.3cm}{\ttfamily [private]}}}\label{class_commands_manager_a47bce7001c94f824eb8b9acdccd7b1d5}
+
+
+Queue with all arguments. 
+
+\hypertarget{class_commands_manager_a99e904afc8d341f390efbd2c933c3321}{\index{Commands\-Manager@{Commands\-Manager}!m\-\_\-commands@{m\-\_\-commands}}
+\index{m\-\_\-commands@{m\-\_\-commands}!CommandsManager@{Commands\-Manager}}
+\subsubsection[{m\-\_\-commands}]{\setlength{\rightskip}{0pt plus 5cm}std\-::deque$<$void ($\ast$)( std\-::deque$<$int$>$ )$>$ Commands\-Manager\-::m\-\_\-commands\hspace{0.3cm}{\ttfamily [private]}}}\label{class_commands_manager_a99e904afc8d341f390efbd2c933c3321}
+
+
+Queue with all commands. 
+
+It contains pointers to functions with signature void function( std\-::deque$<$int$>$ ) that will be executed in the future. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{commands__manager_8h}{commands\-\_\-manager.\-h}\item 
+Do\-For\-Me!/\hyperlink{commands__manager_8cpp}{commands\-\_\-manager.\-cpp}\end{DoxyCompactItemize}

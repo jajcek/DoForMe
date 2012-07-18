@@ -1,0 +1,403 @@
+\hypertarget{class_lua_engine}{\section{Lua\-Engine Class Reference}
+\label{class_lua_engine}\index{Lua\-Engine@{Lua\-Engine}}
+}
+
+
+Engine for maintaing L\-U\-A's A\-P\-I commands.  
+
+
+
+
+{\ttfamily \#include $<$lua\-\_\-engine.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_lua_engine_a70152f6f27278ec4262bd4712823a72d}{M\-O\-D\-E} \{ \hyperlink{class_lua_engine_a70152f6f27278ec4262bd4712823a72da483618369ed68950688dd6fa572664b9}{B\-U\-F\-F\-E\-R} =  0, 
+\hyperlink{class_lua_engine_a70152f6f27278ec4262bd4712823a72daac87617557f4c3f7c559f1aed56a1645}{F\-I\-L\-E}
+ \}
+\begin{DoxyCompactList}\small\item\em Values determining which mode we are using \hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{load\-Script()} function in. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_lua_engine_a165d91bae4bef0670afd6f73a3e7e6a7}{Lua\-Engine} ()
+\begin{DoxyCompactList}\small\item\em Starts a lua engine, but doesn't load any script. \end{DoxyCompactList}\item 
+\hyperlink{class_lua_engine_ac72949ef59ee17465ce653f0c02c3eab}{$\sim$\-Lua\-Engine} ()
+\begin{DoxyCompactList}\small\item\em Ends lua engine by releasing memory. \end{DoxyCompactList}\item 
+void \hyperlink{class_lua_engine_a03530362918aceccd6f69a5cecf2a968}{register\-Function} (const char $\ast$function\-Name, lua\-\_\-\-C\-Function p\-Function)
+\begin{DoxyCompactList}\small\item\em Registers A\-P\-I function used in scripts. \end{DoxyCompactList}\item 
+int \hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{load\-Script} (const char $\ast$code, int mode)
+\begin{DoxyCompactList}\small\item\em Parses script (prepares for running it) into memory from a specified buffer. \end{DoxyCompactList}\item 
+int \hyperlink{class_lua_engine_a5eae05f78704166f098ea20568c23fd7}{parse\-Script} ()
+\begin{DoxyCompactList}\small\item\em Puts api functions onto stack -\/ \hyperlink{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{Lua\-Engine\-::m\-\_\-commands} -\/ that has been previously loaded by \hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{load\-Script()}. \end{DoxyCompactList}\item 
+int \hyperlink{class_lua_engine_ab039ca83afd2466f9fe52fcc69adfefb}{validate\-Last\-Load} ()
+\begin{DoxyCompactList}\small\item\em Checks if there was error in the last loaded file. \end{DoxyCompactList}\item 
+int \hyperlink{class_lua_engine_aed08b6b1d8b4a637bb3e24a397ea1aaf}{validate\-Last\-Parse} ()
+\begin{DoxyCompactList}\small\item\em Checks if there was error in the last run file. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_lua_engine_af06d49221c25b93c334f9ed49571fa72}{get\-Text\-Error} () const 
+\begin{DoxyCompactList}\small\item\em Returns error in a text form from last parsed (with \hyperlink{class_lua_engine_a5eae05f78704166f098ea20568c23fd7}{Lua\-Engine\-::parse\-Script()}) script. \end{DoxyCompactList}\item 
+void \hyperlink{class_lua_engine_abeccc6545aa5cde1681cf61780044ab3}{add\-Command} (void($\ast$p\-Cmd)(std\-::deque$<$ int $>$))
+\item 
+void \hyperlink{class_lua_engine_a1046fcf4498761e9c35165b99ca09987}{add\-Command} (void($\ast$p\-Cmd)(std\-::deque$<$ int $>$), std\-::deque$<$ int $>$ args)
+\begin{DoxyCompactList}\small\item\em Puts actions onto stack. See \hyperlink{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{Lua\-Engine\-::m\-\_\-commands} for more details. \end{DoxyCompactList}\item 
+void \hyperlink{class_lua_engine_a1c299bc3d3f4a78f15f18b7458f76496}{timer\-Event} (Q\-Timer\-Event $\ast$)
+\item 
+void \hyperlink{class_lua_engine_a28e0795b54170d763a929256566fe2b5}{start} ()
+\item 
+void \hyperlink{class_lua_engine_a6cf02a97dc88ba58276b4debfbd7b57a}{pause} ()
+\item 
+void \hyperlink{class_lua_engine_a5822af655fb7b474766e39b44be56a6a}{stop} ()
+\item 
+void \hyperlink{class_lua_engine_a0b87a8b474070665af6e435a2c5bce56}{set\-Interval} (int interval)
+\item 
+void \hyperlink{class_lua_engine_ac29f2b09b45797aac68bd5caa6fe2c90}{set\-G\-U\-I\-Interval} (int interval)
+\item 
+int \hyperlink{class_lua_engine_a613b53ffedc45c8cf800e99aa42408c5}{get\-G\-U\-I\-Interval} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+lua\-\_\-\-State $\ast$ \hyperlink{class_lua_engine_a8f2ebf32095adde76c6f744ffb881b38}{lua\-State}
+\begin{DoxyCompactList}\small\item\em State of the lua's engine. Used by lua's library -\/ don't touch it. \end{DoxyCompactList}\item 
+Q\-Basic\-Timer $\ast$ \hyperlink{class_lua_engine_aaa0fb13e75482eb9ca360a1bee3b2f9f}{m\-\_\-timer}
+\begin{DoxyCompactList}\small\item\em Timer is used for supporting commands execution in a latency. \end{DoxyCompactList}\item 
+unsigned \hyperlink{class_lua_engine_af25b4a96c17c157ae110afa1dd0866ec}{m\-\_\-u\-Interval}
+\begin{DoxyCompactList}\small\item\em Stores time (as milliseconds) needed to execute next command that is available in the queue \hyperlink{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{Lua\-Engine\-::m\-\_\-commands}. \end{DoxyCompactList}\item 
+unsigned \hyperlink{class_lua_engine_ac7d00771a353cc9afa586a6ec10f5d90}{m\-\_\-u\-G\-U\-I\-Interval}
+\begin{DoxyCompactList}\small\item\em This is the same as \hyperlink{class_lua_engine_af25b4a96c17c157ae110afa1dd0866ec}{Lua\-Engine\-::m\-\_\-u\-Interval}, but it stores value from \char`\"{}\-Commands time interval\char`\"{} in G\-U\-I. \end{DoxyCompactList}\item 
+\hyperlink{class_commands_manager}{Commands\-Manager} \hyperlink{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{m\-\_\-commands}
+\item 
+int \hyperlink{class_lua_engine_af8dca74620280060399b5b7dd937af44}{m\-\_\-load\-Error}
+\begin{DoxyCompactList}\small\item\em Indicates if there is a syntax/memory error in the loaded lua's script. \end{DoxyCompactList}\item 
+int \hyperlink{class_lua_engine_ac7c65e343f73a0dadcbe2d5f1a5842f3}{m\-\_\-parse\-Error}
+\begin{DoxyCompactList}\small\item\em Indicates if there is a runtime error in the loaded lua's script. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_lua_engine_a0cb5dc043a3f9b162ad97245cd7e6956}{m\-\_\-text\-Error}
+\begin{DoxyCompactList}\small\item\em Stores exact string which is returned by lua's lua\-\_\-pcall function. \end{DoxyCompactList}\item 
+bool \hyperlink{class_lua_engine_add74083d158ee3543d0644c0b6349c5d}{m\-\_\-b\-Interval\-Changed}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Engine for maintaing L\-U\-A's A\-P\-I commands. 
+
+Objects of this class load scripts, check their grammar correctness and store the commands for further executing. As first step after creating an object of this class you have to register your A\-P\-I functions by using \hyperlink{class_lua_engine_a03530362918aceccd6f69a5cecf2a968}{Lua\-Engine\-::register\-Function} method. When all of the functions has been registered you are allowed to load and parse scripts by using \hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{Lua\-Engine\-::load\-Script} and \hyperlink{class_lua_engine_a5eae05f78704166f098ea20568c23fd7}{Lua\-Engine\-::parse\-Script} methods. \hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{Lua\-Engine\-::load\-Script} simply loads code to the memory and check its correctness whereas \hyperlink{class_lua_engine_a5eae05f78704166f098ea20568c23fd7}{Lua\-Engine\-::parse\-Script} runs the script. During parsing L\-U\-A invokes methods which can prepare commands by putting them to a queue. This is done for allowing executing commands with some time interval (we can remove time interval -\/ simply set G\-U\-I interval to 0). Check \hyperlink{class_lua_engine_a03530362918aceccd6f69a5cecf2a968}{Lua\-Engine\-::register\-Function} for more details. Next step (optional) is to set a time interval in which the commands will be executed (default is 500 milliseconds) by using \hyperlink{class_lua_engine_ac29f2b09b45797aac68bd5caa6fe2c90}{Lua\-Engine\-::set\-G\-U\-I\-Interval} method. After successful load and parse you need to copy queue and stack to the lua's engine by using Lua\-Engine\-::copy\-Data. Last step is to invoke \hyperlink{class_lua_engine_a28e0795b54170d763a929256566fe2b5}{Lua\-Engine\-::start()} to start executing the commands. Also important thing to mention is \hyperlink{class_lua_engine_a0b87a8b474070665af6e435a2c5bce56}{Lua\-Engine\-::set\-Interval}. Comparing to the G\-U\-I version it changes time interval only for the next command. Therefore it should be used for some A\-P\-I functions like sleep(). \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28.\-06.\-2012 
+\end{DoxyDate}
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{lua_engine_example_8cpp-example}{lua\-Engine\-\_\-example.\-cpp}.\end{Desc}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_lua_engine_a70152f6f27278ec4262bd4712823a72d}{\index{Lua\-Engine@{Lua\-Engine}!M\-O\-D\-E@{M\-O\-D\-E}}
+\index{M\-O\-D\-E@{M\-O\-D\-E}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{M\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Lua\-Engine\-::\-M\-O\-D\-E}}}\label{class_lua_engine_a70152f6f27278ec4262bd4712823a72d}
+
+
+Values determining which mode we are using \hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{load\-Script()} function in. 
+
+\begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{B\-U\-F\-F\-E\-R@{B\-U\-F\-F\-E\-R}!Lua\-Engine@{Lua\-Engine}}\index{Lua\-Engine@{Lua\-Engine}!B\-U\-F\-F\-E\-R@{B\-U\-F\-F\-E\-R}}\item[{\em 
+\hypertarget{class_lua_engine_a70152f6f27278ec4262bd4712823a72da483618369ed68950688dd6fa572664b9}{B\-U\-F\-F\-E\-R}\label{class_lua_engine_a70152f6f27278ec4262bd4712823a72da483618369ed68950688dd6fa572664b9}
+}]Value which indicates that the \hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{load\-Script()} function loads from a buffer. \index{F\-I\-L\-E@{F\-I\-L\-E}!Lua\-Engine@{Lua\-Engine}}\index{Lua\-Engine@{Lua\-Engine}!F\-I\-L\-E@{F\-I\-L\-E}}\item[{\em 
+\hypertarget{class_lua_engine_a70152f6f27278ec4262bd4712823a72daac87617557f4c3f7c559f1aed56a1645}{F\-I\-L\-E}\label{class_lua_engine_a70152f6f27278ec4262bd4712823a72daac87617557f4c3f7c559f1aed56a1645}
+}]Value which indicates that the \hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{load\-Script()} function loads from a file. \end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_lua_engine_a165d91bae4bef0670afd6f73a3e7e6a7}{\index{Lua\-Engine@{Lua\-Engine}!Lua\-Engine@{Lua\-Engine}}
+\index{Lua\-Engine@{Lua\-Engine}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{Lua\-Engine}]{\setlength{\rightskip}{0pt plus 5cm}Lua\-Engine\-::\-Lua\-Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a165d91bae4bef0670afd6f73a3e7e6a7}
+
+
+Starts a lua engine, but doesn't load any script. 
+
+Also initializes \hyperlink{class_lua_engine_af8dca74620280060399b5b7dd937af44}{Lua\-Engine\-::m\-\_\-load\-Error} and Lua\-Engine\-::m\-\_\-runtime\-Error to 0, m\-\_\-u\-Interval to 500 and creates object for m\-\_\-timer. m\-\_\-text\-Error is set to \char`\"{}\char`\"{}. After that you have to register functions used in the L\-U\-A A\-P\-I and load a script by using \hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{load\-Script()} before run it with run\-Script(). \hypertarget{class_lua_engine_ac72949ef59ee17465ce653f0c02c3eab}{\index{Lua\-Engine@{Lua\-Engine}!$\sim$\-Lua\-Engine@{$\sim$\-Lua\-Engine}}
+\index{$\sim$\-Lua\-Engine@{$\sim$\-Lua\-Engine}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{$\sim$\-Lua\-Engine}]{\setlength{\rightskip}{0pt plus 5cm}Lua\-Engine\-::$\sim$\-Lua\-Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_ac72949ef59ee17465ce653f0c02c3eab}
+
+
+Ends lua engine by releasing memory. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_lua_engine_abeccc6545aa5cde1681cf61780044ab3}{\index{Lua\-Engine@{Lua\-Engine}!add\-Command@{add\-Command}}
+\index{add\-Command@{add\-Command}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{add\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::add\-Command (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(std\-::deque$<$ int $>$)}]{p\-Cmd}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_abeccc6545aa5cde1681cf61780044ab3}
+\hypertarget{class_lua_engine_a1046fcf4498761e9c35165b99ca09987}{\index{Lua\-Engine@{Lua\-Engine}!add\-Command@{add\-Command}}
+\index{add\-Command@{add\-Command}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{add\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::add\-Command (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(std\-::deque$<$ int $>$)}]{p\-Cmd, }
+\item[{std\-::deque$<$ int $>$}]{args}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a1046fcf4498761e9c35165b99ca09987}
+
+
+Puts actions onto stack. See \hyperlink{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{Lua\-Engine\-::m\-\_\-commands} for more details. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\-Cmd} & Actions which will be put onto \hyperlink{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{Lua\-Engine\-::m\-\_\-commands} stack. \\
+\hline
+\mbox{\tt in}  & {\em args} & Arguments for api functions that will be put onto Lua\-Engine\-::m\-\_\-args stack. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_lua_engine_a613b53ffedc45c8cf800e99aa42408c5}{\index{Lua\-Engine@{Lua\-Engine}!get\-G\-U\-I\-Interval@{get\-G\-U\-I\-Interval}}
+\index{get\-G\-U\-I\-Interval@{get\-G\-U\-I\-Interval}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{get\-G\-U\-I\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Engine\-::get\-G\-U\-I\-Interval (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_lua_engine_a613b53ffedc45c8cf800e99aa42408c5}
+\hypertarget{class_lua_engine_af06d49221c25b93c334f9ed49571fa72}{\index{Lua\-Engine@{Lua\-Engine}!get\-Text\-Error@{get\-Text\-Error}}
+\index{get\-Text\-Error@{get\-Text\-Error}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{get\-Text\-Error}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Lua\-Engine\-::get\-Text\-Error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_lua_engine_af06d49221c25b93c334f9ed49571fa72}
+
+
+Returns error in a text form from last parsed (with \hyperlink{class_lua_engine_a5eae05f78704166f098ea20568c23fd7}{Lua\-Engine\-::parse\-Script()}) script. 
+
+In lua 5.\-1 the string has form like \char`\"{}\mbox{[}string \char`\"{}?\char`\"{}\mbox{]}\-:1\-: attempt to call global '\-Function\-Name' (a nil value)\char`\"{} \begin{DoxyReturn}{Returns}
+Error in a text form. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{lua_engine_example_8cpp-example}{lua\-Engine\-\_\-example.\-cpp}.\end{Desc}
+\hypertarget{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{\index{Lua\-Engine@{Lua\-Engine}!load\-Script@{load\-Script}}
+\index{load\-Script@{load\-Script}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{load\-Script}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Engine\-::load\-Script (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{code, }
+\item[{int}]{mode}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}
+
+
+Parses script (prepares for running it) into memory from a specified buffer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em code} & Script code or file name, depends on the second argument. \\
+\hline
+\mbox{\tt in}  & {\em mode} & Indicates whether this function loads from file or from a buffer. See \hyperlink{class_lua_engine_a70152f6f27278ec4262bd4712823a72d}{Lua\-Engine\-::\-M\-O\-D\-E} for more details. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code or 0 if there are no errors. See lua\-Engine\-::m\-\_\-load\-Error for more details. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{lua_engine_example_8cpp-example}{lua\-Engine\-\_\-example.\-cpp}.\end{Desc}
+\hypertarget{class_lua_engine_a5eae05f78704166f098ea20568c23fd7}{\index{Lua\-Engine@{Lua\-Engine}!parse\-Script@{parse\-Script}}
+\index{parse\-Script@{parse\-Script}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{parse\-Script}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Engine\-::parse\-Script (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a5eae05f78704166f098ea20568c23fd7}
+
+
+Puts api functions onto stack -\/ \hyperlink{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{Lua\-Engine\-::m\-\_\-commands} -\/ that has been previously loaded by \hyperlink{class_lua_engine_aab9337ae5ea59bccc1e08c4015d42700}{load\-Script()}. 
+
+\begin{DoxyReturn}{Returns}
+Error code or 0 if there are no errors. See lua\-Engine\-::m\-\_\-parse\-Error for more details. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{lua_engine_example_8cpp-example}{lua\-Engine\-\_\-example.\-cpp}.\end{Desc}
+\hypertarget{class_lua_engine_a6cf02a97dc88ba58276b4debfbd7b57a}{\index{Lua\-Engine@{Lua\-Engine}!pause@{pause}}
+\index{pause@{pause}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{pause}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::pause (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a6cf02a97dc88ba58276b4debfbd7b57a}
+\hypertarget{class_lua_engine_a03530362918aceccd6f69a5cecf2a968}{\index{Lua\-Engine@{Lua\-Engine}!register\-Function@{register\-Function}}
+\index{register\-Function@{register\-Function}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{register\-Function}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::register\-Function (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{function\-Name, }
+\item[{lua\-\_\-\-C\-Function}]{p\-Function}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a03530362918aceccd6f69a5cecf2a968}
+
+
+Registers A\-P\-I function used in scripts. 
+
+{\bfseries lua\-\_\-\-C\-Function} is declared as {\bfseries typedef int ($\ast$lua\-\_\-\-C\-Function) (lua\-\_\-\-State $\ast$\-L);} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em function\-Name} & Name of the function that has to be available in the L\-U\-A A\-P\-I. \\
+\hline
+\mbox{\tt in}  & {\em p\-Function} & Pointer to a function which will be called when the function\-Name() in the script is found. \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{lua_engine_example_8cpp-example}{lua\-Engine\-\_\-example.\-cpp}.\end{Desc}
+\hypertarget{class_lua_engine_ac29f2b09b45797aac68bd5caa6fe2c90}{\index{Lua\-Engine@{Lua\-Engine}!set\-G\-U\-I\-Interval@{set\-G\-U\-I\-Interval}}
+\index{set\-G\-U\-I\-Interval@{set\-G\-U\-I\-Interval}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{set\-G\-U\-I\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::set\-G\-U\-I\-Interval (
+\begin{DoxyParamCaption}
+\item[{int}]{interval}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_ac29f2b09b45797aac68bd5caa6fe2c90}
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{lua_engine_example_8cpp-example}{lua\-Engine\-\_\-example.\-cpp}.\end{Desc}
+\hypertarget{class_lua_engine_a0b87a8b474070665af6e435a2c5bce56}{\index{Lua\-Engine@{Lua\-Engine}!set\-Interval@{set\-Interval}}
+\index{set\-Interval@{set\-Interval}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{set\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::set\-Interval (
+\begin{DoxyParamCaption}
+\item[{int}]{interval}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a0b87a8b474070665af6e435a2c5bce56}
+\hypertarget{class_lua_engine_a28e0795b54170d763a929256566fe2b5}{\index{Lua\-Engine@{Lua\-Engine}!start@{start}}
+\index{start@{start}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a28e0795b54170d763a929256566fe2b5}
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{lua_engine_example_8cpp-example}{lua\-Engine\-\_\-example.\-cpp}.\end{Desc}
+\hypertarget{class_lua_engine_a5822af655fb7b474766e39b44be56a6a}{\index{Lua\-Engine@{Lua\-Engine}!stop@{stop}}
+\index{stop@{stop}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a5822af655fb7b474766e39b44be56a6a}
+\hypertarget{class_lua_engine_a1c299bc3d3f4a78f15f18b7458f76496}{\index{Lua\-Engine@{Lua\-Engine}!timer\-Event@{timer\-Event}}
+\index{timer\-Event@{timer\-Event}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{timer\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::timer\-Event (
+\begin{DoxyParamCaption}
+\item[{Q\-Timer\-Event $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a1c299bc3d3f4a78f15f18b7458f76496}
+\hypertarget{class_lua_engine_ab039ca83afd2466f9fe52fcc69adfefb}{\index{Lua\-Engine@{Lua\-Engine}!validate\-Last\-Load@{validate\-Last\-Load}}
+\index{validate\-Last\-Load@{validate\-Last\-Load}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{validate\-Last\-Load}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Engine\-::validate\-Last\-Load (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_ab039ca83afd2466f9fe52fcc69adfefb}
+
+
+Checks if there was error in the last loaded file. 
+
+\begin{DoxyReturn}{Returns}
+Error code. See lua\-Engine\-::m\-\_\-load\-Error for more details. 
+\end{DoxyReturn}
+\hypertarget{class_lua_engine_aed08b6b1d8b4a637bb3e24a397ea1aaf}{\index{Lua\-Engine@{Lua\-Engine}!validate\-Last\-Parse@{validate\-Last\-Parse}}
+\index{validate\-Last\-Parse@{validate\-Last\-Parse}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{validate\-Last\-Parse}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Engine\-::validate\-Last\-Parse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_aed08b6b1d8b4a637bb3e24a397ea1aaf}
+
+
+Checks if there was error in the last run file. 
+
+\begin{DoxyReturn}{Returns}
+Error code. See lua\-Engine\-::m\-\_\-parse\-Error for more details. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_lua_engine_a8f2ebf32095adde76c6f744ffb881b38}{\index{Lua\-Engine@{Lua\-Engine}!lua\-State@{lua\-State}}
+\index{lua\-State@{lua\-State}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{lua\-State}]{\setlength{\rightskip}{0pt plus 5cm}lua\-\_\-\-State $\ast$ Lua\-Engine\-::lua\-State\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_a8f2ebf32095adde76c6f744ffb881b38}
+
+
+State of the lua's engine. Used by lua's library -\/ don't touch it. 
+
+\hypertarget{class_lua_engine_add74083d158ee3543d0644c0b6349c5d}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-b\-Interval\-Changed@{m\-\_\-b\-Interval\-Changed}}
+\index{m\-\_\-b\-Interval\-Changed@{m\-\_\-b\-Interval\-Changed}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-b\-Interval\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}bool Lua\-Engine\-::m\-\_\-b\-Interval\-Changed\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_add74083d158ee3543d0644c0b6349c5d}
+\hypertarget{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-commands@{m\-\_\-commands}}
+\index{m\-\_\-commands@{m\-\_\-commands}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-commands}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Commands\-Manager} Lua\-Engine\-::m\-\_\-commands\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}
+\hypertarget{class_lua_engine_af8dca74620280060399b5b7dd937af44}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-load\-Error@{m\-\_\-load\-Error}}
+\index{m\-\_\-load\-Error@{m\-\_\-load\-Error}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-load\-Error}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Engine\-::m\-\_\-load\-Error\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_af8dca74620280060399b5b7dd937af44}
+
+
+Indicates if there is a syntax/memory error in the loaded lua's script. 
+
+If there is no errors the value is equal to 0, otherwise the value is a number of error code. \begin{DoxyVerb}            Error code:
+            3 - syntax error (defined as LUA_ERRSYNTAX in lua.h).
+            4 - memory allocation error (defined as LUA_ERRMEM in lua.h).\end{DoxyVerb}
+ \hypertarget{class_lua_engine_ac7c65e343f73a0dadcbe2d5f1a5842f3}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-parse\-Error@{m\-\_\-parse\-Error}}
+\index{m\-\_\-parse\-Error@{m\-\_\-parse\-Error}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-parse\-Error}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Engine\-::m\-\_\-parse\-Error\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_ac7c65e343f73a0dadcbe2d5f1a5842f3}
+
+
+Indicates if there is a runtime error in the loaded lua's script. 
+
+If there is no errors the value is equal to 0, otherwise the value is a number of error code. \begin{DoxyVerb}            Error code:
+            2 - a runtime error (defined as LUA_ERRRUN in lua.h).
+            4 - memory allocation error (defined as LUA_ERRMEM in lua.h).
+            5 - error while running the error handler function (defined as LUA_ERRERR in lua.h).\end{DoxyVerb}
+ \hypertarget{class_lua_engine_a0cb5dc043a3f9b162ad97245cd7e6956}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-text\-Error@{m\-\_\-text\-Error}}
+\index{m\-\_\-text\-Error@{m\-\_\-text\-Error}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-text\-Error}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Lua\-Engine\-::m\-\_\-text\-Error\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_a0cb5dc043a3f9b162ad97245cd7e6956}
+
+
+Stores exact string which is returned by lua's lua\-\_\-pcall function. 
+
+In lua 5.\-1 the string has form like \char`\"{}\mbox{[}string \char`\"{}?\char`\"{}\mbox{]}\-:1\-: attempt to call global '\-Function\-Name' (a nil value)\char`\"{} \hypertarget{class_lua_engine_aaa0fb13e75482eb9ca360a1bee3b2f9f}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-timer@{m\-\_\-timer}}
+\index{m\-\_\-timer@{m\-\_\-timer}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Basic\-Timer $\ast$ Lua\-Engine\-::m\-\_\-timer\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_aaa0fb13e75482eb9ca360a1bee3b2f9f}
+
+
+Timer is used for supporting commands execution in a latency. 
+
+It is possible to execute commands every some time which is specified in \hyperlink{class_lua_engine_af25b4a96c17c157ae110afa1dd0866ec}{Lua\-Engine\-::m\-\_\-u\-Interval} (as milliseconds). \hypertarget{class_lua_engine_ac7d00771a353cc9afa586a6ec10f5d90}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-u\-G\-U\-I\-Interval@{m\-\_\-u\-G\-U\-I\-Interval}}
+\index{m\-\_\-u\-G\-U\-I\-Interval@{m\-\_\-u\-G\-U\-I\-Interval}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-u\-G\-U\-I\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Lua\-Engine\-::m\-\_\-u\-G\-U\-I\-Interval\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_ac7d00771a353cc9afa586a6ec10f5d90}
+
+
+This is the same as \hyperlink{class_lua_engine_af25b4a96c17c157ae110afa1dd0866ec}{Lua\-Engine\-::m\-\_\-u\-Interval}, but it stores value from \char`\"{}\-Commands time interval\char`\"{} in G\-U\-I. 
+
+This shouldn't be changed while calling e.\-g A\-P\-I sleep() function. This value only depends on value set in the G\-U\-I. The value is assigned to m\-\_\-u\-Interval if needed to come back from sleep() function used in script. \hypertarget{class_lua_engine_af25b4a96c17c157ae110afa1dd0866ec}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-u\-Interval@{m\-\_\-u\-Interval}}
+\index{m\-\_\-u\-Interval@{m\-\_\-u\-Interval}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-u\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Lua\-Engine\-::m\-\_\-u\-Interval\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_af25b4a96c17c157ae110afa1dd0866ec}
+
+
+Stores time (as milliseconds) needed to execute next command that is available in the queue \hyperlink{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{Lua\-Engine\-::m\-\_\-commands}. 
+
+This can be changed while calling e.\-g. sleep() in the script. This value is used in timer event, not the \hyperlink{class_lua_engine_ac7d00771a353cc9afa586a6ec10f5d90}{Lua\-Engine\-::m\-\_\-u\-G\-U\-I\-Interval}. Check \hyperlink{class_lua_engine_ac7d00771a353cc9afa586a6ec10f5d90}{Lua\-Engine\-::m\-\_\-u\-G\-U\-I\-Interval} for more details. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{lua__engine_8h}{lua\-\_\-engine.\-h}\item 
+Do\-For\-Me!/\hyperlink{lua__engine_8cpp}{lua\-\_\-engine.\-cpp}\end{DoxyCompactItemize}
