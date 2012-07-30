@@ -14,9 +14,13 @@
 # Visual Studio files/folders
 *.sdf
 *.opensfd
+*.suo
 ipch
 DoForMe!/Debug
 Win32
+
+# Application user files
+DoForMe!/scripts
 
 # Doxygen
 Doxyfile

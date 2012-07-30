@@ -316,16 +316,28 @@ void mainWin::initLuaApi() {
 }
 
 void mainWin::saveToFile( QString path, QString code ) {
-	QFile file( path );
-	// open file in write mode (and text mode) 
-    file.open( QIODevice::WriteOnly | QIODevice::Text );
+	QFile _file( path );
+	QDir _dir;
 
-	// write code to the file
-    QTextStream out( &file );
-    out << code;
+	// check if "scripts" folder exists
+	int _dirExists = _dir.exists( "scripts" );
+	// if not, create it
+	if( !_dirExists )
+		_dir.mkdir( "scripts" );
+
+	// open file in write mode (and text mode) 
+    int _fileOpened = _file.open( QIODevice::WriteOnly | QIODevice::Text );
+	if( !_fileOpened ) {
+		QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file.",
+						  QMessageBox::Ok );
+		_msg.exec();
+	}
+	
+	// write the code to the file
+	_file.write( code.toStdString().c_str() );
  
     // optional, as QFile destructor will already do it
-    file.close(); 
+    _file.close(); 
 }
 
 void mainWin::getDataForAction() {
