@@ -247,12 +247,13 @@ void LuaApiEngine::sleep( std::deque<int> args ) {
 }
 
 void LuaApiEngine::moveTo( std::deque<int> args ) {
+	// get arguments from lua stack
 	int _x = args.front();
 	args.pop_front();
 	int _y = args.front();
 	args.pop_front();
 	
-	// get values for the current screen
+	// get values for the current screen to be able to calculate real position of the cursor
 	double _fScreenWidth   = GetSystemMetrics( SM_CXSCREEN ) - 1; 
 	double _fScreenHeight  = GetSystemMetrics( SM_CYSCREEN ) - 1; 
 	double _fx = _x * ( 65535.0f / _fScreenWidth );
@@ -271,19 +272,21 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 	std::vector<INPUT> _inputs;
 	INPUT _in = { 0 };
 
+	// for all symbols
 	int _symbolsNumber = args.size();
 	for( int i = 0; i < _symbolsNumber; ++i ) {
+		// get current key
 		char _char = args.front();
 
 		// we will store a text describing special key that is written in {} brackets in the script
 		// special key is a return key, tabulator etc.
 		QString _specialKey = "";
 		if( _char == '{' ) {
-			// gets text between {} brackets, be aware that the getSpecialKey() function changes iterator of the looop
-			int _symbolsNumber = getSpecialKey( _specialKey, args );
+			// gets text between {} brackets
+			int _symbolsRead = getSpecialKey( _specialKey, args );
 			
 			// it is needed to increase the iterator with number of elements read
-			i += _symbolsNumber;
+			i += _symbolsRead;
 
 			// if an error occured (no closing '}' bracket)
 			if( _specialKey == "err" ) {
@@ -309,6 +312,7 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 			}
 		}
 
+		// if it's not a special key
 		// get virtual code of a character to high byte and its state (e.g. shift) to low byte
 		unsigned short _symbol = VkKeyScan( _char );
 		unsigned short _symbolCode = LOBYTE( _symbol );

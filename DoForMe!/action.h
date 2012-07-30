@@ -1,6 +1,7 @@
 #pragma once
 
 #include <qstring.h>
+#include <QTime>
 
 /**
 	\class Action action.h "action.h"
@@ -14,7 +15,10 @@ class Action {
 private:
 	QString m_path;
 	QString m_fileName;
-	QString m_code;
+	QString m_code; // for remove, we won't handle code here
+
+	QTime m_time;
+	bool m_bModified;
 
 public:
 	Action();
@@ -28,4 +32,10 @@ public:
 
 	void setCode( QString code );
 	QString getCode() const;
+
+	void setTime( QTime );
+	QTime getTime() const;
+
+	void setModified( bool );
+	bool isModified() const;
 };

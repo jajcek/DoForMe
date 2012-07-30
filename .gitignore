@@ -13,6 +13,7 @@
 
 # Visual Studio files/folders
 *.sdf
+*.opensfd
 ipch
 DoForMe!/Debug
 Win32

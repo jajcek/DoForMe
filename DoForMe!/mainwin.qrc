@@ -1,5 +1,16 @@
 <RCC>
   <qresource prefix="mainWin">
+    <file>Resources/fileimport.ico</file>
     <file>logo.png</file>
+  </qresource>
+  <qresource prefix="standard">
+    <file>Resources/fileopen.ico</file>
+    <file>Resources/New.ico</file>
+    <file>Resources/filesave.ico</file>
+    <file>Resources/filesaveas.ico</file>
+  </qresource>
+  <qresource prefix="play_record">
+    <file>Resources/play_on.png</file>
+    <file>Resources/record_on.png</file>
   </qresource>
 </RCC>

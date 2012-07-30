@@ -3,6 +3,8 @@
 #include <qcalendarwidget.h>
 #include <qpainter.h>
 #include <qmap.h>
+#include <qlistwidget.h>
+#include "action.h"
 
 class DetailedCalendar : public QCalendarWidget {
 	Q_OBJECT
@@ -10,19 +12,25 @@ class DetailedCalendar : public QCalendarWidget {
 private:
 	QDate m_selectedDate;
 	int m_displayedMonth;
-	// date & script file name
-	QMap<QDate, QVector<QString> > m_actions;
+	static QListWidget* m_list;
+
+	// actions (date => vector of actions)
+	QMap<QDate, QVector<Action*> > m_actions;
 
 private:
-	void drawActions( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const;
+	void drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const;
 
 public:
 	DetailedCalendar( QWidget* pParent );
+	// remember to free actions later ~DetailedCalendar();
+	void addAction( QDate, Action* );
+	static void setList( QListWidget* list );
+	QDate getSelectedDate() const;
 
 protected:
 	void paintCell( QPainter* painter, const QRect& rect, const QDate& date ) const;
 
 protected slots:
-	void select( const QDate& );
+	void selectDate( const QDate& );
 	void setCurrentPage( int year, int month );
 };

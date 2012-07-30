@@ -17,26 +17,25 @@ LRESULT CALLBACK mouseHook(int code, WPARAM wParam, LPARAM lParam)
 QString mainWin::APP_NAME = "DoForMe!";
 
 mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
-	: QMainWindow(parent, flags), m_iWidth( 700 ), m_iHeight( 480 ), m_calendar( NULL ), m_lua( NULL )
+	: QMainWindow(parent, flags), m_iWidth( 821 ), m_iHeight( 507 ), m_calendar( NULL ), m_lua( NULL ), m_currAction( NULL )
 {
 	ui.setupUi(this);
 
 	QObject::connect( ui.actionAbout, SIGNAL( activated() ), this, SLOT( showAbout() ) );
-	QObject::connect( ui.browseScriptButton, SIGNAL( clicked() ), this, SLOT( browseScript() ) );
-	QObject::connect( ui.runButton, SIGNAL( clicked() ), this, SLOT( runAction() ) );
-	QObject::connect( ui.saveButton, SIGNAL( clicked() ), this, SLOT( saveAction() ) );
-	QObject::connect( ui.saveAsButton, SIGNAL( clicked() ), this, SLOT( saveAsAction() ) );
+	QObject::connect( ui.actionNew, SIGNAL( activated() ), this, SLOT( newFile() ) );
+	QObject::connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runAction() ) );
+	QObject::connect( ui.actionSave_action, SIGNAL( activated() ), this, SLOT( saveAction() ) );
+	QObject::connect( ui.actionSave_action_as, SIGNAL( activated() ), this, SLOT( saveAsAction() ) );
+	//QObject::connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
 	QObject::connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
 	
 	// used for centering main app window
 	QDesktopWidget screen;
 	setGeometry( ( screen.width() - m_iWidth ) / 2, ( screen.height() - m_iHeight ) / 2, m_iWidth, m_iHeight );
 
+	DetailedCalendar::setList( ui.actionsList );
 	m_calendar = new DetailedCalendar( this );
-	m_calendar->setGeometry( 0, m_iHeight - 211, m_iWidth, 211 );
-	m_calendar->setGridVisible( true );
-	m_calendar->setFirstDayOfWeek( Qt::Monday );
-	m_calendar->setLocale( QLocale( "English, United States" ) );
+	m_calendar->setGeometry( ui.actionsList->width() + 10, m_iHeight - 210, m_iWidth - ( ui.actionsList->width() + 10 ), 210 );
 	m_calendar->show();
 	
 	m_lua = new LuaEngine();
@@ -45,8 +44,6 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
-
-	m_currAction = new Action();
 	
 	//hook = SetWindowsHookEx( WH_MOUSE_LL, &mouseHook, GetModuleHandle( NULL ), 0 );
 }
@@ -58,7 +55,7 @@ void mainWin::browseScript() {
 	// if the user didn't canceled it means that the path has been taken
 	if( _fullPath != "" ) {
 		// set the path in the edit (next to browse button)
-		ui.scriptPathEdit->setText( _fullPath );
+		//ui.scriptPathEdit->setText( _fullPath );
 
 		// load content of the file to memory
 		QFile _scriptFile( _fullPath );
@@ -128,8 +125,6 @@ void mainWin::runAction() {
 					break;
 				}*/
 				case 0: // everything went ok
-					// we need to copy the stack created in the LuaApiEngine to the luaEngine
-					//m_lua->copyData( LuaApiEngine::getCommandsStack(), LuaApiEngine::getArgsStack() ); 
 					break;
 			}
 		}
@@ -149,12 +144,21 @@ void mainWin::saveAction() {
 	if( _path == "" ) {
 		saveAsAction();
 	} else {
+		// get current code from the text box
+		QString _strCode = ui.scriptTextEdit->toPlainText();
+
 		// the script exists as a file, we need to update it
 		// update code for current action
-		m_currAction->setCode( ui.scriptTextEdit->toPlainText() );
+		m_currAction->setCode( _strCode );
+
+		// save also to file
+		saveToFile( _path, _strCode );
 
 		// set window title without '*' symbol, because it's been saved
 		setWindowTitle( APP_NAME + " - " + m_currAction->getFileName() );
+
+		// we saved the script so we make the status changed to false
+		m_currAction->setModified( false );
 	}
 }
 
@@ -165,20 +169,85 @@ void mainWin::saveAsAction() {
 	// if a user didn't click 'cancel', otherwise _fullPath is equal to ""
 	if( _fullPath != "" ) {
 		// set the path in the edit (next to browse button)
-		ui.scriptPathEdit->setText( _fullPath );
+		//ui.scriptPathEdit->setText( _fullPath );
 
 		// set the path and code in the currently selected action object
 		m_currAction->setPath( _fullPath );
-		m_currAction->setCode( ui.scriptTextEdit->toPlainText() );
 
-		// set window title without '*' symbol, because it's been saved
-		setWindowTitle( APP_NAME + " - " + m_currAction->getFileName() );
+		// we set path already, so we can execute save action (instead of save as...)
+		saveAction();
+	}
+}
+
+void mainWin::addAction() {
+	bool _bShouldAdd = true;
+	qDebug( "%d", m_currAction );
+	if( !m_currAction ) {
+		QMessageBox _msg( QMessageBox::Information, "Information", "You have to save the script before adding it.",
+						  QMessageBox::Ok | QMessageBox::Cancel );
+		_msg.exec();
+		// which button of the message box has been clicked
+		switch( 0 ) {
+			case QMessageBox::Ok:
+				saveAsAction();
+				break;
+			case QMessageBox::Cancel:
+				_bShouldAdd = false;
+		}
+	} else if( m_currAction->isModified() ) {
+		QMessageBox _msg( QMessageBox::Information, "Information", "The script has been modified. If you choose 'Don't save' the old script will be loaded and you will loose the current script.",
+						  QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel );
+
+		// which button of the message box has been clicked
+		switch( _msg.exec() ) {
+			case QMessageBox::Save:
+				saveAction();
+				break;
+			case QMessageBox::Discard:
+				// set previously saved code to the text box
+				ui.scriptTextEdit->setText( m_currAction->getCode() );
+
+				// set window title without '*' symbol, because it's been saved
+				setWindowTitle( APP_NAME + " - " + m_currAction->getFileName() );
+
+				// we saved the script so we make the status changed to false
+				m_currAction->setModified( false );
+
+				break;
+			case QMessageBox::Cancel:
+				_bShouldAdd = false;
+		}
+	}
+
+	if( _bShouldAdd ) {
+		if( m_currAction->getPath() != "" ) {
+			m_calendar->addAction( m_calendar->getSelectedDate(),  m_currAction );
+
+			// gather all information for the action from every field
+			getDataForAction();
+
+			// create tiem string to for action list
+			QString _hour = QString::number( ui.hourSpin->value() );
+			QString _min  = QString::number( ui.minSpin->value() );
+			QString _sec  = QString::number( ui.secSpin->value() );
+
+			QString _strTime = _hour + ":" + _min + ":" + _sec;
+
+			// add action to the actions' list (because the list updates only when clicking on calendar)
+			ui.actionsList->addItem( _strTime + " " + m_currAction->getFileName() );
+		}
 	}
 }
 
 void mainWin::scriptModified() {
-	// set window title with '*' symbol, because it's been modified
-	setWindowTitle( APP_NAME + " - " + m_currAction->getFileName() + "*" );
+	if( m_currAction ) {
+		// set window title with '*' symbol, because it's been modified
+		// it is invoked when text changes in the code (in text box)
+		setWindowTitle( APP_NAME + " - " + m_currAction->getFileName() + "*" );
+
+		// we changed the script so we have to set its state
+		m_currAction->setModified( true );
+	}
 }
 
 void mainWin::showAbout() {
@@ -187,6 +256,29 @@ void mainWin::showAbout() {
 	// only background (gradient) for the logo on the left is created by code
 	AboutDialog _about;
 	_about.exec();
+}
+
+void mainWin::newFile() {
+	NewFile _newScript;
+	
+	// get value indicating which button has been pressed
+	int _iResult = _newScript.exec();
+	if( _iResult == QDialog::Accepted ) {
+		// get all needed data about the newly created script
+		QString _strTitle = _newScript.getTitle();
+		QString _strFileName = _newScript.getFileName();
+		QString _strDescription = _newScript.getDescription();
+
+		// add predefined test to the code (title and description as comments in lua)
+		ui.scriptTitle->setText( "  " + _strTitle );
+		setCode( "-- Title: " + _strTitle + "\n-- Description:\n--[[\n" + _strDescription + "\n--]]\n" );
+
+		// add the script to the scripts list
+		ui.scriptsList->addItem( _strTitle );
+
+		// create the file in "scripts" folder
+		saveToFile( "scripts/" + _strFileName, ui.scriptTextEdit->toPlainText() );
+	}
 }
 
 void mainWin::initLuaApi() {
@@ -223,12 +315,38 @@ void mainWin::initLuaApi() {
 	m_lua->registerFunction( "sendText", LuaApiEngine::prepareSendText );
 }
 
+void mainWin::saveToFile( QString path, QString code ) {
+	QFile file( path );
+	// open file in write mode (and text mode) 
+    file.open( QIODevice::WriteOnly | QIODevice::Text );
+
+	// write code to the file
+    QTextStream out( &file );
+    out << code;
+ 
+    // optional, as QFile destructor will already do it
+    file.close(); 
+}
+
+void mainWin::getDataForAction() {
+	// set time
+	QTime _time = QTime( ui.hourSpin->value(), ui.minSpin->value(), ui.secSpin->value() );
+	m_currAction->setTime( _time );
+
+
+}
+
 QString mainWin::getFuncName( QString textError ) {
 	// in lua 5.1 the string has form like "[string "?"]:1: attempt to call global 'FunctionName' (a nil value)"
 	// we need to find first and last occurence of '
 	int _iBegin = textError.indexOf( "'" ) + 1;
 	int _iEnd = textError.lastIndexOf( "'" );
 	return textError.mid( _iBegin, _iEnd - _iBegin );
+}
+
+void mainWin::setCode( const QString& code ) {
+	ui.scriptTextEdit->setFont( QFont( "Courier New", 8 ) );
+	ui.scriptTextEdit->setText( code );
 }
 
 mainWin::~mainWin()

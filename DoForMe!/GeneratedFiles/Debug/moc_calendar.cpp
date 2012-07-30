@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'calendar.h'
 **
-** Created: Wed 18. Jul 07:49:37 2012
+** Created: Sat 28. Jul 18:04:05 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -32,13 +32,13 @@ static const uint qt_meta_data_DetailedCalendar[] = {
 
  // slots: signature, parameters, type, tag, flags
       18,   17,   17,   17, 0x09,
-      43,   32,   17,   17, 0x09,
+      47,   36,   17,   17, 0x09,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_DetailedCalendar[] = {
-    "DetailedCalendar\0\0select(QDate)\0"
+    "DetailedCalendar\0\0selectDate(QDate)\0"
     "year,month\0setCurrentPage(int,int)\0"
 };
 
@@ -48,7 +48,7 @@ void DetailedCalendar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         Q_ASSERT(staticMetaObject.cast(_o));
         DetailedCalendar *_t = static_cast<DetailedCalendar *>(_o);
         switch (_id) {
-        case 0: _t->select((*reinterpret_cast< const QDate(*)>(_a[1]))); break;
+        case 0: _t->selectDate((*reinterpret_cast< const QDate(*)>(_a[1]))); break;
         case 1: _t->setCurrentPage((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
         }

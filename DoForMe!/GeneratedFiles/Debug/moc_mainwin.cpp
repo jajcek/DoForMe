@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwin.h'
 **
-** Created: Wed 18. Jul 07:49:37 2012
+** Created: Mon 30. Jul 19:17:25 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_mainWin[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,15 +36,17 @@ static const uint qt_meta_data_mainWin[] = {
       36,    8,    8,    8, 0x0a,
       49,    8,    8,    8, 0x0a,
       64,    8,    8,    8, 0x0a,
-      81,    8,    8,    8, 0x0a,
+      76,    8,    8,    8, 0x0a,
+      93,    8,    8,    8, 0x0a,
+     105,    8,    8,    8, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_mainWin[] = {
     "mainWin\0\0browseScript()\0runAction()\0"
-    "saveAction()\0saveAsAction()\0"
-    "scriptModified()\0showAbout()\0"
+    "saveAction()\0saveAsAction()\0addAction()\0"
+    "scriptModified()\0showAbout()\0newFile()\0"
 };
 
 void mainWin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -57,8 +59,10 @@ void mainWin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 1: _t->runAction(); break;
         case 2: _t->saveAction(); break;
         case 3: _t->saveAsAction(); break;
-        case 4: _t->scriptModified(); break;
-        case 5: _t->showAbout(); break;
+        case 4: _t->addAction(); break;
+        case 5: _t->scriptModified(); break;
+        case 6: _t->showAbout(); break;
+        case 7: _t->newFile(); break;
         default: ;
         }
     }
@@ -97,9 +101,9 @@ int mainWin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 8;
     }
     return _id;
 }

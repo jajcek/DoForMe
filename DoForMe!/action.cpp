@@ -1,6 +1,6 @@
 #include "action.h"
 
-Action::Action() : m_path( "" ), m_code( "" ) {}
+Action::Action() : m_path( "" ), m_fileName( "" ), m_code( "" ), m_bModified( false ) {}
 
 Action::~Action() {}
 
@@ -26,4 +26,20 @@ void Action::setCode( QString code ) {
 
 QString Action::getCode() const {
 	return m_code;
+}
+
+void Action::setTime( QTime time ) {
+	m_time = time;
+}
+
+QTime Action::getTime() const {
+	return m_time;
+}
+
+void Action::setModified( bool changed ) {
+	m_bModified = changed;
+}
+
+bool Action::isModified() const {
+	return m_bModified;
 }

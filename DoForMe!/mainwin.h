@@ -8,12 +8,14 @@
 #include <qdesktopwidget.h>
 #include <qfiledialog.h>
 #include <qmessagebox.h>
+#include <qformlayout.h>
 #include "ui_mainwin.h"
 #include "lua_api.h"
 #include "lua_engine.h"
 #include "calendar.h"
 #include "about_dialog.h"
 #include "action.h"
+#include "new_file.h"
 
 class mainWin : public QMainWindow
 {
@@ -35,15 +37,20 @@ public:
 	~mainWin();
 
 public slots:
-	void browseScript(); // lepiej zrobic klase Action i tam wrzucac path do skryptu, stan czy zmodyfikowany etc.
+	void browseScript();
 	void runAction();
 	void saveAction();
 	void saveAsAction();
+	void addAction();
 	void scriptModified();
 	void showAbout();
+	void newFile();
 
 private:
 	void initLuaApi();
+	void saveToFile( QString path, QString code );
+	void getDataForAction();
 	QString getFuncName( QString textError );
+	void setCode( const QString& );
 
 };
