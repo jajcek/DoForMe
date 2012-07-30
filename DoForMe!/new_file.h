@@ -1,3 +1,5 @@
+#pragma once
+
 #include <qobject.h>
 #include <qdialog.h>
 #include <qlayout.h>

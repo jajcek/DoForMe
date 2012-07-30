@@ -16,6 +16,7 @@
 #include "about_dialog.h"
 #include "action.h"
 #include "new_file.h"
+#include "script.h"
 
 class mainWin : public QMainWindow
 {
@@ -32,9 +33,13 @@ private:
 	LuaEngine* m_lua;
 	Action* m_currAction;
 
+	QMap<QString, Script*> m_scripts;
+
 public:
 	mainWin(QWidget *parent = 0, Qt::WFlags flags = 0);
 	~mainWin();
+
+	void loadScripts( const QString& path );
 
 public slots:
 	void browseScript();

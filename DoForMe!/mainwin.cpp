@@ -42,10 +42,34 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	LuaApiEngine::setLuaEngine( m_lua );
 	LuaApiEngine::initSpecialKeys();
 
+	loadScripts( "scripts/" );
+
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
 	
 	//hook = SetWindowsHookEx( WH_MOUSE_LL, &mouseHook, GetModuleHandle( NULL ), 0 );
+}
+
+void mainWin::loadScripts( const QString& path ) {
+	QDir myDir( path );
+
+	// define which extensions we want to look for
+	QStringList _filesExt;
+	_filesExt.push_back( "*.apc" );
+
+	// get list of files
+	QStringList _fileList = myDir.entryList( _filesExt );
+	
+	// iterate through all files and add them into map
+	while( !_fileList.empty() ) {
+		QString _fileName = _fileList.back();
+		_fileList.pop_back();
+
+		m_scripts[_fileName] = new Script( path + _fileName );
+
+		// add items to the scripts list
+		ui.scriptsList->addItem( _fileName );
+	}
 }
 
 void mainWin::browseScript() {
@@ -271,7 +295,7 @@ void mainWin::newFile() {
 
 		// add predefined test to the code (title and description as comments in lua)
 		ui.scriptTitle->setText( "  " + _strTitle );
-		setCode( "-- Title: " + _strTitle + "\n-- Description:\n--[[\n" + _strDescription + "\n--]]\n" );
+		setCode( "--[[\n" + _strTitle + "\n" + _strDescription + "\n--]]\n" );
 
 		// add the script to the scripts list
 		ui.scriptsList->addItem( _strTitle );

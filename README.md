@@ -1,7 +1,8 @@
 ===================================================
 Development release 30.07.2012
 ===================================================
-- Fix for New File window, if the scripts directory didn't exists you couldn't create a file.
+- Fix for New File window, if the scripts directory didn't exists you couldn't create a file
+- Loading all scripts when app is run
 
 ===================================================
 Development release 29.07.2012
