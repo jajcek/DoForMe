@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwin.h'
 **
-** Created: Mon 30. Jul 22:36:55 2012
+** Created: Tue 31. Jul 22:14:07 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_mainWin[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,21 +32,20 @@ static const uint qt_meta_data_mainWin[] = {
 
  // slots: signature, parameters, type, tag, flags
        9,    8,    8,    8, 0x0a,
-      24,    8,    8,    8, 0x0a,
-      36,    8,    8,    8, 0x0a,
-      49,    8,    8,    8, 0x0a,
-      64,    8,    8,    8, 0x0a,
-      76,    8,    8,    8, 0x0a,
-      93,    8,    8,    8, 0x0a,
-     105,    8,    8,    8, 0x0a,
+      19,    8,    8,    8, 0x0a,
+      31,    8,    8,    8, 0x0a,
+      44,    8,    8,    8, 0x0a,
+      59,    8,    8,    8, 0x0a,
+      71,    8,    8,    8, 0x0a,
+      88,    8,    8,    8, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_mainWin[] = {
-    "mainWin\0\0browseScript()\0runAction()\0"
+    "mainWin\0\0newFile()\0runAction()\0"
     "saveAction()\0saveAsAction()\0addAction()\0"
-    "scriptModified()\0showAbout()\0newFile()\0"
+    "scriptModified()\0showAbout()\0"
 };
 
 void mainWin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -55,14 +54,13 @@ void mainWin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         Q_ASSERT(staticMetaObject.cast(_o));
         mainWin *_t = static_cast<mainWin *>(_o);
         switch (_id) {
-        case 0: _t->browseScript(); break;
+        case 0: _t->newFile(); break;
         case 1: _t->runAction(); break;
         case 2: _t->saveAction(); break;
         case 3: _t->saveAsAction(); break;
         case 4: _t->addAction(); break;
         case 5: _t->scriptModified(); break;
         case 6: _t->showAbout(); break;
-        case 7: _t->newFile(); break;
         default: ;
         }
     }
@@ -101,9 +99,9 @@ int mainWin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 7;
     }
     return _id;
 }

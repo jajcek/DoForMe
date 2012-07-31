@@ -115,6 +115,7 @@
     <ClCompile Include="mainwin.cpp" />
     <ClCompile Include="new_file.cpp" />
     <ClCompile Include="script.cpp" />
+    <ClCompile Include="scripts_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwin.h">
@@ -147,6 +148,7 @@
     <ClInclude Include="commands_manager.h" />
     <ClInclude Include="GeneratedFiles\ui_about.h" />
     <ClInclude Include="script.h" />
+    <ClInclude Include="scripts_manager.h" />
     <CustomBuild Include="new_file.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing new_file.h...</Message>

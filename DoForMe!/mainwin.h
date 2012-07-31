@@ -17,6 +17,7 @@
 #include "action.h"
 #include "new_file.h"
 #include "script.h"
+#include "scripts_manager.h"
 
 class mainWin : public QMainWindow
 {
@@ -33,8 +34,6 @@ private:
 	LuaEngine* m_lua;
 	Action* m_currAction;
 
-	QMap<QString, Script*> m_scripts;
-
 public:
 	mainWin(QWidget *parent = 0, Qt::WFlags flags = 0);
 	~mainWin();
@@ -42,18 +41,17 @@ public:
 	void loadScripts( const QString& path );
 
 public slots:
-	void browseScript();
+	void newFile();
 	void runAction();
 	void saveAction();
 	void saveAsAction();
 	void addAction();
 	void scriptModified();
 	void showAbout();
-	void newFile();
+	
 
 private:
 	void initLuaApi();
-	void saveToFile( QString path, QString code );
 	void getDataForAction();
 	QString getFuncName( QString textError );
 	void setCode( const QString& );

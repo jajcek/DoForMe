@@ -9,6 +9,8 @@
 #include <qlineedit.h>
 #include <qfile.h>
 #include <qmessagebox.h>
+#include "script.h"
+#include "scripts_manager.h"
 
 class NewFile : public QDialog {
 	Q_OBJECT
@@ -23,6 +25,9 @@ private:
 	QLineEdit* m_title;
 	QLineEdit* m_filename;
 	QTextEdit* m_desc;
+
+public:
+	static QString DIR;
 
 public:
 	NewFile();

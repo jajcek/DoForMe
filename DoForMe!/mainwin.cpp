@@ -3,6 +3,7 @@
 
 HHOOK hook;
 
+
 LRESULT CALLBACK mouseHook(int code, WPARAM wParam, LPARAM lParam)
 {
      if(code < 0) return CallNextHookEx(hook, code, wParam, lParam);   
@@ -42,7 +43,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	LuaApiEngine::setLuaEngine( m_lua );
 	LuaApiEngine::initSpecialKeys();
 
-	loadScripts( "scripts/" );
+	loadScripts( NewFile::DIR );
 
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
@@ -65,47 +66,45 @@ void mainWin::loadScripts( const QString& path ) {
 		QString _fileName = _fileList.back();
 		_fileList.pop_back();
 
-		m_scripts[_fileName] = new Script( path + _fileName );
-
-		// add items to the scripts list
-		ui.scriptsList->addItem( _fileName );
+		// create script object from the file
+		try {
+			Script* _pScript = new Script( path + _fileName );
+			if( ScriptsManager::addScript( _pScript, true ) ) {
+				// add script title to the scripts list
+				ui.scriptsList->addItem( _pScript->getTitle() );
+			}
+		} catch( int e ) {
+			if( e == Script::FileOpenException ) {
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to open file \"" + path + _fileName + "\"", QMessageBox::Ok );
+				_msg.exec();
+			} else if( e == Script::InvalidFileException ) {
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Structure of the file \"" + path + _fileName + "\" is broken. Did you edit scripts manually?", QMessageBox::Ok );
+				_msg.exec();
+			}
+		}
 	}
 }
 
-void mainWin::browseScript() {
-	// get full path to the selected file by showing a modal open file window
-	QString _fullPath = QFileDialog::getOpenFileName( this, "Open script file...", "", "Scripts (*.apc);;All files (*.*)" );
+void mainWin::newFile() {
+	NewFile _newScript;
+	
+	// get value indicating which button has been pressed
+	int _iResult = _newScript.exec();
+	if( _iResult == QDialog::Accepted ) {
+		// get all needed data about the newly created script
+		QString _strTitle = _newScript.getTitle();
+		QString _strFileName = _newScript.getFileName();
+		QString _strDescription = _newScript.getDescription();
 
-	// if the user didn't canceled it means that the path has been taken
-	if( _fullPath != "" ) {
-		// set the path in the edit (next to browse button)
-		//ui.scriptPathEdit->setText( _fullPath );
+		// add title and description to the code as comments in lua
+		ui.scriptTitle->setText( "  " + _strTitle );
+		//setCode( "--[[\n" + _strTitle + "\n" + _strDescription + "\n--]]\n" );
 
-		// load content of the file to memory
-		QFile _scriptFile( _fullPath );
-		if( !_scriptFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
-			QMessageBox _msg( QMessageBox::Critical, "Script loading error.", "Error occured while loading the script." );
-			_msg.exec();
-		} else {
-			QString _fileContent;
-			while( !_scriptFile.atEnd() )
-				_fileContent += _scriptFile.readLine();
+		// add the script to the scripts list
+		ui.scriptsList->addItem( _strTitle );
 
-			// load code from the memory to the text box
-			ui.scriptTextEdit->setText( _fileContent );
-
-			m_currAction->setPath( _fullPath );
-
-			// and to the action object
-			m_currAction->setCode( _fileContent );
-
-			QFileInfo _pathInfo( _fullPath );
-			QString _fileName( _pathInfo.fileName() );
-
-			setWindowTitle( APP_NAME + " - " + _fileName );
-
-			m_currAction->setFileName( _fileName );
-		}
+		ScriptsManager::addScript( new Script( _strTitle, NewFile::DIR + _strFileName, _strDescription ) );
+		ScriptsManager::saveToFile( _strTitle );
 	}
 }
 
@@ -176,7 +175,7 @@ void mainWin::saveAction() {
 		m_currAction->setCode( _strCode );
 
 		// save also to file
-		saveToFile( _path, _strCode );
+		//saveToFile( _path, _strCode );
 
 		// set window title without '*' symbol, because it's been saved
 		setWindowTitle( APP_NAME + " - " + m_currAction->getFileName() );
@@ -282,29 +281,6 @@ void mainWin::showAbout() {
 	_about.exec();
 }
 
-void mainWin::newFile() {
-	NewFile _newScript;
-	
-	// get value indicating which button has been pressed
-	int _iResult = _newScript.exec();
-	if( _iResult == QDialog::Accepted ) {
-		// get all needed data about the newly created script
-		QString _strTitle = _newScript.getTitle();
-		QString _strFileName = _newScript.getFileName();
-		QString _strDescription = _newScript.getDescription();
-
-		// add predefined test to the code (title and description as comments in lua)
-		ui.scriptTitle->setText( "  " + _strTitle );
-		setCode( "--[[\n" + _strTitle + "\n" + _strDescription + "\n--]]\n" );
-
-		// add the script to the scripts list
-		ui.scriptsList->addItem( _strTitle );
-
-		// create the file in "scripts" folder
-		saveToFile( "scripts/" + _strFileName, ui.scriptTextEdit->toPlainText() );
-	}
-}
-
 void mainWin::initLuaApi() {
 	m_lua->registerFunction( "sleep", LuaApiEngine::prepareSleep );
 
@@ -339,31 +315,6 @@ void mainWin::initLuaApi() {
 	m_lua->registerFunction( "sendText", LuaApiEngine::prepareSendText );
 }
 
-void mainWin::saveToFile( QString path, QString code ) {
-	QFile _file( path );
-	QDir _dir;
-
-	// check if "scripts" folder exists
-	int _dirExists = _dir.exists( "scripts" );
-	// if not, create it
-	if( !_dirExists )
-		_dir.mkdir( "scripts" );
-
-	// open file in write mode (and text mode) 
-    int _fileOpened = _file.open( QIODevice::WriteOnly | QIODevice::Text );
-	if( !_fileOpened ) {
-		QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file.",
-						  QMessageBox::Ok );
-		_msg.exec();
-	}
-	
-	// write the code to the file
-	_file.write( code.toStdString().c_str() );
- 
-    // optional, as QFile destructor will already do it
-    _file.close(); 
-}
-
 void mainWin::getDataForAction() {
 	// set time
 	QTime _time = QTime( ui.hourSpin->value(), ui.minSpin->value(), ui.secSpin->value() );
@@ -387,6 +338,7 @@ void mainWin::setCode( const QString& code ) {
 
 mainWin::~mainWin()
 {
+	ScriptsManager::removeScripts();
 	delete m_calendar;
 	delete m_lua;
 	delete m_currAction;

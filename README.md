@@ -1,4 +1,14 @@
 ===================================================
+Development release 31.07.2012
+===================================================
+- Script manager class for managing all scripts.
+- Title is displayed on the scripts list instead of file name.
+- Validating scripts title (for duplicates) on app start. Input dialog for renaming if there is a conflict.
+- Validating scripts title/file name during script adding.
+- Clean ups for scripts.
+- Fix issue that caused scripts loader to loop infinitely.
+
+===================================================
 Development release 30.07.2012
 ===================================================
 - Fix for New File window, if the scripts directory didn't exists you couldn't create a file

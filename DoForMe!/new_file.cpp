@@ -1,12 +1,14 @@
 #include "new_file.h"
 
+QString NewFile::DIR = "scripts/";
+
 NewFile::NewFile() : m_layout( new QVBoxLayout() ), m_buttonLayout( new QHBoxLayout() ),
 					 m_ok( new QPushButton( "Finish" ) ), m_cancel( new QPushButton( "Cancel" ) ),
 					 m_desc( new QTextEdit() ), m_filename( new QLineEdit ), m_title( new QLineEdit() ) {
 	
 	connect( m_ok,     SIGNAL( clicked() ), SLOT( clickedOk() ) );
 	connect( m_cancel, SIGNAL( clicked() ), SLOT( reject() ) );
-	connect( m_title, SIGNAL( textChanged( const QString& ) ), SLOT( createFileNameFromTitle( const QString& ) ) );
+	connect( m_title,  SIGNAL( textChanged( const QString& ) ), SLOT( createFileNameFromTitle( const QString& ) ) );
 						 
 	// dialog can't be resized vertically
 	setMaximumHeight( height() );
@@ -30,6 +32,9 @@ NewFile::NewFile() : m_layout( new QVBoxLayout() ), m_buttonLayout( new QHBoxLay
 }
 
 NewFile::~NewFile() {
+	delete m_title;
+	delete m_filename;
+	delete m_desc;
 	delete m_ok;
 	delete m_cancel;
 	delete m_buttonLayout;
@@ -70,10 +75,17 @@ void NewFile::createFileNameFromTitle( const QString& text ) {
 void NewFile::clickedOk() {
 	QString _strFileName = m_filename->text();
 
+	if( !ScriptsManager::addScript( new Script( getTitle(), DIR + _strFileName ) ) ) {
+		QMessageBox _msg( QMessageBox::Critical, "Error", "Script with such title already exists. Rename it.",
+						QMessageBox::Ok );
+		_msg.exec();
+
+		return;
+	}
+
 	// if such file already exists show error
-	// TODO: rename it automatically
 	if( QFile::exists( "scripts/" + _strFileName ) ) {
-		QMessageBox _msg( QMessageBox::Critical, "Error", "File with such name already exists. Rename it manually.",
+		QMessageBox _msg( QMessageBox::Critical, "Error", "File with such name already exists. Rename it.",
 						QMessageBox::Ok );
 		_msg.exec();
 

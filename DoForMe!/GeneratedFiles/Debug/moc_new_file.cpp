@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'new_file.h'
 **
-** Created: Mon 30. Jul 22:27:17 2012
+** Created: Tue 31. Jul 22:23:59 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!
