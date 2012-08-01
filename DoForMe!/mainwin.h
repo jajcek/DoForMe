@@ -28,11 +28,12 @@ private:
 	unsigned m_iWidth;
 	unsigned m_iHeight;
 
-	static QString APP_NAME;
-
 	DetailedCalendar* m_calendar;
 	LuaEngine* m_lua;
-	Action* m_currAction;
+	Script* m_pCurrScript;
+	Action* m_pCurrAction;
+
+	static QString APP_NAME;
 
 public:
 	mainWin(QWidget *parent = 0, Qt::WFlags flags = 0);
@@ -45,6 +46,7 @@ public slots:
 	void runAction();
 	void saveAction();
 	void saveAsAction();
+	void scriptSelected( const QString& scriptTitle );
 	void addAction();
 	void scriptModified();
 	void showAbout();

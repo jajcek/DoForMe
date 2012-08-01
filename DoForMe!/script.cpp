@@ -30,6 +30,10 @@ Script::Script( const QString& path ) {
 Script::Script( const QString& title, const QString& path, const QString& description, const QString& code ) :
 		m_strTitle( title ), m_strDescription( description ), m_strCode( code ), m_strPath( path ) {}
 
+void Script::execute() {
+
+}
+
 QString Script::getTitleFromFile( QFile& file ) {
 	QString _title;
 

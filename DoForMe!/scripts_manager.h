@@ -19,5 +19,6 @@ public:
 
 	static bool addScript( Script* script, bool showInput = false );
 	static void saveToFile( const QString& title );
+	static Script* getScript( const QString scriptTitle );
 
 };

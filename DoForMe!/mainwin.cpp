@@ -18,7 +18,7 @@ LRESULT CALLBACK mouseHook(int code, WPARAM wParam, LPARAM lParam)
 QString mainWin::APP_NAME = "DoForMe!";
 
 mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
-	: QMainWindow(parent, flags), m_iWidth( 821 ), m_iHeight( 507 ), m_calendar( NULL ), m_lua( NULL ), m_currAction( NULL )
+	: QMainWindow(parent, flags), m_iWidth( 821 ), m_iHeight( 507 ), m_calendar( NULL ), m_lua( NULL ), m_pCurrScript( NULL ), m_pCurrAction( NULL )
 {
 	ui.setupUi(this);
 
@@ -29,6 +29,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	QObject::connect( ui.actionSave_action_as, SIGNAL( activated() ), this, SLOT( saveAsAction() ) );
 	//QObject::connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
 	QObject::connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
+	QObject::connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
 	
 	// used for centering main app window
 	QDesktopWidget screen;
@@ -109,8 +110,10 @@ void mainWin::newFile() {
 }
 
 void mainWin::runAction() {
-	// load and parse script (from text field, the bigger one) by checking its correctness
-	switch( m_lua->loadScript( ui.scriptTextEdit->toPlainText().toStdString().c_str(), LuaEngine::BUFFER ) ) {
+	if( m_pCurrScript == NULL ) return;
+
+	// load and parse script (from text field) by checking its correctness
+	switch( m_lua->loadScript( m_pCurrScript->getCode().toStdString().c_str(), LuaEngine::BUFFER ) ) {
 		case LUA_ERRSYNTAX: {
 			QMessageBox _msg( QMessageBox::Critical, "Error", "Syntax error in the script." );
 			_msg.exec();
@@ -137,7 +140,7 @@ void mainWin::runAction() {
 					break;
 				}
 				case LUA_ERRMEM: {
-					QMessageBox _msg( QMessageBox::Critical, "Error", "Memory error." );
+					QMessageBox _msg( QMessageBox::Critical, "Error", "Memory allocation error." );
 					_msg.exec();
 					break;
 				}
@@ -160,7 +163,7 @@ void mainWin::runAction() {
 
 void mainWin::saveAction() {
 	// get path to the current action (script) file (we need it to prepare saving)
-	QString _path = m_currAction->getPath();
+	QString _path = m_pCurrAction->getPath();
 
 	// if it has no path (= "") to file, it means it is not saved yet
 	// so we have to show save dialog to the user (it is done in saveAsAction())
@@ -172,16 +175,16 @@ void mainWin::saveAction() {
 
 		// the script exists as a file, we need to update it
 		// update code for current action
-		m_currAction->setCode( _strCode );
+		m_pCurrAction->setCode( _strCode );
 
 		// save also to file
 		//saveToFile( _path, _strCode );
 
 		// set window title without '*' symbol, because it's been saved
-		setWindowTitle( APP_NAME + " - " + m_currAction->getFileName() );
+		setWindowTitle( APP_NAME + " - " + m_pCurrAction->getFileName() );
 
 		// we saved the script so we make the status changed to false
-		m_currAction->setModified( false );
+		m_pCurrAction->setModified( false );
 	}
 }
 
@@ -195,17 +198,25 @@ void mainWin::saveAsAction() {
 		//ui.scriptPathEdit->setText( _fullPath );
 
 		// set the path and code in the currently selected action object
-		m_currAction->setPath( _fullPath );
+		m_pCurrAction->setPath( _fullPath );
 
 		// we set path already, so we can execute save action (instead of save as...)
 		saveAction();
 	}
 }
 
+void mainWin::scriptSelected( const QString& scriptTitle ) {
+	// find the appropriate script
+	m_pCurrScript = ScriptsManager::getScript( scriptTitle );
+
+	// put script code to the text edit
+	ui.scriptTextEdit->setText( m_pCurrScript->getCode() );
+}
+
 void mainWin::addAction() {
 	bool _bShouldAdd = true;
-	qDebug( "%d", m_currAction );
-	if( !m_currAction ) {
+	qDebug( "%d", m_pCurrAction );
+	if( !m_pCurrAction ) {
 		QMessageBox _msg( QMessageBox::Information, "Information", "You have to save the script before adding it.",
 						  QMessageBox::Ok | QMessageBox::Cancel );
 		_msg.exec();
@@ -217,7 +228,7 @@ void mainWin::addAction() {
 			case QMessageBox::Cancel:
 				_bShouldAdd = false;
 		}
-	} else if( m_currAction->isModified() ) {
+	} else if( m_pCurrAction->isModified() ) {
 		QMessageBox _msg( QMessageBox::Information, "Information", "The script has been modified. If you choose 'Don't save' the old script will be loaded and you will loose the current script.",
 						  QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel );
 
@@ -228,13 +239,13 @@ void mainWin::addAction() {
 				break;
 			case QMessageBox::Discard:
 				// set previously saved code to the text box
-				ui.scriptTextEdit->setText( m_currAction->getCode() );
+				ui.scriptTextEdit->setText( m_pCurrAction->getCode() );
 
 				// set window title without '*' symbol, because it's been saved
-				setWindowTitle( APP_NAME + " - " + m_currAction->getFileName() );
+				setWindowTitle( APP_NAME + " - " + m_pCurrAction->getFileName() );
 
 				// we saved the script so we make the status changed to false
-				m_currAction->setModified( false );
+				m_pCurrAction->setModified( false );
 
 				break;
 			case QMessageBox::Cancel:
@@ -243,8 +254,8 @@ void mainWin::addAction() {
 	}
 
 	if( _bShouldAdd ) {
-		if( m_currAction->getPath() != "" ) {
-			m_calendar->addAction( m_calendar->getSelectedDate(),  m_currAction );
+		if( m_pCurrAction->getPath() != "" ) {
+			m_calendar->addAction( m_calendar->getSelectedDate(),  m_pCurrAction );
 
 			// gather all information for the action from every field
 			getDataForAction();
@@ -257,19 +268,19 @@ void mainWin::addAction() {
 			QString _strTime = _hour + ":" + _min + ":" + _sec;
 
 			// add action to the actions' list (because the list updates only when clicking on calendar)
-			ui.actionsList->addItem( _strTime + " " + m_currAction->getFileName() );
+			ui.actionsList->addItem( _strTime + " " + m_pCurrAction->getFileName() );
 		}
 	}
 }
 
 void mainWin::scriptModified() {
-	if( m_currAction ) {
+	if( m_pCurrAction ) {
 		// set window title with '*' symbol, because it's been modified
 		// it is invoked when text changes in the code (in text box)
-		setWindowTitle( APP_NAME + " - " + m_currAction->getFileName() + "*" );
+		setWindowTitle( APP_NAME + " - " + m_pCurrAction->getFileName() + "*" );
 
 		// we changed the script so we have to set its state
-		m_currAction->setModified( true );
+		m_pCurrAction->setModified( true );
 	}
 }
 
@@ -318,7 +329,7 @@ void mainWin::initLuaApi() {
 void mainWin::getDataForAction() {
 	// set time
 	QTime _time = QTime( ui.hourSpin->value(), ui.minSpin->value(), ui.secSpin->value() );
-	m_currAction->setTime( _time );
+	m_pCurrAction->setTime( _time );
 
 
 }
@@ -341,6 +352,6 @@ mainWin::~mainWin()
 	ScriptsManager::removeScripts();
 	delete m_calendar;
 	delete m_lua;
-	delete m_currAction;
+	delete m_pCurrAction;
 	//UnhookWindowsHookEx( hook );
 }

@@ -84,3 +84,7 @@ void ScriptsManager::saveToFile( const QString& title ) {
     // optional, as QFile destructor will already do it
     _file.close(); 
 }
+
+Script* ScriptsManager::getScript( const QString scriptTitle ) {
+	return m_scripts.find( scriptTitle ).value();
+}

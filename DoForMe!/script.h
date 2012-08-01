@@ -25,6 +25,8 @@ public:
 	Script( const QString& path ) throw( int );
 	Script( const QString& title, const QString& path, const QString& description = "", const QString& code = "" );
 
+	void execute();
+
 	void setTitle( QString title );
 	QString getTitle() const;
 
