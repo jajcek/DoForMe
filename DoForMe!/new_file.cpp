@@ -73,9 +73,9 @@ void NewFile::createFileNameFromTitle( const QString& text ) {
 }
 
 void NewFile::clickedOk() {
-	QString _strFileName = m_filename->text();
+	/*QString _strFileName = m_filename->text();
 
-	if( !ScriptsManager::addScript( new Script( getTitle(), DIR + _strFileName ) ) ) {
+	if( !ScriptsManager::addScript( new Script( DIR + _strFileName ) ) ) {
 		QMessageBox _msg( QMessageBox::Critical, "Error", "Script with such title already exists. Rename it.",
 						QMessageBox::Ok );
 		_msg.exec();
@@ -92,5 +92,5 @@ void NewFile::clickedOk() {
 		return;
 	}
 
-	accept();
+	accept();*/
 }

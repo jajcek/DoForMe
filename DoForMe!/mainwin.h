@@ -34,6 +34,8 @@ private:
 	Action* m_pCurrAction;
 
 	static QString APP_NAME;
+	static QString SCRIPT_DIR;
+	static QString EXT;
 
 public:
 	mainWin(QWidget *parent = 0, Qt::WFlags flags = 0);

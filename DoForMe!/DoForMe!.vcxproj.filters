@@ -83,15 +83,6 @@
     <ClCompile Include="key.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="new_file.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_new_file.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_new_file.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="script.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -119,9 +110,6 @@
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="lua_engine.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="new_file.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

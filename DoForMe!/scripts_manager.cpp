@@ -11,47 +11,16 @@ void ScriptsManager::removeScripts() {
 	}
 }
 
-bool ScriptsManager::attemptToAddScript( Script* script ) {
-	QString _scriptTitle = script->getTitle();
+bool ScriptsManager::addScript( Script* script ) {
+	QString _scriptName = script->getFileName();
 
-	if( m_scripts.find( _scriptTitle ) == m_scripts.end() ) {
-		m_scripts[_scriptTitle] = script;
+	if( m_scripts.find( _scriptName ) == m_scripts.end() ) {
+		m_scripts[_scriptName] = script;
 
 		return true;
 	}
 	
 	return false;
-}
-
-bool ScriptsManager::addScript( Script* script, bool showInput ) {
-	if( showInput ) {
-		bool _ok = true;
-		// try to add new script
-		while( !ScriptsManager::attemptToAddScript( script ) && _ok ) {
-			// script with the given title alread exists, show input dialog to rename it
-			QString _strNewTitle = QInputDialog::getText( NULL, "Script title",
-					"Script with the title \"" + script->getTitle() + "\" from \"" + script->getPath() + "\" already exists, change the title:",
-					QLineEdit::Normal, "", &_ok );
-
-			// if user accepted, set new title
-			if( _ok && !_strNewTitle.isEmpty() ) {
-				script->setTitle( _strNewTitle );
-			}
-		}
-
-		// the user pressed cancel, show info that the script wasn't loaded
-		if( !_ok ) {
-			QMessageBox _msg( QMessageBox::Critical, "Error",
-				"Script with the \"" + script->getTitle() + "\" title already exists. The script from \"" + script->getPath() + "\" wasn't loaded.",
-							QMessageBox::Ok );
-			_msg.exec();
-		} else {
-			return true;
-		}
-		return false;
-	} else {
-		return attemptToAddScript( script );
-	}
 }
 
 void ScriptsManager::saveToFile( const QString& title ) {
@@ -74,17 +43,18 @@ void ScriptsManager::saveToFile( const QString& title ) {
 	}
 	
 	// write the code to the file
-	QString toWrite;
-	if( _pScript->getDescription() == "" )
-		toWrite = "--[[\n" + _pScript->getTitle() + "\n--]]\n" + _pScript->getCode();
-	else
-		toWrite = "--[[\n" + _pScript->getTitle() + "\n" + _pScript->getDescription() + "\n--]]\n" + _pScript->getCode();
-	_file.write( toWrite.toStdString().c_str() );
+	QString _toWrite = _pScript->getCode();
+	_file.write( _toWrite.toStdString().c_str() );
  
     // optional, as QFile destructor will already do it
     _file.close(); 
 }
 
 Script* ScriptsManager::getScript( const QString scriptTitle ) {
-	return m_scripts.find( scriptTitle ).value();
+	QMap<QString, Script*>::Iterator _pScript = m_scripts.find( scriptTitle );
+
+	if( _pScript != m_scripts.end() )
+		return _pScript.value();
+	else
+		return NULL;
 }

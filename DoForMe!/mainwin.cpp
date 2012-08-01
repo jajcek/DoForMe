@@ -16,6 +16,8 @@ LRESULT CALLBACK mouseHook(int code, WPARAM wParam, LPARAM lParam)
 }
 
 QString mainWin::APP_NAME = "DoForMe!";
+QString mainWin::SCRIPT_DIR = "scripts/";
+QString mainWin::EXT = ".apc";
 
 mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags), m_iWidth( 821 ), m_iHeight( 507 ), m_calendar( NULL ), m_lua( NULL ), m_pCurrScript( NULL ), m_pCurrAction( NULL )
@@ -44,7 +46,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	LuaApiEngine::setLuaEngine( m_lua );
 	LuaApiEngine::initSpecialKeys();
 
-	loadScripts( NewFile::DIR );
+	loadScripts( mainWin::SCRIPT_DIR );
 
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
@@ -57,7 +59,7 @@ void mainWin::loadScripts( const QString& path ) {
 
 	// define which extensions we want to look for
 	QStringList _filesExt;
-	_filesExt.push_back( "*.apc" );
+	_filesExt.push_back( "*" + EXT );
 
 	// get list of files
 	QStringList _fileList = myDir.entryList( _filesExt );
@@ -69,17 +71,14 @@ void mainWin::loadScripts( const QString& path ) {
 
 		// create script object from the file
 		try {
-			Script* _pScript = new Script( path + _fileName );
-			if( ScriptsManager::addScript( _pScript, true ) ) {
+			Script* _pScript = new Script( path + _fileName, Script::LOAD );
+			if( ScriptsManager::addScript( _pScript ) ) {
 				// add script title to the scripts list
-				ui.scriptsList->addItem( _pScript->getTitle() );
+				ui.scriptsList->addItem( _pScript->getFileName() );
 			}
 		} catch( int e ) {
 			if( e == Script::FileOpenException ) {
 				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to open file \"" + path + _fileName + "\"", QMessageBox::Ok );
-				_msg.exec();
-			} else if( e == Script::InvalidFileException ) {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "Structure of the file \"" + path + _fileName + "\" is broken. Did you edit scripts manually?", QMessageBox::Ok );
 				_msg.exec();
 			}
 		}
@@ -87,25 +86,44 @@ void mainWin::loadScripts( const QString& path ) {
 }
 
 void mainWin::newFile() {
-	NewFile _newScript;
-	
-	// get value indicating which button has been pressed
-	int _iResult = _newScript.exec();
-	if( _iResult == QDialog::Accepted ) {
-		// get all needed data about the newly created script
-		QString _strTitle = _newScript.getTitle();
-		QString _strFileName = _newScript.getFileName();
-		QString _strDescription = _newScript.getDescription();
+	bool _ok = true;
+	QString _strFileName = "";
+	// try to add new script
+	while( _strFileName == "" && _ok ) {
+		// show input dialog for file name
+		_strFileName = QInputDialog::getText( NULL, "Script file name",
+			"Type file name for script (must not be empty):", QLineEdit::Normal, "", &_ok );
 
-		// add title and description to the code as comments in lua
-		ui.scriptTitle->setText( "  " + _strTitle );
-		//setCode( "--[[\n" + _strTitle + "\n" + _strDescription + "\n--]]\n" );
+		// put an extension to the file name
+		if( _strFileName != "" )
+			_strFileName += EXT;
 
-		// add the script to the scripts list
-		ui.scriptsList->addItem( _strTitle );
+		if( ScriptsManager::getScript( _strFileName ) != NULL ) {
+			QMessageBox _msg( QMessageBox::Critical, "Error", "The file already exists.", QMessageBox::Ok );
+			_msg.exec();
 
-		ScriptsManager::addScript( new Script( _strTitle, NewFile::DIR + _strFileName, _strDescription ) );
-		ScriptsManager::saveToFile( _strTitle );
+			// make it empty to go through while again
+			_strFileName = "";
+		}
+	}
+
+	if( _ok ) {
+		// create script object from the file
+		try {
+			Script* _pScript = new Script( mainWin::SCRIPT_DIR + _strFileName, Script::CREATE );
+			if( ScriptsManager::addScript( _pScript ) ) {
+				// add script title to the scripts list to the title (above text edit) and clean the text area
+				ui.scriptsList->addItem( _pScript->getFileName() );
+				ui.scriptTitle->setText( "  " + _pScript->getFileName() );
+				// if the area contains modified text, ask if the user wants to save it
+				ui.scriptTextEdit->setText( "" );
+			}
+		} catch( int e ) {
+			if( e == Script::FileOpenException ) {
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file \"" + mainWin::SCRIPT_DIR + _strFileName + "\"", QMessageBox::Ok );
+				_msg.exec();
+			}
+		}
 	}
 }
 
@@ -211,6 +229,9 @@ void mainWin::scriptSelected( const QString& scriptTitle ) {
 
 	// put script code to the text edit
 	ui.scriptTextEdit->setText( m_pCurrScript->getCode() );
+
+	// set title above the text edit
+	ui.scriptTitle->setText( "  " + m_pCurrScript->getFileName() );
 }
 
 void mainWin::addAction() {

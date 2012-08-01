@@ -11,13 +11,10 @@ private:
 
 	ScriptsManager();
 
-private:
-	static bool attemptToAddScript( Script* script );
-
 public:
 	static void removeScripts();
 
-	static bool addScript( Script* script, bool showInput = false );
+	static bool addScript( Script* script );
 	static void saveToFile( const QString& title );
 	static Script* getScript( const QString scriptTitle );
 
