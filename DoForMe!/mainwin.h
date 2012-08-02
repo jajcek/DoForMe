@@ -18,6 +18,7 @@
 #include "new_file.h"
 #include "script.h"
 #include "scripts_manager.h"
+#include "conf.h"
 
 class mainWin : public QMainWindow
 {
@@ -33,10 +34,6 @@ private:
 	Script* m_pCurrScript;
 	Action* m_pCurrAction;
 
-	static QString APP_NAME;
-	static QString SCRIPT_DIR;
-	static QString EXT;
-
 public:
 	mainWin(QWidget *parent = 0, Qt::WFlags flags = 0);
 	~mainWin();
@@ -46,11 +43,11 @@ public:
 public slots:
 	void newFile();
 	void runAction();
+	void saveScript();
 	void saveAction();
-	void saveAsAction();
 	void scriptSelected( const QString& scriptTitle );
-	void addAction();
 	void scriptModified();
+	void addAction();
 	void showAbout();
 	
 
@@ -58,6 +55,7 @@ private:
 	void initLuaApi();
 	void getDataForAction();
 	QString getFuncName( QString textError );
+	void setScriptTitle( QString title );
 	void setCode( const QString& );
 
 };

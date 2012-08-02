@@ -78,6 +78,7 @@
     <ClCompile Include="action.cpp" />
     <ClCompile Include="calendar.cpp" />
     <ClCompile Include="commands_manager.cpp" />
+    <ClCompile Include="conf.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_calendar.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -139,6 +140,7 @@
     <ClInclude Include="about_dialog.h" />
     <ClInclude Include="action.h" />
     <ClInclude Include="commands_manager.h" />
+    <ClInclude Include="conf.h" />
     <ClInclude Include="GeneratedFiles\ui_about.h" />
     <ClInclude Include="script.h" />
     <ClInclude Include="scripts_manager.h" />

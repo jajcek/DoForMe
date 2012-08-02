@@ -1,6 +1,8 @@
 Development release 1.08.2012
 ===================================================
-- No extension of the file on the scripts list
+- No extension of the file on the scripts list.
+- Modified state for script file.
+- Configuration structure "conf.h" which keeps all important values (script folder, extension for file etc.)
 
 Development release 1.08.2012
 ===================================================

@@ -4,13 +4,13 @@
 #include <qstring.h>
 #include <qfile.h>
 #include <qmessagebox.h>
+#include "conf.h"
 
 class Script {
 private:
-	QString m_strTitle;
-	QString m_strDescription;
 	QString m_strCode;
 	QString m_strPath;
+	bool m_bModified;
 
 public:
 	static int FileOpenException;
@@ -29,5 +29,8 @@ public:
 	QString getPath() const;
 
 	QString getFileName() const;
+
+	void setModified( bool isModified );
+	bool isModified() const;
 
 };

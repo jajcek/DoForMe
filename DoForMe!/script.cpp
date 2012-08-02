@@ -4,7 +4,7 @@ int Script::FileOpenException = 0;
 int Script::LOAD = 1;
 int Script::CREATE = 2;
 
-Script::Script( const QString& path, int iMode ) {
+Script::Script( const QString& path, int iMode ) : m_bModified( false ) {
 	QFile _file( path );
 
 	// open file in read mode (and text mode) 
@@ -33,6 +33,10 @@ QString Script::getCodeFromFile( QFile& file ) {
 	return _code;
 }
 
+void Script::setCode( QString code ) {
+	m_strCode = code;
+}
+
 QString Script::getCode() const {
 	return m_strCode;
 }
@@ -44,4 +48,12 @@ QString Script::getPath() const {
 QString Script::getFileName() const {
 	QFileInfo _fileInfo( m_strPath );
 	return _fileInfo.fileName().left( _fileInfo.fileName().length() - 4 );
+}
+
+void Script::setModified( bool isModified ) {
+	m_bModified = isModified;
+}
+
+bool Script::isModified() const {
+	return m_bModified;
 }

@@ -15,10 +15,6 @@ LRESULT CALLBACK mouseHook(int code, WPARAM wParam, LPARAM lParam)
      return CallNextHookEx (0, code, wParam, lParam);
 }
 
-QString mainWin::APP_NAME = "DoForMe!";
-QString mainWin::SCRIPT_DIR = "scripts/";
-QString mainWin::EXT = ".apc";
-
 mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags), m_iWidth( 821 ), m_iHeight( 507 ), m_calendar( NULL ), m_lua( NULL ), m_pCurrScript( NULL ), m_pCurrAction( NULL )
 {
@@ -29,7 +25,6 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	QObject::connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runAction() ) );
 	QObject::connect( ui.actionSave_action, SIGNAL( activated() ), this, SLOT( saveAction() ) );
 	QObject::connect( ui.actionSave_action_as, SIGNAL( activated() ), this, SLOT( saveAsAction() ) );
-	//QObject::connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
 	QObject::connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
 	QObject::connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
 	
@@ -46,7 +41,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	LuaApiEngine::setLuaEngine( m_lua );
 	LuaApiEngine::initSpecialKeys();
 
-	loadScripts( mainWin::SCRIPT_DIR );
+	loadScripts( Conf::SCRIPT_DIR );
 
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
@@ -59,7 +54,7 @@ void mainWin::loadScripts( const QString& path ) {
 
 	// define which extensions we want to look for
 	QStringList _filesExt;
-	_filesExt.push_back( "*" + EXT );
+	_filesExt.push_back( "*" + Conf::EXT );
 
 	// get list of files
 	QStringList _fileList = myDir.entryList( _filesExt );
@@ -78,7 +73,7 @@ void mainWin::loadScripts( const QString& path ) {
 			}
 		} catch( int e ) {
 			if( e == Script::FileOpenException ) {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to open file \"" + path + _fileNameExt + "\"", QMessageBox::Ok );
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to open file \"" + path + _fileNameExt + "\". The file probably doesn't exists.", QMessageBox::Ok );
 				_msg.exec();
 			}
 		}
@@ -94,10 +89,6 @@ void mainWin::newFile() {
 		_strFileName = QInputDialog::getText( NULL, "Script file name",
 			"Type file name for script (must not be empty):", QLineEdit::Normal, "", &_ok );
 
-		// put an extension to the file name
-		if( _strFileName != "" )
-			_strFileName += EXT;
-
 		if( ScriptsManager::getScript( _strFileName ) != NULL ) {
 			QMessageBox _msg( QMessageBox::Critical, "Error", "The file already exists.", QMessageBox::Ok );
 			_msg.exec();
@@ -110,17 +101,17 @@ void mainWin::newFile() {
 	if( _ok ) {
 		// create script object from the file
 		try {
-			Script* _pScript = new Script( mainWin::SCRIPT_DIR + _strFileName, Script::CREATE );
+			Script* _pScript = new Script( Conf::SCRIPT_DIR + _strFileName, Script::CREATE );
 			if( ScriptsManager::addScript( _pScript ) ) {
 				// add script title to the scripts list to the title (above text edit) and clean the text area
 				ui.scriptsList->addItem( _pScript->getFileName() );
-				ui.scriptTitle->setText( "  " + _pScript->getFileName() );
+				setScriptTitle( "  " + _pScript->getFileName() );
 				// TODO if the area contains modified text, ask if the user wants to save it
-				ui.scriptTextEdit->setText( "" );
+				setCode( "" );
 			}
 		} catch( int e ) {
 			if( e == Script::FileOpenException ) {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file \"" + mainWin::SCRIPT_DIR + _strFileName + "\". Probably wrong name for file.", QMessageBox::Ok );
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file \"" + Conf::SCRIPT_DIR + _strFileName + "\". Probably wrong name for file.", QMessageBox::Ok );
 				_msg.exec();
 			}
 		}
@@ -179,6 +170,14 @@ void mainWin::runAction() {
 	m_lua->start();
 }
 
+void mainWin::saveScript() {
+	if( !m_pCurrScript->isModified() ) return;
+
+	m_pCurrScript->setCode( ui.scriptTextEdit->toPlainText() );
+
+	ScriptsManager::saveToFile( m_pCurrScript->getFileName() );
+}
+
 void mainWin::saveAction() {
 	// get path to the current action (script) file (we need it to prepare saving)
 	QString _path = m_pCurrAction->getPath();
@@ -186,7 +185,7 @@ void mainWin::saveAction() {
 	// if it has no path (= "") to file, it means it is not saved yet
 	// so we have to show save dialog to the user (it is done in saveAsAction())
 	if( _path == "" ) {
-		saveAsAction();
+		//saveAsAction();
 	} else {
 		// get current code from the text box
 		QString _strCode = ui.scriptTextEdit->toPlainText();
@@ -199,27 +198,10 @@ void mainWin::saveAction() {
 		//saveToFile( _path, _strCode );
 
 		// set window title without '*' symbol, because it's been saved
-		setWindowTitle( APP_NAME + " - " + m_pCurrAction->getFileName() );
+		setWindowTitle( Conf::APP_NAME + " - " + m_pCurrAction->getFileName() );
 
 		// we saved the script so we make the status changed to false
 		m_pCurrAction->setModified( false );
-	}
-}
-
-void mainWin::saveAsAction() {
-	// get full path of a file which we will be saving to
-	QString _fullPath = QFileDialog::getSaveFileName( this, "Save script...", "", "Scripts (*.apc);;All files (*.*)" );
-
-	// if a user didn't click 'cancel', otherwise _fullPath is equal to ""
-	if( _fullPath != "" ) {
-		// set the path in the edit (next to browse button)
-		//ui.scriptPathEdit->setText( _fullPath );
-
-		// set the path and code in the currently selected action object
-		m_pCurrAction->setPath( _fullPath );
-
-		// we set path already, so we can execute save action (instead of save as...)
-		saveAction();
 	}
 }
 
@@ -228,14 +210,25 @@ void mainWin::scriptSelected( const QString& scriptTitle ) {
 	m_pCurrScript = ScriptsManager::getScript( scriptTitle );
 
 	// put script code to the text edit
-	ui.scriptTextEdit->setText( m_pCurrScript->getCode() );
+	setCode( m_pCurrScript->getCode() );
 
 	// set title above the text edit
-	ui.scriptTitle->setText( "  " + m_pCurrScript->getFileName() );
+	setScriptTitle( m_pCurrScript->getFileName() );
+}
+
+void mainWin::scriptModified() {
+	if( m_pCurrScript ) {
+		// set script title with '*' symbol, because it's been modified
+		// it is invoked when text changes in the code (in text box)
+		setScriptTitle( m_pCurrScript->getFileName() + "*" );
+
+		// we changed the script so we have to set its state
+		m_pCurrScript->setModified( true );
+	}
 }
 
 void mainWin::addAction() {
-	bool _bShouldAdd = true;
+	/*bool _bShouldAdd = true;
 	qDebug( "%d", m_pCurrAction );
 	if( !m_pCurrAction ) {
 		QMessageBox _msg( QMessageBox::Information, "Information", "You have to save the script before adding it.",
@@ -291,18 +284,7 @@ void mainWin::addAction() {
 			// add action to the actions' list (because the list updates only when clicking on calendar)
 			ui.actionsList->addItem( _strTime + " " + m_pCurrAction->getFileName() );
 		}
-	}
-}
-
-void mainWin::scriptModified() {
-	if( m_pCurrAction ) {
-		// set window title with '*' symbol, because it's been modified
-		// it is invoked when text changes in the code (in text box)
-		setWindowTitle( APP_NAME + " - " + m_pCurrAction->getFileName() + "*" );
-
-		// we changed the script so we have to set its state
-		m_pCurrAction->setModified( true );
-	}
+	}*/
 }
 
 void mainWin::showAbout() {
@@ -361,6 +343,10 @@ QString mainWin::getFuncName( QString textError ) {
 	int _iBegin = textError.indexOf( "'" ) + 1;
 	int _iEnd = textError.lastIndexOf( "'" );
 	return textError.mid( _iBegin, _iEnd - _iBegin );
+}
+
+void mainWin::setScriptTitle( QString title ) {
+	ui.scriptTitle->setText( "  " + title );
 }
 
 void mainWin::setCode( const QString& code ) {

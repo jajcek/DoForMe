@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwin.h'
 **
-** Created: Wed 1. Aug 22:50:48 2012
+** Created: Thu 2. Aug 22:31:32 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -35,19 +35,19 @@ static const uint qt_meta_data_mainWin[] = {
       19,    8,    8,    8, 0x0a,
       31,    8,    8,    8, 0x0a,
       44,    8,    8,    8, 0x0a,
-      71,   59,    8,    8, 0x0a,
-      95,    8,    8,    8, 0x0a,
-     107,    8,    8,    8, 0x0a,
-     124,    8,    8,    8, 0x0a,
+      69,   57,    8,    8, 0x0a,
+      93,    8,    8,    8, 0x0a,
+     110,    8,    8,    8, 0x0a,
+     122,    8,    8,    8, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_mainWin[] = {
     "mainWin\0\0newFile()\0runAction()\0"
-    "saveAction()\0saveAsAction()\0scriptTitle\0"
-    "scriptSelected(QString)\0addAction()\0"
-    "scriptModified()\0showAbout()\0"
+    "saveScript()\0saveAction()\0scriptTitle\0"
+    "scriptSelected(QString)\0scriptModified()\0"
+    "addAction()\0showAbout()\0"
 };
 
 void mainWin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -58,11 +58,11 @@ void mainWin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         switch (_id) {
         case 0: _t->newFile(); break;
         case 1: _t->runAction(); break;
-        case 2: _t->saveAction(); break;
-        case 3: _t->saveAsAction(); break;
+        case 2: _t->saveScript(); break;
+        case 3: _t->saveAction(); break;
         case 4: _t->scriptSelected((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 5: _t->addAction(); break;
-        case 6: _t->scriptModified(); break;
+        case 5: _t->scriptModified(); break;
+        case 6: _t->addAction(); break;
         case 7: _t->showAbout(); break;
         default: ;
         }
