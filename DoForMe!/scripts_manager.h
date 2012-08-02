@@ -15,7 +15,7 @@ public:
 	static void removeScripts();
 
 	static bool addScript( Script* script );
-	static void saveToFile( const QString& title );
+	static void saveToFile( const Script* pScript );
 	static Script* getScript( const QString scriptTitle );
 
 };

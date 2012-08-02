@@ -23,9 +23,8 @@ bool ScriptsManager::addScript( Script* script ) {
 	return false;
 }
 
-void ScriptsManager::saveToFile( const QString& title ) {
-	Script* _pScript = m_scripts.find( title ).value();
-	QFile _file( _pScript->getPath() );
+void ScriptsManager::saveToFile( const Script* pScript ) {
+	QFile _file( pScript->getPath() );
 	QDir _dir;
 
 	// check if "scripts" folder exists
@@ -43,7 +42,7 @@ void ScriptsManager::saveToFile( const QString& title ) {
 	}
 	
 	// write the code to the file
-	QString _toWrite = _pScript->getCode();
+	QString _toWrite = pScript->getCode();
 	_file.write( _toWrite.toStdString().c_str() );
  
     // optional, as QFile destructor will already do it

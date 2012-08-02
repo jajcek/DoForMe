@@ -23,8 +23,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	QObject::connect( ui.actionAbout, SIGNAL( activated() ), this, SLOT( showAbout() ) );
 	QObject::connect( ui.actionNew, SIGNAL( activated() ), this, SLOT( newFile() ) );
 	QObject::connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runAction() ) );
-	QObject::connect( ui.actionSave_action, SIGNAL( activated() ), this, SLOT( saveAction() ) );
-	QObject::connect( ui.actionSave_action_as, SIGNAL( activated() ), this, SLOT( saveAsAction() ) );
+	QObject::connect( ui.actionSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
 	QObject::connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
 	QObject::connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
 	
@@ -171,11 +170,12 @@ void mainWin::runAction() {
 }
 
 void mainWin::saveScript() {
+	if( !m_pCurrScript ) return;
 	if( !m_pCurrScript->isModified() ) return;
 
 	m_pCurrScript->setCode( ui.scriptTextEdit->toPlainText() );
 
-	ScriptsManager::saveToFile( m_pCurrScript->getFileName() );
+	ScriptsManager::saveToFile( m_pCurrScript );
 }
 
 void mainWin::saveAction() {

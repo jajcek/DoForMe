@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwin.ui'
 **
-** Created: Thu 2. Aug 18:19:49 2012
+** Created: Thu 2. Aug 22:41:33 2012
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -59,8 +59,7 @@ public:
     QAction *actionRecord;
     QAction *actionNew;
     QAction *actionOpen;
-    QAction *actionSave;
-    QAction *actionSave_as;
+    QAction *actionSaveScript;
     QWidget *centralWidget;
     QCalendarWidget *calendarWidget;
     QTabWidget *tabWidget;
@@ -199,16 +198,11 @@ public:
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/standard/Resources/fileopen.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionOpen->setIcon(icon4);
-        actionSave = new QAction(mainWinClass);
-        actionSave->setObjectName(QString::fromUtf8("actionSave"));
+        actionSaveScript = new QAction(mainWinClass);
+        actionSaveScript->setObjectName(QString::fromUtf8("actionSaveScript"));
         QIcon icon5;
         icon5.addFile(QString::fromUtf8(":/standard/Resources/filesave.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        actionSave->setIcon(icon5);
-        actionSave_as = new QAction(mainWinClass);
-        actionSave_as->setObjectName(QString::fromUtf8("actionSave_as"));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/standard/Resources/filesaveas.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        actionSave_as->setIcon(icon6);
+        actionSaveScript->setIcon(icon5);
         centralWidget = new QWidget(mainWinClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         calendarWidget = new QCalendarWidget(centralWidget);
@@ -458,9 +452,9 @@ public:
         toolButton->setObjectName(QString::fromUtf8("toolButton"));
         toolButton->setEnabled(true);
         toolButton->setGeometry(QRect(60, 221, 28, 28));
-        QIcon icon7;
-        icon7.addFile(QString::fromUtf8(":/mainWin/Resources/fileimport.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton->setIcon(icon7);
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/mainWin/Resources/fileimport.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton->setIcon(icon6);
         toolButton->setIconSize(QSize(28, 28));
         scriptTextEdit = new QTextEdit(centralWidget);
         scriptTextEdit->setObjectName(QString::fromUtf8("scriptTextEdit"));
@@ -524,8 +518,7 @@ public:
         menuView->addAction(actionReminding);
         toolBar->addAction(actionNew);
         toolBar->addAction(actionOpen);
-        toolBar->addAction(actionSave);
-        toolBar->addAction(actionSave_as);
+        toolBar->addAction(actionSaveScript);
         toolBar_2->addAction(actionRun);
         toolBar_2->addAction(actionRecord);
 
@@ -576,15 +569,11 @@ public:
         actionOpen->setToolTip(QApplication::translate("mainWinClass", "Open script", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
         actionOpen->setShortcut(QApplication::translate("mainWinClass", "Ctrl+O", 0, QApplication::UnicodeUTF8));
-        actionSave->setText(QApplication::translate("mainWinClass", "Save", 0, QApplication::UnicodeUTF8));
+        actionSaveScript->setText(QApplication::translate("mainWinClass", "Save", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
-        actionSave->setToolTip(QApplication::translate("mainWinClass", "Save", 0, QApplication::UnicodeUTF8));
+        actionSaveScript->setToolTip(QApplication::translate("mainWinClass", "Save", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        actionSave->setShortcut(QApplication::translate("mainWinClass", "Ctrl+S", 0, QApplication::UnicodeUTF8));
-        actionSave_as->setText(QApplication::translate("mainWinClass", "Save as", 0, QApplication::UnicodeUTF8));
-#ifndef QT_NO_TOOLTIP
-        actionSave_as->setToolTip(QApplication::translate("mainWinClass", "Save as...", 0, QApplication::UnicodeUTF8));
-#endif // QT_NO_TOOLTIP
+        actionSaveScript->setShortcut(QApplication::translate("mainWinClass", "Ctrl+S", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("mainWinClass", "Run on", 0, QApplication::UnicodeUTF8));
         mondayCheck->setText(QApplication::translate("mainWinClass", "Monday", 0, QApplication::UnicodeUTF8));
         tuesdayCheck->setText(QApplication::translate("mainWinClass", "Tuesday", 0, QApplication::UnicodeUTF8));

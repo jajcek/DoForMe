@@ -1036,8 +1036,7 @@ color: black;</string>
    </attribute>
    <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
-   <addaction name="actionSave"/>
-   <addaction name="actionSave_as"/>
+   <addaction name="actionSaveScript"/>
   </widget>
   <widget class="QToolBar" name="toolBar_2">
    <property name="windowTitle">
@@ -1213,7 +1212,7 @@ color: black;</string>
     <string>Ctrl+O</string>
    </property>
   </action>
-  <action name="actionSave">
+  <action name="actionSaveScript">
    <property name="icon">
     <iconset resource="mainwin.qrc">
      <normaloff>:/standard/Resources/filesave.ico</normaloff>:/standard/Resources/filesave.ico</iconset>
@@ -1226,18 +1225,6 @@ color: black;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
-   </property>
-  </action>
-  <action name="actionSave_as">
-   <property name="icon">
-    <iconset resource="mainwin.qrc">
-     <normaloff>:/standard/Resources/filesaveas.ico</normaloff>:/standard/Resources/filesaveas.ico</iconset>
-   </property>
-   <property name="text">
-    <string>Save as</string>
-   </property>
-   <property name="toolTip">
-    <string>Save as...</string>
    </property>
   </action>
  </widget>
