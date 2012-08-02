@@ -66,19 +66,19 @@ void mainWin::loadScripts( const QString& path ) {
 	
 	// iterate through all files and add them into map
 	while( !_fileList.empty() ) {
-		QString _fileName = _fileList.back();
+		QString _fileNameExt = _fileList.back();
 		_fileList.pop_back();
 
 		// create script object from the file
 		try {
-			Script* _pScript = new Script( path + _fileName, Script::LOAD );
+			Script* _pScript = new Script( path + _fileNameExt, Script::LOAD );
 			if( ScriptsManager::addScript( _pScript ) ) {
 				// add script title to the scripts list
 				ui.scriptsList->addItem( _pScript->getFileName() );
 			}
 		} catch( int e ) {
 			if( e == Script::FileOpenException ) {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to open file \"" + path + _fileName + "\"", QMessageBox::Ok );
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to open file \"" + path + _fileNameExt + "\"", QMessageBox::Ok );
 				_msg.exec();
 			}
 		}
@@ -115,12 +115,12 @@ void mainWin::newFile() {
 				// add script title to the scripts list to the title (above text edit) and clean the text area
 				ui.scriptsList->addItem( _pScript->getFileName() );
 				ui.scriptTitle->setText( "  " + _pScript->getFileName() );
-				// if the area contains modified text, ask if the user wants to save it
+				// TODO if the area contains modified text, ask if the user wants to save it
 				ui.scriptTextEdit->setText( "" );
 			}
 		} catch( int e ) {
 			if( e == Script::FileOpenException ) {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file \"" + mainWin::SCRIPT_DIR + _strFileName + "\"", QMessageBox::Ok );
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file \"" + mainWin::SCRIPT_DIR + _strFileName + "\". Probably wrong name for file.", QMessageBox::Ok );
 				_msg.exec();
 			}
 		}

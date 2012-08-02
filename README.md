@@ -1,5 +1,9 @@
 Development release 1.08.2012
 ===================================================
+- No extension of the file on the scripts list
+
+Development release 1.08.2012
+===================================================
 - Changed way for adding new scripts.
 - Now the user types file name (the script has no description and title, just file name).
 - On the scripts list there's file name instead of title.

@@ -43,5 +43,5 @@ QString Script::getPath() const {
 
 QString Script::getFileName() const {
 	QFileInfo _fileInfo( m_strPath );
-	return _fileInfo.fileName();
+	return _fileInfo.fileName().left( _fileInfo.fileName().length() - 4 );
 }
