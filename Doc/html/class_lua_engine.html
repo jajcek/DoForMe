@@ -117,35 +117,41 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aab9337ae5ea59bccc1e08c4015d42700"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700">loadScript</a> (const char *code, int mode)</td></tr>
 <tr class="memdesc:aab9337ae5ea59bccc1e08c4015d42700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses script (prepares for running it) into memory from a specified buffer.  <a href="#aab9337ae5ea59bccc1e08c4015d42700"></a><br/></td></tr>
 <tr class="memitem:a5eae05f78704166f098ea20568c23fd7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a5eae05f78704166f098ea20568c23fd7">parseScript</a> ()</td></tr>
-<tr class="memdesc:a5eae05f78704166f098ea20568c23fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts api functions onto stack - <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5">LuaEngine::m_commands</a> - that has been previously loaded by <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">loadScript()</a>.  <a href="#a5eae05f78704166f098ea20568c23fd7"></a><br/></td></tr>
+<tr class="memdesc:a5eae05f78704166f098ea20568c23fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts api functions onto stack - <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a> - that has been previously loaded by <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">loadScript()</a>.  <a href="#a5eae05f78704166f098ea20568c23fd7"></a><br/></td></tr>
 <tr class="memitem:ab039ca83afd2466f9fe52fcc69adfefb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ab039ca83afd2466f9fe52fcc69adfefb">validateLastLoad</a> ()</td></tr>
 <tr class="memdesc:ab039ca83afd2466f9fe52fcc69adfefb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there was error in the last loaded file.  <a href="#ab039ca83afd2466f9fe52fcc69adfefb"></a><br/></td></tr>
 <tr class="memitem:aed08b6b1d8b4a637bb3e24a397ea1aaf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#aed08b6b1d8b4a637bb3e24a397ea1aaf">validateLastParse</a> ()</td></tr>
-<tr class="memdesc:aed08b6b1d8b4a637bb3e24a397ea1aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there was error in the last run file.  <a href="#aed08b6b1d8b4a637bb3e24a397ea1aaf"></a><br/></td></tr>
+<tr class="memdesc:aed08b6b1d8b4a637bb3e24a397ea1aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there was error in the last parsed file.  <a href="#aed08b6b1d8b4a637bb3e24a397ea1aaf"></a><br/></td></tr>
 <tr class="memitem:af06d49221c25b93c334f9ed49571fa72"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#af06d49221c25b93c334f9ed49571fa72">getTextError</a> () const </td></tr>
 <tr class="memdesc:af06d49221c25b93c334f9ed49571fa72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns error in a text form from last parsed (with <a class="el" href="class_lua_engine.html#a5eae05f78704166f098ea20568c23fd7" title="Puts api functions onto stack - LuaEngine::m_commands - that has been previously loaded by loadScript...">LuaEngine::parseScript()</a>) script.  <a href="#af06d49221c25b93c334f9ed49571fa72"></a><br/></td></tr>
 <tr class="memitem:abeccc6545aa5cde1681cf61780044ab3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#abeccc6545aa5cde1681cf61780044ab3">addCommand</a> (void(*pCmd)(std::deque&lt; int &gt;))</td></tr>
+<tr class="memdesc:abeccc6545aa5cde1681cf61780044ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts actions onto stack. See <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a> for more details.  <a href="#abeccc6545aa5cde1681cf61780044ab3"></a><br/></td></tr>
 <tr class="memitem:a1046fcf4498761e9c35165b99ca09987"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a1046fcf4498761e9c35165b99ca09987">addCommand</a> (void(*pCmd)(std::deque&lt; int &gt;), std::deque&lt; int &gt; args)</td></tr>
-<tr class="memdesc:a1046fcf4498761e9c35165b99ca09987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts actions onto stack. See <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5">LuaEngine::m_commands</a> for more details.  <a href="#a1046fcf4498761e9c35165b99ca09987"></a><br/></td></tr>
-<tr class="memitem:a1c299bc3d3f4a78f15f18b7458f76496"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a1c299bc3d3f4a78f15f18b7458f76496">timerEvent</a> (QTimerEvent *)</td></tr>
+<tr class="memdesc:a1046fcf4498761e9c35165b99ca09987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts actions onto stack with its arguments. See <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a> for more details.  <a href="#a1046fcf4498761e9c35165b99ca09987"></a><br/></td></tr>
+<tr class="memitem:a021846fc7d821e449fa1ce8d96c7dbc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a021846fc7d821e449fa1ce8d96c7dbc9">timerEvent</a> (QTimerEvent *e)</td></tr>
+<tr class="memdesc:a021846fc7d821e449fa1ce8d96c7dbc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funtion which is called by the <a class="el" href="class_lua_engine.html#a367284a1461c5a2d2804c3f9b4d94f14" title="Timer is used for supporting commands execution in a latency.">LuaEngine::m_timer</a> timer.  <a href="#a021846fc7d821e449fa1ce8d96c7dbc9"></a><br/></td></tr>
 <tr class="memitem:a28e0795b54170d763a929256566fe2b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a28e0795b54170d763a929256566fe2b5">start</a> ()</td></tr>
-<tr class="memitem:a6cf02a97dc88ba58276b4debfbd7b57a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a6cf02a97dc88ba58276b4debfbd7b57a">pause</a> ()</td></tr>
+<tr class="memdesc:a28e0795b54170d763a929256566fe2b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts executing commands (actually starts the timer which executes the commands).  <a href="#a28e0795b54170d763a929256566fe2b5"></a><br/></td></tr>
 <tr class="memitem:a5822af655fb7b474766e39b44be56a6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a5822af655fb7b474766e39b44be56a6a">stop</a> ()</td></tr>
+<tr class="memdesc:a5822af655fb7b474766e39b44be56a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops executing commands (stop the <a class="el" href="class_lua_engine.html#a367284a1461c5a2d2804c3f9b4d94f14" title="Timer is used for supporting commands execution in a latency.">LuaEngine::m_timer</a> timer).  <a href="#a5822af655fb7b474766e39b44be56a6a"></a><br/></td></tr>
 <tr class="memitem:a0b87a8b474070665af6e435a2c5bce56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a0b87a8b474070665af6e435a2c5bce56">setInterval</a> (int interval)</td></tr>
+<tr class="memdesc:a0b87a8b474070665af6e435a2c5bce56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set time interval for one command (used for sleep() api function).  <a href="#a0b87a8b474070665af6e435a2c5bce56"></a><br/></td></tr>
 <tr class="memitem:ac29f2b09b45797aac68bd5caa6fe2c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ac29f2b09b45797aac68bd5caa6fe2c90">setGUIInterval</a> (int interval)</td></tr>
+<tr class="memdesc:ac29f2b09b45797aac68bd5caa6fe2c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set time time interval for all commands.  <a href="#ac29f2b09b45797aac68bd5caa6fe2c90"></a><br/></td></tr>
 <tr class="memitem:a613b53ffedc45c8cf800e99aa42408c5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a613b53ffedc45c8cf800e99aa42408c5">getGUIInterval</a> () const </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8f2ebf32095adde76c6f744ffb881b38"><td class="memItemLeft" align="right" valign="top">lua_State *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a8f2ebf32095adde76c6f744ffb881b38">luaState</a></td></tr>
-<tr class="memdesc:a8f2ebf32095adde76c6f744ffb881b38"><td class="mdescLeft">&#160;</td><td class="mdescRight">State of the lua's engine. Used by lua's library - don't touch it.  <a href="#a8f2ebf32095adde76c6f744ffb881b38"></a><br/></td></tr>
-<tr class="memitem:aaa0fb13e75482eb9ca360a1bee3b2f9f"><td class="memItemLeft" align="right" valign="top">QBasicTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#aaa0fb13e75482eb9ca360a1bee3b2f9f">m_timer</a></td></tr>
-<tr class="memdesc:aaa0fb13e75482eb9ca360a1bee3b2f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer is used for supporting commands execution in a latency.  <a href="#aaa0fb13e75482eb9ca360a1bee3b2f9f"></a><br/></td></tr>
+<tr class="memitem:af9593e71b3d33a62cbf9e3080771bff9"><td class="memItemLeft" align="right" valign="top">lua_State *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#af9593e71b3d33a62cbf9e3080771bff9">luaState</a></td></tr>
+<tr class="memdesc:af9593e71b3d33a62cbf9e3080771bff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">State of the lua's engine. Used by lua's library - don't touch it.  <a href="#af9593e71b3d33a62cbf9e3080771bff9"></a><br/></td></tr>
+<tr class="memitem:a367284a1461c5a2d2804c3f9b4d94f14"><td class="memItemLeft" align="right" valign="top">QBasicTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a367284a1461c5a2d2804c3f9b4d94f14">m_timer</a></td></tr>
+<tr class="memdesc:a367284a1461c5a2d2804c3f9b4d94f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer is used for supporting commands execution in a latency.  <a href="#a367284a1461c5a2d2804c3f9b4d94f14"></a><br/></td></tr>
 <tr class="memitem:af25b4a96c17c157ae110afa1dd0866ec"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#af25b4a96c17c157ae110afa1dd0866ec">m_uInterval</a></td></tr>
-<tr class="memdesc:af25b4a96c17c157ae110afa1dd0866ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores time (as milliseconds) needed to execute next command that is available in the queue <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5">LuaEngine::m_commands</a>.  <a href="#af25b4a96c17c157ae110afa1dd0866ec"></a><br/></td></tr>
+<tr class="memdesc:af25b4a96c17c157ae110afa1dd0866ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores time (as milliseconds) needed to execute next command that is available in the queue <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a>.  <a href="#af25b4a96c17c157ae110afa1dd0866ec"></a><br/></td></tr>
 <tr class="memitem:ac7d00771a353cc9afa586a6ec10f5d90"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ac7d00771a353cc9afa586a6ec10f5d90">m_uGUIInterval</a></td></tr>
 <tr class="memdesc:ac7d00771a353cc9afa586a6ec10f5d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the same as <a class="el" href="class_lua_engine.html#af25b4a96c17c157ae110afa1dd0866ec" title="Stores time (as milliseconds) needed to execute next command that is available in the queue LuaEngine...">LuaEngine::m_uInterval</a>, but it stores value from "Commands time interval" in GUI.  <a href="#ac7d00771a353cc9afa586a6ec10f5d90"></a><br/></td></tr>
 <tr class="memitem:a86a3f32127e36e1ccce6c5a42a298ad5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_commands_manager.html">CommandsManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5">m_commands</a></td></tr>
+<tr class="memdesc:a86a3f32127e36e1ccce6c5a42a298ad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores all commands that are executed by the engine. See <a class="el" href="class_commands_manager.html" title="Manager for commands stored in the lua&#39;s engine.">CommandsManager</a> for more details.  <a href="#a86a3f32127e36e1ccce6c5a42a298ad5"></a><br/></td></tr>
 <tr class="memitem:af8dca74620280060399b5b7dd937af44"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#af8dca74620280060399b5b7dd937af44">m_loadError</a></td></tr>
 <tr class="memdesc:af8dca74620280060399b5b7dd937af44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if there is a syntax/memory error in the loaded lua's script.  <a href="#af8dca74620280060399b5b7dd937af44"></a><br/></td></tr>
 <tr class="memitem:ac7c65e343f73a0dadcbe2d5f1a5842f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ac7c65e343f73a0dadcbe2d5f1a5842f3">m_parseError</a></td></tr>
@@ -153,10 +159,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a0cb5dc043a3f9b162ad97245cd7e6956"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a0cb5dc043a3f9b162ad97245cd7e6956">m_textError</a></td></tr>
 <tr class="memdesc:a0cb5dc043a3f9b162ad97245cd7e6956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores exact string which is returned by lua's lua_pcall function.  <a href="#a0cb5dc043a3f9b162ad97245cd7e6956"></a><br/></td></tr>
 <tr class="memitem:add74083d158ee3543d0644c0b6349c5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#add74083d158ee3543d0644c0b6349c5d">m_bIntervalChanged</a></td></tr>
+<tr class="memdesc:add74083d158ee3543d0644c0b6349c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if the interval has been changed by using GUI or sleep() api function.  <a href="#add74083d158ee3543d0644c0b6349c5d"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Engine for maintaing LUA's API commands. </p>
-<p>Objects of this class load scripts, check their grammar correctness and store the commands for further executing. As first step after creating an object of this class you have to register your API functions by using <a class="el" href="class_lua_engine.html#a03530362918aceccd6f69a5cecf2a968" title="Registers API function used in scripts.">LuaEngine::registerFunction</a> method. When all of the functions has been registered you are allowed to load and parse scripts by using <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">LuaEngine::loadScript</a> and <a class="el" href="class_lua_engine.html#a5eae05f78704166f098ea20568c23fd7" title="Puts api functions onto stack - LuaEngine::m_commands - that has been previously loaded by loadScript...">LuaEngine::parseScript</a> methods. <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">LuaEngine::loadScript</a> simply loads code to the memory and check its correctness whereas <a class="el" href="class_lua_engine.html#a5eae05f78704166f098ea20568c23fd7" title="Puts api functions onto stack - LuaEngine::m_commands - that has been previously loaded by loadScript...">LuaEngine::parseScript</a> runs the script. During parsing LUA invokes methods which can prepare commands by putting them to a queue. This is done for allowing executing commands with some time interval (we can remove time interval - simply set GUI interval to 0). Check <a class="el" href="class_lua_engine.html#a03530362918aceccd6f69a5cecf2a968" title="Registers API function used in scripts.">LuaEngine::registerFunction</a> for more details. Next step (optional) is to set a time interval in which the commands will be executed (default is 500 milliseconds) by using <a class="el" href="class_lua_engine.html#ac29f2b09b45797aac68bd5caa6fe2c90">LuaEngine::setGUIInterval</a> method. After successful load and parse you need to copy queue and stack to the lua's engine by using LuaEngine::copyData. Last step is to invoke <a class="el" href="class_lua_engine.html#a28e0795b54170d763a929256566fe2b5">LuaEngine::start()</a> to start executing the commands. Also important thing to mention is <a class="el" href="class_lua_engine.html#a0b87a8b474070665af6e435a2c5bce56">LuaEngine::setInterval</a>. Comparing to the GUI version it changes time interval only for the next command. Therefore it should be used for some API functions like sleep(). </p>
+<p>Objects of this class load scripts, check their grammar correctness and store the commands for further executing. As first step after creating an object of this class you have to register your API functions by using <a class="el" href="class_lua_engine.html#a03530362918aceccd6f69a5cecf2a968" title="Registers API function used in scripts.">LuaEngine::registerFunction</a> method. When all of the functions has been registered you are allowed to load and parse scripts by using <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">LuaEngine::loadScript</a> and <a class="el" href="class_lua_engine.html#a5eae05f78704166f098ea20568c23fd7" title="Puts api functions onto stack - LuaEngine::m_commands - that has been previously loaded by loadScript...">LuaEngine::parseScript</a> methods. <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">LuaEngine::loadScript</a> simply loads code to the memory and check its correctness whereas <a class="el" href="class_lua_engine.html#a5eae05f78704166f098ea20568c23fd7" title="Puts api functions onto stack - LuaEngine::m_commands - that has been previously loaded by loadScript...">LuaEngine::parseScript</a> runs the script. During parsing LUA invokes methods which can prepare commands by putting them to a queue. This is done for allowing executing commands with some time interval (we can remove time interval - simply set GUI interval to 0). Check <a class="el" href="class_lua_engine.html#a03530362918aceccd6f69a5cecf2a968" title="Registers API function used in scripts.">LuaEngine::registerFunction</a> for more details. Next step (optional) is to set a time interval in which the commands will be executed (default is 500 milliseconds) by using <a class="el" href="class_lua_engine.html#ac29f2b09b45797aac68bd5caa6fe2c90" title="Set time time interval for all commands.">LuaEngine::setGUIInterval</a> method. After successful load and parse you need to copy queue and stack to the lua's engine by using LuaEngine::copyData. Last step is to invoke <a class="el" href="class_lua_engine.html#a28e0795b54170d763a929256566fe2b5" title="Starts executing commands (actually starts the timer which executes the commands).">LuaEngine::start()</a> to start executing the commands. Also important thing to mention is <a class="el" href="class_lua_engine.html#a0b87a8b474070665af6e435a2c5bce56" title="Set time interval for one command (used for sleep() api function).">LuaEngine::setInterval</a>. Comparing to the GUI version it changes time interval only for the next command. Therefore it should be used for some API functions like sleep(). </p>
 <dl class="section author"><dt>Author:</dt><dd>Jacek Topolski </dd></dl>
 <dl class="section version"><dt>Version:</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date:</dt><dd>28.06.2012 </dd></dl>
@@ -237,6 +244,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Puts actions onto stack. See <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a> for more details. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pCmd</td><td><a class="el" href="class_action.html" title="Engine for maintaing LUA&#39;s API commands.">Action</a> which is put onto <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a> stack. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a1046fcf4498761e9c35165b99ca09987"></a>
@@ -263,11 +278,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Puts actions onto stack. See <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5">LuaEngine::m_commands</a> for more details. </p>
+<p>Puts actions onto stack with its arguments. See <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a> for more details. </p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">pCmd</td><td>Actions which will be put onto <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5">LuaEngine::m_commands</a> stack. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Arguments for api functions that will be put onto LuaEngine::m_args stack. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pCmd</td><td><a class="el" href="class_action.html" title="Engine for maintaing LUA&#39;s API commands.">Action</a> which is put onto <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a> stack. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Arguments for api functions that is put onto LuaEngine::m_args stack. </td></tr>
   </table>
   </dd>
 </dl>
@@ -286,6 +301,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Time interval for all commands. </dd></dl>
 
 </div>
 </div>
@@ -336,7 +352,7 @@ Private Attributes</h2></td></tr>
 <p>Parses script (prepares for running it) into memory from a specified buffer. </p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">code</td><td>Script code or file name, depends on the second argument. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">code</td><td><a class="el" href="class_script.html" title="Keeps all data for scripts.">Script</a> code or file name, depends on the second argument. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Indicates whether this function loads from file or from a buffer. See <a class="el" href="class_lua_engine.html#a70152f6f27278ec4262bd4712823a72d" title="Values determining which mode we are using loadScript() function in.">LuaEngine::MODE</a> for more details. </td></tr>
   </table>
   </dd>
@@ -359,25 +375,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Puts api functions onto stack - <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5">LuaEngine::m_commands</a> - that has been previously loaded by <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">loadScript()</a>. </p>
+<p>Puts api functions onto stack - <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a> - that has been previously loaded by <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">loadScript()</a>. </p>
 <dl class="section return"><dt>Returns:</dt><dd>Error code or 0 if there are no errors. See luaEngine::m_parseError for more details. </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a12">LuaEngine_example.cpp</a>.</dd>
 </dl>
-</div>
-</div>
-<a class="anchor" id="a6cf02a97dc88ba58276b4debfbd7b57a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void LuaEngine::pause </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 </div>
 </div>
 <a class="anchor" id="a03530362918aceccd6f69a5cecf2a968"></a>
@@ -430,6 +431,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set time time interval for all commands. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">interval</td><td>Time interval. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a14">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
@@ -448,6 +457,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Set time interval for one command (used for sleep() api function). </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">interval</td><td>Time interval. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a28e0795b54170d763a929256566fe2b5"></a>
@@ -462,6 +479,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Starts executing commands (actually starts the timer which executes the commands). </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a15">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
@@ -479,9 +498,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Stops executing commands (stop the <a class="el" href="class_lua_engine.html#a367284a1461c5a2d2804c3f9b4d94f14" title="Timer is used for supporting commands execution in a latency.">LuaEngine::m_timer</a> timer). </p>
+
 </div>
 </div>
-<a class="anchor" id="a1c299bc3d3f4a78f15f18b7458f76496"></a>
+<a class="anchor" id="a021846fc7d821e449fa1ce8d96c7dbc9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -489,11 +510,19 @@ Private Attributes</h2></td></tr>
           <td class="memname">void LuaEngine::timerEvent </td>
           <td>(</td>
           <td class="paramtype">QTimerEvent *&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Funtion which is called by the <a class="el" href="class_lua_engine.html#a367284a1461c5a2d2804c3f9b4d94f14" title="Timer is used for supporting commands execution in a latency.">LuaEngine::m_timer</a> timer. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>Event which invoked the function. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -528,13 +557,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Checks if there was error in the last run file. </p>
+<p>Checks if there was error in the last parsed file. </p>
 <dl class="section return"><dt>Returns:</dt><dd>Error code. See luaEngine::m_parseError for more details. </dd></dl>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a8f2ebf32095adde76c6f744ffb881b38"></a>
+<a class="anchor" id="af9593e71b3d33a62cbf9e3080771bff9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -542,7 +571,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">lua_State * LuaEngine::luaState</td>
+          <td class="memname">lua_State* LuaEngine::luaState</td>
         </tr>
       </table>
   </td>
@@ -574,6 +603,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Indicates if the interval has been changed by using GUI or sleep() api function. </p>
+<p>If the variable is set to true it means that the sleep() api function is being executed, otherwise the interval has been changed by using GUI. </p>
+
 </div>
 </div>
 <a class="anchor" id="a86a3f32127e36e1ccce6c5a42a298ad5"></a>
@@ -593,6 +625,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Stores all commands that are executed by the engine. See <a class="el" href="class_commands_manager.html" title="Manager for commands stored in the lua&#39;s engine.">CommandsManager</a> for more details. </p>
 
 </div>
 </div>
@@ -670,7 +704,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aaa0fb13e75482eb9ca360a1bee3b2f9f"></a>
+<a class="anchor" id="a367284a1461c5a2d2804c3f9b4d94f14"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -678,7 +712,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QBasicTimer * LuaEngine::m_timer</td>
+          <td class="memname">QBasicTimer* LuaEngine::m_timer</td>
         </tr>
       </table>
   </td>
@@ -734,7 +768,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stores time (as milliseconds) needed to execute next command that is available in the queue <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5">LuaEngine::m_commands</a>. </p>
+<p>Stores time (as milliseconds) needed to execute next command that is available in the queue <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a>. </p>
 <p>This can be changed while calling e.g. sleep() in the script. This value is used in timer event, not the <a class="el" href="class_lua_engine.html#ac7d00771a353cc9afa586a6ec10f5d90" title="This is the same as LuaEngine::m_uInterval, but it stores value from &quot;Commands time interval&quot; in GUI...">LuaEngine::m_uGUIInterval</a>. Check <a class="el" href="class_lua_engine.html#ac7d00771a353cc9afa586a6ec10f5d90" title="This is the same as LuaEngine::m_uInterval, but it stores value from &quot;Commands time interval&quot; in GUI...">LuaEngine::m_uGUIInterval</a> for more details. </p>
 
 </div>
@@ -746,7 +780,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 18 2012 22:46:27 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 3 2012 23:28:24 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

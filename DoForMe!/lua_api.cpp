@@ -284,6 +284,12 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 		if( _char == '{' ) {
 			// gets text between {} brackets
 			int _symbolsRead = getSpecialKey( _specialKey, args );
+			if( _symbolsRead == -1 ) {
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unexpected error while parsing sendText() function." );
+				_msg.exec();
+
+				return;
+			}
 			
 			// it is needed to increase the iterator with number of elements read
 			i += _symbolsRead;
@@ -371,6 +377,9 @@ int LuaApiEngine::getSpecialKey( QString& specialKey, std::deque<int>& args ) {
 		args.pop_front();
 		return i;
 	}
+
+	// unexpected error, shouldn't reach it
+	return -1;
 }
 
 void LuaApiEngine::initSpecialKeys() {

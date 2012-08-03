@@ -26,6 +26,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	QObject::connect( ui.actionSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
 	QObject::connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
 	QObject::connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
+	QObject::connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
 	
 	// used for centering main app window
 	QDesktopWidget screen;
@@ -173,9 +174,17 @@ void mainWin::saveScript() {
 	if( !m_pCurrScript ) return;
 	if( !m_pCurrScript->isModified() ) return;
 
+	// set new code for the currently selected script
 	m_pCurrScript->setCode( ui.scriptTextEdit->toPlainText() );
 
-	ScriptsManager::saveToFile( m_pCurrScript );
+	// make title without '*' symbol
+	setScriptTitle( m_pCurrScript->getFileName() );
+
+	// save the script to the file
+	if( !ScriptsManager::saveToFile( m_pCurrScript->getFileName() ) ) {
+		QMessageBox _msg( QMessageBox::Critical, "Error", "Unexpected error. The script wasn't saved." );
+		_msg.exec();
+	}
 }
 
 void mainWin::saveAction() {
@@ -228,6 +237,11 @@ void mainWin::scriptModified() {
 }
 
 void mainWin::addAction() {
+	if( !m_pCurrScript ) return;
+
+	ActionSettingsDialog _actionSettings;
+	_actionSettings.exec();
+
 	/*bool _bShouldAdd = true;
 	qDebug( "%d", m_pCurrAction );
 	if( !m_pCurrAction ) {
@@ -331,8 +345,8 @@ void mainWin::initLuaApi() {
 
 void mainWin::getDataForAction() {
 	// set time
-	QTime _time = QTime( ui.hourSpin->value(), ui.minSpin->value(), ui.secSpin->value() );
-	m_pCurrAction->setTime( _time );
+	//QTime _time = QTime( ui.hourSpin->value(), ui.minSpin->value(), ui.secSpin->value() );
+	//m_pCurrAction->setTime( _time );
 
 
 }

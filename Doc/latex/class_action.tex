@@ -28,6 +28,14 @@ Q\-String \hyperlink{class_action_a6fe79539f83f2af7be05b698dae55d65}{get\-File\-
 void \hyperlink{class_action_a534682646596250cd8bb98957e423791}{set\-Code} (Q\-String code)
 \item 
 Q\-String \hyperlink{class_action_a0cb6822da346dff4514e056547979cdd}{get\-Code} () const 
+\item 
+void \hyperlink{class_action_a78038e8c66cf8e6b4ff53874298ef7d4}{set\-Time} (Q\-Time)
+\item 
+Q\-Time \hyperlink{class_action_a01e6fdaabad6d3794f34a6c74b484095}{get\-Time} () const 
+\item 
+void \hyperlink{class_action_ab3d4f6defc4b25b7d64d806ca861388d}{set\-Modified} (bool)
+\item 
+bool \hyperlink{class_action_a50c6caabd07584a1d4adb8dfc6270abe}{is\-Modified} () const 
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -37,6 +45,10 @@ Q\-String \hyperlink{class_action_acdaebb900bcc4fa101b7ad7fcc607e01}{m\-\_\-path
 Q\-String \hyperlink{class_action_a65a3f717f84c94c351ccff1e4f450816}{m\-\_\-file\-Name}
 \item 
 Q\-String \hyperlink{class_action_a15cb4f3d394cecf16438d01c05b87c98}{m\-\_\-code}
+\item 
+Q\-Time \hyperlink{class_action_a00911e1be6fd7fa990a2a607590edaa9}{m\-\_\-time}
+\item 
+bool \hyperlink{class_action_ad7930bec6d8cff987c1882d76642369d}{m\-\_\-b\-Modified}
 \end{DoxyCompactItemize}
 
 
@@ -93,6 +105,20 @@ Jacek Topolski
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_action_aae0058c4c9a79b296b1ef89670da4167}
+\hypertarget{class_action_a01e6fdaabad6d3794f34a6c74b484095}{\index{Action@{Action}!get\-Time@{get\-Time}}
+\index{get\-Time@{get\-Time}!Action@{Action}}
+\subsubsection[{get\-Time}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Time Action\-::get\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_a01e6fdaabad6d3794f34a6c74b484095}
+\hypertarget{class_action_a50c6caabd07584a1d4adb8dfc6270abe}{\index{Action@{Action}!is\-Modified@{is\-Modified}}
+\index{is\-Modified@{is\-Modified}!Action@{Action}}
+\subsubsection[{is\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}bool Action\-::is\-Modified (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_a50c6caabd07584a1d4adb8dfc6270abe}
 \hypertarget{class_action_a534682646596250cd8bb98957e423791}{\index{Action@{Action}!set\-Code@{set\-Code}}
 \index{set\-Code@{set\-Code}!Action@{Action}}
 \subsubsection[{set\-Code}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Code (
@@ -107,6 +133,13 @@ Jacek Topolski
 \item[{Q\-String}]{file\-Name}
 \end{DoxyParamCaption}
 )}}\label{class_action_a5d60106a1c5b9d492f32432e903ba0c4}
+\hypertarget{class_action_ab3d4f6defc4b25b7d64d806ca861388d}{\index{Action@{Action}!set\-Modified@{set\-Modified}}
+\index{set\-Modified@{set\-Modified}!Action@{Action}}
+\subsubsection[{set\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Modified (
+\begin{DoxyParamCaption}
+\item[{bool}]{changed}
+\end{DoxyParamCaption}
+)}}\label{class_action_ab3d4f6defc4b25b7d64d806ca861388d}
 \hypertarget{class_action_a8d7527963d293e66cd9d63e4868f07a4}{\index{Action@{Action}!set\-Path@{set\-Path}}
 \index{set\-Path@{set\-Path}!Action@{Action}}
 \subsubsection[{set\-Path}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Path (
@@ -114,9 +147,19 @@ Jacek Topolski
 \item[{Q\-String}]{path}
 \end{DoxyParamCaption}
 )}}\label{class_action_a8d7527963d293e66cd9d63e4868f07a4}
+\hypertarget{class_action_a78038e8c66cf8e6b4ff53874298ef7d4}{\index{Action@{Action}!set\-Time@{set\-Time}}
+\index{set\-Time@{set\-Time}!Action@{Action}}
+\subsubsection[{set\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Time (
+\begin{DoxyParamCaption}
+\item[{Q\-Time}]{time}
+\end{DoxyParamCaption}
+)}}\label{class_action_a78038e8c66cf8e6b4ff53874298ef7d4}
 
 
 \subsection{Member Data Documentation}
+\hypertarget{class_action_ad7930bec6d8cff987c1882d76642369d}{\index{Action@{Action}!m\-\_\-b\-Modified@{m\-\_\-b\-Modified}}
+\index{m\-\_\-b\-Modified@{m\-\_\-b\-Modified}!Action@{Action}}
+\subsubsection[{m\-\_\-b\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}bool Action\-::m\-\_\-b\-Modified\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_ad7930bec6d8cff987c1882d76642369d}
 \hypertarget{class_action_a15cb4f3d394cecf16438d01c05b87c98}{\index{Action@{Action}!m\-\_\-code@{m\-\_\-code}}
 \index{m\-\_\-code@{m\-\_\-code}!Action@{Action}}
 \subsubsection[{m\-\_\-code}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::m\-\_\-code\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a15cb4f3d394cecf16438d01c05b87c98}
@@ -126,6 +169,9 @@ Jacek Topolski
 \hypertarget{class_action_acdaebb900bcc4fa101b7ad7fcc607e01}{\index{Action@{Action}!m\-\_\-path@{m\-\_\-path}}
 \index{m\-\_\-path@{m\-\_\-path}!Action@{Action}}
 \subsubsection[{m\-\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::m\-\_\-path\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_acdaebb900bcc4fa101b7ad7fcc607e01}
+\hypertarget{class_action_a00911e1be6fd7fa990a2a607590edaa9}{\index{Action@{Action}!m\-\_\-time@{m\-\_\-time}}
+\index{m\-\_\-time@{m\-\_\-time}!Action@{Action}}
+\subsubsection[{m\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Time Action\-::m\-\_\-time\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a00911e1be6fd7fa990a2a607590edaa9}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

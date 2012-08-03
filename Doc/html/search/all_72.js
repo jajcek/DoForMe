@@ -1,6 +1,7 @@
 var searchData=
 [
   ['registerfunction',['registerFunction',['../class_lua_engine.html#a03530362918aceccd6f69a5cecf2a968',1,'LuaEngine']]],
+  ['removescripts',['removeScripts',['../class_scripts_manager.html#a137f7089f471de89c5d1344d3b5781cd',1,'ScriptsManager']]],
   ['rightclick',['rightClick',['../class_lua_api_engine.html#a7b3664b6f2593d3bd817edeee61a18e6',1,'LuaApiEngine']]],
   ['rightdown',['rightDown',['../class_lua_api_engine.html#a14df77fdabe3ddf5dd19c35e70acb2d8',1,'LuaApiEngine']]],
   ['rightup',['rightUp',['../class_lua_api_engine.html#ae8b09733792cc95ca22654be8074bfbf',1,'LuaApiEngine']]],

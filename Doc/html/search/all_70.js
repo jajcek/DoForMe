@@ -3,7 +3,6 @@ var searchData=
   ['paintcell',['paintCell',['../class_detailed_calendar.html#a9dd0c5c754da4f0224c8251545a1ab57',1,'DetailedCalendar']]],
   ['paintevent',['paintEvent',['../class_about_dialog.html#a3bf2e8a107b5c47b29df30931698a819',1,'AboutDialog']]],
   ['parsescript',['parseScript',['../class_lua_engine.html#a5eae05f78704166f098ea20568c23fd7',1,'LuaEngine']]],
-  ['pause',['pause',['../class_lua_engine.html#a6cf02a97dc88ba58276b4debfbd7b57a',1,'LuaEngine']]],
   ['prepareleftclick',['prepareLeftClick',['../class_lua_api_engine.html#aa4ec049683c5ca8fe5b317f9daa80cf2',1,'LuaApiEngine']]],
   ['prepareleftclickat',['prepareLeftClickAt',['../class_lua_api_engine.html#a2109f8d536e8238941ea3d5254feee6e',1,'LuaApiEngine']]],
   ['prepareleftdoubleclick',['prepareLeftDoubleClick',['../class_lua_api_engine.html#ab545cafb77e825b84d787d0dbae34bc2',1,'LuaApiEngine']]],

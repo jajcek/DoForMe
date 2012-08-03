@@ -93,6 +93,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Stores key code and its mode.  
+ <a href="class_key.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="key_8h_source.html">key.h</a>&gt;</code></p>
 
 <p><a href="class_key-members.html">List of all members.</a></p>
@@ -103,26 +106,40 @@ Public Types</h2></td></tr>
 <a class="el" href="class_key.html#a6f8c4beba5584878553ee5b3077be416ab0381f960318045ea8221f73863fd499">DOWN</a>, 
 <a class="el" href="class_key.html#a6f8c4beba5584878553ee5b3077be416a94528a9df1ce9f0789fb5e33780424f1">UP</a>
  }</td></tr>
+<tr class="memdesc:a6f8c4beba5584878553ee5b3077be416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode for the key.  <a href="class_key.html#a6f8c4beba5584878553ee5b3077be416">More...</a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a26feef290360ca3bba9b5bb6831de445"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key.html#a26feef290360ca3bba9b5bb6831de445">Key</a> (unsigned short keyCode, unsigned short mode=0)</td></tr>
+<tr class="memdesc:a26feef290360ca3bba9b5bb6831de445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates new key with the given key code and mode.  <a href="#a26feef290360ca3bba9b5bb6831de445"></a><br/></td></tr>
 <tr class="memitem:ab3097a0cdb61e5e7c1e2f3cba6746a37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key.html#ab3097a0cdb61e5e7c1e2f3cba6746a37">insertKeyTo</a> (std::vector&lt; INPUT &gt; &amp;inputs)</td></tr>
+<tr class="memdesc:ab3097a0cdb61e5e7c1e2f3cba6746a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts new key to the specified vector of INPUT objects.  <a href="#ab3097a0cdb61e5e7c1e2f3cba6746a37"></a><br/></td></tr>
 <tr class="memitem:a2586bfede14e2f7ccc0faf07ec1b6841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key.html#a2586bfede14e2f7ccc0faf07ec1b6841">setKeyCode</a> (unsigned short keyCode)</td></tr>
+<tr class="memdesc:a2586bfede14e2f7ccc0faf07ec1b6841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets virtual key code.  <a href="#a2586bfede14e2f7ccc0faf07ec1b6841"></a><br/></td></tr>
 <tr class="memitem:a0acebcc2e10270c2f31c1c5f96395fa7"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key.html#a0acebcc2e10270c2f31c1c5f96395fa7">getKeyCode</a> () const </td></tr>
 <tr class="memitem:a87cab00dc5a5e7490e62d48f0560085e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key.html#a87cab00dc5a5e7490e62d48f0560085e">setMode</a> (unsigned short mode)</td></tr>
+<tr class="memdesc:a87cab00dc5a5e7490e62d48f0560085e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets mode for a key.  <a href="#a87cab00dc5a5e7490e62d48f0560085e"></a><br/></td></tr>
 <tr class="memitem:a3c6d49b9f94672a8e17ebf9f37ad3900"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key.html#a3c6d49b9f94672a8e17ebf9f37ad3900">getMode</a> () const </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e99bf27b8920e8e16f27691efedf9ba"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key.html#a4e99bf27b8920e8e16f27691efedf9ba">insertKeyTo</a> (unsigned short keyCode, unsigned short mode, std::vector&lt; INPUT &gt; &amp;inputs)</td></tr>
+<tr class="memdesc:a4e99bf27b8920e8e16f27691efedf9ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts given key with its mode to the specified vector of INPUT objects.  <a href="#a4e99bf27b8920e8e16f27691efedf9ba"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ae6d7c00f3366108e2f45886797e0566d"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key.html#ae6d7c00f3366108e2f45886797e0566d">m_keyCode</a></td></tr>
+<tr class="memdesc:ae6d7c00f3366108e2f45886797e0566d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual code for the key.  <a href="#ae6d7c00f3366108e2f45886797e0566d"></a><br/></td></tr>
 <tr class="memitem:a6e6fc320c7ab65b829317223f357d706"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key.html#a6e6fc320c7ab65b829317223f357d706">m_mode</a></td></tr>
+<tr class="memdesc:a6e6fc320c7ab65b829317223f357d706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode for the key.  <a href="#a6e6fc320c7ab65b829317223f357d706"></a><br/></td></tr>
 </table>
-<hr/><h2>Member Enumeration Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Stores key code and its mode. </p>
+<p>The class is used to store keys that are available to users via sendText() api function. The key is converted to INPUT structure to be put into SendInput function. </p>
+<dl class="section author"><dt>Author:</dt><dd>Jacek Topolski </dd></dl>
+<dl class="section version"><dt>Version:</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date:</dt><dd>28.07.2012 </dd></dl>
+</div><hr/><h2>Member Enumeration Documentation</h2>
 <a class="anchor" id="a6f8c4beba5584878553ee5b3077be416"></a>
 <div class="memitem">
 <div class="memproto">
@@ -132,7 +149,13 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+
+<p>Mode for the key. </p>
+<p>The value is set to <a class="el" href="class_key.html#a6e6fc320c7ab65b829317223f357d706" title="Mode for the key.">Key::m_mode</a> variable. </p>
+<pre class="fragment">            Possible value:
+            Key::CLICK -&gt; Down + Up,
+            Key::DOWN -&gt; Down,
+            Key::UP -&gt; UP.</pre> <dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
 <tr><td valign="top"><em><a class="anchor" id="a6f8c4beba5584878553ee5b3077be416a921a98871b9bca60fb5abbfb2cbaa4dd"></a>CLICK</em>&nbsp;</td><td>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="a6f8c4beba5584878553ee5b3077be416ab0381f960318045ea8221f73863fd499"></a>DOWN</em>&nbsp;</td><td>
@@ -170,15 +193,22 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates new key with the given key code and mode. </p>
+<p>See <a class="el" href="class_key.html#a6f8c4beba5584878553ee5b3077be416" title="Mode for the key.">Key::MODE</a> for more details about modes. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyCode</td><td>Virtual key code. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Mode that the key is created for. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a0acebcc2e10270c2f31c1c5f96395fa7"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">unsigned short Key::getKeyCode </td>
@@ -187,21 +217,14 @@ Private Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Virtual key code. </dd></dl>
 
 </div>
 </div>
 <a class="anchor" id="a3c6d49b9f94672a8e17ebf9f37ad3900"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">unsigned short Key::getMode </td>
@@ -210,12 +233,8 @@ Private Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Mode for the key. </dd></dl>
 
 </div>
 </div>
@@ -232,6 +251,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Inserts new key to the specified vector of INPUT objects. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">inputs</td><td>Vector of INPUT objects which the key is inserted to. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -273,14 +300,21 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Inserts given key with its mode to the specified vector of INPUT objects. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyCode</td><td>Virtual key code. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Mode of the key. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">inputs</td><td>Vector of INPUT objects which the key is inserted to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a2586bfede14e2f7ccc0faf07ec1b6841"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Key::setKeyCode </td>
@@ -290,21 +324,21 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Sets virtual key code. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyCode</td><td>Virtual key code to be set. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <a class="anchor" id="a87cab00dc5a5e7490e62d48f0560085e"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Key::setMode </td>
@@ -314,12 +348,15 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Sets mode for a key. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Mode of the key. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -342,6 +379,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Virtual code for the key. </p>
+
 </div>
 </div>
 <a class="anchor" id="a6e6fc320c7ab65b829317223f357d706"></a>
@@ -362,6 +401,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Mode for the key. </p>
+<p>See <a class="el" href="class_key.html#a6f8c4beba5584878553ee5b3077be416" title="Mode for the key.">Key::MODE</a> for more details. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -371,7 +413,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 18 2012 22:46:27 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 3 2012 23:28:24 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

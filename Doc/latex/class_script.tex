@@ -1,0 +1,245 @@
+\hypertarget{class_script}{\section{Script Class Reference}
+\label{class_script}\index{Script@{Script}}
+}
+
+
+Keeps all data for scripts.  
+
+
+
+
+{\ttfamily \#include $<$script.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_script_a31bdf4c9dad24a34f89391b65d27ec42}{Script} (const Q\-String \&path, int i\-Mode=\hyperlink{class_script_a95987e80ff92f659bf2366e6b4a42bb1}{L\-O\-A\-D})  throw ( int )
+\begin{DoxyCompactList}\small\item\em Contructor which creates or loads a file from the given path. \end{DoxyCompactList}\item 
+void \hyperlink{class_script_ae36120acfbb13522b04b19b8893a75c0}{set\-Code} (const Q\-String \&code)
+\begin{DoxyCompactList}\small\item\em Sets the code for the script. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_script_a829824466cc29a1fc019a630a0a64a58}{get\-Code} () const 
+\begin{DoxyCompactList}\small\item\em Gets the code for the script. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_script_a79b3d1c188f66790d4647ce352f978ab}{get\-Path} () const 
+\begin{DoxyCompactList}\small\item\em Get path to the file by which the object has been created. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_script_a4fe7b18819eeebb1ed154f6350ba7fef}{get\-File\-Name} () const 
+\begin{DoxyCompactList}\small\item\em Gets file name (without extension) of the script file. \end{DoxyCompactList}\item 
+void \hyperlink{class_script_a6d238ee550711d495c720598be7d9f21}{set\-Modified} (bool \hyperlink{class_script_a4affbe0aa40b4b64ed99a8f5a488aa0f}{is\-Modified})
+\begin{DoxyCompactList}\small\item\em Changes state of the script (modified/unmodified). \end{DoxyCompactList}\item 
+bool \hyperlink{class_script_a4affbe0aa40b4b64ed99a8f5a488aa0f}{is\-Modified} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{class_script_a1be7d65c8f9b0db216570980815aacb6}{File\-Open\-Exception} = 0
+\begin{DoxyCompactList}\small\item\em Constant which is used for file open exception. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_script_a95987e80ff92f659bf2366e6b4a42bb1}{L\-O\-A\-D} = 1
+\begin{DoxyCompactList}\small\item\em Constant which instructs constructor to load file from the given path. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_script_a5e2d0b611f3dadbc9e79ffe28e1e5257}{C\-R\-E\-A\-T\-E} = 2
+\begin{DoxyCompactList}\small\item\em Constant which instructs constructor to create file with the given path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\-String \hyperlink{class_script_a0f4c15a406618ff705b1dec27855683a}{get\-Code\-From\-File} (Q\-File \&file)
+\begin{DoxyCompactList}\small\item\em Helper function that loads content of the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\-String \hyperlink{class_script_a712090ac7231f4948abf11964d9adab7}{m\-\_\-str\-Code}
+\begin{DoxyCompactList}\small\item\em Code of the script. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_script_a6aa79179662c0220e0ad05a7f2985a0b}{m\-\_\-str\-Path}
+\begin{DoxyCompactList}\small\item\em Path to the file by which has been created an object. \end{DoxyCompactList}\item 
+bool \hyperlink{class_script_a257a0787624a8e8c067f3b2c4805f6fa}{m\-\_\-b\-Modified}
+\begin{DoxyCompactList}\small\item\em State of the script which indicates if the script is modified or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Keeps all data for scripts. 
+
+The data in the class are\-: code, path to the script file and state that indicates if the script has been modified. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28.\-07.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_script_a31bdf4c9dad24a34f89391b65d27ec42}{\index{Script@{Script}!Script@{Script}}
+\index{Script@{Script}!Script@{Script}}
+\subsubsection[{Script}]{\setlength{\rightskip}{0pt plus 5cm}Script\-::\-Script (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{path, }
+\item[{int}]{i\-Mode = {\ttfamily {\bf L\-O\-A\-D}}}
+\end{DoxyParamCaption}
+)  throw ( int )}}\label{class_script_a31bdf4c9dad24a34f89391b65d27ec42}
+
+
+Contructor which creates or loads a file from the given path. 
+
+If the file can't be somehow opened to read or write, or the file doesn't exists the \hyperlink{class_script_a1be7d65c8f9b0db216570980815aacb6}{Script\-::\-File\-Open\-Exception} exception is thrown. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em path} & Path to a file. \\
+\hline
+\mbox{\tt in}  & {\em i\-Mode} & Parameter which determines what the constructor should do, create or load file. See \hyperlink{class_script_a95987e80ff92f659bf2366e6b4a42bb1}{Script\-::\-L\-O\-A\-D} and \hyperlink{class_script_a5e2d0b611f3dadbc9e79ffe28e1e5257}{Script\-::\-C\-R\-E\-A\-T\-E} for more details. By default the value is set to \hyperlink{class_script_a95987e80ff92f659bf2366e6b4a42bb1}{Script\-::\-L\-O\-A\-D}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_script_a829824466cc29a1fc019a630a0a64a58}{\index{Script@{Script}!get\-Code@{get\-Code}}
+\index{get\-Code@{get\-Code}!Script@{Script}}
+\subsubsection[{get\-Code}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Script\-::get\-Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_script_a829824466cc29a1fc019a630a0a64a58}
+
+
+Gets the code for the script. 
+
+\begin{DoxyReturn}{Returns}
+Code of the script. 
+\end{DoxyReturn}
+\hypertarget{class_script_a0f4c15a406618ff705b1dec27855683a}{\index{Script@{Script}!get\-Code\-From\-File@{get\-Code\-From\-File}}
+\index{get\-Code\-From\-File@{get\-Code\-From\-File}!Script@{Script}}
+\subsubsection[{get\-Code\-From\-File}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Script\-::get\-Code\-From\-File (
+\begin{DoxyParamCaption}
+\item[{Q\-File \&}]{file}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_script_a0f4c15a406618ff705b1dec27855683a}
+
+
+Helper function that loads content of the file. 
+
+Beware that the file object will be fully read with read\-Line method of Q\-File class, so after executing the function on the object, your cursor will point to the end of the file. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em file} & File which the function reads from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Content of the file. 
+\end{DoxyReturn}
+\hypertarget{class_script_a4fe7b18819eeebb1ed154f6350ba7fef}{\index{Script@{Script}!get\-File\-Name@{get\-File\-Name}}
+\index{get\-File\-Name@{get\-File\-Name}!Script@{Script}}
+\subsubsection[{get\-File\-Name}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Script\-::get\-File\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_script_a4fe7b18819eeebb1ed154f6350ba7fef}
+
+
+Gets file name (without extension) of the script file. 
+
+File name is taken from its path \hyperlink{class_script_a6aa79179662c0220e0ad05a7f2985a0b}{Script\-::m\-\_\-str\-Path}. \begin{DoxyReturn}{Returns}
+File name (without extension). 
+\end{DoxyReturn}
+\hypertarget{class_script_a79b3d1c188f66790d4647ce352f978ab}{\index{Script@{Script}!get\-Path@{get\-Path}}
+\index{get\-Path@{get\-Path}!Script@{Script}}
+\subsubsection[{get\-Path}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Script\-::get\-Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_script_a79b3d1c188f66790d4647ce352f978ab}
+
+
+Get path to the file by which the object has been created. 
+
+\begin{DoxyReturn}{Returns}
+Path of the file. 
+\end{DoxyReturn}
+\hypertarget{class_script_a4affbe0aa40b4b64ed99a8f5a488aa0f}{\index{Script@{Script}!is\-Modified@{is\-Modified}}
+\index{is\-Modified@{is\-Modified}!Script@{Script}}
+\subsubsection[{is\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}bool Script\-::is\-Modified (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_script_a4affbe0aa40b4b64ed99a8f5a488aa0f}
+\begin{DoxyReturn}{Returns}
+State of the script (modified or not). 
+\end{DoxyReturn}
+\hypertarget{class_script_ae36120acfbb13522b04b19b8893a75c0}{\index{Script@{Script}!set\-Code@{set\-Code}}
+\index{set\-Code@{set\-Code}!Script@{Script}}
+\subsubsection[{set\-Code}]{\setlength{\rightskip}{0pt plus 5cm}void Script\-::set\-Code (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{code}
+\end{DoxyParamCaption}
+)}}\label{class_script_ae36120acfbb13522b04b19b8893a75c0}
+
+
+Sets the code for the script. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em code} & Code to be set for the script. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_script_a6d238ee550711d495c720598be7d9f21}{\index{Script@{Script}!set\-Modified@{set\-Modified}}
+\index{set\-Modified@{set\-Modified}!Script@{Script}}
+\subsubsection[{set\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}void Script\-::set\-Modified (
+\begin{DoxyParamCaption}
+\item[{bool}]{is\-Modified}
+\end{DoxyParamCaption}
+)}}\label{class_script_a6d238ee550711d495c720598be7d9f21}
+
+
+Changes state of the script (modified/unmodified). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em is\-Modified} & State of the script. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_script_a5e2d0b611f3dadbc9e79ffe28e1e5257}{\index{Script@{Script}!C\-R\-E\-A\-T\-E@{C\-R\-E\-A\-T\-E}}
+\index{C\-R\-E\-A\-T\-E@{C\-R\-E\-A\-T\-E}!Script@{Script}}
+\subsubsection[{C\-R\-E\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}const int Script\-::\-C\-R\-E\-A\-T\-E = 2\hspace{0.3cm}{\ttfamily [static]}}}\label{class_script_a5e2d0b611f3dadbc9e79ffe28e1e5257}
+
+
+Constant which instructs constructor to create file with the given path. 
+
+\hypertarget{class_script_a1be7d65c8f9b0db216570980815aacb6}{\index{Script@{Script}!File\-Open\-Exception@{File\-Open\-Exception}}
+\index{File\-Open\-Exception@{File\-Open\-Exception}!Script@{Script}}
+\subsubsection[{File\-Open\-Exception}]{\setlength{\rightskip}{0pt plus 5cm}const int Script\-::\-File\-Open\-Exception = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{class_script_a1be7d65c8f9b0db216570980815aacb6}
+
+
+Constant which is used for file open exception. 
+
+A file can throw (actually the constructor) an exception when e.\-g. file is not found or somehow is not able to open/write. \hypertarget{class_script_a95987e80ff92f659bf2366e6b4a42bb1}{\index{Script@{Script}!L\-O\-A\-D@{L\-O\-A\-D}}
+\index{L\-O\-A\-D@{L\-O\-A\-D}!Script@{Script}}
+\subsubsection[{L\-O\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}const int Script\-::\-L\-O\-A\-D = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{class_script_a95987e80ff92f659bf2366e6b4a42bb1}
+
+
+Constant which instructs constructor to load file from the given path. 
+
+\hypertarget{class_script_a257a0787624a8e8c067f3b2c4805f6fa}{\index{Script@{Script}!m\-\_\-b\-Modified@{m\-\_\-b\-Modified}}
+\index{m\-\_\-b\-Modified@{m\-\_\-b\-Modified}!Script@{Script}}
+\subsubsection[{m\-\_\-b\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}bool Script\-::m\-\_\-b\-Modified\hspace{0.3cm}{\ttfamily [private]}}}\label{class_script_a257a0787624a8e8c067f3b2c4805f6fa}
+
+
+State of the script which indicates if the script is modified or not. 
+
+\hypertarget{class_script_a712090ac7231f4948abf11964d9adab7}{\index{Script@{Script}!m\-\_\-str\-Code@{m\-\_\-str\-Code}}
+\index{m\-\_\-str\-Code@{m\-\_\-str\-Code}!Script@{Script}}
+\subsubsection[{m\-\_\-str\-Code}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Script\-::m\-\_\-str\-Code\hspace{0.3cm}{\ttfamily [private]}}}\label{class_script_a712090ac7231f4948abf11964d9adab7}
+
+
+Code of the script. 
+
+\hypertarget{class_script_a6aa79179662c0220e0ad05a7f2985a0b}{\index{Script@{Script}!m\-\_\-str\-Path@{m\-\_\-str\-Path}}
+\index{m\-\_\-str\-Path@{m\-\_\-str\-Path}!Script@{Script}}
+\subsubsection[{m\-\_\-str\-Path}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Script\-::m\-\_\-str\-Path\hspace{0.3cm}{\ttfamily [private]}}}\label{class_script_a6aa79179662c0220e0ad05a7f2985a0b}
+
+
+Path to the file by which has been created an object. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{script_8h}{script.\-h}\item 
+Do\-For\-Me!/\hyperlink{script_8cpp}{script.\-cpp}\end{DoxyCompactItemize}

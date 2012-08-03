@@ -1,8 +1,8 @@
 #include "script.h"
 
-int Script::FileOpenException = 0;
-int Script::LOAD = 1;
-int Script::CREATE = 2;
+const int Script::FileOpenException = 0;
+const int Script::LOAD = 1;
+const int Script::CREATE = 2;
 
 Script::Script( const QString& path, int iMode ) : m_bModified( false ) {
 	QFile _file( path );
@@ -33,7 +33,7 @@ QString Script::getCodeFromFile( QFile& file ) {
 	return _code;
 }
 
-void Script::setCode( QString code ) {
+void Script::setCode( const QString& code ) {
 	m_strCode = code;
 }
 

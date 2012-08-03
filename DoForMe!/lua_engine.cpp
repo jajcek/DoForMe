@@ -77,8 +77,7 @@ void LuaEngine::timerEvent( QTimerEvent* ) {
 		// change interval to its previous value
 		m_uInterval = m_uGUIInterval;
 
-		// restart the timer if necessary - we don't use restart() method.
-		// restart() should be used outside the class (e.g. by sleep() api function)
+		// restart the timer if necessary
 		if( _bRestart )
 			start();
 	} else {
@@ -89,10 +88,6 @@ void LuaEngine::timerEvent( QTimerEvent* ) {
 
 void LuaEngine::start() {
 	m_timer->start( m_uInterval, this );
-}
-
-void LuaEngine::pause() {
-	m_timer->stop();
 }
 
 void LuaEngine::stop() {

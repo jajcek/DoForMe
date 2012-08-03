@@ -23,8 +23,16 @@ bool ScriptsManager::addScript( Script* script ) {
 	return false;
 }
 
-void ScriptsManager::saveToFile( const Script* pScript ) {
-	QFile _file( pScript->getPath() );
+bool ScriptsManager::saveToFile( const QString& scriptName ) {
+	QMap<QString, Script*>::Iterator _pScriptIterator = m_scripts.find( scriptName );
+
+	// script with the given title doesn't exists
+	if( _pScriptIterator == m_scripts.end() )
+		return false;
+
+	Script* _pScript = _pScriptIterator.value();
+
+	QFile _file( _pScript->getPath() );
 	QDir _dir;
 
 	// check if "scripts" folder exists
@@ -42,15 +50,17 @@ void ScriptsManager::saveToFile( const Script* pScript ) {
 	}
 	
 	// write the code to the file
-	QString _toWrite = pScript->getCode();
+	QString _toWrite = _pScript->getCode();
 	_file.write( _toWrite.toStdString().c_str() );
  
     // optional, as QFile destructor will already do it
     _file.close(); 
+
+	return true;
 }
 
-Script* ScriptsManager::getScript( const QString scriptTitle ) {
-	QMap<QString, Script*>::Iterator _pScript = m_scripts.find( scriptTitle );
+Script* ScriptsManager::getScript( const QString& scriptName ) {
+	QMap<QString, Script*>::Iterator _pScript = m_scripts.find( scriptName );
 
 	if( _pScript != m_scripts.end() )
 		return _pScript.value();

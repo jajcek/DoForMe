@@ -58,18 +58,18 @@ void Key::insertKeyTo( unsigned short keyCode, unsigned short mode, std::vector<
 	}
 }
 
-inline void Key::setKeyCode( unsigned short keyCode ) {
+void Key::setKeyCode( unsigned short keyCode ) {
 	m_keyCode = keyCode;
 }
 
-inline unsigned short Key::getKeyCode() const {
+unsigned short Key::getKeyCode() const {
 	return m_keyCode;
 }
 
-inline void Key::setMode( unsigned short mode ) {
+void Key::setMode( unsigned short mode ) {
 	m_mode = mode;
 }
 
-inline unsigned short Key::getMode() const {
+unsigned short Key::getMode() const {
 	return m_mode;
 }

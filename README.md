@@ -1,4 +1,11 @@
-Development release 1.08.2012
+Development release 3.08.2012
+===================================================
+- Shortcuts for new script, save option.
+- Settings dialog for actions while adding action.
+- Doxygen comments for Conf.f, Script.h, ScriptsManager.h, key.h as well as some comments for lua_engine.h.
+- Fix for the warning about flow control path (not returning a value for every control path in method).
+
+Development release 2.08.2012
 ===================================================
 - No extension of the file on the scripts list.
 - Modified state for script file.

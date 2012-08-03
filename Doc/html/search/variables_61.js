@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['app_5fname',['APP_NAME',['../classmain_win.html#a334ae495c1fd5d2063ba42801725d5ea',1,'mainWin']]]
+  ['app_5fname',['APP_NAME',['../struct_conf.html#add8ab284bf2e7a0b2667cfa921d23dad',1,'Conf']]]
 ];

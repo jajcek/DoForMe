@@ -108,12 +108,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6fe79539f83f2af7be05b698dae55d65"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a6fe79539f83f2af7be05b698dae55d65">getFileName</a> () const </td></tr>
 <tr class="memitem:a534682646596250cd8bb98957e423791"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a534682646596250cd8bb98957e423791">setCode</a> (QString code)</td></tr>
 <tr class="memitem:a0cb6822da346dff4514e056547979cdd"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a0cb6822da346dff4514e056547979cdd">getCode</a> () const </td></tr>
+<tr class="memitem:a78038e8c66cf8e6b4ff53874298ef7d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a78038e8c66cf8e6b4ff53874298ef7d4">setTime</a> (QTime)</td></tr>
+<tr class="memitem:a01e6fdaabad6d3794f34a6c74b484095"><td class="memItemLeft" align="right" valign="top">QTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a01e6fdaabad6d3794f34a6c74b484095">getTime</a> () const </td></tr>
+<tr class="memitem:ab3d4f6defc4b25b7d64d806ca861388d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#ab3d4f6defc4b25b7d64d806ca861388d">setModified</a> (bool)</td></tr>
+<tr class="memitem:a50c6caabd07584a1d4adb8dfc6270abe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a50c6caabd07584a1d4adb8dfc6270abe">isModified</a> () const </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:acdaebb900bcc4fa101b7ad7fcc607e01"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#acdaebb900bcc4fa101b7ad7fcc607e01">m_path</a></td></tr>
 <tr class="memitem:a65a3f717f84c94c351ccff1e4f450816"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a65a3f717f84c94c351ccff1e4f450816">m_fileName</a></td></tr>
 <tr class="memitem:a15cb4f3d394cecf16438d01c05b87c98"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a15cb4f3d394cecf16438d01c05b87c98">m_code</a></td></tr>
+<tr class="memitem:a00911e1be6fd7fa990a2a607590edaa9"><td class="memItemLeft" align="right" valign="top">QTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a00911e1be6fd7fa990a2a607590edaa9">m_time</a></td></tr>
+<tr class="memitem:ad7930bec6d8cff987c1882d76642369d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#ad7930bec6d8cff987c1882d76642369d">m_bModified</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Engine for maintaing LUA's API commands. </p>
@@ -198,6 +204,36 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a01e6fdaabad6d3794f34a6c74b484095"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTime Action::getTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a50c6caabd07584a1d4adb8dfc6270abe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Action::isModified </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a534682646596250cd8bb98957e423791"></a>
 <div class="memitem">
 <div class="memproto">
@@ -230,6 +266,22 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab3d4f6defc4b25b7d64d806ca861388d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Action::setModified </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>changed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a8d7527963d293e66cd9d63e4868f07a4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -246,7 +298,43 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a78038e8c66cf8e6b4ff53874298ef7d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Action::setTime </td>
+          <td>(</td>
+          <td class="paramtype">QTime&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ad7930bec6d8cff987c1882d76642369d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Action::m_bModified</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a15cb4f3d394cecf16438d01c05b87c98"></a>
 <div class="memitem">
 <div class="memproto">
@@ -307,6 +395,26 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a00911e1be6fd7fa990a2a607590edaa9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTime Action::m_time</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>DoForMe!/<a class="el" href="action_8h_source.html">action.h</a></li>
 <li>DoForMe!/<a class="el" href="action_8cpp.html">action.cpp</a></li>
@@ -314,7 +422,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 18 2012 22:46:27 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 3 2012 23:28:23 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

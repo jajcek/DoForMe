@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwin.ui'
 **
-** Created: Thu 2. Aug 22:41:33 2012
+** Created: Fri 3. Aug 18:39:57 2012
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -25,9 +25,7 @@
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPushButton>
-#include <QtGui/QRadioButton>
 #include <QtGui/QSlider>
-#include <QtGui/QSpinBox>
 #include <QtGui/QTabWidget>
 #include <QtGui/QTextEdit>
 #include <QtGui/QToolBar>
@@ -63,29 +61,6 @@ public:
     QWidget *centralWidget;
     QCalendarWidget *calendarWidget;
     QTabWidget *tabWidget;
-    QWidget *tab_3;
-    QGroupBox *groupBox;
-    QCheckBox *mondayCheck;
-    QCheckBox *tuesdayCheck;
-    QCheckBox *wednesdayCheck;
-    QCheckBox *thursdayCheck;
-    QCheckBox *fridayCheck;
-    QCheckBox *saturdayCheck;
-    QCheckBox *sundayCheck;
-    QCheckBox *everydayCheck;
-    QGroupBox *groupBox_8;
-    QRadioButton *runEveryDaysRadio;
-    QLineEdit *daysEdit;
-    QLabel *label_4;
-    QGroupBox *timeGroupBox;
-    QSpinBox *hourSpin;
-    QSpinBox *minSpin;
-    QSpinBox *secSpin;
-    QLabel *label;
-    QLabel *label_2;
-    QGroupBox *groupBox_2;
-    QSpinBox *intervalSpin;
-    QRadioButton *msRadio;
     QWidget *tab_5;
     QGroupBox *groupBox_3;
     QPushButton *mouseButton;
@@ -118,7 +93,7 @@ public:
     QListWidget *actionsList;
     QLabel *label_5;
     QToolButton *toolButton_3;
-    QToolButton *toolButton;
+    QToolButton *addActionButton;
     QTextEdit *scriptTextEdit;
     QLabel *scriptTitle;
     QMenuBar *menuBar;
@@ -188,21 +163,25 @@ public:
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/play_record/Resources/record_on.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionRecord->setIcon(icon2);
+        actionRecord->setSoftKeyRole(QAction::NoSoftKey);
         actionNew = new QAction(mainWinClass);
         actionNew->setObjectName(QString::fromUtf8("actionNew"));
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/standard/Resources/New.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionNew->setIcon(icon3);
+        actionNew->setShortcutContext(Qt::ApplicationShortcut);
         actionOpen = new QAction(mainWinClass);
         actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/standard/Resources/fileopen.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionOpen->setIcon(icon4);
+        actionOpen->setShortcutContext(Qt::ApplicationShortcut);
         actionSaveScript = new QAction(mainWinClass);
         actionSaveScript->setObjectName(QString::fromUtf8("actionSaveScript"));
         QIcon icon5;
         icon5.addFile(QString::fromUtf8(":/standard/Resources/filesave.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionSaveScript->setIcon(icon5);
+        actionSaveScript->setShortcutContext(Qt::ApplicationShortcut);
         centralWidget = new QWidget(mainWinClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         calendarWidget = new QCalendarWidget(centralWidget);
@@ -229,79 +208,6 @@ public:
 "	padding:5px;\n"
 "}"));
         tabWidget->setElideMode(Qt::ElideNone);
-        tab_3 = new QWidget();
-        tab_3->setObjectName(QString::fromUtf8("tab_3"));
-        groupBox = new QGroupBox(tab_3);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(220, 10, 101, 181));
-        mondayCheck = new QCheckBox(groupBox);
-        mondayCheck->setObjectName(QString::fromUtf8("mondayCheck"));
-        mondayCheck->setGeometry(QRect(10, 20, 71, 17));
-        tuesdayCheck = new QCheckBox(groupBox);
-        tuesdayCheck->setObjectName(QString::fromUtf8("tuesdayCheck"));
-        tuesdayCheck->setGeometry(QRect(10, 40, 71, 17));
-        wednesdayCheck = new QCheckBox(groupBox);
-        wednesdayCheck->setObjectName(QString::fromUtf8("wednesdayCheck"));
-        wednesdayCheck->setGeometry(QRect(10, 60, 81, 17));
-        thursdayCheck = new QCheckBox(groupBox);
-        thursdayCheck->setObjectName(QString::fromUtf8("thursdayCheck"));
-        thursdayCheck->setGeometry(QRect(10, 80, 71, 17));
-        fridayCheck = new QCheckBox(groupBox);
-        fridayCheck->setObjectName(QString::fromUtf8("fridayCheck"));
-        fridayCheck->setGeometry(QRect(10, 100, 71, 17));
-        saturdayCheck = new QCheckBox(groupBox);
-        saturdayCheck->setObjectName(QString::fromUtf8("saturdayCheck"));
-        saturdayCheck->setGeometry(QRect(10, 120, 71, 17));
-        sundayCheck = new QCheckBox(groupBox);
-        sundayCheck->setObjectName(QString::fromUtf8("sundayCheck"));
-        sundayCheck->setGeometry(QRect(10, 140, 71, 17));
-        everydayCheck = new QCheckBox(groupBox);
-        everydayCheck->setObjectName(QString::fromUtf8("everydayCheck"));
-        everydayCheck->setGeometry(QRect(10, 160, 111, 17));
-        groupBox_8 = new QGroupBox(tab_3);
-        groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
-        groupBox_8->setGeometry(QRect(10, 70, 201, 51));
-        runEveryDaysRadio = new QRadioButton(groupBox_8);
-        runEveryDaysRadio->setObjectName(QString::fromUtf8("runEveryDaysRadio"));
-        runEveryDaysRadio->setGeometry(QRect(10, 20, 101, 17));
-        daysEdit = new QLineEdit(groupBox_8);
-        daysEdit->setObjectName(QString::fromUtf8("daysEdit"));
-        daysEdit->setGeometry(QRect(113, 20, 41, 20));
-        label_4 = new QLabel(groupBox_8);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(160, 23, 46, 13));
-        timeGroupBox = new QGroupBox(tab_3);
-        timeGroupBox->setObjectName(QString::fromUtf8("timeGroupBox"));
-        timeGroupBox->setGeometry(QRect(10, 10, 161, 51));
-        hourSpin = new QSpinBox(timeGroupBox);
-        hourSpin->setObjectName(QString::fromUtf8("hourSpin"));
-        hourSpin->setGeometry(QRect(10, 20, 42, 22));
-        hourSpin->setMaximum(23);
-        minSpin = new QSpinBox(timeGroupBox);
-        minSpin->setObjectName(QString::fromUtf8("minSpin"));
-        minSpin->setGeometry(QRect(60, 20, 42, 22));
-        minSpin->setMaximum(59);
-        secSpin = new QSpinBox(timeGroupBox);
-        secSpin->setObjectName(QString::fromUtf8("secSpin"));
-        secSpin->setGeometry(QRect(110, 20, 42, 22));
-        secSpin->setMaximum(59);
-        label = new QLabel(timeGroupBox);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(54, 22, 3, 16));
-        label_2 = new QLabel(timeGroupBox);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(105, 22, 2, 16));
-        groupBox_2 = new QGroupBox(tab_3);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(10, 130, 201, 51));
-        intervalSpin = new QSpinBox(groupBox_2);
-        intervalSpin->setObjectName(QString::fromUtf8("intervalSpin"));
-        intervalSpin->setGeometry(QRect(10, 20, 111, 21));
-        intervalSpin->setMaximum(24);
-        msRadio = new QRadioButton(groupBox_2);
-        msRadio->setObjectName(QString::fromUtf8("msRadio"));
-        msRadio->setGeometry(QRect(130, 20, 41, 17));
-        tabWidget->addTab(tab_3, QString());
         tab_5 = new QWidget();
         tab_5->setObjectName(QString::fromUtf8("tab_5"));
         groupBox_3 = new QGroupBox(tab_5);
@@ -448,14 +354,14 @@ public:
         toolButton_3->setGeometry(QRect(100, 250, 51, 21));
         toolButton_3->setStyleSheet(QString::fromUtf8(""));
         toolButton_3->setAutoRaise(true);
-        toolButton = new QToolButton(centralWidget);
-        toolButton->setObjectName(QString::fromUtf8("toolButton"));
-        toolButton->setEnabled(true);
-        toolButton->setGeometry(QRect(60, 221, 28, 28));
+        addActionButton = new QToolButton(centralWidget);
+        addActionButton->setObjectName(QString::fromUtf8("addActionButton"));
+        addActionButton->setEnabled(true);
+        addActionButton->setGeometry(QRect(60, 221, 28, 28));
         QIcon icon6;
         icon6.addFile(QString::fromUtf8(":/mainWin/Resources/fileimport.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton->setIcon(icon6);
-        toolButton->setIconSize(QSize(28, 28));
+        addActionButton->setIcon(icon6);
+        addActionButton->setIconSize(QSize(28, 28));
         scriptTextEdit = new QTextEdit(centralWidget);
         scriptTextEdit->setObjectName(QString::fromUtf8("scriptTextEdit"));
         scriptTextEdit->setGeometry(QRect(160, 23, 311, 198));
@@ -574,24 +480,6 @@ public:
         actionSaveScript->setToolTip(QApplication::translate("mainWinClass", "Save", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
         actionSaveScript->setShortcut(QApplication::translate("mainWinClass", "Ctrl+S", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("mainWinClass", "Run on", 0, QApplication::UnicodeUTF8));
-        mondayCheck->setText(QApplication::translate("mainWinClass", "Monday", 0, QApplication::UnicodeUTF8));
-        tuesdayCheck->setText(QApplication::translate("mainWinClass", "Tuesday", 0, QApplication::UnicodeUTF8));
-        wednesdayCheck->setText(QApplication::translate("mainWinClass", "Wednesday", 0, QApplication::UnicodeUTF8));
-        thursdayCheck->setText(QApplication::translate("mainWinClass", "Thursday", 0, QApplication::UnicodeUTF8));
-        fridayCheck->setText(QApplication::translate("mainWinClass", "Friday", 0, QApplication::UnicodeUTF8));
-        saturdayCheck->setText(QApplication::translate("mainWinClass", "Saturday", 0, QApplication::UnicodeUTF8));
-        sundayCheck->setText(QApplication::translate("mainWinClass", "Sunday", 0, QApplication::UnicodeUTF8));
-        everydayCheck->setText(QApplication::translate("mainWinClass", "Every day", 0, QApplication::UnicodeUTF8));
-        groupBox_8->setTitle(QApplication::translate("mainWinClass", "Every X days", 0, QApplication::UnicodeUTF8));
-        runEveryDaysRadio->setText(QApplication::translate("mainWinClass", "Run script every", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("mainWinClass", "days.", 0, QApplication::UnicodeUTF8));
-        timeGroupBox->setTitle(QApplication::translate("mainWinClass", "Time settings", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("mainWinClass", ":", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("mainWinClass", ":", 0, QApplication::UnicodeUTF8));
-        groupBox_2->setTitle(QApplication::translate("mainWinClass", "Commands time interval", 0, QApplication::UnicodeUTF8));
-        msRadio->setText(QApplication::translate("mainWinClass", "ms", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("mainWinClass", "Timer/Repeater", 0, QApplication::UnicodeUTF8));
         groupBox_3->setTitle(QApplication::translate("mainWinClass", "Record", 0, QApplication::UnicodeUTF8));
         mouseButton->setText(QApplication::translate("mainWinClass", "Buttons...", 0, QApplication::UnicodeUTF8));
         keyboardButton->setText(QApplication::translate("mainWinClass", "Keys...", 0, QApplication::UnicodeUTF8));
@@ -621,9 +509,9 @@ public:
         label_5->setText(QApplication::translate("mainWinClass", "  Actions", 0, QApplication::UnicodeUTF8));
         toolButton_3->setText(QApplication::translate("mainWinClass", "Remove", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
-        toolButton->setToolTip(QApplication::translate("mainWinClass", "Add to actions", 0, QApplication::UnicodeUTF8));
+        addActionButton->setToolTip(QApplication::translate("mainWinClass", "Add to actions", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        toolButton->setText(QString());
+        addActionButton->setText(QString());
         scriptTextEdit->setHtml(QApplication::translate("mainWinClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

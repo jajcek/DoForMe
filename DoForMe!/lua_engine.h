@@ -48,36 +48,34 @@ public:
 
 private:
 	/**
-		\var lua_State *luaState
 		\brief State of the lua's engine. Used by lua's library - don't touch it.
 	*/
 	lua_State *luaState;
 
 	/**
-		\var QBasicTimer* m_timer
 		\brief Timer is used for supporting commands execution in a latency.
 		\details It is possible to execute commands every some time which is specified in LuaEngine::m_uInterval (as milliseconds).
 	*/
 	QBasicTimer* m_timer;
 	/**
-		\var unsigned m_uInterval
 		\brief Stores time (as milliseconds) needed to execute next command that is available in the queue LuaEngine::m_commands.
 		\details This can be changed while calling e.g. sleep() in the script. This value is used in timer event, not the LuaEngine::m_uGUIInterval.
 		Check LuaEngine::m_uGUIInterval for more details.
 	*/
 	unsigned m_uInterval;
 	/**
-		\var unsigned m_uGUIInterval
 		\brief This is the same as LuaEngine::m_uInterval, but it stores value from "Commands time interval" in GUI.
 		\details This shouldn't be changed while calling e.g API sleep() function. This value only depends on value set in the GUI.
 		The value is assigned to m_uInterval if needed to come back from sleep() function used in script.
 	*/
 	unsigned m_uGUIInterval;
 	
+	/**
+		\brief Stores all commands that are executed by the engine. See CommandsManager for more details.
+	*/
 	CommandsManager m_commands;
 
 	/**
-		\var int m_loadError
 		\brief Indicates if there is a syntax/memory error in the loaded lua's script.
 		\details If there is no errors the value is equal to 0, otherwise the value is a number of error code.
 
@@ -88,7 +86,6 @@ private:
 	int m_loadError;
 
 	/**
-		\var int m_parseError
 		\brief Indicates if there is a runtime error in the loaded lua's script.
 		\details If there is no errors the value is equal to 0, otherwise the value is a number of error code.
 
@@ -100,12 +97,16 @@ private:
 	int m_parseError;
 
 	/**
-		\var QString m_textError
 		\brief Stores exact string which is returned by lua's lua_pcall function.
 		\details In lua 5.1 the string has form like "[string "?"]:1: attempt to call global 'FunctionName' (a nil value)"
 	*/
 	QString m_textError;
 
+	/**
+		\brief Indicates if the interval has been changed by using GUI or sleep() api function.
+		\details If the variable is set to true it means that the sleep() api function is being executed,
+		otherwise the interval has been changed by using GUI.
+	*/
 	bool m_bIntervalChanged;
 
 public:
@@ -148,7 +149,7 @@ public:
 	*/
 	int validateLastLoad();
 	/**
-		\brief Checks if there was error in the last run file.
+		\brief Checks if there was error in the last parsed file.
 		\return Error code. See luaEngine::m_parseError for more details.
 	*/
 	int validateLastParse();
@@ -160,19 +161,43 @@ public:
 	*/
 	QString getTextError() const;
 
-	void addCommand( void ( *pCmd )( std::deque<int> ) );
 	/**
 		\brief Puts actions onto stack. See LuaEngine::m_commands for more details.
-		\param[in] pCmd Actions which will be put onto LuaEngine::m_commands stack.
-		\param[in] args Arguments for api functions that will be put onto LuaEngine::m_args stack.
+		\param[in] pCmd Action which is put onto LuaEngine::m_commands stack.
+	*/
+	void addCommand( void ( *pCmd )( std::deque<int> ) );
+	/**
+		\brief Puts actions onto stack with its arguments. See LuaEngine::m_commands for more details.
+		\param[in] pCmd Action which is put onto LuaEngine::m_commands stack.
+		\param[in] args Arguments for api functions that is put onto LuaEngine::m_args stack.
 	*/
 	void addCommand( void ( *pCmd )( std::deque<int> ), std::deque<int> args );
 
-	void timerEvent( QTimerEvent* );
+	/**
+		\brief Funtion which is called by the LuaEngine::m_timer timer.
+		\param[in] e Event which invoked the function.
+	*/
+	void timerEvent( QTimerEvent* e );
+	/**
+		\brief Starts executing commands (actually starts the timer which executes the commands).
+	*/
 	void start();
-	void pause();
+	/**
+		\brief Stops executing commands (stop the LuaEngine::m_timer timer).
+	*/
 	void stop();
+	/**
+		\brief Set time interval for one command (used for sleep() api function).
+		\param[in] interval Time interval.
+	*/
 	void setInterval( int interval );
+	/**
+		\brief Set time time interval for all commands.
+		\param[in] interval Time interval.
+	*/
 	void setGUIInterval( int interval );
+	/**
+		\return Time interval for all commands.
+	*/
 	int getGUIInterval() const;
 };

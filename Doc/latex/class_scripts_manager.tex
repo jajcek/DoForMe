@@ -1,0 +1,156 @@
+\hypertarget{class_scripts_manager}{\section{Scripts\-Manager Class Reference}
+\label{class_scripts_manager}\index{Scripts\-Manager@{Scripts\-Manager}}
+}
+
+
+Manager for scripts.  
+
+
+
+
+{\ttfamily \#include $<$scripts\-\_\-manager.\-h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_scripts_manager_a137f7089f471de89c5d1344d3b5781cd}{remove\-Scripts} ()
+\begin{DoxyCompactList}\small\item\em Removes all script and frees its memory. \end{DoxyCompactList}\item 
+static bool \hyperlink{class_scripts_manager_a67b361d78d35092340feaf556b57565d}{add\-Script} (\hyperlink{class_script}{Script} $\ast$script)
+\begin{DoxyCompactList}\small\item\em Adds new script to the manager. \end{DoxyCompactList}\item 
+static bool \hyperlink{class_scripts_manager_ad4cd01aab1d6015db90cbca5fae306cf}{save\-To\-File} (const Q\-String \&script\-Name)
+\begin{DoxyCompactList}\small\item\em Saves specified (with name) script to a file. \end{DoxyCompactList}\item 
+static \hyperlink{class_script}{Script} $\ast$ \hyperlink{class_scripts_manager_a59b613ef7638d97bbdebe09a412e8f20}{get\-Script} (const Q\-String \&script\-Name)
+\begin{DoxyCompactList}\small\item\em Gets pointer to the script with the given name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_scripts_manager_a6c0f74bb1ba41b0c29f388fc9b973489}{Scripts\-Manager} ()
+\begin{DoxyCompactList}\small\item\em Private constructor which doesn't allow the class to be instantiated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Q\-Map$<$ Q\-String, \hyperlink{class_script}{Script} $\ast$ $>$ \hyperlink{class_scripts_manager_adcf2fffc60140c92bbca764602f322aa}{m\-\_\-scripts}
+\begin{DoxyCompactList}\small\item\em Map which stores all scripts, name mapped to it's object. See \hyperlink{class_script}{Script} class for more details. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manager for scripts. 
+
+The class stores all scripts and allows to save them to file. It cannot be instantiated. It contains only static methods for managing scripts in the application. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2.\-08.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_scripts_manager_a6c0f74bb1ba41b0c29f388fc9b973489}{\index{Scripts\-Manager@{Scripts\-Manager}!Scripts\-Manager@{Scripts\-Manager}}
+\index{Scripts\-Manager@{Scripts\-Manager}!ScriptsManager@{Scripts\-Manager}}
+\subsubsection[{Scripts\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Scripts\-Manager\-::\-Scripts\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_scripts_manager_a6c0f74bb1ba41b0c29f388fc9b973489}
+
+
+Private constructor which doesn't allow the class to be instantiated. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scripts_manager_a67b361d78d35092340feaf556b57565d}{\index{Scripts\-Manager@{Scripts\-Manager}!add\-Script@{add\-Script}}
+\index{add\-Script@{add\-Script}!ScriptsManager@{Scripts\-Manager}}
+\subsubsection[{add\-Script}]{\setlength{\rightskip}{0pt plus 5cm}bool Scripts\-Manager\-::add\-Script (
+\begin{DoxyParamCaption}
+\item[{{\bf Script} $\ast$}]{script}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_scripts_manager_a67b361d78d35092340feaf556b57565d}
+
+
+Adds new script to the manager. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em script} & \hyperlink{class_script}{Script} to add. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & The script has been added successfully. \\
+\hline
+{\em false} & The script couldn't be added due to existence of another script with the same name. \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{class_scripts_manager_a59b613ef7638d97bbdebe09a412e8f20}{\index{Scripts\-Manager@{Scripts\-Manager}!get\-Script@{get\-Script}}
+\index{get\-Script@{get\-Script}!ScriptsManager@{Scripts\-Manager}}
+\subsubsection[{get\-Script}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Script} $\ast$ Scripts\-Manager\-::get\-Script (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{script\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_scripts_manager_a59b613ef7638d97bbdebe09a412e8f20}
+
+
+Gets pointer to the script with the given name. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em script\-Name} & Name of the script which can be obtained by \hyperlink{class_script_a4fe7b18819eeebb1ed154f6350ba7fef}{Script\-::get\-File\-Name} method. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the \hyperlink{class_script}{Script} object. 
+\end{DoxyReturn}
+\hypertarget{class_scripts_manager_a137f7089f471de89c5d1344d3b5781cd}{\index{Scripts\-Manager@{Scripts\-Manager}!remove\-Scripts@{remove\-Scripts}}
+\index{remove\-Scripts@{remove\-Scripts}!ScriptsManager@{Scripts\-Manager}}
+\subsubsection[{remove\-Scripts}]{\setlength{\rightskip}{0pt plus 5cm}void Scripts\-Manager\-::remove\-Scripts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_scripts_manager_a137f7089f471de89c5d1344d3b5781cd}
+
+
+Removes all script and frees its memory. 
+
+\hypertarget{class_scripts_manager_ad4cd01aab1d6015db90cbca5fae306cf}{\index{Scripts\-Manager@{Scripts\-Manager}!save\-To\-File@{save\-To\-File}}
+\index{save\-To\-File@{save\-To\-File}!ScriptsManager@{Scripts\-Manager}}
+\subsubsection[{save\-To\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool Scripts\-Manager\-::save\-To\-File (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{script\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_scripts_manager_ad4cd01aab1d6015db90cbca5fae306cf}
+
+
+Saves specified (with name) script to a file. 
+
+The script will be saved to the \hyperlink{class_script_a6aa79179662c0220e0ad05a7f2985a0b}{Script\-::m\-\_\-str\-Path} path. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em script\-Name} & Name of the script which can be obtained by \hyperlink{class_script_a4fe7b18819eeebb1ed154f6350ba7fef}{Script\-::get\-File\-Name} method. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & The script has been saved to its file successfully. \\
+\hline
+{\em false} & The script couldn't be saved due to missing name in the \hyperlink{class_scripts_manager}{Scripts\-Manager}. The script wasn't probably added to the manager. \\
+\hline
+\end{DoxyRetVals}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_scripts_manager_adcf2fffc60140c92bbca764602f322aa}{\index{Scripts\-Manager@{Scripts\-Manager}!m\-\_\-scripts@{m\-\_\-scripts}}
+\index{m\-\_\-scripts@{m\-\_\-scripts}!ScriptsManager@{Scripts\-Manager}}
+\subsubsection[{m\-\_\-scripts}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Map$<$ Q\-String, {\bf Script} $\ast$ $>$ Scripts\-Manager\-::m\-\_\-scripts\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_scripts_manager_adcf2fffc60140c92bbca764602f322aa}
+
+
+Map which stores all scripts, name mapped to it's object. See \hyperlink{class_script}{Script} class for more details. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{scripts__manager_8h}{scripts\-\_\-manager.\-h}\item 
+Do\-For\-Me!/\hyperlink{scripts__manager_8cpp}{scripts\-\_\-manager.\-cpp}\end{DoxyCompactItemize}

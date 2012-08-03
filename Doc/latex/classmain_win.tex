@@ -8,15 +8,19 @@
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{classmain_win_aeea495e3a2a50dab104a42eb0321ae17}{browse\-Script} ()
+void \hyperlink{classmain_win_a5a5ebff7e72fcf1a9d840d8030b535b3}{new\-File} ()
 \item 
 void \hyperlink{classmain_win_acf0324a155856e59cdea5ec5698f5514}{run\-Action} ()
 \item 
+void \hyperlink{classmain_win_a647971cd2796a848d88990680ca8c47f}{save\-Script} ()
+\item 
 void \hyperlink{classmain_win_ab7665b16866b9aeecbe430ef17769ac4}{save\-Action} ()
 \item 
-void \hyperlink{classmain_win_abc27501a5ed3933840fd72d5c052c4fa}{save\-As\-Action} ()
+void \hyperlink{classmain_win_af5eb5f12f6e8bf37e9a293e28d82632c}{script\-Selected} (const Q\-String \&script\-Title)
 \item 
 void \hyperlink{classmain_win_affa3129c6021871bfc6ab5acccb0a9c5}{script\-Modified} ()
+\item 
+void \hyperlink{classmain_win_abfe17be5efdd261fa5d73c37c66b57e8}{add\-Action} ()
 \item 
 void \hyperlink{classmain_win_a971bee9dff02167121566f9a4444af4e}{show\-About} ()
 \end{DoxyCompactItemize}
@@ -26,13 +30,21 @@ void \hyperlink{classmain_win_a971bee9dff02167121566f9a4444af4e}{show\-About} ()
 \hyperlink{classmain_win_a837aa6380bc037afd022629b56b7aca9}{main\-Win} (Q\-Widget $\ast$parent=0, Qt\-::\-W\-Flags flags=0)
 \item 
 \hyperlink{classmain_win_a70326ccd243eb2060b1b5a3150025a9d}{$\sim$main\-Win} ()
+\item 
+void \hyperlink{classmain_win_a3a1257aa1b06a426b08763a72756f06a}{load\-Scripts} (const Q\-String \&path)
 \end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classmain_win_a9c0cfda2b24fa6259874caf7ccd4b908}{init\-Lua\-Api} ()
 \item 
+void \hyperlink{classmain_win_a0bf4d1e69b1c8bbd0d142cd5d2ec9179}{get\-Data\-For\-Action} ()
+\item 
 Q\-String \hyperlink{classmain_win_ab00961de109eaf86fceed0dc39d53fe8}{get\-Func\-Name} (Q\-String text\-Error)
+\item 
+void \hyperlink{classmain_win_aa70a0f3f1c66ffa1a7d4012526b56c44}{set\-Script\-Title} (Q\-String title)
+\item 
+void \hyperlink{classmain_win_a8f8b08fe7876ae565621dd14c5ecb87d}{set\-Code} (const Q\-String \&)
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -47,12 +59,9 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 \item 
 \hyperlink{class_lua_engine}{Lua\-Engine} $\ast$ \hyperlink{classmain_win_a96b71dd9a31a4cf6ea5db224a4540458}{m\-\_\-lua}
 \item 
-\hyperlink{class_action}{Action} $\ast$ \hyperlink{classmain_win_ab66a39c8f78038b3cfaba29066c9fd4d}{m\-\_\-curr\-Action}
-\end{DoxyCompactItemize}
-\subsection*{Static Private Attributes}
-\begin{DoxyCompactItemize}
+\hyperlink{class_script}{Script} $\ast$ \hyperlink{classmain_win_ab391602112d6c25f237da91eae815d47}{m\-\_\-p\-Curr\-Script}
 \item 
-static Q\-String \hyperlink{classmain_win_a334ae495c1fd5d2063ba42801725d5ea}{A\-P\-P\-\_\-\-N\-A\-M\-E} = \char`\"{}Do\-For\-Me!\char`\"{}
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{classmain_win_a426c3fc67264577231b3deb525ddef99}{m\-\_\-p\-Curr\-Action}
 \end{DoxyCompactItemize}
 
 
@@ -75,13 +84,20 @@ static Q\-String \hyperlink{classmain_win_a334ae495c1fd5d2063ba42801725d5ea}{A\-
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classmain_win_aeea495e3a2a50dab104a42eb0321ae17}{\index{main\-Win@{main\-Win}!browse\-Script@{browse\-Script}}
-\index{browse\-Script@{browse\-Script}!mainWin@{main\-Win}}
-\subsubsection[{browse\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::browse\-Script (
+\hypertarget{classmain_win_abfe17be5efdd261fa5d73c37c66b57e8}{\index{main\-Win@{main\-Win}!add\-Action@{add\-Action}}
+\index{add\-Action@{add\-Action}!mainWin@{main\-Win}}
+\subsubsection[{add\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::add\-Action (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_aeea495e3a2a50dab104a42eb0321ae17}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_abfe17be5efdd261fa5d73c37c66b57e8}
+\hypertarget{classmain_win_a0bf4d1e69b1c8bbd0d142cd5d2ec9179}{\index{main\-Win@{main\-Win}!get\-Data\-For\-Action@{get\-Data\-For\-Action}}
+\index{get\-Data\-For\-Action@{get\-Data\-For\-Action}!mainWin@{main\-Win}}
+\subsubsection[{get\-Data\-For\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::get\-Data\-For\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a0bf4d1e69b1c8bbd0d142cd5d2ec9179}
 \hypertarget{classmain_win_ab00961de109eaf86fceed0dc39d53fe8}{\index{main\-Win@{main\-Win}!get\-Func\-Name@{get\-Func\-Name}}
 \index{get\-Func\-Name@{get\-Func\-Name}!mainWin@{main\-Win}}
 \subsubsection[{get\-Func\-Name}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String main\-Win\-::get\-Func\-Name (
@@ -96,6 +112,20 @@ static Q\-String \hyperlink{classmain_win_a334ae495c1fd5d2063ba42801725d5ea}{A\-
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a9c0cfda2b24fa6259874caf7ccd4b908}
+\hypertarget{classmain_win_a3a1257aa1b06a426b08763a72756f06a}{\index{main\-Win@{main\-Win}!load\-Scripts@{load\-Scripts}}
+\index{load\-Scripts@{load\-Scripts}!mainWin@{main\-Win}}
+\subsubsection[{load\-Scripts}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::load\-Scripts (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{path}
+\end{DoxyParamCaption}
+)}}\label{classmain_win_a3a1257aa1b06a426b08763a72756f06a}
+\hypertarget{classmain_win_a5a5ebff7e72fcf1a9d840d8030b535b3}{\index{main\-Win@{main\-Win}!new\-File@{new\-File}}
+\index{new\-File@{new\-File}!mainWin@{main\-Win}}
+\subsubsection[{new\-File}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::new\-File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a5a5ebff7e72fcf1a9d840d8030b535b3}
 \hypertarget{classmain_win_acf0324a155856e59cdea5ec5698f5514}{\index{main\-Win@{main\-Win}!run\-Action@{run\-Action}}
 \index{run\-Action@{run\-Action}!mainWin@{main\-Win}}
 \subsubsection[{run\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::run\-Action (
@@ -110,13 +140,13 @@ static Q\-String \hyperlink{classmain_win_a334ae495c1fd5d2063ba42801725d5ea}{A\-
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_ab7665b16866b9aeecbe430ef17769ac4}
-\hypertarget{classmain_win_abc27501a5ed3933840fd72d5c052c4fa}{\index{main\-Win@{main\-Win}!save\-As\-Action@{save\-As\-Action}}
-\index{save\-As\-Action@{save\-As\-Action}!mainWin@{main\-Win}}
-\subsubsection[{save\-As\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::save\-As\-Action (
+\hypertarget{classmain_win_a647971cd2796a848d88990680ca8c47f}{\index{main\-Win@{main\-Win}!save\-Script@{save\-Script}}
+\index{save\-Script@{save\-Script}!mainWin@{main\-Win}}
+\subsubsection[{save\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::save\-Script (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_abc27501a5ed3933840fd72d5c052c4fa}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a647971cd2796a848d88990680ca8c47f}
 \hypertarget{classmain_win_affa3129c6021871bfc6ab5acccb0a9c5}{\index{main\-Win@{main\-Win}!script\-Modified@{script\-Modified}}
 \index{script\-Modified@{script\-Modified}!mainWin@{main\-Win}}
 \subsubsection[{script\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::script\-Modified (
@@ -124,6 +154,27 @@ static Q\-String \hyperlink{classmain_win_a334ae495c1fd5d2063ba42801725d5ea}{A\-
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_affa3129c6021871bfc6ab5acccb0a9c5}
+\hypertarget{classmain_win_af5eb5f12f6e8bf37e9a293e28d82632c}{\index{main\-Win@{main\-Win}!script\-Selected@{script\-Selected}}
+\index{script\-Selected@{script\-Selected}!mainWin@{main\-Win}}
+\subsubsection[{script\-Selected}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::script\-Selected (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{script\-Title}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_af5eb5f12f6e8bf37e9a293e28d82632c}
+\hypertarget{classmain_win_a8f8b08fe7876ae565621dd14c5ecb87d}{\index{main\-Win@{main\-Win}!set\-Code@{set\-Code}}
+\index{set\-Code@{set\-Code}!mainWin@{main\-Win}}
+\subsubsection[{set\-Code}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::set\-Code (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{code}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a8f8b08fe7876ae565621dd14c5ecb87d}
+\hypertarget{classmain_win_aa70a0f3f1c66ffa1a7d4012526b56c44}{\index{main\-Win@{main\-Win}!set\-Script\-Title@{set\-Script\-Title}}
+\index{set\-Script\-Title@{set\-Script\-Title}!mainWin@{main\-Win}}
+\subsubsection[{set\-Script\-Title}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::set\-Script\-Title (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{title}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_aa70a0f3f1c66ffa1a7d4012526b56c44}
 \hypertarget{classmain_win_a971bee9dff02167121566f9a4444af4e}{\index{main\-Win@{main\-Win}!show\-About@{show\-About}}
 \index{show\-About@{show\-About}!mainWin@{main\-Win}}
 \subsubsection[{show\-About}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::show\-About (
@@ -134,15 +185,9 @@ static Q\-String \hyperlink{classmain_win_a334ae495c1fd5d2063ba42801725d5ea}{A\-
 
 
 \subsection{Member Data Documentation}
-\hypertarget{classmain_win_a334ae495c1fd5d2063ba42801725d5ea}{\index{main\-Win@{main\-Win}!A\-P\-P\-\_\-\-N\-A\-M\-E@{A\-P\-P\-\_\-\-N\-A\-M\-E}}
-\index{A\-P\-P\-\_\-\-N\-A\-M\-E@{A\-P\-P\-\_\-\-N\-A\-M\-E}!mainWin@{main\-Win}}
-\subsubsection[{A\-P\-P\-\_\-\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String main\-Win\-::\-A\-P\-P\-\_\-\-N\-A\-M\-E = \char`\"{}Do\-For\-Me!\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classmain_win_a334ae495c1fd5d2063ba42801725d5ea}
 \hypertarget{classmain_win_a6a02cf853e63c1ad31759f3ce225ed62}{\index{main\-Win@{main\-Win}!m\-\_\-calendar@{m\-\_\-calendar}}
 \index{m\-\_\-calendar@{m\-\_\-calendar}!mainWin@{main\-Win}}
 \subsubsection[{m\-\_\-calendar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Detailed\-Calendar}$\ast$ main\-Win\-::m\-\_\-calendar\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a6a02cf853e63c1ad31759f3ce225ed62}
-\hypertarget{classmain_win_ab66a39c8f78038b3cfaba29066c9fd4d}{\index{main\-Win@{main\-Win}!m\-\_\-curr\-Action@{m\-\_\-curr\-Action}}
-\index{m\-\_\-curr\-Action@{m\-\_\-curr\-Action}!mainWin@{main\-Win}}
-\subsubsection[{m\-\_\-curr\-Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action}$\ast$ main\-Win\-::m\-\_\-curr\-Action\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_ab66a39c8f78038b3cfaba29066c9fd4d}
 \hypertarget{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{\index{main\-Win@{main\-Win}!m\-\_\-i\-Height@{m\-\_\-i\-Height}}
 \index{m\-\_\-i\-Height@{m\-\_\-i\-Height}!mainWin@{main\-Win}}
 \subsubsection[{m\-\_\-i\-Height}]{\setlength{\rightskip}{0pt plus 5cm}unsigned main\-Win\-::m\-\_\-i\-Height\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}
@@ -152,6 +197,12 @@ static Q\-String \hyperlink{classmain_win_a334ae495c1fd5d2063ba42801725d5ea}{A\-
 \hypertarget{classmain_win_a96b71dd9a31a4cf6ea5db224a4540458}{\index{main\-Win@{main\-Win}!m\-\_\-lua@{m\-\_\-lua}}
 \index{m\-\_\-lua@{m\-\_\-lua}!mainWin@{main\-Win}}
 \subsubsection[{m\-\_\-lua}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lua\-Engine}$\ast$ main\-Win\-::m\-\_\-lua\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a96b71dd9a31a4cf6ea5db224a4540458}
+\hypertarget{classmain_win_a426c3fc67264577231b3deb525ddef99}{\index{main\-Win@{main\-Win}!m\-\_\-p\-Curr\-Action@{m\-\_\-p\-Curr\-Action}}
+\index{m\-\_\-p\-Curr\-Action@{m\-\_\-p\-Curr\-Action}!mainWin@{main\-Win}}
+\subsubsection[{m\-\_\-p\-Curr\-Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action}$\ast$ main\-Win\-::m\-\_\-p\-Curr\-Action\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a426c3fc67264577231b3deb525ddef99}
+\hypertarget{classmain_win_ab391602112d6c25f237da91eae815d47}{\index{main\-Win@{main\-Win}!m\-\_\-p\-Curr\-Script@{m\-\_\-p\-Curr\-Script}}
+\index{m\-\_\-p\-Curr\-Script@{m\-\_\-p\-Curr\-Script}!mainWin@{main\-Win}}
+\subsubsection[{m\-\_\-p\-Curr\-Script}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Script}$\ast$ main\-Win\-::m\-\_\-p\-Curr\-Script\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_ab391602112d6c25f237da91eae815d47}
 \hypertarget{classmain_win_a89fa9d3006573378f3195845fe9ed408}{\index{main\-Win@{main\-Win}!ui@{ui}}
 \index{ui@{ui}!mainWin@{main\-Win}}
 \subsubsection[{ui}]{\setlength{\rightskip}{0pt plus 5cm}Ui\-::main\-Win\-Class main\-Win\-::ui\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a89fa9d3006573378f3195845fe9ed408}

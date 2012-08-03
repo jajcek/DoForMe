@@ -19,6 +19,7 @@
 #include "script.h"
 #include "scripts_manager.h"
 #include "conf.h"
+#include "action_settings_dialog.h"
 
 class mainWin : public QMainWindow
 {

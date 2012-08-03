@@ -85,10 +85,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-slots">Protected Slots</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">DetailedCalendar Class Reference</div>  </div>
 </div><!--header-->
@@ -101,10 +103,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa9f4a0f1c2ed25b210893081f579a5f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#aa9f4a0f1c2ed25b210893081f579a5f8">DetailedCalendar</a> (QWidget *pParent)</td></tr>
+<tr class="memitem:aa0b23418872fbc7ce6eb23ac3f888384"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#aa0b23418872fbc7ce6eb23ac3f888384">addAction</a> (QDate, <a class="el" href="class_action.html">Action</a> *)</td></tr>
+<tr class="memitem:adeae63eb638d8f105769d0a611dd1ceb"><td class="memItemLeft" align="right" valign="top">QDate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#adeae63eb638d8f105769d0a611dd1ceb">getSelectedDate</a> () const </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a9f934d9e6b5f171c5d393add3dd75b4b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#a9f934d9e6b5f171c5d393add3dd75b4b">setList</a> (QListWidget *list)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-slots"></a>
 Protected Slots</h2></td></tr>
-<tr class="memitem:a43d18804357496ac57b234c0c08dcf30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#a43d18804357496ac57b234c0c08dcf30">select</a> (const QDate &amp;)</td></tr>
+<tr class="memitem:a40faf426231571f1bf959b4b4026c8be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#a40faf426231571f1bf959b4b4026c8be">selectDate</a> (const QDate &amp;)</td></tr>
 <tr class="memitem:a955c6477aca828d83ff80bc9d3af7ceb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#a955c6477aca828d83ff80bc9d3af7ceb">setCurrentPage</a> (int year, int month)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-methods"></a>
@@ -113,13 +121,17 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a2be0dc0dc0025927c82d2f0d48526e5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#a2be0dc0dc0025927c82d2f0d48526e5e">drawActions</a> (QPainter *painter, const QRect &amp;rect, unsigned actionsNumber) const </td></tr>
+<tr class="memitem:ac70f38e1d83091139a3477704b311336"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#ac70f38e1d83091139a3477704b311336">drawActionsNum</a> (QPainter *painter, const QRect &amp;rect, unsigned actionsNumber) const </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ac9550d3e565e00d53f8861d44e671faf"><td class="memItemLeft" align="right" valign="top">QDate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#ac9550d3e565e00d53f8861d44e671faf">m_selectedDate</a></td></tr>
 <tr class="memitem:a315464b27ed4c2811bccab7079e4ed3f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#a315464b27ed4c2811bccab7079e4ed3f">m_displayedMonth</a></td></tr>
-<tr class="memitem:a5c344d11f9590b2136fce2b0863e9ccf"><td class="memItemLeft" align="right" valign="top">QMap&lt; QDate, QVector&lt; QString &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#a5c344d11f9590b2136fce2b0863e9ccf">m_actions</a></td></tr>
+<tr class="memitem:a93d0855a4f4f046cafee5e1906d01764"><td class="memItemLeft" align="right" valign="top">QMap&lt; QDate, QVector&lt; <a class="el" href="class_action.html">Action</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#a93d0855a4f4f046cafee5e1906d01764">m_actions</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a6943c8b22660a5332abab7b84a97bd95"><td class="memItemLeft" align="right" valign="top">static QListWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_detailed_calendar.html#a6943c8b22660a5332abab7b84a97bd95">m_list</a></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa9f4a0f1c2ed25b210893081f579a5f8"></a>
@@ -139,7 +151,33 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a2be0dc0dc0025927c82d2f0d48526e5e"></a>
+<a class="anchor" id="aa0b23418872fbc7ce6eb23ac3f888384"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DetailedCalendar::addAction </td>
+          <td>(</td>
+          <td class="paramtype">QDate&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_action.html">Action</a> *&#160;</td>
+          <td class="paramname"><em>action</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac70f38e1d83091139a3477704b311336"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -147,7 +185,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void DetailedCalendar::drawActions </td>
+          <td class="memname">void DetailedCalendar::drawActionsNum </td>
           <td>(</td>
           <td class="paramtype">QPainter *&#160;</td>
           <td class="paramname"><em>painter</em>, </td>
@@ -175,6 +213,21 @@ Private Attributes</h2></td></tr>
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="adeae63eb638d8f105769d0a611dd1ceb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QDate DetailedCalendar::getSelectedDate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -219,7 +272,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a43d18804357496ac57b234c0c08dcf30"></a>
+<a class="anchor" id="a40faf426231571f1bf959b4b4026c8be"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -227,7 +280,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void DetailedCalendar::select </td>
+          <td class="memname">void DetailedCalendar::selectDate </td>
           <td>(</td>
           <td class="paramtype">const QDate &amp;&#160;</td>
           <td class="paramname"><em>date</em></td><td>)</td>
@@ -277,8 +330,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a5c344d11f9590b2136fce2b0863e9ccf"></a>
+<a class="anchor" id="a9f934d9e6b5f171c5d393add3dd75b4b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -286,7 +338,32 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QMap&lt;QDate, QVector&lt;QString&gt; &gt; DetailedCalendar::m_actions</td>
+          <td class="memname">void DetailedCalendar::setList </td>
+          <td>(</td>
+          <td class="paramtype">QListWidget *&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a93d0855a4f4f046cafee5e1906d01764"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMap&lt;QDate, QVector&lt;<a class="el" href="class_action.html">Action</a>*&gt; &gt; DetailedCalendar::m_actions</td>
         </tr>
       </table>
   </td>
@@ -312,6 +389,26 @@ Private Attributes</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6943c8b22660a5332abab7b84a97bd95"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QListWidget * DetailedCalendar::m_list</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -345,7 +442,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 18 2012 22:46:27 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 3 2012 23:28:24 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

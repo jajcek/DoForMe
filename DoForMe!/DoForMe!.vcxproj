@@ -76,6 +76,7 @@
   <ItemGroup>
     <ClCompile Include="about_dialog.cpp" />
     <ClCompile Include="action.cpp" />
+    <ClCompile Include="action_settings_dialog.cpp" />
     <ClCompile Include="calendar.cpp" />
     <ClCompile Include="commands_manager.cpp" />
     <ClCompile Include="conf.cpp" />
@@ -139,9 +140,11 @@
   <ItemGroup>
     <ClInclude Include="about_dialog.h" />
     <ClInclude Include="action.h" />
+    <ClInclude Include="action_settings_dialog.h" />
     <ClInclude Include="commands_manager.h" />
     <ClInclude Include="conf.h" />
     <ClInclude Include="GeneratedFiles\ui_about.h" />
+    <ClInclude Include="GeneratedFiles\ui_action_dialog.h" />
     <ClInclude Include="script.h" />
     <ClInclude Include="scripts_manager.h" />
     <CustomBuild Include="calendar.h">
@@ -199,6 +202,19 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="about.ui">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="action_dialog.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
