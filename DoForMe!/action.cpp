@@ -1,31 +1,21 @@
 #include "action.h"
 
-Action::Action() : m_path( "" ), m_fileName( "" ), m_code( "" ), m_bModified( false ) {}
+Action::Action( Script* pScript, QDate date, QTime time ) : m_pScript( pScript ), m_date( date ), m_time( time ) {}
 
-Action::~Action() {}
-
-void Action::setPath( QString path ) {
-	m_path = path;
+void Action::setScript( Script* pScript ) {
+	m_pScript = pScript;
 }
 
-QString Action::getPath() const {
-	return m_path;
+Script* Action::getScript() const {
+	return m_pScript;
 }
 
-void Action::setFileName( QString fileName ) {
-	m_fileName = fileName;
+void Action::setDate( QDate date ) {
+	m_date = date;
 }
 
-QString Action::getFileName() const {
-	return m_fileName;
-}
-
-void Action::setCode( QString code ) {
-	m_code = code;
-}
-
-QString Action::getCode() const {
-	return m_code;
+QDate Action::getDate() const {
+	return m_date;
 }
 
 void Action::setTime( QTime time ) {
@@ -34,12 +24,4 @@ void Action::setTime( QTime time ) {
 
 QTime Action::getTime() const {
 	return m_time;
-}
-
-void Action::setModified( bool changed ) {
-	m_bModified = changed;
-}
-
-bool Action::isModified() const {
-	return m_bModified;
 }

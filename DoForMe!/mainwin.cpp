@@ -41,7 +41,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	LuaApiEngine::setLuaEngine( m_lua );
 	LuaApiEngine::initSpecialKeys();
 
-	loadScripts( Conf::SCRIPT_DIR );
+	loadScripts( CONF::SCRIPT_DIR );
 
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
@@ -54,7 +54,7 @@ void mainWin::loadScripts( const QString& path ) {
 
 	// define which extensions we want to look for
 	QStringList _filesExt;
-	_filesExt.push_back( "*" + Conf::EXT );
+	_filesExt.push_back( "*" + CONF::EXT );
 
 	// get list of files
 	QStringList _fileList = myDir.entryList( _filesExt );
@@ -101,7 +101,7 @@ void mainWin::newFile() {
 	if( _ok ) {
 		// create script object from the file
 		try {
-			Script* _pScript = new Script( Conf::SCRIPT_DIR + _strFileName, Script::CREATE );
+			Script* _pScript = new Script( CONF::SCRIPT_DIR + _strFileName, Script::CREATE );
 			if( ScriptsManager::addScript( _pScript ) ) {
 				// add script title to the scripts list to the title (above text edit) and clean the text area
 				ui.scriptsList->addItem( _pScript->getFileName() );
@@ -111,7 +111,7 @@ void mainWin::newFile() {
 			}
 		} catch( int e ) {
 			if( e == Script::FileOpenException ) {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file \"" + Conf::SCRIPT_DIR + _strFileName + "\". Probably wrong name for file.", QMessageBox::Ok );
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file \"" + CONF::SCRIPT_DIR + _strFileName + "\". Probably wrong name for file.", QMessageBox::Ok );
 				_msg.exec();
 			}
 		}
@@ -188,30 +188,7 @@ void mainWin::saveScript() {
 }
 
 void mainWin::saveAction() {
-	// get path to the current action (script) file (we need it to prepare saving)
-	QString _path = m_pCurrAction->getPath();
-
-	// if it has no path (= "") to file, it means it is not saved yet
-	// so we have to show save dialog to the user (it is done in saveAsAction())
-	if( _path == "" ) {
-		//saveAsAction();
-	} else {
-		// get current code from the text box
-		QString _strCode = ui.scriptTextEdit->toPlainText();
-
-		// the script exists as a file, we need to update it
-		// update code for current action
-		m_pCurrAction->setCode( _strCode );
-
-		// save also to file
-		//saveToFile( _path, _strCode );
-
-		// set window title without '*' symbol, because it's been saved
-		setWindowTitle( Conf::APP_NAME + " - " + m_pCurrAction->getFileName() );
-
-		// we saved the script so we make the status changed to false
-		m_pCurrAction->setModified( false );
-	}
+	
 }
 
 void mainWin::scriptSelected( const QString& scriptTitle ) {
@@ -242,46 +219,12 @@ void mainWin::addAction() {
 	ActionSettingsDialog _actionSettings;
 	_actionSettings.exec();
 
-	/*bool _bShouldAdd = true;
-	qDebug( "%d", m_pCurrAction );
-	if( !m_pCurrAction ) {
-		QMessageBox _msg( QMessageBox::Information, "Information", "You have to save the script before adding it.",
-						  QMessageBox::Ok | QMessageBox::Cancel );
-		_msg.exec();
-		// which button of the message box has been clicked
-		switch( 0 ) {
-			case QMessageBox::Ok:
-				saveAsAction();
-				break;
-			case QMessageBox::Cancel:
-				_bShouldAdd = false;
-		}
-	} else if( m_pCurrAction->isModified() ) {
-		QMessageBox _msg( QMessageBox::Information, "Information", "The script has been modified. If you choose 'Don't save' the old script will be loaded and you will loose the current script.",
-						  QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel );
+	// get all data from the settings
+	int _iHours   = _actionSettings.getHours();
+	int _iMinutes = _actionSettings.getMinutes();
+	int _iSeconds = _actionSettings.getSeconds();
 
-		// which button of the message box has been clicked
-		switch( _msg.exec() ) {
-			case QMessageBox::Save:
-				saveAction();
-				break;
-			case QMessageBox::Discard:
-				// set previously saved code to the text box
-				ui.scriptTextEdit->setText( m_pCurrAction->getCode() );
-
-				// set window title without '*' symbol, because it's been saved
-				setWindowTitle( APP_NAME + " - " + m_pCurrAction->getFileName() );
-
-				// we saved the script so we make the status changed to false
-				m_pCurrAction->setModified( false );
-
-				break;
-			case QMessageBox::Cancel:
-				_bShouldAdd = false;
-		}
-	}
-
-	if( _bShouldAdd ) {
+	/*if( _bShouldAdd ) {
 		if( m_pCurrAction->getPath() != "" ) {
 			m_calendar->addAction( m_calendar->getSelectedDate(),  m_pCurrAction );
 

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'action_dialog.ui'
 **
-** Created: Fri 3. Aug 22:08:10 2012
+** Created: Sun 5. Aug 21:45:46 2012
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -19,7 +19,6 @@
 #include <QtGui/QGroupBox>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpinBox>
 
@@ -29,9 +28,9 @@ class Ui_actionSettingsDialog
 {
 public:
     QGroupBox *groupBox_8;
-    QCheckBox *runEveryXDaysRadio;
-    QLineEdit *daysEdit;
+    QCheckBox *runEveryXDaysCheck;
     QLabel *label_4;
+    QSpinBox *daysSpin;
     QGroupBox *groupBox_2;
     QSpinBox *intervalSpin;
     QLabel *label_3;
@@ -64,15 +63,17 @@ public:
         groupBox_8 = new QGroupBox(actionSettingsDialog);
         groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
         groupBox_8->setGeometry(QRect(10, 78, 201, 51));
-        runEveryXDaysRadio = new QCheckBox(groupBox_8);
-        runEveryXDaysRadio->setObjectName(QString::fromUtf8("runEveryXDaysRadio"));
-        runEveryXDaysRadio->setGeometry(QRect(10, 22, 101, 17));
-        daysEdit = new QLineEdit(groupBox_8);
-        daysEdit->setObjectName(QString::fromUtf8("daysEdit"));
-        daysEdit->setGeometry(QRect(113, 22, 41, 20));
+        runEveryXDaysCheck = new QCheckBox(groupBox_8);
+        runEveryXDaysCheck->setObjectName(QString::fromUtf8("runEveryXDaysCheck"));
+        runEveryXDaysCheck->setGeometry(QRect(10, 22, 101, 17));
         label_4 = new QLabel(groupBox_8);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(160, 25, 31, 16));
+        daysSpin = new QSpinBox(groupBox_8);
+        daysSpin->setObjectName(QString::fromUtf8("daysSpin"));
+        daysSpin->setGeometry(QRect(112, 20, 42, 22));
+        daysSpin->setMinimum(1);
+        daysSpin->setMaximum(999);
         groupBox_2 = new QGroupBox(actionSettingsDialog);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         groupBox_2->setGeometry(QRect(10, 138, 201, 51));
@@ -149,7 +150,7 @@ public:
     {
         actionSettingsDialog->setWindowTitle(QApplication::translate("actionSettingsDialog", "Action settings", 0, QApplication::UnicodeUTF8));
         groupBox_8->setTitle(QApplication::translate("actionSettingsDialog", "Every X days", 0, QApplication::UnicodeUTF8));
-        runEveryXDaysRadio->setText(QApplication::translate("actionSettingsDialog", "Run script every", 0, QApplication::UnicodeUTF8));
+        runEveryXDaysCheck->setText(QApplication::translate("actionSettingsDialog", "Run script every", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("actionSettingsDialog", "days.", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("actionSettingsDialog", "Commands time interval", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("actionSettingsDialog", "ms", 0, QApplication::UnicodeUTF8));

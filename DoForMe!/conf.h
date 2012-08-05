@@ -11,7 +11,7 @@
 	\version 1.0
 	\date 2.08.2012
 */
-struct Conf {
+struct CONF {
 	/**
 		\brief Application name.
 	*/

@@ -104,6 +104,7 @@
     <ClCompile Include="GeneratedFiles\Release\moc_mainwin.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="constants.cpp" />
     <ClCompile Include="key.cpp" />
     <ClCompile Include="lua_api.cpp" />
     <ClCompile Include="lua_engine.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="conf.h" />
     <ClInclude Include="GeneratedFiles\ui_about.h" />
     <ClInclude Include="GeneratedFiles\ui_action_dialog.h" />
+    <ClInclude Include="constants.h" />
     <ClInclude Include="script.h" />
     <ClInclude Include="scripts_manager.h" />
     <CustomBuild Include="calendar.h">

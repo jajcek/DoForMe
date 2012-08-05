@@ -95,6 +95,9 @@
     <ClCompile Include="action_settings_dialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="constants.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwin.h">
@@ -157,6 +160,9 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="action_settings_dialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,11 @@
 Development release 3.08.2012
 ===================================================
+- Adding 'get's methods for ActionSettingsDialog.
+- New DAYS structure which keeps values for days of week (all that kind of values will be kept in constants.h file.
+- Conf structure renamed to CONF.
+
+Development release 3.08.2012
+===================================================
 - Shortcuts for new script, save option.
 - Settings dialog for actions while adding action.
 - Doxygen comments for Conf.f, Script.h, ScriptsManager.h, key.h as well as some comments for lua_engine.h.

@@ -2,6 +2,7 @@
 
 #include <qstring.h>
 #include <QTime>
+#include "script.h"
 
 /**
 	\class Action action.h "action.h"
@@ -13,29 +14,20 @@
 */
 class Action {
 private:
-	QString m_path;
-	QString m_fileName;
-	QString m_code; // for remove, we won't handle code here
-
+	Script* m_pScript;
+	QDate m_date;
 	QTime m_time;
-	bool m_bModified;
 
 public:
-	Action();
-	~Action();
+	Action( Script* pScript, QDate date, QTime time );
 
-	void setPath( QString path );
-	QString getPath() const;
+	void setScript( Script* pScript );
+	Script* getScript() const;
 
-	void setFileName( QString fileName );
-	QString getFileName() const;
+	void setDate( QDate date );
+	QDate getDate() const;
 
-	void setCode( QString code );
-	QString getCode() const;
-
-	void setTime( QTime );
+	void setTime( QTime time );
 	QTime getTime() const;
 
-	void setModified( bool );
-	bool isModified() const;
 };

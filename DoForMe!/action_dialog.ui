@@ -29,7 +29,7 @@
    <property name="title">
     <string>Every X days</string>
    </property>
-   <widget class="QCheckBox" name="runEveryXDaysRadio">
+   <widget class="QCheckBox" name="runEveryXDaysCheck">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -40,16 +40,6 @@
     </property>
     <property name="text">
      <string>Run script every</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="daysEdit">
-    <property name="geometry">
-     <rect>
-      <x>113</x>
-      <y>22</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -63,6 +53,22 @@
     </property>
     <property name="text">
      <string>days.</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="daysSpin">
+    <property name="geometry">
+     <rect>
+      <x>112</x>
+      <y>20</y>
+      <width>42</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>999</number>
     </property>
    </widget>
   </widget>

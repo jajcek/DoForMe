@@ -15,7 +15,8 @@ private:
 	static QListWidget* m_list;
 
 	// actions (date => vector of actions)
-	QMap<QDate, QVector<Action*> > m_actions;
+	QMap<QDate, QVector<Action*> > m_actionsAll;
+	QMap<QDate, QVector<Action*> > m_actionsInMonth;
 
 private:
 	void drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const;

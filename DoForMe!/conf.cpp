@@ -1,5 +1,5 @@
 #include "conf.h"
 
-QString Conf::APP_NAME = "DoForMe!";
-QString Conf::SCRIPT_DIR = "scripts/";
-QString Conf::EXT = ".apc";
+QString CONF::APP_NAME = "DoForMe!";
+QString CONF::SCRIPT_DIR = "scripts/";
+QString CONF::EXT = ".apc";

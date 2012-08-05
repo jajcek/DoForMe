@@ -1,6 +1,6 @@
 #include "calendar.h"
 
-QListWidget* DetailedCalendar::m_list;
+QListWidget* DetailedCalendar::m_list = NULL;
 
 void DetailedCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const {
 	painter->setPen( Qt::black );
@@ -23,7 +23,7 @@ void DetailedCalendar::drawActionsNum( QPainter* painter, const QRect& rect, uns
 	painter->drawText( rect.adjusted( 3, rect.height() - 15, -3, 0 ), Qt::AlignRight , _actionsNumber + " actions" );
 }
 
-DetailedCalendar::DetailedCalendar( QWidget* pParent ) {
+DetailedCalendar::DetailedCalendar( QWidget* pParent ) : m_displayedMonth( 0 ) {
 	// fit it to the main window by making the window its parent
 	setParent( pParent );
 	// hand cursor over the calendar
@@ -33,7 +33,7 @@ DetailedCalendar::DetailedCalendar( QWidget* pParent ) {
 
 	// the calendar start from sunday by default
 	setFirstDayOfWeek( Qt::Monday );
-
+	
 	// make it english
 	setLocale( QLocale( "English, United States" ) );
 
@@ -49,7 +49,8 @@ DetailedCalendar::DetailedCalendar( QWidget* pParent ) {
 
 void DetailedCalendar::addAction( QDate date, Action* action ) {
 	// add new action for a specified date and repaint cells
-	m_actions[date].push_back( action );
+	m_actionsInMonth[date].push_back( action );
+	m_actionsAll[date].push_back( action );
 	updateCells();
 }
 
@@ -69,7 +70,7 @@ void DetailedCalendar::paintCell( QPainter* painter, const QRect& rect, const QD
 	}
 
 	// if action for the date exists
-	if( m_actions.contains( date ) ) {
+	if( m_actionsInMonth.contains( date ) ) {
 		// there would be black border (because of above)
 		// but we want to draw the black border only if it is selected, otherwise draw gray border
 		if( date != m_selectedDate ) painter->setPen( QPen( QColor( 220, 220, 220 ), 2 ) );
@@ -84,13 +85,13 @@ void DetailedCalendar::paintCell( QPainter* painter, const QRect& rect, const QD
 	}
 
 	// draw border with previously set pens/brushes
-	if( date == QDate::currentDate() || date == m_selectedDate || m_actions.contains( date ) ) {
+	if( date == QDate::currentDate() || date == m_selectedDate || m_actionsInMonth.contains( date ) ) {
 		painter->drawRect( rect );
 	}
 
 	// draw text that informs how many actions are there
-	if( m_actions.contains( date ) ) {
-		int _actionsNumber = m_actions[date].size();
+	if( m_actionsInMonth.contains( date ) ) {
+		int _actionsNumber = m_actionsInMonth[date].size();
 		drawActionsNum( painter, rect, _actionsNumber );
 	}
 
@@ -115,6 +116,7 @@ void DetailedCalendar::paintCell( QPainter* painter, const QRect& rect, const QD
 // ------------------------ slots -----------------------------
 
 void DetailedCalendar::selectDate( const QDate& date ) {
+	qDebug("%d", date.dayOfYear() );
 	// set new selected date
 	m_selectedDate = date;
 
@@ -122,7 +124,7 @@ void DetailedCalendar::selectDate( const QDate& date ) {
 	m_list->clear();
 
 	// fill up the list with new actions
-	if( m_actions.find( date ) != m_actions.end() ) {
+	/*if( m_actions.find( date ) != m_actions.end() ) {
 		QVector<Action*> _actions = m_actions.find( date ).value();
 
 		// go through all actions
@@ -138,7 +140,7 @@ void DetailedCalendar::selectDate( const QDate& date ) {
 			// add finally the item to the list
 			m_list->addItem( _strTime + " " +_actions.at( i )->getFileName() );
 		}
-	}
+	}*/
 }
 
 void DetailedCalendar::setCurrentPage( int year, int month ) {
