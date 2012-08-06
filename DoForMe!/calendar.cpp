@@ -24,6 +24,8 @@ void ActionsCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsi
 }
 
 void ActionsCalendar::setRepetition( QDate date, Action* action ) {
+	if( !action->isXDays() && action->getDays() == 0 ) return;
+
 	// how many days have current month
 	// (+15 is for next month, because there are some days of next month visible (max ~15))
 	int _daysNumber = date.daysInMonth() + 15;
@@ -42,7 +44,7 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 	// +10 is here for going for 10 next days, because we will make it earlier about 10 days
 	// because at beginning of calendar there are visible some days of previous month
 	int _iBalance = 10;
-	for( int i = date.day() + 1; i <= _daysNumber + _iBalance; ++i ) {
+	for( int i = date.day(); i <= _daysNumber + _iBalance; ++i ) {
 		// we will shift date about +1 day per iteration
 		// it is necessary to add days if we have chosen further month on the calendar
 		int _toNextMonths = date.daysTo( QDate( m_displayedYear, m_displayedMonth, 1 ) );
@@ -50,7 +52,8 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 		// we need to correct it to not go before selected date
 		_toNextMonths = _toNextMonths < 0 ? 0 : _toNextMonths;
 		int _shift = i - date.day() + _toNextMonths - _iBalance;
-		if( _shift < 0 ) continue;
+		// and don't select current day (it is set in addAction() and setCurrentPage() in this class)
+		if( _shift <= 0 ) continue;
 
 		QDate _shiftedDate = date.addDays( _shift );
 		
@@ -120,9 +123,9 @@ ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::cu
 
 void ActionsCalendar::addAction( QDate date, Action* action ) {
 	// add new action for a specified date and repaint cells
-	// add the action to the container with all actions
-	m_actionsInMonth[date].push_back( action );
 	// and container with actions for a selected month
+	m_actionsInMonth[date].push_back( action );
+	// add the action to the container with all actions
 	m_actionsAll[date].push_back( action );
 
 	// if an action has options 'every X days' or on 'Monday' etc.
@@ -201,8 +204,8 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 	m_list->clear();
 
 	// fill up the list with new actions
-	/*if( m_actions.find( date ) != m_actions.end() ) {
-		QVector<Action*> _actions = m_actions.find( date ).value();
+	if( m_actionsInMonth.find( date ) != m_actionsInMonth.end() ) {
+		QVector<Action*> _actions = m_actionsInMonth.find( date ).value();
 
 		// go through all actions
 		int _actionsNumber = _actions.size();
@@ -210,14 +213,14 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 			Action* _action = _actions.at( i );
 
 			// item on the list is displayed in "0:0:0 Name" form, so we get time here
-			QTime _time = _action->getTime();
-
-			QString _strTime = QString::number( _time.hour() ) + ":" + QString::number( _time.minute() ) + ":" + QString::number( _time.second() );
+			QString _strTime = QString::number( _action->getHours() ) + ":"
+							 + QString::number( _action->getMinutes() ) + ":"
+							 + QString::number( _action->getSeconds() );
 
 			// add finally the item to the list
-			m_list->addItem( _strTime + " " +_actions.at( i )->getFileName() );
+			m_list->addItem( _strTime + " " +_actions.at( i )->getScript()->getFileName() );
 		}
-	}*/
+	}
 }
 
 void ActionsCalendar::setCurrentPage( int year, int month ) {
@@ -236,8 +239,10 @@ void ActionsCalendar::setCurrentPage( int year, int month ) {
 		int _actionsNumber = it.value().size();
 		for( int i = 0; i < _actionsNumber; ++i ) {
 			Action* _pAction = it.value().at( i );
-			if( _pAction->isXDays() || _pAction->getDays() != 0 )
+			if( _pAction->isXDays() || _pAction->getDays() != 0 ) {
+				m_actionsInMonth[it.key()].push_back( _pAction );
 				setRepetition( it.key(), _pAction );
+			}
 		}
 	}
 }
