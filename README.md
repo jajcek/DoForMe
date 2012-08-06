@@ -1,3 +1,11 @@
+Development release 6.08.2012
+===================================================
+- ActionSettingsDialog renamed to ActionSettings.
+- DetailedCalendar renamed to ActionCalendar.
+- DAYS structure removed, the values moved to ActionSettings.
+- Methods for managin actions in Action and ActionCalendar class.
+- Setting repetitions of actions on the calendar.
+
 Development release 3.08.2012
 ===================================================
 - Adding 'get's methods for ActionSettingsDialog.

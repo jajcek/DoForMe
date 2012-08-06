@@ -32,8 +32,8 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	QDesktopWidget screen;
 	setGeometry( ( screen.width() - m_iWidth ) / 2, ( screen.height() - m_iHeight ) / 2, m_iWidth, m_iHeight );
 
-	DetailedCalendar::setList( ui.actionsList );
-	m_calendar = new DetailedCalendar( this );
+	ActionsCalendar::setList( ui.actionsList );
+	m_calendar = new ActionsCalendar( this );
 	m_calendar->setGeometry( ui.actionsList->width() + 10, m_iHeight - 210, m_iWidth - ( ui.actionsList->width() + 10 ), 210 );
 	m_calendar->show();
 	
@@ -216,13 +216,17 @@ void mainWin::scriptModified() {
 void mainWin::addAction() {
 	if( !m_pCurrScript ) return;
 
-	ActionSettingsDialog _actionSettings;
-	_actionSettings.exec();
+	ActionSettings _actionSettings;
+	int _iResult = _actionSettings.exec();
+	
+	// if a user clicked cancel
+	if( !_iResult ) return;
 
-	// get all data from the settings
-	int _iHours   = _actionSettings.getHours();
-	int _iMinutes = _actionSettings.getMinutes();
-	int _iSeconds = _actionSettings.getSeconds();
+	// create new action and add it to calendar
+	Action* _newAction = new Action( m_pCurrScript, _actionSettings );
+	m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
+
+
 
 	/*if( _bShouldAdd ) {
 		if( m_pCurrAction->getPath() != "" ) {

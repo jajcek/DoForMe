@@ -2,6 +2,7 @@
 
 #include <qstring.h>
 #include <QTime>
+#include "action_settings.h"
 #include "script.h"
 
 /**
@@ -15,19 +16,27 @@
 class Action {
 private:
 	Script* m_pScript;
-	QDate m_date;
+	ActionSettings m_actionSettings;
 	QTime m_time;
+	bool m_isXDays;
+	int m_XDays;
+	int m_days;
 
 public:
-	Action( Script* pScript, QDate date, QTime time );
+	Action( Script* pScript, const ActionSettings& settings );
+
+	void setSetting( const ActionSettings& settings );
 
 	void setScript( Script* pScript );
 	Script* getScript() const;
 
-	void setDate( QDate date );
-	QDate getDate() const;
+	int getHours() const;
+	int getMinutes() const;
+	int getSeconds() const;
 
-	void setTime( QTime time );
-	QTime getTime() const;
+	bool isXDays() const;
+	int getXDays() const;
+
+	int getDays() const;
 
 };

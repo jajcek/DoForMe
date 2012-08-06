@@ -19,7 +19,7 @@
 #include "script.h"
 #include "scripts_manager.h"
 #include "conf.h"
-#include "action_settings_dialog.h"
+#include "action_settings.h"
 
 class mainWin : public QMainWindow
 {
@@ -30,7 +30,7 @@ private:
 	unsigned m_iWidth;
 	unsigned m_iHeight;
 
-	DetailedCalendar* m_calendar;
+	ActionsCalendar* m_calendar;
 	LuaEngine* m_lua;
 	Script* m_pCurrScript;
 	Action* m_pCurrAction;

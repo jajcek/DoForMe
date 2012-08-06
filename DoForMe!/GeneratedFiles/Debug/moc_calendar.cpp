@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'calendar.h'
 **
-** Created: Sun 5. Aug 14:47:11 2012
+** Created: Mon 6. Aug 20:57:43 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_DetailedCalendar[] = {
+static const uint qt_meta_data_ActionsCalendar[] = {
 
  // content:
        6,       // revision
@@ -31,22 +31,22 @@ static const uint qt_meta_data_DetailedCalendar[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      18,   17,   17,   17, 0x09,
-      47,   36,   17,   17, 0x09,
+      17,   16,   16,   16, 0x09,
+      46,   35,   16,   16, 0x09,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_DetailedCalendar[] = {
-    "DetailedCalendar\0\0selectDate(QDate)\0"
+static const char qt_meta_stringdata_ActionsCalendar[] = {
+    "ActionsCalendar\0\0selectDate(QDate)\0"
     "year,month\0setCurrentPage(int,int)\0"
 };
 
-void DetailedCalendar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void ActionsCalendar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         Q_ASSERT(staticMetaObject.cast(_o));
-        DetailedCalendar *_t = static_cast<DetailedCalendar *>(_o);
+        ActionsCalendar *_t = static_cast<ActionsCalendar *>(_o);
         switch (_id) {
         case 0: _t->selectDate((*reinterpret_cast< const QDate(*)>(_a[1]))); break;
         case 1: _t->setCurrentPage((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
@@ -55,33 +55,33 @@ void DetailedCalendar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
     }
 }
 
-const QMetaObjectExtraData DetailedCalendar::staticMetaObjectExtraData = {
+const QMetaObjectExtraData ActionsCalendar::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject DetailedCalendar::staticMetaObject = {
-    { &QCalendarWidget::staticMetaObject, qt_meta_stringdata_DetailedCalendar,
-      qt_meta_data_DetailedCalendar, &staticMetaObjectExtraData }
+const QMetaObject ActionsCalendar::staticMetaObject = {
+    { &QCalendarWidget::staticMetaObject, qt_meta_stringdata_ActionsCalendar,
+      qt_meta_data_ActionsCalendar, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &DetailedCalendar::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &ActionsCalendar::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *DetailedCalendar::metaObject() const
+const QMetaObject *ActionsCalendar::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *DetailedCalendar::qt_metacast(const char *_clname)
+void *ActionsCalendar::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_DetailedCalendar))
-        return static_cast<void*>(const_cast< DetailedCalendar*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_ActionsCalendar))
+        return static_cast<void*>(const_cast< ActionsCalendar*>(this));
     return QCalendarWidget::qt_metacast(_clname);
 }
 
-int DetailedCalendar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int ActionsCalendar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QCalendarWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)

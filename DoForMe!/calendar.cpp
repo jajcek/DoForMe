@@ -1,8 +1,8 @@
 #include "calendar.h"
 
-QListWidget* DetailedCalendar::m_list = NULL;
+QListWidget* ActionsCalendar::m_list = NULL;
 
-void DetailedCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const {
+void ActionsCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const {
 	painter->setPen( Qt::black );
 
 	/*unsigned _size = 6;
@@ -20,10 +20,81 @@ void DetailedCalendar::drawActionsNum( QPainter* painter, const QRect& rect, uns
 
 	QString _actionsNumber;
 	_actionsNumber.setNum( actionsNumber );
-	painter->drawText( rect.adjusted( 3, rect.height() - 15, -3, 0 ), Qt::AlignRight , _actionsNumber + " actions" );
+	painter->drawText( rect.adjusted( 3, rect.height() - 15, -3, 0 ), Qt::AlignRight , _actionsNumber + " action(s)" );
 }
 
-DetailedCalendar::DetailedCalendar( QWidget* pParent ) : m_displayedMonth( 0 ) {
+void ActionsCalendar::setRepetition( QDate date, Action* action ) {
+	// how many days have current month
+	// (+15 is for next month, because there are some days of next month visible (max ~15))
+	int _daysNumber = date.daysInMonth() + 15;
+
+	int _XDays = 0;
+	// if the user set "every X days" option get its value
+	if( action->isXDays() ) {
+		 _XDays = action->getXDays();
+	}
+
+	// get selected days of week
+	int _days = action->getDays();
+
+	// go through all days from current date to the end of month
+	// + 1 here is for prevention of double adding action to the current date
+	// +10 is here for going for 10 next days, because we will make it earlier about 10 days
+	// because at beginning of calendar there are visible some days of previous month
+	int _iBalance = 10;
+	for( int i = date.day() + 1; i <= _daysNumber + _iBalance; ++i ) {
+		// we will shift date about +1 day per iteration
+		// it is necessary to add days if we have chosen further month on the calendar
+		int _toNextMonths = date.daysTo( QDate( m_displayedYear, m_displayedMonth, 1 ) );
+
+		// we need to correct it to not go before selected date
+		_toNextMonths = _toNextMonths < 0 ? 0 : _toNextMonths;
+		int _shift = i - date.day() + _toNextMonths - _iBalance;
+		if( _shift < 0 ) continue;
+
+		QDate _shiftedDate = date.addDays( _shift );
+		
+		if( _XDays != 0 ) {
+			if( _shift % _XDays == 0 ) {
+				m_actionsInMonth[_shiftedDate].push_back( action );
+				continue;
+			}
+		}
+		
+		// set necessary days in calenday
+		switch( _shiftedDate.dayOfWeek() ) {
+			case 1: // monday
+				if( _days & ActionSettings::MONDAY )
+					m_actionsInMonth[_shiftedDate].push_back( action );
+				break;
+			case 2: // tuesday
+				if( _days & ActionSettings::TUESDAY )
+					m_actionsInMonth[_shiftedDate].push_back( action );
+				break;
+			case 3: // wednesday
+				if( _days & ActionSettings::WEDNESDAY )
+					m_actionsInMonth[_shiftedDate].push_back( action );
+				break;
+			case 4: // thursday
+				if( _days & ActionSettings::THURSDAY )
+					m_actionsInMonth[_shiftedDate].push_back( action );
+				break;
+			case 5: // friday
+				if( _days & ActionSettings::FRIDAY )
+					m_actionsInMonth[_shiftedDate].push_back( action );
+				break;
+			case 6: // saturday
+				if( _days & ActionSettings::SATURDAY )
+					m_actionsInMonth[_shiftedDate].push_back( action );
+				break;
+			case 7: // sunday
+				if( _days & ActionSettings::SUNDAY )
+					m_actionsInMonth[_shiftedDate].push_back( action );
+		}
+	}
+}
+
+ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::currentDate() ), m_displayedMonth( 0 ), m_displayedYear( 0 ) {
 	// fit it to the main window by making the window its parent
 	setParent( pParent );
 	// hand cursor over the calendar
@@ -47,22 +118,29 @@ DetailedCalendar::DetailedCalendar( QWidget* pParent ) : m_displayedMonth( 0 ) {
 	QObject::connect( this, SIGNAL( currentPageChanged( int, int ) ), this, SLOT( setCurrentPage( int, int ) ) );
 }
 
-void DetailedCalendar::addAction( QDate date, Action* action ) {
+void ActionsCalendar::addAction( QDate date, Action* action ) {
 	// add new action for a specified date and repaint cells
+	// add the action to the container with all actions
 	m_actionsInMonth[date].push_back( action );
+	// and container with actions for a selected month
 	m_actionsAll[date].push_back( action );
+
+	// if an action has options 'every X days' or on 'Monday' etc.
+	// we have to set it to the calendar too (to the current month only, because it would be infinite)
+	setRepetition( date, action );
+
 	updateCells();
 }
 
-void DetailedCalendar::setList( QListWidget* list ) {
+void ActionsCalendar::setList( QListWidget* list ) {
 	m_list = list;
 }
 
-QDate DetailedCalendar::getSelectedDate() const {
+QDate ActionsCalendar::getSelectedDate() const {
 	return m_selectedDate;
 }
 
-void DetailedCalendar::paintCell( QPainter* painter, const QRect& rect, const QDate& date ) const {
+void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDate& date ) const {
 	// set brushes for selecting
 	if( date == m_selectedDate ) {
 		painter->setPen( QPen( Qt::black, 2 ) );
@@ -115,8 +193,7 @@ void DetailedCalendar::paintCell( QPainter* painter, const QRect& rect, const QD
 
 // ------------------------ slots -----------------------------
 
-void DetailedCalendar::selectDate( const QDate& date ) {
-	qDebug("%d", date.dayOfYear() );
+void ActionsCalendar::selectDate( const QDate& date ) {
 	// set new selected date
 	m_selectedDate = date;
 
@@ -143,6 +220,24 @@ void DetailedCalendar::selectDate( const QDate& date ) {
 	}*/
 }
 
-void DetailedCalendar::setCurrentPage( int year, int month ) {
+void ActionsCalendar::setCurrentPage( int year, int month ) {
 	m_displayedMonth = month;
+	m_displayedYear = year;
+
+	// clear before setting actions again (to prevent summing actions)
+	m_actionsInMonth.clear();
+
+	// go throught all actions (days) and choose the actions with repetitions
+	QMapIterator<QDate, QVector<Action*> > it( m_actionsAll );
+	while( it.hasNext() ) {
+		it.next();
+
+		// go through all actions for day
+		int _actionsNumber = it.value().size();
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			Action* _pAction = it.value().at( i );
+			if( _pAction->isXDays() || _pAction->getDays() != 0 )
+				setRepetition( it.key(), _pAction );
+		}
+	}
 }

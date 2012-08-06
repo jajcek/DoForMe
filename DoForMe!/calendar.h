@@ -5,13 +5,15 @@
 #include <qmap.h>
 #include <qlistwidget.h>
 #include "action.h"
+#include "action_settings.h"
 
-class DetailedCalendar : public QCalendarWidget {
+class ActionsCalendar : public QCalendarWidget {
 	Q_OBJECT
 
 private:
 	QDate m_selectedDate;
 	int m_displayedMonth;
+	int m_displayedYear;
 	static QListWidget* m_list;
 
 	// actions (date => vector of actions)
@@ -20,10 +22,11 @@ private:
 
 private:
 	void drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const;
+	void setRepetition( QDate date, Action* action );
 
 public:
-	DetailedCalendar( QWidget* pParent );
-	// remember to free actions later ~DetailedCalendar();
+	ActionsCalendar( QWidget* pParent );
+	// remember to free actions later ~ActionsCalendar();
 	void addAction( QDate, Action* );
 	static void setList( QListWidget* list );
 	QDate getSelectedDate() const;

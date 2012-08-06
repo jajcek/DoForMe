@@ -92,10 +92,7 @@
     <ClCompile Include="conf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="action_settings_dialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="constants.cpp">
+    <ClCompile Include="action_settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -159,10 +156,7 @@
     <ClInclude Include="GeneratedFiles\ui_action_dialog.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="action_settings_dialog.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="constants.h">
+    <ClInclude Include="action_settings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
