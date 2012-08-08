@@ -18,9 +18,22 @@ void ActionsCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsi
 
 	painter->drawPolygon( trianglePoints, 3 );*/
 
+	// get number of actions
 	QString _actionsNumber;
 	_actionsNumber.setNum( actionsNumber );
-	painter->drawText( rect.adjusted( 3, rect.height() - 15, -3, 0 ), Qt::AlignRight , _actionsNumber + " action(s)" );
+
+	// set font size (ang get current font size to get back to it later)
+	QFont _font = painter->font();
+	int _oldSize = _font.pointSize();
+	_font.setPointSize( 7 );
+	painter->setFont( _font );
+
+	// draw text which specifies number of actions
+	painter->drawText( rect.adjusted( 3, rect.height() - 12, -2, 0 ), Qt::AlignRight , _actionsNumber + " action(s)" );
+
+	// return back to the old font size
+	_font.setPointSize( _oldSize );
+	painter->setFont( _font );
 }
 
 void ActionsCalendar::setRepetition( QDate date, Action* action ) {
@@ -96,6 +109,19 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 	}
 }
 
+bool ActionsCalendar::checkTimeCorrectness( QDate date, Action* action ) {
+	QDate _currentDate = QDate::currentDate();
+	QTime _currentTime = QTime::currentTime();
+
+	if( date == _currentDate ) {
+		if( action->getTime() <= _currentTime ) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
 ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::currentDate() ), m_displayedMonth( 0 ), m_displayedYear( 0 ) {
 	// fit it to the main window by making the window its parent
 	setParent( pParent );
@@ -121,6 +147,14 @@ ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::cu
 }
 
 void ActionsCalendar::addAction( QDate date, Action* action ) {
+	// inform user that the time passed already
+	if( !checkTimeCorrectness( date, action ) ) {
+		QMessageBox _msg( QMessageBox::Information, "Information", "The time passed already. Do you still want to add the action?",
+			QMessageBox::Yes | QMessageBox::No );
+		if( _msg.exec() == QMessageBox::No )
+			return;
+	}
+
 	// add new action for a specified date and repaint cells
 	// and container with actions for a selected month
 	m_actionsInMonth[date].push_back( action );
@@ -131,7 +165,11 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 	// we have to set it to the calendar too (to the current month only, because it would be infinite)
 	setRepetition( date, action );
 
+	// repaint all cells
 	updateCells();
+
+	// select date that the action was added from (to show action instatnly in the actions list)
+	selectDate( date );
 }
 
 void ActionsCalendar::setList( QListWidget* list ) {
@@ -153,8 +191,9 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 	if( m_actionsInMonth.contains( date ) ) {
 		// there would be black border (because of above)
 		// but we want to draw the black border only if it is selected, otherwise draw gray border
-		if( date != m_selectedDate ) painter->setPen( QPen( QColor( 220, 220, 220 ), 2 ) );
-		painter->setBrush( QColor( 220, 220, 220 ) );
+		QColor _grayColor = QColor( 230, 230, 230 );
+		if( date != m_selectedDate ) painter->setPen( QPen( _grayColor, 2 ) );
+		painter->setBrush( _grayColor );
 	}
 
 	// set brusher for current day
@@ -211,14 +250,10 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 		for( int i = 0; i < _actions.size();  ++i ) {
 			Action* _action = _actions.at( i );
 
-			// item on the list is displayed in "00:00:00 Name" form, so we get time here and modify value to 2-numbers
-			QString _strHour = "";
+			// item on the list is displayed in "H:MM:SS Name" form, so we get time here and modify value to 2-numbers, except for hour
+			QString _strHour = QString::number( _action->getHours() );
 			QString _strMinute = "";
 			QString _strSecond = "";
-			int _hour = _action->getHours();
-			if( _hour < 10 ) {
-				_strHour = "0" + QString::number( _hour );
-			}
 			int _minute = _action->getMinutes();
 			if( _minute < 10 ) {
 				_strMinute = "0" + QString::number( _minute );
@@ -251,10 +286,8 @@ void ActionsCalendar::setCurrentPage( int year, int month ) {
 		int _actionsNumber = it.value().size();
 		for( int i = 0; i < _actionsNumber; ++i ) {
 			Action* _pAction = it.value().at( i );
-			//if( _pAction->isXDays() || _pAction->getDays() != 0 ) {
-				m_actionsInMonth[it.key()].push_back( _pAction );
-				setRepetition( it.key(), _pAction );
-			//}
+			m_actionsInMonth[it.key()].push_back( _pAction );
+			setRepetition( it.key(), _pAction );
 		}
 	}
 }

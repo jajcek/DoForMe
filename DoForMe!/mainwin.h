@@ -50,6 +50,7 @@ public slots:
 	void scriptModified();
 	void addAction();
 	void showAbout();
+	void actionSelected( const QString& actionTitle );
 	
 
 private:
@@ -58,5 +59,6 @@ private:
 	QString getFuncName( QString textError );
 	void setScriptTitle( QString title );
 	void setCode( const QString& );
+	bool checkDateCorrectness( QDate date );
 
 };

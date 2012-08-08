@@ -23,11 +23,13 @@ private:
 private:
 	void drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const;
 	void setRepetition( QDate date, Action* action );
+	bool checkTimeCorrectness( QDate date, Action* action );
 
 public:
 	ActionsCalendar( QWidget* pParent );
 	// remember to free actions later ~ActionsCalendar();
 	void addAction( QDate, Action* );
+	Action* getAction( QString ) const;
 	static void setList( QListWidget* list );
 	QDate getSelectedDate() const;
 

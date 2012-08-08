@@ -1,6 +1,6 @@
 #include "action.h"
 
-Action::Action( Script* pScript, const ActionSettings& settings ) : m_pScript( pScript ) {
+Action::Action( Script* pScript, const ActionSettings& settings ) : m_pScript( pScript ), m_isRepeated( false ) {
 	setSetting( settings );
 }
 
@@ -31,6 +31,10 @@ int Action::getSeconds() const {
 	return m_time.second();
 }
 
+QTime Action::getTime() const {
+	return m_time;
+}
+
 bool Action::isXDays() const {
 	return m_isXDays;
 }
@@ -41,4 +45,12 @@ int Action::getXDays() const {
 
 int Action::getDays() const {
 	return m_days;
+}
+
+void Action::setRepetition( bool repeated ) {
+	m_isRepeated = repeated;
+}
+
+bool Action::isRepeated() const {
+	return m_isRepeated;
 }

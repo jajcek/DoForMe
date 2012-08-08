@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'action_dialog.ui'
 **
-** Created: Sun 5. Aug 21:45:46 2012
+** Created: Wed 8. Aug 18:24:00 2012
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -31,9 +31,6 @@ public:
     QCheckBox *runEveryXDaysCheck;
     QLabel *label_4;
     QSpinBox *daysSpin;
-    QGroupBox *groupBox_2;
-    QSpinBox *intervalSpin;
-    QLabel *label_3;
     QGroupBox *timeGroupBox;
     QSpinBox *hourSpin;
     QSpinBox *minSpin;
@@ -56,13 +53,13 @@ public:
     {
         if (actionSettingsDialog->objectName().isEmpty())
             actionSettingsDialog->setObjectName(QString::fromUtf8("actionSettingsDialog"));
-        actionSettingsDialog->resize(331, 231);
+        actionSettingsDialog->resize(331, 201);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/mainWin/logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionSettingsDialog->setWindowIcon(icon);
         groupBox_8 = new QGroupBox(actionSettingsDialog);
         groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
-        groupBox_8->setGeometry(QRect(10, 78, 201, 51));
+        groupBox_8->setGeometry(QRect(10, 70, 201, 51));
         runEveryXDaysCheck = new QCheckBox(groupBox_8);
         runEveryXDaysCheck->setObjectName(QString::fromUtf8("runEveryXDaysCheck"));
         runEveryXDaysCheck->setGeometry(QRect(10, 22, 101, 17));
@@ -71,22 +68,13 @@ public:
         label_4->setGeometry(QRect(160, 25, 31, 16));
         daysSpin = new QSpinBox(groupBox_8);
         daysSpin->setObjectName(QString::fromUtf8("daysSpin"));
+        daysSpin->setEnabled(false);
         daysSpin->setGeometry(QRect(112, 20, 42, 22));
         daysSpin->setMinimum(1);
         daysSpin->setMaximum(999);
-        groupBox_2 = new QGroupBox(actionSettingsDialog);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(10, 138, 201, 51));
-        intervalSpin = new QSpinBox(groupBox_2);
-        intervalSpin->setObjectName(QString::fromUtf8("intervalSpin"));
-        intervalSpin->setGeometry(QRect(10, 22, 91, 21));
-        intervalSpin->setMaximum(999999999);
-        label_3 = new QLabel(groupBox_2);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(110, 24, 16, 16));
         timeGroupBox = new QGroupBox(actionSettingsDialog);
         timeGroupBox->setObjectName(QString::fromUtf8("timeGroupBox"));
-        timeGroupBox->setGeometry(QRect(10, 18, 201, 51));
+        timeGroupBox->setGeometry(QRect(10, 10, 201, 51));
         hourSpin = new QSpinBox(timeGroupBox);
         hourSpin->setObjectName(QString::fromUtf8("hourSpin"));
         hourSpin->setGeometry(QRect(10, 20, 42, 22));
@@ -134,14 +122,22 @@ public:
         everydayCheck->setGeometry(QRect(10, 160, 111, 17));
         applyButton = new QPushButton(actionSettingsDialog);
         applyButton->setObjectName(QString::fromUtf8("applyButton"));
-        applyButton->setGeometry(QRect(10, 200, 75, 23));
+        applyButton->setGeometry(QRect(10, 160, 75, 23));
         cancelButton = new QPushButton(actionSettingsDialog);
         cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
-        cancelButton->setGeometry(QRect(90, 200, 75, 23));
+        cancelButton->setGeometry(QRect(90, 160, 75, 23));
 
         retranslateUi(actionSettingsDialog);
         QObject::connect(applyButton, SIGNAL(clicked()), actionSettingsDialog, SLOT(accept()));
         QObject::connect(cancelButton, SIGNAL(clicked()), actionSettingsDialog, SLOT(reject()));
+        QObject::connect(runEveryXDaysCheck, SIGNAL(toggled(bool)), daysSpin, SLOT(setEnabled(bool)));
+        QObject::connect(everydayCheck, SIGNAL(toggled(bool)), mondayCheck, SLOT(toggle()));
+        QObject::connect(everydayCheck, SIGNAL(toggled(bool)), tuesdayCheck, SLOT(toggle()));
+        QObject::connect(everydayCheck, SIGNAL(toggled(bool)), wednesdayCheck, SLOT(toggle()));
+        QObject::connect(everydayCheck, SIGNAL(toggled(bool)), thursdayCheck, SLOT(toggle()));
+        QObject::connect(everydayCheck, SIGNAL(toggled(bool)), fridayCheck, SLOT(toggle()));
+        QObject::connect(everydayCheck, SIGNAL(toggled(bool)), saturdayCheck, SLOT(toggle()));
+        QObject::connect(everydayCheck, SIGNAL(toggled(bool)), sundayCheck, SLOT(toggle()));
 
         QMetaObject::connectSlotsByName(actionSettingsDialog);
     } // setupUi
@@ -152,8 +148,6 @@ public:
         groupBox_8->setTitle(QApplication::translate("actionSettingsDialog", "Every X days", 0, QApplication::UnicodeUTF8));
         runEveryXDaysCheck->setText(QApplication::translate("actionSettingsDialog", "Run script every", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("actionSettingsDialog", "days.", 0, QApplication::UnicodeUTF8));
-        groupBox_2->setTitle(QApplication::translate("actionSettingsDialog", "Commands time interval", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("actionSettingsDialog", "ms", 0, QApplication::UnicodeUTF8));
         timeGroupBox->setTitle(QApplication::translate("actionSettingsDialog", "Time settings", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("actionSettingsDialog", ":", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("actionSettingsDialog", ":", 0, QApplication::UnicodeUTF8));

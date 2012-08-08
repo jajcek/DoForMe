@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>331</width>
-    <height>231</height>
+    <height>201</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>78</y>
+     <y>70</y>
      <width>201</width>
      <height>51</height>
     </rect>
@@ -56,6 +56,9 @@
     </property>
    </widget>
    <widget class="QSpinBox" name="daysSpin">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>112</x>
@@ -72,50 +75,11 @@
     </property>
    </widget>
   </widget>
-  <widget class="QGroupBox" name="groupBox_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>138</y>
-     <width>201</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Commands time interval</string>
-   </property>
-   <widget class="QSpinBox" name="intervalSpin">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>22</y>
-      <width>91</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="maximum">
-     <number>999999999</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>24</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ms</string>
-    </property>
-   </widget>
-  </widget>
   <widget class="QGroupBox" name="timeGroupBox">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>18</y>
+     <y>10</y>
      <width>201</width>
      <height>51</height>
     </rect>
@@ -310,7 +274,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>200</y>
+     <y>160</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -323,7 +287,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>200</y>
+     <y>160</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -366,6 +330,134 @@
     <hint type="destinationlabel">
      <x>165</x>
      <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>runEveryXDaysCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>daysSpin</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>70</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>142</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>everydayCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mondayCheck</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>38</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>everydayCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tuesdayCheck</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>58</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>everydayCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>wednesdayCheck</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>270</x>
+     <y>78</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>everydayCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>thursdayCheck</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>98</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>everydayCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>fridayCheck</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>everydayCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>saturdayCheck</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>everydayCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sundayCheck</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>158</y>
     </hint>
    </hints>
   </connection>

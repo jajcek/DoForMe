@@ -21,6 +21,7 @@ private:
 	bool m_isXDays;
 	int m_XDays;
 	int m_days;
+	bool m_isRepeated;
 
 public:
 	Action( Script* pScript, const ActionSettings& settings );
@@ -33,10 +34,13 @@ public:
 	int getHours() const;
 	int getMinutes() const;
 	int getSeconds() const;
+	QTime getTime() const;
 
 	bool isXDays() const;
 	int getXDays() const;
 
 	int getDays() const;
 
+	void setRepetition( bool repeated );
+	bool isRepeated() const;
 };

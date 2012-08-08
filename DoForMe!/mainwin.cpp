@@ -26,6 +26,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	QObject::connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
 	QObject::connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
 	QObject::connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
+	QObject::connect( ui.actionsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( actionSelected( const QString& ) ) );
 	
 	// used for centering main app window
 	QDesktopWidget screen;
@@ -213,7 +214,20 @@ void mainWin::scriptModified() {
 }
 
 void mainWin::addAction() {
-	if( !m_pCurrScript ) return;
+	// if the script hasn't been selected
+	if( !m_pCurrScript ) {
+		QMessageBox _msg( QMessageBox::Information, "Information", "The script hasn't been selected.", QMessageBox::Ok );
+		_msg.exec();
+		return;
+	}
+
+	// inform user that the date is a past and ask him if he still wants to add teh action
+	if( !checkDateCorrectness( m_calendar->getSelectedDate() ) ) {
+		QMessageBox _msg( QMessageBox::Information, "Information", "The date is from the past. Do you still want to add the action?",
+			QMessageBox::Yes | QMessageBox::No );
+		if( _msg.exec() == QMessageBox::No )
+			return;
+	}
 
 	ActionSettings _actionSettings;
 	int _iResult = _actionSettings.exec();
@@ -224,27 +238,6 @@ void mainWin::addAction() {
 	// create new action and add it to calendar
 	Action* _newAction = new Action( m_pCurrScript, _actionSettings );
 	m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
-
-
-
-	/*if( _bShouldAdd ) {
-		if( m_pCurrAction->getPath() != "" ) {
-			m_calendar->addAction( m_calendar->getSelectedDate(),  m_pCurrAction );
-
-			// gather all information for the action from every field
-			getDataForAction();
-
-			// create tiem string to for action list
-			QString _hour = QString::number( ui.hourSpin->value() );
-			QString _min  = QString::number( ui.minSpin->value() );
-			QString _sec  = QString::number( ui.secSpin->value() );
-
-			QString _strTime = _hour + ":" + _min + ":" + _sec;
-
-			// add action to the actions' list (because the list updates only when clicking on calendar)
-			ui.actionsList->addItem( _strTime + " " + m_pCurrAction->getFileName() );
-		}
-	}*/
 }
 
 void mainWin::showAbout() {
@@ -253,6 +246,10 @@ void mainWin::showAbout() {
 	// only background (gradient) for the logo on the left is created by code
 	AboutDialog _about;
 	_about.exec();
+}
+
+void mainWin::actionSelected( const QString& actionTitle ) {
+	//Action* _selectedAction = m_calendar->
 }
 
 void mainWin::initLuaApi() {
@@ -312,6 +309,15 @@ void mainWin::setScriptTitle( QString title ) {
 void mainWin::setCode( const QString& code ) {
 	ui.scriptTextEdit->setFont( QFont( "Courier New", 8 ) );
 	ui.scriptTextEdit->setText( code );
+}
+
+bool mainWin::checkDateCorrectness( QDate date ) {
+	QDate _currentDate = QDate::currentDate();
+	if( date < _currentDate ) {
+		return false;
+	}
+	
+	return true;
 }
 
 mainWin::~mainWin()

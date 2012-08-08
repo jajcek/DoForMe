@@ -1,3 +1,19 @@
+Development release 9.08.2012
+===================================================
+TODO:
+- Sorting actions by time in actionsAll. Then the index equals to number of item on the actions list.
+
+Development release 8.08.2012
+===================================================
+- Time format set to H:MM:SS.
+- Setting actions list after adding action.
+- Removed 'Commands time interval' option from action settings (it will be some kid of global option).
+- 'Every day' option in action settings implemented (signals created in QT Designer).
+- Lighter color for cell with action on calendar.
+- Smaller font size for "X action(s)" text.
+- Inform a user that he is trying to add action to the past.
+- Information dialog that the script wasn't selected.
+
 Development release 6.08.2012
 ===================================================
 - ActionSettingsDialog renamed to ActionSettings.
