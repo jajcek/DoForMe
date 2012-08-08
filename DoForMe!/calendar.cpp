@@ -26,9 +26,8 @@ void ActionsCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsi
 void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 	if( !action->isXDays() && action->getDays() == 0 ) return;
 
-	// how many days have current month
-	// (+15 is for next month, because there are some days of next month visible (max ~15))
-	int _daysNumber = date.daysInMonth() + 15;
+	// how many days has the current month
+	int _daysNumber = date.daysInMonth();
 
 	int _XDays = 0;
 	// if the user set "every X days" option get its value
@@ -40,11 +39,11 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 	int _days = action->getDays();
 
 	// go through all days from current date to the end of month
-	// + 1 here is for prevention of double adding action to the current date
-	// +10 is here for going for 10 next days, because we will make it earlier about 10 days
+	// (balance is for previous and next month, because there are some days still visible (max ~15))
 	// because at beginning of calendar there are visible some days of previous month
-	int _iBalance = 10;
-	for( int i = date.day(); i <= _daysNumber + _iBalance; ++i ) {
+	// we need to multiply balance in a loop because we subtract it later, so we need to... balance the balance
+	int _iBalance = 31;
+	for( int i = date.day(); i <= _daysNumber + 2  *_iBalance; ++i ) {
 		// we will shift date about +1 day per iteration
 		// it is necessary to add days if we have chosen further month on the calendar
 		int _toNextMonths = date.daysTo( QDate( m_displayedYear, m_displayedMonth, 1 ) );
@@ -212,10 +211,23 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 		for( int i = 0; i < _actions.size();  ++i ) {
 			Action* _action = _actions.at( i );
 
-			// item on the list is displayed in "0:0:0 Name" form, so we get time here
-			QString _strTime = QString::number( _action->getHours() ) + ":"
-							 + QString::number( _action->getMinutes() ) + ":"
-							 + QString::number( _action->getSeconds() );
+			// item on the list is displayed in "00:00:00 Name" form, so we get time here and modify value to 2-numbers
+			QString _strHour = "";
+			QString _strMinute = "";
+			QString _strSecond = "";
+			int _hour = _action->getHours();
+			if( _hour < 10 ) {
+				_strHour = "0" + QString::number( _hour );
+			}
+			int _minute = _action->getMinutes();
+			if( _minute < 10 ) {
+				_strMinute = "0" + QString::number( _minute );
+			}
+			int _second = _action->getSeconds();
+			if( _second < 10 ) {
+				_strSecond = "0" + QString::number( _second );
+			}
+			QString _strTime = _strHour + ":" + _strMinute + ":" + _strSecond;
 
 			// add finally the item to the list
 			m_list->addItem( _strTime + " " +_actions.at( i )->getScript()->getFileName() );
@@ -239,10 +251,10 @@ void ActionsCalendar::setCurrentPage( int year, int month ) {
 		int _actionsNumber = it.value().size();
 		for( int i = 0; i < _actionsNumber; ++i ) {
 			Action* _pAction = it.value().at( i );
-			if( _pAction->isXDays() || _pAction->getDays() != 0 ) {
+			//if( _pAction->isXDays() || _pAction->getDays() != 0 ) {
 				m_actionsInMonth[it.key()].push_back( _pAction );
 				setRepetition( it.key(), _pAction );
-			}
+			//}
 		}
 	}
 }

@@ -3,7 +3,6 @@
 
 HHOOK hook;
 
-
 LRESULT CALLBACK mouseHook(int code, WPARAM wParam, LPARAM lParam)
 {
      if(code < 0) return CallNextHookEx(hook, code, wParam, lParam);   
