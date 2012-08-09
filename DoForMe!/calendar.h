@@ -15,6 +15,7 @@ private:
 	int m_displayedMonth;
 	int m_displayedYear;
 	static QListWidget* m_list;
+	Action* m_pCurrAction;
 
 	// actions (date => vector of actions)
 	QMap<QDate, QVector<Action*> > m_actionsAll;
@@ -23,13 +24,14 @@ private:
 private:
 	void drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const;
 	void setRepetition( QDate date, Action* action );
-	bool checkTimeCorrectness( QDate date, Action* action );
 
 public:
 	ActionsCalendar( QWidget* pParent );
 	// remember to free actions later ~ActionsCalendar();
 	void addAction( QDate, Action* );
-	Action* getAction( QString ) const;
+	Action* getAction( QString actionListTitle ) const;
+	Action* getCurrentAction() const;
+	void setCurrentAction( Action* action );
 	static void setList( QListWidget* list );
 	QDate getSelectedDate() const;
 

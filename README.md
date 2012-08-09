@@ -1,7 +1,8 @@
 Development release 9.08.2012
 ===================================================
-TODO:
-- Sorting actions by time in actionsAll. Then the index equals to number of item on the actions list.
+- Highlighting repeated action on calendar if selected one of them.
+- Message box that inform about old time moved to ActionSettings class.
+- TODO: Inability to add two actions for the same time.
 
 Development release 8.08.2012
 ===================================================

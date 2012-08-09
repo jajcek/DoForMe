@@ -33,7 +33,6 @@ private:
 	ActionsCalendar* m_calendar;
 	LuaEngine* m_lua;
 	Script* m_pCurrScript;
-	Action* m_pCurrAction;
 
 public:
 	mainWin(QWidget *parent = 0, Qt::WFlags flags = 0);

@@ -109,20 +109,8 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 	}
 }
 
-bool ActionsCalendar::checkTimeCorrectness( QDate date, Action* action ) {
-	QDate _currentDate = QDate::currentDate();
-	QTime _currentTime = QTime::currentTime();
-
-	if( date == _currentDate ) {
-		if( action->getTime() <= _currentTime ) {
-			return false;
-		}
-	}
-
-	return true;
-}
-
-ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::currentDate() ), m_displayedMonth( 0 ), m_displayedYear( 0 ) {
+ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::currentDate() ), m_displayedMonth( 0 ),
+													   m_displayedYear( 0 ), m_pCurrAction( NULL ) {
 	// fit it to the main window by making the window its parent
 	setParent( pParent );
 	// hand cursor over the calendar
@@ -147,14 +135,6 @@ ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::cu
 }
 
 void ActionsCalendar::addAction( QDate date, Action* action ) {
-	// inform user that the time passed already
-	if( !checkTimeCorrectness( date, action ) ) {
-		QMessageBox _msg( QMessageBox::Information, "Information", "The time passed already. Do you still want to add the action?",
-			QMessageBox::Yes | QMessageBox::No );
-		if( _msg.exec() == QMessageBox::No )
-			return;
-	}
-
 	// add new action for a specified date and repaint cells
 	// and container with actions for a selected month
 	m_actionsInMonth[date].push_back( action );
@@ -172,6 +152,38 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 	selectDate( date );
 }
 
+Action* ActionsCalendar::getAction( QString actionListTitle ) const {
+	// get time values from actions list
+	int _hours   = actionListTitle.left( 2 ).toInt();
+	int _minutes = actionListTitle.mid( 3, 2 ).toInt();
+	int _seconds = actionListTitle.mid( 6, 2 ).toInt();
+
+	// go through actions in that day (if this method is called it mean that a user has selected date already
+	// so we can use m_selectedDate field of this class
+	QVector<Action*> _actionsVec = m_actionsInMonth[m_selectedDate];
+	int _actionsNumber = _actionsVec.size();
+	for( int i = 0; i < _actionsNumber; ++i ) {
+		// find the appropriate action by time
+		int _itHours   = _actionsVec.at( i )->getHours();
+		int _itMinutes = _actionsVec.at( i )->getMinutes();
+		int _itSeconds = _actionsVec.at( i )->getSeconds();
+
+		if( _itHours == _hours && _itMinutes == _minutes && _itSeconds == _seconds ) {
+			return _actionsVec.at( i );
+		}
+	}
+
+	return NULL;
+}
+
+Action* ActionsCalendar::getCurrentAction() const {
+	return m_pCurrAction;
+}
+
+void ActionsCalendar::setCurrentAction( Action* action ) {
+	m_pCurrAction = action;
+}
+
 void ActionsCalendar::setList( QListWidget* list ) {
 	m_list = list;
 }
@@ -187,11 +199,27 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 		painter->setBrush( Qt::transparent );
 	}
 
+	// check if on this date there are any highlighted actions (for repetition purposes)
+	// we will change color for that cell then (check loop below too)
+	bool _isAnyHighlighted = false;
+	if( m_actionsInMonth.find( date ) != m_actionsInMonth.end() ) {
+		QVector<Action*> _pActions = m_actionsInMonth.find( date ).value();
+		int _actionsNumber = _pActions.size();
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			if( _pActions.at( i )->isHighlighted() ) {
+				_isAnyHighlighted = true;
+				break;
+			}
+		}
+	}
+
 	// if action for the date exists
 	if( m_actionsInMonth.contains( date ) ) {
 		// there would be black border (because of above)
 		// but we want to draw the black border only if it is selected, otherwise draw gray border
 		QColor _grayColor = QColor( 230, 230, 230 );
+		if( _isAnyHighlighted )
+			_grayColor = QColor( 184, 221, 239 );
 		if( date != m_selectedDate ) painter->setPen( QPen( _grayColor, 2 ) );
 		painter->setBrush( _grayColor );
 	}
@@ -235,6 +263,23 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 // ------------------------ slots -----------------------------
 
 void ActionsCalendar::selectDate( const QDate& date ) {
+	// if the user pressed on the currently selected date, we don't have to do anything
+	if( m_selectedDate == date ) return;
+
+	// remove current highlights to set up new
+	if( m_pCurrAction ) {
+		m_pCurrAction->setHighlight( false );
+	}
+
+	// if there is only one action for that day, we will hightlight it
+	// without selecting it on the actions list
+	if( m_actionsInMonth.find( date ) != m_actionsInMonth.end() ) {
+		if( m_actionsInMonth.find( date ).value().size() == 1 ) {
+			m_pCurrAction = m_actionsInMonth.find( date ).value().at( 0 );
+			m_pCurrAction->setHighlight( true );
+		}
+	}
+
 	// set new selected date
 	m_selectedDate = date;
 
@@ -250,17 +295,22 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 		for( int i = 0; i < _actions.size();  ++i ) {
 			Action* _action = _actions.at( i );
 
-			// item on the list is displayed in "H:MM:SS Name" form, so we get time here and modify value to 2-numbers, except for hour
-			QString _strHour = QString::number( _action->getHours() );
-			QString _strMinute = "";
-			QString _strSecond = "";
+			// item on the list is displayed in "HH:MM:SS Name" form, so we get time here and modify value to 2-numbers, except for hour
+			int _hour = _action->getHours();
 			int _minute = _action->getMinutes();
-			if( _minute < 10 ) {
-				_strMinute = "0" + QString::number( _minute );
-			}
 			int _second = _action->getSeconds();
+			QString _strHour = QString::number( _hour );
+			QString _strMinute = QString::number( _minute );
+			QString _strSecond = QString::number( _second );
+
+			if( _hour < 10 ) {
+				_strHour = "0" + _strHour;
+			}
+			if( _minute < 10 ) {
+				_strMinute = "0" + _strMinute;
+			}
 			if( _second < 10 ) {
-				_strSecond = "0" + QString::number( _second );
+				_strSecond = "0" + _strSecond;
 			}
 			QString _strTime = _strHour + ":" + _strMinute + ":" + _strSecond;
 
@@ -268,6 +318,10 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 			m_list->addItem( _strTime + " " +_actions.at( i )->getScript()->getFileName() );
 		}
 	}
+
+	// when selectedDate it called it invokes automatically updateCell() for current cell
+	// but we need to update all cells to change theirs colors if necessary
+	updateCells();
 }
 
 void ActionsCalendar::setCurrentPage( int year, int month ) {

@@ -15,7 +15,7 @@ LRESULT CALLBACK mouseHook(int code, WPARAM wParam, LPARAM lParam)
 }
 
 mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
-	: QMainWindow(parent, flags), m_iWidth( 821 ), m_iHeight( 507 ), m_calendar( NULL ), m_lua( NULL ), m_pCurrScript( NULL ), m_pCurrAction( NULL )
+	: QMainWindow(parent, flags), m_iWidth( 821 ), m_iHeight( 507 ), m_calendar( NULL ), m_lua( NULL ), m_pCurrScript( NULL )
 {
 	ui.setupUi(this);
 
@@ -229,7 +229,7 @@ void mainWin::addAction() {
 			return;
 	}
 
-	ActionSettings _actionSettings;
+	ActionSettings _actionSettings( m_calendar->getSelectedDate() );
 	int _iResult = _actionSettings.exec();
 	
 	// if a user clicked cancel
@@ -249,7 +249,17 @@ void mainWin::showAbout() {
 }
 
 void mainWin::actionSelected( const QString& actionTitle ) {
-	//Action* _selectedAction = m_calendar->
+	Action* _pAction = m_calendar->getCurrentAction();
+	if( _pAction )
+		_pAction->setHighlight( false );
+
+	_pAction = m_calendar->getAction( actionTitle );
+	if( _pAction ) {
+		m_calendar->setCurrentAction( _pAction );
+		_pAction->setHighlight( true );
+	}
+
+	m_calendar->update();
 }
 
 void mainWin::initLuaApi() {
@@ -325,6 +335,5 @@ mainWin::~mainWin()
 	ScriptsManager::removeScripts();
 	delete m_calendar;
 	delete m_lua;
-	delete m_pCurrAction;
 	//UnhookWindowsHookEx( hook );
 }

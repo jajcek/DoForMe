@@ -3,12 +3,17 @@
 #include <qdialog.h>
 #include <qdesktopwidget.h>
 #include <qicon.h>
+#include <qdatetime.h>
+#include <qmessagebox.h>
 #include "ui_action_dialog.h"
 
 
 class ActionSettings : public QDialog {
+	Q_OBJECT
+
 private:
 	Ui::actionSettingsDialog ui;
+	QDate m_selectedDate;
 
 public:
 	static const int MONDAY;
@@ -19,8 +24,12 @@ public:
 	static const int SATURDAY;
 	static const int SUNDAY;
 
+private:
+	bool checkTimeCorrectness();
+
 public:
 	ActionSettings();
+	ActionSettings( QDate date );
 
 	int getHours() const;
 	int getMinutes() const;
@@ -30,4 +39,8 @@ public:
 	int getXDays() const;
 
 	int getDays() const;
+
+public slots:
+	void apply();
+
 };

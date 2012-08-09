@@ -21,7 +21,7 @@ private:
 	bool m_isXDays;
 	int m_XDays;
 	int m_days;
-	bool m_isRepeated;
+	bool m_isHighlighted;
 
 public:
 	Action( Script* pScript, const ActionSettings& settings );
@@ -41,6 +41,6 @@ public:
 
 	int getDays() const;
 
-	void setRepetition( bool repeated );
-	bool isRepeated() const;
+	void setHighlight( bool state );
+	bool isHighlighted() const;
 };

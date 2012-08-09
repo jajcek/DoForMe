@@ -1,6 +1,6 @@
 #include "action.h"
 
-Action::Action( Script* pScript, const ActionSettings& settings ) : m_pScript( pScript ), m_isRepeated( false ) {
+Action::Action( Script* pScript, const ActionSettings& settings ) : m_pScript( pScript ), m_isHighlighted( false ) {
 	setSetting( settings );
 }
 
@@ -47,10 +47,10 @@ int Action::getDays() const {
 	return m_days;
 }
 
-void Action::setRepetition( bool repeated ) {
-	m_isRepeated = repeated;
+void Action::setHighlight( bool state ) {
+	m_isHighlighted = state;
 }
 
-bool Action::isRepeated() const {
-	return m_isRepeated;
+bool Action::isHighlighted() const {
+	return m_isHighlighted;
 }

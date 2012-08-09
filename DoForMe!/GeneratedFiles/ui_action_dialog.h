@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'action_dialog.ui'
 **
-** Created: Wed 8. Aug 18:24:00 2012
+** Created: Fri 10. Aug 00:36:37 2012
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -128,7 +128,6 @@ public:
         cancelButton->setGeometry(QRect(90, 160, 75, 23));
 
         retranslateUi(actionSettingsDialog);
-        QObject::connect(applyButton, SIGNAL(clicked()), actionSettingsDialog, SLOT(accept()));
         QObject::connect(cancelButton, SIGNAL(clicked()), actionSettingsDialog, SLOT(reject()));
         QObject::connect(runEveryXDaysCheck, SIGNAL(toggled(bool)), daysSpin, SLOT(setEnabled(bool)));
         QObject::connect(everydayCheck, SIGNAL(toggled(bool)), mondayCheck, SLOT(toggle()));
