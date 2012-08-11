@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwin.ui'
 **
-** Created: Sat 11. Aug 15:04:42 2012
+** Created: Sat 11. Aug 22:33:34 2012
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -91,7 +91,6 @@ public:
     QListWidget *scriptsList;
     QLabel *label_3;
     QToolButton *toolButton_2;
-    QListWidget *actionsList;
     QLabel *label_5;
     QToolButton *toolButton_3;
     QToolButton *addActionButton;
@@ -330,23 +329,6 @@ public:
         toolButton_2->setGeometry(QRect(100, 1, 51, 21));
         toolButton_2->setStyleSheet(QString::fromUtf8(""));
         toolButton_2->setAutoRaise(true);
-        actionsList = new QListWidget(centralWidget);
-        actionsList->setObjectName(QString::fromUtf8("actionsList"));
-        actionsList->setGeometry(QRect(0, 272, 151, 188));
-        actionsList->setStyleSheet(QString::fromUtf8("QListWidget::item::selected {\n"
-"	background-color: rgb( 51, 153, 255 );\n"
-"}"));
-        actionsList->setFrameShadow(QFrame::Sunken);
-        actionsList->setLineWidth(1);
-        actionsList->setMovement(QListView::Static);
-        actionsList->setFlow(QListView::TopToBottom);
-        actionsList->setProperty("isWrapping", QVariant(false));
-        actionsList->setResizeMode(QListView::Fixed);
-        actionsList->setLayoutMode(QListView::SinglePass);
-        actionsList->setSpacing(0);
-        actionsList->setViewMode(QListView::ListMode);
-        actionsList->setSelectionRectVisible(false);
-        actionsList->setSortingEnabled(true);
         label_5 = new QLabel(centralWidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(0, 249, 151, 23));
@@ -394,19 +376,25 @@ public:
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
         actionsTable->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         actionsTable->setObjectName(QString::fromUtf8("actionsTable"));
-        actionsTable->setGeometry(QRect(470, 110, 351, 151));
+        actionsTable->setGeometry(QRect(0, 272, 151, 188));
+        actionsTable->setStyleSheet(QString::fromUtf8("QTableWidget {\n"
+"selection-background-color: rgb( 51, 153, 255 );\n"
+"}"));
         actionsTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        actionsTable->setAlternatingRowColors(false);
+        actionsTable->setAlternatingRowColors(true);
         actionsTable->setSelectionMode(QAbstractItemView::SingleSelection);
         actionsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+        actionsTable->setTextElideMode(Qt::ElideRight);
+        actionsTable->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
         actionsTable->setGridStyle(Qt::SolidLine);
         actionsTable->setSortingEnabled(true);
         actionsTable->setCornerButtonEnabled(false);
         actionsTable->horizontalHeader()->setVisible(true);
         actionsTable->horizontalHeader()->setCascadingSectionResizes(false);
         actionsTable->horizontalHeader()->setDefaultSectionSize(50);
-        actionsTable->horizontalHeader()->setMinimumSectionSize(30);
-        actionsTable->horizontalHeader()->setStretchLastSection(false);
+        actionsTable->horizontalHeader()->setHighlightSections(true);
+        actionsTable->horizontalHeader()->setMinimumSectionSize(25);
+        actionsTable->horizontalHeader()->setStretchLastSection(true);
         actionsTable->verticalHeader()->setVisible(false);
         actionsTable->verticalHeader()->setCascadingSectionResizes(false);
         actionsTable->verticalHeader()->setHighlightSections(true);

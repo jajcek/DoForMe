@@ -506,54 +506,6 @@ color: black;</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QListWidget" name="actionsList">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>272</y>
-      <width>151</width>
-      <height>188</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QListWidget::item::selected {
-	background-color: rgb( 51, 153, 255 );
-}</string>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
-    </property>
-    <property name="lineWidth">
-     <number>1</number>
-    </property>
-    <property name="movement">
-     <enum>QListView::Static</enum>
-    </property>
-    <property name="flow">
-     <enum>QListView::TopToBottom</enum>
-    </property>
-    <property name="isWrapping" stdset="0">
-     <bool>false</bool>
-    </property>
-    <property name="resizeMode">
-     <enum>QListView::Fixed</enum>
-    </property>
-    <property name="layoutMode">
-     <enum>QListView::SinglePass</enum>
-    </property>
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <property name="viewMode">
-     <enum>QListView::ListMode</enum>
-    </property>
-    <property name="selectionRectVisible">
-     <bool>false</bool>
-    </property>
-    <property name="sortingEnabled">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
@@ -693,23 +645,34 @@ color: black;</string>
    <widget class="QTableWidget" name="actionsTable">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>110</y>
-      <width>351</width>
-      <height>151</height>
+      <x>0</x>
+      <y>272</y>
+      <width>151</width>
+      <height>188</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget {
+selection-background-color: rgb( 51, 153, 255 );
+}</string>
     </property>
     <property name="editTriggers">
      <set>QAbstractItemView::NoEditTriggers</set>
     </property>
     <property name="alternatingRowColors">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="selectionMode">
      <enum>QAbstractItemView::SingleSelection</enum>
     </property>
     <property name="selectionBehavior">
      <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="textElideMode">
+     <enum>Qt::ElideRight</enum>
+    </property>
+    <property name="horizontalScrollMode">
+     <enum>QAbstractItemView::ScrollPerPixel</enum>
     </property>
     <property name="gridStyle">
      <enum>Qt::SolidLine</enum>
@@ -729,11 +692,14 @@ color: black;</string>
     <attribute name="horizontalHeaderDefaultSectionSize">
      <number>50</number>
     </attribute>
+    <attribute name="horizontalHeaderHighlightSections">
+     <bool>true</bool>
+    </attribute>
     <attribute name="horizontalHeaderMinimumSectionSize">
-     <number>30</number>
+     <number>25</number>
     </attribute>
     <attribute name="horizontalHeaderStretchLastSection">
-     <bool>false</bool>
+     <bool>true</bool>
     </attribute>
     <attribute name="verticalHeaderVisible">
      <bool>false</bool>

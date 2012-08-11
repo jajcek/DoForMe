@@ -19,23 +19,27 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 {
 	ui.setupUi(this);
 
-	QObject::connect( ui.actionAbout, SIGNAL( activated() ), this, SLOT( showAbout() ) );
-	QObject::connect( ui.actionNew, SIGNAL( activated() ), this, SLOT( newFile() ) );
-	QObject::connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runAction() ) );
-	QObject::connect( ui.actionSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
-	QObject::connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
-	QObject::connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
-	QObject::connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
-	QObject::connect( ui.detachButton, SIGNAL( clicked() ), this, SLOT( detachAction() ) );
-	QObject::connect( ui.actionsList, SIGNAL( currentRowChanged ( int ) ), this, SLOT( actionSelected( int ) ) );
+	connect( ui.actionAbout, SIGNAL( activated() ), this, SLOT( showAbout() ) );
+	connect( ui.actionNew, SIGNAL( activated() ), this, SLOT( newFile() ) );
+	connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runAction() ) );
+	connect( ui.actionSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
+	connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
+	connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
+	connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
+	connect( ui.detachButton, SIGNAL( clicked() ), this, SLOT( detachAction() ) );
+	connect( ui.actionsTable, SIGNAL( itemClicked( QTableWidgetItem* ) ), this, SLOT( actionSelected( QTableWidgetItem* ) ) );
+
 	
 	// used for centering main app window
 	QDesktopWidget screen;
 	setGeometry( ( screen.width() - m_iWidth ) / 2, ( screen.height() - m_iHeight ) / 2, m_iWidth, m_iHeight );
 
+	// resize width of columns for actions list (actionsTable)
+	ui.actionsTable->setColumnWidth( 0, 25 );
+
 	ActionsCalendar::setList( ui.actionsTable );
 	m_calendar = new ActionsCalendar( this );
-	m_calendar->setGeometry( ui.actionsList->width() + 10, m_iHeight - 210, m_iWidth - ( ui.actionsList->width() + 10 ), 210 );
+	m_calendar->setGeometry( ui.actionsTable->width() + 10, m_iHeight - 210, m_iWidth - ( ui.actionsTable->width() + 10 ), 210 );
 	m_calendar->show();
 	
 	m_lua = new LuaEngine();
@@ -249,15 +253,14 @@ void mainWin::showAbout() {
 	_about.exec();
 }
 
-void mainWin::actionSelected( int index ) {
-	if( index == -1 ) return;
-
+void mainWin::actionSelected( QTableWidgetItem* item ) {
 	// set highlights off to the old selected action
 	Action* _pAction = m_calendar->getCurrentAction();
 	if( _pAction )
 		_pAction->setHighlight( false );
 
-	_pAction = m_calendar->getAction( index );
+	int _actionNumber = ui.actionsTable->item( ui.actionsTable->currentRow(), 0 )->text().toInt() - 1;
+	_pAction = m_calendar->getAction( _actionNumber );
 	if( _pAction ) {
 		m_calendar->setCurrentAction( _pAction );
 		_pAction->setHighlight( true );

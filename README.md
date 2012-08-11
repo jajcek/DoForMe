@@ -1,8 +1,15 @@
-Development release 9.08.2012
+Development release 12.08.2012
+===================================================
+TODO: run script from text field instead of code from script object.
+
+Development release 11.08.2012
 ===================================================
 - Highlighting repeated action on calendar if selected one of them.
 - Message box that inform about old time moved to ActionSettings class.
-- Inability to add two actions for the same time.
+- Inability to add two actions for the same time (doesn't affect repetition).
+- Showing conflicts (actions at the same time, it is possible to achieve that by using repetition).
+- Changed list widget to table wisget for actions list.
+- Selecting actions from the "table" list.
 
 Development release 8.08.2012
 ===================================================

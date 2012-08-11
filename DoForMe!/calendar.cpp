@@ -88,7 +88,7 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 			}
 		}
 		
-		// set necessary days in calenday
+		// set necessary days in calendar
 		switch( _shiftedDate.dayOfWeek() ) {
 			case 1: // monday
 				if( _days & ActionSettings::MONDAY )
@@ -153,6 +153,12 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 	// add the action to the container with all actions
 	m_actionsAll[date].push_back( action );
 
+	// store dates and actions in order as it was added by user
+	// to keep identical order on the lists, these vectors are used also
+	// in "undo" system
+	m_datesOrder.push_back( date );
+	m_actionsOrder.push_back( action );
+
 	// if an action has options 'every X days' or on 'Monday' etc.
 	// we have to set it to the calendar too (to the current month only, because it would be infinite)
 	setRepetition( date, action );
@@ -165,30 +171,7 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 }
 
 Action* ActionsCalendar::getAction( int itemNumber ) const {
-	// get time values from actions list
-	/*int _hours   = m_list->item( itemNumber )->text().left( 2 ).toInt();
-	int _minutes = m_list->item( itemNumber )->text().mid( 3, 2 ).toInt();
-	int _seconds = m_list->item( itemNumber )->text().mid( 6, 2 ).toInt();
-
-	// go through actions in that day (if this method is called it mean that a user has selected date already
-	// so we can use m_selectedDate field of this class
-	QVector<Action*> _actionsVec = m_actionsInMonth[m_selectedDate];
-	int _actionsNumber = _actionsVec.size();
-	for( int i = 0; i < _actionsNumber; ++i ) {
-		// find the appropriate action by time
-		int _itHours   = _actionsVec.at( i )->getHours();
-		int _itMinutes = _actionsVec.at( i )->getMinutes();
-		int _itSeconds = _actionsVec.at( i )->getSeconds();
-
-		if( _itHours == _hours && _itMinutes == _minutes && _itSeconds == _seconds ) {
-			if( itemNumber == 0 )
-				return _actionsVec.at( i );
-			else
-				--itemNumber;
-		}
-	}
-	*/
-	return NULL;
+	return m_actionsInMonth.find( m_selectedDate ).value().at( itemNumber );
 }
 
 Action* ActionsCalendar::getCurrentAction() const {
@@ -234,7 +217,7 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 
 		// find conflicts (two actions at the same time, it can be possible with repetitions)
 		if( _actionsNumber > 1 )
-			for( int i = 0; i < _actionsNumber; ++i ) {
+			for( int i = 0; i < _actionsNumber - 1; ++i ) {
 				if( _pActions.at( i )->getTime() == _pActions.at( i + 1 )->getTime() ) {
 					_isConflict = true;
 					break;
@@ -315,6 +298,7 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 
 	// clear the list to prepare it for another day
 	m_list->clearContents();
+	m_list->setRowCount( 0 );
 
 	// fill up the list with new actions
 	if( m_actionsInMonth.contains( date ) ) {
@@ -346,7 +330,7 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 			QString _strTime = _strHour + ":" + _strMinute + ":" + _strSecond;
 
 			// add finally the item to the list
-			QTableWidgetItem* _no     = new QTableWidgetItem( QString::number( m_list->rowCount() ) );
+			QTableWidgetItem* _no     = new QTableWidgetItem( QString::number( i + 1 ) );
 			QTableWidgetItem* _time   = new QTableWidgetItem( _strTime );
 			QTableWidgetItem* _script = new QTableWidgetItem( _actions.at( i )->getScript()->getFileName() );
 			m_list->setItem( i, 0, _no );
@@ -368,16 +352,11 @@ void ActionsCalendar::setCurrentPage( int year, int month ) {
 	m_actionsInMonth.clear();
 
 	// go throught all actions (days) and choose the actions with repetitions
-	QMapIterator<QDate, QVector<Action*> > it( m_actionsAll );
-	while( it.hasNext() ) {
-		it.next();
-
-		// go through all actions for day
-		int _actionsNumber = it.value().size();
-		for( int i = 0; i < _actionsNumber; ++i ) {
-			Action* _pAction = it.value().at( i );
-			m_actionsInMonth[it.key()].push_back( _pAction );
-			setRepetition( it.key(), _pAction );
-		}
+	int _actionsNumber = m_actionsOrder.size();
+	for( int i = 0; i < _actionsNumber; ++i ) {
+		QDate _date = m_datesOrder.at( i );
+		Action* _pAction = m_actionsOrder.at( i );
+		m_actionsInMonth[_date].push_back( _pAction );
+		setRepetition( _date, _pAction );
 	}
 }

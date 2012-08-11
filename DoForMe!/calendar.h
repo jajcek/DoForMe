@@ -17,6 +17,8 @@ private:
 	int m_displayedYear;
 	static QTableWidget* m_list;
 	Action* m_pCurrAction;
+	QVector<QDate> m_datesOrder;
+	QVector<Action*> m_actionsOrder;
 
 	// actions (date => vector of actions)
 	QMap<QDate, QVector<Action*> > m_actionsAll;

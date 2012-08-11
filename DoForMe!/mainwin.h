@@ -49,7 +49,7 @@ public slots:
 	void scriptModified();
 	void addAction();
 	void showAbout();
-	void actionSelected( int index );
+	void actionSelected( QTableWidgetItem* item );
 	void detachAction();
 
 private:
