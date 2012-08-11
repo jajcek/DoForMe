@@ -1,6 +1,6 @@
 #include "calendar.h"
 
-QListWidget* ActionsCalendar::m_list = NULL;
+QTableWidget* ActionsCalendar::m_list = NULL;
 
 void ActionsCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const {
 	painter->setPen( Qt::black );
@@ -34,6 +34,18 @@ void ActionsCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsi
 	// return back to the old font size
 	_font.setPointSize( _oldSize );
 	painter->setFont( _font );
+}
+
+void ActionsCalendar::drawExclamation( QPainter* painter, const QRect& rect ) const {
+	QPoint trianglePoints[3];
+	trianglePoints[0].setX( rect.left() + rect.width() - 16 );
+	trianglePoints[0].setY( rect.top() + 10 );
+	trianglePoints[1].setX( rect.left() + rect.width() - 10 );
+	trianglePoints[1].setY( rect.top() + 10 );
+	trianglePoints[2].setX( rect.left() + rect.width() - 13 );
+	trianglePoints[2].setY( rect.top() + rect.height() - 5 );
+
+	painter->drawPolygon( trianglePoints, 3 );
 }
 
 void ActionsCalendar::setRepetition( QDate date, Action* action ) {
@@ -148,15 +160,15 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 	// repaint all cells
 	updateCells();
 
-	// select date that the action was added from (to show action instatnly in the actions list)
+	// select date that the action was added from (to show action instantly in the actions list)
 	selectDate( date );
 }
 
-Action* ActionsCalendar::getAction( QString actionListTitle ) const {
+Action* ActionsCalendar::getAction( int itemNumber ) const {
 	// get time values from actions list
-	int _hours   = actionListTitle.left( 2 ).toInt();
-	int _minutes = actionListTitle.mid( 3, 2 ).toInt();
-	int _seconds = actionListTitle.mid( 6, 2 ).toInt();
+	/*int _hours   = m_list->item( itemNumber )->text().left( 2 ).toInt();
+	int _minutes = m_list->item( itemNumber )->text().mid( 3, 2 ).toInt();
+	int _seconds = m_list->item( itemNumber )->text().mid( 6, 2 ).toInt();
 
 	// go through actions in that day (if this method is called it mean that a user has selected date already
 	// so we can use m_selectedDate field of this class
@@ -169,10 +181,13 @@ Action* ActionsCalendar::getAction( QString actionListTitle ) const {
 		int _itSeconds = _actionsVec.at( i )->getSeconds();
 
 		if( _itHours == _hours && _itMinutes == _minutes && _itSeconds == _seconds ) {
-			return _actionsVec.at( i );
+			if( itemNumber == 0 )
+				return _actionsVec.at( i );
+			else
+				--itemNumber;
 		}
 	}
-
+	*/
 	return NULL;
 }
 
@@ -184,7 +199,11 @@ void ActionsCalendar::setCurrentAction( Action* action ) {
 	m_pCurrAction = action;
 }
 
-void ActionsCalendar::setList( QListWidget* list ) {
+QVector<Action*> ActionsCalendar::getActionsForDate( QDate date ) const {
+	return m_actionsInMonth.find( date ).value();
+}
+
+void ActionsCalendar::setList( QTableWidget* list ) {
 	m_list = list;
 }
 
@@ -202,6 +221,7 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 	// check if on this date there are any highlighted actions (for repetition purposes)
 	// we will change color for that cell then (check loop below too)
 	bool _isAnyHighlighted = false;
+	bool _isConflict = false;
 	if( m_actionsInMonth.find( date ) != m_actionsInMonth.end() ) {
 		QVector<Action*> _pActions = m_actionsInMonth.find( date ).value();
 		int _actionsNumber = _pActions.size();
@@ -211,17 +231,30 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 				break;
 			}
 		}
+
+		// find conflicts (two actions at the same time, it can be possible with repetitions)
+		if( _actionsNumber > 1 )
+			for( int i = 0; i < _actionsNumber; ++i ) {
+				if( _pActions.at( i )->getTime() == _pActions.at( i + 1 )->getTime() ) {
+					_isConflict = true;
+					break;
+				}
+			}
 	}
 
 	// if action for the date exists
 	if( m_actionsInMonth.contains( date ) ) {
 		// there would be black border (because of above)
 		// but we want to draw the black border only if it is selected, otherwise draw gray border
-		QColor _grayColor = QColor( 230, 230, 230 );
+		QColor _color = QColor( 230, 230, 230 );
+		if( _isConflict ) {
+			_color = QColor( 255, 201, 14 );
+			drawExclamation( painter, rect );
+		}
 		if( _isAnyHighlighted )
-			_grayColor = QColor( 184, 221, 239 );
-		if( date != m_selectedDate ) painter->setPen( QPen( _grayColor, 2 ) );
-		painter->setBrush( _grayColor );
+			_color = QColor( 184, 221, 239 );
+		if( date != m_selectedDate ) painter->setPen( QPen( _color, 2 ) );
+		painter->setBrush( _color );
 	}
 
 	// set brusher for current day
@@ -263,9 +296,6 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 // ------------------------ slots -----------------------------
 
 void ActionsCalendar::selectDate( const QDate& date ) {
-	// if the user pressed on the currently selected date, we don't have to do anything
-	if( m_selectedDate == date ) return;
-
 	// remove current highlights to set up new
 	if( m_pCurrAction ) {
 		m_pCurrAction->setHighlight( false );
@@ -273,7 +303,7 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 
 	// if there is only one action for that day, we will hightlight it
 	// without selecting it on the actions list
-	if( m_actionsInMonth.find( date ) != m_actionsInMonth.end() ) {
+	if( m_actionsInMonth.contains( date ) ) {
 		if( m_actionsInMonth.find( date ).value().size() == 1 ) {
 			m_pCurrAction = m_actionsInMonth.find( date ).value().at( 0 );
 			m_pCurrAction->setHighlight( true );
@@ -284,14 +314,15 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 	m_selectedDate = date;
 
 	// clear the list to prepare it for another day
-	m_list->clear();
+	m_list->clearContents();
 
 	// fill up the list with new actions
-	if( m_actionsInMonth.find( date ) != m_actionsInMonth.end() ) {
+	if( m_actionsInMonth.contains( date ) ) {
 		QVector<Action*> _actions = m_actionsInMonth.find( date ).value();
 
 		// go through all actions
 		int _actionsNumber = _actions.size();
+		m_list->setRowCount( _actionsNumber );
 		for( int i = 0; i < _actions.size();  ++i ) {
 			Action* _action = _actions.at( i );
 
@@ -315,7 +346,12 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 			QString _strTime = _strHour + ":" + _strMinute + ":" + _strSecond;
 
 			// add finally the item to the list
-			m_list->addItem( _strTime + " " +_actions.at( i )->getScript()->getFileName() );
+			QTableWidgetItem* _no     = new QTableWidgetItem( QString::number( m_list->rowCount() ) );
+			QTableWidgetItem* _time   = new QTableWidgetItem( _strTime );
+			QTableWidgetItem* _script = new QTableWidgetItem( _actions.at( i )->getScript()->getFileName() );
+			m_list->setItem( i, 0, _no );
+			m_list->setItem( i, 1, _time );
+			m_list->setItem( i, 2, _script );
 		}
 	}
 

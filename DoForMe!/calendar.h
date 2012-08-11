@@ -2,6 +2,7 @@
 
 #include <qcalendarwidget.h>
 #include <qpainter.h>
+#include <qvector.h>
 #include <qmap.h>
 #include <qlistwidget.h>
 #include "action.h"
@@ -14,7 +15,7 @@ private:
 	QDate m_selectedDate;
 	int m_displayedMonth;
 	int m_displayedYear;
-	static QListWidget* m_list;
+	static QTableWidget* m_list;
 	Action* m_pCurrAction;
 
 	// actions (date => vector of actions)
@@ -23,16 +24,19 @@ private:
 
 private:
 	void drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const;
+	void drawExclamation( QPainter* painter, const QRect& rect ) const;
 	void setRepetition( QDate date, Action* action );
 
 public:
 	ActionsCalendar( QWidget* pParent );
 	// remember to free actions later ~ActionsCalendar();
 	void addAction( QDate, Action* );
-	Action* getAction( QString actionListTitle ) const;
+	Action* getAction( int itemNumber ) const;
 	Action* getCurrentAction() const;
+	// only for the current month!
+	QVector<Action*> getActionsForDate( QDate date ) const;
 	void setCurrentAction( Action* action );
-	static void setList( QListWidget* list );
+	static void setList( QTableWidget* list );
 	QDate getSelectedDate() const;
 
 protected:

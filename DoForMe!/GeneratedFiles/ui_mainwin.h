@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwin.ui'
 **
-** Created: Fri 3. Aug 18:39:57 2012
+** Created: Sat 11. Aug 15:04:42 2012
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -27,6 +27,7 @@
 #include <QtGui/QPushButton>
 #include <QtGui/QSlider>
 #include <QtGui/QTabWidget>
+#include <QtGui/QTableWidget>
 #include <QtGui/QTextEdit>
 #include <QtGui/QToolBar>
 #include <QtGui/QToolButton>
@@ -96,6 +97,8 @@ public:
     QToolButton *addActionButton;
     QTextEdit *scriptTextEdit;
     QLabel *scriptTitle;
+    QToolButton *detachButton;
+    QTableWidget *actionsTable;
     QMenuBar *menuBar;
     QMenu *menuMenu;
     QMenu *menuExecuting;
@@ -376,6 +379,39 @@ public:
         scriptTitle->setGeometry(QRect(160, 0, 311, 23));
         scriptTitle->setStyleSheet(QString::fromUtf8("background-color: rgb( 210, 210, 210 );\n"
 "color: black;"));
+        detachButton = new QToolButton(centralWidget);
+        detachButton->setObjectName(QString::fromUtf8("detachButton"));
+        detachButton->setGeometry(QRect(59, 250, 41, 21));
+        detachButton->setStyleSheet(QString::fromUtf8(""));
+        detachButton->setAutoRaise(true);
+        actionsTable = new QTableWidget(centralWidget);
+        if (actionsTable->columnCount() < 3)
+            actionsTable->setColumnCount(3);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        actionsTable->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        actionsTable->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        actionsTable->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        actionsTable->setObjectName(QString::fromUtf8("actionsTable"));
+        actionsTable->setGeometry(QRect(470, 110, 351, 151));
+        actionsTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        actionsTable->setAlternatingRowColors(false);
+        actionsTable->setSelectionMode(QAbstractItemView::SingleSelection);
+        actionsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+        actionsTable->setGridStyle(Qt::SolidLine);
+        actionsTable->setSortingEnabled(true);
+        actionsTable->setCornerButtonEnabled(false);
+        actionsTable->horizontalHeader()->setVisible(true);
+        actionsTable->horizontalHeader()->setCascadingSectionResizes(false);
+        actionsTable->horizontalHeader()->setDefaultSectionSize(50);
+        actionsTable->horizontalHeader()->setMinimumSectionSize(30);
+        actionsTable->horizontalHeader()->setStretchLastSection(false);
+        actionsTable->verticalHeader()->setVisible(false);
+        actionsTable->verticalHeader()->setCascadingSectionResizes(false);
+        actionsTable->verticalHeader()->setHighlightSections(true);
+        actionsTable->verticalHeader()->setProperty("showSortIndicator", QVariant(false));
+        actionsTable->verticalHeader()->setStretchLastSection(false);
         mainWinClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(mainWinClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -518,6 +554,13 @@ public:
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", 0, QApplication::UnicodeUTF8));
         scriptTitle->setText(QApplication::translate("mainWinClass", "  New script", 0, QApplication::UnicodeUTF8));
+        detachButton->setText(QApplication::translate("mainWinClass", "Detach", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem = actionsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("mainWinClass", "No.", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem1 = actionsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("mainWinClass", "Time", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem2 = actionsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QApplication::translate("mainWinClass", "Script", 0, QApplication::UnicodeUTF8));
         menuMenu->setTitle(QApplication::translate("mainWinClass", "Help", 0, QApplication::UnicodeUTF8));
         menuExecuting->setTitle(QApplication::translate("mainWinClass", "Commands", 0, QApplication::UnicodeUTF8));
         menuCustomize->setTitle(QApplication::translate("mainWinClass", "Customize", 0, QApplication::UnicodeUTF8));

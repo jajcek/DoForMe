@@ -22,14 +22,19 @@ private:
 	int m_XDays;
 	int m_days;
 	bool m_isHighlighted;
+	QVector<QDate> m_excludedDates;
 
 public:
+	Action( Action* action );
 	Action( Script* pScript, const ActionSettings& settings );
 
 	void setSetting( const ActionSettings& settings );
 
 	void setScript( Script* pScript );
 	Script* getScript() const;
+
+	void excludeDate( QDate date );
+	bool isExcluded( QDate date ) const;
 
 	int getHours() const;
 	int getMinutes() const;

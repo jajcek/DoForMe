@@ -49,8 +49,8 @@ public slots:
 	void scriptModified();
 	void addAction();
 	void showAbout();
-	void actionSelected( const QString& actionTitle );
-	
+	void actionSelected( int index );
+	void detachAction();
 
 private:
 	void initLuaApi();

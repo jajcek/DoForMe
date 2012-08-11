@@ -26,13 +26,14 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	QObject::connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
 	QObject::connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
 	QObject::connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
-	QObject::connect( ui.actionsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( actionSelected( const QString& ) ) );
+	QObject::connect( ui.detachButton, SIGNAL( clicked() ), this, SLOT( detachAction() ) );
+	QObject::connect( ui.actionsList, SIGNAL( currentRowChanged ( int ) ), this, SLOT( actionSelected( int ) ) );
 	
 	// used for centering main app window
 	QDesktopWidget screen;
 	setGeometry( ( screen.width() - m_iWidth ) / 2, ( screen.height() - m_iHeight ) / 2, m_iWidth, m_iHeight );
 
-	ActionsCalendar::setList( ui.actionsList );
+	ActionsCalendar::setList( ui.actionsTable );
 	m_calendar = new ActionsCalendar( this );
 	m_calendar->setGeometry( ui.actionsList->width() + 10, m_iHeight - 210, m_iWidth - ( ui.actionsList->width() + 10 ), 210 );
 	m_calendar->show();
@@ -229,7 +230,7 @@ void mainWin::addAction() {
 			return;
 	}
 
-	ActionSettings _actionSettings( m_calendar->getSelectedDate() );
+	ActionSettings _actionSettings( m_calendar->getSelectedDate(), ui.actionsTable );
 	int _iResult = _actionSettings.exec();
 	
 	// if a user clicked cancel
@@ -248,18 +249,39 @@ void mainWin::showAbout() {
 	_about.exec();
 }
 
-void mainWin::actionSelected( const QString& actionTitle ) {
+void mainWin::actionSelected( int index ) {
+	if( index == -1 ) return;
+
+	// set highlights off to the old selected action
 	Action* _pAction = m_calendar->getCurrentAction();
 	if( _pAction )
 		_pAction->setHighlight( false );
 
-	_pAction = m_calendar->getAction( actionTitle );
+	_pAction = m_calendar->getAction( index );
 	if( _pAction ) {
 		m_calendar->setCurrentAction( _pAction );
 		_pAction->setHighlight( true );
 	}
 
 	m_calendar->update();
+	// QCalendarWidget needs focus to be fully updated...
+	m_calendar->setFocus();
+}
+
+void mainWin::detachAction() {
+	Action* _pAction = m_calendar->getCurrentAction();
+	if( !_pAction ) return;
+
+	_pAction->setHighlight( false );
+
+	// exclude date from the action
+	_pAction->excludeDate( m_calendar->getSelectedDate() );
+
+	// create new action and add it to calendar
+	Action* _newAction = new Action( _pAction );
+	_newAction->setHighlight( true );
+	m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
+	m_calendar->setCurrentAction( _newAction );
 }
 
 void mainWin::initLuaApi() {

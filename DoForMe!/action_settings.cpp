@@ -8,23 +8,36 @@ const int ActionSettings::FRIDAY = 1 << 4;
 const int ActionSettings::SATURDAY = 1 << 5;
 const int ActionSettings::SUNDAY = 1 << 6;
 
-bool ActionSettings::checkTimeCorrectness() {
+int ActionSettings::checkTimeCorrectness() {
 	QDate _currentDate = QDate::currentDate();
 	QTime _currentTime = QTime::currentTime();
 
+	// check if the time set is older or equal to the current time
 	if( m_selectedDate == _currentDate ) {
 		if( _currentTime >= QTime( getHours(), getMinutes(), getSeconds() ) ) {
-			return false;
+			return OLD;
 		}
 	}
 
-	return true;
+	// check if there are any actions with the same time
+	int _actionsNumber = m_list->rowCount();
+	for( int i = 0; i < _actionsNumber; ++i ) {
+		int _hours   = m_list->item( i, 1 )->text().left( 2 ).toInt();
+		int _minutes = m_list->item( i, 1 )->text().mid( 3, 2 ).toInt();
+		int _seconds = m_list->item( i, 1 )->text().mid( 6, 2 ).toInt();
+
+		if( _hours == getHours() && _minutes == getMinutes() && _seconds == getSeconds() ) {
+			return EQUAL;
+		}
+	}
+
+	return OK;
 }
 
-ActionSettings::ActionSettings() : m_selectedDate( QDate::currentDate() ) {
+ActionSettings::ActionSettings() : m_selectedDate( QDate::currentDate() ), m_list( NULL ) {
 	ui.setupUi( this );
 
-	connect( ui.applyButton, SIGNAL( CLICKED() ), this, SLOT( apply() ) );
+	connect( ui.applyButton, SIGNAL( clicked() ), this, SLOT( apply() ) );
 
 	// make the dialog on the middle of screen
 	QDesktopWidget screen;
@@ -35,7 +48,7 @@ ActionSettings::ActionSettings() : m_selectedDate( QDate::currentDate() ) {
 	*/
 }
 
-ActionSettings::ActionSettings( QDate date ) : m_selectedDate( date ) {
+ActionSettings::ActionSettings( QDate date, QTableWidget* list ) : m_selectedDate( date ), m_list( list ) {
 	ui.setupUi( this );
 
 	connect( ui.applyButton, SIGNAL( clicked() ), this, SLOT( apply() ) );
@@ -92,15 +105,27 @@ int ActionSettings::getDays() const {
 
 void ActionSettings::apply() {
 	// inform user that the time passed already
-	if( !checkTimeCorrectness() ) {
-		QMessageBox _msg( QMessageBox::Information, "Information", "The time passed already. Do you still want to add the action?",
-			QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel );
-		int _result = _msg.exec();
-		if( _result == QMessageBox::Cancel )
+	/*int _result = checkTimeCorrectness();
+	switch( _result ) {
+		case OLD: {
+			QMessageBox _msg( QMessageBox::Information, "Information", "The time passed already. Do you still want to add the action?",
+				QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel );
+			int _result = _msg.exec();
+			if( _result == QMessageBox::Cancel )
+				return;
+			else if( _result == QMessageBox::No )
+				reject();
+			else
+				accept();
+		}
+		case EQUAL: {
+			QMessageBox _msg( QMessageBox::Information, "Information", "An actions with the same time already exists.",
+				QMessageBox::Ok );
+			_msg.exec();
 			return;
-		else if( _result == QMessageBox::No )
-			reject();
-		else
+		}
+		case OK:
 			accept();
-	}
+	}*/
+	accept();
 }

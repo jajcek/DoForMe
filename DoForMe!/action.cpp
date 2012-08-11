@@ -1,5 +1,14 @@
 #include "action.h"
 
+Action::Action( Action* action ) {
+	// IMPORTANT, it creates action without repetitions!
+	m_pScript = action->getScript();
+	m_time = action->getTime();
+	m_isXDays = false;
+	m_XDays = 0;
+	m_days = 0;
+}
+
 Action::Action( Script* pScript, const ActionSettings& settings ) : m_pScript( pScript ), m_isHighlighted( false ) {
 	setSetting( settings );
 }
@@ -17,6 +26,14 @@ void Action::setScript( Script* pScript ) {
 
 Script* Action::getScript() const {
 	return m_pScript;
+}
+
+void Action::excludeDate( QDate date ) {
+	m_excludedDates.push_back( date );
+}
+
+bool Action::isExcluded( QDate date ) const {
+	return m_excludedDates.contains( date );
 }
 
 int Action::getHours() const {
