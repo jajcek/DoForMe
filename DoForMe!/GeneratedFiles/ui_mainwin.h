@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwin.ui'
 **
-** Created: Mon 13. Aug 19:08:36 2012
+** Created: Mon 13. Aug 21:46:20 2012
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -92,7 +92,7 @@ public:
     QLabel *label_3;
     QToolButton *toolButton_2;
     QLabel *label_5;
-    QToolButton *toolButton_3;
+    QToolButton *removeButton;
     QToolButton *addActionButton;
     QTextEdit *scriptTextEdit;
     QLabel *scriptTitle;
@@ -334,11 +334,11 @@ public:
         label_5->setGeometry(QRect(0, 249, 151, 23));
         label_5->setStyleSheet(QString::fromUtf8("background-color: rgb( 210, 210, 210 );\n"
 "color: black;"));
-        toolButton_3 = new QToolButton(centralWidget);
-        toolButton_3->setObjectName(QString::fromUtf8("toolButton_3"));
-        toolButton_3->setGeometry(QRect(100, 250, 51, 21));
-        toolButton_3->setStyleSheet(QString::fromUtf8(""));
-        toolButton_3->setAutoRaise(true);
+        removeButton = new QToolButton(centralWidget);
+        removeButton->setObjectName(QString::fromUtf8("removeButton"));
+        removeButton->setGeometry(QRect(100, 250, 51, 21));
+        removeButton->setStyleSheet(QString::fromUtf8(""));
+        removeButton->setAutoRaise(true);
         addActionButton = new QToolButton(centralWidget);
         addActionButton->setObjectName(QString::fromUtf8("addActionButton"));
         addActionButton->setEnabled(true);
@@ -531,7 +531,7 @@ public:
         label_3->setText(QApplication::translate("mainWinClass", "  Scripts", 0, QApplication::UnicodeUTF8));
         toolButton_2->setText(QApplication::translate("mainWinClass", "Remove", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("mainWinClass", "  Actions", 0, QApplication::UnicodeUTF8));
-        toolButton_3->setText(QApplication::translate("mainWinClass", "Remove", 0, QApplication::UnicodeUTF8));
+        removeButton->setText(QApplication::translate("mainWinClass", "Remove", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         addActionButton->setToolTip(QApplication::translate("mainWinClass", "Add to actions", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP

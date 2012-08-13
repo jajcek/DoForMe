@@ -35,6 +35,9 @@ public:
 	void addAction( QDate, Action* );
 	Action* getAction( int itemNumber ) const;
 	Action* getCurrentAction() const;
+	void detachCurrentAction();
+	void removeCurrentAction();
+	void removeCurrentActions();
 	// only for the current month!
 	QVector<Action*> getActionsForDate( QDate date ) const;
 	void setCurrentAction( Action* action );

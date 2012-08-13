@@ -1,5 +1,7 @@
 #include "action.h"
 
+int Action::m_actionNumber = 0;
+
 Action::Action( Action* action ) {
 	// IMPORTANT, it creates action without repetitions!
 	m_pScript = action->getScript();
@@ -7,9 +9,11 @@ Action::Action( Action* action ) {
 	m_isXDays = false;
 	m_XDays = 0;
 	m_days = 0;
+	m_isHighlighted = action->isHighlighted();
+	m_id = nextId();
 }
 
-Action::Action( Script* pScript, const ActionSettings& settings ) : m_pScript( pScript ), m_isHighlighted( false ) {
+Action::Action( Script* pScript, const ActionSettings& settings ) : m_pScript( pScript ), m_isHighlighted( false ), m_id( nextId() ) {
 	setSetting( settings );
 }
 
@@ -70,4 +74,16 @@ void Action::setHighlight( bool state ) {
 
 bool Action::isHighlighted() const {
 	return m_isHighlighted;
+}
+
+void Action::setId( int id ) {
+	m_id = id;
+}
+
+int Action::getId() const {
+	return m_id;
+}
+
+int Action::nextId() {
+	return m_actionNumber++;
 }

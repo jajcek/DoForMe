@@ -23,6 +23,9 @@ private:
 	int m_days;
 	bool m_isHighlighted;
 	QVector<QDate> m_excludedDates;
+	QDate m_mainDate;
+	int m_id;
+	static int m_actionNumber;
 
 public:
 	Action( Action* action );
@@ -48,4 +51,8 @@ public:
 
 	void setHighlight( bool state );
 	bool isHighlighted() const;
+
+	void setId( int id );
+	int getId() const;
+	int nextId();
 };

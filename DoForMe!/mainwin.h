@@ -54,6 +54,7 @@ public slots:
 	void showAbout();
 	void actionSelected( QTableWidgetItem* item );
 	void detachAction();
+	void removeAction();
 
 private:
 	void initLuaApi();

@@ -27,6 +27,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
 	connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
 	connect( ui.detachButton, SIGNAL( clicked() ), this, SLOT( detachAction() ) );
+	connect( ui.removeButton, SIGNAL( clicked() ), this, SLOT( removeAction() ) );
 	connect( ui.actionsTable, SIGNAL( itemClicked( QTableWidgetItem* ) ), this, SLOT( actionSelected( QTableWidgetItem* ) ) );
 
 	
@@ -256,6 +257,7 @@ void mainWin::addAction() {
 	// create new action and add it to calendar
 	Action* _newAction = new Action( m_pCurrScript, _actionSettings );
 	m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
+	m_calendar->refreshRepetitions();
 }
 
 void mainWin::showAbout() {
@@ -285,21 +287,24 @@ void mainWin::actionSelected( QTableWidgetItem* item ) {
 }
 
 void mainWin::detachAction() {
-	Action* _pAction = m_calendar->getCurrentAction();
-	if( !_pAction ) return;
+	m_calendar->detachCurrentAction();
+}
 
-	_pAction->setHighlight( false );
-
-	// exclude date from the action
-	_pAction->excludeDate( m_calendar->getSelectedDate() );
-
-	// create new action and add it to calendar
-	Action* _newAction = new Action( _pAction );
-	_newAction->setHighlight( true );
-	m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
-	m_calendar->setCurrentAction( _newAction );
-
-	m_calendar->refreshRepetitions();
+void mainWin::removeAction() {
+	if( m_calendar->getCurrentAction()->isXDays() || m_calendar->getCurrentAction()->getDays() ) {
+		QMessageBox _msg( QMessageBox::Information, "Information", "Do you want to remove all repetitions?",
+			QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel );
+		switch( _msg.exec() ) {
+			case QMessageBox::Yes:
+				m_calendar->removeCurrentActions();
+				break;
+			case QMessageBox::No:
+				m_calendar->removeCurrentAction();
+				break;
+		}
+	} else {
+		m_calendar->removeCurrentAction();
+	}
 }
 
 void mainWin::initLuaApi() {

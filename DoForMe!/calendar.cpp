@@ -61,10 +61,12 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 
 		QDate _shiftedDate = date.addDays( _shift );
 		
+		// if the date has been excluded from repetitions
 		if( action->isExcluded( _shiftedDate ) ) {
 			continue;
 		}
 
+		// set repetition for every X days
 		if( _XDays != 0 ) {
 			if( _shift % _XDays == 0 ) {
 				m_actionsInMonth[_shiftedDate].push_back( action );
@@ -140,12 +142,6 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 	// if an action has options 'every X days' or on 'Monday' etc.
 	// we have to set it to the calendar too (to the current month only, because it would be infinite)
 	setRepetition( date, action );
-
-	// repaint all cells
-	updateCells();
-
-	// select date that the action was added from (to show action instantly in the actions list)
-	selectDate( date );
 }
 
 Action* ActionsCalendar::getAction( int itemNumber ) const {
@@ -154,6 +150,65 @@ Action* ActionsCalendar::getAction( int itemNumber ) const {
 
 Action* ActionsCalendar::getCurrentAction() const {
 	return m_pCurrAction;
+}
+
+void ActionsCalendar::detachCurrentAction() {
+	if( !m_pCurrAction ) return;
+
+	m_pCurrAction->setHighlight( false );
+
+	// exclude date from the action
+	m_pCurrAction->excludeDate( m_selectedDate );
+
+	// create new action and add it to calendar
+	Action* _newAction = new Action( m_pCurrAction );
+	addAction( m_selectedDate, _newAction );
+	setCurrentAction( _newAction );
+
+	refreshRepetitions();
+
+	// highlight detached action (it is neccessary to do that after addAction and
+	// refreshRepetitions methods, because they calls selectDate method which
+	// resets selection in some cases
+	_newAction->setHighlight( true );
+}
+
+void ActionsCalendar::removeCurrentAction() {
+	if( m_pCurrAction == NULL ) return;
+
+	// exclude date from the action
+	m_pCurrAction->excludeDate( m_selectedDate );
+
+	refreshRepetitions();
+}
+
+void ActionsCalendar::removeCurrentActions() {
+	// go through all actions and choose the actions with repetitions
+	// notice that we only need to remove it from m_actionsAll, because
+	// refreshRepetition called at the bottom calls setRepetition method
+	// that creates repetitions (m_actionsInMonth) on the grounds of m_actionsAll
+	QMapIterator<QDate, QVector<Action*> > itAll( m_actionsAll );
+	while( itAll.hasNext() ) {
+		itAll.next();
+
+		// go through all actions for day
+		int _actionsNumber = itAll.value().size();
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			if( itAll.value().at( i )->getId() == m_pCurrAction->getId() ) {
+				// free memory for the action
+				delete m_pCurrAction;
+				m_pCurrAction = NULL;
+
+				// remove the action from the map of actions
+				m_actionsAll.find( itAll.key() ).value().remove( i );
+
+				goto go_out;
+			}
+		}
+	}
+
+go_out:
+	refreshRepetitions();
 }
 
 void ActionsCalendar::setCurrentAction( Action* action ) {
@@ -211,7 +266,7 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 	// we will change color for that cell then (check loop below too)
 	bool _isAnyHighlighted = false;
 	bool _isConflict = false;
-	if( m_actionsInMonth.find( date ) != m_actionsInMonth.end() ) {
+	if( m_actionsInMonth.contains( date ) ) {
 		QVector<Action*> _pActions = m_actionsInMonth.find( date ).value();
 		int _actionsNumber = _pActions.size();
 		for( int i = 0; i < _actionsNumber; ++i ) {
@@ -236,9 +291,8 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 		// there would be black border (because of above)
 		// but we want to draw the black border only if it is selected, otherwise draw gray border
 		QColor _color = QColor( 230, 230, 230 );
-		if( _isConflict ) {
+		if( _isConflict )
 			_color = QColor( 255, 201, 14 );
-		}
 		if( _isAnyHighlighted )
 			_color = QColor( 184, 221, 239 );
 		if( date != m_selectedDate ) painter->setPen( QPen( _color, 2 ) );
