@@ -85,6 +85,19 @@ void mainWin::loadScripts( const QString& path ) {
 	}
 }
 
+QString mainWin::getCode() const {
+	return ui.scriptTextEdit->toPlainText();
+}
+
+void mainWin::setCode( const QString& code ) {
+	ui.scriptTextEdit->setFont( QFont( "Courier New", 8 ) );
+	ui.scriptTextEdit->setText( code );
+}
+
+void mainWin::setScriptTitle( QString title ) {
+	ui.scriptTitle->setText( "  " + title );
+}
+
 void mainWin::newFile() {
 	bool _ok = true;
 	QString _strFileName = "";
@@ -127,7 +140,7 @@ void mainWin::runAction() {
 	if( m_pCurrScript == NULL ) return;
 
 	// load and parse script (from text field) by checking its correctness
-	switch( m_lua->loadScript( m_pCurrScript->getCode().toStdString().c_str(), LuaEngine::BUFFER ) ) {
+	switch( m_lua->loadScript( getCode().toStdString().c_str(), LuaEngine::BUFFER ) ) {
 		case LUA_ERRSYNTAX: {
 			QMessageBox _msg( QMessageBox::Critical, "Error", "Syntax error in the script." );
 			_msg.exec();
@@ -281,10 +294,10 @@ void mainWin::detachAction() {
 	_pAction->excludeDate( m_calendar->getSelectedDate() );
 
 	// create new action and add it to calendar
-	Action* _newAction = new Action( _pAction );
+	/*Action* _newAction = new Action( _pAction );
 	_newAction->setHighlight( true );
 	m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
-	m_calendar->setCurrentAction( _newAction );
+	m_calendar->setCurrentAction( _newAction );*/
 }
 
 void mainWin::initLuaApi() {
@@ -321,29 +334,12 @@ void mainWin::initLuaApi() {
 	m_lua->registerFunction( "sendText", LuaApiEngine::prepareSendText );
 }
 
-void mainWin::getDataForAction() {
-	// set time
-	//QTime _time = QTime( ui.hourSpin->value(), ui.minSpin->value(), ui.secSpin->value() );
-	//m_pCurrAction->setTime( _time );
-
-
-}
-
 QString mainWin::getFuncName( QString textError ) {
 	// in lua 5.1 the string has form like "[string "?"]:1: attempt to call global 'FunctionName' (a nil value)"
 	// we need to find first and last occurence of '
 	int _iBegin = textError.indexOf( "'" ) + 1;
 	int _iEnd = textError.lastIndexOf( "'" );
 	return textError.mid( _iBegin, _iEnd - _iBegin );
-}
-
-void mainWin::setScriptTitle( QString title ) {
-	ui.scriptTitle->setText( "  " + title );
-}
-
-void mainWin::setCode( const QString& code ) {
-	ui.scriptTextEdit->setFont( QFont( "Courier New", 8 ) );
-	ui.scriptTextEdit->setText( code );
 }
 
 bool mainWin::checkDateCorrectness( QDate date ) {

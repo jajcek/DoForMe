@@ -23,16 +23,9 @@ void ActionsCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsi
 }
 
 void ActionsCalendar::drawExclamation( QPainter* painter, const QRect& rect ) const {
-	// declare points that draw exclamation mark in a cell
-	QPoint trianglePoints[3];
-	trianglePoints[0].setX( rect.left() + rect.width() - 16 );
-	trianglePoints[0].setY( rect.top() + 10 );
-	trianglePoints[1].setX( rect.left() + rect.width() - 10 );
-	trianglePoints[1].setY( rect.top() + 10 );
-	trianglePoints[2].setX( rect.left() + rect.width() - 13 );
-	trianglePoints[2].setY( rect.top() + rect.height() - 5 );
-
-	painter->drawPolygon( trianglePoints, 3 );
+	QImage _exclamationImage( ":/mainWin/Resources/exclamation.png" );
+	QRect _rect( rect.left() + rect.width() - 16, rect.top() + 1, 12, 12 );
+	painter->drawImage( _rect, _exclamationImage );
 }
 
 void ActionsCalendar::setRepetition( QDate date, Action* action ) {
@@ -219,7 +212,6 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 		QColor _color = QColor( 230, 230, 230 );
 		if( _isConflict ) {
 			_color = QColor( 255, 201, 14 );
-			drawExclamation( painter, rect );
 		}
 		if( _isAnyHighlighted )
 			_color = QColor( 184, 221, 239 );
@@ -241,6 +233,9 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 
 	// draw text that informs how many actions are there
 	if( m_actionsInMonth.contains( date ) ) {
+		if( _isConflict ) {
+			drawExclamation( painter, rect );
+		}
 		int _actionsNumber = m_actionsInMonth[date].size();
 		drawActionsNum( painter, rect, _actionsNumber );
 	}

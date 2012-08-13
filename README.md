@@ -1,7 +1,8 @@
 Development release 13.08.2012
 ===================================================
 - Fixed issue that caused undetermined order of actions list.
-TODO: run script from text field instead of code from script object.
+- Exclamation mark as conflict (the yeelow background is still).
+- Run script from text field instead of code from script object.
 
 Development release 11.08.2012
 ===================================================

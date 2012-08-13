@@ -19,6 +19,9 @@ ipch
 DoForMe!/Debug
 Win32
 
+# QT generated files
+GeneratedFiles
+
 # Application user files
 DoForMe!/scripts
 

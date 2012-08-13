@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="mainWin">
+    <file>Resources/exclamation.png</file>
     <file>Resources/fileimport.ico</file>
     <file>logo.png</file>
   </qresource>

@@ -39,6 +39,9 @@ public:
 	~mainWin();
 
 	void loadScripts( const QString& path );
+	QString getCode() const;
+	void setCode( const QString& );
+	void setScriptTitle( QString title );
 
 public slots:
 	void newFile();
@@ -54,10 +57,7 @@ public slots:
 
 private:
 	void initLuaApi();
-	void getDataForAction();
 	QString getFuncName( QString textError );
-	void setScriptTitle( QString title );
-	void setCode( const QString& );
 	bool checkDateCorrectness( QDate date );
 
 };
