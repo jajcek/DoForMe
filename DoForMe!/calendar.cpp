@@ -61,6 +61,10 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 
 		QDate _shiftedDate = date.addDays( _shift );
 		
+		if( action->isExcluded( _shiftedDate ) ) {
+			continue;
+		}
+
 		if( _XDays != 0 ) {
 			if( _shift % _XDays == 0 ) {
 				m_actionsInMonth[_shiftedDate].push_back( action );
@@ -133,12 +137,6 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 	// add the action to the container with all actions
 	m_actionsAll[date].push_back( action );
 
-	// store dates and actions in order as it was added by user
-	// to keep identical order on the lists, these vectors are used also
-	// in "undo" system
-	m_datesOrder.push_back( date );
-	m_actionsOrder.push_back( action );
-
 	// if an action has options 'every X days' or on 'Monday' etc.
 	// we have to set it to the calendar too (to the current month only, because it would be infinite)
 	setRepetition( date, action );
@@ -172,6 +170,34 @@ void ActionsCalendar::setList( QTableWidget* list ) {
 
 QDate ActionsCalendar::getSelectedDate() const {
 	return m_selectedDate;
+}
+
+void ActionsCalendar::refreshRepetitions() {
+	// clear before setting actions again (to prevent summing actions)
+	m_actionsInMonth.clear();
+
+	// go through all actions and choose the actions with repetitions
+	QMapIterator<QDate, QVector<Action*> > it( m_actionsAll );
+	while( it.hasNext() ) {
+		it.next();
+
+		// go through all actions for day
+		int _actionsNumber = it.value().size();
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			Action* _pAction = it.value().at( i );
+			if( !_pAction->isExcluded( it.key() ) )
+				m_actionsInMonth[it.key()].push_back( _pAction );
+			setRepetition( it.key(), _pAction );
+		}
+	}
+
+	// we need to clear list and put everything again
+	// we chose the easier way - removing all from the table and recreate it
+	// with new action
+	m_list->clearContents();
+	selectDate( m_selectedDate );
+
+	updateCells();
 }
 
 void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDate& date ) const {
@@ -343,15 +369,5 @@ void ActionsCalendar::setCurrentPage( int year, int month ) {
 	m_displayedMonth = month;
 	m_displayedYear = year;
 
-	// clear before setting actions again (to prevent summing actions)
-	m_actionsInMonth.clear();
-
-	// go throught all actions and choose the actions with repetitions
-	int _actionsNumber = m_actionsOrder.size();
-	for( int i = 0; i < _actionsNumber; ++i ) {
-		QDate _date = m_datesOrder.at( i );
-		Action* _pAction = m_actionsOrder.at( i );
-		m_actionsInMonth[_date].push_back( _pAction );
-		setRepetition( _date, _pAction );
-	}
+	refreshRepetitions();
 }

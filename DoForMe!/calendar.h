@@ -40,6 +40,7 @@ public:
 	void setCurrentAction( Action* action );
 	static void setList( QTableWidget* list );
 	QDate getSelectedDate() const;
+	void refreshRepetitions();
 
 protected:
 	void paintCell( QPainter* painter, const QRect& rect, const QDate& date ) const;

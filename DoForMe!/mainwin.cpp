@@ -294,10 +294,12 @@ void mainWin::detachAction() {
 	_pAction->excludeDate( m_calendar->getSelectedDate() );
 
 	// create new action and add it to calendar
-	/*Action* _newAction = new Action( _pAction );
+	Action* _newAction = new Action( _pAction );
 	_newAction->setHighlight( true );
 	m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
-	m_calendar->setCurrentAction( _newAction );*/
+	m_calendar->setCurrentAction( _newAction );
+
+	m_calendar->refreshRepetitions();
 }
 
 void mainWin::initLuaApi() {
