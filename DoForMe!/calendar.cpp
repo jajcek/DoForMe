@@ -4,25 +4,11 @@ QTableWidget* ActionsCalendar::m_list = NULL;
 
 void ActionsCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const {
 	painter->setPen( Qt::black );
-
-	/*unsigned _size = 6;
-	float _fromTop = 2;
-	float _fromLeft = 2.5;
-	QPoint trianglePoints[3];
-	trianglePoints[0].setX( rect.left() + ( rect.width() - _size - 1 ) - _size );
-	trianglePoints[0].setY( rect.top() + ( rect.height() - _size - 1 ) - _size );
-	trianglePoints[1].setX( rect.left() + ( rect.width() - _size - 1 ) - _size );
-	trianglePoints[1].setY( rect.top() + ( rect.height() - _size - 1 ) + _size );
-	trianglePoints[2].setX( rect.left() + ( rect.width() - _size - 1 ) );
-	trianglePoints[2].setY( rect.top() + ( rect.height() - _size - 1 ) );
-
-	painter->drawPolygon( trianglePoints, 3 );*/
-
 	// get number of actions
 	QString _actionsNumber;
 	_actionsNumber.setNum( actionsNumber );
 
-	// set font size (ang get current font size to get back to it later)
+	// set font size (and get current font size to get back to it later)
 	QFont _font = painter->font();
 	int _oldSize = _font.pointSize();
 	_font.setPointSize( 7 );
@@ -37,6 +23,7 @@ void ActionsCalendar::drawActionsNum( QPainter* painter, const QRect& rect, unsi
 }
 
 void ActionsCalendar::drawExclamation( QPainter* painter, const QRect& rect ) const {
+	// declare points that draw exclamation mark in a cell
 	QPoint trianglePoints[3];
 	trianglePoints[0].setX( rect.left() + rect.width() - 16 );
 	trianglePoints[0].setY( rect.top() + 10 );
@@ -279,6 +266,13 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 // ------------------------ slots -----------------------------
 
 void ActionsCalendar::selectDate( const QDate& date ) {
+	// remember values by which the user sorts the elements
+	int _column = m_list->horizontalHeader()->sortIndicatorSection();
+	Qt::SortOrder _order  = m_list->horizontalHeader()->sortIndicatorOrder();
+
+	// we need to disable sorting for putting elements
+	m_list->setSortingEnabled( false );
+
 	// remove current highlights to set up new
 	if( m_pCurrAction ) {
 		m_pCurrAction->setHighlight( false );
@@ -339,6 +333,12 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 		}
 	}
 
+	// re-enable sorting and sort items by its number (to keep determining of displaying same script names)
+	// and by the user preference
+	m_list->setSortingEnabled( true );
+	m_list->sortItems( 0, Qt::AscendingOrder );
+	m_list->sortItems( _column, _order );
+
 	// when selectedDate it called it invokes automatically updateCell() for current cell
 	// but we need to update all cells to change theirs colors if necessary
 	updateCells();
@@ -351,7 +351,7 @@ void ActionsCalendar::setCurrentPage( int year, int month ) {
 	// clear before setting actions again (to prevent summing actions)
 	m_actionsInMonth.clear();
 
-	// go throught all actions (days) and choose the actions with repetitions
+	// go throught all actions and choose the actions with repetitions
 	int _actionsNumber = m_actionsOrder.size();
 	for( int i = 0; i < _actionsNumber; ++i ) {
 		QDate _date = m_datesOrder.at( i );

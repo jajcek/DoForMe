@@ -1,5 +1,6 @@
-Development release 12.08.2012
+Development release 13.08.2012
 ===================================================
+- Fixed issue that caused undetermined order of actions list.
 TODO: run script from text field instead of code from script object.
 
 Development release 11.08.2012
