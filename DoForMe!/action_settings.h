@@ -14,9 +14,8 @@ class ActionSettings : public QDialog {
 private:
 	Ui::actionSettingsDialog ui;
 	QDate m_selectedDate;
-	QTableWidget* m_list;
 
-	enum { OLD = 0, EQUAL, OK };
+	enum { OLD = 0, OK };
 
 public:
 	static const int MONDAY;
@@ -32,15 +31,21 @@ private:
 
 public:
 	ActionSettings();
-	ActionSettings( QDate date, QTableWidget* list );
+	ActionSettings( QDate date );
 
+	void setHours( int hours );
 	int getHours() const;
+	void setMinutes( int minutes );
 	int getMinutes() const;
+	void setSeconds( int seconds );
 	int getSeconds() const;
 
+	void setIsXDays( bool isXDays );
 	bool isXDays() const;
+	void setXDays( int days );
 	int getXDays() const;
 
+	void setDaysFlags( int mask );
 	int getDays() const;
 
 public slots:

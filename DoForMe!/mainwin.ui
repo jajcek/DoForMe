@@ -526,8 +526,8 @@ color: black;</string>
    <widget class="QToolButton" name="removeButton">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>250</y>
+      <x>210</x>
+      <y>220</y>
       <width>51</width>
       <height>21</height>
      </rect>
@@ -626,8 +626,8 @@ color: black;</string>
    <widget class="QToolButton" name="detachButton">
     <property name="geometry">
      <rect>
-      <x>59</x>
-      <y>250</y>
+      <x>290</x>
+      <y>220</y>
       <width>41</width>
       <height>21</height>
      </rect>
@@ -731,6 +731,25 @@ selection-background-color: rgb( 51, 153, 255 );
       <string>Script</string>
      </property>
     </column>
+   </widget>
+   <widget class="QToolButton" name="editButton">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>220</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Edit</string>
+    </property>
+    <property name="autoRaise">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

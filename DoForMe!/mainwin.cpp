@@ -28,6 +28,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
 	connect( ui.detachButton, SIGNAL( clicked() ), this, SLOT( detachAction() ) );
 	connect( ui.removeButton, SIGNAL( clicked() ), this, SLOT( removeAction() ) );
+	connect( ui.editButton, SIGNAL( clicked() ), this, SLOT( editAction() ) );
 	connect( ui.actionsTable, SIGNAL( itemClicked( QTableWidgetItem* ) ), this, SLOT( actionSelected( QTableWidgetItem* ) ) );
 
 	
@@ -248,16 +249,16 @@ void mainWin::addAction() {
 			return;
 	}
 
-	ActionSettings _actionSettings( m_calendar->getSelectedDate(), ui.actionsTable );
+	ActionSettings _actionSettings( m_calendar->getSelectedDate() );
 	int _iResult = _actionSettings.exec();
 	
-	// if a user clicked cancel
-	if( !_iResult ) return;
-
-	// create new action and add it to calendar
-	Action* _newAction = new Action( m_pCurrScript, _actionSettings );
-	m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
-	m_calendar->refreshRepetitions();
+	// if a user clicked apply
+	if( _iResult ) {
+		// create new action and add it to calendar
+		Action* _newAction = new Action( m_pCurrScript, _actionSettings );
+		m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
+		m_calendar->refreshRepetitions();
+	}
 }
 
 void mainWin::showAbout() {
@@ -305,6 +306,28 @@ void mainWin::removeAction() {
 	} else {
 		m_calendar->removeCurrentAction();
 	}
+}
+
+void mainWin::editAction() {
+	Action* _pAction = m_calendar->getCurrentAction();
+	if( !_pAction ) return;
+
+	ActionSettings _actionSettings( m_calendar->getSelectedDate() );
+	// set current values for action
+	_actionSettings.setHours( _pAction->getHours() );
+	_actionSettings.setMinutes( _pAction->getMinutes() );
+	_actionSettings.setSeconds( _pAction->getSeconds() );
+	_actionSettings.setIsXDays( _pAction->isXDays() );
+	_actionSettings.setXDays( _pAction->getXDays() );
+	_actionSettings.setDaysFlags( _pAction->getDays() );
+	int _iResult = _actionSettings.exec();
+
+	// if a user clicked apply
+	if( _iResult ) {
+		_pAction->setSetting( _actionSettings );
+	}
+
+	m_calendar->refreshRepetitions();
 }
 
 void mainWin::initLuaApi() {

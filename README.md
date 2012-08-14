@@ -1,3 +1,8 @@
+Development release 14.08.2012
+===================================================
+- Edit action functionality.
+- 'Old time' info dialog on button in 'add action settings' dialog.
+
 Development release 13.08.2012
 ===================================================
 - Fixed issue that caused undetermined order of actions list.

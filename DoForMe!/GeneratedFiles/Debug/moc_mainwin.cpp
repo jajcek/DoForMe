@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwin.h'
 **
-** Created: Mon 13. Aug 21:46:20 2012
+** Created: Tue 14. Aug 11:50:15 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_mainWin[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -42,6 +42,7 @@ static const uint qt_meta_data_mainWin[] = {
      139,  134,    8,    8, 0x0a,
      173,    8,    8,    8, 0x0a,
      188,    8,    8,    8, 0x0a,
+     203,    8,    8,    8, 0x0a,
 
        0        // eod
 };
@@ -53,6 +54,7 @@ static const char qt_meta_stringdata_mainWin[] = {
     "addAction()\0showAbout()\0item\0"
     "actionSelected(QTableWidgetItem*)\0"
     "detachAction()\0removeAction()\0"
+    "editAction()\0"
 };
 
 void mainWin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -72,6 +74,7 @@ void mainWin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 8: _t->actionSelected((*reinterpret_cast< QTableWidgetItem*(*)>(_a[1]))); break;
         case 9: _t->detachAction(); break;
         case 10: _t->removeAction(); break;
+        case 11: _t->editAction(); break;
         default: ;
         }
     }
@@ -109,9 +112,9 @@ int mainWin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }

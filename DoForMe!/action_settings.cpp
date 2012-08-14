@@ -19,22 +19,10 @@ int ActionSettings::checkTimeCorrectness() {
 		}
 	}
 
-	// check if there are any actions with the same time
-	int _actionsNumber = m_list->rowCount();
-	for( int i = 0; i < _actionsNumber; ++i ) {
-		int _hours   = m_list->item( i, 1 )->text().left( 2 ).toInt();
-		int _minutes = m_list->item( i, 1 )->text().mid( 3, 2 ).toInt();
-		int _seconds = m_list->item( i, 1 )->text().mid( 6, 2 ).toInt();
-
-		if( _hours == getHours() && _minutes == getMinutes() && _seconds == getSeconds() ) {
-			return EQUAL;
-		}
-	}
-
 	return OK;
 }
 
-ActionSettings::ActionSettings() : m_selectedDate( QDate::currentDate() ), m_list( NULL ) {
+ActionSettings::ActionSettings() : m_selectedDate( QDate::currentDate() ) {
 	ui.setupUi( this );
 
 	connect( ui.applyButton, SIGNAL( clicked() ), this, SLOT( apply() ) );
@@ -48,7 +36,7 @@ ActionSettings::ActionSettings() : m_selectedDate( QDate::currentDate() ), m_lis
 	*/
 }
 
-ActionSettings::ActionSettings( QDate date, QTableWidget* list ) : m_selectedDate( date ), m_list( list ) {
+ActionSettings::ActionSettings( QDate date ) : m_selectedDate( date ) {
 	ui.setupUi( this );
 
 	connect( ui.applyButton, SIGNAL( clicked() ), this, SLOT( apply() ) );
@@ -60,26 +48,63 @@ ActionSettings::ActionSettings( QDate date, QTableWidget* list ) : m_selectedDat
 	/*
 		cancel button action is defined in QT Designer!
 	*/
+}
+
+void ActionSettings::setHours( int hours ) {
+	ui.hourSpin->setValue( hours );
 }
 
 int ActionSettings::getHours() const {
 	return ui.hourSpin->value();
 }
 
+void ActionSettings::setMinutes( int minutes ) {
+	ui.minSpin->setValue( minutes );
+}
+
 int ActionSettings::getMinutes() const {
 	return ui.minSpin->value();
+}
+
+void ActionSettings::setSeconds( int seconds ) {
+	ui.secSpin->setValue( seconds );
 }
 
 int ActionSettings::getSeconds() const {
 	return ui.secSpin->value();
 }
 
+void ActionSettings::setIsXDays( bool isXDays ) {
+	ui.runEveryXDaysCheck->setChecked( isXDays );
+}
+
 bool ActionSettings::isXDays() const {
 	return ui.runEveryXDaysCheck->isChecked();
 }
 
+void ActionSettings::setXDays( int days ) {
+	ui.daysSpin->setValue( days );
+}
+
 int ActionSettings::getXDays() const {
 	return ui.daysSpin->value();
+}
+
+void ActionSettings::setDaysFlags( int mask ) {
+	if( mask & MONDAY )
+		ui.mondayCheck->setChecked( true );
+	if( mask & TUESDAY )
+		ui.tuesdayCheck->setChecked( true );
+	if( mask & WEDNESDAY )
+		ui.wednesdayCheck->setChecked( true );
+	if( mask & THURSDAY )
+		ui.thursdayCheck->setChecked( true );
+	if( mask & FRIDAY )
+		ui.fridayCheck->setChecked( true );
+	if( mask & SATURDAY )
+		ui.saturdayCheck->setChecked( true );
+	if( mask & SUNDAY )
+		ui.sundayCheck->setChecked( true );
 }
 
 int ActionSettings::getDays() const {
@@ -105,10 +130,10 @@ int ActionSettings::getDays() const {
 
 void ActionSettings::apply() {
 	// inform user that the time passed already
-	/*int _result = checkTimeCorrectness();
+	int _result = checkTimeCorrectness();
 	switch( _result ) {
 		case OLD: {
-			QMessageBox _msg( QMessageBox::Information, "Information", "The time passed already. Do you still want to add the action?",
+			QMessageBox _msg( QMessageBox::Information, "Information", "The time passed already. Do you still want to continue?",
 				QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel );
 			int _result = _msg.exec();
 			if( _result == QMessageBox::Cancel )
@@ -118,14 +143,7 @@ void ActionSettings::apply() {
 			else
 				accept();
 		}
-		case EQUAL: {
-			QMessageBox _msg( QMessageBox::Information, "Information", "An actions with the same time already exists.",
-				QMessageBox::Ok );
-			_msg.exec();
-			return;
-		}
 		case OK:
 			accept();
-	}*/
-	accept();
+	}
 }

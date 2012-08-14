@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwin.ui'
 **
-** Created: Mon 13. Aug 21:46:20 2012
+** Created: Tue 14. Aug 11:50:15 2012
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -98,6 +98,7 @@ public:
     QLabel *scriptTitle;
     QToolButton *detachButton;
     QTableWidget *actionsTable;
+    QToolButton *editButton;
     QMenuBar *menuBar;
     QMenu *menuMenu;
     QMenu *menuExecuting;
@@ -336,7 +337,7 @@ public:
 "color: black;"));
         removeButton = new QToolButton(centralWidget);
         removeButton->setObjectName(QString::fromUtf8("removeButton"));
-        removeButton->setGeometry(QRect(100, 250, 51, 21));
+        removeButton->setGeometry(QRect(210, 220, 51, 21));
         removeButton->setStyleSheet(QString::fromUtf8(""));
         removeButton->setAutoRaise(true);
         addActionButton = new QToolButton(centralWidget);
@@ -363,7 +364,7 @@ public:
 "color: black;"));
         detachButton = new QToolButton(centralWidget);
         detachButton->setObjectName(QString::fromUtf8("detachButton"));
-        detachButton->setGeometry(QRect(59, 250, 41, 21));
+        detachButton->setGeometry(QRect(290, 220, 41, 21));
         detachButton->setStyleSheet(QString::fromUtf8(""));
         detachButton->setAutoRaise(true);
         actionsTable = new QTableWidget(centralWidget);
@@ -400,6 +401,11 @@ public:
         actionsTable->verticalHeader()->setHighlightSections(true);
         actionsTable->verticalHeader()->setProperty("showSortIndicator", QVariant(false));
         actionsTable->verticalHeader()->setStretchLastSection(false);
+        editButton = new QToolButton(centralWidget);
+        editButton->setObjectName(QString::fromUtf8("editButton"));
+        editButton->setGeometry(QRect(340, 220, 51, 21));
+        editButton->setStyleSheet(QString::fromUtf8(""));
+        editButton->setAutoRaise(true);
         mainWinClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(mainWinClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -549,6 +555,7 @@ public:
         ___qtablewidgetitem1->setText(QApplication::translate("mainWinClass", "Time", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem2 = actionsTable->horizontalHeaderItem(2);
         ___qtablewidgetitem2->setText(QApplication::translate("mainWinClass", "Script", 0, QApplication::UnicodeUTF8));
+        editButton->setText(QApplication::translate("mainWinClass", "Edit", 0, QApplication::UnicodeUTF8));
         menuMenu->setTitle(QApplication::translate("mainWinClass", "Help", 0, QApplication::UnicodeUTF8));
         menuExecuting->setTitle(QApplication::translate("mainWinClass", "Commands", 0, QApplication::UnicodeUTF8));
         menuCustomize->setTitle(QApplication::translate("mainWinClass", "Customize", 0, QApplication::UnicodeUTF8));
