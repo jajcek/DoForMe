@@ -2,6 +2,7 @@ Development release 14.08.2012
 ===================================================
 - Edit action functionality.
 - 'Old time' info dialog on button in 'add action settings' dialog.
+- Fix issue that caused not to highlight newly added actions.
 
 Development release 13.08.2012
 ===================================================

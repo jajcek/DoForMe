@@ -13,14 +13,14 @@
 
 # Visual Studio files/folders
 *.sdf
-*.opensfd
+*.opensdf
 *.suo
 ipch
 DoForMe!/Debug
 Win32
 
 # QT generated files
-GeneratedFiles
+DoForMe!/GeneratedFiles
 
 # Application user files
 DoForMe!/scripts

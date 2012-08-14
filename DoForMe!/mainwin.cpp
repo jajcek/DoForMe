@@ -254,9 +254,11 @@ void mainWin::addAction() {
 	
 	// if a user clicked apply
 	if( _iResult ) {
-		// create new action and add it to calendar
+		// create new action and add it to calendar as well as highlight it
+		// and refresh calendar to repaint cells
 		Action* _newAction = new Action( m_pCurrScript, _actionSettings );
 		m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
+		_newAction->setHighlight( true );
 		m_calendar->refreshRepetitions();
 	}
 }
