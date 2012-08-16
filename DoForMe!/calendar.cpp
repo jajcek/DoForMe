@@ -136,16 +136,7 @@ ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::cu
 }
 
 ActionsCalendar::~ActionsCalendar() {
-	// go through all actions and choose the actions with repetitions
-	QMapIterator<QDate, QVector<Action*> > it( m_actionsAll );
-	while( it.hasNext() ) {
-		it.next();
-		// go through all actions for a day
-		int _actionsNumber = it.value().size();
-		for( int i = 0; i < _actionsNumber; ++i ) {
-			delete it.value().at( i );
-		}
-	}
+	removeAllActions();
 }
 
 void ActionsCalendar::addAction( QDate date, Action* action ) {
@@ -226,6 +217,22 @@ void ActionsCalendar::removeCurrentActions() {
 
 go_out:
 	refreshRepetitions();
+}
+
+void ActionsCalendar::removeAllActions() {
+	// go through all actions and choose the actions with repetitions
+	QMapIterator<QDate, QVector<Action*> > it( m_actionsAll );
+	while( it.hasNext() ) {
+		it.next();
+		// go through all actions for a day
+		int _actionsNumber = it.value().size();
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			delete it.value().at( i );
+		}
+	}
+
+	m_actionsAll.clear();
+	m_actionsInMonth.clear();
 }
 
 void ActionsCalendar::setCurrentAction( Action* action ) {

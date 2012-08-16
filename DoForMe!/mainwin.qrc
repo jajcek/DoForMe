@@ -5,7 +5,7 @@
     <file>logo.png</file>
   </qresource>
   <qresource prefix="standard">
-    <file>Resources/fileopen.ico</file>
+    <file>Resources/folder_new.ico</file>
     <file>Resources/New.ico</file>
     <file>Resources/filesave.ico</file>
     <file>Resources/filesaveas.ico</file>

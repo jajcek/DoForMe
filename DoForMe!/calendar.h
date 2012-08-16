@@ -40,6 +40,7 @@ public:
 	void detachCurrentAction();
 	void removeCurrentAction();
 	void removeCurrentActions();
+	void removeAllActions();
 	// only for the current month!
 	QVector<Action*> getActionsForDate( QDate date ) const;
 	void setCurrentAction( Action* action );

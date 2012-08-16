@@ -680,7 +680,7 @@ selection-background-color: rgb( 51, 153, 255 );
     </attribute>
     <column>
      <property name="text">
-      <string>No.</string>
+      <string>Id</string>
      </property>
     </column>
     <column>
@@ -1053,7 +1053,7 @@ color: black;</string>
   <action name="actionOpen">
    <property name="icon">
     <iconset resource="mainwin.qrc">
-     <normaloff>:/standard/Resources/fileopen.ico</normaloff>:/standard/Resources/fileopen.ico</iconset>
+     <normaloff>:/standard/Resources/folder_new.ico</normaloff>:/standard/Resources/folder_new.ico</iconset>
    </property>
    <property name="text">
     <string>Open</string>
