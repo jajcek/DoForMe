@@ -36,6 +36,8 @@ public:
 
 	void excludeDate( QDate date );
 	bool isExcluded( QDate date ) const;
+	void setExcludedDates( QVector<QDate> excludedDates );
+	QVector<QDate> getExcludedDates() const;
 
 	int getHours() const;
 	int getMinutes() const;

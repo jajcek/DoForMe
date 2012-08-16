@@ -39,6 +39,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 
 	// resize width of columns for actions list (actionsTable)
 	ui.actionsTable->setColumnWidth( 0, 25 );
+	ui.actionsTable->sortItems( 0, Qt::AscendingOrder );
 
 	// loading script, important: it must be called before creating ActionsCalendar
 	// because the calendar loads actions from database and it needs to find pointers to
@@ -314,7 +315,7 @@ void mainWin::removeAction() {
 				break;
 		}
 	} else {
-		m_calendar->removeCurrentAction();
+		m_calendar->removeCurrentActions();
 	}
 }
 

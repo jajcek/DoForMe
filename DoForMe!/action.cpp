@@ -34,6 +34,14 @@ bool Action::isExcluded( QDate date ) const {
 	return m_excludedDates.contains( date );
 }
 
+void Action::setExcludedDates( QVector<QDate> excludedDates ) {
+	m_excludedDates = excludedDates;
+}
+
+QVector<QDate> Action::getExcludedDates() const {
+	return m_excludedDates;
+}
+
 int Action::getHours() const {
 	return m_time.hour();
 }

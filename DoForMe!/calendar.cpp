@@ -157,6 +157,7 @@ Action* ActionsCalendar::getCurrentAction() const {
 
 void ActionsCalendar::detachCurrentAction() {
 	if( !m_pCurrAction ) return;
+	if( !( m_pCurrAction->isXDays() || m_pCurrAction->getDays() ) ) return;
 
 	m_pCurrAction->setHighlight( false );
 
@@ -424,7 +425,8 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 			QString _strTime = _pAction->getHoursHH() + ":" + _pAction->getMinutesMM() + ":" + _pAction->getSecondsSS();
 
 			// add finally the item to the list
-			QTableWidgetItem* _no     = new QTableWidgetItem( QString::number( i + 1 ) );
+			QTableWidgetItem* _no     = new QTableWidgetItem();
+			_no->setData( Qt::DisplayRole, i + 1 );
 			QTableWidgetItem* _time   = new QTableWidgetItem( _strTime );
 			QTableWidgetItem* _script = new QTableWidgetItem( _pAction->getScript()->getFileName() );
 			m_list->setItem( i, 0, _no );

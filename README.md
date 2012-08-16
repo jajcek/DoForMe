@@ -1,6 +1,9 @@
 Development release 16.08.2012
 ===================================================
 - Saving and loading actions by using SQLite database.
+- Fixed issue that allowed user to detach non-repeated action to infinity which caused bugs.
+- Fixed sorting actions table (it was sorting 1, 10, 2, 3... and the purpose was 1, 2, ..., 10)
+- Fixed issue which led to not loading excluded dates from repetitions. 
 
 Development release 15.08.2012
 ===================================================
