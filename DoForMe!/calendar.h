@@ -32,7 +32,8 @@ private:
 
 public:
 	ActionsCalendar( QWidget* pParent );
-	// remember to free actions later ~ActionsCalendar();
+	~ActionsCalendar();
+
 	void addAction( QDate, Action* );
 	Action* getAction( int itemNumber ) const;
 	Action* getCurrentAction() const;

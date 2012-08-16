@@ -135,6 +135,19 @@ ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::cu
 	loadData();
 }
 
+ActionsCalendar::~ActionsCalendar() {
+	// go through all actions and choose the actions with repetitions
+	QMapIterator<QDate, QVector<Action*> > it( m_actionsAll );
+	while( it.hasNext() ) {
+		it.next();
+		// go through all actions for a day
+		int _actionsNumber = it.value().size();
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			delete it.value().at( i );
+		}
+	}
+}
+
 void ActionsCalendar::addAction( QDate date, Action* action ) {
 	// add new action for a specified date and repaint cells
 	// and container with actions for a selected month
