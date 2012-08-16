@@ -15,7 +15,7 @@ LRESULT CALLBACK mouseHook(int code, WPARAM wParam, LPARAM lParam)
 }
 
 mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
-	: QMainWindow(parent, flags), m_iWidth( 821 ), m_iHeight( 507 ), m_calendar( NULL ), m_lua( NULL ), m_pCurrScript( NULL )
+	: QMainWindow(parent, flags), m_calendar( NULL ), m_lua( NULL ), m_pCurrScript( NULL )
 {
 	ui.setupUi(this);
 
@@ -35,7 +35,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	
 	// used for centering main app window
 	QDesktopWidget screen;
-	setGeometry( ( screen.width() - width() ) / 2, ( screen.height() - m_iHeight ) / 2, width(), height() );
+	setGeometry( ( screen.width() - width() ) / 2, ( screen.height() - height() ) / 2, width(), height() );
 
 	// resize width of columns for actions list (actionsTable)
 	ui.actionsTable->setColumnWidth( 0, 25 );

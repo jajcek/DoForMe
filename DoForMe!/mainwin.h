@@ -27,8 +27,6 @@ class mainWin : public QMainWindow
 
 private:
 	Ui::mainWinClass ui;
-	unsigned m_iWidth;
-	unsigned m_iHeight;
 
 	ActionsCalendar* m_calendar;
 	LuaEngine* m_lua;
