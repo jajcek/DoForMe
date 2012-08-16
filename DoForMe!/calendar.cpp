@@ -130,6 +130,9 @@ ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::cu
 
 	QObject::connect( this, SIGNAL( clicked( const QDate& ) ), this, SLOT( selectDate( const QDate& ) ) );
 	QObject::connect( this, SIGNAL( currentPageChanged( int, int ) ), this, SLOT( setCurrentPage( int, int ) ) );
+
+	// load all actions from database
+	loadData();
 }
 
 void ActionsCalendar::addAction( QDate date, Action* action ) {
@@ -255,6 +258,44 @@ void ActionsCalendar::refreshRepetitions() {
 	updateCells();
 }
 
+void ActionsCalendar::saveData() const {
+	// open database
+	Database* _db = new Database( "actions.db" );
+	// if the table for actions doesn't exists it creates new one,
+	// otherwise it clears the current table content
+	_db->prepareTableForActions();
+
+	// insert all actions
+	QMapIterator<QDate, QVector<Action*> > it( m_actionsAll );
+	while( it.hasNext() ) {
+		it.next();
+		// go through all actions for day
+		int _actionsNumber = it.value().size();
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			Action* _pAction = it.value().at( i );
+			_db->insertAction( it.key(), _pAction );
+		}
+	}
+
+	delete _db;
+}
+
+void ActionsCalendar::loadData() {
+	// open database
+	Database* _db = new Database( "actions.db" );
+
+	auto _actions = _db->selectActions();
+
+	int _actionsNumber = _actions.size();
+	for( int i = 0; i < _actionsNumber; ++i ) {
+		QDate _date = _actions.at( i ).first;
+		Action* _pAction = _actions.at( i ).second;
+		addAction( _date, _pAction );
+	}
+
+	delete _db;
+}
+
 void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDate& date ) const {
 	// set brushes for selecting
 	if( date == m_selectedDate ) {
@@ -348,7 +389,7 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 	// we need to disable sorting for putting elements
 	m_list->setSortingEnabled( false );
 
-	// remove current highlights to set up new
+	// remove current highlights to set up new one
 	if( m_pCurrAction ) {
 		m_pCurrAction->setHighlight( false );
 	}
@@ -377,31 +418,15 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 		int _actionsNumber = _actions.size();
 		m_list->setRowCount( _actionsNumber );
 		for( int i = 0; i < _actions.size();  ++i ) {
-			Action* _action = _actions.at( i );
+			Action* _pAction = _actions.at( i );
 
-			// item on the list is displayed in "HH:MM:SS Name" form, so we get time here and modify value to 2-numbers, except for hour
-			int _hour = _action->getHours();
-			int _minute = _action->getMinutes();
-			int _second = _action->getSeconds();
-			QString _strHour = QString::number( _hour );
-			QString _strMinute = QString::number( _minute );
-			QString _strSecond = QString::number( _second );
-
-			if( _hour < 10 ) {
-				_strHour = "0" + _strHour;
-			}
-			if( _minute < 10 ) {
-				_strMinute = "0" + _strMinute;
-			}
-			if( _second < 10 ) {
-				_strSecond = "0" + _strSecond;
-			}
-			QString _strTime = _strHour + ":" + _strMinute + ":" + _strSecond;
+			// item on the list is displayed in "HH:MM:SS Name" form, so we get time here
+			QString _strTime = _pAction->getHoursHH() + ":" + _pAction->getMinutesMM() + ":" + _pAction->getSecondsSS();
 
 			// add finally the item to the list
 			QTableWidgetItem* _no     = new QTableWidgetItem( QString::number( i + 1 ) );
 			QTableWidgetItem* _time   = new QTableWidgetItem( _strTime );
-			QTableWidgetItem* _script = new QTableWidgetItem( _actions.at( i )->getScript()->getFileName() );
+			QTableWidgetItem* _script = new QTableWidgetItem( _pAction->getScript()->getFileName() );
 			m_list->setItem( i, 0, _no );
 			m_list->setItem( i, 1, _time );
 			m_list->setItem( i, 2, _script );

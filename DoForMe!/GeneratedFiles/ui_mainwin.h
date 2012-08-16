@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwin.ui'
 **
-** Created: Tue 14. Aug 13:05:19 2012
+** Created: Wed 15. Aug 20:17:35 2012
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -99,6 +99,7 @@ public:
     QToolButton *detachButton;
     QTableWidget *actionsTable;
     QToolButton *editButton;
+    QToolButton *saveButton;
     QMenuBar *menuBar;
     QMenu *menuMenu;
     QMenu *menuExecuting;
@@ -406,6 +407,11 @@ public:
         editButton->setGeometry(QRect(340, 220, 51, 21));
         editButton->setStyleSheet(QString::fromUtf8(""));
         editButton->setAutoRaise(true);
+        saveButton = new QToolButton(centralWidget);
+        saveButton->setObjectName(QString::fromUtf8("saveButton"));
+        saveButton->setGeometry(QRect(410, 220, 51, 21));
+        saveButton->setStyleSheet(QString::fromUtf8(""));
+        saveButton->setAutoRaise(true);
         mainWinClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(mainWinClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -556,6 +562,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem2 = actionsTable->horizontalHeaderItem(2);
         ___qtablewidgetitem2->setText(QApplication::translate("mainWinClass", "Script", 0, QApplication::UnicodeUTF8));
         editButton->setText(QApplication::translate("mainWinClass", "Edit", 0, QApplication::UnicodeUTF8));
+        saveButton->setText(QApplication::translate("mainWinClass", "Save", 0, QApplication::UnicodeUTF8));
         menuMenu->setTitle(QApplication::translate("mainWinClass", "Help", 0, QApplication::UnicodeUTF8));
         menuExecuting->setTitle(QApplication::translate("mainWinClass", "Commands", 0, QApplication::UnicodeUTF8));
         menuCustomize->setTitle(QApplication::translate("mainWinClass", "Customize", 0, QApplication::UnicodeUTF8));

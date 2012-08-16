@@ -17,6 +17,7 @@
 *.suo
 ipch
 DoForMe!/Debug
+DoForMe!/Release
 Win32
 
 # QT generated files

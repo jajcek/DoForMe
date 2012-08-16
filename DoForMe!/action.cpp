@@ -2,15 +2,9 @@
 
 int Action::m_actionNumber = 0;
 
-Action::Action( Action* action ) {
+Action::Action( Action* pAction ) : m_pScript( pAction->getScript() ), m_time( pAction->getTime() ), m_isXDays( false ), m_XDays( 0 ),
+									m_days( 0 ), m_isHighlighted( pAction->isHighlighted() ), m_id( nextId() ) {
 	// IMPORTANT, it creates action without repetitions!
-	m_pScript = action->getScript();
-	m_time = action->getTime();
-	m_isXDays = false;
-	m_XDays = 0;
-	m_days = 0;
-	m_isHighlighted = action->isHighlighted();
-	m_id = nextId();
 }
 
 Action::Action( Script* pScript, const ActionSettings& settings ) : m_pScript( pScript ), m_isHighlighted( false ), m_id( nextId() ) {
@@ -50,6 +44,39 @@ int Action::getMinutes() const {
 
 int Action::getSeconds() const {
 	return m_time.second();
+}
+
+QString Action::getHoursHH() const {
+	int _hour = m_time.hour();
+	QString _strHour = QString::number( _hour );
+
+	if( _hour < 10 ) {
+		_strHour = "0" + _strHour;
+	}
+
+	return _strHour;
+}
+
+QString Action::getMinutesMM() const {
+	int _minute = m_time.minute();
+	QString _strMinute = QString::number( _minute );
+
+	if( _minute < 10 ) {
+		_strMinute = "0" + _strMinute;
+	}
+
+	return _strMinute;
+}
+
+QString Action::getSecondsSS() const {
+	int _second = m_time.second();
+	QString _strSecond = QString::number( _second );
+
+	if( _second < 10 ) {
+		_strSecond = "0" + _strSecond;
+	}
+
+	return _strSecond;
 }
 
 QTime Action::getTime() const {

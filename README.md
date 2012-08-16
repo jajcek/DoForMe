@@ -1,3 +1,12 @@
+Development release 16.08.2012
+===================================================
+- Saving and loading actions by using SQLite database.
+
+Development release 15.08.2012
+===================================================
+- Saving actions into database.
+- Fixed issue that cause not to turn off highlights when two actions were added in the same date in a row.
+
 Development release 14.08.2012
 ===================================================
 - Edit action functionality.

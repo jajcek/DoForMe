@@ -29,6 +29,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.detachButton, SIGNAL( clicked() ), this, SLOT( detachAction() ) );
 	connect( ui.removeButton, SIGNAL( clicked() ), this, SLOT( removeAction() ) );
 	connect( ui.editButton, SIGNAL( clicked() ), this, SLOT( editAction() ) );
+	connect( ui.saveButton, SIGNAL( clicked() ), this, SLOT( saveData() ) );
 	connect( ui.actionsTable, SIGNAL( itemClicked( QTableWidgetItem* ) ), this, SLOT( actionSelected( QTableWidgetItem* ) ) );
 
 	
@@ -39,6 +40,11 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	// resize width of columns for actions list (actionsTable)
 	ui.actionsTable->setColumnWidth( 0, 25 );
 
+	// loading script, important: it must be called before creating ActionsCalendar
+	// because the calendar loads actions from database and it needs to find pointers to
+	// scripts for actions
+	loadScripts( CONF::SCRIPT_DIR );
+
 	ActionsCalendar::setList( ui.actionsTable );
 	m_calendar = new ActionsCalendar( this );
 	m_calendar->setGeometry( ui.actionsTable->width() + 10, m_iHeight - 210, m_iWidth - ( ui.actionsTable->width() + 10 ), 210 );
@@ -47,8 +53,6 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	m_lua = new LuaEngine();
 	LuaApiEngine::setLuaEngine( m_lua );
 	LuaApiEngine::initSpecialKeys();
-
-	loadScripts( CONF::SCRIPT_DIR );
 
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
@@ -241,7 +245,7 @@ void mainWin::addAction() {
 		return;
 	}
 
-	// inform user that the date is a past and ask him if he still wants to add teh action
+	// inform user that the date is in the past and ask him if he still wants to add the action
 	if( !checkDateCorrectness( m_calendar->getSelectedDate() ) ) {
 		QMessageBox _msg( QMessageBox::Information, "Information", "The date is from the past. Do you still want to add the action?",
 			QMessageBox::Yes | QMessageBox::No );
@@ -249,17 +253,21 @@ void mainWin::addAction() {
 			return;
 	}
 
+	// show action settings dialog
 	ActionSettings _actionSettings( m_calendar->getSelectedDate() );
 	int _iResult = _actionSettings.exec();
 	
 	// if a user clicked apply
 	if( _iResult ) {
+		if( m_calendar->getCurrentAction() )
+			m_calendar->getCurrentAction()->setHighlight( false );
 		// create new action and add it to calendar as well as highlight it
 		// and refresh calendar to repaint cells
 		Action* _newAction = new Action( m_pCurrScript, _actionSettings );
 		m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
 		_newAction->setHighlight( true );
 		m_calendar->refreshRepetitions();
+		m_calendar->setCurrentAction( _newAction );
 	}
 }
 
@@ -330,6 +338,10 @@ void mainWin::editAction() {
 	}
 
 	m_calendar->refreshRepetitions();
+}
+
+void mainWin::saveData() {
+	m_calendar->saveData();
 }
 
 void mainWin::initLuaApi() {

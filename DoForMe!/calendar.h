@@ -7,6 +7,7 @@
 #include <qlistwidget.h>
 #include "action.h"
 #include "action_settings.h"
+#include "database.h"
 
 class ActionsCalendar : public QCalendarWidget {
 	Q_OBJECT
@@ -44,6 +45,8 @@ public:
 	static void setList( QTableWidget* list );
 	QDate getSelectedDate() const;
 	void refreshRepetitions();
+	void saveData() const;
+	void loadData();
 
 protected:
 	void paintCell( QPainter* painter, const QRect& rect, const QDate& date ) const;

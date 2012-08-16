@@ -56,6 +56,7 @@ public slots:
 	void detachAction();
 	void removeAction();
 	void editAction();
+	void saveData();
 
 private:
 	void initLuaApi();

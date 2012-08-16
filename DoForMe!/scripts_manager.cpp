@@ -14,7 +14,7 @@ void ScriptsManager::removeScripts() {
 bool ScriptsManager::addScript( Script* script ) {
 	QString _scriptName = script->getFileName();
 
-	if( m_scripts.find( _scriptName ) == m_scripts.end() ) {
+	if( !m_scripts.contains( _scriptName ) ) {
 		m_scripts[_scriptName] = script;
 
 		return true;

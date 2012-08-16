@@ -16,19 +16,17 @@
 class Action {
 private:
 	Script* m_pScript;
-	ActionSettings m_actionSettings;
 	QTime m_time;
 	bool m_isXDays;
 	int m_XDays;
 	int m_days;
 	bool m_isHighlighted;
 	QVector<QDate> m_excludedDates;
-	QDate m_mainDate;
 	int m_id;
 	static int m_actionNumber;
 
 public:
-	Action( Action* action );
+	Action( Action* pAction );
 	Action( Script* pScript, const ActionSettings& settings );
 
 	void setSetting( const ActionSettings& settings );
@@ -42,6 +40,9 @@ public:
 	int getHours() const;
 	int getMinutes() const;
 	int getSeconds() const;
+	QString getHoursHH() const;
+	QString getMinutesMM() const;
+	QString getSecondsSS() const;
 	QTime getTime() const;
 
 	bool isXDays() const;
