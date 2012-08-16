@@ -439,7 +439,7 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 
 			// add finally the item to the list
 			QTableWidgetItem* _no     = new QTableWidgetItem();
-			_no->setData( Qt::DisplayRole, i + 1 );
+			_no->setData( Qt::DisplayRole, _pAction->getId() + 1 );
 			QTableWidgetItem* _time   = new QTableWidgetItem( _strTime );
 			QTableWidgetItem* _script = new QTableWidgetItem( _pAction->getScript()->getFileName() );
 			m_list->setItem( i, 0, _no );
