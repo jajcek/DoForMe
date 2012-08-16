@@ -13,11 +13,13 @@ int Database::getRow( void *notUsed, int argc, char** argv , char** columnName )
 	// excluded dates
 	QVector<QDate> _excludedDate;
 	QStringList _excludedDates = QString( argv[3] ).split( "|" );
-	for( int i = 0; i < _excludedDates.size(); ++i ) {
-		int _yearExcl  = _excludedDates.at( i ).left( 4 ).toInt();
-		int _monthExcl = _excludedDates.at( i ).mid( 5, 2 ).toInt();
-		int _dayExcl   = _excludedDates.at( i ).right( 2 ).toInt();
-		_excludedDate.push_back( QDate( _yearExcl, _monthExcl, _dayExcl ) );
+	if( !_excludedDates.at( 0 ).isEmpty() ) {
+		for( int i = 0; i < _excludedDates.size(); ++i ) {
+			int _yearExcl  = _excludedDates.at( i ).left( 4 ).toInt();
+			int _monthExcl = _excludedDates.at( i ).mid( 5, 2 ).toInt();
+			int _dayExcl   = _excludedDates.at( i ).right( 2 ).toInt();
+			_excludedDate.push_back( QDate( _yearExcl, _monthExcl, _dayExcl ) );
+		}
 	}
 	// time
 	int _hours   = QString( argv[4] ).left( 2 ).toInt();
@@ -99,6 +101,17 @@ void Database::clearContents() {
 
 void Database::insertAction( QDate date, Action* action ) {
 	char* _errMsg = NULL;
+	
+	// create string which will be put into database in form of "date|date|date|..."
+	QString _excludedDates = "";
+	int _excludedDatesNumber = action->getExcludedDates().size();
+	for( int i = 0; i < _excludedDatesNumber; ++i ) {
+		QDate _date = action->getExcludedDates().at( i );
+		QString _Year    = QString::number( _date.year() );
+		QString _MonthMM = _date.month() < 10 ? "0" + QString::number( _date.month() ) : QString::number( _date.month() );
+		QString _DayDD   = _date.day() < 10 ? "0" + QString::number( _date.day() ) : QString::number( _date.day() );
+		_excludedDates += ( _excludedDates.isEmpty() ? "" : "|" ) + _Year + "-" + _MonthMM + "-" + _DayDD;
+	}
 
 	// make the month/day numbers as 2-digits
 	QString _strMonth = QString::number( date.month() );
@@ -106,17 +119,8 @@ void Database::insertAction( QDate date, Action* action ) {
 	QString _strDay = QString::number( date.day() );
 	QString _strDayDD = _strDay.length() == 1 ? "0" + _strDay : _strDay;
 	QString _XDays = action->isXDays() ? QString::number( action->getXDays() ) : QString::number( 0 );
-	
-	QString _excludedDates = "";
-	int _excludedDatesNumber = action->getExcludedDates().size();
-	for( int i = 0; i < _excludedDatesNumber; ++i ) {
-		QDate _date = action->getExcludedDates().at( i );
-		QString _strYear    = QString::number( _date.year() );
-		QString _strMonthMM = _date.month() < 10 ? "0" + QString::number( _date.month() ) : QString::number( _date.month() );
-		QString _strDayDD   = _date.day() < 10 ? "0" + QString::number( _date.day() ) : QString::number( _date.day() );
-		_excludedDates += ( _excludedDates.isEmpty() ? "" : "|" ) + _strYear + "-" + _strMonthMM + "-" + _strDayDD;
-	}
 
+	// prepare the query
 	QString _query = QString( "INSERT INTO Actions VALUES( " ) +
 					"NULL, " +
 					"'" + action->getScript()->getFileName() + "', " +
@@ -126,7 +130,7 @@ void Database::insertAction( QDate date, Action* action ) {
 					_XDays + ", " +
 					QString::number( action->getDays()  ) + " );";
 
-	qDebug( "query: %s", _query.toStdString().c_str() );
+	//qDebug( "query: %s", _query.toStdString().c_str() );
 	int _res = sqlite3_exec( m_db, _query.toStdString().c_str(), NULL, NULL, &_errMsg );
 	if( _res != SQLITE_OK ) {
 		QMessageBox _msg( QMessageBox::Critical, "Error", "SQL error: " + QString( _errMsg ),

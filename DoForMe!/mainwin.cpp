@@ -35,7 +35,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	
 	// used for centering main app window
 	QDesktopWidget screen;
-	setGeometry( ( screen.width() - m_iWidth ) / 2, ( screen.height() - m_iHeight ) / 2, m_iWidth, m_iHeight );
+	setGeometry( ( screen.width() - width() ) / 2, ( screen.height() - m_iHeight ) / 2, width(), height() );
 
 	// resize width of columns for actions list (actionsTable)
 	ui.actionsTable->setColumnWidth( 0, 25 );
@@ -48,7 +48,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 
 	ActionsCalendar::setList( ui.actionsTable );
 	m_calendar = new ActionsCalendar( this );
-	m_calendar->setGeometry( ui.actionsTable->width() + 10, m_iHeight - 210, m_iWidth - ( ui.actionsTable->width() + 10 ), 210 );
+	m_calendar->setGeometry( ui.actionsTable->width() + 9, height() - 209, width() - ( ui.actionsTable->width() + 9 ), 209 );
 	m_calendar->show();
 	
 	m_lua = new LuaEngine();
@@ -303,6 +303,8 @@ void mainWin::detachAction() {
 }
 
 void mainWin::removeAction() {
+	if( !m_calendar->getCurrentAction() ) return;
+
 	if( m_calendar->getCurrentAction()->isXDays() || m_calendar->getCurrentAction()->getDays() ) {
 		QMessageBox _msg( QMessageBox::Information, "Information", "Do you want to remove all repetitions?",
 			QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel );
@@ -398,6 +400,8 @@ bool mainWin::checkDateCorrectness( QDate date ) {
 
 mainWin::~mainWin()
 {
+	if( ui.saveOnCloseCheck->isChecked() )
+		saveData();
 	ScriptsManager::removeScripts();
 	delete m_calendar;
 	delete m_lua;

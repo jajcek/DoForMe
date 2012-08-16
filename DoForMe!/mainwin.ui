@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>821</width>
-    <height>507</height>
+    <height>528</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,7 +34,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>260</y>
+      <y>280</y>
       <width>651</width>
       <height>201</height>
      </rect>
@@ -490,7 +490,7 @@ color: black;</string>
    <widget class="QToolButton" name="toolButton_2">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>98</x>
       <y>1</y>
       <width>51</width>
       <height>21</height>
@@ -503,7 +503,7 @@ color: black;</string>
      <string>Remove</string>
     </property>
     <property name="autoRaise">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -521,25 +521,6 @@ color: black;</string>
     </property>
     <property name="text">
      <string>  Actions</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="removeButton">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>220</y>
-      <width>51</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Remove</string>
-    </property>
-    <property name="autoRaise">
-     <bool>true</bool>
     </property>
    </widget>
    <widget class="QToolButton" name="addActionButton">
@@ -623,32 +604,13 @@ color: black;</string>
      <string>  New script</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="detachButton">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>220</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Detach</string>
-    </property>
-    <property name="autoRaise">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QTableWidget" name="actionsTable">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>272</y>
       <width>151</width>
-      <height>188</height>
+      <height>209</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -732,12 +694,29 @@ selection-background-color: rgb( 51, 153, 255 );
      </property>
     </column>
    </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>249</y>
+      <width>661</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb( 210, 210, 210 );
+color: black;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <widget class="QToolButton" name="editButton">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>220</y>
-      <width>51</width>
+      <x>162</x>
+      <y>250</y>
+      <width>80</width>
       <height>21</height>
      </rect>
     </property>
@@ -748,15 +727,56 @@ selection-background-color: rgb( 51, 153, 255 );
      <string>Edit</string>
     </property>
     <property name="autoRaise">
-     <bool>true</bool>
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="detachButton">
+    <property name="geometry">
+     <rect>
+      <x>322</x>
+      <y>250</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Detach</string>
+    </property>
+    <property name="autoRaise">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="removeButton">
+    <property name="geometry">
+     <rect>
+      <x>242</x>
+      <y>250</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Remove</string>
+    </property>
+    <property name="autoRaise">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QToolButton" name="saveButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>220</y>
-      <width>51</width>
+      <x>640</x>
+      <y>250</y>
+      <width>80</width>
       <height>21</height>
      </rect>
     </property>
@@ -767,6 +787,22 @@ selection-background-color: rgb( 51, 153, 255 );
      <string>Save</string>
     </property>
     <property name="autoRaise">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="saveOnCloseCheck">
+    <property name="geometry">
+     <rect>
+      <x>723</x>
+      <y>252</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save on close</string>
+    </property>
+    <property name="checked">
      <bool>true</bool>
     </property>
    </widget>
@@ -1055,5 +1091,22 @@ selection-background-color: rgb( 51, 153, 255 );
  <resources>
   <include location="mainwin.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>saveOnCloseCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>saveButton</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>548</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>459</x>
+     <y>307</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

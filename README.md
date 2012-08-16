@@ -1,9 +1,12 @@
 Development release 16.08.2012
 ===================================================
 - Saving and loading actions by using SQLite database.
+- 'Save on close' functionality.
 - Fixed issue that allowed user to detach non-repeated action to infinity which caused bugs.
 - Fixed sorting actions table (it was sorting 1, 10, 2, 3... and the purpose was 1, 2, ..., 10)
-- Fixed issue which led to not loading excluded dates from repetitions. 
+- Fixed issue which led to not loading excluded dates from repetitions.
+- Fix: crash when removing action with no action selected.
+- Fix: an invalid excluding date was put when there were no excluded dates at all.
 
 Development release 15.08.2012
 ===================================================
