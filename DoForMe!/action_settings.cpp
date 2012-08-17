@@ -155,6 +155,7 @@ void ActionSettings::apply() {
 				reject();
 			else
 				accept();
+			break;
 		}
 		case OK:
 			accept();
