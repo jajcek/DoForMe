@@ -1,3 +1,10 @@
+Development release 17.08.2012
+===================================================
+Functionalities
+---------------------------------------------------
+- importing scripts.
+- removing scripts from the scripts list.
+
 Development release 16.08.2012
 ===================================================
 - Saving and loading actions by using SQLite database.

@@ -24,6 +24,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.actionImport, SIGNAL( activated() ), this, SLOT( importScripts() ) );
 	connect( ui.actionSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
 	connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runAction() ) );
+	connect( ui.removeScriptButton, SIGNAL( clicked() ), this, SLOT( removeScript() ) );
 	connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
 	connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
 	connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
@@ -228,6 +229,15 @@ void mainWin::runAction() {
 	// start script (by taking commands from the lua's stack one by one)
 	// the stack is in the m_lua object's class (LuaEngine)
 	m_lua->start();
+}
+
+void mainWin::removeScript() {
+	// remove the script file
+	QString _scriptName = m_pCurrScript->getFileName() + CONF::EXT;
+	QFile::remove( CONF::SCRIPT_DIR + _scriptName );
+
+	// remove the script from the scripts list
+	ui.scriptsList->takeItem( ui.scriptsList->currentRow() );
 }
 
 void mainWin::scriptSelected( const QString& scriptTitle ) {
