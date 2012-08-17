@@ -21,8 +21,9 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 
 	connect( ui.actionAbout, SIGNAL( activated() ), this, SLOT( showAbout() ) );
 	connect( ui.actionNew, SIGNAL( activated() ), this, SLOT( newFile() ) );
-	connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runAction() ) );
+	connect( ui.actionImport, SIGNAL( activated() ), this, SLOT( importScripts() ) );
 	connect( ui.actionSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
+	connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runAction() ) );
 	connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
 	connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
 	connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
@@ -82,6 +83,8 @@ void mainWin::loadScripts( const QString& path ) {
 			if( ScriptsManager::addScript( _pScript ) ) {
 				// add script title to the scripts list
 				ui.scriptsList->addItem( _pScript->getFileName() );
+			} else {
+				delete _pScript;
 			}
 		} catch( int e ) {
 			if( e == Script::FileOpenException ) {
@@ -128,7 +131,7 @@ void mainWin::newFile() {
 		try {
 			Script* _pScript = new Script( CONF::SCRIPT_DIR + _strFileName, Script::CREATE );
 			if( ScriptsManager::addScript( _pScript ) ) {
-				// add script title to the scripts list to the title (above text edit) and clean the text area
+				// add script title to the scripts list to the title and clean the text area
 				ui.scriptsList->addItem( _pScript->getFileName() );
 				setScriptTitle( "  " + _pScript->getFileName() );
 				// TODO if the area contains modified text, ask if the user wants to save it
@@ -140,6 +143,38 @@ void mainWin::newFile() {
 				_msg.exec();
 			}
 		}
+	}
+}
+
+void mainWin::importScripts() {
+	// show file dialog to select files to import
+	QStringList _files = QFileDialog::getOpenFileNames( this, "Import scripts", "C:/", QString( "Scripts (*" ) + CONF::EXT + ")" );
+
+	// copy the files into the "scripts" directory
+	int _filesNumber = _files.size();
+	for( int i = 0; i < _filesNumber; ++i ) {
+		QString _strFile = _files.at( i );
+		QFileInfo _fileInfo( _strFile );
+		QFile::copy( _strFile, "scripts/" + _fileInfo.fileName() );
+	}
+
+	loadScripts( CONF::SCRIPT_DIR );
+}
+
+void mainWin::saveScript() {
+	if( !m_pCurrScript ) return;
+	if( !m_pCurrScript->isModified() ) return;
+
+	// set new code for the currently selected script
+	m_pCurrScript->setCode( ui.scriptTextEdit->toPlainText() );
+
+	// make title without '*' symbol
+	setScriptTitle( m_pCurrScript->getFileName() );
+
+	// save the script to the file
+	if( !ScriptsManager::saveToFile( m_pCurrScript->getFileName() ) ) {
+		QMessageBox _msg( QMessageBox::Critical, "Error", "Unexpected error. The script wasn't saved." );
+		_msg.exec();
 	}
 }
 
@@ -193,27 +228,6 @@ void mainWin::runAction() {
 	// start script (by taking commands from the lua's stack one by one)
 	// the stack is in the m_lua object's class (LuaEngine)
 	m_lua->start();
-}
-
-void mainWin::saveScript() {
-	if( !m_pCurrScript ) return;
-	if( !m_pCurrScript->isModified() ) return;
-
-	// set new code for the currently selected script
-	m_pCurrScript->setCode( ui.scriptTextEdit->toPlainText() );
-
-	// make title without '*' symbol
-	setScriptTitle( m_pCurrScript->getFileName() );
-
-	// save the script to the file
-	if( !ScriptsManager::saveToFile( m_pCurrScript->getFileName() ) ) {
-		QMessageBox _msg( QMessageBox::Critical, "Error", "Unexpected error. The script wasn't saved." );
-		_msg.exec();
-	}
-}
-
-void mainWin::saveAction() {
-	
 }
 
 void mainWin::scriptSelected( const QString& scriptTitle ) {

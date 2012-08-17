@@ -882,7 +882,7 @@ color: black;</string>
     <bool>false</bool>
    </attribute>
    <addaction name="actionNew"/>
-   <addaction name="actionOpen"/>
+   <addaction name="actionImport"/>
    <addaction name="actionSaveScript"/>
   </widget>
   <widget class="QToolBar" name="toolBar_2">
@@ -1050,7 +1050,7 @@ color: black;</string>
     <enum>Qt::ApplicationShortcut</enum>
    </property>
   </action>
-  <action name="actionOpen">
+  <action name="actionImport">
    <property name="icon">
     <iconset resource="mainwin.qrc">
      <normaloff>:/standard/Resources/folder_new.ico</normaloff>:/standard/Resources/folder_new.ico</iconset>

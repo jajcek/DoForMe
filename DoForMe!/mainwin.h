@@ -43,9 +43,9 @@ public:
 
 public slots:
 	void newFile();
-	void runAction();
+	void importScripts();
 	void saveScript();
-	void saveAction();
+	void runAction();
 	void scriptSelected( const QString& scriptTitle );
 	void scriptModified();
 	void addAction();
