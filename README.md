@@ -4,6 +4,7 @@ Functionalities
 ---------------------------------------------------
 - importing scripts.
 - removing scripts from the scripts list.
+- combobox for choosing scripts instead of selecting them on the scripts list first.
 
 Development release 16.08.2012
 ===================================================

@@ -51,5 +51,9 @@ public:
 		\return Pointer to the Script object.
 	*/
 	static Script* getScript( const QString& scriptName );
+	/**
+		\return List of scripts names.
+	*/
+	static QStringList getScriptsList();
 
 };

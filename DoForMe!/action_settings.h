@@ -33,6 +33,10 @@ public:
 	ActionSettings();
 	ActionSettings( QDate date );
 
+	void setScripts( const QStringList& scripts );
+	QString getScriptName() const;
+	void selectScript( const QString& scriptName );
+
 	void setHours( int hours );
 	int getHours() const;
 	void setMinutes( int minutes );

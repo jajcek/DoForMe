@@ -7,11 +7,12 @@ Action::Action( Action* pAction ) : m_pScript( pAction->getScript() ), m_time( p
 	// IMPORTANT, it creates action without repetitions!
 }
 
-Action::Action( Script* pScript, const ActionSettings& settings ) : m_pScript( pScript ), m_isHighlighted( false ), m_id( nextId() ) {
+Action::Action( const ActionSettings& settings ) : m_isHighlighted( false ), m_id( nextId() ) {
 	setSetting( settings );
 }
 
 void Action::setSetting( const ActionSettings& settings ) {
+	m_pScript = ScriptsManager::getScript( settings.getScriptName() );
 	m_time = QTime( settings.getHours(), settings.getMinutes(), settings.getSeconds() );
 	m_isXDays = settings.isXDays();
 	m_XDays = settings.getXDays();

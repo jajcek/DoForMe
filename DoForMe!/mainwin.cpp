@@ -263,12 +263,7 @@ void mainWin::scriptModified() {
 }
 
 void mainWin::addAction() {
-	// if the script hasn't been selected
-	if( !m_pCurrScript ) {
-		QMessageBox _msg( QMessageBox::Information, "Information", "The script hasn't been selected.", QMessageBox::Ok );
-		_msg.exec();
-		return;
-	}
+	qDebug( "mainWin::addAction" );
 
 	// inform user that the date is in the past and ask him if he still wants to add the action
 	if( !checkDateCorrectness( m_calendar->getSelectedDate() ) ) {
@@ -280,6 +275,7 @@ void mainWin::addAction() {
 
 	// show action settings dialog
 	ActionSettings _actionSettings( m_calendar->getSelectedDate() );
+	_actionSettings.setScripts( ScriptsManager::getScriptsList() );
 	int _iResult = _actionSettings.exec();
 	
 	// if a user clicked apply
@@ -288,7 +284,7 @@ void mainWin::addAction() {
 			m_calendar->getCurrentAction()->setHighlight( false );
 		// create new action and add it to calendar as well as highlight it
 		// and refresh calendar to repaint cells
-		Action* _newAction = new Action( m_pCurrScript, _actionSettings );
+		Action* _newAction = new Action( _actionSettings );
 		m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
 		_newAction->setHighlight( true );
 		m_calendar->refreshRepetitions();
@@ -350,7 +346,9 @@ void mainWin::editAction() {
 	if( !_pAction ) return;
 
 	ActionSettings _actionSettings( m_calendar->getSelectedDate() );
+	_actionSettings.setScripts( ScriptsManager::getScriptsList() );
 	// set current values for action
+	_actionSettings.selectScript( _pAction->getScript()->getFileName() );
 	_actionSettings.setHours( _pAction->getHours() );
 	_actionSettings.setMinutes( _pAction->getMinutes() );
 	_actionSettings.setSeconds( _pAction->getSeconds() );

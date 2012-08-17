@@ -50,6 +50,19 @@ ActionSettings::ActionSettings( QDate date ) : m_selectedDate( date ) {
 	*/
 }
 
+void ActionSettings::setScripts( const QStringList& scripts ) {
+	ui.scriptsComboBox->addItems( scripts );
+}
+
+QString ActionSettings::getScriptName() const {
+	return ui.scriptsComboBox->currentText();
+}
+
+void ActionSettings::selectScript( const QString& scriptName ) {
+	int _index = ui.scriptsComboBox->findText( scriptName );
+	ui.scriptsComboBox->setCurrentIndex( _index );
+}
+
 void ActionSettings::setHours( int hours ) {
 	ui.hourSpin->setValue( hours );
 }

@@ -60,10 +60,23 @@ bool ScriptsManager::saveToFile( const QString& scriptName ) {
 }
 
 Script* ScriptsManager::getScript( const QString& scriptName ) {
-	QMap<QString, Script*>::Iterator _pScript = m_scripts.find( scriptName );
+	auto _pScript = m_scripts.find( scriptName );
 
 	if( _pScript != m_scripts.end() )
 		return _pScript.value();
 	else
 		return NULL;
+}
+
+QStringList ScriptsManager::getScriptsList() {
+	QStringList _scripts;
+
+	QMapIterator<QString, Script*> _scriptsIt( m_scripts );
+
+	while( _scriptsIt.hasNext() ) {
+		_scriptsIt.next();
+		_scripts.push_back( _scriptsIt.key() );
+	}
+
+	return _scripts;
 }

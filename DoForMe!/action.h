@@ -4,6 +4,7 @@
 #include <QTime>
 #include "action_settings.h"
 #include "script.h"
+#include "scripts_manager.h"
 
 /**
 	\class Action action.h "action.h"
@@ -27,7 +28,7 @@ private:
 
 public:
 	Action( Action* pAction );
-	Action( Script* pScript, const ActionSettings& settings );
+	Action( const ActionSettings& settings );
 
 	void setSetting( const ActionSettings& settings );
 
