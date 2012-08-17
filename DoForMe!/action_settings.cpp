@@ -46,7 +46,7 @@ ActionSettings::ActionSettings( QDate date ) : m_selectedDate( date ) {
 	setGeometry( ( screen.width() - width() ) / 2, ( screen.height() - height() ) / 2, width(), height() );
 
 	/*
-		cancel button action is defined in QT Designer!
+		cancel button action is defined in action_dialog.ui!
 	*/
 }
 
