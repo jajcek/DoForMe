@@ -34,6 +34,15 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.saveButton, SIGNAL( clicked() ), this, SLOT( saveData() ) );
 	connect( ui.actionsTable, SIGNAL( itemClicked( QTableWidgetItem* ) ), this, SLOT( actionSelected( QTableWidgetItem* ) ) );
 
+	// initialize pointers to calendar tools
+	CalendarTools::AddButton = ui.addActionButton;
+	CalendarTools::EditButton = ui.editButton;
+	CalendarTools::RemoveActionButton = ui.removeButton;
+	CalendarTools::DetachActionButton = ui.detachButton;
+	CalendarTools::UpButton = ui.upButton;
+	CalendarTools::DownButton = ui.downButton;
+	CalendarTools::LeftButton = ui.leftButton;
+	CalendarTools::RightButton = ui.rightButton;
 	
 	// used for centering main app window
 	QDesktopWidget screen;
@@ -243,6 +252,9 @@ void mainWin::removeScript() {
 void mainWin::scriptSelected( const QString& scriptTitle ) {
 	// find the appropriate script
 	m_pCurrScript = ScriptsManager::getScript( scriptTitle );
+
+	// enable remove button after selecting script
+	ui.removeScriptButton->setEnabled( true );
 
 	// put script code to the text edit
 	setCode( m_pCurrScript->getCode() );

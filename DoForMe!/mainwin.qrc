@@ -4,6 +4,12 @@
     <file>Resources/fileimport.ico</file>
     <file>logo.png</file>
   </qresource>
+  <qresource prefix="arrows">
+    <file>Resources/1downarrow.ico</file>
+    <file>Resources/1leftarrow.ico</file>
+    <file>Resources/1rightarrow.ico</file>
+    <file>Resources/1uparrow.ico</file>
+  </qresource>
   <qresource prefix="standard">
     <file>Resources/folder_new.ico</file>
     <file>Resources/New.ico</file>

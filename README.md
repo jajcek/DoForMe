@@ -1,3 +1,9 @@
+Development release 18.08.2012
+===================================================
+Functionalities
+---------------------------------------------------
+- Buttons for calendar and script removing are disabled. They enable when the appropriate action has been made by a user.
+
 Development release 17.08.2012
 ===================================================
 Functionalities

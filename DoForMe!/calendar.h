@@ -8,6 +8,7 @@
 #include "action.h"
 #include "action_settings.h"
 #include "database.h"
+#include "calendar_tools.h"
 
 class ActionsCalendar : public QCalendarWidget {
 	Q_OBJECT

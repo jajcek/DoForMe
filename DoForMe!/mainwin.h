@@ -20,6 +20,7 @@
 #include "scripts_manager.h"
 #include "conf.h"
 #include "action_settings.h"
+#include "calendar_tools.h"
 
 class mainWin : public QMainWindow
 {

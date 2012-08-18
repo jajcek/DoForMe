@@ -421,11 +421,16 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 		if( m_actionsInMonth.find( date ).value().size() == 1 ) {
 			m_pCurrAction = m_actionsInMonth.find( date ).value().at( 0 );
 			m_pCurrAction->setHighlight( true );
+
+			// enable calendar tools
+			CalendarTools::enableForAction();
 		} else {
 			m_pCurrAction = NULL;
+			CalendarTools::disableForAction();
 		}
 	} else {
 		m_pCurrAction = NULL;
+		CalendarTools::disableForAction();
 	}
 
 	// set new selected date
