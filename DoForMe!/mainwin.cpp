@@ -246,7 +246,7 @@ void mainWin::removeScript() {
 	QFile::remove( CONF::SCRIPT_DIR + _scriptName );
 
 	// remove the script from the scripts list
-	ui.scriptsList->takeItem( ui.scriptsList->currentRow() );
+	delete ui.scriptsList->item( ui.scriptsList->currentRow() );
 }
 
 void mainWin::scriptSelected( const QString& scriptTitle ) {
