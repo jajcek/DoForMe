@@ -133,6 +133,9 @@ ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::cu
 
 	// load all actions from database
 	loadData();
+
+	// select current date
+	selectDate( QDate::currentDate() );
 }
 
 ActionsCalendar::~ActionsCalendar() {
