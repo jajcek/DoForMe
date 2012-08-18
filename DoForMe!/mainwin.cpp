@@ -33,6 +33,10 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.editButton, SIGNAL( clicked() ), this, SLOT( editAction() ) );
 	connect( ui.saveButton, SIGNAL( clicked() ), this, SLOT( saveData() ) );
 	connect( ui.actionsTable, SIGNAL( itemClicked( QTableWidgetItem* ) ), this, SLOT( actionSelected( QTableWidgetItem* ) ) );
+	connect( ui.upButton, SIGNAL( clicked() ), this, SLOT( moveUp() ) );
+	connect( ui.downButton, SIGNAL( clicked() ), this, SLOT( moveDown() ) );
+	connect( ui.leftButton, SIGNAL( clicked() ), this, SLOT( moveLeft() ) );
+	connect( ui.rightButton, SIGNAL( clicked() ), this, SLOT( moveRight() ) );
 
 	// initialize pointers to calendar tools
 	CalendarTools::AddButton = ui.addActionButton;
@@ -73,6 +77,8 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 }
 
 void mainWin::loadScripts( const QString& path ) {
+	qDebug( "mainWin::loadScripts()" );
+
 	QDir myDir( path );
 
 	// define which extensions we want to look for
@@ -106,19 +112,27 @@ void mainWin::loadScripts( const QString& path ) {
 }
 
 QString mainWin::getCode() const {
+	qDebug( "mainWin::getCode()" );
+
 	return ui.scriptTextEdit->toPlainText();
 }
 
 void mainWin::setCode( const QString& code ) {
+	qDebug( "mainWin::setCode()" );
+
 	ui.scriptTextEdit->setFont( QFont( "Courier New", 8 ) );
 	ui.scriptTextEdit->setText( code );
 }
 
 void mainWin::setScriptTitle( QString title ) {
+	qDebug( "mainWin::setScriptTitle()" );
+
 	ui.scriptTitle->setText( "  " + title );
 }
 
 void mainWin::newFile() {
+	qDebug( "mainWin::newFile()" );
+
 	bool _ok = true;
 	QString _strFileName = "";
 	// try to add new script
@@ -157,6 +171,8 @@ void mainWin::newFile() {
 }
 
 void mainWin::importScripts() {
+	qDebug( "mainWin::importScripts()" );
+
 	// show file dialog to select files to import
 	QStringList _files = QFileDialog::getOpenFileNames( this, "Import scripts", "C:/", QString( "Scripts (*" ) + CONF::EXT + ")" );
 
@@ -172,6 +188,8 @@ void mainWin::importScripts() {
 }
 
 void mainWin::saveScript() {
+	qDebug( "mainWin::saveScript()" );
+
 	if( !m_pCurrScript ) return;
 	if( !m_pCurrScript->isModified() ) return;
 
@@ -189,6 +207,8 @@ void mainWin::saveScript() {
 }
 
 void mainWin::runAction() {
+	qDebug( "mainWin::runAction()" );
+
 	if( m_pCurrScript == NULL ) return;
 
 	// load and parse script (from text field) by checking its correctness
@@ -241,6 +261,8 @@ void mainWin::runAction() {
 }
 
 void mainWin::removeScript() {
+	qDebug( "mainWin::removeScript()" );
+
 	// remove the script file
 	QString _scriptName = m_pCurrScript->getFileName() + CONF::EXT;
 	QFile::remove( CONF::SCRIPT_DIR + _scriptName );
@@ -250,6 +272,8 @@ void mainWin::removeScript() {
 }
 
 void mainWin::scriptSelected( const QString& scriptTitle ) {
+	qDebug( "mainWin::scriptSelected()" );
+
 	// find the appropriate script
 	m_pCurrScript = ScriptsManager::getScript( scriptTitle );
 
@@ -264,6 +288,8 @@ void mainWin::scriptSelected( const QString& scriptTitle ) {
 }
 
 void mainWin::scriptModified() {
+	qDebug( "mainWin::scriptModified()" );
+
 	if( m_pCurrScript ) {
 		// set script title with '*' symbol, because it's been modified
 		// it is invoked when text changes in the code (in text box)
@@ -305,6 +331,8 @@ void mainWin::addAction() {
 }
 
 void mainWin::showAbout() {
+	qDebug( "mainWin::showAbout()" );
+
 	// show 'about' dialog as a modal window
 	// the window and its controls has been designed using QtDesigner (about.ui in the project)
 	// only background (gradient) for the logo on the left is created by code
@@ -313,6 +341,8 @@ void mainWin::showAbout() {
 }
 
 void mainWin::actionSelected( QTableWidgetItem* item ) {
+	qDebug( "mainWin::actionSelected()" );
+
 	// set highlights off to the old selected action
 	Action* _pAction = m_calendar->getCurrentAction();
 	if( _pAction )
@@ -331,10 +361,14 @@ void mainWin::actionSelected( QTableWidgetItem* item ) {
 }
 
 void mainWin::detachAction() {
+	qDebug( "mainWin::detachAction()" );
+
 	m_calendar->detachCurrentAction();
 }
 
 void mainWin::removeAction() {
+	qDebug( "mainWin::removeAction()" );
+
 	// not needed anymore, we diable the button when there is no action selected
 	//if( !m_calendar->getCurrentAction() ) return;
 
@@ -355,6 +389,8 @@ void mainWin::removeAction() {
 }
 
 void mainWin::editAction() {
+	qDebug( "mainWin::editAction()" );
+
 	Action* _pAction = m_calendar->getCurrentAction();
 	if( !_pAction ) return;
 
@@ -379,10 +415,30 @@ void mainWin::editAction() {
 }
 
 void mainWin::saveData() {
+	qDebug( "mainWin::saveData()" );
+
 	m_calendar->saveData();
 }
 
+void mainWin::moveUp() {
+
+}
+
+void mainWin::moveDown() {
+
+}
+
+void mainWin::moveLeft() {
+
+}
+
+void mainWin::moveRight() {
+
+}
+
 void mainWin::initLuaApi() {
+	qDebug( "mainWin::initLuaApi()" );
+
 	m_lua->registerFunction( "sleep", LuaApiEngine::prepareSleep );
 
 	// we can make static function leftDown() without any argument instead of function with std::stack<int> argument with no elements and then

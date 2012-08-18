@@ -57,6 +57,10 @@ public slots:
 	void removeAction();
 	void editAction();
 	void saveData();
+	void moveUp();
+	void moveDown();
+	void moveLeft();
+	void moveRight();
 
 private:
 	void initLuaApi();

@@ -29,6 +29,8 @@ void ActionsCalendar::drawExclamation( QPainter* painter, const QRect& rect ) co
 }
 
 void ActionsCalendar::setRepetition( QDate date, Action* action ) {
+	qDebug( "ActionsCalendar::setRepetition()" );
+
 	if( !action->isXDays() && action->getDays() == 0 ) return;
 
 	// how many days has the current month
@@ -109,6 +111,8 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 
 ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::currentDate() ), m_displayedMonth( 0 ),
 													   m_displayedYear( 0 ), m_pCurrAction( NULL ) {
+	qDebug( "ActionsCalendar::ActionsCalendar()" );
+
 	// fit it to the main window by making the window its parent
 	setParent( pParent );
 	// hand cursor over the calendar
@@ -139,10 +143,14 @@ ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::cu
 }
 
 ActionsCalendar::~ActionsCalendar() {
+	qDebug( "ActionsCalendar::~ActionsCalendar()" );
+
 	removeAllActions();
 }
 
 void ActionsCalendar::addAction( QDate date, Action* action ) {
+	qDebug( "ActionsCalendar::addAction()" );
+
 	// add new action for a specified date and repaint cells
 	// and container with actions for a selected month
 	m_actionsInMonth[date].push_back( action );
@@ -155,14 +163,20 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 }
 
 Action* ActionsCalendar::getAction( int itemNumber ) const {
+	qDebug( "ActionsCalendar::getAction()" );
+
 	return m_actionsInMonth.find( m_selectedDate ).value().at( itemNumber );
 }
 
 Action* ActionsCalendar::getCurrentAction() const {
+	qDebug( "ActionsCalendar::getCurrentAction()" );
+
 	return m_pCurrAction;
 }
 
 void ActionsCalendar::detachCurrentAction() {
+	qDebug( "ActionsCalendar::detachCurrentAction()" );
+
 	if( !m_pCurrAction ) return;
 	if( !( m_pCurrAction->isXDays() || m_pCurrAction->getDays() ) ) return;
 
@@ -173,6 +187,7 @@ void ActionsCalendar::detachCurrentAction() {
 
 	// create new action and add it to calendar
 	Action* _newAction = new Action( m_pCurrAction );
+	_newAction->setMainDate( m_selectedDate );
 	addAction( m_selectedDate, _newAction );
 	setCurrentAction( _newAction );
 
@@ -185,6 +200,8 @@ void ActionsCalendar::detachCurrentAction() {
 }
 
 void ActionsCalendar::removeCurrentAction() {
+	qDebug( "ActionsCalendar::removeCurrentAction()" );
+
 	if( m_pCurrAction == NULL ) return;
 
 	// exclude date from the action
@@ -194,6 +211,8 @@ void ActionsCalendar::removeCurrentAction() {
 }
 
 void ActionsCalendar::removeCurrentActions() {
+	qDebug( "ActionsCalendar::removeCurrentActions()" );
+
 	// go through all actions and choose the actions with repetitions
 	// notice that we only need to remove it from m_actionsAll, because
 	// refreshRepetition called at the bottom calls setRepetition method
@@ -219,6 +238,8 @@ void ActionsCalendar::removeCurrentActions() {
 }
 
 void ActionsCalendar::removeAllActions() {
+	qDebug( "ActionsCalendar::removeAllActions()" );
+
 	// go through all actions and choose the actions with repetitions
 	QMapIterator<QDate, QVector<Action*> > it( m_actionsAll );
 	while( it.hasNext() ) {
@@ -235,10 +256,14 @@ void ActionsCalendar::removeAllActions() {
 }
 
 void ActionsCalendar::setCurrentAction( Action* action ) {
+	qDebug( "ActionsCalendar::setCurrentAction()" );
+
 	m_pCurrAction = action;
 }
 
 QVector<Action*> ActionsCalendar::getActionsForDate( QDate date ) const {
+	qDebug( "ActionsCalendar::getActionsForDate()" );
+
 	return m_actionsInMonth.find( date ).value();
 }
 
@@ -247,10 +272,14 @@ void ActionsCalendar::setList( QTableWidget* list ) {
 }
 
 QDate ActionsCalendar::getSelectedDate() const {
+	qDebug( "ActionsCalendar::getSelectedDate()" );
+
 	return m_selectedDate;
 }
 
 void ActionsCalendar::refreshRepetitions() {
+	qDebug( "ActionsCalendar::refreshRepetitions()" );
+
 	// clear before setting actions again (to prevent summing actions)
 	m_actionsInMonth.clear();
 
@@ -279,6 +308,8 @@ void ActionsCalendar::refreshRepetitions() {
 }
 
 void ActionsCalendar::saveData() const {
+	qDebug( "ActionsCalendar::saveData()" );
+
 	// open database
 	Database* _db = new Database( "actions.db" );
 	// if the table for actions doesn't exists it creates new one,
@@ -301,6 +332,8 @@ void ActionsCalendar::saveData() const {
 }
 
 void ActionsCalendar::loadData() {
+	qDebug( "ActionsCalendar::loadData()" );
+
 	// open database
 	Database* _db = new Database( "actions.db" );
 
@@ -317,6 +350,9 @@ void ActionsCalendar::loadData() {
 }
 
 void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDate& date ) const {
+	// called for every cell, too much - bad for debugging
+	//qDebug( "ActionsCalendar::paintCell()" );
+
 	// set brushes for selecting
 	if( date == m_selectedDate ) {
 		painter->setPen( QPen( Qt::black, 2 ) );
@@ -402,6 +438,8 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 // ------------------------ slots -----------------------------
 
 void ActionsCalendar::selectDate( const QDate& date ) {
+	qDebug( "ActionsCalendar::selectDate()" );
+
 	// remember values by which the user sorts the elements
 	int _column = m_list->horizontalHeader()->sortIndicatorSection();
 	Qt::SortOrder _order  = m_list->horizontalHeader()->sortIndicatorOrder();
@@ -475,6 +513,8 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 }
 
 void ActionsCalendar::setCurrentPage( int year, int month ) {
+	qDebug( "ActionsCalendar::setCurrentPage()" );
+
 	m_displayedMonth = month;
 	m_displayedYear = year;
 
