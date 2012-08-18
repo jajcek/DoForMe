@@ -296,7 +296,7 @@ void mainWin::addAction() {
 			m_calendar->getCurrentAction()->setHighlight( false );
 		// create new action and add it to calendar as well as highlight it
 		// and refresh calendar to repaint cells
-		Action* _newAction = new Action( _actionSettings );
+		Action* _newAction = new Action( m_calendar->getSelectedDate(), _actionSettings );
 		m_calendar->addAction( m_calendar->getSelectedDate(), _newAction );
 		_newAction->setHighlight( true );
 		m_calendar->refreshRepetitions();
@@ -335,7 +335,8 @@ void mainWin::detachAction() {
 }
 
 void mainWin::removeAction() {
-	if( !m_calendar->getCurrentAction() ) return;
+	// not needed anymore, we diable the button when there is no action selected
+	//if( !m_calendar->getCurrentAction() ) return;
 
 	if( m_calendar->getCurrentAction()->isXDays() || m_calendar->getCurrentAction()->getDays() ) {
 		QMessageBox _msg( QMessageBox::Information, "Information", "Do you want to remove all repetitions?",

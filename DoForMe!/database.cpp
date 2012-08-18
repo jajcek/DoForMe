@@ -38,7 +38,7 @@ int Database::getRow( void *notUsed, int argc, char** argv , char** columnName )
 	_settings.setXDays( _xdays );
 	_settings.setDaysFlags( _days );
 
-	Action* _pNewAction = new Action( _settings );
+	Action* _pNewAction = new Action( QDate( _year, _month, _day ), _settings );
 	_pNewAction->setScript( ScriptsManager::getScript( _scriptName ) );
 	_pNewAction->setExcludedDates( _excludedDate );
 	m_lastSelectedActions.push_back( qMakePair( QDate( _year, _month, _day ), _pNewAction ) );

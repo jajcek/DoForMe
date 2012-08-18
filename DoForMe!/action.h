@@ -25,10 +25,11 @@ private:
 	QVector<QDate> m_excludedDates;
 	int m_id;
 	static int m_actionNumber;
+	QDate m_mainDate;
 
 public:
 	Action( Action* pAction );
-	Action( const ActionSettings& settings );
+	Action( QDate mainDate, const ActionSettings& settings );
 
 	void setSetting( const ActionSettings& settings );
 
@@ -59,4 +60,7 @@ public:
 	void setId( int id );
 	int getId() const;
 	int nextId();
+
+	void setMainDate( QDate mainDate );
+	QDate getMainDate() const;
 };

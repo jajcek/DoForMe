@@ -3,11 +3,11 @@
 int Action::m_actionNumber = 0;
 
 Action::Action( Action* pAction ) : m_pScript( pAction->getScript() ), m_time( pAction->getTime() ), m_isXDays( false ), m_XDays( 0 ),
-									m_days( 0 ), m_isHighlighted( pAction->isHighlighted() ), m_id( nextId() ) {
+	m_days( 0 ), m_isHighlighted( pAction->isHighlighted() ), m_id( nextId() ), m_mainDate( pAction->getMainDate() ) {
 	// IMPORTANT, it creates action without repetitions!
 }
 
-Action::Action( const ActionSettings& settings ) : m_isHighlighted( false ), m_id( nextId() ) {
+Action::Action( QDate mainDate, const ActionSettings& settings ) : m_isHighlighted( false ), m_id( nextId() ), m_mainDate( mainDate ) {
 	setSetting( settings );
 }
 
@@ -122,4 +122,12 @@ int Action::getId() const {
 
 int Action::nextId() {
 	return m_actionNumber++;
+}
+
+void Action::setMainDate( QDate mainDate ) {
+	m_mainDate = mainDate;
+}
+
+QDate Action::getMainDate() const {
+	return m_mainDate;
 }

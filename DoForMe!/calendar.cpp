@@ -198,27 +198,23 @@ void ActionsCalendar::removeCurrentActions() {
 	// notice that we only need to remove it from m_actionsAll, because
 	// refreshRepetition called at the bottom calls setRepetition method
 	// that creates repetitions (m_actionsInMonth) on the grounds of m_actionsAll
-	QMapIterator<QDate, QVector<Action*> > itAll( m_actionsAll );
-	while( itAll.hasNext() ) {
-		itAll.next();
 
-		// go through all actions for day
-		int _actionsNumber = itAll.value().size();
-		for( int i = 0; i < _actionsNumber; ++i ) {
-			if( itAll.value().at( i )->getId() == m_pCurrAction->getId() ) {
-				// free memory for the action
-				delete m_pCurrAction;
-				m_pCurrAction = NULL;
+	// go through all actions for day
+	auto _actions = & m_actionsAll.find( m_pCurrAction->getMainDate() ).value();
+	int _actionsNumber = _actions->size();
+	for( int i = 0; i < _actionsNumber; ++i ) {
+		if( _actions->at( i )->getId() == m_pCurrAction->getId() ) {
+			// free memory for the action
+			delete m_pCurrAction;
+			m_pCurrAction = NULL;
 
-				// remove the action from the map of actions
-				m_actionsAll.find( itAll.key() ).value().remove( i );
+			// remove the action from the map of actions
+			_actions->remove( i );
 
-				goto go_out;
-			}
+			break;
 		}
 	}
 
-go_out:
 	refreshRepetitions();
 }
 
