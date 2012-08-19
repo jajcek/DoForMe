@@ -123,6 +123,21 @@ int ActionsCalendar::findIndexOf( Action* action ) {
 	return _index;
 }
 
+void ActionsCalendar::moveExcludedDates( Action* action, const int days ) {
+	qDebug( "ActionsCalendar::moveExcludedDates()" );
+
+	QVector<QDate> _movedExcludedDates;
+
+	auto _excludedDates = action->getExcludedDates();
+	int _datesNumber = _excludedDates.size();
+	for( int i = 0; i < _datesNumber; ++i ) {
+		QDate _movedDate = _excludedDates.at( i ).addDays( days );
+		_movedExcludedDates.push_back( _movedDate );
+	}
+
+	action->setExcludedDates( _movedExcludedDates );
+}
+
 ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::currentDate() ), m_displayedMonth( 0 ),
 													   m_displayedYear( 0 ), m_pCurrAction( NULL ) {
 	qDebug( "ActionsCalendar::ActionsCalendar()" );
@@ -167,7 +182,8 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 
 	// add new action for a specified date and repaint cells
 	// and container with actions for a selected month
-	m_actionsInMonth[date].push_back( action );
+	if( !action->isExcluded( date ) )
+		m_actionsInMonth[date].push_back( action );
 	// add the action to the container with all actions
 	m_actionsAll[date].push_back( action );
 
@@ -291,12 +307,45 @@ void ActionsCalendar::moveCurrAction( int direction ) {
 	// find the index where the actions resides at in the vector
 	int _index = findIndexOf( m_pCurrAction );
 
+	QDate _movedDate;
+	int _days = 0;
 	switch( direction ) {
 		case UP:
-			QDate _movedDate = m_pCurrAction->getMainDate().addDays( -7 );
-
+			_days = -7;
+			break;
+		case DOWN:
+			_days = 7;
+			break;
+		case LEFT:
+			_days = -1;
+			break;
+		case RIGHT:
+			_days = 1;
 			break;
 	}
+
+	// get date for main action
+	_movedDate = m_pCurrAction->getMainDate().addDays( _days );
+
+	// remove and reinsert the action at the appropriate index
+	m_actionsAll.find( m_pCurrAction->getMainDate() ).value().remove( _index );
+	m_actionsAll[_movedDate].push_back( m_pCurrAction );
+	moveExcludedDates( m_pCurrAction, _days );
+
+	// get id to select the action after moving (there can be more than one actions in a day)
+	// that will cause to make currently active action as inactive
+	int _id = m_pCurrAction->getId();
+
+	// set main date for newly positioned action
+	m_pCurrAction->setMainDate( _movedDate );
+
+	// keep tracking the action and refresh
+	selectDate( m_selectedDate.addDays( _days ) );
+	refreshRepetitions();
+
+	setCurrentAction( getActionById( _id ) );
+	
+	updateCells();
 }
 
 void ActionsCalendar::setCurrentAction( Action* action ) {
@@ -304,7 +353,6 @@ void ActionsCalendar::setCurrentAction( Action* action ) {
 
 	m_pCurrAction = action;
 	m_pCurrAction->setHighlight( true );
-
 	
 	// enable calendar tools
 	CalendarTools::enableForAction( m_pCurrAction );
@@ -488,6 +536,8 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 
 void ActionsCalendar::selectDate( const QDate& date ) {
 	qDebug( "ActionsCalendar::selectDate()" );
+
+	QCalendarWidget::setSelectedDate( date );
 
 	// remember values by which the user sorts the elements
 	int _column = m_list->horizontalHeader()->sortIndicatorSection();

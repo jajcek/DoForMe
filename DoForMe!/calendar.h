@@ -34,6 +34,7 @@ private:
 	void drawExclamation( QPainter* painter, const QRect& rect ) const;
 	void setRepetition( QDate date, Action* action );
 	int findIndexOf( Action* action );
+	void moveExcludedDates( Action* action, const int days );
 
 public:
 	ActionsCalendar( QWidget* pParent );

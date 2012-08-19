@@ -147,7 +147,7 @@ QVector<QPair<QDate, Action*>>  Database::selectActions() {
 	// free memory from last selected actions
 	int _actionsNumber = m_lastSelectedActions.size();
 	for( int i = 0; i < _actionsNumber; ++i ) {
-		//delete m_lastSelectedActions.at( i );
+		delete m_lastSelectedActions.at( i ).second;
 	}
 	m_lastSelectedActions.clear();
 	
