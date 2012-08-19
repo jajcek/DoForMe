@@ -575,9 +575,6 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 void ActionsCalendar::selectDate( const QDate& date ) {
 	qDebug( "ActionsCalendar::selectDate()" );
 
-	// original method uses setCurrentPage and we need to change page if the selected date is out of current month
-	QCalendarWidget::setSelectedDate( date );
-
 	// remember values by which the user sorts the elements
 	int _column = m_list->horizontalHeader()->sortIndicatorSection();
 	Qt::SortOrder _order  = m_list->horizontalHeader()->sortIndicatorOrder();
@@ -640,6 +637,9 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 	m_list->setSortingEnabled( true );
 	m_list->sortItems( 0, Qt::AscendingOrder );
 	m_list->sortItems( _column, _order );
+
+	// original method uses setCurrentPage and we need to change page if the selected date is out of current month
+	QCalendarWidget::setSelectedDate( date );
 
 	// when selectedDate it called it invokes automatically updateCell() for current cell
 	// but we need to update all cells to change theirs colors if necessary
