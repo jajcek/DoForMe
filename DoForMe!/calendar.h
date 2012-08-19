@@ -26,10 +26,14 @@ private:
 	QMap<QDate, QVector<Action*> > m_actionsAll;
 	QMap<QDate, QVector<Action*> > m_actionsInMonth;
 
+public:
+	enum { UP = 0, DOWN, LEFT, RIGHT };
+
 private:
 	void drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const;
 	void drawExclamation( QPainter* painter, const QRect& rect ) const;
 	void setRepetition( QDate date, Action* action );
+	int findIndexOf( Action* action );
 
 public:
 	ActionsCalendar( QWidget* pParent );
@@ -42,6 +46,7 @@ public:
 	void removeCurrentAction();
 	void removeCurrentActions();
 	void removeAllActions();
+	void moveCurrAction( int direction );
 	// only for the current month!
 	QVector<Action*> getActionsForDate( QDate date ) const;
 	void setCurrentAction( Action* action );

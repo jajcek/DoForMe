@@ -421,19 +421,27 @@ void mainWin::saveData() {
 }
 
 void mainWin::moveUp() {
+	qDebug( "mainWin::moveUp()" );
 
+	m_calendar->moveCurrAction( ActionsCalendar::UP );
 }
 
 void mainWin::moveDown() {
+	qDebug( "mainWin::moveDown()" );
 
+	m_calendar->moveCurrAction( ActionsCalendar::DOWN );
 }
 
 void mainWin::moveLeft() {
+	qDebug( "mainWin::moveLeft()" );
 
+	m_calendar->moveCurrAction( ActionsCalendar::LEFT );
 }
 
 void mainWin::moveRight() {
+	qDebug( "mainWin::moveRight()" );
 
+	m_calendar->moveCurrAction( ActionsCalendar::RIGHT );
 }
 
 void mainWin::initLuaApi() {

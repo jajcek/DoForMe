@@ -109,6 +109,20 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 	}
 }
 
+int ActionsCalendar::findIndexOf( Action* action ) {
+	int _index = -1;
+
+	// go through all actions for day
+	auto _actions = m_actionsAll.find( action->getMainDate() ).value();
+	int _actionsNumber = _actions.size();
+	for( _index = 0; _index < _actionsNumber; ++_index ) {
+		if( _actions.at( _index )->getId() == m_pCurrAction->getId() ) 
+			return _index;
+	}
+
+	return _index;
+}
+
 ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::currentDate() ), m_displayedMonth( 0 ),
 													   m_displayedYear( 0 ), m_pCurrAction( NULL ) {
 	qDebug( "ActionsCalendar::ActionsCalendar()" );
@@ -220,19 +234,12 @@ void ActionsCalendar::removeCurrentActions() {
 
 	// go through all actions for day
 	auto _actions = & m_actionsAll.find( m_pCurrAction->getMainDate() ).value();
-	int _actionsNumber = _actions->size();
-	for( int i = 0; i < _actionsNumber; ++i ) {
-		if( _actions->at( i )->getId() == m_pCurrAction->getId() ) {
-			// free memory for the action
-			delete m_pCurrAction;
-			m_pCurrAction = NULL;
 
-			// remove the action from the map of actions
-			_actions->remove( i );
+	// remove the action from the map of actions
+	_actions->remove( findIndexOf( m_pCurrAction ) );
 
-			break;
-		}
-	}
+	delete m_pCurrAction;
+	m_pCurrAction = NULL;
 
 	refreshRepetitions();
 }
@@ -253,6 +260,22 @@ void ActionsCalendar::removeAllActions() {
 
 	m_actionsAll.clear();
 	m_actionsInMonth.clear();
+}
+
+void ActionsCalendar::moveCurrAction( int direction ) {
+	qDebug( "ActionsCalendar::moveCurrAction()" );
+
+	if( !m_pCurrAction ) return;
+
+	// find the index where the actions resides at in the vector
+
+
+	switch( direction ) {
+		case UP:
+			QDate _movedDate = m_pCurrAction->getMainDate().addDays( -7 );
+
+			break;
+	}
 }
 
 void ActionsCalendar::setCurrentAction( Action* action ) {
