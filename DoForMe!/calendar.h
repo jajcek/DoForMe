@@ -40,7 +40,8 @@ public:
 	~ActionsCalendar();
 
 	void addAction( QDate, Action* );
-	Action* getAction( int itemNumber ) const;
+	// gets actions from currently selected date!
+	Action* getActionById( int id, bool forSelectedDate = true ) const;
 	Action* getCurrentAction() const;
 	void detachCurrentAction();
 	void removeCurrentAction();

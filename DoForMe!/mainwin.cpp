@@ -348,11 +348,10 @@ void mainWin::actionSelected( QTableWidgetItem* item ) {
 	if( _pAction )
 		_pAction->setHighlight( false );
 
-	int _actionNumber = ui.actionsTable->item( ui.actionsTable->currentRow(), 0 )->text().toInt() - 1;
-	_pAction = m_calendar->getAction( _actionNumber );
+	int _actionId = ui.actionsTable->item( ui.actionsTable->currentRow(), 0 )->text().toInt() - 1;
+	_pAction = m_calendar->getActionById( _actionId );
 	if( _pAction ) {
 		m_calendar->setCurrentAction( _pAction );
-		_pAction->setHighlight( true );
 	}
 
 	m_calendar->update();

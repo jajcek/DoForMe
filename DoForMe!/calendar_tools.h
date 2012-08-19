@@ -1,6 +1,7 @@
 #pragma once
 
 #include <qtoolbutton.h>
+#include "action.h"
 
 /**
 	\class CalendarTools calendar_tools.h "calendar_tools.h"
@@ -45,14 +46,13 @@ struct CalendarTools {
 	static QToolButton* RightButton;
 
 	/**
-		\brief This method is called when an action has been selected on the calendar to enable buttons for operating on actions.
-		\details Beware that when in a day there are more than one actions, thic method will be called
-		when an action has been selected on a actions list.
+		\brief This method is called when an action without repetitions has been selected on the calendar to enable buttons for operating on actions.
+		\details This method will be called when there is only one action on actions list.
 	*/
-	static void enableForAction();
+	static void enableForAction( Action* action );
 	/**
-		\brief This method is called when an actions has been unselected.
-		\details Action is unselected e.g. when a user selected date where there are no actions at all.
+		\brief This method is called when an action with repetitions has been selected on the calendar to enable buttons for operating on actions.
+		\details This method will be called when  there are more than once actions on actions list.
 	*/
 	static void disableForAction();
 };

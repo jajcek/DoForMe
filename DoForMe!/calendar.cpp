@@ -176,10 +176,31 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 	setRepetition( date, action );
 }
 
-Action* ActionsCalendar::getAction( int itemNumber ) const {
+Action* ActionsCalendar::getActionById( int id, bool forSelectedDate ) const {
 	qDebug( "ActionsCalendar::getAction()" );
 
-	return m_actionsInMonth.find( m_selectedDate ).value().at( itemNumber );
+	if( forSelectedDate ) {
+		auto _actions = m_actionsInMonth.find( m_selectedDate ).value();
+		int _actionsNumber = _actions.size();
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			Action* _pAction = _actions.at( i );
+			if( _pAction->getId() == id )
+				return _pAction;
+		}
+	} else {
+		QMapIterator<QDate, QVector<Action*>> it( m_actionsAll );
+		while( it.hasNext() ) {
+			it.next();
+			int _actionsNumber = it.value().size();
+			for( int i = 0; i < _actionsNumber; ++i ) {
+				Action* _pAction = it.value().at( i );
+				if( _pAction->getId() == id )
+					return _pAction;
+			}
+		}
+	}
+
+	return NULL;
 }
 
 Action* ActionsCalendar::getCurrentAction() const {
@@ -268,7 +289,7 @@ void ActionsCalendar::moveCurrAction( int direction ) {
 	if( !m_pCurrAction ) return;
 
 	// find the index where the actions resides at in the vector
-
+	int _index = findIndexOf( m_pCurrAction );
 
 	switch( direction ) {
 		case UP:
@@ -282,6 +303,11 @@ void ActionsCalendar::setCurrentAction( Action* action ) {
 	qDebug( "ActionsCalendar::setCurrentAction()" );
 
 	m_pCurrAction = action;
+	m_pCurrAction->setHighlight( true );
+
+	
+	// enable calendar tools
+	CalendarTools::enableForAction( m_pCurrAction );
 }
 
 QVector<Action*> ActionsCalendar::getActionsForDate( QDate date ) const {
@@ -479,11 +505,7 @@ void ActionsCalendar::selectDate( const QDate& date ) {
 	// without selecting it on the actions list
 	if( m_actionsInMonth.contains( date ) ) {
 		if( m_actionsInMonth.find( date ).value().size() == 1 ) {
-			m_pCurrAction = m_actionsInMonth.find( date ).value().at( 0 );
-			m_pCurrAction->setHighlight( true );
-
-			// enable calendar tools
-			CalendarTools::enableForAction();
+			setCurrentAction( m_actionsInMonth.find( date ).value().at( 0 ) );
 		} else {
 			m_pCurrAction = NULL;
 			CalendarTools::disableForAction();

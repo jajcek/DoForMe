@@ -9,10 +9,13 @@ QToolButton* CalendarTools::DownButton = NULL;
 QToolButton* CalendarTools::LeftButton = NULL;
 QToolButton* CalendarTools::RightButton = NULL;
 
-void CalendarTools::enableForAction() {
+void CalendarTools::enableForAction( Action* action ) {
 	EditButton->setEnabled( true );
 	RemoveActionButton->setEnabled( true );
-	DetachActionButton->setEnabled( true );
+	if( action->isXDays() || action->getDays() )
+		DetachActionButton->setEnabled( true );
+	else
+		DetachActionButton->setEnabled( false );
 	UpButton->setEnabled( true );
 	DownButton->setEnabled( true );
 	LeftButton->setEnabled( true );
