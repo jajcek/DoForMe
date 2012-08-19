@@ -51,6 +51,7 @@ bool ScriptsManager::saveToFile( const QString& scriptName ) {
 		QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file.",
 						  QMessageBox::Ok );
 		_msg.exec();
+		return false;
 	}
 	
 	// write the code to the file

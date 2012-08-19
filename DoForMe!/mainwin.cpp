@@ -120,8 +120,10 @@ QString mainWin::getCode() const {
 void mainWin::setCode( const QString& code ) {
 	qDebug( "mainWin::setCode()" );
 
+	ui.scriptTextEdit->blockSignals( true );
 	ui.scriptTextEdit->setFont( QFont( "Courier New", 8 ) );
-	ui.scriptTextEdit->setText( code );
+	ui.scriptTextEdit->setPlainText( code );
+	ui.scriptTextEdit->blockSignals( false );
 }
 
 void mainWin::setScriptTitle( QString title ) {
@@ -290,6 +292,22 @@ void mainWin::removeScript() {
 void mainWin::scriptSelected( const QString& scriptTitle ) {
 	qDebug( "mainWin::scriptSelected()" );
 
+	// if the script is modified we want to inform about saving it
+	if( m_pCurrScript ) {
+		if( m_pCurrScript->isModified() ) {
+			QMessageBox _msg( QMessageBox::Information, "Information", "The script has been modified. Do you want to keep changes?",
+							  QMessageBox::Yes | QMessageBox::No );
+			switch( _msg.exec() ) {
+				case QMessageBox::Yes:
+					m_pCurrScript->setCode( getCode() );
+					ScriptsManager::saveToFile( m_pCurrScript->getFileName() );
+				case QMessageBox::No:
+					m_pCurrScript->setModified( false );
+					break;
+			}
+		}
+	}
+
 	// find the appropriate script
 	m_pCurrScript = ScriptsManager::getScript( scriptTitle );
 
@@ -307,12 +325,14 @@ void mainWin::scriptModified() {
 	qDebug( "mainWin::scriptModified()" );
 
 	if( m_pCurrScript ) {
-		// set script title with '*' symbol, because it's been modified
-		// it is invoked when text changes in the code (in text box)
-		setScriptTitle( m_pCurrScript->getFileName() + "*" );
+		if( !m_pCurrScript->isModified() ) {
+			// set script title with '*' symbol, because it's been modified
+			// it is invoked when text changes in the code (in text box)
+			setScriptTitle( m_pCurrScript->getFileName() + "*" );
 
-		// we changed the script so we have to set its state
-		m_pCurrScript->setModified( true );
+			// we changed the script so we have to set its state
+			m_pCurrScript->setModified( true );
+		}
 	}
 }
 

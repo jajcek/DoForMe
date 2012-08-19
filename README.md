@@ -3,6 +3,8 @@ Development release 19.08.2012
 Functionalities
 ---------------------------------------------------
 - Moving actions on the calendar.
+TODO - tabs for scripts, saving when changed modified script
+ask how to not emit textChanged when text is changed programatically, but only manually
 
 Development release 18.08.2012
 ===================================================
