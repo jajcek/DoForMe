@@ -1,3 +1,9 @@
+Development release 19.08.2012
+===================================================
+Functionalities
+---------------------------------------------------
+- Moving actions on the calendar.
+
 Development release 18.08.2012
 ===================================================
 Functionalities

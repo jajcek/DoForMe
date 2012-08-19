@@ -3,6 +3,10 @@
 
 QMap<QString, Script*> ScriptsManager::m_scripts;
 
+void ScriptsManager::removeScript( QString name ) {
+	m_scripts.remove( name );
+}
+
 void ScriptsManager::removeScripts() {
 	// cleaning up memory
 	QMapIterator<QString, Script*> it( m_scripts );

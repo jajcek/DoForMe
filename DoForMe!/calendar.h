@@ -33,6 +33,7 @@ private:
 	void drawActionsNum( QPainter* painter, const QRect& rect, unsigned actionsNumber ) const;
 	void drawExclamation( QPainter* painter, const QRect& rect ) const;
 	void setRepetition( QDate date, Action* action );
+	// it finds action index in m_actionsAll!
 	int findIndexOf( Action* action );
 	void moveExcludedDates( Action* action, const int days );
 
@@ -57,6 +58,8 @@ public:
 	void refreshRepetitions();
 	void saveData() const;
 	void loadData();
+	bool isScriptUsed( Script* pScript ) const;
+	void removeActionsUsingScript( Script* pScript );
 
 protected:
 	void paintCell( QPainter* painter, const QRect& rect, const QDate& date ) const;

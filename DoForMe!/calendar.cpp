@@ -446,6 +446,44 @@ void ActionsCalendar::loadData() {
 	delete _db;
 }
 
+bool ActionsCalendar::isScriptUsed( Script* pScript ) const {
+	QMapIterator<QDate, QVector<Action*>> _it( m_actionsAll );
+	while( _it.hasNext() ) {
+		_it.next();
+
+		auto _actions = _it.value();
+		int _actionsNumber = _actions.size();
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			Action* _pAction = _actions.at( i );
+			if( _pAction->getScript()->getFileName() == pScript->getFileName() )
+				return true;
+		}
+	}
+
+	return false;
+}
+
+void ActionsCalendar::removeActionsUsingScript( Script* pScript ) {
+	QMapIterator<QDate, QVector<Action*>> _it( m_actionsAll );
+	while( _it.hasNext() ) {
+		_it.next();
+
+		// get vector of actions
+		auto _actions = & _it.value();
+		int _actionsNumber = _actions->size();
+		// go through all actions
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			Action* _pAction = _actions->at( i );
+			if( _pAction->getScript() == pScript ) {
+				delete _actions->at( i );
+				m_actionsAll[_it.key()].remove( i );
+			}	
+		}
+	}
+
+	refreshRepetitions();
+}
+
 void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDate& date ) const {
 	// called for every cell, too much - bad for debugging
 	//qDebug( "ActionsCalendar::paintCell()" );
@@ -537,6 +575,7 @@ void ActionsCalendar::paintCell( QPainter* painter, const QRect& rect, const QDa
 void ActionsCalendar::selectDate( const QDate& date ) {
 	qDebug( "ActionsCalendar::selectDate()" );
 
+	// original method uses setCurrentPage and we need to change page if the selected date is out of current month
 	QCalendarWidget::setSelectedDate( date );
 
 	// remember values by which the user sorts the elements

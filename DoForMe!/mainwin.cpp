@@ -263,9 +263,25 @@ void mainWin::runAction() {
 void mainWin::removeScript() {
 	qDebug( "mainWin::removeScript()" );
 
+	if( m_calendar->isScriptUsed( m_pCurrScript ) ) {
+		QString _text = QString( "The script is being used in the actions. If you remove the script " ) +
+								 "you will remove the actions which use the script. Do you want to continue?";
+		QMessageBox _msg( QMessageBox::Information, "Information", _text, QMessageBox::Yes | QMessageBox::No );
+		switch( _msg.exec() ) {
+			case QMessageBox::Yes:
+				m_calendar->removeActionsUsingScript( m_pCurrScript );
+				break;
+			case QMessageBox::No:
+				return;
+		}
+	}
+
 	// remove the script file
-	QString _scriptName = m_pCurrScript->getFileName() + CONF::EXT;
-	QFile::remove( CONF::SCRIPT_DIR + _scriptName );
+	QString _scriptName = m_pCurrScript->getFileName();
+	QFile::remove( CONF::SCRIPT_DIR + _scriptName + CONF::EXT );
+
+	// remove the script from the scripts manager
+	ScriptsManager::removeScript( _scriptName );
 
 	// remove the script from the scripts list
 	delete ui.scriptsList->item( ui.scriptsList->currentRow() );

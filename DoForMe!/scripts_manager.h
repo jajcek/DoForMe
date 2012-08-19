@@ -26,7 +26,12 @@ private:
 
 public:
 	/**
-		\brief Removes all script and frees its memory.
+		\brief Removes script with the given file name (without extension) and frees its memory.
+		\param[in] name Script name.
+	*/
+	static void removeScript( QString name );
+	/**
+		\brief Removes all scripts and frees its memory.
 	*/
 	static void removeScripts();
 
