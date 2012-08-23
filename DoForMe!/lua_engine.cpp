@@ -1,11 +1,20 @@
 #include "lua_engine.h"
 
+LuaEngine* LuaEngine::m_object = NULL;
+
 LuaEngine::LuaEngine() : luaState( lua_open() ), m_loadError( 0 ), m_parseError( 0 ), m_textError( "" ),
 						 m_timer( new QBasicTimer() ), m_uInterval( 1000 ), m_uGUIInterval( 1000 ), m_bIntervalChanged( false ) {}
 
 LuaEngine::~LuaEngine() {
 	lua_close( luaState );
 	delete m_timer;
+}
+
+LuaEngine* LuaEngine::getInstance() {
+	if( !m_object )
+		m_object = new LuaEngine();
+
+	return m_object;
 }
 
 void LuaEngine::registerFunction( const char* functionName, lua_CFunction pFunction ) {
@@ -25,13 +34,21 @@ int LuaEngine::loadScript( const char* code, int mode ) {
 }
 
 int LuaEngine::parseScript() {
-	// invoke previously loaded script (put commands to the queue)
+	// invoke previously loaded script (put commands to the queue by using LuaApiEngine class)
 	m_parseError = lua_pcall( luaState, 0, 0, 0 );
 
 	// get error message if error occured
 	m_textError = lua_tostring( luaState, -1 );
 
 	return m_parseError;
+}
+
+bool LuaEngine::run( const char* code ) {
+	m_loadError = loadScript( code, LuaEngine::BUFFER );
+	m_parseError = parseScript();
+	start();
+	
+	return ( m_loadError | m_parseError );
 }
 
 int LuaEngine::validateLastLoad() {

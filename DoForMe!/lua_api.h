@@ -23,10 +23,6 @@
 class LuaApiEngine {
 private:
 	/**
-		\brief Pointer to a LuaEngine object, which is used here to store commands in LuaEngine object.
-	*/
-	static LuaEngine* m_luaEngine;
-	/**
 		\brief Field that maps string to Key object.
 		\details String is a special key text (e.g. {tab} which is equal to tabulator symbol on keyboard),
 		whereas key object is a manager for a key on the keyboard. See Key class for more details.
@@ -34,10 +30,6 @@ private:
 	static std::map<QString, Key*> m_specialKeys;
 
 public:
-	/**
-		\brief Sets pointer to the LuaEngine's object.
-	*/
-	static void setLuaEngine( LuaEngine* luaEngine );
 	/**
 		\brief Initialize all special keys that will be available to users.
 	*/

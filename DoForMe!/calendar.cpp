@@ -169,6 +169,8 @@ ActionsCalendar::ActionsCalendar( QWidget* pParent ) : m_selectedDate( QDate::cu
 
 	// select current date
 	selectDate( QDate::currentDate() );
+
+	
 }
 
 ActionsCalendar::~ActionsCalendar() {
@@ -361,7 +363,12 @@ void ActionsCalendar::setCurrentAction( Action* action ) {
 QVector<Action*> ActionsCalendar::getActionsForDate( QDate date ) const {
 	qDebug( "ActionsCalendar::getActionsForDate()" );
 
-	return m_actionsInMonth.find( date ).value();
+	QVector<Action*> _actions;
+
+	if( m_actionsInMonth.contains( date ) )
+		return m_actionsInMonth.find( date ).value();
+	else
+		return _actions;
 }
 
 void ActionsCalendar::setList( QTableWidget* list ) {

@@ -48,6 +48,11 @@ public:
 
 private:
 	/**
+		\brief The instance of the singleton.
+	*/
+	static LuaEngine* m_object;
+
+	/**
 		\brief State of the lua's engine. Used by lua's library - don't touch it.
 	*/
 	lua_State *luaState;
@@ -109,14 +114,21 @@ private:
 	*/
 	bool m_bIntervalChanged;
 
-public:
+private:
 	/**
-		\brief Starts a lua engine, but doesn't load any script.
-		\details  Also initializes LuaEngine::m_loadError and LuaEngine::m_runtimeError to 0, m_uInterval to 500 and creates object for m_timer.
+		\brief Private constructor to make the class a singleton.
+		\details Also initializes LuaEngine::m_loadError and LuaEngine::m_runtimeError to 0, m_uInterval to 500 and creates object for m_timer.
 		m_textError is set to "". After that you have to register functions used in the LUA API and load a script by using
 		loadScript() before run it with runScript().
 	*/
 	LuaEngine();
+
+public:
+	/**
+		\brief Gets the only isntance of the object.
+	*/
+	static LuaEngine* getInstance();
+
 	/**
 		\brief Ends lua engine by releasing memory.
 	*/
@@ -142,6 +154,14 @@ public:
 		\return Error code or 0 if there are no errors. See luaEngine::m_parseError for more details.
 	*/
 	int parseScript();
+	/**
+		\brief Runs action.
+		\details This is a wrapper for 3 other functions - LuaEngine::loadScript, LuaEngine::parseScript and LuaEngine::start().
+		\param[in] code Code to be executed.
+		\return Value which informs if the code has been executed without errors.
+		If there was an error get it by using LuaEngine::validateLastLoad and LuaEngine::validateLastParse.
+	*/
+	bool run( const char* code );
 
 	/**
 		\brief Checks if there was error in the last loaded file.

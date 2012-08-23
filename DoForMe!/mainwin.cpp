@@ -15,7 +15,7 @@ LRESULT CALLBACK mouseHook(int code, WPARAM wParam, LPARAM lParam)
 }
 
 mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
-	: QMainWindow(parent, flags), m_calendar( NULL ), m_lua( NULL ), m_pCurrScript( NULL )
+	: QMainWindow(parent, flags), m_calendar( NULL ), m_pCurrScript( NULL ), m_tray( NULL )
 {
 	ui.setupUi(this);
 
@@ -66,13 +66,19 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	m_calendar->setGeometry( ui.actionsTable->width() + 9, height() - 209, width() - ( ui.actionsTable->width() + 9 ), 209 );
 	m_calendar->show();
 	
-	m_lua = new LuaEngine();
-	LuaApiEngine::setLuaEngine( m_lua );
+	//m_lua = new LuaEngine();
+	//LuaApiEngine::setLuaEngine( m_lua );
 	LuaApiEngine::initSpecialKeys();
+
+	m_tray = new TraySystem( ":/mainWin/logo.png", this );
+	ActionCaller::getInstance()->setTrayToUpdate( m_tray );
+	ActionCaller::getInstance()->setActions( m_calendar->getActionsForDate( QDate::currentDate() ) );
+
+	// calculate how much time if left to next day
+	m_updater.start( calcTimeForNewDay(), this );
 
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
-	
 	//hook = SetWindowsHookEx( WH_MOUSE_LL, &mouseHook, GetModuleHandle( NULL ), 0 );
 }
 
@@ -130,6 +136,17 @@ void mainWin::setScriptTitle( QString title ) {
 	qDebug( "mainWin::setScriptTitle()" );
 
 	ui.scriptTitle->setText( "  " + title );
+}
+
+void mainWin::timerEvent( QTimerEvent* e ) {
+	qDebug( "reset in timerEvent" );
+
+	m_calendar->update();
+	m_calendar->setFocus();
+	// select date dac
+	//m_tray->update( m_calendar->getActionsForDate( QDate::currentDate() ) );
+	ActionCaller::getInstance()->setActions( m_calendar->getActionsForDate( QDate::currentDate() ) );
+	m_updater.start( calcTimeForNewDay(), this );
 }
 
 void mainWin::newFile() {
@@ -214,7 +231,7 @@ void mainWin::runAction() {
 	if( m_pCurrScript == NULL ) return;
 
 	// load and parse script (from text field) by checking its correctness
-	switch( m_lua->loadScript( getCode().toStdString().c_str(), LuaEngine::BUFFER ) ) {
+	switch( LuaEngine::getInstance()->loadScript( getCode().toStdString().c_str(), LuaEngine::BUFFER ) ) {
 		case LUA_ERRSYNTAX: {
 			QMessageBox _msg( QMessageBox::Critical, "Error", "Syntax error in the script." );
 			_msg.exec();
@@ -227,10 +244,10 @@ void mainWin::runAction() {
 		}
 		case 0: { // everything went ok
 			// parse script and put api functions onto its lua's engine stack
-			switch( m_lua->parseScript() ) {
+			switch( LuaEngine::getInstance()->parseScript() ) {
 				case LUA_ERRRUN: {
 					// get text error returned by lua_pcall function (from lua's library)
-					QString _error = m_lua->getTextError();
+					QString _error = LuaEngine::getInstance()->getTextError();
 
 					// get function name that occured the error
 					QString _funcName = getFuncName( _error );
@@ -258,8 +275,8 @@ void mainWin::runAction() {
 	}
 
 	// start script (by taking commands from the lua's stack one by one)
-	// the stack is in the m_lua object's class (LuaEngine)
-	m_lua->start();
+	// the stack is in the LuaEngine class
+	LuaEngine::getInstance()->start();
 }
 
 void mainWin::removeScript() {
@@ -487,37 +504,37 @@ void mainWin::moveRight() {
 void mainWin::initLuaApi() {
 	qDebug( "mainWin::initLuaApi()" );
 
-	m_lua->registerFunction( "sleep", LuaApiEngine::prepareSleep );
+	LuaEngine::getInstance()->registerFunction( "sleep", LuaApiEngine::prepareSleep );
 
 	// we can make static function leftDown() without any argument instead of function with std::stack<int> argument with no elements and then
 	// cast it to the appropriate type:
-	m_lua->registerFunction( "leftDown", LuaApiEngine::prepareLeftDown );
-	m_lua->registerFunction( "rightDown", LuaApiEngine::prepareRightDown );
-	m_lua->registerFunction( "middleDown", LuaApiEngine::prepareMiddleDown );
-	m_lua->registerFunction( "leftDownAt", LuaApiEngine::prepareLeftDownAt );
-	m_lua->registerFunction( "rightDownAt", LuaApiEngine::prepareRightDownAt );
-	m_lua->registerFunction( "middleDownAt", LuaApiEngine::prepareMiddleDownAt );
+	LuaEngine::getInstance()->registerFunction( "leftDown", LuaApiEngine::prepareLeftDown );
+	LuaEngine::getInstance()->registerFunction( "rightDown", LuaApiEngine::prepareRightDown );
+	LuaEngine::getInstance()->registerFunction( "middleDown", LuaApiEngine::prepareMiddleDown );
+	LuaEngine::getInstance()->registerFunction( "leftDownAt", LuaApiEngine::prepareLeftDownAt );
+	LuaEngine::getInstance()->registerFunction( "rightDownAt", LuaApiEngine::prepareRightDownAt );
+	LuaEngine::getInstance()->registerFunction( "middleDownAt", LuaApiEngine::prepareMiddleDownAt );
 
-	m_lua->registerFunction( "leftUp", LuaApiEngine::prepareLeftUp );
-	m_lua->registerFunction( "rightUp", LuaApiEngine::prepareRightUp );
-	m_lua->registerFunction( "middleUp", LuaApiEngine::prepareMiddleUp );
-	m_lua->registerFunction( "leftUpAt", LuaApiEngine::prepareLeftUpAt );
-	m_lua->registerFunction( "rightUpAt", LuaApiEngine::prepareRightUpAt );
-	m_lua->registerFunction( "middleUpAt", LuaApiEngine::prepareMiddleUpAt );
+	LuaEngine::getInstance()->registerFunction( "leftUp", LuaApiEngine::prepareLeftUp );
+	LuaEngine::getInstance()->registerFunction( "rightUp", LuaApiEngine::prepareRightUp );
+	LuaEngine::getInstance()->registerFunction( "middleUp", LuaApiEngine::prepareMiddleUp );
+	LuaEngine::getInstance()->registerFunction( "leftUpAt", LuaApiEngine::prepareLeftUpAt );
+	LuaEngine::getInstance()->registerFunction( "rightUpAt", LuaApiEngine::prepareRightUpAt );
+	LuaEngine::getInstance()->registerFunction( "middleUpAt", LuaApiEngine::prepareMiddleUpAt );
 	
-	m_lua->registerFunction( "leftClick", LuaApiEngine::prepareLeftClick );
-	m_lua->registerFunction( "rightClick", LuaApiEngine::prepareRightClick );
-	m_lua->registerFunction( "middleClick", LuaApiEngine::prepareMiddleClick );
-	m_lua->registerFunction( "leftClickAt", LuaApiEngine::prepareLeftClickAt );
-	m_lua->registerFunction( "rightClickAt", LuaApiEngine::prepareRightClickAt );
-	m_lua->registerFunction( "middleClickAt", LuaApiEngine::prepareMiddleClickAt );
+	LuaEngine::getInstance()->registerFunction( "leftClick", LuaApiEngine::prepareLeftClick );
+	LuaEngine::getInstance()->registerFunction( "rightClick", LuaApiEngine::prepareRightClick );
+	LuaEngine::getInstance()->registerFunction( "middleClick", LuaApiEngine::prepareMiddleClick );
+	LuaEngine::getInstance()->registerFunction( "leftClickAt", LuaApiEngine::prepareLeftClickAt );
+	LuaEngine::getInstance()->registerFunction( "rightClickAt", LuaApiEngine::prepareRightClickAt );
+	LuaEngine::getInstance()->registerFunction( "middleClickAt", LuaApiEngine::prepareMiddleClickAt );
 
-	m_lua->registerFunction( "leftDoubleClick", LuaApiEngine::prepareLeftDoubleClick );
-	m_lua->registerFunction( "leftDoubleClickAt", LuaApiEngine::prepareLeftDoubleClickAt );
+	LuaEngine::getInstance()->registerFunction( "leftDoubleClick", LuaApiEngine::prepareLeftDoubleClick );
+	LuaEngine::getInstance()->registerFunction( "leftDoubleClickAt", LuaApiEngine::prepareLeftDoubleClickAt );
 
-	m_lua->registerFunction( "moveTo", LuaApiEngine::prepareMoveTo );
+	LuaEngine::getInstance()->registerFunction( "moveTo", LuaApiEngine::prepareMoveTo );
 
-	m_lua->registerFunction( "sendText", LuaApiEngine::prepareSendText );
+	LuaEngine::getInstance()->registerFunction( "sendText", LuaApiEngine::prepareSendText );
 }
 
 QString mainWin::getFuncName( QString textError ) {
@@ -537,12 +554,18 @@ bool mainWin::checkDateCorrectness( QDate date ) {
 	return true;
 }
 
+int mainWin::calcTimeForNewDay() const {
+	QTime _currTime = QTime::currentTime();
+	int _milliseconds = _currTime.msecsTo( QTime( 23, 59, 59, 999 ) ) + 1;
+	return _milliseconds;
+}
+
 mainWin::~mainWin()
 {
 	if( ui.saveOnCloseCheck->isChecked() )
 		saveData();
 	ScriptsManager::removeScripts();
 	delete m_calendar;
-	delete m_lua;
+	delete LuaEngine::getInstance();
 	//UnhookWindowsHookEx( hook );
 }

@@ -5,6 +5,7 @@
 #include <qvector.h>
 #include <qmap.h>
 #include <qlistwidget.h>
+#include <qbasictimer.h>
 #include "action.h"
 #include "action_settings.h"
 #include "database.h"
@@ -36,6 +37,7 @@ private:
 	// it finds action index in m_actionsAll!
 	int findIndexOf( Action* action );
 	void moveExcludedDates( Action* action, const int days );
+	int calcTimeForNewDay() const;
 
 public:
 	ActionsCalendar( QWidget* pParent );

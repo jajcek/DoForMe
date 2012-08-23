@@ -5,120 +5,115 @@
 	m_specialKeys[x"+"] = new Key( y, Key::DOWN );  \
 	m_specialKeys[x"-"] = new Key( y, Key::UP ); 
 
-LuaEngine* LuaApiEngine::m_luaEngine;
 std::map<QString, Key*> LuaApiEngine::m_specialKeys;
 
-void LuaApiEngine::setLuaEngine( LuaEngine* luaEngine ) {
-	m_luaEngine = luaEngine;
-}
-
 int LuaApiEngine::prepareLeftDown( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightDown( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleDown( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftDownAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightDownAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleDownAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftUp( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightUp( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleUp( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftUpAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightUpAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleUpAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftClick( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightClick( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleClick( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftClickAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightClickAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleClickAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftDoubleClick( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDoubleClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDoubleClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftDoubleClickAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDoubleClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDoubleClick ) );
 	return 0;
 }
 
@@ -131,7 +126,7 @@ int LuaApiEngine::prepareSleep( lua_State* state ) {
 
 	std::deque<int> _args;
 	_args.push_back( _arg );
-	m_luaEngine->addCommand( LuaApiEngine::sleep, _args );
+	LuaEngine::getInstance()->addCommand( LuaApiEngine::sleep, _args );
 
 	return 0;
 }
@@ -148,7 +143,7 @@ int LuaApiEngine::prepareMoveTo( lua_State* state ) {
 	_args.push_back( _arg1 );
 	_args.push_back( _arg2 );
 
-	m_luaEngine->addCommand( LuaApiEngine::moveTo, _args );
+	LuaEngine::getInstance()->addCommand( LuaApiEngine::moveTo, _args );
 
 	return 0;
 }
@@ -165,7 +160,7 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 	for( int i = 0; i < _symbolsNumber; ++i ) {
 		_args.push_back( _arg[i] );
 	}
-	m_luaEngine->addCommand( LuaApiEngine::sendText, _args );
+	LuaEngine::getInstance()->addCommand( LuaApiEngine::sendText, _args );
 
 	return 0;
 }
@@ -237,7 +232,7 @@ void LuaApiEngine::leftDoubleClick() {
 void LuaApiEngine::sleep( std::deque<int> args ) {
 	// set new interval for the lua engine (it will restart itself),
 	// notice that setInterval changes interval only for one command (only for sleep here)
-	m_luaEngine->setInterval( args.front() );
+	LuaEngine::getInstance()->setInterval( args.front() );
 
 	// we 'used' the sleep()'s argument, so remove it from the stack
 	// actually it's not even needed, as the sleep method has only one argument, so
