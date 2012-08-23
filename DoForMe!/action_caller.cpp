@@ -74,10 +74,12 @@ void ActionCaller::setTrayToUpdate( TraySystem* tray ) {
 void ActionCaller::timerEvent( QTimerEvent* e ) {
 	qDebug( "ActionTimer::timerEvent()" );
 
+	// execute the action
 	Action* _pAction = m_actions.at( 0 );
 	LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
 	m_actions.remove( 0 );
 
+	// calculate time for the next action
 	if( !m_actions.isEmpty() ) {
 		QTime _timeForFirstAction = m_actions.at( 0 )->getTime();
 		int _milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction );

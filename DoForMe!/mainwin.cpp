@@ -222,6 +222,8 @@ void mainWin::saveScript() {
 	if( !ScriptsManager::saveToFile( m_pCurrScript->getFileName() ) ) {
 		QMessageBox _msg( QMessageBox::Critical, "Error", "Unexpected error. The script wasn't saved." );
 		_msg.exec();
+	} else {
+		m_pCurrScript->setModified( false );
 	}
 }
 
