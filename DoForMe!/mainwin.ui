@@ -1008,6 +1008,7 @@ color: black;</string>
    <addaction name="actionNew"/>
    <addaction name="actionImport"/>
    <addaction name="actionSaveScript"/>
+   <addaction name="actionTray"/>
   </widget>
   <widget class="QToolBar" name="toolBar_2">
    <property name="windowTitle">
@@ -1208,6 +1209,18 @@ color: black;</string>
    </property>
    <property name="shortcutContext">
     <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="actionTray">
+   <property name="icon">
+    <iconset resource="mainwin.qrc">
+     <normaloff>:/mainWin/Resources/tray_icon.png</normaloff>:/mainWin/Resources/tray_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Hide to tray</string>
+   </property>
+   <property name="toolTip">
+    <string>To tray</string>
    </property>
   </action>
  </widget>

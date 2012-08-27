@@ -51,6 +51,7 @@ public slots:
 	void newFile();
 	void importScripts();
 	void saveScript();
+	void toTray();
 	void runAction();
 	void removeScript();
 	void scriptSelected( const QString& scriptTitle );
@@ -66,9 +67,12 @@ public slots:
 	void moveDown();
 	void moveLeft();
 	void moveRight();
+	void openApp();
+	void quitApp();
 
 private:
 	void initLuaApi();
+	void initTraySystem( TraySystem* tray );
 	QString getFuncName( QString textError );
 	bool checkDateCorrectness( QDate date );
 	int calcTimeForNewDay() const;

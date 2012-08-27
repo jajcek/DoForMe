@@ -23,6 +23,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.actionNew, SIGNAL( activated() ), this, SLOT( newFile() ) );
 	connect( ui.actionImport, SIGNAL( activated() ), this, SLOT( importScripts() ) );
 	connect( ui.actionSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
+	connect( ui.actionTray, SIGNAL( activated() ), this, SLOT( toTray() ) );
 	connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runAction() ) );
 	connect( ui.removeScriptButton, SIGNAL( clicked() ), this, SLOT( removeScript() ) );
 	connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
@@ -71,11 +72,8 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	LuaApiEngine::initSpecialKeys();
 
 	m_tray = new TraySystem( ":/mainWin/logo.png", this );
+	initTraySystem( m_tray );
 	ActionCaller::getInstance()->setTrayToUpdate( m_tray );
-	ActionCaller::getInstance()->setActions( m_calendar->getActionsForDate( QDate::currentDate() ) );
-
-	// calculate how much time if left to next day
-	m_updater.start( calcTimeForNewDay(), this );
 
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
@@ -225,6 +223,22 @@ void mainWin::saveScript() {
 	} else {
 		m_pCurrScript->setModified( false );
 	}
+}
+
+void mainWin::toTray() {
+	qDebug( "mainWin::toTray" );
+
+	// put current actions to the icon tray context menu
+	ActionCaller::getInstance()->setActions( m_calendar->getActionsForDate( QDate::currentDate() ) );
+
+	// calculate how much time if left to next day
+	m_updater.start( calcTimeForNewDay(), this );
+
+	// show tray icon
+	m_tray->show();
+
+	// hide app window
+	hide();
 }
 
 void mainWin::runAction() {
@@ -501,6 +515,26 @@ void mainWin::moveRight() {
 	qDebug( "mainWin::moveRight()" );
 
 	m_calendar->moveCurrAction( ActionsCalendar::RIGHT );
+}
+
+void mainWin::openApp() {
+	show();
+	m_tray->hide();
+}
+
+void mainWin::quitApp() {
+	exit( 0 );
+}
+
+void mainWin::initTraySystem( TraySystem* tray ) {
+	QAction* _openAction = new QAction( "Open", this );
+	connect( _openAction, SIGNAL( triggered() ), this, SLOT( openApp() ) );
+
+	QAction* _exitAction = new QAction( "Exit", this );
+	connect( _exitAction, SIGNAL( triggered() ), this, SLOT( quitApp() ) );
+
+	tray->addQAction( _openAction );
+	tray->addQAction( _exitAction );
 }
 
 void mainWin::initLuaApi() {
