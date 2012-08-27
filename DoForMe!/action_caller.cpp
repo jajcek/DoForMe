@@ -2,6 +2,8 @@
 
 ActionCaller* ActionCaller::ms_object = NULL;
 
+ActionCaller::ActionCaller() : m_tray( NULL ), m_isExecuting( false ) {}
+
 void ActionCaller::sortByTime( QVector<Action*>& actions ) {
 	QVector<Action*> _out;
 
@@ -24,6 +26,12 @@ void ActionCaller::sortByTime( QVector<Action*>& actions ) {
 	actions = _out;
 }
 
+void ActionCaller::executeNextAction() {
+	Action* _pAction = m_actions.at( 0 );
+	LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
+	m_actions.remove( 0 );
+}
+
 ActionCaller* ActionCaller::getInstance() {
 	if( !ms_object )
 		ms_object = new ActionCaller();
@@ -34,7 +42,10 @@ ActionCaller* ActionCaller::getInstance() {
 void ActionCaller::setActions( QVector<Action*> actions ) {
 	qDebug( "ActionCaller::setActions()" );
 
-	m_actions = actions;
+	// set pending actions for the current day
+	for( int i = 0; i < actions.size(); ++i )
+		if( actions.at( i )->getTime() > QTime::currentTime() )
+			m_actions.push_back( actions.at( i ) );
 
 	// if the vector is empty there's nothing to do
 	if( !m_actions.isEmpty() ) {
@@ -47,16 +58,11 @@ void ActionCaller::setActions( QVector<Action*> actions ) {
 			QTime _timeForFirstAction = m_actions.at( 0 )->getTime();
 			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction );
 
-			if( _milliseconds < 0 ) {
-				m_actions.remove( 0 );
-			} else {
+			if( _milliseconds >= 0 ) {
+				m_caller.start( _milliseconds, this );
 				break;
 			}
-		} while( _milliseconds < 0 && !m_actions.isEmpty() );
-
-		// start the timer to invoke actions at the calculated time
-		if( _milliseconds >= 0 )
-			m_caller.start( _milliseconds, this );
+		} while( !m_actions.isEmpty() );			
 	}
 
 	// set actions for the context menu in the tray icon
@@ -74,18 +80,20 @@ void ActionCaller::setTrayToUpdate( TraySystem* tray ) {
 void ActionCaller::timerEvent( QTimerEvent* e ) {
 	qDebug( "ActionTimer::timerEvent()" );
 
-	// execute the action
-	Action* _pAction = m_actions.at( 0 );
-	LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
-	m_actions.remove( 0 );
-
 	// calculate time for the next action
-	if( !m_actions.isEmpty() ) {
-		QTime _timeForFirstAction = m_actions.at( 0 )->getTime();
-		int _milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction );
-		m_caller.start( _milliseconds, this );
-	} else {
-		m_caller.stop();
+	int _milliseconds = -1;
+	while( _milliseconds < 0 && !m_actions.isEmpty() ) {
+		executeNextAction();
+
+		if( !m_actions.isEmpty() ) {
+			QTime _timeForFirstAction = m_actions.at( 0 )->getTime();
+			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction );
+			if( _milliseconds < 0 )
+				continue;
+			m_caller.start( _milliseconds, this );
+		} else {
+			m_caller.stop();
+		}
 	}
 
 	m_tray->update( m_actions );

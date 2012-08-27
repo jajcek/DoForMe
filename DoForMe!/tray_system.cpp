@@ -6,6 +6,8 @@ void TraySystem::update( QVector<Action*> actions ) {
 
 	m_menu->addAction( m_qtActions.find( "Open" ).value() );
 	m_menu->addSeparator();
+
+	// add actions for the current day (except for the old one)
 	int _actionsNumber = actions.size();
 	if( _actionsNumber == 0 ) {
 		m_menu->addAction( new QAction( "No actions left for this day.", this ) );
@@ -18,6 +20,7 @@ void TraySystem::update( QVector<Action*> actions ) {
 		QString _time = _pAction->getHoursHH() + ":" + _pAction->getMinutesMM() + ":" + _pAction->getSecondsSS();
 		m_menu->addAction( new QAction( _time + " " + _scriptName, this ) );
 	}
+
 	m_menu->addSeparator();
 	m_menu->addAction(  m_qtActions.find( "Exit" ).value()  );
 }

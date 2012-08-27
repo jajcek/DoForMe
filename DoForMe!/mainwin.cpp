@@ -141,8 +141,6 @@ void mainWin::timerEvent( QTimerEvent* e ) {
 
 	m_calendar->update();
 	m_calendar->setFocus();
-	// select date dac
-	//m_tray->update( m_calendar->getActionsForDate( QDate::currentDate() ) );
 	ActionCaller::getInstance()->setActions( m_calendar->getActionsForDate( QDate::currentDate() ) );
 	m_updater.start( calcTimeForNewDay(), this );
 }
@@ -523,6 +521,7 @@ void mainWin::openApp() {
 }
 
 void mainWin::quitApp() {
+	m_tray->hide();
 	exit( 0 );
 }
 

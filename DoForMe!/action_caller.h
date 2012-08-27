@@ -13,8 +13,9 @@ private:
 	QVector<Action*> m_actions;
 	QBasicTimer m_caller;
 	TraySystem* m_tray;
+	bool m_isExecuting;
 
-	ActionCaller() {}
+	ActionCaller();
 
 private:
 	void sortByTime( QVector<Action*>& actions );
@@ -25,5 +26,6 @@ public:
 	QVector<Action*> getActions() const;
 	void setTrayToUpdate( TraySystem* tray );
 	void timerEvent( QTimerEvent* e );
+	void executeNextAction();
 
 };

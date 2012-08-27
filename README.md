@@ -4,6 +4,11 @@ Functionalities
 ---------------------------------------------------
 - Tray icon which contains all actions that are left for the current day.
 
+Fixes
+---------------------------------------------------
+- Tray icon wasn't removed during app close
+- The actions weren't queued if they were close to each other
+
 Development release 19.08.2012
 ===================================================
 Functionalities

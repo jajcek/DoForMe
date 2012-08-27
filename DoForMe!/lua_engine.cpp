@@ -3,7 +3,8 @@
 LuaEngine* LuaEngine::m_object = NULL;
 
 LuaEngine::LuaEngine() : luaState( lua_open() ), m_loadError( 0 ), m_parseError( 0 ), m_textError( "" ),
-						 m_timer( new QBasicTimer() ), m_uInterval( 1000 ), m_uGUIInterval( 1000 ), m_bIntervalChanged( false ) {}
+						 m_timer( new QBasicTimer() ), m_uInterval( 1000 ), m_uGUIInterval( 1000 ), m_bIntervalChanged( false ),
+						 m_isExecuting( false ) {}
 
 LuaEngine::~LuaEngine() {
 	lua_close( luaState );
@@ -46,7 +47,13 @@ int LuaEngine::parseScript() {
 bool LuaEngine::run( const char* code ) {
 	m_loadError = loadScript( code, LuaEngine::BUFFER );
 	m_parseError = parseScript();
-	start();
+
+	// if the engine is executing a script we can't invoke start again,
+	// because it will pause the timer for the GUI interval.
+	if( !m_isExecuting ) {
+		start();
+		m_isExecuting = true;
+	}
 	
 	return ( m_loadError | m_parseError );
 }
@@ -73,12 +80,15 @@ void LuaEngine::addCommand( void ( *pCmd )( std::deque<int> ), std::deque<int> a
 }
 
 void LuaEngine::timerEvent( QTimerEvent* ) {
+	qDebug( "LuaEngine::timerEvent" );
+
 	// check if there are any commands to execute, otherwise stop the timer
 	if( !m_commands.isEmpty() ) {
 		m_commands.executeNext();
 	} else {
 		// stop the timer if there are no more commands to execute
 		stop();
+		m_isExecuting = false;
 	}
 
 	// if the engine's interval has been changed from outside (e.g. by using some of the api function like sleep())

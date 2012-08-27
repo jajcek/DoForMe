@@ -113,6 +113,11 @@ private:
 		otherwise the interval has been changed by using GUI.
 	*/
 	bool m_bIntervalChanged;
+	/**
+		\brief Specifies if the negine is currently executing a script.
+		\details The value can be set by using LuaEngine::setExecuting method.
+	*/
+	bool m_isExecuting;
 
 private:
 	/**
