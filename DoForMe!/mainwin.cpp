@@ -21,33 +21,57 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 
 	connect( ui.actionAbout, SIGNAL( activated() ), this, SLOT( showAbout() ) );
 	connect( ui.actionNew, SIGNAL( activated() ), this, SLOT( newFile() ) );
+	connect( ui.actionMenuNewScript, SIGNAL( activated() ), this, SLOT( newFile() ) );
 	connect( ui.actionImport, SIGNAL( activated() ), this, SLOT( importScripts() ) );
+	connect( ui.actionMenuImportScripts, SIGNAL( activated() ), this, SLOT( importScripts() ) );
 	connect( ui.actionSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
-	connect( ui.actionTray, SIGNAL( activated() ), this, SLOT( toTray() ) );
-	connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runAction() ) );
+	connect( ui.actionMenuSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
 	connect( ui.removeScriptButton, SIGNAL( clicked() ), this, SLOT( removeScript() ) );
+	connect( ui.actionMenuRemoveScript, SIGNAL( clicked() ), this, SLOT( removeScript() ) );
+	connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runScript() ) );
+	connect( ui.actionMenuRunScript, SIGNAL( activated() ), this, SLOT( runScript() ) );
+
+	connect( ui.actionTray, SIGNAL( activated() ), this, SLOT( toTray() ) );
 	connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
 	connect( ui.scriptsList, SIGNAL( currentTextChanged( const QString& ) ), this, SLOT( scriptSelected( const QString& ) ) );
 	connect( ui.addActionButton, SIGNAL( clicked() ), this, SLOT( addAction() ) );
-	connect( ui.detachButton, SIGNAL( clicked() ), this, SLOT( detachAction() ) );
-	connect( ui.removeButton, SIGNAL( clicked() ), this, SLOT( removeAction() ) );
+	connect( ui.actionMenuNewAction, SIGNAL( activated() ), this, SLOT( addAction() ) );
 	connect( ui.editButton, SIGNAL( clicked() ), this, SLOT( editAction() ) );
+	connect( ui.actionMenuEditAction, SIGNAL( activated() ), this, SLOT( editAction() ) );
+	connect( ui.removeButton, SIGNAL( clicked() ), this, SLOT( removeAction() ) );
+	connect( ui.actionMenuRemoveAction, SIGNAL( activated() ), this, SLOT( removeAction() ) );
+	connect( ui.detachButton, SIGNAL( clicked() ), this, SLOT( detachAction() ) );
+	connect( ui.actionMenuDetachAction, SIGNAL( activated() ), this, SLOT( detachAction() ) );
+
+	connect( ui.leftButton, SIGNAL( clicked() ), this, SLOT( moveLeft() ) );
+	connect( ui.actionMenuMoveLeft, SIGNAL( activated() ), this, SLOT( moveLeft() ) );
+	connect( ui.upButton, SIGNAL( clicked() ), this, SLOT( moveUp() ) );
+	connect( ui.actionMenuMoveUp, SIGNAL( activated() ), this, SLOT( moveUp() ) );
+	connect( ui.downButton, SIGNAL( clicked() ), this, SLOT( moveDown() ) );
+	connect( ui.actionMenuMoveDown, SIGNAL( activated() ), this, SLOT( moveDown() ) );
+	connect( ui.rightButton, SIGNAL( clicked() ), this, SLOT( moveRight() ) );
+	connect( ui.actionMenuMoveRight, SIGNAL( activated() ), this, SLOT( moveRight() ) );
+
 	connect( ui.saveButton, SIGNAL( clicked() ), this, SLOT( saveData() ) );
 	connect( ui.actionsTable, SIGNAL( itemClicked( QTableWidgetItem* ) ), this, SLOT( actionSelected( QTableWidgetItem* ) ) );
-	connect( ui.upButton, SIGNAL( clicked() ), this, SLOT( moveUp() ) );
-	connect( ui.downButton, SIGNAL( clicked() ), this, SLOT( moveDown() ) );
-	connect( ui.leftButton, SIGNAL( clicked() ), this, SLOT( moveLeft() ) );
-	connect( ui.rightButton, SIGNAL( clicked() ), this, SLOT( moveRight() ) );
 
 	// initialize pointers to calendar tools
 	CalendarTools::AddButton = ui.addActionButton;
+	CalendarTools::NewMenu = ui.actionMenuNewAction;
 	CalendarTools::EditButton = ui.editButton;
+	CalendarTools::EditMenu = ui.actionMenuEditAction;
 	CalendarTools::RemoveActionButton = ui.removeButton;
+	CalendarTools::RemoveMenu = ui.actionMenuRemoveAction;
 	CalendarTools::DetachActionButton = ui.detachButton;
+	CalendarTools::DetachMenu = ui.actionMenuDetachAction;
 	CalendarTools::UpButton = ui.upButton;
+	CalendarTools::MoveUpMenu = ui.actionMenuMoveUp;
 	CalendarTools::DownButton = ui.downButton;
+	CalendarTools::MoveDownMenu = ui.actionMenuMoveDown;
 	CalendarTools::LeftButton = ui.leftButton;
+	CalendarTools::MoveLeftMenu = ui.actionMenuMoveLeft;
 	CalendarTools::RightButton = ui.rightButton;
+	CalendarTools::MoveRightMenu = ui.actionMenuMoveRight;
 	
 	// used for centering main app window
 	QDesktopWidget screen;
@@ -220,6 +244,7 @@ void mainWin::saveScript() {
 		_msg.exec();
 	} else {
 		m_pCurrScript->setModified( false );
+		ui.actionSaveScript->setEnabled( false );
 	}
 }
 
@@ -239,8 +264,8 @@ void mainWin::toTray() {
 	hide();
 }
 
-void mainWin::runAction() {
-	qDebug( "mainWin::runAction()" );
+void mainWin::runScript() {
+	qDebug( "mainWin::runScript()" );
 
 	if( m_pCurrScript == NULL ) return;
 
@@ -344,6 +369,10 @@ void mainWin::scriptSelected( const QString& scriptTitle ) {
 
 	// enable remove button after selecting script
 	ui.removeScriptButton->setEnabled( true );
+	ui.actionMenuSaveScript->setEnabled( true );
+	ui.actionMenuRemoveScript->setEnabled( true );
+	ui.actionMenuRunScript->setEnabled( true );
+	ui.actionRun->setEnabled( true );
 
 	// put script code to the text edit
 	setCode( m_pCurrScript->getCode() );
@@ -363,6 +392,9 @@ void mainWin::scriptModified() {
 
 			// we changed the script so we have to set its state
 			m_pCurrScript->setModified( true );
+
+			// enable button for saving
+			ui.actionSaveScript->setEnabled( true );
 		}
 	}
 }

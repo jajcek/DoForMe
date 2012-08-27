@@ -52,7 +52,7 @@ public slots:
 	void importScripts();
 	void saveScript();
 	void toTray();
-	void runAction();
+	void runScript();
 	void removeScript();
 	void scriptSelected( const QString& scriptTitle );
 	void scriptModified();

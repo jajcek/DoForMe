@@ -3,6 +3,7 @@ Development release 27.08.2012
 Functionalities
 ---------------------------------------------------
 - Tray icon which contains all actions that are left for the current day.
+- TODO: validate script while saving
 
 Fixes
 ---------------------------------------------------

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <qtoolbutton.h>
+#include <qaction.h>
 #include "action.h"
 
 /**
@@ -44,6 +45,39 @@ struct CalendarTools {
 		\brief Pointer to the "Right" button (blue right arrow).
 	*/
 	static QToolButton* RightButton;
+
+	/**
+		\brief Pointer to the New action in the app menu.
+	*/
+	static QAction* NewMenu;
+	/**
+		\brief Pointer to the Edit action in the app menu.
+	*/
+	static QAction* EditMenu;
+	/**
+		\brief Pointer to the Remove action in the app menu.
+	*/
+	static QAction* RemoveMenu;
+	/**
+		\brief Pointer to the Detach action in the app menu.
+	*/
+	static QAction* DetachMenu;
+	/**
+		\brief Pointer to the Move left action in the app menu.
+	*/
+	static QAction* MoveLeftMenu;
+	/**
+		\brief Pointer to the Move up action in the app menu.
+	*/
+	static QAction* MoveUpMenu;
+	/**
+		\brief Pointer to the Move down action in the app menu.
+	*/
+	static QAction* MoveDownMenu;
+	/**
+		\brief Pointer to the Move right action in the app menu.
+	*/
+	static QAction* MoveRightMenu;
 
 	/**
 		\brief This method is called when an action without repetitions has been selected on the calendar to enable buttons for operating on actions.

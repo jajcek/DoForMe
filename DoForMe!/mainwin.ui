@@ -962,13 +962,16 @@ color: black;</string>
     <property name="title">
      <string>Action</string>
     </property>
-    <addaction name="actionNew_action"/>
+    <addaction name="actionMenuNewAction"/>
     <addaction name="separator"/>
-    <addaction name="actionLoad_action"/>
+    <addaction name="actionMenuEditAction"/>
+    <addaction name="actionMenuRemoveAction"/>
+    <addaction name="actionMenuDetachAction"/>
     <addaction name="separator"/>
-    <addaction name="actionRun_current_action"/>
-    <addaction name="actionSave_action"/>
-    <addaction name="actionSave_action_as"/>
+    <addaction name="actionMenuMoveLeft"/>
+    <addaction name="actionMenuMoveUp"/>
+    <addaction name="actionMenuMoveDown"/>
+    <addaction name="actionMenuMoveRight"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -980,6 +983,19 @@ color: black;</string>
     <addaction name="actionRepeating"/>
     <addaction name="actionReminding"/>
    </widget>
+   <widget class="QMenu" name="menuScript">
+    <property name="title">
+     <string>Script</string>
+    </property>
+    <addaction name="actionMenuNewScript"/>
+    <addaction name="actionMenuImportScripts"/>
+    <addaction name="separator"/>
+    <addaction name="actionMenuSaveScript"/>
+    <addaction name="actionMenuRemoveScript"/>
+    <addaction name="separator"/>
+    <addaction name="actionMenuRunScript"/>
+   </widget>
+   <addaction name="menuScript"/>
    <addaction name="menuActions"/>
    <addaction name="menuExecuting"/>
    <addaction name="menuCustomize"/>
@@ -1054,9 +1070,9 @@ color: black;</string>
     <string>Calendar colors...</string>
    </property>
   </action>
-  <action name="actionNew_action">
+  <action name="actionMenuNewAction">
    <property name="text">
-    <string>New action...</string>
+    <string>New...</string>
    </property>
   </action>
   <action name="actionScript_code">
@@ -1099,19 +1115,28 @@ color: black;</string>
     <string>Reminding</string>
    </property>
   </action>
-  <action name="actionRun_current_action">
+  <action name="actionMenuEditAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
-    <string>Run action...</string>
+    <string>Edit...</string>
    </property>
   </action>
-  <action name="actionSave_action">
+  <action name="actionMenuRemoveAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
-    <string>Save action...</string>
+    <string>Remove action</string>
    </property>
   </action>
-  <action name="actionSave_action_as">
+  <action name="actionMenuDetachAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
-    <string>Save action as...</string>
+    <string>Detach</string>
    </property>
   </action>
   <action name="actionLoad_action">
@@ -1125,6 +1150,9 @@ color: black;</string>
    </property>
   </action>
   <action name="actionRun">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="mainwin.qrc">
      <normaloff>:/play_record/Resources/play_on.png</normaloff>:/play_record/Resources/play_on.png</iconset>
@@ -1194,6 +1222,9 @@ color: black;</string>
    </property>
   </action>
   <action name="actionSaveScript">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="mainwin.qrc">
      <normaloff>:/standard/Resources/filesave.ico</normaloff>:/standard/Resources/filesave.ico</iconset>
@@ -1221,6 +1252,72 @@ color: black;</string>
    </property>
    <property name="toolTip">
     <string>To tray</string>
+   </property>
+  </action>
+  <action name="actionMenuMoveLeft">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Move left</string>
+   </property>
+  </action>
+  <action name="actionMenuMoveUp">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Move Up</string>
+   </property>
+  </action>
+  <action name="actionMenuMoveDown">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Move Down</string>
+   </property>
+  </action>
+  <action name="actionMenuMoveRight">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Move right</string>
+   </property>
+  </action>
+  <action name="actionMenuNewScript">
+   <property name="text">
+    <string>New...</string>
+   </property>
+  </action>
+  <action name="actionMenuRemoveScript">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Remove</string>
+   </property>
+  </action>
+  <action name="actionMenuRunScript">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Run</string>
+   </property>
+  </action>
+  <action name="actionMenuSaveScript">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionMenuImportScripts">
+   <property name="text">
+    <string>Import</string>
    </property>
   </action>
  </widget>
