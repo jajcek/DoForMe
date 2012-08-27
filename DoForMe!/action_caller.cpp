@@ -7,15 +7,24 @@ ActionCaller::ActionCaller() : m_tray( NULL ), m_isExecuting( false ) {}
 void ActionCaller::sortByTime( QVector<Action*>& actions ) {
 	QVector<Action*> _out;
 
-	// bubble sort
+	// bubble sort by time (and by id if the times are qual)
 	while( !actions.isEmpty() ) {
 		int _pos = 0;
 		QTime _minTime = actions.at( 0 )->getTime();
+		int _minId = actions.at( 0 )->getId();
+
 		for( int i = 1; i < actions.size(); ++i ) {
 			QTime _time = actions.at( i )->getTime();
+			int _id = actions.at( i )->getId();
+
 			if( _time < _minTime ) {
 				_minTime = _time;
 				_pos = i;
+			} else if( _time == _minTime ) {
+				if( _id < _minId ) {
+					_minId = _id;
+					_pos = i;
+				}
 			}
 		}
 

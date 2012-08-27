@@ -8,6 +8,7 @@ Fixes
 ---------------------------------------------------
 - Tray icon wasn't removed during app close
 - The actions weren't queued if they were close to each other
+- If the actions have been set at the same time, the action with lower Id will be performed first
 
 Development release 19.08.2012
 ===================================================
