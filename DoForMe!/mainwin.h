@@ -10,6 +10,7 @@
 #include <qmessagebox.h>
 #include <qformlayout.h>
 #include <qsystemtrayicon.h>
+#include <qevent.h>
 #include "ui_mainwin.h"
 #include "lua_api.h"
 #include "lua_engine.h"
@@ -52,7 +53,7 @@ public slots:
 	void importScripts();
 	void saveScript();
 	void toTray();
-	void runScript();
+	void runScript( bool onlyParse = false );
 	void removeScript();
 	void scriptSelected( const QString& scriptTitle );
 	void scriptModified();
@@ -76,5 +77,6 @@ private:
 	QString getFuncName( QString textError );
 	bool checkDateCorrectness( QDate date );
 	int calcTimeForNewDay() const;
+	void closeEvent( QCloseEvent* e );
 
 };

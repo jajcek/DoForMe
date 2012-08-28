@@ -7,6 +7,8 @@
 #include <qmessagebox.h>
 #include <qtablewidget.h>
 #include "ui_action_dialog.h"
+#include "lua_engine.h"
+#include "scripts_manager.h"
 
 class ActionSettings : public QDialog {
 	Q_OBJECT

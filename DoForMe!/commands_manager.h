@@ -43,5 +43,9 @@ public:
 		\retval false There are no commands.
 	*/
 	bool isEmpty() const;
+	/**
+		\brief Removes all commands from the queue.
+	*/
+	void clearCommands();
 
 };

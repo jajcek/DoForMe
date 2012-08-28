@@ -18,3 +18,8 @@ void CommandsManager::executeNext() {
 bool CommandsManager::isEmpty() const {
 	return m_commands.empty();
 }
+
+void CommandsManager::clearCommands() {
+	m_commands.clear();
+	m_args.clear();
+}

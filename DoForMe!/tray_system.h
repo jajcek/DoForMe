@@ -28,6 +28,5 @@ public:
 
 private slots:
 	void iconActivated( QSystemTrayIcon::ActivationReason reason );
-	void actionTrigger( QAction* );
 
 };

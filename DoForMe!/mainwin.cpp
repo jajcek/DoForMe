@@ -245,6 +245,7 @@ void mainWin::saveScript() {
 	} else {
 		m_pCurrScript->setModified( false );
 		ui.actionSaveScript->setEnabled( false );
+		ui.actionMenuSaveScript->setEnabled( false );
 	}
 }
 
@@ -264,12 +265,13 @@ void mainWin::toTray() {
 	hide();
 }
 
-void mainWin::runScript() {
+void mainWin::runScript( bool onlyParse ) {
 	qDebug( "mainWin::runScript()" );
 
 	if( m_pCurrScript == NULL ) return;
 
 	// load and parse script (from text field) by checking its correctness
+	LuaEngine::getInstance()->reset();
 	switch( LuaEngine::getInstance()->loadScript( getCode().toStdString().c_str(), LuaEngine::BUFFER ) ) {
 		case LUA_ERRSYNTAX: {
 			QMessageBox _msg( QMessageBox::Critical, "Error", "Syntax error in the script." );
@@ -313,9 +315,11 @@ void mainWin::runScript() {
 		}
 	}
 
-	// start script (by taking commands from the lua's stack one by one)
-	// the stack is in the LuaEngine class
-	LuaEngine::getInstance()->start();
+	if( onlyParse == false ) {
+		// start script (by taking commands from the lua's stack one by one)
+		// the stack is in the LuaEngine class
+		LuaEngine::getInstance()->start();
+	}
 }
 
 void mainWin::removeScript() {
@@ -367,9 +371,8 @@ void mainWin::scriptSelected( const QString& scriptTitle ) {
 	// find the appropriate script
 	m_pCurrScript = ScriptsManager::getScript( scriptTitle );
 
-	// enable remove button after selecting script
+	// enable buttons/menus after selecting script
 	ui.removeScriptButton->setEnabled( true );
-	ui.actionMenuSaveScript->setEnabled( true );
 	ui.actionMenuRemoveScript->setEnabled( true );
 	ui.actionMenuRunScript->setEnabled( true );
 	ui.actionRun->setEnabled( true );
@@ -395,6 +398,7 @@ void mainWin::scriptModified() {
 
 			// enable button for saving
 			ui.actionSaveScript->setEnabled( true );
+			ui.actionMenuSaveScript->setEnabled( true );
 		}
 	}
 }
@@ -625,6 +629,25 @@ int mainWin::calcTimeForNewDay() const {
 	QTime _currTime = QTime::currentTime();
 	int _milliseconds = _currTime.msecsTo( QTime( 23, 59, 59, 999 ) ) + 1;
 	return _milliseconds;
+}
+
+void mainWin::closeEvent( QCloseEvent* e ) {
+	if( m_pCurrScript->isModified() ) {
+		QMessageBox _msg( QMessageBox::Information, "Information", "The script hasn't been saved. Do you want to save it before closing?",
+			QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel );
+		switch( _msg.exec() ) {
+			case QMessageBox::Yes:
+				m_pCurrScript->setCode( getCode() );
+				ScriptsManager::saveToFile( m_pCurrScript->getFileName() );
+				e->accept();
+				break;
+			case QMessageBox::No:
+				e->accept();
+				break;
+			case QMessageBox::Cancel:
+				e->ignore();
+		}
+	}
 }
 
 mainWin::~mainWin()

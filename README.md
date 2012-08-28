@@ -1,15 +1,26 @@
+Development release 28.08.2012
+===================================================
+Functionalities
+---------------------------------------------------
+- Validating script while adding to calendar.
+- Parse script button.
+- Ask user whether he wants to save unsaved script before closing app.
+
+Fixes
+---------------------------------------------------
+- Save action in menu wasn't disabled when user saved a script.
+
 Development release 27.08.2012
 ===================================================
 Functionalities
 ---------------------------------------------------
 - Tray icon which contains all actions that are left for the current day.
-- TODO: validate script while saving
 
 Fixes
 ---------------------------------------------------
-- Tray icon wasn't removed during app close
-- The actions weren't queued if they were close to each other
-- If the actions have been set at the same time, the action with lower Id will be performed first
+- Tray icon wasn't removed during app close.
+- The actions weren't queued if they were close to each other.
+- If the actions have been set at the same time, the action with lower Id will be performed first.
 
 Development release 19.08.2012
 ===================================================

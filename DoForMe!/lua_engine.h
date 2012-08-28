@@ -163,10 +163,11 @@ public:
 		\brief Runs action.
 		\details This is a wrapper for 3 other functions - LuaEngine::loadScript, LuaEngine::parseScript and LuaEngine::start().
 		\param[in] code Code to be executed.
+		\param[in] execute Wheter the script should be run by the engine, if set to false the method only checks the script correctness.
 		\return Value which informs if the code has been executed without errors.
 		If there was an error get it by using LuaEngine::validateLastLoad and LuaEngine::validateLastParse.
 	*/
-	bool run( const char* code );
+	bool run( const char* code, bool onlyParse = false );
 
 	/**
 		\brief Checks if there was error in the last loaded file.
@@ -225,4 +226,9 @@ public:
 		\return Time interval for all commands.
 	*/
 	int getGUIInterval() const;
+	/**
+		\brief Resets lua stack by moving lua to top (lua_settop()).
+	*/
+	void reset();
+
 };

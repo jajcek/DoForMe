@@ -37,7 +37,6 @@ TraySystem::TraySystem( QString iconPath, QObject* parent ) : m_menu( NULL ), m_
 	// set context menu
 	m_menu = new QMenu( static_cast<QWidget*>( parent ) );
 	QSystemTrayIcon::setContextMenu( m_menu );
-	connect( m_menu, SIGNAL( triggered( QAction* ) ), this, SLOT( actionTrigger( QAction* ) ) );
 
 	// set object which the tray system belongs to
 	setParent( parent );
@@ -48,10 +47,6 @@ TraySystem::TraySystem( QString iconPath, QObject* parent ) : m_menu( NULL ), m_
 
 void TraySystem::iconActivated( QSystemTrayIcon::ActivationReason reason ) {
 	qDebug( "TraySystem::iconActivated()" );
-}
-
-void TraySystem::actionTrigger( QAction* action ) {
-	qDebug( "%s", action->text().toStdString().c_str() );
 }
 
 void TraySystem::open() {

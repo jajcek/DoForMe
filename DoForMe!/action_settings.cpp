@@ -142,6 +142,18 @@ int ActionSettings::getDays() const {
 }
 
 void ActionSettings::apply() {
+	// get script and try to execute it
+	Script* _pScript = ScriptsManager::getScript( getScriptName() );
+	LuaEngine::getInstance()->reset();
+	bool _isInvalid = LuaEngine::getInstance()->run( _pScript->getCode().toStdString().c_str(), true );
+
+	if( _isInvalid ) {
+		QMessageBox _msg( QMessageBox::Critical, "Error", "The script is invalid. Correct it before adding.",
+				QMessageBox::Ok );
+		_msg.exec();
+		return;
+	}
+
 	// inform user that the time passed already
 	int _result = checkTimeCorrectness();
 	switch( _result ) {

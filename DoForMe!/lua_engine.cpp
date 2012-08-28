@@ -44,13 +44,13 @@ int LuaEngine::parseScript() {
 	return m_parseError;
 }
 
-bool LuaEngine::run( const char* code ) {
+bool LuaEngine::run( const char* code, bool onlyParse ) {
 	m_loadError = loadScript( code, LuaEngine::BUFFER );
 	m_parseError = parseScript();
 
 	// if the engine is executing a script we can't invoke start again,
 	// because it will pause the timer for the GUI interval.
-	if( !m_isExecuting ) {
+	if( onlyParse == false && !m_isExecuting ) {
 		start();
 		m_isExecuting = true;
 	}
@@ -134,4 +134,8 @@ void LuaEngine::setGUIInterval( int interval ) {
 
 int LuaEngine::getGUIInterval() const {
 	return m_uGUIInterval;
+}
+
+void LuaEngine::reset() {
+	m_commands.clearCommands();
 }
