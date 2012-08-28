@@ -27,7 +27,9 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.actionSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
 	connect( ui.actionMenuSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
 	connect( ui.removeScriptButton, SIGNAL( clicked() ), this, SLOT( removeScript() ) );
-	connect( ui.actionMenuRemoveScript, SIGNAL( clicked() ), this, SLOT( removeScript() ) );
+	connect( ui.actionMenuRemoveScript, SIGNAL( activated() ), this, SLOT( removeScript() ) );
+	connect( ui.actionParseScript, SIGNAL( activated() ), this, SLOT( parseScript() ) );
+	connect( ui.actionMenuParseScript, SIGNAL( activated() ), this, SLOT( parseScript() ) );
 	connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runScript() ) );
 	connect( ui.actionMenuRunScript, SIGNAL( activated() ), this, SLOT( runScript() ) );
 
@@ -265,6 +267,16 @@ void mainWin::toTray() {
 	hide();
 }
 
+void mainWin::parseScript() {
+	runScript( true );
+
+	// validateLastLoad and validateLastParse returns non-zero value if an error occured
+	if( !LuaEngine::getInstance()->validateLastLoad() && !LuaEngine::getInstance()->validateLastParse() ) {
+		QMessageBox _msg( QMessageBox::Information, "Parsing", "The script is correct." );
+		_msg.exec();
+	}
+}
+
 void mainWin::runScript( bool onlyParse ) {
 	qDebug( "mainWin::runScript()" );
 
@@ -376,6 +388,8 @@ void mainWin::scriptSelected( const QString& scriptTitle ) {
 	ui.actionMenuRemoveScript->setEnabled( true );
 	ui.actionMenuRunScript->setEnabled( true );
 	ui.actionRun->setEnabled( true );
+	ui.actionParseScript->setEnabled( true );
+	ui.actionMenuParseScript->setEnabled( true );
 
 	// put script code to the text edit
 	setCode( m_pCurrScript->getCode() );

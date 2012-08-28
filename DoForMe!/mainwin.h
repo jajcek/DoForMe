@@ -53,6 +53,7 @@ public slots:
 	void importScripts();
 	void saveScript();
 	void toTray();
+	void parseScript();
 	void runScript( bool onlyParse = false );
 	void removeScript();
 	void scriptSelected( const QString& scriptTitle );

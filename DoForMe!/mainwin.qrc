@@ -18,6 +18,7 @@
     <file>Resources/filesaveas.ico</file>
   </qresource>
   <qresource prefix="play_record">
+    <file>Resources/parse_script.png</file>
     <file>Resources/play_on.png</file>
     <file>Resources/record_on.png</file>
   </qresource>

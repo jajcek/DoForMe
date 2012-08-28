@@ -993,6 +993,7 @@ color: black;</string>
     <addaction name="actionMenuSaveScript"/>
     <addaction name="actionMenuRemoveScript"/>
     <addaction name="separator"/>
+    <addaction name="actionMenuParseScript"/>
     <addaction name="actionMenuRunScript"/>
    </widget>
    <addaction name="menuScript"/>
@@ -1042,6 +1043,7 @@ color: black;</string>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionParseScript"/>
    <addaction name="actionRun"/>
    <addaction name="actionRecord"/>
   </widget>
@@ -1053,16 +1055,6 @@ color: black;</string>
   <action name="actionExlude_commands">
    <property name="text">
     <string>Exclude...</string>
-   </property>
-  </action>
-  <action name="actionMouse">
-   <property name="text">
-    <string>Mouse...</string>
-   </property>
-  </action>
-  <action name="actionKeyboard">
-   <property name="text">
-    <string>Keyboard...</string>
    </property>
   </action>
   <action name="actionCalendar_colours">
@@ -1137,16 +1129,6 @@ color: black;</string>
    </property>
    <property name="text">
     <string>Detach</string>
-   </property>
-  </action>
-  <action name="actionLoad_action">
-   <property name="text">
-    <string>Load action...</string>
-   </property>
-  </action>
-  <action name="actionExit">
-   <property name="text">
-    <string>Exit</string>
    </property>
   </action>
   <action name="actionRun">
@@ -1318,6 +1300,29 @@ color: black;</string>
   <action name="actionMenuImportScripts">
    <property name="text">
     <string>Import</string>
+   </property>
+  </action>
+  <action name="actionParseScript">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="mainwin.qrc">
+     <normaloff>:/play_record/Resources/parse_script.png</normaloff>:/play_record/Resources/parse_script.png</iconset>
+   </property>
+   <property name="text">
+    <string>Parse script</string>
+   </property>
+   <property name="toolTip">
+    <string>Parse script</string>
+   </property>
+  </action>
+  <action name="actionMenuParseScript">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Parse</string>
    </property>
   </action>
  </widget>
