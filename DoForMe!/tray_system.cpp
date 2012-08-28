@@ -53,15 +53,3 @@ void TraySystem::iconActivated( QSystemTrayIcon::ActivationReason reason ) {
 			m_qtActions.find( "Open" ).value()->activate( QAction::Trigger );
 	}
 }
-
-void TraySystem::open() {
-	
-}
-
-void TraySystem::info() {
-
-}
-
-void TraySystem::exit() {
-
-}
