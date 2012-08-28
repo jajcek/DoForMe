@@ -47,6 +47,11 @@ TraySystem::TraySystem( QString iconPath, QObject* parent ) : m_menu( NULL ), m_
 
 void TraySystem::iconActivated( QSystemTrayIcon::ActivationReason reason ) {
 	qDebug( "TraySystem::iconActivated()" );
+
+	switch( reason ) {
+		case QSystemTrayIcon::DoubleClick:
+			m_qtActions.find( "Open" ).value()->activate( QAction::Trigger );
+	}
 }
 
 void TraySystem::open() {

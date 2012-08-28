@@ -16,13 +16,13 @@
 	\class LuaEngine lua_engine.h "lua_engine.h"
 	\brief Engine for maintaing LUA's API commands.
 	\details Objects of this class load scripts, check their grammar correctness and store the commands for further executing.
-	As first step after creating an object of this class you have to register your API functions by using LuaEngine::registerFunction method.
-	When all of the functions has been registered you are allowed to load and parse scripts by using LuaEngine::loadScript and LuaEngine::parseScript methods.
-	LuaEngine::loadScript simply loads code to the memory and check its correctness whereas LuaEngine::parseScript runs the script.
+	As first step you have to register your API functions by using LuaEngine::registerFunction method.
+	When all of the functions has been registered you are allowed to load and parse scripts by using LuaEngine::loadScript and LuaEngine::parseScript methods
+	(or using wrapper for them LuaEngine::run, but it is harder to handle potential errors - it is recommended to use when you are sure that the script is correct).
+	LuaEngine::loadScript simply loads code to the memory and check its correctness whereas LuaEngine::parseScript simulates 'running' the script for checking functions existence.
 	During parsing LUA invokes methods which can prepare commands by putting them to a queue. This is done for allowing executing commands with some
 	time interval (we can remove time interval - simply set GUI interval to 0). Check LuaEngine::registerFunction for more details.
 	Next step (optional) is to set a time interval in which the commands will be executed (default is 500 milliseconds) by using LuaEngine::setGUIInterval method.
-	After successful load and parse you need to copy queue and stack to the lua's engine by using LuaEngine::copyData.
 	Last step is to invoke LuaEngine::start() to start executing the commands.
 	Also important thing to mention is LuaEngine::setInterval. Comparing to the GUI version it changes time interval only for the next command.
 	Therefore it should be used for some API functions like sleep().

@@ -646,7 +646,7 @@ int mainWin::calcTimeForNewDay() const {
 }
 
 void mainWin::closeEvent( QCloseEvent* e ) {
-	if( m_pCurrScript->isModified() ) {
+	if( m_pCurrScript && m_pCurrScript->isModified() ) {
 		QMessageBox _msg( QMessageBox::Information, "Information", "The script hasn't been saved. Do you want to save it before closing?",
 			QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel );
 		switch( _msg.exec() ) {
@@ -662,6 +662,8 @@ void mainWin::closeEvent( QCloseEvent* e ) {
 				e->ignore();
 		}
 	}
+
+	e->accept();
 }
 
 mainWin::~mainWin()

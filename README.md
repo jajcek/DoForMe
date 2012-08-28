@@ -5,10 +5,12 @@ Functionalities
 - Validating script while adding to calendar.
 - Parse script button.
 - Ask user whether he wants to save unsaved script before closing app.
+- Double click on tray icon restores main window.
 
 Fixes
 ---------------------------------------------------
 - Save action in menu wasn't disabled when user saved a script.
+- You couldn't close the window by pressing X, when the script wasn't selected.
 
 Development release 27.08.2012
 ===================================================
