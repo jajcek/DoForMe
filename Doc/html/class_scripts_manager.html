@@ -101,14 +101,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a99ddfb07ac002907cee3b2a5b102abad"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scripts_manager.html#a99ddfb07ac002907cee3b2a5b102abad">removeScript</a> (QString name)</td></tr>
+<tr class="memdesc:a99ddfb07ac002907cee3b2a5b102abad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes script with the given file name (without extension) and frees its memory.  <a href="#a99ddfb07ac002907cee3b2a5b102abad"></a><br/></td></tr>
 <tr class="memitem:a137f7089f471de89c5d1344d3b5781cd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scripts_manager.html#a137f7089f471de89c5d1344d3b5781cd">removeScripts</a> ()</td></tr>
-<tr class="memdesc:a137f7089f471de89c5d1344d3b5781cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all script and frees its memory.  <a href="#a137f7089f471de89c5d1344d3b5781cd"></a><br/></td></tr>
+<tr class="memdesc:a137f7089f471de89c5d1344d3b5781cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all scripts and frees its memory.  <a href="#a137f7089f471de89c5d1344d3b5781cd"></a><br/></td></tr>
 <tr class="memitem:a67b361d78d35092340feaf556b57565d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scripts_manager.html#a67b361d78d35092340feaf556b57565d">addScript</a> (<a class="el" href="class_script.html">Script</a> *script)</td></tr>
 <tr class="memdesc:a67b361d78d35092340feaf556b57565d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds new script to the manager.  <a href="#a67b361d78d35092340feaf556b57565d"></a><br/></td></tr>
 <tr class="memitem:ad4cd01aab1d6015db90cbca5fae306cf"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scripts_manager.html#ad4cd01aab1d6015db90cbca5fae306cf">saveToFile</a> (const QString &amp;scriptName)</td></tr>
 <tr class="memdesc:ad4cd01aab1d6015db90cbca5fae306cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves specified (with name) script to a file.  <a href="#ad4cd01aab1d6015db90cbca5fae306cf"></a><br/></td></tr>
 <tr class="memitem:a59b613ef7638d97bbdebe09a412e8f20"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_script.html">Script</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scripts_manager.html#a59b613ef7638d97bbdebe09a412e8f20">getScript</a> (const QString &amp;scriptName)</td></tr>
 <tr class="memdesc:a59b613ef7638d97bbdebe09a412e8f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets pointer to the script with the given name.  <a href="#a59b613ef7638d97bbdebe09a412e8f20"></a><br/></td></tr>
+<tr class="memitem:a451c8dacfa4629cb69c3f7f1ca0326f0"><td class="memItemLeft" align="right" valign="top">static QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scripts_manager.html#a451c8dacfa4629cb69c3f7f1ca0326f0">getScriptsList</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -225,6 +228,62 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a451c8dacfa4629cb69c3f7f1ca0326f0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QStringList ScriptsManager::getScriptsList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>List of scripts names. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a99ddfb07ac002907cee3b2a5b102abad"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ScriptsManager::removeScript </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes script with the given file name (without extension) and frees its memory. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td><a class="el" href="class_script.html" title="Keeps all data for scripts.">Script</a> name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a137f7089f471de89c5d1344d3b5781cd"></a>
 <div class="memitem">
 <div class="memproto">
@@ -246,7 +305,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes all script and frees its memory. </p>
+<p>Removes all scripts and frees its memory. </p>
 
 </div>
 </div>
@@ -320,7 +379,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 3 2012 23:28:24 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 29 2012 21:14:38 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

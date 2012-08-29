@@ -1,0 +1,123 @@
+\hypertarget{struct_expr}{\section{Expr Struct Reference}
+\label{struct_expr}\index{Expr@{Expr}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_expr_a101c55ddb6c149d95f0327831eb78225}{op}
+\item 
+char \hyperlink{struct_expr_aeb51b76e606d6fbae234e38473bf3dc9}{affinity}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_expr_ad6013561807a4a5182ce928f263bc3bf}{flags}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>char $\ast$ \hyperlink{struct_expr_af1f6b0c5fcfdd18a41f682b74e13c950}{zToken}\\
+\>int \hyperlink{struct_expr_a9ea4dff760e0008488807701c6102605}{iValue}\\
+\} \hyperlink{struct_expr_a5a43a51aa0ee7afc9babcdc337dd77db}{u}\\
+
+\end{tabbing}\item 
+\hyperlink{struct_expr}{Expr} $\ast$ \hyperlink{struct_expr_a0a78282ae0d696f4a25013a12e38b1ba}{p\-Left}
+\item 
+\hyperlink{struct_expr}{Expr} $\ast$ \hyperlink{struct_expr_aa08c218d5b0b6f8882e8bf9ec8822a08}{p\-Right}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{struct_expr_list}{ExprList} $\ast$ \hyperlink{struct_expr_ac7107bf192a8080b919350925cc35dd8}{pList}\\
+\>\hyperlink{struct_select}{Select} $\ast$ \hyperlink{struct_expr_a54e5186fdf157f8b4ae178919d8ff6b3}{pSelect}\\
+\} \hyperlink{struct_expr_a9ff6313055718299e20a19e551dcbf0a}{x}\\
+
+\end{tabbing}\item 
+\hyperlink{struct_coll_seq}{Coll\-Seq} $\ast$ \hyperlink{struct_expr_a4ef09e21aaa9d61567b89714e25abfb9}{p\-Coll}
+\item 
+int \hyperlink{struct_expr_af8e273f4d7d173bfb5996ed09054611c}{i\-Table}
+\item 
+\hyperlink{sqlite3_8c_a8f09a8707e1c321e17c3625018c599ce}{yn\-Var} \hyperlink{struct_expr_ad19251a8eb6db3cf0bdffe0dcb07eeba}{i\-Column}
+\item 
+\hyperlink{sqlite3_8c_a7b32340f65cd15f029caad258fb3355c}{i16} \hyperlink{struct_expr_a9fe0ed6360b0a4cf5b67ab8def922033}{i\-Agg}
+\item 
+\hyperlink{sqlite3_8c_a7b32340f65cd15f029caad258fb3355c}{i16} \hyperlink{struct_expr_aa49b76f3628a7bf2b0997c33461cc651}{i\-Right\-Join\-Table}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_expr_af8d40f8e74d07557e89cfffeef3657e9}{flags2}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_expr_a0eacba0a2a6977e434b096b1cb9d5b9e}{op2}
+\item 
+\hyperlink{struct_agg_info}{Agg\-Info} $\ast$ \hyperlink{struct_expr_a4fde82477256ee85f3a906263549082a}{p\-Agg\-Info}
+\item 
+\hyperlink{struct_table}{Table} $\ast$ \hyperlink{struct_expr_a27c8824b41d853eeeebe61cf3ac1ae5a}{p\-Tab}
+\item 
+int \hyperlink{struct_expr_a5a893ea309f801f23404e7e5ac02732b}{n\-Height}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_expr_aeb51b76e606d6fbae234e38473bf3dc9}{\index{Expr@{Expr}!affinity@{affinity}}
+\index{affinity@{affinity}!Expr@{Expr}}
+\subsubsection[{affinity}]{\setlength{\rightskip}{0pt plus 5cm}char Expr\-::affinity}}\label{struct_expr_aeb51b76e606d6fbae234e38473bf3dc9}
+\hypertarget{struct_expr_ad6013561807a4a5182ce928f263bc3bf}{\index{Expr@{Expr}!flags@{flags}}
+\index{flags@{flags}!Expr@{Expr}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Expr\-::flags}}\label{struct_expr_ad6013561807a4a5182ce928f263bc3bf}
+\hypertarget{struct_expr_af8d40f8e74d07557e89cfffeef3657e9}{\index{Expr@{Expr}!flags2@{flags2}}
+\index{flags2@{flags2}!Expr@{Expr}}
+\subsubsection[{flags2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Expr\-::flags2}}\label{struct_expr_af8d40f8e74d07557e89cfffeef3657e9}
+\hypertarget{struct_expr_a9fe0ed6360b0a4cf5b67ab8def922033}{\index{Expr@{Expr}!i\-Agg@{i\-Agg}}
+\index{i\-Agg@{i\-Agg}!Expr@{Expr}}
+\subsubsection[{i\-Agg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i16} Expr\-::i\-Agg}}\label{struct_expr_a9fe0ed6360b0a4cf5b67ab8def922033}
+\hypertarget{struct_expr_ad19251a8eb6db3cf0bdffe0dcb07eeba}{\index{Expr@{Expr}!i\-Column@{i\-Column}}
+\index{i\-Column@{i\-Column}!Expr@{Expr}}
+\subsubsection[{i\-Column}]{\setlength{\rightskip}{0pt plus 5cm}{\bf yn\-Var} Expr\-::i\-Column}}\label{struct_expr_ad19251a8eb6db3cf0bdffe0dcb07eeba}
+\hypertarget{struct_expr_aa49b76f3628a7bf2b0997c33461cc651}{\index{Expr@{Expr}!i\-Right\-Join\-Table@{i\-Right\-Join\-Table}}
+\index{i\-Right\-Join\-Table@{i\-Right\-Join\-Table}!Expr@{Expr}}
+\subsubsection[{i\-Right\-Join\-Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i16} Expr\-::i\-Right\-Join\-Table}}\label{struct_expr_aa49b76f3628a7bf2b0997c33461cc651}
+\hypertarget{struct_expr_af8e273f4d7d173bfb5996ed09054611c}{\index{Expr@{Expr}!i\-Table@{i\-Table}}
+\index{i\-Table@{i\-Table}!Expr@{Expr}}
+\subsubsection[{i\-Table}]{\setlength{\rightskip}{0pt plus 5cm}int Expr\-::i\-Table}}\label{struct_expr_af8e273f4d7d173bfb5996ed09054611c}
+\hypertarget{struct_expr_a9ea4dff760e0008488807701c6102605}{\index{Expr@{Expr}!i\-Value@{i\-Value}}
+\index{i\-Value@{i\-Value}!Expr@{Expr}}
+\subsubsection[{i\-Value}]{\setlength{\rightskip}{0pt plus 5cm}int Expr\-::i\-Value}}\label{struct_expr_a9ea4dff760e0008488807701c6102605}
+\hypertarget{struct_expr_a5a893ea309f801f23404e7e5ac02732b}{\index{Expr@{Expr}!n\-Height@{n\-Height}}
+\index{n\-Height@{n\-Height}!Expr@{Expr}}
+\subsubsection[{n\-Height}]{\setlength{\rightskip}{0pt plus 5cm}int Expr\-::n\-Height}}\label{struct_expr_a5a893ea309f801f23404e7e5ac02732b}
+\hypertarget{struct_expr_a101c55ddb6c149d95f0327831eb78225}{\index{Expr@{Expr}!op@{op}}
+\index{op@{op}!Expr@{Expr}}
+\subsubsection[{op}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Expr\-::op}}\label{struct_expr_a101c55ddb6c149d95f0327831eb78225}
+\hypertarget{struct_expr_a0eacba0a2a6977e434b096b1cb9d5b9e}{\index{Expr@{Expr}!op2@{op2}}
+\index{op2@{op2}!Expr@{Expr}}
+\subsubsection[{op2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Expr\-::op2}}\label{struct_expr_a0eacba0a2a6977e434b096b1cb9d5b9e}
+\hypertarget{struct_expr_a4fde82477256ee85f3a906263549082a}{\index{Expr@{Expr}!p\-Agg\-Info@{p\-Agg\-Info}}
+\index{p\-Agg\-Info@{p\-Agg\-Info}!Expr@{Expr}}
+\subsubsection[{p\-Agg\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Agg\-Info}$\ast$ Expr\-::p\-Agg\-Info}}\label{struct_expr_a4fde82477256ee85f3a906263549082a}
+\hypertarget{struct_expr_a4ef09e21aaa9d61567b89714e25abfb9}{\index{Expr@{Expr}!p\-Coll@{p\-Coll}}
+\index{p\-Coll@{p\-Coll}!Expr@{Expr}}
+\subsubsection[{p\-Coll}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Coll\-Seq}$\ast$ Expr\-::p\-Coll}}\label{struct_expr_a4ef09e21aaa9d61567b89714e25abfb9}
+\hypertarget{struct_expr_a0a78282ae0d696f4a25013a12e38b1ba}{\index{Expr@{Expr}!p\-Left@{p\-Left}}
+\index{p\-Left@{p\-Left}!Expr@{Expr}}
+\subsubsection[{p\-Left}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expr}$\ast$ Expr\-::p\-Left}}\label{struct_expr_a0a78282ae0d696f4a25013a12e38b1ba}
+\hypertarget{struct_expr_ac7107bf192a8080b919350925cc35dd8}{\index{Expr@{Expr}!p\-List@{p\-List}}
+\index{p\-List@{p\-List}!Expr@{Expr}}
+\subsubsection[{p\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expr\-List}$\ast$ Expr\-::p\-List}}\label{struct_expr_ac7107bf192a8080b919350925cc35dd8}
+\hypertarget{struct_expr_aa08c218d5b0b6f8882e8bf9ec8822a08}{\index{Expr@{Expr}!p\-Right@{p\-Right}}
+\index{p\-Right@{p\-Right}!Expr@{Expr}}
+\subsubsection[{p\-Right}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expr}$\ast$ Expr\-::p\-Right}}\label{struct_expr_aa08c218d5b0b6f8882e8bf9ec8822a08}
+\hypertarget{struct_expr_a54e5186fdf157f8b4ae178919d8ff6b3}{\index{Expr@{Expr}!p\-Select@{p\-Select}}
+\index{p\-Select@{p\-Select}!Expr@{Expr}}
+\subsubsection[{p\-Select}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Select}$\ast$ Expr\-::p\-Select}}\label{struct_expr_a54e5186fdf157f8b4ae178919d8ff6b3}
+\hypertarget{struct_expr_a27c8824b41d853eeeebe61cf3ac1ae5a}{\index{Expr@{Expr}!p\-Tab@{p\-Tab}}
+\index{p\-Tab@{p\-Tab}!Expr@{Expr}}
+\subsubsection[{p\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Table}$\ast$ Expr\-::p\-Tab}}\label{struct_expr_a27c8824b41d853eeeebe61cf3ac1ae5a}
+\hypertarget{struct_expr_a5a43a51aa0ee7afc9babcdc337dd77db}{\index{Expr@{Expr}!u@{u}}
+\index{u@{u}!Expr@{Expr}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   Expr\-::u}}\label{struct_expr_a5a43a51aa0ee7afc9babcdc337dd77db}
+\hypertarget{struct_expr_a9ff6313055718299e20a19e551dcbf0a}{\index{Expr@{Expr}!x@{x}}
+\index{x@{x}!Expr@{Expr}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   Expr\-::x}}\label{struct_expr_a9ff6313055718299e20a19e551dcbf0a}
+\hypertarget{struct_expr_af1f6b0c5fcfdd18a41f682b74e13c950}{\index{Expr@{Expr}!z\-Token@{z\-Token}}
+\index{z\-Token@{z\-Token}!Expr@{Expr}}
+\subsubsection[{z\-Token}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Expr\-::z\-Token}}\label{struct_expr_af1f6b0c5fcfdd18a41f682b74e13c950}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

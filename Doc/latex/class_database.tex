@@ -1,0 +1,217 @@
+\hypertarget{class_database}{\section{Database Class Reference}
+\label{class_database}\index{Database@{Database}}
+}
+
+
+Allows saving and loading actions to/from database.  
+
+
+
+
+{\ttfamily \#include $<$database.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_database_a6714790c71898430c995668a06350dfe}{Database} (const Q\-String \&db\-Name, bool should\-Open=true)
+\begin{DoxyCompactList}\small\item\em Creates new database with the given name. \end{DoxyCompactList}\item 
+\hyperlink{class_database_a84d399a2ad58d69daab9b05330e1316d}{$\sim$\-Database} ()
+\begin{DoxyCompactList}\small\item\em Closes the database. \end{DoxyCompactList}\item 
+void \hyperlink{class_database_a0d0134e05c8f2dc4fcbbb2f36c02a779}{open} ()
+\begin{DoxyCompactList}\small\item\em Opens the database. \end{DoxyCompactList}\item 
+void \hyperlink{class_database_a7fd3f2692980d3aadd3cb609a5f958c3}{prepare\-Table\-For\-Actions} ()
+\begin{DoxyCompactList}\small\item\em Creates table for actions. \end{DoxyCompactList}\item 
+void \hyperlink{class_database_a704e65b47bb56b36b7ef436a16fdd0a6}{clear\-Contents} ()
+\begin{DoxyCompactList}\small\item\em Clears all of the rows in the table (truncates table). \end{DoxyCompactList}\item 
+void \hyperlink{class_database_a8b535ecf44b6d41e268750acccf40dc1}{insert\-Action} (Q\-Date date, \hyperlink{class_action}{Action} $\ast$action)
+\begin{DoxyCompactList}\small\item\em Inserts action to the database. \end{DoxyCompactList}\item 
+Q\-Vector$<$ Q\-Pair$<$ Q\-Date, \hyperlink{class_action}{Action} $\ast$ $>$ $>$ \hyperlink{class_database_ad796e97b41e4a8707017f70142c6160d}{select\-Actions} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{class_database_ae6ab1b4da47468a98e480b195d56c17a}{get\-Row} (void $\ast$not\-Used, int argc, char $\ast$$\ast$argv, char $\ast$$\ast$column\-Name)
+\begin{DoxyCompactList}\small\item\em Helper function used as callback in sqlite method for getting rows. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Q\-String \hyperlink{class_database_ae86350d76c5160ec0bcd2b352e82248a}{m\-\_\-db\-Name}
+\begin{DoxyCompactList}\small\item\em Name of the database;. \end{DoxyCompactList}\item 
+sqlite3 $\ast$ \hyperlink{class_database_ac64f96c196a98d531cbe18a9fadc3b4b}{m\-\_\-db}
+\begin{DoxyCompactList}\small\item\em Pointer to the sqlite engine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Q\-Vector$<$ Q\-Pair$<$ Q\-Date, \\*
+\hyperlink{class_action}{Action} $\ast$ $>$ $>$ \hyperlink{class_database_a235387dc22dc1a6057af86c330440dca}{m\-\_\-last\-Selected\-Actions}
+\begin{DoxyCompactList}\small\item\em Vector of the last selected actions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Allows saving and loading actions to/from database. 
+
+\begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28.\-07.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_database_a6714790c71898430c995668a06350dfe}{\index{Database@{Database}!Database@{Database}}
+\index{Database@{Database}!Database@{Database}}
+\subsubsection[{Database}]{\setlength{\rightskip}{0pt plus 5cm}Database\-::\-Database (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{db\-Name, }
+\item[{bool}]{should\-Open = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{class_database_a6714790c71898430c995668a06350dfe}
+
+
+Creates new database with the given name. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em db\-Name} & Name of the database. \\
+\hline
+\mbox{\tt in}  & {\em should\-Open} & Determines if the database should be opened (allowing operations) after creation. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_database_a84d399a2ad58d69daab9b05330e1316d}{\index{Database@{Database}!$\sim$\-Database@{$\sim$\-Database}}
+\index{$\sim$\-Database@{$\sim$\-Database}!Database@{Database}}
+\subsubsection[{$\sim$\-Database}]{\setlength{\rightskip}{0pt plus 5cm}Database\-::$\sim$\-Database (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_database_a84d399a2ad58d69daab9b05330e1316d}
+
+
+Closes the database. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_database_a704e65b47bb56b36b7ef436a16fdd0a6}{\index{Database@{Database}!clear\-Contents@{clear\-Contents}}
+\index{clear\-Contents@{clear\-Contents}!Database@{Database}}
+\subsubsection[{clear\-Contents}]{\setlength{\rightskip}{0pt plus 5cm}void Database\-::clear\-Contents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_database_a704e65b47bb56b36b7ef436a16fdd0a6}
+
+
+Clears all of the rows in the table (truncates table). 
+
+\hypertarget{class_database_ae6ab1b4da47468a98e480b195d56c17a}{\index{Database@{Database}!get\-Row@{get\-Row}}
+\index{get\-Row@{get\-Row}!Database@{Database}}
+\subsubsection[{get\-Row}]{\setlength{\rightskip}{0pt plus 5cm}int Database\-::get\-Row (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{not\-Used, }
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv, }
+\item[{char $\ast$$\ast$}]{column\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_database_ae6ab1b4da47468a98e480b195d56c17a}
+
+
+Helper function used as callback in sqlite method for getting rows. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em not\-Used} & Reserved for S\-Q\-Lite. \\
+\hline
+\mbox{\tt in}  & {\em argc} & Number of rows returned. \\
+\hline
+\mbox{\tt in}  & {\em argv} & Array of returned elements. \\
+\hline
+\mbox{\tt in}  & {\em column\-Name} & Name of the column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code. 0 means success. 
+\end{DoxyReturn}
+\hypertarget{class_database_a8b535ecf44b6d41e268750acccf40dc1}{\index{Database@{Database}!insert\-Action@{insert\-Action}}
+\index{insert\-Action@{insert\-Action}!Database@{Database}}
+\subsubsection[{insert\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Database\-::insert\-Action (
+\begin{DoxyParamCaption}
+\item[{Q\-Date}]{date, }
+\item[{{\bf Action} $\ast$}]{action}
+\end{DoxyParamCaption}
+)}}\label{class_database_a8b535ecf44b6d41e268750acccf40dc1}
+
+
+Inserts action to the database. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em date} & Date for the action. \\
+\hline
+\mbox{\tt in}  & {\em action} & \hyperlink{class_action}{Action} to be put into the database. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_database_a0d0134e05c8f2dc4fcbbb2f36c02a779}{\index{Database@{Database}!open@{open}}
+\index{open@{open}!Database@{Database}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}void Database\-::open (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_database_a0d0134e05c8f2dc4fcbbb2f36c02a779}
+
+
+Opens the database. 
+
+\hypertarget{class_database_a7fd3f2692980d3aadd3cb609a5f958c3}{\index{Database@{Database}!prepare\-Table\-For\-Actions@{prepare\-Table\-For\-Actions}}
+\index{prepare\-Table\-For\-Actions@{prepare\-Table\-For\-Actions}!Database@{Database}}
+\subsubsection[{prepare\-Table\-For\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}void Database\-::prepare\-Table\-For\-Actions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_database_a7fd3f2692980d3aadd3cb609a5f958c3}
+
+
+Creates table for actions. 
+
+\hypertarget{class_database_ad796e97b41e4a8707017f70142c6160d}{\index{Database@{Database}!select\-Actions@{select\-Actions}}
+\index{select\-Actions@{select\-Actions}!Database@{Database}}
+\subsubsection[{select\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<$ Q\-Pair$<$ Q\-Date, {\bf Action} $\ast$ $>$ $>$ Database\-::select\-Actions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_database_ad796e97b41e4a8707017f70142c6160d}
+\begin{DoxyReturn}{Returns}
+Vector of pairs in which the first element is the date on which the action exists and the second element is the action itself. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_database_ac64f96c196a98d531cbe18a9fadc3b4b}{\index{Database@{Database}!m\-\_\-db@{m\-\_\-db}}
+\index{m\-\_\-db@{m\-\_\-db}!Database@{Database}}
+\subsubsection[{m\-\_\-db}]{\setlength{\rightskip}{0pt plus 5cm}sqlite3$\ast$ Database\-::m\-\_\-db\hspace{0.3cm}{\ttfamily [private]}}}\label{class_database_ac64f96c196a98d531cbe18a9fadc3b4b}
+
+
+Pointer to the sqlite engine. 
+
+\hypertarget{class_database_ae86350d76c5160ec0bcd2b352e82248a}{\index{Database@{Database}!m\-\_\-db\-Name@{m\-\_\-db\-Name}}
+\index{m\-\_\-db\-Name@{m\-\_\-db\-Name}!Database@{Database}}
+\subsubsection[{m\-\_\-db\-Name}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String Database\-::m\-\_\-db\-Name\hspace{0.3cm}{\ttfamily [private]}}}\label{class_database_ae86350d76c5160ec0bcd2b352e82248a}
+
+
+Name of the database;. 
+
+\hypertarget{class_database_a235387dc22dc1a6057af86c330440dca}{\index{Database@{Database}!m\-\_\-last\-Selected\-Actions@{m\-\_\-last\-Selected\-Actions}}
+\index{m\-\_\-last\-Selected\-Actions@{m\-\_\-last\-Selected\-Actions}!Database@{Database}}
+\subsubsection[{m\-\_\-last\-Selected\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<$ Q\-Pair$<$ Q\-Date, {\bf Action} $\ast$ $>$ $>$ Database\-::m\-\_\-last\-Selected\-Actions\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_database_a235387dc22dc1a6057af86c330440dca}
+
+
+Vector of the last selected actions. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{database_8h}{database.\-h}\item 
+Do\-For\-Me!/\hyperlink{database_8cpp}{database.\-cpp}\end{DoxyCompactItemize}

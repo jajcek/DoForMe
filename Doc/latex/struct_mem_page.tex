@@ -1,0 +1,124 @@
+\hypertarget{struct_mem_page}{\section{Mem\-Page Struct Reference}
+\label{struct_mem_page}\index{Mem\-Page@{Mem\-Page}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_mem_page_a3ab4ace46245be0fb2fb19eaa2862019}{is\-Init}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_mem_page_a3f7fa1a1eba3af840ef887e8ddd6d2cc}{n\-Overflow}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_mem_page_a46784c3c4708c7a582cff81a29c55323}{int\-Key}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_mem_page_af18504bd0a2e7d39d9b485d434af0447}{leaf}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_mem_page_af7b608d25c2e326f82cc270cd53dd8f8}{has\-Data}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_mem_page_a01967a1a593980fb71c8ccf3393ae156}{hdr\-Offset}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_mem_page_aeba10281fc255d9bbc0e31486f8fbd48}{child\-Ptr\-Size}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_mem_page_a79548547cafb0e6d8549006bdc553f0a}{max1byte\-Payload}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_mem_page_a36394b7c3abf4652e7a24be4ab314f13}{max\-Local}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_mem_page_a95cab31aa57bf8b478be273557c5c807}{min\-Local}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_mem_page_a324ed834d93c3ae72994fb5730940521}{cell\-Offset}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_mem_page_a3418a9aee707f57a73d8470f8a1228a8}{n\-Free}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_mem_page_a35d1d8f836201b82b1eb778ce0e324f4}{n\-Cell}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_mem_page_aa3d64e8755cc9f431bbc8423a2b506ec}{mask\-Page}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_mem_page_a857e00533053fe6017c6e08b1b240661}{ai\-Ovfl} \mbox{[}5\mbox{]}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} $\ast$ \hyperlink{struct_mem_page_a3a6347d06b1e85938605d9a44f193cb9}{ap\-Ovfl} \mbox{[}5\mbox{]}
+\item 
+\hyperlink{struct_bt_shared}{Bt\-Shared} $\ast$ \hyperlink{struct_mem_page_a949df1156f7392592eaeb64389068f99}{p\-Bt}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} $\ast$ \hyperlink{struct_mem_page_a2d873eff563d2208be0c24959140a4b0}{a\-Data}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} $\ast$ \hyperlink{struct_mem_page_ab5d2ecb95a84eaf4bd0ccef536bac6d7}{a\-Data\-End}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} $\ast$ \hyperlink{struct_mem_page_a6f391f110e68ede6e5234b4e9f678f99}{a\-Cell\-Idx}
+\item 
+\hyperlink{sqlite3_8c_aa41da1cdeedecb95acdb716e16bd9266}{Db\-Page} $\ast$ \hyperlink{struct_mem_page_add322c1aed91e95d8dfe3ac3535d65b4}{p\-Db\-Page}
+\item 
+\hyperlink{sqlite3_8c_aec0c653e8dd16e4639caf2f8ea54f55c}{Pgno} \hyperlink{struct_mem_page_ad2b0c532abc799bbcf3b43df4f0b0546}{pgno}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_mem_page_a6f391f110e68ede6e5234b4e9f678f99}{\index{Mem\-Page@{Mem\-Page}!a\-Cell\-Idx@{a\-Cell\-Idx}}
+\index{a\-Cell\-Idx@{a\-Cell\-Idx}!MemPage@{Mem\-Page}}
+\subsubsection[{a\-Cell\-Idx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8}$\ast$ Mem\-Page\-::a\-Cell\-Idx}}\label{struct_mem_page_a6f391f110e68ede6e5234b4e9f678f99}
+\hypertarget{struct_mem_page_a2d873eff563d2208be0c24959140a4b0}{\index{Mem\-Page@{Mem\-Page}!a\-Data@{a\-Data}}
+\index{a\-Data@{a\-Data}!MemPage@{Mem\-Page}}
+\subsubsection[{a\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8}$\ast$ Mem\-Page\-::a\-Data}}\label{struct_mem_page_a2d873eff563d2208be0c24959140a4b0}
+\hypertarget{struct_mem_page_ab5d2ecb95a84eaf4bd0ccef536bac6d7}{\index{Mem\-Page@{Mem\-Page}!a\-Data\-End@{a\-Data\-End}}
+\index{a\-Data\-End@{a\-Data\-End}!MemPage@{Mem\-Page}}
+\subsubsection[{a\-Data\-End}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8}$\ast$ Mem\-Page\-::a\-Data\-End}}\label{struct_mem_page_ab5d2ecb95a84eaf4bd0ccef536bac6d7}
+\hypertarget{struct_mem_page_a857e00533053fe6017c6e08b1b240661}{\index{Mem\-Page@{Mem\-Page}!ai\-Ovfl@{ai\-Ovfl}}
+\index{ai\-Ovfl@{ai\-Ovfl}!MemPage@{Mem\-Page}}
+\subsubsection[{ai\-Ovfl}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Mem\-Page\-::ai\-Ovfl\mbox{[}5\mbox{]}}}\label{struct_mem_page_a857e00533053fe6017c6e08b1b240661}
+\hypertarget{struct_mem_page_a3a6347d06b1e85938605d9a44f193cb9}{\index{Mem\-Page@{Mem\-Page}!ap\-Ovfl@{ap\-Ovfl}}
+\index{ap\-Ovfl@{ap\-Ovfl}!MemPage@{Mem\-Page}}
+\subsubsection[{ap\-Ovfl}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8}$\ast$ Mem\-Page\-::ap\-Ovfl\mbox{[}5\mbox{]}}}\label{struct_mem_page_a3a6347d06b1e85938605d9a44f193cb9}
+\hypertarget{struct_mem_page_a324ed834d93c3ae72994fb5730940521}{\index{Mem\-Page@{Mem\-Page}!cell\-Offset@{cell\-Offset}}
+\index{cell\-Offset@{cell\-Offset}!MemPage@{Mem\-Page}}
+\subsubsection[{cell\-Offset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Mem\-Page\-::cell\-Offset}}\label{struct_mem_page_a324ed834d93c3ae72994fb5730940521}
+\hypertarget{struct_mem_page_aeba10281fc255d9bbc0e31486f8fbd48}{\index{Mem\-Page@{Mem\-Page}!child\-Ptr\-Size@{child\-Ptr\-Size}}
+\index{child\-Ptr\-Size@{child\-Ptr\-Size}!MemPage@{Mem\-Page}}
+\subsubsection[{child\-Ptr\-Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Mem\-Page\-::child\-Ptr\-Size}}\label{struct_mem_page_aeba10281fc255d9bbc0e31486f8fbd48}
+\hypertarget{struct_mem_page_af7b608d25c2e326f82cc270cd53dd8f8}{\index{Mem\-Page@{Mem\-Page}!has\-Data@{has\-Data}}
+\index{has\-Data@{has\-Data}!MemPage@{Mem\-Page}}
+\subsubsection[{has\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Mem\-Page\-::has\-Data}}\label{struct_mem_page_af7b608d25c2e326f82cc270cd53dd8f8}
+\hypertarget{struct_mem_page_a01967a1a593980fb71c8ccf3393ae156}{\index{Mem\-Page@{Mem\-Page}!hdr\-Offset@{hdr\-Offset}}
+\index{hdr\-Offset@{hdr\-Offset}!MemPage@{Mem\-Page}}
+\subsubsection[{hdr\-Offset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Mem\-Page\-::hdr\-Offset}}\label{struct_mem_page_a01967a1a593980fb71c8ccf3393ae156}
+\hypertarget{struct_mem_page_a46784c3c4708c7a582cff81a29c55323}{\index{Mem\-Page@{Mem\-Page}!int\-Key@{int\-Key}}
+\index{int\-Key@{int\-Key}!MemPage@{Mem\-Page}}
+\subsubsection[{int\-Key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Mem\-Page\-::int\-Key}}\label{struct_mem_page_a46784c3c4708c7a582cff81a29c55323}
+\hypertarget{struct_mem_page_a3ab4ace46245be0fb2fb19eaa2862019}{\index{Mem\-Page@{Mem\-Page}!is\-Init@{is\-Init}}
+\index{is\-Init@{is\-Init}!MemPage@{Mem\-Page}}
+\subsubsection[{is\-Init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Mem\-Page\-::is\-Init}}\label{struct_mem_page_a3ab4ace46245be0fb2fb19eaa2862019}
+\hypertarget{struct_mem_page_af18504bd0a2e7d39d9b485d434af0447}{\index{Mem\-Page@{Mem\-Page}!leaf@{leaf}}
+\index{leaf@{leaf}!MemPage@{Mem\-Page}}
+\subsubsection[{leaf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Mem\-Page\-::leaf}}\label{struct_mem_page_af18504bd0a2e7d39d9b485d434af0447}
+\hypertarget{struct_mem_page_aa3d64e8755cc9f431bbc8423a2b506ec}{\index{Mem\-Page@{Mem\-Page}!mask\-Page@{mask\-Page}}
+\index{mask\-Page@{mask\-Page}!MemPage@{Mem\-Page}}
+\subsubsection[{mask\-Page}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Mem\-Page\-::mask\-Page}}\label{struct_mem_page_aa3d64e8755cc9f431bbc8423a2b506ec}
+\hypertarget{struct_mem_page_a79548547cafb0e6d8549006bdc553f0a}{\index{Mem\-Page@{Mem\-Page}!max1byte\-Payload@{max1byte\-Payload}}
+\index{max1byte\-Payload@{max1byte\-Payload}!MemPage@{Mem\-Page}}
+\subsubsection[{max1byte\-Payload}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Mem\-Page\-::max1byte\-Payload}}\label{struct_mem_page_a79548547cafb0e6d8549006bdc553f0a}
+\hypertarget{struct_mem_page_a36394b7c3abf4652e7a24be4ab314f13}{\index{Mem\-Page@{Mem\-Page}!max\-Local@{max\-Local}}
+\index{max\-Local@{max\-Local}!MemPage@{Mem\-Page}}
+\subsubsection[{max\-Local}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Mem\-Page\-::max\-Local}}\label{struct_mem_page_a36394b7c3abf4652e7a24be4ab314f13}
+\hypertarget{struct_mem_page_a95cab31aa57bf8b478be273557c5c807}{\index{Mem\-Page@{Mem\-Page}!min\-Local@{min\-Local}}
+\index{min\-Local@{min\-Local}!MemPage@{Mem\-Page}}
+\subsubsection[{min\-Local}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Mem\-Page\-::min\-Local}}\label{struct_mem_page_a95cab31aa57bf8b478be273557c5c807}
+\hypertarget{struct_mem_page_a35d1d8f836201b82b1eb778ce0e324f4}{\index{Mem\-Page@{Mem\-Page}!n\-Cell@{n\-Cell}}
+\index{n\-Cell@{n\-Cell}!MemPage@{Mem\-Page}}
+\subsubsection[{n\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Mem\-Page\-::n\-Cell}}\label{struct_mem_page_a35d1d8f836201b82b1eb778ce0e324f4}
+\hypertarget{struct_mem_page_a3418a9aee707f57a73d8470f8a1228a8}{\index{Mem\-Page@{Mem\-Page}!n\-Free@{n\-Free}}
+\index{n\-Free@{n\-Free}!MemPage@{Mem\-Page}}
+\subsubsection[{n\-Free}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Mem\-Page\-::n\-Free}}\label{struct_mem_page_a3418a9aee707f57a73d8470f8a1228a8}
+\hypertarget{struct_mem_page_a3f7fa1a1eba3af840ef887e8ddd6d2cc}{\index{Mem\-Page@{Mem\-Page}!n\-Overflow@{n\-Overflow}}
+\index{n\-Overflow@{n\-Overflow}!MemPage@{Mem\-Page}}
+\subsubsection[{n\-Overflow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Mem\-Page\-::n\-Overflow}}\label{struct_mem_page_a3f7fa1a1eba3af840ef887e8ddd6d2cc}
+\hypertarget{struct_mem_page_a949df1156f7392592eaeb64389068f99}{\index{Mem\-Page@{Mem\-Page}!p\-Bt@{p\-Bt}}
+\index{p\-Bt@{p\-Bt}!MemPage@{Mem\-Page}}
+\subsubsection[{p\-Bt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bt\-Shared}$\ast$ Mem\-Page\-::p\-Bt}}\label{struct_mem_page_a949df1156f7392592eaeb64389068f99}
+\hypertarget{struct_mem_page_add322c1aed91e95d8dfe3ac3535d65b4}{\index{Mem\-Page@{Mem\-Page}!p\-Db\-Page@{p\-Db\-Page}}
+\index{p\-Db\-Page@{p\-Db\-Page}!MemPage@{Mem\-Page}}
+\subsubsection[{p\-Db\-Page}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Db\-Page}$\ast$ Mem\-Page\-::p\-Db\-Page}}\label{struct_mem_page_add322c1aed91e95d8dfe3ac3535d65b4}
+\hypertarget{struct_mem_page_ad2b0c532abc799bbcf3b43df4f0b0546}{\index{Mem\-Page@{Mem\-Page}!pgno@{pgno}}
+\index{pgno@{pgno}!MemPage@{Mem\-Page}}
+\subsubsection[{pgno}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pgno} Mem\-Page\-::pgno}}\label{struct_mem_page_ad2b0c532abc799bbcf3b43df4f0b0546}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

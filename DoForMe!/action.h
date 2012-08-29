@@ -168,7 +168,7 @@ public:
 	int getId() const;
 	/**
 		\brief Main date for the action from which the repetitions will be created.
-		\param[id] mainDate Main date for the action.
+		\param[in] mainDate Main date for the action.
 	*/
 	void setMainDate( QDate mainDate );
 	/**

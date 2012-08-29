@@ -163,7 +163,7 @@ public:
 		\brief Runs action.
 		\details This is a wrapper for 3 other functions - LuaEngine::loadScript, LuaEngine::parseScript and LuaEngine::start().
 		\param[in] code Code to be executed.
-		\param[in] execute Wheter the script should be run by the engine, if set to false the method only checks the script correctness.
+		\param[in] onlyParse Wheter the script should be run by the engine, if set to false the method only checks the script correctness.
 		\return Value which informs if the code has been executed without errors.
 		If there was an error get it by using LuaEngine::validateLastLoad and LuaEngine::validateLastParse.
 	*/

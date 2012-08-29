@@ -128,13 +128,16 @@ void ActionsCalendar::moveExcludedDates( Action* action, const int days ) {
 
 	QVector<QDate> _movedExcludedDates;
 
+	// get vector of excluded dates
 	auto _excludedDates = action->getExcludedDates();
+	// if we want to move our actions up, we have to add -7 days, down -> 7 days, left -> -1, right -> 1.
 	int _datesNumber = _excludedDates.size();
 	for( int i = 0; i < _datesNumber; ++i ) {
 		QDate _movedDate = _excludedDates.at( i ).addDays( days );
 		_movedExcludedDates.push_back( _movedDate );
 	}
 
+	// set moved excluded dates into the action
 	action->setExcludedDates( _movedExcludedDates );
 }
 

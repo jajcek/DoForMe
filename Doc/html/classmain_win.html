@@ -93,6 +93,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Main class for window and its controls.  
+ <a href="classmain_win.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="mainwin_8h_source.html">mainwin.h</a>&gt;</code></p>
 
 <p><a href="classmain_win-members.html">List of all members.</a></p>
@@ -100,39 +103,99 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
 <tr class="memitem:a5a5ebff7e72fcf1a9d840d8030b535b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a5a5ebff7e72fcf1a9d840d8030b535b3">newFile</a> ()</td></tr>
-<tr class="memitem:acf0324a155856e59cdea5ec5698f5514"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#acf0324a155856e59cdea5ec5698f5514">runAction</a> ()</td></tr>
+<tr class="memdesc:a5a5ebff7e72fcf1a9d840d8030b535b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during creating new script file.  <a href="#a5a5ebff7e72fcf1a9d840d8030b535b3"></a><br/></td></tr>
+<tr class="memitem:a1de1fce6f04475bd5baf2006ba93f6a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a1de1fce6f04475bd5baf2006ba93f6a0">importScripts</a> ()</td></tr>
+<tr class="memdesc:a1de1fce6f04475bd5baf2006ba93f6a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during importing scripts.  <a href="#a1de1fce6f04475bd5baf2006ba93f6a0"></a><br/></td></tr>
 <tr class="memitem:a647971cd2796a848d88990680ca8c47f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a647971cd2796a848d88990680ca8c47f">saveScript</a> ()</td></tr>
-<tr class="memitem:ab7665b16866b9aeecbe430ef17769ac4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#ab7665b16866b9aeecbe430ef17769ac4">saveAction</a> ()</td></tr>
+<tr class="memdesc:a647971cd2796a848d88990680ca8c47f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during sacing script.  <a href="#a647971cd2796a848d88990680ca8c47f"></a><br/></td></tr>
+<tr class="memitem:a605bc5e184abd3eadb21338970927046"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a605bc5e184abd3eadb21338970927046">toTray</a> ()</td></tr>
+<tr class="memdesc:a605bc5e184abd3eadb21338970927046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked when the program is 'sent' to tray.  <a href="#a605bc5e184abd3eadb21338970927046"></a><br/></td></tr>
+<tr class="memitem:a2a999b0788004515727182350242d6bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a2a999b0788004515727182350242d6bc">parseScript</a> ()</td></tr>
+<tr class="memdesc:a2a999b0788004515727182350242d6bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during parsing the script code.  <a href="#a2a999b0788004515727182350242d6bc"></a><br/></td></tr>
+<tr class="memitem:a1971e30e143e696271ee2ec1f1cf998e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a1971e30e143e696271ee2ec1f1cf998e">runScript</a> (bool onlyParse=false)</td></tr>
+<tr class="memdesc:a1971e30e143e696271ee2ec1f1cf998e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs script code from the text box.  <a href="#a1971e30e143e696271ee2ec1f1cf998e"></a><br/></td></tr>
+<tr class="memitem:a3ad8d9509ece99d6e322db2d56a9fa51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a3ad8d9509ece99d6e322db2d56a9fa51">removeScript</a> ()</td></tr>
+<tr class="memdesc:a3ad8d9509ece99d6e322db2d56a9fa51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during removing a script from the list (the script is removed from the HD as well).  <a href="#a3ad8d9509ece99d6e322db2d56a9fa51"></a><br/></td></tr>
 <tr class="memitem:af5eb5f12f6e8bf37e9a293e28d82632c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#af5eb5f12f6e8bf37e9a293e28d82632c">scriptSelected</a> (const QString &amp;scriptTitle)</td></tr>
+<tr class="memdesc:af5eb5f12f6e8bf37e9a293e28d82632c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during selecting a script on the scripts list.  <a href="#af5eb5f12f6e8bf37e9a293e28d82632c"></a><br/></td></tr>
 <tr class="memitem:affa3129c6021871bfc6ab5acccb0a9c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#affa3129c6021871bfc6ab5acccb0a9c5">scriptModified</a> ()</td></tr>
+<tr class="memdesc:affa3129c6021871bfc6ab5acccb0a9c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during modifying code of the selected script.  <a href="#affa3129c6021871bfc6ab5acccb0a9c5"></a><br/></td></tr>
 <tr class="memitem:abfe17be5efdd261fa5d73c37c66b57e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#abfe17be5efdd261fa5d73c37c66b57e8">addAction</a> ()</td></tr>
+<tr class="memdesc:abfe17be5efdd261fa5d73c37c66b57e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during clicking on add action feature.  <a href="#abfe17be5efdd261fa5d73c37c66b57e8"></a><br/></td></tr>
 <tr class="memitem:a971bee9dff02167121566f9a4444af4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a971bee9dff02167121566f9a4444af4e">showAbout</a> ()</td></tr>
+<tr class="memdesc:a971bee9dff02167121566f9a4444af4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows 'about' dialog.  <a href="#a971bee9dff02167121566f9a4444af4e"></a><br/></td></tr>
+<tr class="memitem:aef242a8707d462171f02a6156d5a949e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#aef242a8707d462171f02a6156d5a949e">actionSelected</a> (QTableWidgetItem *item)</td></tr>
+<tr class="memdesc:aef242a8707d462171f02a6156d5a949e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during selection of the action in the actions list (not in the calendar!).  <a href="#aef242a8707d462171f02a6156d5a949e"></a><br/></td></tr>
+<tr class="memitem:a1833795590c91fa73da6a224f31ce5d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a1833795590c91fa73da6a224f31ce5d2">detachAction</a> ()</td></tr>
+<tr class="memdesc:a1833795590c91fa73da6a224f31ce5d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during clicking on the detach feature.  <a href="#a1833795590c91fa73da6a224f31ce5d2"></a><br/></td></tr>
+<tr class="memitem:a16012c30ebbfc2f89537df405f9662dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a16012c30ebbfc2f89537df405f9662dc">removeAction</a> ()</td></tr>
+<tr class="memdesc:a16012c30ebbfc2f89537df405f9662dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during clicking on the remove feature.  <a href="#a16012c30ebbfc2f89537df405f9662dc"></a><br/></td></tr>
+<tr class="memitem:ac891fd8165e421e0aafcc1fb3574df40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#ac891fd8165e421e0aafcc1fb3574df40">editAction</a> ()</td></tr>
+<tr class="memdesc:ac891fd8165e421e0aafcc1fb3574df40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during editing an action.  <a href="#ac891fd8165e421e0aafcc1fb3574df40"></a><br/></td></tr>
+<tr class="memitem:a38e7757a0783951f6e0d2d35f6a95dcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a38e7757a0783951f6e0d2d35f6a95dcb">saveData</a> ()</td></tr>
+<tr class="memdesc:a38e7757a0783951f6e0d2d35f6a95dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked while saving the actions into the database.  <a href="#a38e7757a0783951f6e0d2d35f6a95dcb"></a><br/></td></tr>
+<tr class="memitem:afdd988d05727d738cd482a8f1e07e3fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#afdd988d05727d738cd482a8f1e07e3fe">moveUp</a> ()</td></tr>
+<tr class="memdesc:afdd988d05727d738cd482a8f1e07e3fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves currently selected action up.  <a href="#afdd988d05727d738cd482a8f1e07e3fe"></a><br/></td></tr>
+<tr class="memitem:a92d52556b5fc642b7e39b2fad67640fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a92d52556b5fc642b7e39b2fad67640fc">moveDown</a> ()</td></tr>
+<tr class="memdesc:a92d52556b5fc642b7e39b2fad67640fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves currently selected action down.  <a href="#a92d52556b5fc642b7e39b2fad67640fc"></a><br/></td></tr>
+<tr class="memitem:a6d480f5086986eaeeed93a4c3157f0df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a6d480f5086986eaeeed93a4c3157f0df">moveLeft</a> ()</td></tr>
+<tr class="memdesc:a6d480f5086986eaeeed93a4c3157f0df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves currently selected action left.  <a href="#a6d480f5086986eaeeed93a4c3157f0df"></a><br/></td></tr>
+<tr class="memitem:aa46d4ec0613b07140463723017711235"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#aa46d4ec0613b07140463723017711235">moveRight</a> ()</td></tr>
+<tr class="memdesc:aa46d4ec0613b07140463723017711235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves currently selected action right.  <a href="#aa46d4ec0613b07140463723017711235"></a><br/></td></tr>
+<tr class="memitem:acb51cccbafc4c963ef55ef6d517c60c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#acb51cccbafc4c963ef55ef6d517c60c7">openApp</a> ()</td></tr>
+<tr class="memdesc:acb51cccbafc4c963ef55ef6d517c60c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores main window (used while the program is in tray).  <a href="#acb51cccbafc4c963ef55ef6d517c60c7"></a><br/></td></tr>
+<tr class="memitem:abacc60b864c8156cbeb235b516a3be05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#abacc60b864c8156cbeb235b516a3be05">quitApp</a> ()</td></tr>
+<tr class="memdesc:abacc60b864c8156cbeb235b516a3be05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminates the program previously removing tray icon..  <a href="#abacc60b864c8156cbeb235b516a3be05"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a837aa6380bc037afd022629b56b7aca9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a837aa6380bc037afd022629b56b7aca9">mainWin</a> (QWidget *parent=0, Qt::WFlags flags=0)</td></tr>
+<tr class="memdesc:a837aa6380bc037afd022629b56b7aca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the main window, connects signals to slots and initializes the most important objects.  <a href="#a837aa6380bc037afd022629b56b7aca9"></a><br/></td></tr>
 <tr class="memitem:a70326ccd243eb2060b1b5a3150025a9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a70326ccd243eb2060b1b5a3150025a9d">~mainWin</a> ()</td></tr>
+<tr class="memdesc:a70326ccd243eb2060b1b5a3150025a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees memory of the calendar, scripts and lua engine.  <a href="#a70326ccd243eb2060b1b5a3150025a9d"></a><br/></td></tr>
 <tr class="memitem:a3a1257aa1b06a426b08763a72756f06a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a3a1257aa1b06a426b08763a72756f06a">loadScripts</a> (const QString &amp;path)</td></tr>
+<tr class="memdesc:a3a1257aa1b06a426b08763a72756f06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads script from the given path and puts the into the scripts list.  <a href="#a3a1257aa1b06a426b08763a72756f06a"></a><br/></td></tr>
+<tr class="memitem:abeb1092d0b748df7ceaeb13334a89030"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#abeb1092d0b748df7ceaeb13334a89030">getCode</a> () const </td></tr>
+<tr class="memitem:afe80ea88b1fb5e13d56acfddf6fee0e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#afe80ea88b1fb5e13d56acfddf6fee0e6">setCode</a> (const QString &amp;code)</td></tr>
+<tr class="memdesc:afe80ea88b1fb5e13d56acfddf6fee0e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets code to the text box.  <a href="#afe80ea88b1fb5e13d56acfddf6fee0e6"></a><br/></td></tr>
+<tr class="memitem:aa70a0f3f1c66ffa1a7d4012526b56c44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#aa70a0f3f1c66ffa1a7d4012526b56c44">setScriptTitle</a> (QString title)</td></tr>
+<tr class="memdesc:aa70a0f3f1c66ffa1a7d4012526b56c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets title for the script (only above the text box with its code).  <a href="#aa70a0f3f1c66ffa1a7d4012526b56c44"></a><br/></td></tr>
+<tr class="memitem:a5d97000005953e9adbda7c98602a5ae9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a5d97000005953e9adbda7c98602a5ae9">timerEvent</a> (QTimerEvent *e)</td></tr>
+<tr class="memdesc:a5d97000005953e9adbda7c98602a5ae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method called by the timer fo updating elements. See <a class="el" href="classmain_win.html#a079d09aeafe1af36f8f0d1bd4d88d803" title="Timer which is used to update calendar, action caller and context menu of the tray system...">mainWin::m_updater</a> for more details.  <a href="#a5d97000005953e9adbda7c98602a5ae9"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a9c0cfda2b24fa6259874caf7ccd4b908"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a9c0cfda2b24fa6259874caf7ccd4b908">initLuaApi</a> ()</td></tr>
-<tr class="memitem:a0bf4d1e69b1c8bbd0d142cd5d2ec9179"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a0bf4d1e69b1c8bbd0d142cd5d2ec9179">getDataForAction</a> ()</td></tr>
+<tr class="memdesc:a9c0cfda2b24fa6259874caf7ccd4b908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes all api functions for the scripts.  <a href="#a9c0cfda2b24fa6259874caf7ccd4b908"></a><br/></td></tr>
+<tr class="memitem:aaf15be9a17be251351b2bde08dcb2c21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#aaf15be9a17be251351b2bde08dcb2c21">initTraySystem</a> (<a class="el" href="class_tray_system.html">TraySystem</a> *tray)</td></tr>
+<tr class="memdesc:aaf15be9a17be251351b2bde08dcb2c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes tray system with the context menu.  <a href="#aaf15be9a17be251351b2bde08dcb2c21"></a><br/></td></tr>
 <tr class="memitem:ab00961de109eaf86fceed0dc39d53fe8"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#ab00961de109eaf86fceed0dc39d53fe8">getFuncName</a> (QString textError)</td></tr>
-<tr class="memitem:aa70a0f3f1c66ffa1a7d4012526b56c44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#aa70a0f3f1c66ffa1a7d4012526b56c44">setScriptTitle</a> (QString title)</td></tr>
-<tr class="memitem:a8f8b08fe7876ae565621dd14c5ecb87d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a8f8b08fe7876ae565621dd14c5ecb87d">setCode</a> (const QString &amp;)</td></tr>
+<tr class="memdesc:ab00961de109eaf86fceed0dc39d53fe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets function name from the error message from the lua engine library (not from the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a> class).  <a href="#ab00961de109eaf86fceed0dc39d53fe8"></a><br/></td></tr>
+<tr class="memitem:a2e729670f337c9017dbfae89c2a1a0a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a2e729670f337c9017dbfae89c2a1a0a5">checkDateCorrectness</a> (QDate date)</td></tr>
+<tr class="memdesc:a2e729670f337c9017dbfae89c2a1a0a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function for checking if the date is not old (used with adding actions to the calendar).  <a href="#a2e729670f337c9017dbfae89c2a1a0a5"></a><br/></td></tr>
+<tr class="memitem:a63293c7cdab54cf78b86e7c69a3bff7a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a63293c7cdab54cf78b86e7c69a3bff7a">calcTimeForNewDay</a> () const </td></tr>
+<tr class="memitem:add27401cb9db131bbe76cb9501bdd500"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#add27401cb9db131bbe76cb9501bdd500">closeEvent</a> (QCloseEvent *e)</td></tr>
+<tr class="memdesc:add27401cb9db131bbe76cb9501bdd500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked while closing the main window.  <a href="#add27401cb9db131bbe76cb9501bdd500"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a89fa9d3006573378f3195845fe9ed408"><td class="memItemLeft" align="right" valign="top">Ui::mainWinClass&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a89fa9d3006573378f3195845fe9ed408">ui</a></td></tr>
-<tr class="memitem:a698988f67b0f686dba0a8e33187f66a1"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a698988f67b0f686dba0a8e33187f66a1">m_iWidth</a></td></tr>
-<tr class="memitem:afaa8e85eaf3926a8aa141bfc1b2c0c01"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#afaa8e85eaf3926a8aa141bfc1b2c0c01">m_iHeight</a></td></tr>
-<tr class="memitem:a6a02cf853e63c1ad31759f3ce225ed62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_detailed_calendar.html">DetailedCalendar</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a6a02cf853e63c1ad31759f3ce225ed62">m_calendar</a></td></tr>
-<tr class="memitem:a96b71dd9a31a4cf6ea5db224a4540458"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_lua_engine.html">LuaEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a96b71dd9a31a4cf6ea5db224a4540458">m_lua</a></td></tr>
+<tr class="memdesc:a89fa9d3006573378f3195845fe9ed408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object containing all controls of the window.  <a href="#a89fa9d3006573378f3195845fe9ed408"></a><br/></td></tr>
+<tr class="memitem:a6aea2ca54243cf5eafad64ab548766d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_actions_calendar.html">ActionsCalendar</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a6aea2ca54243cf5eafad64ab548766d8">m_calendar</a></td></tr>
+<tr class="memdesc:a6aea2ca54243cf5eafad64ab548766d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the calendar object.  <a href="#a6aea2ca54243cf5eafad64ab548766d8"></a><br/></td></tr>
 <tr class="memitem:ab391602112d6c25f237da91eae815d47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_script.html">Script</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#ab391602112d6c25f237da91eae815d47">m_pCurrScript</a></td></tr>
-<tr class="memitem:a426c3fc67264577231b3deb525ddef99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_action.html">Action</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a426c3fc67264577231b3deb525ddef99">m_pCurrAction</a></td></tr>
+<tr class="memdesc:ab391602112d6c25f237da91eae815d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the currently selected script.  <a href="#ab391602112d6c25f237da91eae815d47"></a><br/></td></tr>
+<tr class="memitem:a13f687f63460e13e6a4819ea1496a2f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tray_system.html">TraySystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a13f687f63460e13e6a4819ea1496a2f0">m_tray</a></td></tr>
+<tr class="memdesc:a13f687f63460e13e6a4819ea1496a2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the tray icon system.  <a href="#a13f687f63460e13e6a4819ea1496a2f0"></a><br/></td></tr>
+<tr class="memitem:a079d09aeafe1af36f8f0d1bd4d88d803"><td class="memItemLeft" align="right" valign="top">QBasicTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a079d09aeafe1af36f8f0d1bd4d88d803">m_updater</a></td></tr>
+<tr class="memdesc:a079d09aeafe1af36f8f0d1bd4d88d803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer which is used to update calendar, action caller and context menu of the tray system.  <a href="#a079d09aeafe1af36f8f0d1bd4d88d803"></a><br/></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Main class for window and its controls. </p>
+<dl class="section author"><dt>Author:</dt><dd>Jacek Topolski </dd></dl>
+<dl class="section version"><dt>Version:</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date:</dt><dd>28.07.2012 </dd></dl>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a837aa6380bc037afd022629b56b7aca9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -157,6 +220,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates the main window, connects signals to slots and initializes the most important objects. </p>
+
 </div>
 </div>
 <a class="anchor" id="a70326ccd243eb2060b1b5a3150025a9d"></a>
@@ -172,9 +237,37 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Frees memory of the calendar, scripts and lua engine. </p>
+
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aef242a8707d462171f02a6156d5a949e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::actionSelected </td>
+          <td>(</td>
+          <td class="paramtype">QTableWidgetItem *&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method invoked during selection of the action in the actions list (not in the calendar!). </p>
+
+</div>
+</div>
 <a class="anchor" id="abfe17be5efdd261fa5d73c37c66b57e8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -196,9 +289,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Method invoked during clicking on add action feature. </p>
+
 </div>
 </div>
-<a class="anchor" id="a0bf4d1e69b1c8bbd0d142cd5d2ec9179"></a>
+<a class="anchor" id="a63293c7cdab54cf78b86e7c69a3bff7a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -206,9 +301,34 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void mainWin::getDataForAction </td>
+          <td class="memname">int mainWin::calcTimeForNewDay </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Time (in milliseconds) that need to elapse to the next day (used with <a class="el" href="classmain_win.html#a079d09aeafe1af36f8f0d1bd4d88d803" title="Timer which is used to update calendar, action caller and context menu of the tray system...">mainWin::m_updater</a>). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2e729670f337c9017dbfae89c2a1a0a5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mainWin::checkDateCorrectness </td>
+          <td>(</td>
+          <td class="paramtype">QDate&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -218,6 +338,113 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Helper function for checking if the date is not old (used with adding actions to the calendar). </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">date</td><td>Date to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values:</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">True</td><td>if the date is not old. </td></tr>
+    <tr><td class="paramname">False</td><td>if the date is already in the past. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="add27401cb9db131bbe76cb9501bdd500"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::closeEvent </td>
+          <td>(</td>
+          <td class="paramtype">QCloseEvent *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method invoked while closing the main window. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1833795590c91fa73da6a224f31ce5d2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::detachAction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method invoked during clicking on the detach feature. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac891fd8165e421e0aafcc1fb3574df40"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::editAction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method invoked during editing an action. </p>
+
+</div>
+</div>
+<a class="anchor" id="abeb1092d0b748df7ceaeb13334a89030"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString mainWin::getCode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Code from the text box. </dd></dl>
 
 </div>
 </div>
@@ -243,6 +470,39 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Gets function name from the error message from the lua engine library (not from the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a> class). </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">textError</td><td>Error message from the lua engine library. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a1de1fce6f04475bd5baf2006ba93f6a0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::importScripts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method invoked during importing scripts. </p>
+
 </div>
 </div>
 <a class="anchor" id="a9c0cfda2b24fa6259874caf7ccd4b908"></a>
@@ -266,6 +526,40 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Initializes all api functions for the scripts. </p>
+
+</div>
+</div>
+<a class="anchor" id="aaf15be9a17be251351b2bde08dcb2c21"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::initTraySystem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tray_system.html">TraySystem</a> *&#160;</td>
+          <td class="paramname"><em>tray</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes tray system with the context menu. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">tray</td><td>Tray system to which we set the context menu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a3a1257aa1b06a426b08763a72756f06a"></a>
@@ -281,6 +575,114 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Loads script from the given path and puts the into the scripts list. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>Path for the directory with the scripts. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a92d52556b5fc642b7e39b2fad67640fc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::moveDown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves currently selected action down. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6d480f5086986eaeeed93a4c3157f0df"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::moveLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves currently selected action left. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa46d4ec0613b07140463723017711235"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::moveRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves currently selected action right. </p>
+
+</div>
+</div>
+<a class="anchor" id="afdd988d05727d738cd482a8f1e07e3fe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::moveUp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves currently selected action up. </p>
 
 </div>
 </div>
@@ -305,9 +707,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Method invoked during creating new script file. </p>
+
 </div>
 </div>
-<a class="anchor" id="acf0324a155856e59cdea5ec5698f5514"></a>
+<a class="anchor" id="acb51cccbafc4c963ef55ef6d517c60c7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -315,7 +719,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void mainWin::runAction </td>
+          <td class="memname">void mainWin::openApp </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -328,9 +732,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Restores main window (used while the program is in tray). </p>
+
 </div>
 </div>
-<a class="anchor" id="ab7665b16866b9aeecbe430ef17769ac4"></a>
+<a class="anchor" id="a2a999b0788004515727182350242d6bc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -338,7 +744,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void mainWin::saveAction </td>
+          <td class="memname">void mainWin::parseScript </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -350,6 +756,140 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Method invoked during parsing the script code. </p>
+
+</div>
+</div>
+<a class="anchor" id="abacc60b864c8156cbeb235b516a3be05"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::quitApp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Terminates the program previously removing tray icon.. </p>
+
+</div>
+</div>
+<a class="anchor" id="a16012c30ebbfc2f89537df405f9662dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::removeAction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method invoked during clicking on the remove feature. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3ad8d9509ece99d6e322db2d56a9fa51"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::removeScript </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method invoked during removing a script from the list (the script is removed from the HD as well). </p>
+
+</div>
+</div>
+<a class="anchor" id="a1971e30e143e696271ee2ec1f1cf998e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::runScript </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>onlyParse</em> = <code>false</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Runs script code from the text box. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">onlyParse</td><td>If set to true, the method only parses the script to check its correctness, otherwise it also tries to run the script. Use the <a class="el" href="classmain_win.html#a2a999b0788004515727182350242d6bc" title="Method invoked during parsing the script code.">mainWin::parseScript</a> method if you want to only parse the script. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a38e7757a0783951f6e0d2d35f6a95dcb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::saveData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method invoked while saving the actions into the database. </p>
 
 </div>
 </div>
@@ -374,6 +914,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Method invoked during sacing script. </p>
+
 </div>
 </div>
 <a class="anchor" id="affa3129c6021871bfc6ab5acccb0a9c5"></a>
@@ -396,6 +938,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Method invoked during modifying code of the selected script. </p>
 
 </div>
 </div>
@@ -421,14 +965,19 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Method invoked during selecting a script on the scripts list. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">scriptTitle</td><td>Text of the selected script (not the code). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a class="anchor" id="a8f8b08fe7876ae565621dd14c5ecb87d"></a>
+<a class="anchor" id="afe80ea88b1fb5e13d56acfddf6fee0e6"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void mainWin::setCode </td>
@@ -438,21 +987,22 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Sets code to the text box. </p>
+<p>The method set the text with changed font family. Also it blocks signals at the beginning and unblock them at the end of the method to not emit textChanged() signal. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">code</td><td>Code to set. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <a class="anchor" id="aa70a0f3f1c66ffa1a7d4012526b56c44"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void mainWin::setScriptTitle </td>
@@ -462,12 +1012,15 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Sets title for the script (only above the text box with its code). </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">title</td><td>Text for title. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -492,10 +1045,55 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Shows 'about' dialog. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5d97000005953e9adbda7c98602a5ae9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::timerEvent </td>
+          <td>(</td>
+          <td class="paramtype">QTimerEvent *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method called by the timer fo updating elements. See <a class="el" href="classmain_win.html#a079d09aeafe1af36f8f0d1bd4d88d803" title="Timer which is used to update calendar, action caller and context menu of the tray system...">mainWin::m_updater</a> for more details. </p>
+
+</div>
+</div>
+<a class="anchor" id="a605bc5e184abd3eadb21338970927046"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::toTray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method invoked when the program is 'sent' to tray. </p>
+
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a6a02cf853e63c1ad31759f3ce225ed62"></a>
+<a class="anchor" id="a6aea2ca54243cf5eafad64ab548766d8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -503,7 +1101,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_detailed_calendar.html">DetailedCalendar</a>* mainWin::m_calendar</td>
+          <td class="memname"><a class="el" href="class_actions_calendar.html">ActionsCalendar</a>* mainWin::m_calendar</td>
         </tr>
       </table>
   </td>
@@ -513,85 +1111,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="afaa8e85eaf3926a8aa141bfc1b2c0c01"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned mainWin::m_iHeight</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a698988f67b0f686dba0a8e33187f66a1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned mainWin::m_iWidth</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a96b71dd9a31a4cf6ea5db224a4540458"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_lua_engine.html">LuaEngine</a>* mainWin::m_lua</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a426c3fc67264577231b3deb525ddef99"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_action.html">Action</a>* mainWin::m_pCurrAction</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Pointer to the calendar object. </p>
 
 </div>
 </div>
@@ -613,6 +1133,52 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Pointer to the currently selected script. </p>
+
+</div>
+</div>
+<a class="anchor" id="a13f687f63460e13e6a4819ea1496a2f0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tray_system.html">TraySystem</a>* mainWin::m_tray</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to the tray icon system. </p>
+
+</div>
+</div>
+<a class="anchor" id="a079d09aeafe1af36f8f0d1bd4d88d803"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QBasicTimer mainWin::m_updater</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Timer which is used to update calendar, action caller and context menu of the tray system. </p>
+
 </div>
 </div>
 <a class="anchor" id="a89fa9d3006573378f3195845fe9ed408"></a>
@@ -633,6 +1199,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Object containing all controls of the window. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -642,7 +1210,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 3 2012 23:28:24 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 29 2012 21:14:38 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

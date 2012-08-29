@@ -1,0 +1,209 @@
+\hypertarget{class_action_caller}{\section{Action\-Caller Class Reference}
+\label{class_action_caller}\index{Action\-Caller@{Action\-Caller}}
+}
+
+
+Singleton used for calling actions from the calendar.  
+
+
+
+
+{\ttfamily \#include $<$action\-\_\-caller.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_action_caller_ae05e223ea1a75f49b694654a2e3267a2}{set\-Actions} (Q\-Vector$<$ \hyperlink{class_action}{Action} $\ast$ $>$ actions)
+\begin{DoxyCompactList}\small\item\em Sets actions for executing. \end{DoxyCompactList}\item 
+Q\-Vector$<$ \hyperlink{class_action}{Action} $\ast$ $>$ \hyperlink{class_action_caller_a4130795357a38f6ff4034f267a5c1ab0}{get\-Actions} () const 
+\item 
+void \hyperlink{class_action_caller_a471b5f266088338d8e7ef6e598316940}{set\-Tray\-To\-Update} (\hyperlink{class_tray_system}{Tray\-System} $\ast$tray)
+\begin{DoxyCompactList}\small\item\em Sets pointer to the tray system object. Updating of the tray is in the \hyperlink{class_action_caller_ae05e223ea1a75f49b694654a2e3267a2}{Action\-Caller\-::set\-Actions} and \hyperlink{class_action_caller_ab30b9963ae7b590d89aa0c12c01e8648}{Action\-Caller\-::timer\-Event} which is invoked by the \hyperlink{class_action_caller_ae5f4d1fd24c21f19f69d4fc40339ce26}{Action\-Caller\-::m\-\_\-caller}. \end{DoxyCompactList}\item 
+void \hyperlink{class_action_caller_ab30b9963ae7b590d89aa0c12c01e8648}{timer\-Event} (Q\-Timer\-Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Method which is invoked by the \hyperlink{class_action_caller_ae5f4d1fd24c21f19f69d4fc40339ce26}{Action\-Caller\-::m\-\_\-caller} timer. \end{DoxyCompactList}\item 
+void \hyperlink{class_action_caller_a4ffffa40b0fb64880184b746a150bbb1}{execute\-Next\-Action} ()
+\begin{DoxyCompactList}\small\item\em Executes next action from the vector of actions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_action_caller}{Action\-Caller} $\ast$ \hyperlink{class_action_caller_ab62a3a145a4bf356301223626c971caa}{get\-Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_action_caller_ade1d4e98911f0407ea76bd4fbd0c800d}{Action\-Caller} ()
+\begin{DoxyCompactList}\small\item\em Simple constructor which simply sets Acion\-Caller\-::m\-\_\-tray to N\-U\-L\-L. \end{DoxyCompactList}\item 
+void \hyperlink{class_action_caller_a7ee278ab3ce0aa70dfa5a8a5f7166027}{sort\-By\-Time} (Q\-Vector$<$ \hyperlink{class_action}{Action} $\ast$ $>$ \&actions)
+\begin{DoxyCompactList}\small\item\em Helper method which sorts vector of actions by time and id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\-Vector$<$ \hyperlink{class_action}{Action} $\ast$ $>$ \hyperlink{class_action_caller_a8f9d25115bddbe5bb415d2c1a42e92c8}{m\-\_\-actions}
+\begin{DoxyCompactList}\small\item\em Vector of actions waiting for executing. \end{DoxyCompactList}\item 
+Q\-Basic\-Timer \hyperlink{class_action_caller_ae5f4d1fd24c21f19f69d4fc40339ce26}{m\-\_\-caller}
+\begin{DoxyCompactList}\small\item\em Timer used for calling actions. \end{DoxyCompactList}\item 
+\hyperlink{class_tray_system}{Tray\-System} $\ast$ \hyperlink{class_action_caller_a718babb42edf522f7d24d99a6fb3c1a0}{m\-\_\-tray}
+\begin{DoxyCompactList}\small\item\em Pointer to the \hyperlink{class_tray_system}{Tray\-System} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_action_caller}{Action\-Caller} $\ast$ \hyperlink{class_action_caller_ab39d205dd66f6556f924e7ea0cbe797c}{ms\-\_\-object} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the object of this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Singleton used for calling actions from the calendar. 
+
+\hyperlink{class_action_caller_ab62a3a145a4bf356301223626c971caa}{Action\-Caller\-::get\-Instance} returns the only object. By using \hyperlink{class_action_caller_ae05e223ea1a75f49b694654a2e3267a2}{Action\-Caller\-::set\-Actions} we are able to set actions that will be called by the \hyperlink{class_action_caller}{Action\-Caller}'s timer. The timer is set when settings action in \hyperlink{class_action_caller}{Action\-Caller}\-:set\-Action method. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28.\-07.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_action_caller_ade1d4e98911f0407ea76bd4fbd0c800d}{\index{Action\-Caller@{Action\-Caller}!Action\-Caller@{Action\-Caller}}
+\index{Action\-Caller@{Action\-Caller}!ActionCaller@{Action\-Caller}}
+\subsubsection[{Action\-Caller}]{\setlength{\rightskip}{0pt plus 5cm}Action\-Caller\-::\-Action\-Caller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_caller_ade1d4e98911f0407ea76bd4fbd0c800d}
+
+
+Simple constructor which simply sets Acion\-Caller\-::m\-\_\-tray to N\-U\-L\-L. 
+
+The constructor has been put into the private section to prevent creating instances from the class (because the class is a singleton). 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_action_caller_a4ffffa40b0fb64880184b746a150bbb1}{\index{Action\-Caller@{Action\-Caller}!execute\-Next\-Action@{execute\-Next\-Action}}
+\index{execute\-Next\-Action@{execute\-Next\-Action}!ActionCaller@{Action\-Caller}}
+\subsubsection[{execute\-Next\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Caller\-::execute\-Next\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_action_caller_a4ffffa40b0fb64880184b746a150bbb1}
+
+
+Executes next action from the vector of actions. 
+
+The action which will be executed during the method will be removed from the vector of actions. \hypertarget{class_action_caller_a4130795357a38f6ff4034f267a5c1ab0}{\index{Action\-Caller@{Action\-Caller}!get\-Actions@{get\-Actions}}
+\index{get\-Actions@{get\-Actions}!ActionCaller@{Action\-Caller}}
+\subsubsection[{get\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<$ {\bf Action} $\ast$ $>$ Action\-Caller\-::get\-Actions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_caller_a4130795357a38f6ff4034f267a5c1ab0}
+\begin{DoxyReturn}{Returns}
+Vector of actions left. Beware that if you call \hyperlink{class_action_caller_a4ffffa40b0fb64880184b746a150bbb1}{Action\-Caller\-::execute\-Next\-Action} method, the action won't be in the vector anymore. See \hyperlink{class_action_caller_a4ffffa40b0fb64880184b746a150bbb1}{Action\-Caller\-::execute\-Next\-Action} for more details. 
+\end{DoxyReturn}
+\hypertarget{class_action_caller_ab62a3a145a4bf356301223626c971caa}{\index{Action\-Caller@{Action\-Caller}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!ActionCaller@{Action\-Caller}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action\-Caller} $\ast$ Action\-Caller\-::get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_action_caller_ab62a3a145a4bf356301223626c971caa}
+\begin{DoxyReturn}{Returns}
+Pointer to the instance of the class. 
+\end{DoxyReturn}
+\hypertarget{class_action_caller_ae05e223ea1a75f49b694654a2e3267a2}{\index{Action\-Caller@{Action\-Caller}!set\-Actions@{set\-Actions}}
+\index{set\-Actions@{set\-Actions}!ActionCaller@{Action\-Caller}}
+\subsubsection[{set\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Caller\-::set\-Actions (
+\begin{DoxyParamCaption}
+\item[{Q\-Vector$<$ {\bf Action} $\ast$ $>$}]{actions}
+\end{DoxyParamCaption}
+)}}\label{class_action_caller_ae05e223ea1a75f49b694654a2e3267a2}
+
+
+Sets actions for executing. 
+
+The method calculates time (in milliseconds) for the \hyperlink{class_action_caller_ae5f4d1fd24c21f19f69d4fc40339ce26}{Action\-Caller\-::m\-\_\-caller} timer to the closest action that will be executed. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em actions} & Vector of actions to set. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_caller_a471b5f266088338d8e7ef6e598316940}{\index{Action\-Caller@{Action\-Caller}!set\-Tray\-To\-Update@{set\-Tray\-To\-Update}}
+\index{set\-Tray\-To\-Update@{set\-Tray\-To\-Update}!ActionCaller@{Action\-Caller}}
+\subsubsection[{set\-Tray\-To\-Update}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Caller\-::set\-Tray\-To\-Update (
+\begin{DoxyParamCaption}
+\item[{{\bf Tray\-System} $\ast$}]{tray}
+\end{DoxyParamCaption}
+)}}\label{class_action_caller_a471b5f266088338d8e7ef6e598316940}
+
+
+Sets pointer to the tray system object. Updating of the tray is in the \hyperlink{class_action_caller_ae05e223ea1a75f49b694654a2e3267a2}{Action\-Caller\-::set\-Actions} and \hyperlink{class_action_caller_ab30b9963ae7b590d89aa0c12c01e8648}{Action\-Caller\-::timer\-Event} which is invoked by the \hyperlink{class_action_caller_ae5f4d1fd24c21f19f69d4fc40339ce26}{Action\-Caller\-::m\-\_\-caller}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em tray} & Pointer to the tray system object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_caller_a7ee278ab3ce0aa70dfa5a8a5f7166027}{\index{Action\-Caller@{Action\-Caller}!sort\-By\-Time@{sort\-By\-Time}}
+\index{sort\-By\-Time@{sort\-By\-Time}!ActionCaller@{Action\-Caller}}
+\subsubsection[{sort\-By\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Caller\-::sort\-By\-Time (
+\begin{DoxyParamCaption}
+\item[{Q\-Vector$<$ {\bf Action} $\ast$ $>$ \&}]{actions}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_caller_a7ee278ab3ce0aa70dfa5a8a5f7166027}
+
+
+Helper method which sorts vector of actions by time and id. 
+
+The actions are sorted from the earliest time. If the time is equal the \hyperlink{class_action_a7994d9000bef4a9d1e9c446d1191403e}{Action\-::get\-Id} value is used (taking lower id at first). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em actions} & Vector of actions to sort. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_caller_ab30b9963ae7b590d89aa0c12c01e8648}{\index{Action\-Caller@{Action\-Caller}!timer\-Event@{timer\-Event}}
+\index{timer\-Event@{timer\-Event}!ActionCaller@{Action\-Caller}}
+\subsubsection[{timer\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Caller\-::timer\-Event (
+\begin{DoxyParamCaption}
+\item[{Q\-Timer\-Event $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{class_action_caller_ab30b9963ae7b590d89aa0c12c01e8648}
+
+
+Method which is invoked by the \hyperlink{class_action_caller_ae5f4d1fd24c21f19f69d4fc40339ce26}{Action\-Caller\-::m\-\_\-caller} timer. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_action_caller_a8f9d25115bddbe5bb415d2c1a42e92c8}{\index{Action\-Caller@{Action\-Caller}!m\-\_\-actions@{m\-\_\-actions}}
+\index{m\-\_\-actions@{m\-\_\-actions}!ActionCaller@{Action\-Caller}}
+\subsubsection[{m\-\_\-actions}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<${\bf Action}$\ast$$>$ Action\-Caller\-::m\-\_\-actions\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_caller_a8f9d25115bddbe5bb415d2c1a42e92c8}
+
+
+Vector of actions waiting for executing. 
+
+\hypertarget{class_action_caller_ae5f4d1fd24c21f19f69d4fc40339ce26}{\index{Action\-Caller@{Action\-Caller}!m\-\_\-caller@{m\-\_\-caller}}
+\index{m\-\_\-caller@{m\-\_\-caller}!ActionCaller@{Action\-Caller}}
+\subsubsection[{m\-\_\-caller}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Basic\-Timer Action\-Caller\-::m\-\_\-caller\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_caller_ae5f4d1fd24c21f19f69d4fc40339ce26}
+
+
+Timer used for calling actions. 
+
+It calls \hyperlink{class_action_caller_a4ffffa40b0fb64880184b746a150bbb1}{Action\-Caller\-::execute\-Next\-Action} method which uses the vector mentioned above. \hypertarget{class_action_caller_a718babb42edf522f7d24d99a6fb3c1a0}{\index{Action\-Caller@{Action\-Caller}!m\-\_\-tray@{m\-\_\-tray}}
+\index{m\-\_\-tray@{m\-\_\-tray}!ActionCaller@{Action\-Caller}}
+\subsubsection[{m\-\_\-tray}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tray\-System}$\ast$ Action\-Caller\-::m\-\_\-tray\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_caller_a718babb42edf522f7d24d99a6fb3c1a0}
+
+
+Pointer to the \hyperlink{class_tray_system}{Tray\-System} object. 
+
+The object is needed to perfom updating content of the tray context menu. \hypertarget{class_action_caller_ab39d205dd66f6556f924e7ea0cbe797c}{\index{Action\-Caller@{Action\-Caller}!ms\-\_\-object@{ms\-\_\-object}}
+\index{ms\-\_\-object@{ms\-\_\-object}!ActionCaller@{Action\-Caller}}
+\subsubsection[{ms\-\_\-object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action\-Caller} $\ast$ Action\-Caller\-::ms\-\_\-object = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_action_caller_ab39d205dd66f6556f924e7ea0cbe797c}
+
+
+Pointer to the object of this class. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{action__caller_8h}{action\-\_\-caller.\-h}\item 
+Do\-For\-Me!/\hyperlink{action__caller_8cpp}{action\-\_\-caller.\-cpp}\end{DoxyCompactItemize}

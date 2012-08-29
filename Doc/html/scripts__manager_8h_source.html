@@ -103,17 +103,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="class_scripts_manager.html#a6c0f74bb1ba41b0c29f388fc9b973489" title="Private constructor which doesn&#39;t allow the class to be instantiated.">ScriptsManager</a>();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_scripts_manager.html#a137f7089f471de89c5d1344d3b5781cd" title="Removes all script and frees its memory.">removeScripts</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_scripts_manager.html#a67b361d78d35092340feaf556b57565d" title="Adds new script to the manager.">addScript</a>( <a class="code" href="class_script.html" title="Keeps all data for scripts.">Script</a>* script );</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_scripts_manager.html#ad4cd01aab1d6015db90cbca5fae306cf" title="Saves specified (with name) script to a file.">saveToFile</a>( <span class="keyword">const</span> QString&amp; scriptName );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_script.html" title="Keeps all data for scripts.">Script</a>* <a class="code" href="class_scripts_manager.html#a59b613ef7638d97bbdebe09a412e8f20" title="Gets pointer to the script with the given name.">getScript</a>( <span class="keyword">const</span> QString&amp; scriptName );</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_scripts_manager.html#a99ddfb07ac002907cee3b2a5b102abad" title="Removes script with the given file name (without extension) and frees its memory.">removeScript</a>( QString name );</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_scripts_manager.html#a137f7089f471de89c5d1344d3b5781cd" title="Removes all scripts and frees its memory.">removeScripts</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_scripts_manager.html#a67b361d78d35092340feaf556b57565d" title="Adds new script to the manager.">addScript</a>( <a class="code" href="class_script.html" title="Keeps all data for scripts.">Script</a>* script );</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_scripts_manager.html#ad4cd01aab1d6015db90cbca5fae306cf" title="Saves specified (with name) script to a file.">saveToFile</a>( <span class="keyword">const</span> QString&amp; scriptName );</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_script.html" title="Keeps all data for scripts.">Script</a>* <a class="code" href="class_scripts_manager.html#a59b613ef7638d97bbdebe09a412e8f20" title="Gets pointer to the script with the given name.">getScript</a>( <span class="keyword">const</span> QString&amp; scriptName );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> QStringList <a class="code" href="class_scripts_manager.html#a451c8dacfa4629cb69c3f7f1ca0326f0">getScriptsList</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 3 2012 23:28:23 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 29 2012 21:14:37 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

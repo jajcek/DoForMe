@@ -18,7 +18,9 @@ void \hyperlink{class_commands_manager_a1044e5df37dbb2b174dc9bc6a894d833}{add\-C
 void \hyperlink{class_commands_manager_a6de7776ecdf30cb6cf09d11213c0dd29}{execute\-Next} ()
 \begin{DoxyCompactList}\small\item\em Executes a next commands from the queue. \end{DoxyCompactList}\item 
 bool \hyperlink{class_commands_manager_a1fe3f32d1a8fed15559bc14acc74aceb}{is\-Empty} () const 
-\begin{DoxyCompactList}\small\item\em Checks if there are any commands in the queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks if there are any commands in the queue. \end{DoxyCompactList}\item 
+void \hyperlink{class_commands_manager_aeda6be0792b5078a4e9c259e00d6456f}{clear\-Commands} ()
+\begin{DoxyCompactList}\small\item\em Removes all commands from the queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,6 +65,17 @@ Allows to add commands to the queue.
 \mbox{\tt in}  & {\em args} & Queue with arguments for a specified command. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_commands_manager_aeda6be0792b5078a4e9c259e00d6456f}{\index{Commands\-Manager@{Commands\-Manager}!clear\-Commands@{clear\-Commands}}
+\index{clear\-Commands@{clear\-Commands}!CommandsManager@{Commands\-Manager}}
+\subsubsection[{clear\-Commands}]{\setlength{\rightskip}{0pt plus 5cm}void Commands\-Manager\-::clear\-Commands (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_commands_manager_aeda6be0792b5078a4e9c259e00d6456f}
+
+
+Removes all commands from the queue. 
+
 \hypertarget{class_commands_manager_a6de7776ecdf30cb6cf09d11213c0dd29}{\index{Commands\-Manager@{Commands\-Manager}!execute\-Next@{execute\-Next}}
 \index{execute\-Next@{execute\-Next}!CommandsManager@{Commands\-Manager}}
 \subsubsection[{execute\-Next}]{\setlength{\rightskip}{0pt plus 5cm}void Commands\-Manager\-::execute\-Next (

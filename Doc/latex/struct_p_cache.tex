@@ -1,0 +1,74 @@
+\hypertarget{struct_p_cache}{\section{P\-Cache Struct Reference}
+\label{struct_p_cache}\index{P\-Cache@{P\-Cache}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_pg_hdr}{Pg\-Hdr} $\ast$ \hyperlink{struct_p_cache_a1c692ce92c7d3fc7c6c1324d5658b252}{p\-Dirty}
+\item 
+\hyperlink{struct_pg_hdr}{Pg\-Hdr} $\ast$ \hyperlink{struct_p_cache_a8eaca309bfb8fa49e7c5e77dd3398bb0}{p\-Dirty\-Tail}
+\item 
+\hyperlink{struct_pg_hdr}{Pg\-Hdr} $\ast$ \hyperlink{struct_p_cache_a607eabd6768dd8df47d8fa353542b106}{p\-Synced}
+\item 
+int \hyperlink{struct_p_cache_a8270710a90112645a69cea03ab5a2d25}{n\-Ref}
+\item 
+int \hyperlink{struct_p_cache_a93ed4b9d731d883c3ed22a5adfd9c636}{sz\-Cache}
+\item 
+int \hyperlink{struct_p_cache_abb0bd0a3292780dcc07cb59bc577990d}{sz\-Page}
+\item 
+int \hyperlink{struct_p_cache_abcb37fcd3ea098b98a196a3f69e3c135}{sz\-Extra}
+\item 
+int \hyperlink{struct_p_cache_a6dbb1820ecbfb378841ee81186ea5902}{b\-Purgeable}
+\item 
+int($\ast$ \hyperlink{struct_p_cache_a8b177ebb03aaf4774b6137d48733eeb5}{x\-Stress} )(void $\ast$, \hyperlink{struct_pg_hdr}{Pg\-Hdr} $\ast$)
+\item 
+void $\ast$ \hyperlink{struct_p_cache_af04a2ea8a2c6d6b3eea7bb7051b8f447}{p\-Stress}
+\item 
+\hyperlink{sqlite3_8c_a096c453d937d51f7926d7d31c8e0bd2f}{sqlite3\-\_\-pcache} $\ast$ \hyperlink{struct_p_cache_ad0248655d30d327e0eeced6c3651b161}{p\-Cache}
+\item 
+\hyperlink{struct_pg_hdr}{Pg\-Hdr} $\ast$ \hyperlink{struct_p_cache_a190ece57aafde4310e424f82998776cb}{p\-Page1}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_p_cache_a6dbb1820ecbfb378841ee81186ea5902}{\index{P\-Cache@{P\-Cache}!b\-Purgeable@{b\-Purgeable}}
+\index{b\-Purgeable@{b\-Purgeable}!PCache@{P\-Cache}}
+\subsubsection[{b\-Purgeable}]{\setlength{\rightskip}{0pt plus 5cm}int P\-Cache\-::b\-Purgeable}}\label{struct_p_cache_a6dbb1820ecbfb378841ee81186ea5902}
+\hypertarget{struct_p_cache_a8270710a90112645a69cea03ab5a2d25}{\index{P\-Cache@{P\-Cache}!n\-Ref@{n\-Ref}}
+\index{n\-Ref@{n\-Ref}!PCache@{P\-Cache}}
+\subsubsection[{n\-Ref}]{\setlength{\rightskip}{0pt plus 5cm}int P\-Cache\-::n\-Ref}}\label{struct_p_cache_a8270710a90112645a69cea03ab5a2d25}
+\hypertarget{struct_p_cache_ad0248655d30d327e0eeced6c3651b161}{\index{P\-Cache@{P\-Cache}!p\-Cache@{p\-Cache}}
+\index{p\-Cache@{p\-Cache}!PCache@{P\-Cache}}
+\subsubsection[{p\-Cache}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-pcache}$\ast$ P\-Cache\-::p\-Cache}}\label{struct_p_cache_ad0248655d30d327e0eeced6c3651b161}
+\hypertarget{struct_p_cache_a1c692ce92c7d3fc7c6c1324d5658b252}{\index{P\-Cache@{P\-Cache}!p\-Dirty@{p\-Dirty}}
+\index{p\-Dirty@{p\-Dirty}!PCache@{P\-Cache}}
+\subsubsection[{p\-Dirty}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pg\-Hdr}$\ast$ P\-Cache\-::p\-Dirty}}\label{struct_p_cache_a1c692ce92c7d3fc7c6c1324d5658b252}
+\hypertarget{struct_p_cache_a8eaca309bfb8fa49e7c5e77dd3398bb0}{\index{P\-Cache@{P\-Cache}!p\-Dirty\-Tail@{p\-Dirty\-Tail}}
+\index{p\-Dirty\-Tail@{p\-Dirty\-Tail}!PCache@{P\-Cache}}
+\subsubsection[{p\-Dirty\-Tail}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pg\-Hdr} $\ast$ P\-Cache\-::p\-Dirty\-Tail}}\label{struct_p_cache_a8eaca309bfb8fa49e7c5e77dd3398bb0}
+\hypertarget{struct_p_cache_a190ece57aafde4310e424f82998776cb}{\index{P\-Cache@{P\-Cache}!p\-Page1@{p\-Page1}}
+\index{p\-Page1@{p\-Page1}!PCache@{P\-Cache}}
+\subsubsection[{p\-Page1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pg\-Hdr}$\ast$ P\-Cache\-::p\-Page1}}\label{struct_p_cache_a190ece57aafde4310e424f82998776cb}
+\hypertarget{struct_p_cache_af04a2ea8a2c6d6b3eea7bb7051b8f447}{\index{P\-Cache@{P\-Cache}!p\-Stress@{p\-Stress}}
+\index{p\-Stress@{p\-Stress}!PCache@{P\-Cache}}
+\subsubsection[{p\-Stress}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ P\-Cache\-::p\-Stress}}\label{struct_p_cache_af04a2ea8a2c6d6b3eea7bb7051b8f447}
+\hypertarget{struct_p_cache_a607eabd6768dd8df47d8fa353542b106}{\index{P\-Cache@{P\-Cache}!p\-Synced@{p\-Synced}}
+\index{p\-Synced@{p\-Synced}!PCache@{P\-Cache}}
+\subsubsection[{p\-Synced}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pg\-Hdr}$\ast$ P\-Cache\-::p\-Synced}}\label{struct_p_cache_a607eabd6768dd8df47d8fa353542b106}
+\hypertarget{struct_p_cache_a93ed4b9d731d883c3ed22a5adfd9c636}{\index{P\-Cache@{P\-Cache}!sz\-Cache@{sz\-Cache}}
+\index{sz\-Cache@{sz\-Cache}!PCache@{P\-Cache}}
+\subsubsection[{sz\-Cache}]{\setlength{\rightskip}{0pt plus 5cm}int P\-Cache\-::sz\-Cache}}\label{struct_p_cache_a93ed4b9d731d883c3ed22a5adfd9c636}
+\hypertarget{struct_p_cache_abcb37fcd3ea098b98a196a3f69e3c135}{\index{P\-Cache@{P\-Cache}!sz\-Extra@{sz\-Extra}}
+\index{sz\-Extra@{sz\-Extra}!PCache@{P\-Cache}}
+\subsubsection[{sz\-Extra}]{\setlength{\rightskip}{0pt plus 5cm}int P\-Cache\-::sz\-Extra}}\label{struct_p_cache_abcb37fcd3ea098b98a196a3f69e3c135}
+\hypertarget{struct_p_cache_abb0bd0a3292780dcc07cb59bc577990d}{\index{P\-Cache@{P\-Cache}!sz\-Page@{sz\-Page}}
+\index{sz\-Page@{sz\-Page}!PCache@{P\-Cache}}
+\subsubsection[{sz\-Page}]{\setlength{\rightskip}{0pt plus 5cm}int P\-Cache\-::sz\-Page}}\label{struct_p_cache_abb0bd0a3292780dcc07cb59bc577990d}
+\hypertarget{struct_p_cache_a8b177ebb03aaf4774b6137d48733eeb5}{\index{P\-Cache@{P\-Cache}!x\-Stress@{x\-Stress}}
+\index{x\-Stress@{x\-Stress}!PCache@{P\-Cache}}
+\subsubsection[{x\-Stress}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ P\-Cache\-::x\-Stress)(void $\ast$, {\bf Pg\-Hdr} $\ast$)}}\label{struct_p_cache_a8b177ebb03aaf4774b6137d48733eeb5}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

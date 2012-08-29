@@ -1,0 +1,114 @@
+\hypertarget{struct_vdbe_op}{\section{Vdbe\-Op Struct Reference}
+\label{struct_vdbe_op}\index{Vdbe\-Op@{Vdbe\-Op}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_vdbe_op_ae12a8e7a8f5f7ba39fa379c9ad287837}{opcode}
+\item 
+signed char \hyperlink{struct_vdbe_op_a124dee58d3e0d73c7dfaf811a3311023}{p4type}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_vdbe_op_a169a7bbe99a90c26ee01833723750b1d}{opflags}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_vdbe_op_a5e807981f52d29c06a5b6d4a8f2f4595}{p5}
+\item 
+int \hyperlink{struct_vdbe_op_a17c8326a1e3ac5612d4aaaa88f383b3b}{p1}
+\item 
+int \hyperlink{struct_vdbe_op_aba021fa9d30343c16794d9b76d8bffcd}{p2}
+\item 
+int \hyperlink{struct_vdbe_op_ad7ef3319da20d5423b8cc5da6995d193}{p3}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>int \hyperlink{struct_vdbe_op_a69efeafb8cb87ea2a6feed61e877869a}{i}\\
+\>void $\ast$ \hyperlink{struct_vdbe_op_a27a7eaab2fd6a79638f134576847f446}{p}\\
+\>char $\ast$ \hyperlink{struct_vdbe_op_aa9221aa6dd0a193b1760e4ecfc7376a7}{z}\\
+\>\hyperlink{sqlite3_8c_a2a0f0f4ae7001eb54351f77ea1cdbcfd}{i64} $\ast$ \hyperlink{struct_vdbe_op_aca64f9003a7490b02e08d790a7680fc3}{pI64}\\
+\>double $\ast$ \hyperlink{struct_vdbe_op_a627ba5846cb35734a01493acd010a9a0}{pReal}\\
+\>\hyperlink{struct_func_def}{FuncDef} $\ast$ \hyperlink{struct_vdbe_op_a041e9019dd14f775e7dc639e35127d39}{pFunc}\\
+\>\hyperlink{struct_vdbe_func}{VdbeFunc} $\ast$ \hyperlink{struct_vdbe_op_a4091014dd0f37dfb31fb6e75f42f06ec}{pVdbeFunc}\\
+\>\hyperlink{struct_coll_seq}{CollSeq} $\ast$ \hyperlink{struct_vdbe_op_aaf1833fde93e43f42bac11511a0e9910}{pColl}\\
+\>\hyperlink{struct_mem}{Mem} $\ast$ \hyperlink{struct_vdbe_op_ae4fe6fe3da8afb8d946df3676d766bb7}{pMem}\\
+\>\hyperlink{struct_v_table}{VTable} $\ast$ \hyperlink{struct_vdbe_op_a4582906f096cea569015aee8b4b8423f}{pVtab}\\
+\>\hyperlink{struct_key_info}{KeyInfo} $\ast$ \hyperlink{struct_vdbe_op_a531b315fc943dd3990adb10e687ba737}{pKeyInfo}\\
+\>int $\ast$ \hyperlink{struct_vdbe_op_ad04f10290bdb4d5f6378df4b5b4022d5}{ai}\\
+\>\hyperlink{struct_sub_program}{SubProgram} $\ast$ \hyperlink{struct_vdbe_op_a1b6ce4c666583dc4136c6747b0c9679c}{pProgram}\\
+\>int($\ast$ \hyperlink{struct_vdbe_op_abddaaf74c394f80091ef257833b2a7ad}{xAdvance} )(\hyperlink{struct_bt_cursor}{BtCursor} $\ast$, int $\ast$)\\
+\} \hyperlink{struct_vdbe_op_aafa6db64b4c7b66350a8f3ae27b6b9ea}{p4}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_vdbe_op_ad04f10290bdb4d5f6378df4b5b4022d5}{\index{Vdbe\-Op@{Vdbe\-Op}!ai@{ai}}
+\index{ai@{ai}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{ai}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ Vdbe\-Op\-::ai}}\label{struct_vdbe_op_ad04f10290bdb4d5f6378df4b5b4022d5}
+\hypertarget{struct_vdbe_op_a69efeafb8cb87ea2a6feed61e877869a}{\index{Vdbe\-Op@{Vdbe\-Op}!i@{i}}
+\index{i@{i}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{i}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Op\-::i}}\label{struct_vdbe_op_a69efeafb8cb87ea2a6feed61e877869a}
+\hypertarget{struct_vdbe_op_ae12a8e7a8f5f7ba39fa379c9ad287837}{\index{Vdbe\-Op@{Vdbe\-Op}!opcode@{opcode}}
+\index{opcode@{opcode}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{opcode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Vdbe\-Op\-::opcode}}\label{struct_vdbe_op_ae12a8e7a8f5f7ba39fa379c9ad287837}
+\hypertarget{struct_vdbe_op_a169a7bbe99a90c26ee01833723750b1d}{\index{Vdbe\-Op@{Vdbe\-Op}!opflags@{opflags}}
+\index{opflags@{opflags}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{opflags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Vdbe\-Op\-::opflags}}\label{struct_vdbe_op_a169a7bbe99a90c26ee01833723750b1d}
+\hypertarget{struct_vdbe_op_a27a7eaab2fd6a79638f134576847f446}{\index{Vdbe\-Op@{Vdbe\-Op}!p@{p}}
+\index{p@{p}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Vdbe\-Op\-::p}}\label{struct_vdbe_op_a27a7eaab2fd6a79638f134576847f446}
+\hypertarget{struct_vdbe_op_a17c8326a1e3ac5612d4aaaa88f383b3b}{\index{Vdbe\-Op@{Vdbe\-Op}!p1@{p1}}
+\index{p1@{p1}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p1}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Op\-::p1}}\label{struct_vdbe_op_a17c8326a1e3ac5612d4aaaa88f383b3b}
+\hypertarget{struct_vdbe_op_aba021fa9d30343c16794d9b76d8bffcd}{\index{Vdbe\-Op@{Vdbe\-Op}!p2@{p2}}
+\index{p2@{p2}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p2}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Op\-::p2}}\label{struct_vdbe_op_aba021fa9d30343c16794d9b76d8bffcd}
+\hypertarget{struct_vdbe_op_ad7ef3319da20d5423b8cc5da6995d193}{\index{Vdbe\-Op@{Vdbe\-Op}!p3@{p3}}
+\index{p3@{p3}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p3}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Op\-::p3}}\label{struct_vdbe_op_ad7ef3319da20d5423b8cc5da6995d193}
+\hypertarget{struct_vdbe_op_aafa6db64b4c7b66350a8f3ae27b6b9ea}{\index{Vdbe\-Op@{Vdbe\-Op}!p4@{p4}}
+\index{p4@{p4}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p4}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   Vdbe\-Op\-::p4}}\label{struct_vdbe_op_aafa6db64b4c7b66350a8f3ae27b6b9ea}
+\hypertarget{struct_vdbe_op_a124dee58d3e0d73c7dfaf811a3311023}{\index{Vdbe\-Op@{Vdbe\-Op}!p4type@{p4type}}
+\index{p4type@{p4type}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p4type}]{\setlength{\rightskip}{0pt plus 5cm}signed char Vdbe\-Op\-::p4type}}\label{struct_vdbe_op_a124dee58d3e0d73c7dfaf811a3311023}
+\hypertarget{struct_vdbe_op_a5e807981f52d29c06a5b6d4a8f2f4595}{\index{Vdbe\-Op@{Vdbe\-Op}!p5@{p5}}
+\index{p5@{p5}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p5}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Vdbe\-Op\-::p5}}\label{struct_vdbe_op_a5e807981f52d29c06a5b6d4a8f2f4595}
+\hypertarget{struct_vdbe_op_aaf1833fde93e43f42bac11511a0e9910}{\index{Vdbe\-Op@{Vdbe\-Op}!p\-Coll@{p\-Coll}}
+\index{p\-Coll@{p\-Coll}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p\-Coll}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Coll\-Seq}$\ast$ Vdbe\-Op\-::p\-Coll}}\label{struct_vdbe_op_aaf1833fde93e43f42bac11511a0e9910}
+\hypertarget{struct_vdbe_op_a041e9019dd14f775e7dc639e35127d39}{\index{Vdbe\-Op@{Vdbe\-Op}!p\-Func@{p\-Func}}
+\index{p\-Func@{p\-Func}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p\-Func}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Func\-Def}$\ast$ Vdbe\-Op\-::p\-Func}}\label{struct_vdbe_op_a041e9019dd14f775e7dc639e35127d39}
+\hypertarget{struct_vdbe_op_aca64f9003a7490b02e08d790a7680fc3}{\index{Vdbe\-Op@{Vdbe\-Op}!p\-I64@{p\-I64}}
+\index{p\-I64@{p\-I64}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p\-I64}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i64}$\ast$ Vdbe\-Op\-::p\-I64}}\label{struct_vdbe_op_aca64f9003a7490b02e08d790a7680fc3}
+\hypertarget{struct_vdbe_op_a531b315fc943dd3990adb10e687ba737}{\index{Vdbe\-Op@{Vdbe\-Op}!p\-Key\-Info@{p\-Key\-Info}}
+\index{p\-Key\-Info@{p\-Key\-Info}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p\-Key\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Key\-Info}$\ast$ Vdbe\-Op\-::p\-Key\-Info}}\label{struct_vdbe_op_a531b315fc943dd3990adb10e687ba737}
+\hypertarget{struct_vdbe_op_ae4fe6fe3da8afb8d946df3676d766bb7}{\index{Vdbe\-Op@{Vdbe\-Op}!p\-Mem@{p\-Mem}}
+\index{p\-Mem@{p\-Mem}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p\-Mem}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mem}$\ast$ Vdbe\-Op\-::p\-Mem}}\label{struct_vdbe_op_ae4fe6fe3da8afb8d946df3676d766bb7}
+\hypertarget{struct_vdbe_op_a1b6ce4c666583dc4136c6747b0c9679c}{\index{Vdbe\-Op@{Vdbe\-Op}!p\-Program@{p\-Program}}
+\index{p\-Program@{p\-Program}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p\-Program}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sub\-Program}$\ast$ Vdbe\-Op\-::p\-Program}}\label{struct_vdbe_op_a1b6ce4c666583dc4136c6747b0c9679c}
+\hypertarget{struct_vdbe_op_a627ba5846cb35734a01493acd010a9a0}{\index{Vdbe\-Op@{Vdbe\-Op}!p\-Real@{p\-Real}}
+\index{p\-Real@{p\-Real}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p\-Real}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ Vdbe\-Op\-::p\-Real}}\label{struct_vdbe_op_a627ba5846cb35734a01493acd010a9a0}
+\hypertarget{struct_vdbe_op_a4091014dd0f37dfb31fb6e75f42f06ec}{\index{Vdbe\-Op@{Vdbe\-Op}!p\-Vdbe\-Func@{p\-Vdbe\-Func}}
+\index{p\-Vdbe\-Func@{p\-Vdbe\-Func}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p\-Vdbe\-Func}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vdbe\-Func}$\ast$ Vdbe\-Op\-::p\-Vdbe\-Func}}\label{struct_vdbe_op_a4091014dd0f37dfb31fb6e75f42f06ec}
+\hypertarget{struct_vdbe_op_a4582906f096cea569015aee8b4b8423f}{\index{Vdbe\-Op@{Vdbe\-Op}!p\-Vtab@{p\-Vtab}}
+\index{p\-Vtab@{p\-Vtab}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{p\-Vtab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf V\-Table}$\ast$ Vdbe\-Op\-::p\-Vtab}}\label{struct_vdbe_op_a4582906f096cea569015aee8b4b8423f}
+\hypertarget{struct_vdbe_op_abddaaf74c394f80091ef257833b2a7ad}{\index{Vdbe\-Op@{Vdbe\-Op}!x\-Advance@{x\-Advance}}
+\index{x\-Advance@{x\-Advance}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{x\-Advance}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ Vdbe\-Op\-::x\-Advance)({\bf Bt\-Cursor} $\ast$, int $\ast$)}}\label{struct_vdbe_op_abddaaf74c394f80091ef257833b2a7ad}
+\hypertarget{struct_vdbe_op_aa9221aa6dd0a193b1760e4ecfc7376a7}{\index{Vdbe\-Op@{Vdbe\-Op}!z@{z}}
+\index{z@{z}!VdbeOp@{Vdbe\-Op}}
+\subsubsection[{z}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Vdbe\-Op\-::z}}\label{struct_vdbe_op_aa9221aa6dd0a193b1760e4ecfc7376a7}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

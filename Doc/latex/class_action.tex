@@ -3,7 +3,7 @@
 }
 
 
-Engine for maintaing L\-U\-A's A\-P\-I commands.  
+Data for action that has been created for calendar.  
 
 
 
@@ -13,98 +13,268 @@ Engine for maintaing L\-U\-A's A\-P\-I commands.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_action_a4f457ccfc8336b565cadca56b36e0271}{Action} ()
+\hyperlink{class_action_a2da5fdc807e9635c6f9f233f9f05440a}{Action} (\hyperlink{class_action}{Action} $\ast$p\-Action)
+\begin{DoxyCompactList}\small\item\em Some kind of copy constructor which creates action on the grounds of another action but eliminates all of the repetitions. \end{DoxyCompactList}\item 
+\hyperlink{class_action_ad8712ab574b1bea904a0cb65f211945b}{Action} (Q\-Date main\-Date, const \hyperlink{class_action_settings}{Action\-Settings} \&settings)
+\begin{DoxyCompactList}\small\item\em Creates action for the given date with the specified settings. \end{DoxyCompactList}\item 
+void \hyperlink{class_action_ab0dcff3e1da9b7bf4ffbc5cb37c56bba}{set\-Setting} (const \hyperlink{class_action_settings}{Action\-Settings} \&settings)
+\begin{DoxyCompactList}\small\item\em Sets settings for the action. See \hyperlink{class_action_settings}{Action\-Settings} class for more details. \end{DoxyCompactList}\item 
+void \hyperlink{class_action_a4c98125d275b28055dd1e96c3091fd52}{set\-Script} (\hyperlink{class_script}{Script} $\ast$p\-Script)
+\begin{DoxyCompactList}\small\item\em Sets script that the action will be invoking. \end{DoxyCompactList}\item 
+\hyperlink{class_script}{Script} $\ast$ \hyperlink{class_action_aa64040ce289f147ee7240f461f9a14cc}{get\-Script} () const 
 \item 
-\hyperlink{class_action_acdb06775d157339256a8ecd55749226c}{$\sim$\-Action} ()
+void \hyperlink{class_action_ae6de50f8591deacace5528723cfb3511}{exclude\-Date} (Q\-Date date)
+\begin{DoxyCompactList}\small\item\em Excludes date from repetitions. \end{DoxyCompactList}\item 
+bool \hyperlink{class_action_a9926c6292dadcbd1ceb35a0d01357dc1}{is\-Excluded} (Q\-Date date) const 
+\begin{DoxyCompactList}\small\item\em Check if the given date is exlcluded. \end{DoxyCompactList}\item 
+void \hyperlink{class_action_a55b4a13b734764bf0a9d15af3c92da70}{set\-Excluded\-Dates} (Q\-Vector$<$ Q\-Date $>$ excluded\-Dates)
+\begin{DoxyCompactList}\small\item\em Sets vector of excluded dates. Beware that the method will override the existing excluded dates. \end{DoxyCompactList}\item 
+Q\-Vector$<$ Q\-Date $>$ \hyperlink{class_action_aa74c530c5011d58aa43041e5d609fa46}{get\-Excluded\-Dates} () const 
 \item 
-void \hyperlink{class_action_a8d7527963d293e66cd9d63e4868f07a4}{set\-Path} (Q\-String path)
+int \hyperlink{class_action_aeccc29bed70c7913583ef291be1c9194}{get\-Hours} () const 
 \item 
-Q\-String \hyperlink{class_action_aae0058c4c9a79b296b1ef89670da4167}{get\-Path} () const 
+int \hyperlink{class_action_a28e52e595d62dcac10295a26abdfe912}{get\-Minutes} () const 
 \item 
-void \hyperlink{class_action_a5d60106a1c5b9d492f32432e903ba0c4}{set\-File\-Name} (Q\-String file\-Name)
+int \hyperlink{class_action_af912bd24d17ef4b7c5b45ba9d3bf3757}{get\-Seconds} () const 
 \item 
-Q\-String \hyperlink{class_action_a6fe79539f83f2af7be05b698dae55d65}{get\-File\-Name} () const 
+Q\-String \hyperlink{class_action_a04d95a411c835229de0508477ea85457}{get\-Hours\-H\-H} () const 
 \item 
-void \hyperlink{class_action_a534682646596250cd8bb98957e423791}{set\-Code} (Q\-String code)
+Q\-String \hyperlink{class_action_a74526a1d22655318419e9ba8398438d6}{get\-Minutes\-M\-M} () const 
 \item 
-Q\-String \hyperlink{class_action_a0cb6822da346dff4514e056547979cdd}{get\-Code} () const 
-\item 
-void \hyperlink{class_action_a78038e8c66cf8e6b4ff53874298ef7d4}{set\-Time} (Q\-Time)
+Q\-String \hyperlink{class_action_a158ec4d22a59899c46c79e1c5cdcd214}{get\-Seconds\-S\-S} () const 
 \item 
 Q\-Time \hyperlink{class_action_a01e6fdaabad6d3794f34a6c74b484095}{get\-Time} () const 
 \item 
-void \hyperlink{class_action_ab3d4f6defc4b25b7d64d806ca861388d}{set\-Modified} (bool)
+bool \hyperlink{class_action_a4e95f70f5532330f672ec6d4967cae30}{is\-X\-Days} () const 
 \item 
-bool \hyperlink{class_action_a50c6caabd07584a1d4adb8dfc6270abe}{is\-Modified} () const 
+int \hyperlink{class_action_a943b631b783f3f42aa672c059184504d}{get\-X\-Days} () const 
+\item 
+int \hyperlink{class_action_acae2fa92ecec91baff84c7805db253eb}{get\-Days} () const 
+\item 
+void \hyperlink{class_action_a7995fda15f70ce011df7bc490d178c7f}{set\-Highlight} (bool state)
+\begin{DoxyCompactList}\small\item\em Sets the status of the highlighting action. \end{DoxyCompactList}\item 
+bool \hyperlink{class_action_ad9eb6b1f91a99bfdaf1a4f80860e6088}{is\-Highlighted} () const 
+\item 
+int \hyperlink{class_action_a7994d9000bef4a9d1e9c446d1191403e}{get\-Id} () const 
+\item 
+void \hyperlink{class_action_a35c0fa5853a20c76ea36555652cda3b9}{set\-Main\-Date} (Q\-Date main\-Date)
+\begin{DoxyCompactList}\small\item\em Main date for the action from which the repetitions will be created. \end{DoxyCompactList}\item 
+Q\-Date \hyperlink{class_action_a815113e01f17c6e579dc772a18cf8de7}{get\-Main\-Date} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_action_af9455b0812708a8424e0e14bb926d911}{set\-Id} (int id)
+\begin{DoxyCompactList}\small\item\em Sets id for the action. \end{DoxyCompactList}\item 
+int \hyperlink{class_action_ab8af5522ac8a15d382f03626844d7d0a}{next\-Id} ()
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Q\-String \hyperlink{class_action_acdaebb900bcc4fa101b7ad7fcc607e01}{m\-\_\-path}
-\item 
-Q\-String \hyperlink{class_action_a65a3f717f84c94c351ccff1e4f450816}{m\-\_\-file\-Name}
-\item 
-Q\-String \hyperlink{class_action_a15cb4f3d394cecf16438d01c05b87c98}{m\-\_\-code}
-\item 
+\hyperlink{class_script}{Script} $\ast$ \hyperlink{class_action_a1a57520ab430ca6241add1e68303fb0c}{m\-\_\-p\-Script}
+\begin{DoxyCompactList}\small\item\em Pointer to script object which is used in the action. See \hyperlink{class_script}{Script} class for more details. \end{DoxyCompactList}\item 
 Q\-Time \hyperlink{class_action_a00911e1be6fd7fa990a2a607590edaa9}{m\-\_\-time}
+\begin{DoxyCompactList}\small\item\em Time which the action will be called at. \end{DoxyCompactList}\item 
+bool \hyperlink{class_action_a153c3f547daf43271aee2868cadb0762}{m\-\_\-is\-X\-Days}
+\begin{DoxyCompactList}\small\item\em Value that determines if the actions has \char`\"{}every X days\char`\"{} repetitions. \end{DoxyCompactList}\item 
+int \hyperlink{class_action_a9ad7c62918ef062c3f593fd3fa7fd308}{m\-\_\-\-X\-Days}
+\begin{DoxyCompactList}\small\item\em How many days have to pass to invoke the action again. \end{DoxyCompactList}\item 
+int \hyperlink{class_action_a646d602d39e2b6c23dc2d398530614d0}{m\-\_\-days}
+\begin{DoxyCompactList}\small\item\em which days the action is invoked on. \end{DoxyCompactList}\item 
+bool \hyperlink{class_action_aada07b527d172c811c85cd1d0e0de876}{m\-\_\-is\-Highlighted}
+\begin{DoxyCompactList}\small\item\em Whether the action is highlighted (when a user selects the action on the calendar). \end{DoxyCompactList}\item 
+Q\-Vector$<$ Q\-Date $>$ \hyperlink{class_action_a15acdea3b4df51d6c10d4870797a165b}{m\-\_\-excluded\-Dates}
+\begin{DoxyCompactList}\small\item\em What dates should be excluded from the repetitions. \end{DoxyCompactList}\item 
+int \hyperlink{class_action_a0f56dba599957c8a66d808c525cbd243}{m\-\_\-id}
+\begin{DoxyCompactList}\small\item\em Id of the action. If there are actions that might be called at the same time the action with lower id will be performed first. \end{DoxyCompactList}\item 
+Q\-Date \hyperlink{class_action_abb545fb5aae40e818ae95b44d56d7478}{m\-\_\-main\-Date}
+\begin{DoxyCompactList}\small\item\em Date which represents main action from which the repetition are created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{class_action_ad7930bec6d8cff987c1882d76642369d}{m\-\_\-b\-Modified}
-\end{DoxyCompactItemize}
+static int \hyperlink{class_action_a00188e362b7f6b7740f514a7464e8eb2}{m\-\_\-action\-Number} = 0
+\begin{DoxyCompactList}\small\item\em Value used for assigning ids for actions. See \hyperlink{class_action_a0f56dba599957c8a66d808c525cbd243}{Action\-::m\-\_\-id}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Engine for maintaing L\-U\-A's A\-P\-I commands. 
+Data for action that has been created for calendar. 
 
-Objects of this class load scripts, check their grammar correctness and store the commands for further executing. \begin{DoxyAuthor}{Author}
+\begin{DoxyAuthor}{Author}
 Jacek Topolski 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
 1.\-0 
 \end{DoxyVersion}
 \begin{DoxyDate}{Date}
-6.\-07.\-2012 
+28.\-07.\-2012 
 \end{DoxyDate}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_action_a4f457ccfc8336b565cadca56b36e0271}{\index{Action@{Action}!Action@{Action}}
+\hypertarget{class_action_a2da5fdc807e9635c6f9f233f9f05440a}{\index{Action@{Action}!Action@{Action}}
 \index{Action@{Action}!Action@{Action}}
 \subsubsection[{Action}]{\setlength{\rightskip}{0pt plus 5cm}Action\-::\-Action (
 \begin{DoxyParamCaption}
-{}
+\item[{{\bf Action} $\ast$}]{p\-Action}
 \end{DoxyParamCaption}
-)}}\label{class_action_a4f457ccfc8336b565cadca56b36e0271}
-\hypertarget{class_action_acdb06775d157339256a8ecd55749226c}{\index{Action@{Action}!$\sim$\-Action@{$\sim$\-Action}}
-\index{$\sim$\-Action@{$\sim$\-Action}!Action@{Action}}
-\subsubsection[{$\sim$\-Action}]{\setlength{\rightskip}{0pt plus 5cm}Action\-::$\sim$\-Action (
+)}}\label{class_action_a2da5fdc807e9635c6f9f233f9f05440a}
+
+
+Some kind of copy constructor which creates action on the grounds of another action but eliminates all of the repetitions. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\-Action} & \hyperlink{class_action}{Action} to be copied. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_ad8712ab574b1bea904a0cb65f211945b}{\index{Action@{Action}!Action@{Action}}
+\index{Action@{Action}!Action@{Action}}
+\subsubsection[{Action}]{\setlength{\rightskip}{0pt plus 5cm}Action\-::\-Action (
 \begin{DoxyParamCaption}
-{}
+\item[{Q\-Date}]{main\-Date, }
+\item[{const {\bf Action\-Settings} \&}]{settings}
 \end{DoxyParamCaption}
-)}}\label{class_action_acdb06775d157339256a8ecd55749226c}
+)}}\label{class_action_ad8712ab574b1bea904a0cb65f211945b}
+
+
+Creates action for the given date with the specified settings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em main\-Date} & Date which the action will be added on. \\
+\hline
+\mbox{\tt in}  & {\em settings} & All settings for the action (repetitions, time etc.). See \hyperlink{class_action_settings}{Action\-Settings} class for more details. \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_action_a0cb6822da346dff4514e056547979cdd}{\index{Action@{Action}!get\-Code@{get\-Code}}
-\index{get\-Code@{get\-Code}!Action@{Action}}
-\subsubsection[{get\-Code}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::get\-Code (
+\hypertarget{class_action_ae6de50f8591deacace5528723cfb3511}{\index{Action@{Action}!exclude\-Date@{exclude\-Date}}
+\index{exclude\-Date@{exclude\-Date}!Action@{Action}}
+\subsubsection[{exclude\-Date}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::exclude\-Date (
+\begin{DoxyParamCaption}
+\item[{Q\-Date}]{date}
+\end{DoxyParamCaption}
+)}}\label{class_action_ae6de50f8591deacace5528723cfb3511}
+
+
+Excludes date from repetitions. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em date} & Date that needs to be excluded. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_acae2fa92ecec91baff84c7805db253eb}{\index{Action@{Action}!get\-Days@{get\-Days}}
+\index{get\-Days@{get\-Days}!Action@{Action}}
+\subsubsection[{get\-Days}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::get\-Days (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_action_a0cb6822da346dff4514e056547979cdd}
-\hypertarget{class_action_a6fe79539f83f2af7be05b698dae55d65}{\index{Action@{Action}!get\-File\-Name@{get\-File\-Name}}
-\index{get\-File\-Name@{get\-File\-Name}!Action@{Action}}
-\subsubsection[{get\-File\-Name}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::get\-File\-Name (
+) const}}\label{class_action_acae2fa92ecec91baff84c7805db253eb}
+\begin{DoxyReturn}{Returns}
+Mask for days on which the action will be performed. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for more details. 
+\end{DoxyReturn}
+\hypertarget{class_action_aa74c530c5011d58aa43041e5d609fa46}{\index{Action@{Action}!get\-Excluded\-Dates@{get\-Excluded\-Dates}}
+\index{get\-Excluded\-Dates@{get\-Excluded\-Dates}!Action@{Action}}
+\subsubsection[{get\-Excluded\-Dates}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<$ Q\-Date $>$ Action\-::get\-Excluded\-Dates (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_action_a6fe79539f83f2af7be05b698dae55d65}
-\hypertarget{class_action_aae0058c4c9a79b296b1ef89670da4167}{\index{Action@{Action}!get\-Path@{get\-Path}}
-\index{get\-Path@{get\-Path}!Action@{Action}}
-\subsubsection[{get\-Path}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::get\-Path (
+) const}}\label{class_action_aa74c530c5011d58aa43041e5d609fa46}
+\begin{DoxyReturn}{Returns}
+Vector of the excluded dates. 
+\end{DoxyReturn}
+\hypertarget{class_action_aeccc29bed70c7913583ef291be1c9194}{\index{Action@{Action}!get\-Hours@{get\-Hours}}
+\index{get\-Hours@{get\-Hours}!Action@{Action}}
+\subsubsection[{get\-Hours}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::get\-Hours (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_action_aae0058c4c9a79b296b1ef89670da4167}
+) const}}\label{class_action_aeccc29bed70c7913583ef291be1c9194}
+\begin{DoxyReturn}{Returns}
+Hours from the time at which the action will be performed. 
+\end{DoxyReturn}
+\hypertarget{class_action_a04d95a411c835229de0508477ea85457}{\index{Action@{Action}!get\-Hours\-H\-H@{get\-Hours\-H\-H}}
+\index{get\-Hours\-H\-H@{get\-Hours\-H\-H}!Action@{Action}}
+\subsubsection[{get\-Hours\-H\-H}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::get\-Hours\-H\-H (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_a04d95a411c835229de0508477ea85457}
+\begin{DoxyReturn}{Returns}
+Hours as a string in two-\/digit format from the time at which the action will be performed. 
+\end{DoxyReturn}
+\hypertarget{class_action_a7994d9000bef4a9d1e9c446d1191403e}{\index{Action@{Action}!get\-Id@{get\-Id}}
+\index{get\-Id@{get\-Id}!Action@{Action}}
+\subsubsection[{get\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::get\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_a7994d9000bef4a9d1e9c446d1191403e}
+\begin{DoxyReturn}{Returns}
+Id of the action. 
+\end{DoxyReturn}
+\hypertarget{class_action_a815113e01f17c6e579dc772a18cf8de7}{\index{Action@{Action}!get\-Main\-Date@{get\-Main\-Date}}
+\index{get\-Main\-Date@{get\-Main\-Date}!Action@{Action}}
+\subsubsection[{get\-Main\-Date}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Date Action\-::get\-Main\-Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_a815113e01f17c6e579dc772a18cf8de7}
+\begin{DoxyReturn}{Returns}
+Main date for the action from which the repetitions are created. 
+\end{DoxyReturn}
+\hypertarget{class_action_a28e52e595d62dcac10295a26abdfe912}{\index{Action@{Action}!get\-Minutes@{get\-Minutes}}
+\index{get\-Minutes@{get\-Minutes}!Action@{Action}}
+\subsubsection[{get\-Minutes}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::get\-Minutes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_a28e52e595d62dcac10295a26abdfe912}
+\begin{DoxyReturn}{Returns}
+Minutes from the time at which the action will be performed. 
+\end{DoxyReturn}
+\hypertarget{class_action_a74526a1d22655318419e9ba8398438d6}{\index{Action@{Action}!get\-Minutes\-M\-M@{get\-Minutes\-M\-M}}
+\index{get\-Minutes\-M\-M@{get\-Minutes\-M\-M}!Action@{Action}}
+\subsubsection[{get\-Minutes\-M\-M}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::get\-Minutes\-M\-M (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_a74526a1d22655318419e9ba8398438d6}
+\begin{DoxyReturn}{Returns}
+Minutes as a string in two-\/digit format from the time at which the action will be performed. 
+\end{DoxyReturn}
+\hypertarget{class_action_aa64040ce289f147ee7240f461f9a14cc}{\index{Action@{Action}!get\-Script@{get\-Script}}
+\index{get\-Script@{get\-Script}!Action@{Action}}
+\subsubsection[{get\-Script}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Script} $\ast$ Action\-::get\-Script (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_aa64040ce289f147ee7240f461f9a14cc}
+\begin{DoxyReturn}{Returns}
+Pointer to the script object that the action uses. 
+\end{DoxyReturn}
+\hypertarget{class_action_af912bd24d17ef4b7c5b45ba9d3bf3757}{\index{Action@{Action}!get\-Seconds@{get\-Seconds}}
+\index{get\-Seconds@{get\-Seconds}!Action@{Action}}
+\subsubsection[{get\-Seconds}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::get\-Seconds (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_af912bd24d17ef4b7c5b45ba9d3bf3757}
+\begin{DoxyReturn}{Returns}
+Seconds from the time at which the action will be performed. 
+\end{DoxyReturn}
+\hypertarget{class_action_a158ec4d22a59899c46c79e1c5cdcd214}{\index{Action@{Action}!get\-Seconds\-S\-S@{get\-Seconds\-S\-S}}
+\index{get\-Seconds\-S\-S@{get\-Seconds\-S\-S}!Action@{Action}}
+\subsubsection[{get\-Seconds\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::get\-Seconds\-S\-S (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_a158ec4d22a59899c46c79e1c5cdcd214}
+\begin{DoxyReturn}{Returns}
+Seconds as a string in two-\/digit format from the time at which the action will be performed. 
+\end{DoxyReturn}
 \hypertarget{class_action_a01e6fdaabad6d3794f34a6c74b484095}{\index{Action@{Action}!get\-Time@{get\-Time}}
 \index{get\-Time@{get\-Time}!Action@{Action}}
 \subsubsection[{get\-Time}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Time Action\-::get\-Time (
@@ -112,66 +282,232 @@ Jacek Topolski
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_action_a01e6fdaabad6d3794f34a6c74b484095}
-\hypertarget{class_action_a50c6caabd07584a1d4adb8dfc6270abe}{\index{Action@{Action}!is\-Modified@{is\-Modified}}
-\index{is\-Modified@{is\-Modified}!Action@{Action}}
-\subsubsection[{is\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}bool Action\-::is\-Modified (
+\begin{DoxyReturn}{Returns}
+Time at which the action will be performed. 
+\end{DoxyReturn}
+\hypertarget{class_action_a943b631b783f3f42aa672c059184504d}{\index{Action@{Action}!get\-X\-Days@{get\-X\-Days}}
+\index{get\-X\-Days@{get\-X\-Days}!Action@{Action}}
+\subsubsection[{get\-X\-Days}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::get\-X\-Days (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_action_a50c6caabd07584a1d4adb8dfc6270abe}
-\hypertarget{class_action_a534682646596250cd8bb98957e423791}{\index{Action@{Action}!set\-Code@{set\-Code}}
-\index{set\-Code@{set\-Code}!Action@{Action}}
-\subsubsection[{set\-Code}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Code (
+) const}}\label{class_action_a943b631b783f3f42aa672c059184504d}
+\begin{DoxyReturn}{Returns}
+Number of days that needs to pass to execute the action again. Works only if the \hyperlink{class_action_a4e95f70f5532330f672ec6d4967cae30}{Action\-::is\-X\-Days()} returns true. 
+\end{DoxyReturn}
+\hypertarget{class_action_a9926c6292dadcbd1ceb35a0d01357dc1}{\index{Action@{Action}!is\-Excluded@{is\-Excluded}}
+\index{is\-Excluded@{is\-Excluded}!Action@{Action}}
+\subsubsection[{is\-Excluded}]{\setlength{\rightskip}{0pt plus 5cm}bool Action\-::is\-Excluded (
 \begin{DoxyParamCaption}
-\item[{Q\-String}]{code}
+\item[{Q\-Date}]{date}
 \end{DoxyParamCaption}
-)}}\label{class_action_a534682646596250cd8bb98957e423791}
-\hypertarget{class_action_a5d60106a1c5b9d492f32432e903ba0c4}{\index{Action@{Action}!set\-File\-Name@{set\-File\-Name}}
-\index{set\-File\-Name@{set\-File\-Name}!Action@{Action}}
-\subsubsection[{set\-File\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-File\-Name (
+) const}}\label{class_action_a9926c6292dadcbd1ceb35a0d01357dc1}
+
+
+Check if the given date is exlcluded. 
+
+\begin{DoxyReturn}{Returns}
+Value which determines if the date is excluded. 
+\end{DoxyReturn}
+\hypertarget{class_action_ad9eb6b1f91a99bfdaf1a4f80860e6088}{\index{Action@{Action}!is\-Highlighted@{is\-Highlighted}}
+\index{is\-Highlighted@{is\-Highlighted}!Action@{Action}}
+\subsubsection[{is\-Highlighted}]{\setlength{\rightskip}{0pt plus 5cm}bool Action\-::is\-Highlighted (
 \begin{DoxyParamCaption}
-\item[{Q\-String}]{file\-Name}
+{}
 \end{DoxyParamCaption}
-)}}\label{class_action_a5d60106a1c5b9d492f32432e903ba0c4}
-\hypertarget{class_action_ab3d4f6defc4b25b7d64d806ca861388d}{\index{Action@{Action}!set\-Modified@{set\-Modified}}
-\index{set\-Modified@{set\-Modified}!Action@{Action}}
-\subsubsection[{set\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Modified (
+) const}}\label{class_action_ad9eb6b1f91a99bfdaf1a4f80860e6088}
+\begin{DoxyReturn}{Returns}
+Checks whether the action is highlighted. 
+\end{DoxyReturn}
+\hypertarget{class_action_a4e95f70f5532330f672ec6d4967cae30}{\index{Action@{Action}!is\-X\-Days@{is\-X\-Days}}
+\index{is\-X\-Days@{is\-X\-Days}!Action@{Action}}
+\subsubsection[{is\-X\-Days}]{\setlength{\rightskip}{0pt plus 5cm}bool Action\-::is\-X\-Days (
 \begin{DoxyParamCaption}
-\item[{bool}]{changed}
+{}
 \end{DoxyParamCaption}
-)}}\label{class_action_ab3d4f6defc4b25b7d64d806ca861388d}
-\hypertarget{class_action_a8d7527963d293e66cd9d63e4868f07a4}{\index{Action@{Action}!set\-Path@{set\-Path}}
-\index{set\-Path@{set\-Path}!Action@{Action}}
-\subsubsection[{set\-Path}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Path (
+) const}}\label{class_action_a4e95f70f5532330f672ec6d4967cae30}
+\begin{DoxyReturn}{Returns}
+Value which determines if the action has a \char`\"{}every X days\char`\"{} repetition turned on. 
+\end{DoxyReturn}
+\hypertarget{class_action_ab8af5522ac8a15d382f03626844d7d0a}{\index{Action@{Action}!next\-Id@{next\-Id}}
+\index{next\-Id@{next\-Id}!Action@{Action}}
+\subsubsection[{next\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::next\-Id (
 \begin{DoxyParamCaption}
-\item[{Q\-String}]{path}
+{}
 \end{DoxyParamCaption}
-)}}\label{class_action_a8d7527963d293e66cd9d63e4868f07a4}
-\hypertarget{class_action_a78038e8c66cf8e6b4ff53874298ef7d4}{\index{Action@{Action}!set\-Time@{set\-Time}}
-\index{set\-Time@{set\-Time}!Action@{Action}}
-\subsubsection[{set\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Time (
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_ab8af5522ac8a15d382f03626844d7d0a}
+\begin{DoxyReturn}{Returns}
+Next free id for the action. 
+\end{DoxyReturn}
+\hypertarget{class_action_a55b4a13b734764bf0a9d15af3c92da70}{\index{Action@{Action}!set\-Excluded\-Dates@{set\-Excluded\-Dates}}
+\index{set\-Excluded\-Dates@{set\-Excluded\-Dates}!Action@{Action}}
+\subsubsection[{set\-Excluded\-Dates}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Excluded\-Dates (
 \begin{DoxyParamCaption}
-\item[{Q\-Time}]{time}
+\item[{Q\-Vector$<$ Q\-Date $>$}]{excluded\-Dates}
 \end{DoxyParamCaption}
-)}}\label{class_action_a78038e8c66cf8e6b4ff53874298ef7d4}
+)}}\label{class_action_a55b4a13b734764bf0a9d15af3c92da70}
+
+
+Sets vector of excluded dates. Beware that the method will override the existing excluded dates. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em excluded\-Dates} & Vector of dates that will be excluded. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_a7995fda15f70ce011df7bc490d178c7f}{\index{Action@{Action}!set\-Highlight@{set\-Highlight}}
+\index{set\-Highlight@{set\-Highlight}!Action@{Action}}
+\subsubsection[{set\-Highlight}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Highlight (
+\begin{DoxyParamCaption}
+\item[{bool}]{state}
+\end{DoxyParamCaption}
+)}}\label{class_action_a7995fda15f70ce011df7bc490d178c7f}
+
+
+Sets the status of the highlighting action. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em state} & State of the highlighting. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_af9455b0812708a8424e0e14bb926d911}{\index{Action@{Action}!set\-Id@{set\-Id}}
+\index{set\-Id@{set\-Id}!Action@{Action}}
+\subsubsection[{set\-Id}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_af9455b0812708a8424e0e14bb926d911}
+
+
+Sets id for the action. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em id} & Id to be set to the action. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_a35c0fa5853a20c76ea36555652cda3b9}{\index{Action@{Action}!set\-Main\-Date@{set\-Main\-Date}}
+\index{set\-Main\-Date@{set\-Main\-Date}!Action@{Action}}
+\subsubsection[{set\-Main\-Date}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Main\-Date (
+\begin{DoxyParamCaption}
+\item[{Q\-Date}]{main\-Date}
+\end{DoxyParamCaption}
+)}}\label{class_action_a35c0fa5853a20c76ea36555652cda3b9}
+
+
+Main date for the action from which the repetitions will be created. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em main\-Date} & Main date for the action. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_a4c98125d275b28055dd1e96c3091fd52}{\index{Action@{Action}!set\-Script@{set\-Script}}
+\index{set\-Script@{set\-Script}!Action@{Action}}
+\subsubsection[{set\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Script (
+\begin{DoxyParamCaption}
+\item[{{\bf Script} $\ast$}]{p\-Script}
+\end{DoxyParamCaption}
+)}}\label{class_action_a4c98125d275b28055dd1e96c3091fd52}
+
+
+Sets script that the action will be invoking. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\-Script} & Pointer to the script object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_ab0dcff3e1da9b7bf4ffbc5cb37c56bba}{\index{Action@{Action}!set\-Setting@{set\-Setting}}
+\index{set\-Setting@{set\-Setting}!Action@{Action}}
+\subsubsection[{set\-Setting}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-::set\-Setting (
+\begin{DoxyParamCaption}
+\item[{const {\bf Action\-Settings} \&}]{settings}
+\end{DoxyParamCaption}
+)}}\label{class_action_ab0dcff3e1da9b7bf4ffbc5cb37c56bba}
+
+
+Sets settings for the action. See \hyperlink{class_action_settings}{Action\-Settings} class for more details. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em settings} & Settings for the action. \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Data Documentation}
-\hypertarget{class_action_ad7930bec6d8cff987c1882d76642369d}{\index{Action@{Action}!m\-\_\-b\-Modified@{m\-\_\-b\-Modified}}
-\index{m\-\_\-b\-Modified@{m\-\_\-b\-Modified}!Action@{Action}}
-\subsubsection[{m\-\_\-b\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}bool Action\-::m\-\_\-b\-Modified\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_ad7930bec6d8cff987c1882d76642369d}
-\hypertarget{class_action_a15cb4f3d394cecf16438d01c05b87c98}{\index{Action@{Action}!m\-\_\-code@{m\-\_\-code}}
-\index{m\-\_\-code@{m\-\_\-code}!Action@{Action}}
-\subsubsection[{m\-\_\-code}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::m\-\_\-code\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a15cb4f3d394cecf16438d01c05b87c98}
-\hypertarget{class_action_a65a3f717f84c94c351ccff1e4f450816}{\index{Action@{Action}!m\-\_\-file\-Name@{m\-\_\-file\-Name}}
-\index{m\-\_\-file\-Name@{m\-\_\-file\-Name}!Action@{Action}}
-\subsubsection[{m\-\_\-file\-Name}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::m\-\_\-file\-Name\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a65a3f717f84c94c351ccff1e4f450816}
-\hypertarget{class_action_acdaebb900bcc4fa101b7ad7fcc607e01}{\index{Action@{Action}!m\-\_\-path@{m\-\_\-path}}
-\index{m\-\_\-path@{m\-\_\-path}!Action@{Action}}
-\subsubsection[{m\-\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-::m\-\_\-path\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_acdaebb900bcc4fa101b7ad7fcc607e01}
+\hypertarget{class_action_a00188e362b7f6b7740f514a7464e8eb2}{\index{Action@{Action}!m\-\_\-action\-Number@{m\-\_\-action\-Number}}
+\index{m\-\_\-action\-Number@{m\-\_\-action\-Number}!Action@{Action}}
+\subsubsection[{m\-\_\-action\-Number}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::m\-\_\-action\-Number = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_action_a00188e362b7f6b7740f514a7464e8eb2}
+
+
+Value used for assigning ids for actions. See \hyperlink{class_action_a0f56dba599957c8a66d808c525cbd243}{Action\-::m\-\_\-id}. 
+
+\hypertarget{class_action_a646d602d39e2b6c23dc2d398530614d0}{\index{Action@{Action}!m\-\_\-days@{m\-\_\-days}}
+\index{m\-\_\-days@{m\-\_\-days}!Action@{Action}}
+\subsubsection[{m\-\_\-days}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::m\-\_\-days\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a646d602d39e2b6c23dc2d398530614d0}
+
+
+which days the action is invoked on. 
+
+\hypertarget{class_action_a15acdea3b4df51d6c10d4870797a165b}{\index{Action@{Action}!m\-\_\-excluded\-Dates@{m\-\_\-excluded\-Dates}}
+\index{m\-\_\-excluded\-Dates@{m\-\_\-excluded\-Dates}!Action@{Action}}
+\subsubsection[{m\-\_\-excluded\-Dates}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<$Q\-Date$>$ Action\-::m\-\_\-excluded\-Dates\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a15acdea3b4df51d6c10d4870797a165b}
+
+
+What dates should be excluded from the repetitions. 
+
+\hypertarget{class_action_a0f56dba599957c8a66d808c525cbd243}{\index{Action@{Action}!m\-\_\-id@{m\-\_\-id}}
+\index{m\-\_\-id@{m\-\_\-id}!Action@{Action}}
+\subsubsection[{m\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::m\-\_\-id\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a0f56dba599957c8a66d808c525cbd243}
+
+
+Id of the action. If there are actions that might be called at the same time the action with lower id will be performed first. 
+
+\hypertarget{class_action_aada07b527d172c811c85cd1d0e0de876}{\index{Action@{Action}!m\-\_\-is\-Highlighted@{m\-\_\-is\-Highlighted}}
+\index{m\-\_\-is\-Highlighted@{m\-\_\-is\-Highlighted}!Action@{Action}}
+\subsubsection[{m\-\_\-is\-Highlighted}]{\setlength{\rightskip}{0pt plus 5cm}bool Action\-::m\-\_\-is\-Highlighted\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_aada07b527d172c811c85cd1d0e0de876}
+
+
+Whether the action is highlighted (when a user selects the action on the calendar). 
+
+\hypertarget{class_action_a153c3f547daf43271aee2868cadb0762}{\index{Action@{Action}!m\-\_\-is\-X\-Days@{m\-\_\-is\-X\-Days}}
+\index{m\-\_\-is\-X\-Days@{m\-\_\-is\-X\-Days}!Action@{Action}}
+\subsubsection[{m\-\_\-is\-X\-Days}]{\setlength{\rightskip}{0pt plus 5cm}bool Action\-::m\-\_\-is\-X\-Days\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a153c3f547daf43271aee2868cadb0762}
+
+
+Value that determines if the actions has \char`\"{}every X days\char`\"{} repetitions. 
+
+\hypertarget{class_action_abb545fb5aae40e818ae95b44d56d7478}{\index{Action@{Action}!m\-\_\-main\-Date@{m\-\_\-main\-Date}}
+\index{m\-\_\-main\-Date@{m\-\_\-main\-Date}!Action@{Action}}
+\subsubsection[{m\-\_\-main\-Date}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Date Action\-::m\-\_\-main\-Date\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_abb545fb5aae40e818ae95b44d56d7478}
+
+
+Date which represents main action from which the repetition are created. 
+
+\hypertarget{class_action_a1a57520ab430ca6241add1e68303fb0c}{\index{Action@{Action}!m\-\_\-p\-Script@{m\-\_\-p\-Script}}
+\index{m\-\_\-p\-Script@{m\-\_\-p\-Script}!Action@{Action}}
+\subsubsection[{m\-\_\-p\-Script}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Script}$\ast$ Action\-::m\-\_\-p\-Script\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a1a57520ab430ca6241add1e68303fb0c}
+
+
+Pointer to script object which is used in the action. See \hyperlink{class_script}{Script} class for more details. 
+
 \hypertarget{class_action_a00911e1be6fd7fa990a2a607590edaa9}{\index{Action@{Action}!m\-\_\-time@{m\-\_\-time}}
 \index{m\-\_\-time@{m\-\_\-time}!Action@{Action}}
 \subsubsection[{m\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Time Action\-::m\-\_\-time\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a00911e1be6fd7fa990a2a607590edaa9}
+
+
+Time which the action will be called at. 
+
+\hypertarget{class_action_a9ad7c62918ef062c3f593fd3fa7fd308}{\index{Action@{Action}!m\-\_\-\-X\-Days@{m\-\_\-\-X\-Days}}
+\index{m\-\_\-\-X\-Days@{m\-\_\-\-X\-Days}!Action@{Action}}
+\subsubsection[{m\-\_\-\-X\-Days}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-::m\-\_\-\-X\-Days\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_a9ad7c62918ef062c3f593fd3fa7fd308}
+
+
+How many days have to pass to invoke the action again. 
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

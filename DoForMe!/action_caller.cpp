@@ -2,7 +2,7 @@
 
 ActionCaller* ActionCaller::ms_object = NULL;
 
-ActionCaller::ActionCaller() : m_tray( NULL ), m_isExecuting( false ) {}
+ActionCaller::ActionCaller() : m_tray( NULL ) {}
 
 void ActionCaller::sortByTime( QVector<Action*>& actions ) {
 	QVector<Action*> _out;

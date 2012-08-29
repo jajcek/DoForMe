@@ -1,0 +1,69 @@
+\hypertarget{struct_wal_index_hdr}{\section{Wal\-Index\-Hdr Struct Reference}
+\label{struct_wal_index_hdr}\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_index_hdr_a49295f5eb9d6f37a1498cf1a66410b92}{i\-Version}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_index_hdr_aa00596b4ad38dce7f97261a49ce64d74}{unused}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_index_hdr_a9fafc4d4af9ab741b3b8733380a7927f}{i\-Change}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_wal_index_hdr_a1cc0dc2be6cd108a7bcca260be3e4cb9}{is\-Init}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_wal_index_hdr_aa6be53a6a60ea0b2a97a245b5ca68d61}{big\-End\-Cksum}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_wal_index_hdr_a74e9182803402942cf6e45d8e23589c7}{sz\-Page}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_index_hdr_aa697dbe8134daf3d02dce07feb897f41}{mx\-Frame}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_index_hdr_ae4ca33947cd629feb9dce2b1f976c364}{n\-Page}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_index_hdr_a425dff294e0f0b30b6819c273404c721}{a\-Frame\-Cksum} \mbox{[}2\mbox{]}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_index_hdr_af99b92f673fd7ba1e4e4f9feb955453f}{a\-Salt} \mbox{[}2\mbox{]}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_index_hdr_aa202339b02766d088717bfce9e3a9c0e}{a\-Cksum} \mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_wal_index_hdr_aa202339b02766d088717bfce9e3a9c0e}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!a\-Cksum@{a\-Cksum}}
+\index{a\-Cksum@{a\-Cksum}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{a\-Cksum}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-Index\-Hdr\-::a\-Cksum\mbox{[}2\mbox{]}}}\label{struct_wal_index_hdr_aa202339b02766d088717bfce9e3a9c0e}
+\hypertarget{struct_wal_index_hdr_a425dff294e0f0b30b6819c273404c721}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!a\-Frame\-Cksum@{a\-Frame\-Cksum}}
+\index{a\-Frame\-Cksum@{a\-Frame\-Cksum}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{a\-Frame\-Cksum}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-Index\-Hdr\-::a\-Frame\-Cksum\mbox{[}2\mbox{]}}}\label{struct_wal_index_hdr_a425dff294e0f0b30b6819c273404c721}
+\hypertarget{struct_wal_index_hdr_af99b92f673fd7ba1e4e4f9feb955453f}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!a\-Salt@{a\-Salt}}
+\index{a\-Salt@{a\-Salt}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{a\-Salt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-Index\-Hdr\-::a\-Salt\mbox{[}2\mbox{]}}}\label{struct_wal_index_hdr_af99b92f673fd7ba1e4e4f9feb955453f}
+\hypertarget{struct_wal_index_hdr_aa6be53a6a60ea0b2a97a245b5ca68d61}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!big\-End\-Cksum@{big\-End\-Cksum}}
+\index{big\-End\-Cksum@{big\-End\-Cksum}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{big\-End\-Cksum}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Wal\-Index\-Hdr\-::big\-End\-Cksum}}\label{struct_wal_index_hdr_aa6be53a6a60ea0b2a97a245b5ca68d61}
+\hypertarget{struct_wal_index_hdr_a9fafc4d4af9ab741b3b8733380a7927f}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!i\-Change@{i\-Change}}
+\index{i\-Change@{i\-Change}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{i\-Change}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-Index\-Hdr\-::i\-Change}}\label{struct_wal_index_hdr_a9fafc4d4af9ab741b3b8733380a7927f}
+\hypertarget{struct_wal_index_hdr_a1cc0dc2be6cd108a7bcca260be3e4cb9}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!is\-Init@{is\-Init}}
+\index{is\-Init@{is\-Init}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{is\-Init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Wal\-Index\-Hdr\-::is\-Init}}\label{struct_wal_index_hdr_a1cc0dc2be6cd108a7bcca260be3e4cb9}
+\hypertarget{struct_wal_index_hdr_a49295f5eb9d6f37a1498cf1a66410b92}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!i\-Version@{i\-Version}}
+\index{i\-Version@{i\-Version}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{i\-Version}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-Index\-Hdr\-::i\-Version}}\label{struct_wal_index_hdr_a49295f5eb9d6f37a1498cf1a66410b92}
+\hypertarget{struct_wal_index_hdr_aa697dbe8134daf3d02dce07feb897f41}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!mx\-Frame@{mx\-Frame}}
+\index{mx\-Frame@{mx\-Frame}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{mx\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-Index\-Hdr\-::mx\-Frame}}\label{struct_wal_index_hdr_aa697dbe8134daf3d02dce07feb897f41}
+\hypertarget{struct_wal_index_hdr_ae4ca33947cd629feb9dce2b1f976c364}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!n\-Page@{n\-Page}}
+\index{n\-Page@{n\-Page}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{n\-Page}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-Index\-Hdr\-::n\-Page}}\label{struct_wal_index_hdr_ae4ca33947cd629feb9dce2b1f976c364}
+\hypertarget{struct_wal_index_hdr_a74e9182803402942cf6e45d8e23589c7}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!sz\-Page@{sz\-Page}}
+\index{sz\-Page@{sz\-Page}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{sz\-Page}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Wal\-Index\-Hdr\-::sz\-Page}}\label{struct_wal_index_hdr_a74e9182803402942cf6e45d8e23589c7}
+\hypertarget{struct_wal_index_hdr_aa00596b4ad38dce7f97261a49ce64d74}{\index{Wal\-Index\-Hdr@{Wal\-Index\-Hdr}!unused@{unused}}
+\index{unused@{unused}!WalIndexHdr@{Wal\-Index\-Hdr}}
+\subsubsection[{unused}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-Index\-Hdr\-::unused}}\label{struct_wal_index_hdr_aa00596b4ad38dce7f97261a49ce64d74}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

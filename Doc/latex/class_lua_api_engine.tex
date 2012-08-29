@@ -13,8 +13,6 @@ L\-U\-A A\-P\-I functions.
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \hyperlink{class_lua_api_engine_ae3642a4f6256f202dd88726b70ed3936}{set\-Lua\-Engine} (\hyperlink{class_lua_engine}{Lua\-Engine} $\ast$lua\-Engine)
-\begin{DoxyCompactList}\small\item\em Sets pointer to the \hyperlink{class_lua_engine}{Lua\-Engine}'s object. \end{DoxyCompactList}\item 
 static void \hyperlink{class_lua_api_engine_a7f614e9a85e02951c0a21e694654b83a}{init\-Special\-Keys} ()
 \begin{DoxyCompactList}\small\item\em Initialize all special keys that will be available to users. \end{DoxyCompactList}\item 
 static int \hyperlink{class_lua_api_engine_a03308524bb7be3fca0e5865a0eba6c41}{prepare\-Sleep} (lua\-\_\-\-State $\ast$state)
@@ -97,8 +95,6 @@ static int \hyperlink{class_lua_api_engine_ac1b8a6a2ea07065dc1c3f7eed7937d8d}{ge
 \subsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static \hyperlink{class_lua_engine}{Lua\-Engine} $\ast$ \hyperlink{class_lua_api_engine_afff2b87b3c828c0904df2d7e6f6bd389}{m\-\_\-lua\-Engine}
-\begin{DoxyCompactList}\small\item\em Pointer to a \hyperlink{class_lua_engine}{Lua\-Engine} object, which is used here to store commands in \hyperlink{class_lua_engine}{Lua\-Engine} object. \end{DoxyCompactList}\item 
 static std\-::map$<$ Q\-String, \hyperlink{class_key}{Key} $\ast$ $>$ \hyperlink{class_lua_api_engine_a9fdba2d7f2f8d051453b5d1561435f5e}{m\-\_\-special\-Keys}
 \begin{DoxyCompactList}\small\item\em Field that maps string to \hyperlink{class_key}{Key} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -633,20 +629,6 @@ Executes sending text.
 \mbox{\tt in}  & {\em args} & Array which contains arguments for the function. In this case every element is a symbol from the given text. \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_lua_api_engine_ae3642a4f6256f202dd88726b70ed3936}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!set\-Lua\-Engine@{set\-Lua\-Engine}}
-\index{set\-Lua\-Engine@{set\-Lua\-Engine}!LuaApiEngine@{Lua\-Api\-Engine}}
-\subsubsection[{set\-Lua\-Engine}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Api\-Engine\-::set\-Lua\-Engine (
-\begin{DoxyParamCaption}
-\item[{{\bf Lua\-Engine} $\ast$}]{lua\-Engine}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_lua_api_engine_ae3642a4f6256f202dd88726b70ed3936}
-
-
-Sets pointer to the \hyperlink{class_lua_engine}{Lua\-Engine}'s object. 
-
-\begin{Desc}
-\item[Examples\-: ]\par
-\hyperlink{_lua_engine_example_8cpp-example}{Lua\-Engine\-\_\-example.\-cpp}.\end{Desc}
 \hypertarget{class_lua_api_engine_a6910c482ffa6327999b49504522991b7}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!sleep@{sleep}}
 \index{sleep@{sleep}!LuaApiEngine@{Lua\-Api\-Engine}}
 \subsubsection[{sleep}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Api\-Engine\-::sleep (
@@ -669,13 +651,6 @@ Executes waiting command.
 
 
 \subsection{Member Data Documentation}
-\hypertarget{class_lua_api_engine_afff2b87b3c828c0904df2d7e6f6bd389}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!m\-\_\-lua\-Engine@{m\-\_\-lua\-Engine}}
-\index{m\-\_\-lua\-Engine@{m\-\_\-lua\-Engine}!LuaApiEngine@{Lua\-Api\-Engine}}
-\subsubsection[{m\-\_\-lua\-Engine}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lua\-Engine} $\ast$ Lua\-Api\-Engine\-::m\-\_\-lua\-Engine\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_lua_api_engine_afff2b87b3c828c0904df2d7e6f6bd389}
-
-
-Pointer to a \hyperlink{class_lua_engine}{Lua\-Engine} object, which is used here to store commands in \hyperlink{class_lua_engine}{Lua\-Engine} object. 
-
 \hypertarget{class_lua_api_engine_a9fdba2d7f2f8d051453b5d1561435f5e}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!m\-\_\-special\-Keys@{m\-\_\-special\-Keys}}
 \index{m\-\_\-special\-Keys@{m\-\_\-special\-Keys}!LuaApiEngine@{Lua\-Api\-Engine}}
 \subsubsection[{m\-\_\-special\-Keys}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$ Q\-String, {\bf Key} $\ast$ $>$ Lua\-Api\-Engine\-::m\-\_\-special\-Keys\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_lua_api_engine_a9fdba2d7f2f8d051453b5d1561435f5e}

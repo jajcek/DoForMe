@@ -1,0 +1,50 @@
+\hypertarget{struct_where_plan}{\section{Where\-Plan Struct Reference}
+\label{struct_where_plan}\index{Where\-Plan@{Where\-Plan}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_where_plan_a6b81c2c91b28ac8898f382db2da6707b}{ws\-Flags}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_where_plan_a40932e9221e83032c43f147d287e3847}{n\-Eq}
+\item 
+double \hyperlink{struct_where_plan_af32764f764b0d160c63eb730d9064f64}{n\-Row}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{struct_index}{Index} $\ast$ \hyperlink{struct_where_plan_a074ae9f009e0b2bf0a2121a30f959855}{pIdx}\\
+\>struct \hyperlink{struct_where_term}{WhereTerm} $\ast$ \hyperlink{struct_where_plan_a85501aa7df9d6e7bc4e867c71a7a8b7a}{pTerm}\\
+\>\hyperlink{structsqlite3__index__info}{sqlite3\_index\_info} $\ast$ \hyperlink{struct_where_plan_ac49d2637a631885c4c277d0ea35b14f8}{pVtabIdx}\\
+\} \hyperlink{struct_where_plan_a00bc8b9f4e902606b3ca733878ff7131}{u}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_where_plan_a40932e9221e83032c43f147d287e3847}{\index{Where\-Plan@{Where\-Plan}!n\-Eq@{n\-Eq}}
+\index{n\-Eq@{n\-Eq}!WherePlan@{Where\-Plan}}
+\subsubsection[{n\-Eq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Where\-Plan\-::n\-Eq}}\label{struct_where_plan_a40932e9221e83032c43f147d287e3847}
+\hypertarget{struct_where_plan_af32764f764b0d160c63eb730d9064f64}{\index{Where\-Plan@{Where\-Plan}!n\-Row@{n\-Row}}
+\index{n\-Row@{n\-Row}!WherePlan@{Where\-Plan}}
+\subsubsection[{n\-Row}]{\setlength{\rightskip}{0pt plus 5cm}double Where\-Plan\-::n\-Row}}\label{struct_where_plan_af32764f764b0d160c63eb730d9064f64}
+\hypertarget{struct_where_plan_a074ae9f009e0b2bf0a2121a30f959855}{\index{Where\-Plan@{Where\-Plan}!p\-Idx@{p\-Idx}}
+\index{p\-Idx@{p\-Idx}!WherePlan@{Where\-Plan}}
+\subsubsection[{p\-Idx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Index}$\ast$ Where\-Plan\-::p\-Idx}}\label{struct_where_plan_a074ae9f009e0b2bf0a2121a30f959855}
+\hypertarget{struct_where_plan_a85501aa7df9d6e7bc4e867c71a7a8b7a}{\index{Where\-Plan@{Where\-Plan}!p\-Term@{p\-Term}}
+\index{p\-Term@{p\-Term}!WherePlan@{Where\-Plan}}
+\subsubsection[{p\-Term}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Where\-Term}$\ast$ Where\-Plan\-::p\-Term}}\label{struct_where_plan_a85501aa7df9d6e7bc4e867c71a7a8b7a}
+\hypertarget{struct_where_plan_ac49d2637a631885c4c277d0ea35b14f8}{\index{Where\-Plan@{Where\-Plan}!p\-Vtab\-Idx@{p\-Vtab\-Idx}}
+\index{p\-Vtab\-Idx@{p\-Vtab\-Idx}!WherePlan@{Where\-Plan}}
+\subsubsection[{p\-Vtab\-Idx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-index\-\_\-info}$\ast$ Where\-Plan\-::p\-Vtab\-Idx}}\label{struct_where_plan_ac49d2637a631885c4c277d0ea35b14f8}
+\hypertarget{struct_where_plan_a00bc8b9f4e902606b3ca733878ff7131}{\index{Where\-Plan@{Where\-Plan}!u@{u}}
+\index{u@{u}!WherePlan@{Where\-Plan}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   Where\-Plan\-::u}}\label{struct_where_plan_a00bc8b9f4e902606b3ca733878ff7131}
+\hypertarget{struct_where_plan_a6b81c2c91b28ac8898f382db2da6707b}{\index{Where\-Plan@{Where\-Plan}!ws\-Flags@{ws\-Flags}}
+\index{ws\-Flags@{ws\-Flags}!WherePlan@{Where\-Plan}}
+\subsubsection[{ws\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Where\-Plan\-::ws\-Flags}}\label{struct_where_plan_a6b81c2c91b28ac8898f382db2da6707b}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

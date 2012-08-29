@@ -1,0 +1,152 @@
+\hypertarget{class_tray_system}{\section{Tray\-System Class Reference}
+\label{class_tray_system}\index{Tray\-System@{Tray\-System}}
+}
+
+
+Controls behaviour of the tray icon system.  
+
+
+
+
+{\ttfamily \#include $<$tray\-\_\-system.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_tray_system_a58e46a8ba52b631347f8d467ec5f00f7}{Tray\-System} (Q\-String icon\-Path, Q\-Object $\ast$parent)
+\begin{DoxyCompactList}\small\item\em Construct object with an icon from the given path. \end{DoxyCompactList}\item 
+void \hyperlink{class_tray_system_a9b12345b605ba8414be9e1a85a791df8}{update} (Q\-Vector$<$ \hyperlink{class_action}{Action} $\ast$ $>$ actions)
+\begin{DoxyCompactList}\small\item\em Updates content of the context menu. \end{DoxyCompactList}\item 
+void \hyperlink{class_tray_system_a35163b0c36f1131988d74b77c8563aa1}{add\-Q\-Action} (Q\-Action $\ast$action)
+\begin{DoxyCompactList}\small\item\em Adds operation for the context menu (not the actions from the calendar), e.\-g. Open or Exit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_tray_system_a2971d243ae5826d61b21bdaee9e93d55}{icon\-Activated} (Q\-System\-Tray\-Icon\-::\-Activation\-Reason reason)
+\begin{DoxyCompactList}\small\item\em Method which is invoked when signal is emmited from clicking on tray icon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\-Menu $\ast$ \hyperlink{class_tray_system_adfd64b94ebc2a105169eb71f00e7b5be}{m\-\_\-menu}
+\begin{DoxyCompactList}\small\item\em Pointer to context menu which is shown when user click right mouse button on the icon. \end{DoxyCompactList}\item 
+unsigned \hyperlink{class_tray_system_aba44024e87333592a4a1a009bdbfa5ea}{m\-\_\-actions\-Number}
+\begin{DoxyCompactList}\small\item\em Stores value which specifies the number of actions in the context menu. \end{DoxyCompactList}\item 
+Q\-Map$<$ Q\-String, Q\-Action $\ast$ $>$ \hyperlink{class_tray_system_a272d652fdd2c15f7630c17a691c1ceca}{m\-\_\-qt\-Actions}
+\begin{DoxyCompactList}\small\item\em Map of all operation in the context menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Controls behaviour of the tray icon system. 
+
+\begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28.\-08.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_tray_system_a58e46a8ba52b631347f8d467ec5f00f7}{\index{Tray\-System@{Tray\-System}!Tray\-System@{Tray\-System}}
+\index{Tray\-System@{Tray\-System}!TraySystem@{Tray\-System}}
+\subsubsection[{Tray\-System}]{\setlength{\rightskip}{0pt plus 5cm}Tray\-System\-::\-Tray\-System (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{icon\-Path, }
+\item[{Q\-Object $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}}\label{class_tray_system_a58e46a8ba52b631347f8d467ec5f00f7}
+
+
+Construct object with an icon from the given path. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em icon\-Path} & Path to the icon we want to load. \\
+\hline
+\mbox{\tt in}  & {\em parent} & Pointer to the parent to which the tray system will be connected. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_tray_system_a35163b0c36f1131988d74b77c8563aa1}{\index{Tray\-System@{Tray\-System}!add\-Q\-Action@{add\-Q\-Action}}
+\index{add\-Q\-Action@{add\-Q\-Action}!TraySystem@{Tray\-System}}
+\subsubsection[{add\-Q\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Tray\-System\-::add\-Q\-Action (
+\begin{DoxyParamCaption}
+\item[{Q\-Action $\ast$}]{action}
+\end{DoxyParamCaption}
+)}}\label{class_tray_system_a35163b0c36f1131988d74b77c8563aa1}
+
+
+Adds operation for the context menu (not the actions from the calendar), e.\-g. Open or Exit. 
+
+Beware that it is necessary to modify the method, because it doesn't use any loop to obtain all operations. It was needed to put actions from calendar between some operations that's why the programmer sets the order. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em action} & \hyperlink{class_action}{Action} that will be added to the context menu. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tray_system_a2971d243ae5826d61b21bdaee9e93d55}{\index{Tray\-System@{Tray\-System}!icon\-Activated@{icon\-Activated}}
+\index{icon\-Activated@{icon\-Activated}!TraySystem@{Tray\-System}}
+\subsubsection[{icon\-Activated}]{\setlength{\rightskip}{0pt plus 5cm}void Tray\-System\-::icon\-Activated (
+\begin{DoxyParamCaption}
+\item[{Q\-System\-Tray\-Icon\-::\-Activation\-Reason}]{reason}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_tray_system_a2971d243ae5826d61b21bdaee9e93d55}
+
+
+Method which is invoked when signal is emmited from clicking on tray icon. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em reason} & Specifies that action has been performed on the tray icon (click, double click, middle click etc.) \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tray_system_a9b12345b605ba8414be9e1a85a791df8}{\index{Tray\-System@{Tray\-System}!update@{update}}
+\index{update@{update}!TraySystem@{Tray\-System}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Tray\-System\-::update (
+\begin{DoxyParamCaption}
+\item[{Q\-Vector$<$ {\bf Action} $\ast$ $>$}]{actions}
+\end{DoxyParamCaption}
+)}}\label{class_tray_system_a9b12345b605ba8414be9e1a85a791df8}
+
+
+Updates content of the context menu. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em actions} & Vector of actions that will be added to the context menu. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_tray_system_aba44024e87333592a4a1a009bdbfa5ea}{\index{Tray\-System@{Tray\-System}!m\-\_\-actions\-Number@{m\-\_\-actions\-Number}}
+\index{m\-\_\-actions\-Number@{m\-\_\-actions\-Number}!TraySystem@{Tray\-System}}
+\subsubsection[{m\-\_\-actions\-Number}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Tray\-System\-::m\-\_\-actions\-Number\hspace{0.3cm}{\ttfamily [private]}}}\label{class_tray_system_aba44024e87333592a4a1a009bdbfa5ea}
+
+
+Stores value which specifies the number of actions in the context menu. 
+
+\hypertarget{class_tray_system_adfd64b94ebc2a105169eb71f00e7b5be}{\index{Tray\-System@{Tray\-System}!m\-\_\-menu@{m\-\_\-menu}}
+\index{m\-\_\-menu@{m\-\_\-menu}!TraySystem@{Tray\-System}}
+\subsubsection[{m\-\_\-menu}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Menu$\ast$ Tray\-System\-::m\-\_\-menu\hspace{0.3cm}{\ttfamily [private]}}}\label{class_tray_system_adfd64b94ebc2a105169eb71f00e7b5be}
+
+
+Pointer to context menu which is shown when user click right mouse button on the icon. 
+
+\hypertarget{class_tray_system_a272d652fdd2c15f7630c17a691c1ceca}{\index{Tray\-System@{Tray\-System}!m\-\_\-qt\-Actions@{m\-\_\-qt\-Actions}}
+\index{m\-\_\-qt\-Actions@{m\-\_\-qt\-Actions}!TraySystem@{Tray\-System}}
+\subsubsection[{m\-\_\-qt\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Map$<$Q\-String, Q\-Action$\ast$$>$ Tray\-System\-::m\-\_\-qt\-Actions\hspace{0.3cm}{\ttfamily [private]}}}\label{class_tray_system_a272d652fdd2c15f7630c17a691c1ceca}
+
+
+Map of all operation in the context menu. 
+
+It maps operation (string from the context menu) into a Q\-Action object. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{tray__system_8h}{tray\-\_\-system.\-h}\item 
+Do\-For\-Me!/\hyperlink{tray__system_8cpp}{tray\-\_\-system.\-cpp}\end{DoxyCompactItemize}

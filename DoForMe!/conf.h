@@ -3,7 +3,7 @@
 #include <qstring.h>
 
 /**
-	\class Conf conf.h "conf.h"
+	\class CONF conf.h "conf.h"
 	\brief Configuration data.
 	\details Structure containing all configuration data like application name,
 	directory name where the application saves the scripts, extenstion for the script files and so on.

@@ -7,7 +7,7 @@
 
 /**
 	\class TraySystem tray_system.h "tray_system.h"
-	\brief Control behaviour of the tray icon system.
+	\brief Controls behaviour of the tray icon system.
 	\author Jacek Topolski
 	\version 1.0
 	\date 28.08.2012

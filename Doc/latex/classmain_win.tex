@@ -3,66 +3,119 @@
 }
 
 
+Main class for window and its controls.  
+
+
+
+
 {\ttfamily \#include $<$mainwin.\-h$>$}
 
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classmain_win_a5a5ebff7e72fcf1a9d840d8030b535b3}{new\-File} ()
-\item 
-void \hyperlink{classmain_win_acf0324a155856e59cdea5ec5698f5514}{run\-Action} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Method invoked during creating new script file. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a1de1fce6f04475bd5baf2006ba93f6a0}{import\-Scripts} ()
+\begin{DoxyCompactList}\small\item\em Method invoked during importing scripts. \end{DoxyCompactList}\item 
 void \hyperlink{classmain_win_a647971cd2796a848d88990680ca8c47f}{save\-Script} ()
-\item 
-void \hyperlink{classmain_win_ab7665b16866b9aeecbe430ef17769ac4}{save\-Action} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Method invoked during sacing script. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a605bc5e184abd3eadb21338970927046}{to\-Tray} ()
+\begin{DoxyCompactList}\small\item\em Method invoked when the program is 'sent' to tray. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a2a999b0788004515727182350242d6bc}{parse\-Script} ()
+\begin{DoxyCompactList}\small\item\em Method invoked during parsing the script code. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a1971e30e143e696271ee2ec1f1cf998e}{run\-Script} (bool only\-Parse=false)
+\begin{DoxyCompactList}\small\item\em Runs script code from the text box. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a3ad8d9509ece99d6e322db2d56a9fa51}{remove\-Script} ()
+\begin{DoxyCompactList}\small\item\em Method invoked during removing a script from the list (the script is removed from the H\-D as well). \end{DoxyCompactList}\item 
 void \hyperlink{classmain_win_af5eb5f12f6e8bf37e9a293e28d82632c}{script\-Selected} (const Q\-String \&script\-Title)
-\item 
+\begin{DoxyCompactList}\small\item\em Method invoked during selecting a script on the scripts list. \end{DoxyCompactList}\item 
 void \hyperlink{classmain_win_affa3129c6021871bfc6ab5acccb0a9c5}{script\-Modified} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Method invoked during modifying code of the selected script. \end{DoxyCompactList}\item 
 void \hyperlink{classmain_win_abfe17be5efdd261fa5d73c37c66b57e8}{add\-Action} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Method invoked during clicking on add action feature. \end{DoxyCompactList}\item 
 void \hyperlink{classmain_win_a971bee9dff02167121566f9a4444af4e}{show\-About} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Shows 'about' dialog. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_aef242a8707d462171f02a6156d5a949e}{action\-Selected} (Q\-Table\-Widget\-Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em Method invoked during selection of the action in the actions list (not in the calendar!). \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a1833795590c91fa73da6a224f31ce5d2}{detach\-Action} ()
+\begin{DoxyCompactList}\small\item\em Method invoked during clicking on the detach feature. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a16012c30ebbfc2f89537df405f9662dc}{remove\-Action} ()
+\begin{DoxyCompactList}\small\item\em Method invoked during clicking on the remove feature. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_ac891fd8165e421e0aafcc1fb3574df40}{edit\-Action} ()
+\begin{DoxyCompactList}\small\item\em Method invoked during editing an action. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a38e7757a0783951f6e0d2d35f6a95dcb}{save\-Data} ()
+\begin{DoxyCompactList}\small\item\em Method invoked while saving the actions into the database. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_afdd988d05727d738cd482a8f1e07e3fe}{move\-Up} ()
+\begin{DoxyCompactList}\small\item\em Moves currently selected action up. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a92d52556b5fc642b7e39b2fad67640fc}{move\-Down} ()
+\begin{DoxyCompactList}\small\item\em Moves currently selected action down. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a6d480f5086986eaeeed93a4c3157f0df}{move\-Left} ()
+\begin{DoxyCompactList}\small\item\em Moves currently selected action left. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_aa46d4ec0613b07140463723017711235}{move\-Right} ()
+\begin{DoxyCompactList}\small\item\em Moves currently selected action right. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_acb51cccbafc4c963ef55ef6d517c60c7}{open\-App} ()
+\begin{DoxyCompactList}\small\item\em Restores main window (used while the program is in tray). \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_abacc60b864c8156cbeb235b516a3be05}{quit\-App} ()
+\begin{DoxyCompactList}\small\item\em Terminates the program previously removing tray icon.. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classmain_win_a837aa6380bc037afd022629b56b7aca9}{main\-Win} (Q\-Widget $\ast$parent=0, Qt\-::\-W\-Flags flags=0)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates the main window, connects signals to slots and initializes the most important objects. \end{DoxyCompactList}\item 
 \hyperlink{classmain_win_a70326ccd243eb2060b1b5a3150025a9d}{$\sim$main\-Win} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Frees memory of the calendar, scripts and lua engine. \end{DoxyCompactList}\item 
 void \hyperlink{classmain_win_a3a1257aa1b06a426b08763a72756f06a}{load\-Scripts} (const Q\-String \&path)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Loads script from the given path and puts the into the scripts list. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{classmain_win_abeb1092d0b748df7ceaeb13334a89030}{get\-Code} () const 
+\item 
+void \hyperlink{classmain_win_afe80ea88b1fb5e13d56acfddf6fee0e6}{set\-Code} (const Q\-String \&code)
+\begin{DoxyCompactList}\small\item\em Sets code to the text box. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_aa70a0f3f1c66ffa1a7d4012526b56c44}{set\-Script\-Title} (Q\-String title)
+\begin{DoxyCompactList}\small\item\em Sets title for the script (only above the text box with its code). \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_a5d97000005953e9adbda7c98602a5ae9}{timer\-Event} (Q\-Timer\-Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Method called by the timer fo updating elements. See \hyperlink{classmain_win_a079d09aeafe1af36f8f0d1bd4d88d803}{main\-Win\-::m\-\_\-updater} for more details. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classmain_win_a9c0cfda2b24fa6259874caf7ccd4b908}{init\-Lua\-Api} ()
-\item 
-void \hyperlink{classmain_win_a0bf4d1e69b1c8bbd0d142cd5d2ec9179}{get\-Data\-For\-Action} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes all api functions for the scripts. \end{DoxyCompactList}\item 
+void \hyperlink{classmain_win_aaf15be9a17be251351b2bde08dcb2c21}{init\-Tray\-System} (\hyperlink{class_tray_system}{Tray\-System} $\ast$tray)
+\begin{DoxyCompactList}\small\item\em Initializes tray system with the context menu. \end{DoxyCompactList}\item 
 Q\-String \hyperlink{classmain_win_ab00961de109eaf86fceed0dc39d53fe8}{get\-Func\-Name} (Q\-String text\-Error)
+\begin{DoxyCompactList}\small\item\em Gets function name from the error message from the lua engine library (not from the \hyperlink{class_lua_engine}{Lua\-Engine} class). \end{DoxyCompactList}\item 
+bool \hyperlink{classmain_win_a2e729670f337c9017dbfae89c2a1a0a5}{check\-Date\-Correctness} (Q\-Date date)
+\begin{DoxyCompactList}\small\item\em Helper function for checking if the date is not old (used with adding actions to the calendar). \end{DoxyCompactList}\item 
+int \hyperlink{classmain_win_a63293c7cdab54cf78b86e7c69a3bff7a}{calc\-Time\-For\-New\-Day} () const 
 \item 
-void \hyperlink{classmain_win_aa70a0f3f1c66ffa1a7d4012526b56c44}{set\-Script\-Title} (Q\-String title)
-\item 
-void \hyperlink{classmain_win_a8f8b08fe7876ae565621dd14c5ecb87d}{set\-Code} (const Q\-String \&)
-\end{DoxyCompactItemize}
+void \hyperlink{classmain_win_add27401cb9db131bbe76cb9501bdd500}{close\-Event} (Q\-Close\-Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Method invoked while closing the main window. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Ui\-::main\-Win\-Class \hyperlink{classmain_win_a89fa9d3006573378f3195845fe9ed408}{ui}
-\item 
-unsigned \hyperlink{classmain_win_a698988f67b0f686dba0a8e33187f66a1}{m\-\_\-i\-Width}
-\item 
-unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-Height}
-\item 
-\hyperlink{class_detailed_calendar}{Detailed\-Calendar} $\ast$ \hyperlink{classmain_win_a6a02cf853e63c1ad31759f3ce225ed62}{m\-\_\-calendar}
-\item 
-\hyperlink{class_lua_engine}{Lua\-Engine} $\ast$ \hyperlink{classmain_win_a96b71dd9a31a4cf6ea5db224a4540458}{m\-\_\-lua}
-\item 
+\begin{DoxyCompactList}\small\item\em Object containing all controls of the window. \end{DoxyCompactList}\item 
+\hyperlink{class_actions_calendar}{Actions\-Calendar} $\ast$ \hyperlink{classmain_win_a6aea2ca54243cf5eafad64ab548766d8}{m\-\_\-calendar}
+\begin{DoxyCompactList}\small\item\em Pointer to the calendar object. \end{DoxyCompactList}\item 
 \hyperlink{class_script}{Script} $\ast$ \hyperlink{classmain_win_ab391602112d6c25f237da91eae815d47}{m\-\_\-p\-Curr\-Script}
-\item 
-\hyperlink{class_action}{Action} $\ast$ \hyperlink{classmain_win_a426c3fc67264577231b3deb525ddef99}{m\-\_\-p\-Curr\-Action}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Pointer to the currently selected script. \end{DoxyCompactList}\item 
+\hyperlink{class_tray_system}{Tray\-System} $\ast$ \hyperlink{classmain_win_a13f687f63460e13e6a4819ea1496a2f0}{m\-\_\-tray}
+\begin{DoxyCompactList}\small\item\em Pointer to the tray icon system. \end{DoxyCompactList}\item 
+Q\-Basic\-Timer \hyperlink{classmain_win_a079d09aeafe1af36f8f0d1bd4d88d803}{m\-\_\-updater}
+\begin{DoxyCompactList}\small\item\em Timer which is used to update calendar, action caller and context menu of the tray system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main class for window and its controls. 
+
+\begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28.\-07.\-2012 
+\end{DoxyDate}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -74,6 +127,10 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 \item[{Qt\-::\-W\-Flags}]{flags = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}}\label{classmain_win_a837aa6380bc037afd022629b56b7aca9}
+
+
+Creates the main window, connects signals to slots and initializes the most important objects. 
+
 \hypertarget{classmain_win_a70326ccd243eb2060b1b5a3150025a9d}{\index{main\-Win@{main\-Win}!$\sim$main\-Win@{$\sim$main\-Win}}
 \index{$\sim$main\-Win@{$\sim$main\-Win}!mainWin@{main\-Win}}
 \subsubsection[{$\sim$main\-Win}]{\setlength{\rightskip}{0pt plus 5cm}main\-Win\-::$\sim$main\-Win (
@@ -83,7 +140,22 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 )}}\label{classmain_win_a70326ccd243eb2060b1b5a3150025a9d}
 
 
+Frees memory of the calendar, scripts and lua engine. 
+
+
+
 \subsection{Member Function Documentation}
+\hypertarget{classmain_win_aef242a8707d462171f02a6156d5a949e}{\index{main\-Win@{main\-Win}!action\-Selected@{action\-Selected}}
+\index{action\-Selected@{action\-Selected}!mainWin@{main\-Win}}
+\subsubsection[{action\-Selected}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::action\-Selected (
+\begin{DoxyParamCaption}
+\item[{Q\-Table\-Widget\-Item $\ast$}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_aef242a8707d462171f02a6156d5a949e}
+
+
+Method invoked during selection of the action in the actions list (not in the calendar!). 
+
 \hypertarget{classmain_win_abfe17be5efdd261fa5d73c37c66b57e8}{\index{main\-Win@{main\-Win}!add\-Action@{add\-Action}}
 \index{add\-Action@{add\-Action}!mainWin@{main\-Win}}
 \subsubsection[{add\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::add\-Action (
@@ -91,13 +163,86 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_abfe17be5efdd261fa5d73c37c66b57e8}
-\hypertarget{classmain_win_a0bf4d1e69b1c8bbd0d142cd5d2ec9179}{\index{main\-Win@{main\-Win}!get\-Data\-For\-Action@{get\-Data\-For\-Action}}
-\index{get\-Data\-For\-Action@{get\-Data\-For\-Action}!mainWin@{main\-Win}}
-\subsubsection[{get\-Data\-For\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::get\-Data\-For\-Action (
+
+
+Method invoked during clicking on add action feature. 
+
+\hypertarget{classmain_win_a63293c7cdab54cf78b86e7c69a3bff7a}{\index{main\-Win@{main\-Win}!calc\-Time\-For\-New\-Day@{calc\-Time\-For\-New\-Day}}
+\index{calc\-Time\-For\-New\-Day@{calc\-Time\-For\-New\-Day}!mainWin@{main\-Win}}
+\subsubsection[{calc\-Time\-For\-New\-Day}]{\setlength{\rightskip}{0pt plus 5cm}int main\-Win\-::calc\-Time\-For\-New\-Day (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a0bf4d1e69b1c8bbd0d142cd5d2ec9179}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a63293c7cdab54cf78b86e7c69a3bff7a}
+\begin{DoxyReturn}{Returns}
+Time (in milliseconds) that need to elapse to the next day (used with \hyperlink{classmain_win_a079d09aeafe1af36f8f0d1bd4d88d803}{main\-Win\-::m\-\_\-updater}). 
+\end{DoxyReturn}
+\hypertarget{classmain_win_a2e729670f337c9017dbfae89c2a1a0a5}{\index{main\-Win@{main\-Win}!check\-Date\-Correctness@{check\-Date\-Correctness}}
+\index{check\-Date\-Correctness@{check\-Date\-Correctness}!mainWin@{main\-Win}}
+\subsubsection[{check\-Date\-Correctness}]{\setlength{\rightskip}{0pt plus 5cm}bool main\-Win\-::check\-Date\-Correctness (
+\begin{DoxyParamCaption}
+\item[{Q\-Date}]{date}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a2e729670f337c9017dbfae89c2a1a0a5}
+
+
+Helper function for checking if the date is not old (used with adding actions to the calendar). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em date} & Date to check. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em True} & if the date is not old. \\
+\hline
+{\em False} & if the date is already in the past. \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{classmain_win_add27401cb9db131bbe76cb9501bdd500}{\index{main\-Win@{main\-Win}!close\-Event@{close\-Event}}
+\index{close\-Event@{close\-Event}!mainWin@{main\-Win}}
+\subsubsection[{close\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::close\-Event (
+\begin{DoxyParamCaption}
+\item[{Q\-Close\-Event $\ast$}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_add27401cb9db131bbe76cb9501bdd500}
+
+
+Method invoked while closing the main window. 
+
+\hypertarget{classmain_win_a1833795590c91fa73da6a224f31ce5d2}{\index{main\-Win@{main\-Win}!detach\-Action@{detach\-Action}}
+\index{detach\-Action@{detach\-Action}!mainWin@{main\-Win}}
+\subsubsection[{detach\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::detach\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a1833795590c91fa73da6a224f31ce5d2}
+
+
+Method invoked during clicking on the detach feature. 
+
+\hypertarget{classmain_win_ac891fd8165e421e0aafcc1fb3574df40}{\index{main\-Win@{main\-Win}!edit\-Action@{edit\-Action}}
+\index{edit\-Action@{edit\-Action}!mainWin@{main\-Win}}
+\subsubsection[{edit\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::edit\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_ac891fd8165e421e0aafcc1fb3574df40}
+
+
+Method invoked during editing an action. 
+
+\hypertarget{classmain_win_abeb1092d0b748df7ceaeb13334a89030}{\index{main\-Win@{main\-Win}!get\-Code@{get\-Code}}
+\index{get\-Code@{get\-Code}!mainWin@{main\-Win}}
+\subsubsection[{get\-Code}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String main\-Win\-::get\-Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmain_win_abeb1092d0b748df7ceaeb13334a89030}
+\begin{DoxyReturn}{Returns}
+Code from the text box. 
+\end{DoxyReturn}
 \hypertarget{classmain_win_ab00961de109eaf86fceed0dc39d53fe8}{\index{main\-Win@{main\-Win}!get\-Func\-Name@{get\-Func\-Name}}
 \index{get\-Func\-Name@{get\-Func\-Name}!mainWin@{main\-Win}}
 \subsubsection[{get\-Func\-Name}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String main\-Win\-::get\-Func\-Name (
@@ -105,6 +250,26 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 \item[{Q\-String}]{text\-Error}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_ab00961de109eaf86fceed0dc39d53fe8}
+
+
+Gets function name from the error message from the lua engine library (not from the \hyperlink{class_lua_engine}{Lua\-Engine} class). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em text\-Error} & Error message from the lua engine library. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmain_win_a1de1fce6f04475bd5baf2006ba93f6a0}{\index{main\-Win@{main\-Win}!import\-Scripts@{import\-Scripts}}
+\index{import\-Scripts@{import\-Scripts}!mainWin@{main\-Win}}
+\subsubsection[{import\-Scripts}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::import\-Scripts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a1de1fce6f04475bd5baf2006ba93f6a0}
+
+
+Method invoked during importing scripts. 
+
 \hypertarget{classmain_win_a9c0cfda2b24fa6259874caf7ccd4b908}{\index{main\-Win@{main\-Win}!init\-Lua\-Api@{init\-Lua\-Api}}
 \index{init\-Lua\-Api@{init\-Lua\-Api}!mainWin@{main\-Win}}
 \subsubsection[{init\-Lua\-Api}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::init\-Lua\-Api (
@@ -112,6 +277,26 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a9c0cfda2b24fa6259874caf7ccd4b908}
+
+
+Initializes all api functions for the scripts. 
+
+\hypertarget{classmain_win_aaf15be9a17be251351b2bde08dcb2c21}{\index{main\-Win@{main\-Win}!init\-Tray\-System@{init\-Tray\-System}}
+\index{init\-Tray\-System@{init\-Tray\-System}!mainWin@{main\-Win}}
+\subsubsection[{init\-Tray\-System}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::init\-Tray\-System (
+\begin{DoxyParamCaption}
+\item[{{\bf Tray\-System} $\ast$}]{tray}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_aaf15be9a17be251351b2bde08dcb2c21}
+
+
+Initializes tray system with the context menu. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em tray} & Tray system to which we set the context menu. \\
+\hline
+\end{DoxyParams}
 \hypertarget{classmain_win_a3a1257aa1b06a426b08763a72756f06a}{\index{main\-Win@{main\-Win}!load\-Scripts@{load\-Scripts}}
 \index{load\-Scripts@{load\-Scripts}!mainWin@{main\-Win}}
 \subsubsection[{load\-Scripts}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::load\-Scripts (
@@ -119,6 +304,59 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 \item[{const Q\-String \&}]{path}
 \end{DoxyParamCaption}
 )}}\label{classmain_win_a3a1257aa1b06a426b08763a72756f06a}
+
+
+Loads script from the given path and puts the into the scripts list. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em path} & Path for the directory with the scripts. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmain_win_a92d52556b5fc642b7e39b2fad67640fc}{\index{main\-Win@{main\-Win}!move\-Down@{move\-Down}}
+\index{move\-Down@{move\-Down}!mainWin@{main\-Win}}
+\subsubsection[{move\-Down}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::move\-Down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a92d52556b5fc642b7e39b2fad67640fc}
+
+
+Moves currently selected action down. 
+
+\hypertarget{classmain_win_a6d480f5086986eaeeed93a4c3157f0df}{\index{main\-Win@{main\-Win}!move\-Left@{move\-Left}}
+\index{move\-Left@{move\-Left}!mainWin@{main\-Win}}
+\subsubsection[{move\-Left}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::move\-Left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a6d480f5086986eaeeed93a4c3157f0df}
+
+
+Moves currently selected action left. 
+
+\hypertarget{classmain_win_aa46d4ec0613b07140463723017711235}{\index{main\-Win@{main\-Win}!move\-Right@{move\-Right}}
+\index{move\-Right@{move\-Right}!mainWin@{main\-Win}}
+\subsubsection[{move\-Right}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::move\-Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_aa46d4ec0613b07140463723017711235}
+
+
+Moves currently selected action right. 
+
+\hypertarget{classmain_win_afdd988d05727d738cd482a8f1e07e3fe}{\index{main\-Win@{main\-Win}!move\-Up@{move\-Up}}
+\index{move\-Up@{move\-Up}!mainWin@{main\-Win}}
+\subsubsection[{move\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::move\-Up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_afdd988d05727d738cd482a8f1e07e3fe}
+
+
+Moves currently selected action up. 
+
 \hypertarget{classmain_win_a5a5ebff7e72fcf1a9d840d8030b535b3}{\index{main\-Win@{main\-Win}!new\-File@{new\-File}}
 \index{new\-File@{new\-File}!mainWin@{main\-Win}}
 \subsubsection[{new\-File}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::new\-File (
@@ -126,20 +364,92 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a5a5ebff7e72fcf1a9d840d8030b535b3}
-\hypertarget{classmain_win_acf0324a155856e59cdea5ec5698f5514}{\index{main\-Win@{main\-Win}!run\-Action@{run\-Action}}
-\index{run\-Action@{run\-Action}!mainWin@{main\-Win}}
-\subsubsection[{run\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::run\-Action (
+
+
+Method invoked during creating new script file. 
+
+\hypertarget{classmain_win_acb51cccbafc4c963ef55ef6d517c60c7}{\index{main\-Win@{main\-Win}!open\-App@{open\-App}}
+\index{open\-App@{open\-App}!mainWin@{main\-Win}}
+\subsubsection[{open\-App}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::open\-App (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_acf0324a155856e59cdea5ec5698f5514}
-\hypertarget{classmain_win_ab7665b16866b9aeecbe430ef17769ac4}{\index{main\-Win@{main\-Win}!save\-Action@{save\-Action}}
-\index{save\-Action@{save\-Action}!mainWin@{main\-Win}}
-\subsubsection[{save\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::save\-Action (
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_acb51cccbafc4c963ef55ef6d517c60c7}
+
+
+Restores main window (used while the program is in tray). 
+
+\hypertarget{classmain_win_a2a999b0788004515727182350242d6bc}{\index{main\-Win@{main\-Win}!parse\-Script@{parse\-Script}}
+\index{parse\-Script@{parse\-Script}!mainWin@{main\-Win}}
+\subsubsection[{parse\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::parse\-Script (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_ab7665b16866b9aeecbe430ef17769ac4}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a2a999b0788004515727182350242d6bc}
+
+
+Method invoked during parsing the script code. 
+
+\hypertarget{classmain_win_abacc60b864c8156cbeb235b516a3be05}{\index{main\-Win@{main\-Win}!quit\-App@{quit\-App}}
+\index{quit\-App@{quit\-App}!mainWin@{main\-Win}}
+\subsubsection[{quit\-App}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::quit\-App (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_abacc60b864c8156cbeb235b516a3be05}
+
+
+Terminates the program previously removing tray icon.. 
+
+\hypertarget{classmain_win_a16012c30ebbfc2f89537df405f9662dc}{\index{main\-Win@{main\-Win}!remove\-Action@{remove\-Action}}
+\index{remove\-Action@{remove\-Action}!mainWin@{main\-Win}}
+\subsubsection[{remove\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::remove\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a16012c30ebbfc2f89537df405f9662dc}
+
+
+Method invoked during clicking on the remove feature. 
+
+\hypertarget{classmain_win_a3ad8d9509ece99d6e322db2d56a9fa51}{\index{main\-Win@{main\-Win}!remove\-Script@{remove\-Script}}
+\index{remove\-Script@{remove\-Script}!mainWin@{main\-Win}}
+\subsubsection[{remove\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::remove\-Script (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a3ad8d9509ece99d6e322db2d56a9fa51}
+
+
+Method invoked during removing a script from the list (the script is removed from the H\-D as well). 
+
+\hypertarget{classmain_win_a1971e30e143e696271ee2ec1f1cf998e}{\index{main\-Win@{main\-Win}!run\-Script@{run\-Script}}
+\index{run\-Script@{run\-Script}!mainWin@{main\-Win}}
+\subsubsection[{run\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::run\-Script (
+\begin{DoxyParamCaption}
+\item[{bool}]{only\-Parse = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a1971e30e143e696271ee2ec1f1cf998e}
+
+
+Runs script code from the text box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em only\-Parse} & If set to true, the method only parses the script to check its correctness, otherwise it also tries to run the script. Use the \hyperlink{classmain_win_a2a999b0788004515727182350242d6bc}{main\-Win\-::parse\-Script} method if you want to only parse the script. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmain_win_a38e7757a0783951f6e0d2d35f6a95dcb}{\index{main\-Win@{main\-Win}!save\-Data@{save\-Data}}
+\index{save\-Data@{save\-Data}!mainWin@{main\-Win}}
+\subsubsection[{save\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::save\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a38e7757a0783951f6e0d2d35f6a95dcb}
+
+
+Method invoked while saving the actions into the database. 
+
 \hypertarget{classmain_win_a647971cd2796a848d88990680ca8c47f}{\index{main\-Win@{main\-Win}!save\-Script@{save\-Script}}
 \index{save\-Script@{save\-Script}!mainWin@{main\-Win}}
 \subsubsection[{save\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::save\-Script (
@@ -147,6 +457,10 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a647971cd2796a848d88990680ca8c47f}
+
+
+Method invoked during sacing script. 
+
 \hypertarget{classmain_win_affa3129c6021871bfc6ab5acccb0a9c5}{\index{main\-Win@{main\-Win}!script\-Modified@{script\-Modified}}
 \index{script\-Modified@{script\-Modified}!mainWin@{main\-Win}}
 \subsubsection[{script\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::script\-Modified (
@@ -154,6 +468,10 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_affa3129c6021871bfc6ab5acccb0a9c5}
+
+
+Method invoked during modifying code of the selected script. 
+
 \hypertarget{classmain_win_af5eb5f12f6e8bf37e9a293e28d82632c}{\index{main\-Win@{main\-Win}!script\-Selected@{script\-Selected}}
 \index{script\-Selected@{script\-Selected}!mainWin@{main\-Win}}
 \subsubsection[{script\-Selected}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::script\-Selected (
@@ -161,20 +479,47 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 \item[{const Q\-String \&}]{script\-Title}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_af5eb5f12f6e8bf37e9a293e28d82632c}
-\hypertarget{classmain_win_a8f8b08fe7876ae565621dd14c5ecb87d}{\index{main\-Win@{main\-Win}!set\-Code@{set\-Code}}
+
+
+Method invoked during selecting a script on the scripts list. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em script\-Title} & Text of the selected script (not the code). \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmain_win_afe80ea88b1fb5e13d56acfddf6fee0e6}{\index{main\-Win@{main\-Win}!set\-Code@{set\-Code}}
 \index{set\-Code@{set\-Code}!mainWin@{main\-Win}}
 \subsubsection[{set\-Code}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::set\-Code (
 \begin{DoxyParamCaption}
 \item[{const Q\-String \&}]{code}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a8f8b08fe7876ae565621dd14c5ecb87d}
+)}}\label{classmain_win_afe80ea88b1fb5e13d56acfddf6fee0e6}
+
+
+Sets code to the text box. 
+
+The method set the text with changed font family. Also it blocks signals at the beginning and unblock them at the end of the method to not emit text\-Changed() signal. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em code} & Code to set. \\
+\hline
+\end{DoxyParams}
 \hypertarget{classmain_win_aa70a0f3f1c66ffa1a7d4012526b56c44}{\index{main\-Win@{main\-Win}!set\-Script\-Title@{set\-Script\-Title}}
 \index{set\-Script\-Title@{set\-Script\-Title}!mainWin@{main\-Win}}
 \subsubsection[{set\-Script\-Title}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::set\-Script\-Title (
 \begin{DoxyParamCaption}
 \item[{Q\-String}]{title}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_aa70a0f3f1c66ffa1a7d4012526b56c44}
+)}}\label{classmain_win_aa70a0f3f1c66ffa1a7d4012526b56c44}
+
+
+Sets title for the script (only above the text box with its code). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em title} & Text for title. \\
+\hline
+\end{DoxyParams}
 \hypertarget{classmain_win_a971bee9dff02167121566f9a4444af4e}{\index{main\-Win@{main\-Win}!show\-About@{show\-About}}
 \index{show\-About@{show\-About}!mainWin@{main\-Win}}
 \subsubsection[{show\-About}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::show\-About (
@@ -184,28 +529,68 @@ unsigned \hyperlink{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{m\-\_\-i\-H
 )\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a971bee9dff02167121566f9a4444af4e}
 
 
+Shows 'about' dialog. 
+
+\hypertarget{classmain_win_a5d97000005953e9adbda7c98602a5ae9}{\index{main\-Win@{main\-Win}!timer\-Event@{timer\-Event}}
+\index{timer\-Event@{timer\-Event}!mainWin@{main\-Win}}
+\subsubsection[{timer\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::timer\-Event (
+\begin{DoxyParamCaption}
+\item[{Q\-Timer\-Event $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{classmain_win_a5d97000005953e9adbda7c98602a5ae9}
+
+
+Method called by the timer fo updating elements. See \hyperlink{classmain_win_a079d09aeafe1af36f8f0d1bd4d88d803}{main\-Win\-::m\-\_\-updater} for more details. 
+
+\hypertarget{classmain_win_a605bc5e184abd3eadb21338970927046}{\index{main\-Win@{main\-Win}!to\-Tray@{to\-Tray}}
+\index{to\-Tray@{to\-Tray}!mainWin@{main\-Win}}
+\subsubsection[{to\-Tray}]{\setlength{\rightskip}{0pt plus 5cm}void main\-Win\-::to\-Tray (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classmain_win_a605bc5e184abd3eadb21338970927046}
+
+
+Method invoked when the program is 'sent' to tray. 
+
+
+
 \subsection{Member Data Documentation}
-\hypertarget{classmain_win_a6a02cf853e63c1ad31759f3ce225ed62}{\index{main\-Win@{main\-Win}!m\-\_\-calendar@{m\-\_\-calendar}}
+\hypertarget{classmain_win_a6aea2ca54243cf5eafad64ab548766d8}{\index{main\-Win@{main\-Win}!m\-\_\-calendar@{m\-\_\-calendar}}
 \index{m\-\_\-calendar@{m\-\_\-calendar}!mainWin@{main\-Win}}
-\subsubsection[{m\-\_\-calendar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Detailed\-Calendar}$\ast$ main\-Win\-::m\-\_\-calendar\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a6a02cf853e63c1ad31759f3ce225ed62}
-\hypertarget{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}{\index{main\-Win@{main\-Win}!m\-\_\-i\-Height@{m\-\_\-i\-Height}}
-\index{m\-\_\-i\-Height@{m\-\_\-i\-Height}!mainWin@{main\-Win}}
-\subsubsection[{m\-\_\-i\-Height}]{\setlength{\rightskip}{0pt plus 5cm}unsigned main\-Win\-::m\-\_\-i\-Height\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_afaa8e85eaf3926a8aa141bfc1b2c0c01}
-\hypertarget{classmain_win_a698988f67b0f686dba0a8e33187f66a1}{\index{main\-Win@{main\-Win}!m\-\_\-i\-Width@{m\-\_\-i\-Width}}
-\index{m\-\_\-i\-Width@{m\-\_\-i\-Width}!mainWin@{main\-Win}}
-\subsubsection[{m\-\_\-i\-Width}]{\setlength{\rightskip}{0pt plus 5cm}unsigned main\-Win\-::m\-\_\-i\-Width\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a698988f67b0f686dba0a8e33187f66a1}
-\hypertarget{classmain_win_a96b71dd9a31a4cf6ea5db224a4540458}{\index{main\-Win@{main\-Win}!m\-\_\-lua@{m\-\_\-lua}}
-\index{m\-\_\-lua@{m\-\_\-lua}!mainWin@{main\-Win}}
-\subsubsection[{m\-\_\-lua}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lua\-Engine}$\ast$ main\-Win\-::m\-\_\-lua\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a96b71dd9a31a4cf6ea5db224a4540458}
-\hypertarget{classmain_win_a426c3fc67264577231b3deb525ddef99}{\index{main\-Win@{main\-Win}!m\-\_\-p\-Curr\-Action@{m\-\_\-p\-Curr\-Action}}
-\index{m\-\_\-p\-Curr\-Action@{m\-\_\-p\-Curr\-Action}!mainWin@{main\-Win}}
-\subsubsection[{m\-\_\-p\-Curr\-Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action}$\ast$ main\-Win\-::m\-\_\-p\-Curr\-Action\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a426c3fc67264577231b3deb525ddef99}
+\subsubsection[{m\-\_\-calendar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Actions\-Calendar}$\ast$ main\-Win\-::m\-\_\-calendar\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a6aea2ca54243cf5eafad64ab548766d8}
+
+
+Pointer to the calendar object. 
+
 \hypertarget{classmain_win_ab391602112d6c25f237da91eae815d47}{\index{main\-Win@{main\-Win}!m\-\_\-p\-Curr\-Script@{m\-\_\-p\-Curr\-Script}}
 \index{m\-\_\-p\-Curr\-Script@{m\-\_\-p\-Curr\-Script}!mainWin@{main\-Win}}
 \subsubsection[{m\-\_\-p\-Curr\-Script}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Script}$\ast$ main\-Win\-::m\-\_\-p\-Curr\-Script\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_ab391602112d6c25f237da91eae815d47}
+
+
+Pointer to the currently selected script. 
+
+\hypertarget{classmain_win_a13f687f63460e13e6a4819ea1496a2f0}{\index{main\-Win@{main\-Win}!m\-\_\-tray@{m\-\_\-tray}}
+\index{m\-\_\-tray@{m\-\_\-tray}!mainWin@{main\-Win}}
+\subsubsection[{m\-\_\-tray}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tray\-System}$\ast$ main\-Win\-::m\-\_\-tray\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a13f687f63460e13e6a4819ea1496a2f0}
+
+
+Pointer to the tray icon system. 
+
+\hypertarget{classmain_win_a079d09aeafe1af36f8f0d1bd4d88d803}{\index{main\-Win@{main\-Win}!m\-\_\-updater@{m\-\_\-updater}}
+\index{m\-\_\-updater@{m\-\_\-updater}!mainWin@{main\-Win}}
+\subsubsection[{m\-\_\-updater}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Basic\-Timer main\-Win\-::m\-\_\-updater\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a079d09aeafe1af36f8f0d1bd4d88d803}
+
+
+Timer which is used to update calendar, action caller and context menu of the tray system. 
+
 \hypertarget{classmain_win_a89fa9d3006573378f3195845fe9ed408}{\index{main\-Win@{main\-Win}!ui@{ui}}
 \index{ui@{ui}!mainWin@{main\-Win}}
 \subsubsection[{ui}]{\setlength{\rightskip}{0pt plus 5cm}Ui\-::main\-Win\-Class main\-Win\-::ui\hspace{0.3cm}{\ttfamily [private]}}}\label{classmain_win_a89fa9d3006573378f3195845fe9ed408}
+
+
+Object containing all controls of the window. 
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

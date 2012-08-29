@@ -1,0 +1,84 @@
+\hypertarget{structsqlite3__pcache__methods2}{\section{sqlite3\-\_\-pcache\-\_\-methods2 Struct Reference}
+\label{structsqlite3__pcache__methods2}\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+}
+
+
+{\ttfamily \#include $<$sqlite3.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structsqlite3__pcache__methods2_a03b27be6c7cb8f1d2662c454cbe58483}{i\-Version}
+\item 
+void $\ast$ \hyperlink{structsqlite3__pcache__methods2_a4bea91c33987eef02122bbf8a49745de}{p\-Arg}
+\item 
+int($\ast$ \hyperlink{structsqlite3__pcache__methods2_a8f77114458576c9d75cd53822fcd3462}{x\-Init} )(void $\ast$)
+\item 
+void($\ast$ \hyperlink{structsqlite3__pcache__methods2_a00a780e295b89976940cd3cba2cfeaee}{x\-Shutdown} )(void $\ast$)
+\item 
+\hyperlink{sqlite3_8c_a096c453d937d51f7926d7d31c8e0bd2f}{sqlite3\-\_\-pcache} $\ast$($\ast$ \hyperlink{structsqlite3__pcache__methods2_a91e7752b826e19e7c51c1fa0ce530f0f}{x\-Create} )(int sz\-Page, int sz\-Extra, int b\-Purgeable)
+\item 
+void($\ast$ \hyperlink{structsqlite3__pcache__methods2_a4889ab0903938f485aa0fa4fc6925d26}{x\-Cachesize} )(\hyperlink{sqlite3_8c_a096c453d937d51f7926d7d31c8e0bd2f}{sqlite3\-\_\-pcache} $\ast$, int n\-Cachesize)
+\item 
+int($\ast$ \hyperlink{structsqlite3__pcache__methods2_a5d51aba3927db1da9acf31fbdf7d57b5}{x\-Pagecount} )(\hyperlink{sqlite3_8c_a096c453d937d51f7926d7d31c8e0bd2f}{sqlite3\-\_\-pcache} $\ast$)
+\item 
+\hyperlink{structsqlite3__pcache__page}{sqlite3\-\_\-pcache\-\_\-page} $\ast$($\ast$ \hyperlink{structsqlite3__pcache__methods2_ac74dd2b35193a4309494311995da2d25}{x\-Fetch} )(\hyperlink{sqlite3_8c_a096c453d937d51f7926d7d31c8e0bd2f}{sqlite3\-\_\-pcache} $\ast$, unsigned key, int create\-Flag)
+\item 
+void($\ast$ \hyperlink{structsqlite3__pcache__methods2_ac94294551eda282f17b1ed2a110e1850}{x\-Unpin} )(\hyperlink{sqlite3_8c_a096c453d937d51f7926d7d31c8e0bd2f}{sqlite3\-\_\-pcache} $\ast$, \hyperlink{structsqlite3__pcache__page}{sqlite3\-\_\-pcache\-\_\-page} $\ast$, int discard)
+\item 
+void($\ast$ \hyperlink{structsqlite3__pcache__methods2_a28a22927b108182e22025bbe6ba1f68e}{x\-Rekey} )(\hyperlink{sqlite3_8c_a096c453d937d51f7926d7d31c8e0bd2f}{sqlite3\-\_\-pcache} $\ast$, \hyperlink{structsqlite3__pcache__page}{sqlite3\-\_\-pcache\-\_\-page} $\ast$, unsigned old\-Key, unsigned new\-Key)
+\item 
+void($\ast$ \hyperlink{structsqlite3__pcache__methods2_a7c565709ab91dbe7feb5b82c684ba604}{x\-Truncate} )(\hyperlink{sqlite3_8c_a096c453d937d51f7926d7d31c8e0bd2f}{sqlite3\-\_\-pcache} $\ast$, unsigned i\-Limit)
+\item 
+void($\ast$ \hyperlink{structsqlite3__pcache__methods2_a144d6e899889e80e00f93fb6c83359e2}{x\-Destroy} )(\hyperlink{sqlite3_8c_a096c453d937d51f7926d7d31c8e0bd2f}{sqlite3\-\_\-pcache} $\ast$)
+\item 
+void($\ast$ \hyperlink{structsqlite3__pcache__methods2_af00c121e9c39b1df292711013c226ba5}{x\-Shrink} )(\hyperlink{sqlite3_8c_a096c453d937d51f7926d7d31c8e0bd2f}{sqlite3\-\_\-pcache} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structsqlite3__pcache__methods2_a03b27be6c7cb8f1d2662c454cbe58483}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!i\-Version@{i\-Version}}
+\index{i\-Version@{i\-Version}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{i\-Version}]{\setlength{\rightskip}{0pt plus 5cm}int sqlite3\-\_\-pcache\-\_\-methods2\-::i\-Version}}\label{structsqlite3__pcache__methods2_a03b27be6c7cb8f1d2662c454cbe58483}
+\hypertarget{structsqlite3__pcache__methods2_a4bea91c33987eef02122bbf8a49745de}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!p\-Arg@{p\-Arg}}
+\index{p\-Arg@{p\-Arg}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{p\-Arg}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::p\-Arg}}\label{structsqlite3__pcache__methods2_a4bea91c33987eef02122bbf8a49745de}
+\hypertarget{structsqlite3__pcache__methods2_a4889ab0903938f485aa0fa4fc6925d26}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Cachesize@{x\-Cachesize}}
+\index{x\-Cachesize@{x\-Cachesize}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Cachesize}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Cachesize)({\bf sqlite3\-\_\-pcache} $\ast$, int n\-Cachesize)}}\label{structsqlite3__pcache__methods2_a4889ab0903938f485aa0fa4fc6925d26}
+\hypertarget{structsqlite3__pcache__methods2_a91e7752b826e19e7c51c1fa0ce530f0f}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Create@{x\-Create}}
+\index{x\-Create@{x\-Create}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-pcache} $\ast$($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Create)(int sz\-Page, int sz\-Extra, int b\-Purgeable)}}\label{structsqlite3__pcache__methods2_a91e7752b826e19e7c51c1fa0ce530f0f}
+\hypertarget{structsqlite3__pcache__methods2_a144d6e899889e80e00f93fb6c83359e2}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Destroy@{x\-Destroy}}
+\index{x\-Destroy@{x\-Destroy}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Destroy}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Destroy)({\bf sqlite3\-\_\-pcache} $\ast$)}}\label{structsqlite3__pcache__methods2_a144d6e899889e80e00f93fb6c83359e2}
+\hypertarget{structsqlite3__pcache__methods2_ac74dd2b35193a4309494311995da2d25}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Fetch@{x\-Fetch}}
+\index{x\-Fetch@{x\-Fetch}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Fetch}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-pcache\-\_\-page} $\ast$($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Fetch)({\bf sqlite3\-\_\-pcache} $\ast$, unsigned key, int create\-Flag)}}\label{structsqlite3__pcache__methods2_ac74dd2b35193a4309494311995da2d25}
+\hypertarget{structsqlite3__pcache__methods2_a8f77114458576c9d75cd53822fcd3462}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Init@{x\-Init}}
+\index{x\-Init@{x\-Init}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Init}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Init)(void $\ast$)}}\label{structsqlite3__pcache__methods2_a8f77114458576c9d75cd53822fcd3462}
+\hypertarget{structsqlite3__pcache__methods2_a5d51aba3927db1da9acf31fbdf7d57b5}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Pagecount@{x\-Pagecount}}
+\index{x\-Pagecount@{x\-Pagecount}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Pagecount}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Pagecount)({\bf sqlite3\-\_\-pcache} $\ast$)}}\label{structsqlite3__pcache__methods2_a5d51aba3927db1da9acf31fbdf7d57b5}
+\hypertarget{structsqlite3__pcache__methods2_a28a22927b108182e22025bbe6ba1f68e}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Rekey@{x\-Rekey}}
+\index{x\-Rekey@{x\-Rekey}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Rekey}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Rekey)({\bf sqlite3\-\_\-pcache} $\ast$, {\bf sqlite3\-\_\-pcache\-\_\-page} $\ast$, unsigned old\-Key, unsigned new\-Key)}}\label{structsqlite3__pcache__methods2_a28a22927b108182e22025bbe6ba1f68e}
+\hypertarget{structsqlite3__pcache__methods2_af00c121e9c39b1df292711013c226ba5}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Shrink@{x\-Shrink}}
+\index{x\-Shrink@{x\-Shrink}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Shrink}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Shrink)({\bf sqlite3\-\_\-pcache} $\ast$)}}\label{structsqlite3__pcache__methods2_af00c121e9c39b1df292711013c226ba5}
+\hypertarget{structsqlite3__pcache__methods2_a00a780e295b89976940cd3cba2cfeaee}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Shutdown@{x\-Shutdown}}
+\index{x\-Shutdown@{x\-Shutdown}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Shutdown}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Shutdown)(void $\ast$)}}\label{structsqlite3__pcache__methods2_a00a780e295b89976940cd3cba2cfeaee}
+\hypertarget{structsqlite3__pcache__methods2_a7c565709ab91dbe7feb5b82c684ba604}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Truncate@{x\-Truncate}}
+\index{x\-Truncate@{x\-Truncate}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Truncate}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Truncate)({\bf sqlite3\-\_\-pcache} $\ast$, unsigned i\-Limit)}}\label{structsqlite3__pcache__methods2_a7c565709ab91dbe7feb5b82c684ba604}
+\hypertarget{structsqlite3__pcache__methods2_ac94294551eda282f17b1ed2a110e1850}{\index{sqlite3\-\_\-pcache\-\_\-methods2@{sqlite3\-\_\-pcache\-\_\-methods2}!x\-Unpin@{x\-Unpin}}
+\index{x\-Unpin@{x\-Unpin}!sqlite3_pcache_methods2@{sqlite3\-\_\-pcache\-\_\-methods2}}
+\subsubsection[{x\-Unpin}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ sqlite3\-\_\-pcache\-\_\-methods2\-::x\-Unpin)({\bf sqlite3\-\_\-pcache} $\ast$, {\bf sqlite3\-\_\-pcache\-\_\-page} $\ast$, int discard)}}\label{structsqlite3__pcache__methods2_ac94294551eda282f17b1ed2a110e1850}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8h}{sqlite3.\-h}\end{DoxyCompactItemize}

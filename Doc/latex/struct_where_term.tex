@@ -1,0 +1,80 @@
+\hypertarget{struct_where_term}{\section{Where\-Term Struct Reference}
+\label{struct_where_term}\index{Where\-Term@{Where\-Term}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_expr}{Expr} $\ast$ \hyperlink{struct_where_term_af5ec32fe3a2e4623c900cb91aa86bc9d}{p\-Expr}
+\item 
+int \hyperlink{struct_where_term_aa45e0b271713e429fbeba433941d2e22}{i\-Parent}
+\item 
+int \hyperlink{struct_where_term_a82bb97ef4285d75b1b9c4fcd2025aaf7}{left\-Cursor}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>int \hyperlink{struct_where_term_a1f6e520bd34633ebb6001cd0c39eef21}{leftColumn}\\
+\>\hyperlink{struct_where_or_info}{WhereOrInfo} $\ast$ \hyperlink{struct_where_term_a5f26d197224ff20bc8db4350e6e30c3f}{pOrInfo}\\
+\>\hyperlink{struct_where_and_info}{WhereAndInfo} $\ast$ \hyperlink{struct_where_term_a1c2e013c4628164636e36db73f429dea}{pAndInfo}\\
+\} \hyperlink{struct_where_term_a0b9e1c1bd5894e80be5d8224422b8463}{u}\\
+
+\end{tabbing}\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_where_term_af0b4817bee491fa1ee69a87d8ff580c5}{e\-Operator}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_where_term_a5a3ba67885262f1bb9169dcaff0f91b1}{wt\-Flags}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_where_term_af83cf7bae7760b9b1ca398338a35c32a}{n\-Child}
+\item 
+\hyperlink{struct_where_clause}{Where\-Clause} $\ast$ \hyperlink{struct_where_term_a1fb0a9ede5a12d6d2f7886431b348fb3}{p\-W\-C}
+\item 
+\hyperlink{sqlite3_8c_afa77b629897c4457bfdc47d364ba5c3f}{Bitmask} \hyperlink{struct_where_term_a1274011fa1ef0639284b7944f4570e67}{prereq\-Right}
+\item 
+\hyperlink{sqlite3_8c_afa77b629897c4457bfdc47d364ba5c3f}{Bitmask} \hyperlink{struct_where_term_a49b700336b005067352366cfc40de07f}{prereq\-All}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_where_term_af0b4817bee491fa1ee69a87d8ff580c5}{\index{Where\-Term@{Where\-Term}!e\-Operator@{e\-Operator}}
+\index{e\-Operator@{e\-Operator}!WhereTerm@{Where\-Term}}
+\subsubsection[{e\-Operator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Where\-Term\-::e\-Operator}}\label{struct_where_term_af0b4817bee491fa1ee69a87d8ff580c5}
+\hypertarget{struct_where_term_aa45e0b271713e429fbeba433941d2e22}{\index{Where\-Term@{Where\-Term}!i\-Parent@{i\-Parent}}
+\index{i\-Parent@{i\-Parent}!WhereTerm@{Where\-Term}}
+\subsubsection[{i\-Parent}]{\setlength{\rightskip}{0pt plus 5cm}int Where\-Term\-::i\-Parent}}\label{struct_where_term_aa45e0b271713e429fbeba433941d2e22}
+\hypertarget{struct_where_term_a1f6e520bd34633ebb6001cd0c39eef21}{\index{Where\-Term@{Where\-Term}!left\-Column@{left\-Column}}
+\index{left\-Column@{left\-Column}!WhereTerm@{Where\-Term}}
+\subsubsection[{left\-Column}]{\setlength{\rightskip}{0pt plus 5cm}int Where\-Term\-::left\-Column}}\label{struct_where_term_a1f6e520bd34633ebb6001cd0c39eef21}
+\hypertarget{struct_where_term_a82bb97ef4285d75b1b9c4fcd2025aaf7}{\index{Where\-Term@{Where\-Term}!left\-Cursor@{left\-Cursor}}
+\index{left\-Cursor@{left\-Cursor}!WhereTerm@{Where\-Term}}
+\subsubsection[{left\-Cursor}]{\setlength{\rightskip}{0pt plus 5cm}int Where\-Term\-::left\-Cursor}}\label{struct_where_term_a82bb97ef4285d75b1b9c4fcd2025aaf7}
+\hypertarget{struct_where_term_af83cf7bae7760b9b1ca398338a35c32a}{\index{Where\-Term@{Where\-Term}!n\-Child@{n\-Child}}
+\index{n\-Child@{n\-Child}!WhereTerm@{Where\-Term}}
+\subsubsection[{n\-Child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Where\-Term\-::n\-Child}}\label{struct_where_term_af83cf7bae7760b9b1ca398338a35c32a}
+\hypertarget{struct_where_term_a1c2e013c4628164636e36db73f429dea}{\index{Where\-Term@{Where\-Term}!p\-And\-Info@{p\-And\-Info}}
+\index{p\-And\-Info@{p\-And\-Info}!WhereTerm@{Where\-Term}}
+\subsubsection[{p\-And\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Where\-And\-Info}$\ast$ Where\-Term\-::p\-And\-Info}}\label{struct_where_term_a1c2e013c4628164636e36db73f429dea}
+\hypertarget{struct_where_term_af5ec32fe3a2e4623c900cb91aa86bc9d}{\index{Where\-Term@{Where\-Term}!p\-Expr@{p\-Expr}}
+\index{p\-Expr@{p\-Expr}!WhereTerm@{Where\-Term}}
+\subsubsection[{p\-Expr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expr}$\ast$ Where\-Term\-::p\-Expr}}\label{struct_where_term_af5ec32fe3a2e4623c900cb91aa86bc9d}
+\hypertarget{struct_where_term_a5f26d197224ff20bc8db4350e6e30c3f}{\index{Where\-Term@{Where\-Term}!p\-Or\-Info@{p\-Or\-Info}}
+\index{p\-Or\-Info@{p\-Or\-Info}!WhereTerm@{Where\-Term}}
+\subsubsection[{p\-Or\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Where\-Or\-Info}$\ast$ Where\-Term\-::p\-Or\-Info}}\label{struct_where_term_a5f26d197224ff20bc8db4350e6e30c3f}
+\hypertarget{struct_where_term_a49b700336b005067352366cfc40de07f}{\index{Where\-Term@{Where\-Term}!prereq\-All@{prereq\-All}}
+\index{prereq\-All@{prereq\-All}!WhereTerm@{Where\-Term}}
+\subsubsection[{prereq\-All}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bitmask} Where\-Term\-::prereq\-All}}\label{struct_where_term_a49b700336b005067352366cfc40de07f}
+\hypertarget{struct_where_term_a1274011fa1ef0639284b7944f4570e67}{\index{Where\-Term@{Where\-Term}!prereq\-Right@{prereq\-Right}}
+\index{prereq\-Right@{prereq\-Right}!WhereTerm@{Where\-Term}}
+\subsubsection[{prereq\-Right}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bitmask} Where\-Term\-::prereq\-Right}}\label{struct_where_term_a1274011fa1ef0639284b7944f4570e67}
+\hypertarget{struct_where_term_a1fb0a9ede5a12d6d2f7886431b348fb3}{\index{Where\-Term@{Where\-Term}!p\-W\-C@{p\-W\-C}}
+\index{p\-W\-C@{p\-W\-C}!WhereTerm@{Where\-Term}}
+\subsubsection[{p\-W\-C}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Where\-Clause}$\ast$ Where\-Term\-::p\-W\-C}}\label{struct_where_term_a1fb0a9ede5a12d6d2f7886431b348fb3}
+\hypertarget{struct_where_term_a0b9e1c1bd5894e80be5d8224422b8463}{\index{Where\-Term@{Where\-Term}!u@{u}}
+\index{u@{u}!WhereTerm@{Where\-Term}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   Where\-Term\-::u}}\label{struct_where_term_a0b9e1c1bd5894e80be5d8224422b8463}
+\hypertarget{struct_where_term_a5a3ba67885262f1bb9169dcaff0f91b1}{\index{Where\-Term@{Where\-Term}!wt\-Flags@{wt\-Flags}}
+\index{wt\-Flags@{wt\-Flags}!WhereTerm@{Where\-Term}}
+\subsubsection[{wt\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Where\-Term\-::wt\-Flags}}\label{struct_where_term_a5a3ba67885262f1bb9169dcaff0f91b1}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

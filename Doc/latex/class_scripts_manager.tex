@@ -13,14 +13,18 @@ Manager for scripts.
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+static void \hyperlink{class_scripts_manager_a99ddfb07ac002907cee3b2a5b102abad}{remove\-Script} (Q\-String name)
+\begin{DoxyCompactList}\small\item\em Removes script with the given file name (without extension) and frees its memory. \end{DoxyCompactList}\item 
 static void \hyperlink{class_scripts_manager_a137f7089f471de89c5d1344d3b5781cd}{remove\-Scripts} ()
-\begin{DoxyCompactList}\small\item\em Removes all script and frees its memory. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Removes all scripts and frees its memory. \end{DoxyCompactList}\item 
 static bool \hyperlink{class_scripts_manager_a67b361d78d35092340feaf556b57565d}{add\-Script} (\hyperlink{class_script}{Script} $\ast$script)
 \begin{DoxyCompactList}\small\item\em Adds new script to the manager. \end{DoxyCompactList}\item 
 static bool \hyperlink{class_scripts_manager_ad4cd01aab1d6015db90cbca5fae306cf}{save\-To\-File} (const Q\-String \&script\-Name)
 \begin{DoxyCompactList}\small\item\em Saves specified (with name) script to a file. \end{DoxyCompactList}\item 
 static \hyperlink{class_script}{Script} $\ast$ \hyperlink{class_scripts_manager_a59b613ef7638d97bbdebe09a412e8f20}{get\-Script} (const Q\-String \&script\-Name)
-\begin{DoxyCompactList}\small\item\em Gets pointer to the script with the given name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets pointer to the script with the given name. \end{DoxyCompactList}\item 
+static Q\-String\-List \hyperlink{class_scripts_manager_a451c8dacfa4629cb69c3f7f1ca0326f0}{get\-Scripts\-List} ()
+\end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -104,6 +108,32 @@ Gets pointer to the script with the given name.
 \begin{DoxyReturn}{Returns}
 Pointer to the \hyperlink{class_script}{Script} object. 
 \end{DoxyReturn}
+\hypertarget{class_scripts_manager_a451c8dacfa4629cb69c3f7f1ca0326f0}{\index{Scripts\-Manager@{Scripts\-Manager}!get\-Scripts\-List@{get\-Scripts\-List}}
+\index{get\-Scripts\-List@{get\-Scripts\-List}!ScriptsManager@{Scripts\-Manager}}
+\subsubsection[{get\-Scripts\-List}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String\-List Scripts\-Manager\-::get\-Scripts\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_scripts_manager_a451c8dacfa4629cb69c3f7f1ca0326f0}
+\begin{DoxyReturn}{Returns}
+List of scripts names. 
+\end{DoxyReturn}
+\hypertarget{class_scripts_manager_a99ddfb07ac002907cee3b2a5b102abad}{\index{Scripts\-Manager@{Scripts\-Manager}!remove\-Script@{remove\-Script}}
+\index{remove\-Script@{remove\-Script}!ScriptsManager@{Scripts\-Manager}}
+\subsubsection[{remove\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void Scripts\-Manager\-::remove\-Script (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_scripts_manager_a99ddfb07ac002907cee3b2a5b102abad}
+
+
+Removes script with the given file name (without extension) and frees its memory. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & \hyperlink{class_script}{Script} name. \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_scripts_manager_a137f7089f471de89c5d1344d3b5781cd}{\index{Scripts\-Manager@{Scripts\-Manager}!remove\-Scripts@{remove\-Scripts}}
 \index{remove\-Scripts@{remove\-Scripts}!ScriptsManager@{Scripts\-Manager}}
 \subsubsection[{remove\-Scripts}]{\setlength{\rightskip}{0pt plus 5cm}void Scripts\-Manager\-::remove\-Scripts (
@@ -113,7 +143,7 @@ Pointer to the \hyperlink{class_script}{Script} object.
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_scripts_manager_a137f7089f471de89c5d1344d3b5781cd}
 
 
-Removes all script and frees its memory. 
+Removes all scripts and frees its memory. 
 
 \hypertarget{class_scripts_manager_ad4cd01aab1d6015db90cbca5fae306cf}{\index{Scripts\-Manager@{Scripts\-Manager}!save\-To\-File@{save\-To\-File}}
 \index{save\-To\-File@{save\-To\-File}!ScriptsManager@{Scripts\-Manager}}

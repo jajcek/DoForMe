@@ -12,7 +12,7 @@
 
 /**
 	\class ActionSettings action_settings.h "action_settings.h"
-	\brief Show action settings dialog and stores information selected on controls.
+	\brief Shows action settings dialog and stores information selected on controls.
 	\details Dialog is shown to choose properties for action that will be added.
 	The dialog can be show by methods derived from QDialog like QDialog::exec().
 	\author Jacek Topolski
@@ -152,7 +152,7 @@ public:
 	int getXDays() const;
 	/**
 		\brief Sets the number of days which determine a repetition every X days.
-		\param[in] days Number of days.
+		\param[in] mask Number of days.
 	*/
 	void setDaysFlags( int mask );
 	/**

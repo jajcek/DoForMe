@@ -101,8 +101,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae3642a4f6256f202dd88726b70ed3936"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ae3642a4f6256f202dd88726b70ed3936">setLuaEngine</a> (<a class="el" href="class_lua_engine.html">LuaEngine</a> *luaEngine)</td></tr>
-<tr class="memdesc:ae3642a4f6256f202dd88726b70ed3936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets pointer to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>'s object.  <a href="#ae3642a4f6256f202dd88726b70ed3936"></a><br/></td></tr>
 <tr class="memitem:a7f614e9a85e02951c0a21e694654b83a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a7f614e9a85e02951c0a21e694654b83a">initSpecialKeys</a> ()</td></tr>
 <tr class="memdesc:a7f614e9a85e02951c0a21e694654b83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize all special keys that will be available to users.  <a href="#a7f614e9a85e02951c0a21e694654b83a"></a><br/></td></tr>
 <tr class="memitem:a03308524bb7be3fca0e5865a0eba6c41"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a03308524bb7be3fca0e5865a0eba6c41">prepareSleep</a> (lua_State *state)</td></tr>
@@ -185,8 +183,6 @@ Static Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:afff2b87b3c828c0904df2d7e6f6bd389"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_lua_engine.html">LuaEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#afff2b87b3c828c0904df2d7e6f6bd389">m_luaEngine</a></td></tr>
-<tr class="memdesc:afff2b87b3c828c0904df2d7e6f6bd389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to a <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a> object, which is used here to store commands in <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a> object.  <a href="#afff2b87b3c828c0904df2d7e6f6bd389"></a><br/></td></tr>
 <tr class="memitem:a9fdba2d7f2f8d051453b5d1561435f5e"><td class="memItemLeft" align="right" valign="top">static std::map&lt; QString, <a class="el" href="class_key.html">Key</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a9fdba2d7f2f8d051453b5d1561435f5e">m_specialKeys</a></td></tr>
 <tr class="memdesc:a9fdba2d7f2f8d051453b5d1561435f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Field that maps string to <a class="el" href="class_key.html" title="Stores key code and its mode.">Key</a> object.  <a href="#a9fdba2d7f2f8d051453b5d1561435f5e"></a><br/></td></tr>
 </table>
@@ -263,7 +259,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize all special keys that will be available to users. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a2">LuaEngine_example.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a1">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -339,7 +335,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Executes left mouse button press. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a7">LuaEngine_example.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a6">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -472,7 +468,7 @@ Static Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a9">LuaEngine_example.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a8">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -613,7 +609,7 @@ Static Private Attributes</h2></td></tr>
 <p>Puts left mouse button press command (<a class="el" href="class_lua_api_engine.html#a5942498f999031601960d890b259536b" title="Executes left mouse button press.">LuaApiEngine::leftDown</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
 <p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
 <dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a6">LuaEngine_example.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a5">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -894,7 +890,7 @@ Static Private Attributes</h2></td></tr>
 <p>Puts mouse move command (<a class="el" href="class_lua_api_engine.html#a8512ba309e37218b1586f8a41cae4451" title="Executes mouse movement.">LuaApiEngine::moveTo</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
 <p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
 <dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a8">LuaEngine_example.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a7">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -1119,7 +1115,7 @@ Static Private Attributes</h2></td></tr>
 <p>Puts watiting (LuaApiEngie::sleep) command to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
 <p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
 <dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a4">LuaEngine_example.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a3">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -1230,33 +1226,6 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae3642a4f6256f202dd88726b70ed3936"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void LuaApiEngine::setLuaEngine </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_lua_engine.html">LuaEngine</a> *&#160;</td>
-          <td class="paramname"><em>luaEngine</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets pointer to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>'s object. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a1">LuaEngine_example.cpp</a>.</dd>
-</dl>
-</div>
-</div>
 <a class="anchor" id="a6910c482ffa6327999b49504522991b7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1286,33 +1255,11 @@ Static Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a5">LuaEngine_example.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a4">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="afff2b87b3c828c0904df2d7e6f6bd389"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_lua_engine.html">LuaEngine</a> * LuaApiEngine::m_luaEngine</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pointer to a <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a> object, which is used here to store commands in <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a> object. </p>
-
-</div>
-</div>
 <a class="anchor" id="a9fdba2d7f2f8d051453b5d1561435f5e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1343,7 +1290,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 3 2012 23:28:24 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 29 2012 21:14:38 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

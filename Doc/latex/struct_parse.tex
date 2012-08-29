@@ -1,0 +1,349 @@
+\hypertarget{struct_parse}{\section{Parse Struct Reference}
+\label{struct_parse}\index{Parse@{Parse}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_parse_1_1y_col_cache}{y\-Col\-Cache}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structsqlite3}{sqlite3} $\ast$ \hyperlink{struct_parse_a44364e5e1197927f89864ec345bc5491}{db}
+\item 
+char $\ast$ \hyperlink{struct_parse_a04146757986ff4654c7b321654896e81}{z\-Err\-Msg}
+\item 
+\hyperlink{struct_vdbe}{Vdbe} $\ast$ \hyperlink{struct_parse_a81774053fd5063046f532c07e3daa98b}{p\-Vdbe}
+\item 
+int \hyperlink{struct_parse_a897c2ea40a1065d49a134f18ca251637}{rc}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a4c71fde634168abc1e3e32c70704b1ac}{col\-Names\-Set}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a13b660ed90fc83565aa542a10549ec9f}{check\-Schema}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a33d62687b6d368acf94e954490358819}{nested}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_ae292001c732781b6b94d28ca303e1aa5}{n\-Temp\-Reg}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a40c148052fab032ca5110052c6be97d8}{n\-Temp\-In\-Use}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a23b721a6d1beab831c1b88ebbf30f57e}{n\-Col\-Cache}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a619672481a55a6e31bc03c00d1d6954c}{i\-Col\-Cache}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a027d06007eab8e01b8930357f321344b}{is\-Multi\-Write}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a1813c80797fcdba29e95813284619e57}{may\-Abort}
+\item 
+int \hyperlink{struct_parse_ae2bd2e74d0caaab7a741d17b62f01ebc}{a\-Temp\-Reg} \mbox{[}8\mbox{]}
+\item 
+int \hyperlink{struct_parse_ae32922d3d20171f4acc426714b497e6f}{n\-Range\-Reg}
+\item 
+int \hyperlink{struct_parse_a715f56a596d5172926c20dd7f91600b6}{i\-Range\-Reg}
+\item 
+int \hyperlink{struct_parse_ac7206f0c7e580ab32b7dfb20950bb1c9}{n\-Err}
+\item 
+int \hyperlink{struct_parse_a6b3a46e1f275962fa8808dddba20ba23}{n\-Tab}
+\item 
+int \hyperlink{struct_parse_aa66b48b0ababc17403615c899cddec9c}{n\-Mem}
+\item 
+int \hyperlink{struct_parse_ac84102ff47885dfa854de5af1d15605b}{n\-Set}
+\item 
+int \hyperlink{struct_parse_a86d32dcaec08841210090c261c69a8b1}{n\-Once}
+\item 
+int \hyperlink{struct_parse_a07e8e916fb569a86acfa5f380afaaf77}{ck\-Base}
+\item 
+int \hyperlink{struct_parse_a5b06d03e7605a6f55369481c050ac0a8}{i\-Cache\-Level}
+\item 
+int \hyperlink{struct_parse_ac4633493fd5f100fa823344be1c19d1e}{i\-Cache\-Cnt}
+\item 
+struct \hyperlink{struct_parse_1_1y_col_cache}{Parse\-::y\-Col\-Cache} \hyperlink{struct_parse_a788b85979d58b84e06bc367bac5b3f3f}{a\-Col\-Cache} \mbox{[}\hyperlink{sqlite3_8c_a93bdf7a445214ebff384cce4c990a078}{S\-Q\-L\-I\-T\-E\-\_\-\-N\-\_\-\-C\-O\-L\-C\-A\-C\-H\-E}\mbox{]}
+\item 
+\hyperlink{sqlite3_8c_aa9f65e0e36379aa834aac7932ba91bc3}{y\-Db\-Mask} \hyperlink{struct_parse_a4939b6d4fd3f48731b58b8a6f51417cd}{write\-Mask}
+\item 
+\hyperlink{sqlite3_8c_aa9f65e0e36379aa834aac7932ba91bc3}{y\-Db\-Mask} \hyperlink{struct_parse_a7c0b37cf797fd157234cb2e306cba2e4}{cookie\-Mask}
+\item 
+int \hyperlink{struct_parse_a38a03495b8b18e86c2855c70b717d921}{cookie\-Goto}
+\item 
+int \hyperlink{struct_parse_a6023169734f87ce27a760e0f9026c381}{cookie\-Value} \mbox{[}\hyperlink{sqlite3_8c_ac6ac68ce9bff1bc9d8018890df9f45c4}{S\-Q\-L\-I\-T\-E\-\_\-\-M\-A\-X\-\_\-\-A\-T\-T\-A\-C\-H\-E\-D}+2\mbox{]}
+\item 
+int \hyperlink{struct_parse_a63f71c268a7a77cb0df5619dd8ebbacd}{reg\-Rowid}
+\item 
+int \hyperlink{struct_parse_afcf3d47e9424b79e6911cf366cb73bd4}{reg\-Root}
+\item 
+int \hyperlink{struct_parse_aab781bff62f93c0f9a7ca979a3b3a820}{n\-Max\-Arg}
+\item 
+\hyperlink{struct_token}{Token} \hyperlink{struct_parse_a40cbce90eedbd57143416c8bc28fec46}{constraint\-Name}
+\item 
+int \hyperlink{struct_parse_a8c61b1b13dcb394b190fa09f5c253928}{n\-Table\-Lock}
+\item 
+\hyperlink{struct_table_lock}{Table\-Lock} $\ast$ \hyperlink{struct_parse_ae8e553d660dc69d285945d3db8f127c7}{a\-Table\-Lock}
+\item 
+\hyperlink{struct_autoinc_info}{Autoinc\-Info} $\ast$ \hyperlink{struct_parse_a23de0e2b2dc60ac5f5932c5b2cd34f10}{p\-Ainc}
+\item 
+\hyperlink{struct_parse}{Parse} $\ast$ \hyperlink{struct_parse_a739df7b56510f22e64aba1ed203fec76}{p\-Toplevel}
+\item 
+\hyperlink{struct_table}{Table} $\ast$ \hyperlink{struct_parse_aad9b1145e39b240e842f9c2ad8e7e230}{p\-Trigger\-Tab}
+\item 
+double \hyperlink{struct_parse_a8b6b486066f71bdf750de91be23e3e7b}{n\-Query\-Loop}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_parse_acda3334b932ac6541f45fa939053e942}{oldmask}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_parse_a698d9e9d4938cc35a4ef9137a46f1840}{newmask}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_addd3028173ab100a8802dfcc9b13ffb7}{e\-Trigger\-Op}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a67083fd2286b7d5276831e84a1a16680}{e\-Orconf}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a5ea9b658f4cfacf4b35f18c51e144ef1}{disable\-Triggers}
+\item 
+int \hyperlink{struct_parse_a088771dc116d91113bed715a1968d42e}{n\-Var}
+\item 
+int \hyperlink{struct_parse_ac9cf894d9dfd0ba37d9467cd9d2e48f0}{nz\-Var}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a41f7ea55f0d6523295a5d958e25a2787}{explain}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_parse_a86c869df65cd788025680de9b6a9b1f1}{declare\-Vtab}
+\item 
+int \hyperlink{struct_parse_a7db8fe1ce2f0ec6bda7dc729a0e6a6e3}{n\-Vtab\-Lock}
+\item 
+int \hyperlink{struct_parse_a47336e4cdbb0edeeac919980c8cde018}{n\-Alias}
+\item 
+int \hyperlink{struct_parse_af4ec053d44a2a3bc8ae82b69a7327c3c}{n\-Height}
+\item 
+int \hyperlink{struct_parse_a7474fa0bf9ad160cbdf723406c306d9d}{i\-Select\-Id}
+\item 
+int \hyperlink{struct_parse_aab76240bd43c005941431179d4f9bf49}{i\-Next\-Select\-Id}
+\item 
+char $\ast$$\ast$ \hyperlink{struct_parse_a907e389eb399f3e76a0cc6b469e4e252}{az\-Var}
+\item 
+\hyperlink{struct_vdbe}{Vdbe} $\ast$ \hyperlink{struct_parse_a5e250f77353fb3df6660ff29ffa53790}{p\-Reprepare}
+\item 
+int $\ast$ \hyperlink{struct_parse_a5d59266be4e256238d3bbdf1a9ff7d5b}{a\-Alias}
+\item 
+const char $\ast$ \hyperlink{struct_parse_a14f58728b3ae2a297272510ae4bd9a89}{z\-Tail}
+\item 
+\hyperlink{struct_table}{Table} $\ast$ \hyperlink{struct_parse_a4788769c077dc86ffa3ee1e40ed6b4a1}{p\-New\-Table}
+\item 
+\hyperlink{struct_trigger}{Trigger} $\ast$ \hyperlink{struct_parse_a92ea8f2ac3190dd7c8360e0334ae78b3}{p\-New\-Trigger}
+\item 
+const char $\ast$ \hyperlink{struct_parse_a12c6e2fb69848bcc57169d44993c351f}{z\-Auth\-Context}
+\item 
+\hyperlink{struct_token}{Token} \hyperlink{struct_parse_afd929c54566cfc4d6f748fcc6b79b973}{s\-Name\-Token}
+\item 
+\hyperlink{struct_token}{Token} \hyperlink{struct_parse_ad499020d1bf06f3c98c8d36e2ceb83fd}{s\-Last\-Token}
+\item 
+\hyperlink{struct_token}{Token} \hyperlink{struct_parse_aa3fe38b31dd1cd0fbea4de0e77891642}{s\-Arg}
+\item 
+\hyperlink{struct_table}{Table} $\ast$$\ast$ \hyperlink{struct_parse_acdfd318c0f04ec640d6affc85ef8a009}{ap\-Vtab\-Lock}
+\item 
+\hyperlink{struct_table}{Table} $\ast$ \hyperlink{struct_parse_a4e8319f0a7f0d21e472c13ac6cf67060}{p\-Zombie\-Tab}
+\item 
+\hyperlink{struct_trigger_prg}{Trigger\-Prg} $\ast$ \hyperlink{struct_parse_a0891dbd3b583594c5d07d7b061026ea4}{p\-Trigger\-Prg}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_parse_a5d59266be4e256238d3bbdf1a9ff7d5b}{\index{Parse@{Parse}!a\-Alias@{a\-Alias}}
+\index{a\-Alias@{a\-Alias}!Parse@{Parse}}
+\subsubsection[{a\-Alias}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ Parse\-::a\-Alias}}\label{struct_parse_a5d59266be4e256238d3bbdf1a9ff7d5b}
+\hypertarget{struct_parse_a788b85979d58b84e06bc367bac5b3f3f}{\index{Parse@{Parse}!a\-Col\-Cache@{a\-Col\-Cache}}
+\index{a\-Col\-Cache@{a\-Col\-Cache}!Parse@{Parse}}
+\subsubsection[{a\-Col\-Cache}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Parse\-::y\-Col\-Cache}  Parse\-::a\-Col\-Cache\mbox{[}{\bf S\-Q\-L\-I\-T\-E\-\_\-\-N\-\_\-\-C\-O\-L\-C\-A\-C\-H\-E}\mbox{]}}}\label{struct_parse_a788b85979d58b84e06bc367bac5b3f3f}
+\hypertarget{struct_parse_acdfd318c0f04ec640d6affc85ef8a009}{\index{Parse@{Parse}!ap\-Vtab\-Lock@{ap\-Vtab\-Lock}}
+\index{ap\-Vtab\-Lock@{ap\-Vtab\-Lock}!Parse@{Parse}}
+\subsubsection[{ap\-Vtab\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Table}$\ast$$\ast$ Parse\-::ap\-Vtab\-Lock}}\label{struct_parse_acdfd318c0f04ec640d6affc85ef8a009}
+\hypertarget{struct_parse_ae8e553d660dc69d285945d3db8f127c7}{\index{Parse@{Parse}!a\-Table\-Lock@{a\-Table\-Lock}}
+\index{a\-Table\-Lock@{a\-Table\-Lock}!Parse@{Parse}}
+\subsubsection[{a\-Table\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Table\-Lock}$\ast$ Parse\-::a\-Table\-Lock}}\label{struct_parse_ae8e553d660dc69d285945d3db8f127c7}
+\hypertarget{struct_parse_ae2bd2e74d0caaab7a741d17b62f01ebc}{\index{Parse@{Parse}!a\-Temp\-Reg@{a\-Temp\-Reg}}
+\index{a\-Temp\-Reg@{a\-Temp\-Reg}!Parse@{Parse}}
+\subsubsection[{a\-Temp\-Reg}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::a\-Temp\-Reg\mbox{[}8\mbox{]}}}\label{struct_parse_ae2bd2e74d0caaab7a741d17b62f01ebc}
+\hypertarget{struct_parse_a907e389eb399f3e76a0cc6b469e4e252}{\index{Parse@{Parse}!az\-Var@{az\-Var}}
+\index{az\-Var@{az\-Var}!Parse@{Parse}}
+\subsubsection[{az\-Var}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ Parse\-::az\-Var}}\label{struct_parse_a907e389eb399f3e76a0cc6b469e4e252}
+\hypertarget{struct_parse_a13b660ed90fc83565aa542a10549ec9f}{\index{Parse@{Parse}!check\-Schema@{check\-Schema}}
+\index{check\-Schema@{check\-Schema}!Parse@{Parse}}
+\subsubsection[{check\-Schema}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::check\-Schema}}\label{struct_parse_a13b660ed90fc83565aa542a10549ec9f}
+\hypertarget{struct_parse_a07e8e916fb569a86acfa5f380afaaf77}{\index{Parse@{Parse}!ck\-Base@{ck\-Base}}
+\index{ck\-Base@{ck\-Base}!Parse@{Parse}}
+\subsubsection[{ck\-Base}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::ck\-Base}}\label{struct_parse_a07e8e916fb569a86acfa5f380afaaf77}
+\hypertarget{struct_parse_a4c71fde634168abc1e3e32c70704b1ac}{\index{Parse@{Parse}!col\-Names\-Set@{col\-Names\-Set}}
+\index{col\-Names\-Set@{col\-Names\-Set}!Parse@{Parse}}
+\subsubsection[{col\-Names\-Set}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::col\-Names\-Set}}\label{struct_parse_a4c71fde634168abc1e3e32c70704b1ac}
+\hypertarget{struct_parse_a40cbce90eedbd57143416c8bc28fec46}{\index{Parse@{Parse}!constraint\-Name@{constraint\-Name}}
+\index{constraint\-Name@{constraint\-Name}!Parse@{Parse}}
+\subsubsection[{constraint\-Name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Token} Parse\-::constraint\-Name}}\label{struct_parse_a40cbce90eedbd57143416c8bc28fec46}
+\hypertarget{struct_parse_a38a03495b8b18e86c2855c70b717d921}{\index{Parse@{Parse}!cookie\-Goto@{cookie\-Goto}}
+\index{cookie\-Goto@{cookie\-Goto}!Parse@{Parse}}
+\subsubsection[{cookie\-Goto}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::cookie\-Goto}}\label{struct_parse_a38a03495b8b18e86c2855c70b717d921}
+\hypertarget{struct_parse_a7c0b37cf797fd157234cb2e306cba2e4}{\index{Parse@{Parse}!cookie\-Mask@{cookie\-Mask}}
+\index{cookie\-Mask@{cookie\-Mask}!Parse@{Parse}}
+\subsubsection[{cookie\-Mask}]{\setlength{\rightskip}{0pt plus 5cm}{\bf y\-Db\-Mask} Parse\-::cookie\-Mask}}\label{struct_parse_a7c0b37cf797fd157234cb2e306cba2e4}
+\hypertarget{struct_parse_a6023169734f87ce27a760e0f9026c381}{\index{Parse@{Parse}!cookie\-Value@{cookie\-Value}}
+\index{cookie\-Value@{cookie\-Value}!Parse@{Parse}}
+\subsubsection[{cookie\-Value}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::cookie\-Value\mbox{[}{\bf S\-Q\-L\-I\-T\-E\-\_\-\-M\-A\-X\-\_\-\-A\-T\-T\-A\-C\-H\-E\-D}+2\mbox{]}}}\label{struct_parse_a6023169734f87ce27a760e0f9026c381}
+\hypertarget{struct_parse_a44364e5e1197927f89864ec345bc5491}{\index{Parse@{Parse}!db@{db}}
+\index{db@{db}!Parse@{Parse}}
+\subsubsection[{db}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3}$\ast$ Parse\-::db}}\label{struct_parse_a44364e5e1197927f89864ec345bc5491}
+\hypertarget{struct_parse_a86c869df65cd788025680de9b6a9b1f1}{\index{Parse@{Parse}!declare\-Vtab@{declare\-Vtab}}
+\index{declare\-Vtab@{declare\-Vtab}!Parse@{Parse}}
+\subsubsection[{declare\-Vtab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::declare\-Vtab}}\label{struct_parse_a86c869df65cd788025680de9b6a9b1f1}
+\hypertarget{struct_parse_a5ea9b658f4cfacf4b35f18c51e144ef1}{\index{Parse@{Parse}!disable\-Triggers@{disable\-Triggers}}
+\index{disable\-Triggers@{disable\-Triggers}!Parse@{Parse}}
+\subsubsection[{disable\-Triggers}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::disable\-Triggers}}\label{struct_parse_a5ea9b658f4cfacf4b35f18c51e144ef1}
+\hypertarget{struct_parse_a67083fd2286b7d5276831e84a1a16680}{\index{Parse@{Parse}!e\-Orconf@{e\-Orconf}}
+\index{e\-Orconf@{e\-Orconf}!Parse@{Parse}}
+\subsubsection[{e\-Orconf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::e\-Orconf}}\label{struct_parse_a67083fd2286b7d5276831e84a1a16680}
+\hypertarget{struct_parse_addd3028173ab100a8802dfcc9b13ffb7}{\index{Parse@{Parse}!e\-Trigger\-Op@{e\-Trigger\-Op}}
+\index{e\-Trigger\-Op@{e\-Trigger\-Op}!Parse@{Parse}}
+\subsubsection[{e\-Trigger\-Op}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::e\-Trigger\-Op}}\label{struct_parse_addd3028173ab100a8802dfcc9b13ffb7}
+\hypertarget{struct_parse_a41f7ea55f0d6523295a5d958e25a2787}{\index{Parse@{Parse}!explain@{explain}}
+\index{explain@{explain}!Parse@{Parse}}
+\subsubsection[{explain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::explain}}\label{struct_parse_a41f7ea55f0d6523295a5d958e25a2787}
+\hypertarget{struct_parse_ac4633493fd5f100fa823344be1c19d1e}{\index{Parse@{Parse}!i\-Cache\-Cnt@{i\-Cache\-Cnt}}
+\index{i\-Cache\-Cnt@{i\-Cache\-Cnt}!Parse@{Parse}}
+\subsubsection[{i\-Cache\-Cnt}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::i\-Cache\-Cnt}}\label{struct_parse_ac4633493fd5f100fa823344be1c19d1e}
+\hypertarget{struct_parse_a5b06d03e7605a6f55369481c050ac0a8}{\index{Parse@{Parse}!i\-Cache\-Level@{i\-Cache\-Level}}
+\index{i\-Cache\-Level@{i\-Cache\-Level}!Parse@{Parse}}
+\subsubsection[{i\-Cache\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::i\-Cache\-Level}}\label{struct_parse_a5b06d03e7605a6f55369481c050ac0a8}
+\hypertarget{struct_parse_a619672481a55a6e31bc03c00d1d6954c}{\index{Parse@{Parse}!i\-Col\-Cache@{i\-Col\-Cache}}
+\index{i\-Col\-Cache@{i\-Col\-Cache}!Parse@{Parse}}
+\subsubsection[{i\-Col\-Cache}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::i\-Col\-Cache}}\label{struct_parse_a619672481a55a6e31bc03c00d1d6954c}
+\hypertarget{struct_parse_aab76240bd43c005941431179d4f9bf49}{\index{Parse@{Parse}!i\-Next\-Select\-Id@{i\-Next\-Select\-Id}}
+\index{i\-Next\-Select\-Id@{i\-Next\-Select\-Id}!Parse@{Parse}}
+\subsubsection[{i\-Next\-Select\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::i\-Next\-Select\-Id}}\label{struct_parse_aab76240bd43c005941431179d4f9bf49}
+\hypertarget{struct_parse_a715f56a596d5172926c20dd7f91600b6}{\index{Parse@{Parse}!i\-Range\-Reg@{i\-Range\-Reg}}
+\index{i\-Range\-Reg@{i\-Range\-Reg}!Parse@{Parse}}
+\subsubsection[{i\-Range\-Reg}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::i\-Range\-Reg}}\label{struct_parse_a715f56a596d5172926c20dd7f91600b6}
+\hypertarget{struct_parse_a7474fa0bf9ad160cbdf723406c306d9d}{\index{Parse@{Parse}!i\-Select\-Id@{i\-Select\-Id}}
+\index{i\-Select\-Id@{i\-Select\-Id}!Parse@{Parse}}
+\subsubsection[{i\-Select\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::i\-Select\-Id}}\label{struct_parse_a7474fa0bf9ad160cbdf723406c306d9d}
+\hypertarget{struct_parse_a027d06007eab8e01b8930357f321344b}{\index{Parse@{Parse}!is\-Multi\-Write@{is\-Multi\-Write}}
+\index{is\-Multi\-Write@{is\-Multi\-Write}!Parse@{Parse}}
+\subsubsection[{is\-Multi\-Write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::is\-Multi\-Write}}\label{struct_parse_a027d06007eab8e01b8930357f321344b}
+\hypertarget{struct_parse_a1813c80797fcdba29e95813284619e57}{\index{Parse@{Parse}!may\-Abort@{may\-Abort}}
+\index{may\-Abort@{may\-Abort}!Parse@{Parse}}
+\subsubsection[{may\-Abort}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::may\-Abort}}\label{struct_parse_a1813c80797fcdba29e95813284619e57}
+\hypertarget{struct_parse_a47336e4cdbb0edeeac919980c8cde018}{\index{Parse@{Parse}!n\-Alias@{n\-Alias}}
+\index{n\-Alias@{n\-Alias}!Parse@{Parse}}
+\subsubsection[{n\-Alias}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Alias}}\label{struct_parse_a47336e4cdbb0edeeac919980c8cde018}
+\hypertarget{struct_parse_a23b721a6d1beab831c1b88ebbf30f57e}{\index{Parse@{Parse}!n\-Col\-Cache@{n\-Col\-Cache}}
+\index{n\-Col\-Cache@{n\-Col\-Cache}!Parse@{Parse}}
+\subsubsection[{n\-Col\-Cache}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::n\-Col\-Cache}}\label{struct_parse_a23b721a6d1beab831c1b88ebbf30f57e}
+\hypertarget{struct_parse_ac7206f0c7e580ab32b7dfb20950bb1c9}{\index{Parse@{Parse}!n\-Err@{n\-Err}}
+\index{n\-Err@{n\-Err}!Parse@{Parse}}
+\subsubsection[{n\-Err}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Err}}\label{struct_parse_ac7206f0c7e580ab32b7dfb20950bb1c9}
+\hypertarget{struct_parse_a33d62687b6d368acf94e954490358819}{\index{Parse@{Parse}!nested@{nested}}
+\index{nested@{nested}!Parse@{Parse}}
+\subsubsection[{nested}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::nested}}\label{struct_parse_a33d62687b6d368acf94e954490358819}
+\hypertarget{struct_parse_a698d9e9d4938cc35a4ef9137a46f1840}{\index{Parse@{Parse}!newmask@{newmask}}
+\index{newmask@{newmask}!Parse@{Parse}}
+\subsubsection[{newmask}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Parse\-::newmask}}\label{struct_parse_a698d9e9d4938cc35a4ef9137a46f1840}
+\hypertarget{struct_parse_af4ec053d44a2a3bc8ae82b69a7327c3c}{\index{Parse@{Parse}!n\-Height@{n\-Height}}
+\index{n\-Height@{n\-Height}!Parse@{Parse}}
+\subsubsection[{n\-Height}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Height}}\label{struct_parse_af4ec053d44a2a3bc8ae82b69a7327c3c}
+\hypertarget{struct_parse_aab781bff62f93c0f9a7ca979a3b3a820}{\index{Parse@{Parse}!n\-Max\-Arg@{n\-Max\-Arg}}
+\index{n\-Max\-Arg@{n\-Max\-Arg}!Parse@{Parse}}
+\subsubsection[{n\-Max\-Arg}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Max\-Arg}}\label{struct_parse_aab781bff62f93c0f9a7ca979a3b3a820}
+\hypertarget{struct_parse_aa66b48b0ababc17403615c899cddec9c}{\index{Parse@{Parse}!n\-Mem@{n\-Mem}}
+\index{n\-Mem@{n\-Mem}!Parse@{Parse}}
+\subsubsection[{n\-Mem}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Mem}}\label{struct_parse_aa66b48b0ababc17403615c899cddec9c}
+\hypertarget{struct_parse_a86d32dcaec08841210090c261c69a8b1}{\index{Parse@{Parse}!n\-Once@{n\-Once}}
+\index{n\-Once@{n\-Once}!Parse@{Parse}}
+\subsubsection[{n\-Once}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Once}}\label{struct_parse_a86d32dcaec08841210090c261c69a8b1}
+\hypertarget{struct_parse_a8b6b486066f71bdf750de91be23e3e7b}{\index{Parse@{Parse}!n\-Query\-Loop@{n\-Query\-Loop}}
+\index{n\-Query\-Loop@{n\-Query\-Loop}!Parse@{Parse}}
+\subsubsection[{n\-Query\-Loop}]{\setlength{\rightskip}{0pt plus 5cm}double Parse\-::n\-Query\-Loop}}\label{struct_parse_a8b6b486066f71bdf750de91be23e3e7b}
+\hypertarget{struct_parse_ae32922d3d20171f4acc426714b497e6f}{\index{Parse@{Parse}!n\-Range\-Reg@{n\-Range\-Reg}}
+\index{n\-Range\-Reg@{n\-Range\-Reg}!Parse@{Parse}}
+\subsubsection[{n\-Range\-Reg}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Range\-Reg}}\label{struct_parse_ae32922d3d20171f4acc426714b497e6f}
+\hypertarget{struct_parse_ac84102ff47885dfa854de5af1d15605b}{\index{Parse@{Parse}!n\-Set@{n\-Set}}
+\index{n\-Set@{n\-Set}!Parse@{Parse}}
+\subsubsection[{n\-Set}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Set}}\label{struct_parse_ac84102ff47885dfa854de5af1d15605b}
+\hypertarget{struct_parse_a6b3a46e1f275962fa8808dddba20ba23}{\index{Parse@{Parse}!n\-Tab@{n\-Tab}}
+\index{n\-Tab@{n\-Tab}!Parse@{Parse}}
+\subsubsection[{n\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Tab}}\label{struct_parse_a6b3a46e1f275962fa8808dddba20ba23}
+\hypertarget{struct_parse_a8c61b1b13dcb394b190fa09f5c253928}{\index{Parse@{Parse}!n\-Table\-Lock@{n\-Table\-Lock}}
+\index{n\-Table\-Lock@{n\-Table\-Lock}!Parse@{Parse}}
+\subsubsection[{n\-Table\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Table\-Lock}}\label{struct_parse_a8c61b1b13dcb394b190fa09f5c253928}
+\hypertarget{struct_parse_a40c148052fab032ca5110052c6be97d8}{\index{Parse@{Parse}!n\-Temp\-In\-Use@{n\-Temp\-In\-Use}}
+\index{n\-Temp\-In\-Use@{n\-Temp\-In\-Use}!Parse@{Parse}}
+\subsubsection[{n\-Temp\-In\-Use}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::n\-Temp\-In\-Use}}\label{struct_parse_a40c148052fab032ca5110052c6be97d8}
+\hypertarget{struct_parse_ae292001c732781b6b94d28ca303e1aa5}{\index{Parse@{Parse}!n\-Temp\-Reg@{n\-Temp\-Reg}}
+\index{n\-Temp\-Reg@{n\-Temp\-Reg}!Parse@{Parse}}
+\subsubsection[{n\-Temp\-Reg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Parse\-::n\-Temp\-Reg}}\label{struct_parse_ae292001c732781b6b94d28ca303e1aa5}
+\hypertarget{struct_parse_a088771dc116d91113bed715a1968d42e}{\index{Parse@{Parse}!n\-Var@{n\-Var}}
+\index{n\-Var@{n\-Var}!Parse@{Parse}}
+\subsubsection[{n\-Var}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Var}}\label{struct_parse_a088771dc116d91113bed715a1968d42e}
+\hypertarget{struct_parse_a7db8fe1ce2f0ec6bda7dc729a0e6a6e3}{\index{Parse@{Parse}!n\-Vtab\-Lock@{n\-Vtab\-Lock}}
+\index{n\-Vtab\-Lock@{n\-Vtab\-Lock}!Parse@{Parse}}
+\subsubsection[{n\-Vtab\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::n\-Vtab\-Lock}}\label{struct_parse_a7db8fe1ce2f0ec6bda7dc729a0e6a6e3}
+\hypertarget{struct_parse_ac9cf894d9dfd0ba37d9467cd9d2e48f0}{\index{Parse@{Parse}!nz\-Var@{nz\-Var}}
+\index{nz\-Var@{nz\-Var}!Parse@{Parse}}
+\subsubsection[{nz\-Var}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::nz\-Var}}\label{struct_parse_ac9cf894d9dfd0ba37d9467cd9d2e48f0}
+\hypertarget{struct_parse_acda3334b932ac6541f45fa939053e942}{\index{Parse@{Parse}!oldmask@{oldmask}}
+\index{oldmask@{oldmask}!Parse@{Parse}}
+\subsubsection[{oldmask}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Parse\-::oldmask}}\label{struct_parse_acda3334b932ac6541f45fa939053e942}
+\hypertarget{struct_parse_a23de0e2b2dc60ac5f5932c5b2cd34f10}{\index{Parse@{Parse}!p\-Ainc@{p\-Ainc}}
+\index{p\-Ainc@{p\-Ainc}!Parse@{Parse}}
+\subsubsection[{p\-Ainc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Autoinc\-Info}$\ast$ Parse\-::p\-Ainc}}\label{struct_parse_a23de0e2b2dc60ac5f5932c5b2cd34f10}
+\hypertarget{struct_parse_a4788769c077dc86ffa3ee1e40ed6b4a1}{\index{Parse@{Parse}!p\-New\-Table@{p\-New\-Table}}
+\index{p\-New\-Table@{p\-New\-Table}!Parse@{Parse}}
+\subsubsection[{p\-New\-Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Table}$\ast$ Parse\-::p\-New\-Table}}\label{struct_parse_a4788769c077dc86ffa3ee1e40ed6b4a1}
+\hypertarget{struct_parse_a92ea8f2ac3190dd7c8360e0334ae78b3}{\index{Parse@{Parse}!p\-New\-Trigger@{p\-New\-Trigger}}
+\index{p\-New\-Trigger@{p\-New\-Trigger}!Parse@{Parse}}
+\subsubsection[{p\-New\-Trigger}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Trigger}$\ast$ Parse\-::p\-New\-Trigger}}\label{struct_parse_a92ea8f2ac3190dd7c8360e0334ae78b3}
+\hypertarget{struct_parse_a5e250f77353fb3df6660ff29ffa53790}{\index{Parse@{Parse}!p\-Reprepare@{p\-Reprepare}}
+\index{p\-Reprepare@{p\-Reprepare}!Parse@{Parse}}
+\subsubsection[{p\-Reprepare}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vdbe}$\ast$ Parse\-::p\-Reprepare}}\label{struct_parse_a5e250f77353fb3df6660ff29ffa53790}
+\hypertarget{struct_parse_a739df7b56510f22e64aba1ed203fec76}{\index{Parse@{Parse}!p\-Toplevel@{p\-Toplevel}}
+\index{p\-Toplevel@{p\-Toplevel}!Parse@{Parse}}
+\subsubsection[{p\-Toplevel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parse}$\ast$ Parse\-::p\-Toplevel}}\label{struct_parse_a739df7b56510f22e64aba1ed203fec76}
+\hypertarget{struct_parse_a0891dbd3b583594c5d07d7b061026ea4}{\index{Parse@{Parse}!p\-Trigger\-Prg@{p\-Trigger\-Prg}}
+\index{p\-Trigger\-Prg@{p\-Trigger\-Prg}!Parse@{Parse}}
+\subsubsection[{p\-Trigger\-Prg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Trigger\-Prg}$\ast$ Parse\-::p\-Trigger\-Prg}}\label{struct_parse_a0891dbd3b583594c5d07d7b061026ea4}
+\hypertarget{struct_parse_aad9b1145e39b240e842f9c2ad8e7e230}{\index{Parse@{Parse}!p\-Trigger\-Tab@{p\-Trigger\-Tab}}
+\index{p\-Trigger\-Tab@{p\-Trigger\-Tab}!Parse@{Parse}}
+\subsubsection[{p\-Trigger\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Table}$\ast$ Parse\-::p\-Trigger\-Tab}}\label{struct_parse_aad9b1145e39b240e842f9c2ad8e7e230}
+\hypertarget{struct_parse_a81774053fd5063046f532c07e3daa98b}{\index{Parse@{Parse}!p\-Vdbe@{p\-Vdbe}}
+\index{p\-Vdbe@{p\-Vdbe}!Parse@{Parse}}
+\subsubsection[{p\-Vdbe}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vdbe}$\ast$ Parse\-::p\-Vdbe}}\label{struct_parse_a81774053fd5063046f532c07e3daa98b}
+\hypertarget{struct_parse_a4e8319f0a7f0d21e472c13ac6cf67060}{\index{Parse@{Parse}!p\-Zombie\-Tab@{p\-Zombie\-Tab}}
+\index{p\-Zombie\-Tab@{p\-Zombie\-Tab}!Parse@{Parse}}
+\subsubsection[{p\-Zombie\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Table}$\ast$ Parse\-::p\-Zombie\-Tab}}\label{struct_parse_a4e8319f0a7f0d21e472c13ac6cf67060}
+\hypertarget{struct_parse_a897c2ea40a1065d49a134f18ca251637}{\index{Parse@{Parse}!rc@{rc}}
+\index{rc@{rc}!Parse@{Parse}}
+\subsubsection[{rc}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::rc}}\label{struct_parse_a897c2ea40a1065d49a134f18ca251637}
+\hypertarget{struct_parse_afcf3d47e9424b79e6911cf366cb73bd4}{\index{Parse@{Parse}!reg\-Root@{reg\-Root}}
+\index{reg\-Root@{reg\-Root}!Parse@{Parse}}
+\subsubsection[{reg\-Root}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::reg\-Root}}\label{struct_parse_afcf3d47e9424b79e6911cf366cb73bd4}
+\hypertarget{struct_parse_a63f71c268a7a77cb0df5619dd8ebbacd}{\index{Parse@{Parse}!reg\-Rowid@{reg\-Rowid}}
+\index{reg\-Rowid@{reg\-Rowid}!Parse@{Parse}}
+\subsubsection[{reg\-Rowid}]{\setlength{\rightskip}{0pt plus 5cm}int Parse\-::reg\-Rowid}}\label{struct_parse_a63f71c268a7a77cb0df5619dd8ebbacd}
+\hypertarget{struct_parse_aa3fe38b31dd1cd0fbea4de0e77891642}{\index{Parse@{Parse}!s\-Arg@{s\-Arg}}
+\index{s\-Arg@{s\-Arg}!Parse@{Parse}}
+\subsubsection[{s\-Arg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Token} Parse\-::s\-Arg}}\label{struct_parse_aa3fe38b31dd1cd0fbea4de0e77891642}
+\hypertarget{struct_parse_ad499020d1bf06f3c98c8d36e2ceb83fd}{\index{Parse@{Parse}!s\-Last\-Token@{s\-Last\-Token}}
+\index{s\-Last\-Token@{s\-Last\-Token}!Parse@{Parse}}
+\subsubsection[{s\-Last\-Token}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Token} Parse\-::s\-Last\-Token}}\label{struct_parse_ad499020d1bf06f3c98c8d36e2ceb83fd}
+\hypertarget{struct_parse_afd929c54566cfc4d6f748fcc6b79b973}{\index{Parse@{Parse}!s\-Name\-Token@{s\-Name\-Token}}
+\index{s\-Name\-Token@{s\-Name\-Token}!Parse@{Parse}}
+\subsubsection[{s\-Name\-Token}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Token} Parse\-::s\-Name\-Token}}\label{struct_parse_afd929c54566cfc4d6f748fcc6b79b973}
+\hypertarget{struct_parse_a4939b6d4fd3f48731b58b8a6f51417cd}{\index{Parse@{Parse}!write\-Mask@{write\-Mask}}
+\index{write\-Mask@{write\-Mask}!Parse@{Parse}}
+\subsubsection[{write\-Mask}]{\setlength{\rightskip}{0pt plus 5cm}{\bf y\-Db\-Mask} Parse\-::write\-Mask}}\label{struct_parse_a4939b6d4fd3f48731b58b8a6f51417cd}
+\hypertarget{struct_parse_a12c6e2fb69848bcc57169d44993c351f}{\index{Parse@{Parse}!z\-Auth\-Context@{z\-Auth\-Context}}
+\index{z\-Auth\-Context@{z\-Auth\-Context}!Parse@{Parse}}
+\subsubsection[{z\-Auth\-Context}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ Parse\-::z\-Auth\-Context}}\label{struct_parse_a12c6e2fb69848bcc57169d44993c351f}
+\hypertarget{struct_parse_a04146757986ff4654c7b321654896e81}{\index{Parse@{Parse}!z\-Err\-Msg@{z\-Err\-Msg}}
+\index{z\-Err\-Msg@{z\-Err\-Msg}!Parse@{Parse}}
+\subsubsection[{z\-Err\-Msg}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Parse\-::z\-Err\-Msg}}\label{struct_parse_a04146757986ff4654c7b321654896e81}
+\hypertarget{struct_parse_a14f58728b3ae2a297272510ae4bd9a89}{\index{Parse@{Parse}!z\-Tail@{z\-Tail}}
+\index{z\-Tail@{z\-Tail}!Parse@{Parse}}
+\subsubsection[{z\-Tail}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ Parse\-::z\-Tail}}\label{struct_parse_a14f58728b3ae2a297272510ae4bd9a89}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

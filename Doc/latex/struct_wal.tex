@@ -1,0 +1,119 @@
+\hypertarget{struct_wal}{\section{Wal Struct Reference}
+\label{struct_wal}\index{Wal@{Wal}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structsqlite3__vfs}{sqlite3\-\_\-vfs} $\ast$ \hyperlink{struct_wal_a5431b060acbc998a7e3710587abaa11e}{p\-Vfs}
+\item 
+\hyperlink{structsqlite3__file}{sqlite3\-\_\-file} $\ast$ \hyperlink{struct_wal_a3a4d051c55228e554b36691c5095ed14}{p\-Db\-Fd}
+\item 
+\hyperlink{structsqlite3__file}{sqlite3\-\_\-file} $\ast$ \hyperlink{struct_wal_aea2a72ead42cfe57e3a6809e80884397}{p\-Wal\-Fd}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_aae230a2317817739a5f08ebb28b644b0}{i\-Callback}
+\item 
+\hyperlink{sqlite3_8c_a2a0f0f4ae7001eb54351f77ea1cdbcfd}{i64} \hyperlink{struct_wal_a413f9f82c15d31627a2ed6eac9b6cc27}{mx\-Wal\-Size}
+\item 
+int \hyperlink{struct_wal_ae3e69420adab92acd90dd7c03d37815f}{n\-Wi\-Data}
+\item 
+int \hyperlink{struct_wal_a901c02626270f4d51db89786e4994da9}{sz\-First\-Block}
+\item 
+volatile \hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} $\ast$$\ast$ \hyperlink{struct_wal_a2b0078e3adfd1fb21794561bb12bbfac}{ap\-Wi\-Data}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_a771c3a8c81326babc7d623255a6034c5}{sz\-Page}
+\item 
+\hyperlink{sqlite3_8c_a7b32340f65cd15f029caad258fb3355c}{i16} \hyperlink{struct_wal_a260550c859ac7224fbdad0586dca664a}{read\-Lock}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_wal_ac1382875f5fe049ccf09f1c2d370c429}{sync\-Flags}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_wal_ada255c96ca65d9d8955bbf139af4e6f4}{exclusive\-Mode}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_wal_ad7f4ba84f07115b7ce3a6133479c9d24}{write\-Lock}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_wal_a29153bfb37a9a32f1171e5c1d10994d2}{ckpt\-Lock}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_wal_a38f0810e34bdc89acdf27574473c0495}{read\-Only}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_wal_a12870bbe7755271c94c3eb1fd0280c56}{truncate\-On\-Commit}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_wal_ae3de9666170c103a835a2c767932d3f9}{sync\-Header}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_wal_af10e79ca8fe617d7df706182ebdf7039}{pad\-To\-Sector\-Boundary}
+\item 
+\hyperlink{struct_wal_index_hdr}{Wal\-Index\-Hdr} \hyperlink{struct_wal_adbeef9e632541fbf07c926652b165906}{hdr}
+\item 
+const char $\ast$ \hyperlink{struct_wal_ac54961758701702d67eaf3ce15c69ea5}{z\-Wal\-Name}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_wal_a8fbe9b014342db76d8167b518b70acad}{n\-Ckpt}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_wal_a2b0078e3adfd1fb21794561bb12bbfac}{\index{Wal@{Wal}!ap\-Wi\-Data@{ap\-Wi\-Data}}
+\index{ap\-Wi\-Data@{ap\-Wi\-Data}!Wal@{Wal}}
+\subsubsection[{ap\-Wi\-Data}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf u32}$\ast$$\ast$ Wal\-::ap\-Wi\-Data}}\label{struct_wal_a2b0078e3adfd1fb21794561bb12bbfac}
+\hypertarget{struct_wal_a29153bfb37a9a32f1171e5c1d10994d2}{\index{Wal@{Wal}!ckpt\-Lock@{ckpt\-Lock}}
+\index{ckpt\-Lock@{ckpt\-Lock}!Wal@{Wal}}
+\subsubsection[{ckpt\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Wal\-::ckpt\-Lock}}\label{struct_wal_a29153bfb37a9a32f1171e5c1d10994d2}
+\hypertarget{struct_wal_ada255c96ca65d9d8955bbf139af4e6f4}{\index{Wal@{Wal}!exclusive\-Mode@{exclusive\-Mode}}
+\index{exclusive\-Mode@{exclusive\-Mode}!Wal@{Wal}}
+\subsubsection[{exclusive\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Wal\-::exclusive\-Mode}}\label{struct_wal_ada255c96ca65d9d8955bbf139af4e6f4}
+\hypertarget{struct_wal_adbeef9e632541fbf07c926652b165906}{\index{Wal@{Wal}!hdr@{hdr}}
+\index{hdr@{hdr}!Wal@{Wal}}
+\subsubsection[{hdr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Wal\-Index\-Hdr} Wal\-::hdr}}\label{struct_wal_adbeef9e632541fbf07c926652b165906}
+\hypertarget{struct_wal_aae230a2317817739a5f08ebb28b644b0}{\index{Wal@{Wal}!i\-Callback@{i\-Callback}}
+\index{i\-Callback@{i\-Callback}!Wal@{Wal}}
+\subsubsection[{i\-Callback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-::i\-Callback}}\label{struct_wal_aae230a2317817739a5f08ebb28b644b0}
+\hypertarget{struct_wal_a413f9f82c15d31627a2ed6eac9b6cc27}{\index{Wal@{Wal}!mx\-Wal\-Size@{mx\-Wal\-Size}}
+\index{mx\-Wal\-Size@{mx\-Wal\-Size}!Wal@{Wal}}
+\subsubsection[{mx\-Wal\-Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i64} Wal\-::mx\-Wal\-Size}}\label{struct_wal_a413f9f82c15d31627a2ed6eac9b6cc27}
+\hypertarget{struct_wal_a8fbe9b014342db76d8167b518b70acad}{\index{Wal@{Wal}!n\-Ckpt@{n\-Ckpt}}
+\index{n\-Ckpt@{n\-Ckpt}!Wal@{Wal}}
+\subsubsection[{n\-Ckpt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-::n\-Ckpt}}\label{struct_wal_a8fbe9b014342db76d8167b518b70acad}
+\hypertarget{struct_wal_ae3e69420adab92acd90dd7c03d37815f}{\index{Wal@{Wal}!n\-Wi\-Data@{n\-Wi\-Data}}
+\index{n\-Wi\-Data@{n\-Wi\-Data}!Wal@{Wal}}
+\subsubsection[{n\-Wi\-Data}]{\setlength{\rightskip}{0pt plus 5cm}int Wal\-::n\-Wi\-Data}}\label{struct_wal_ae3e69420adab92acd90dd7c03d37815f}
+\hypertarget{struct_wal_af10e79ca8fe617d7df706182ebdf7039}{\index{Wal@{Wal}!pad\-To\-Sector\-Boundary@{pad\-To\-Sector\-Boundary}}
+\index{pad\-To\-Sector\-Boundary@{pad\-To\-Sector\-Boundary}!Wal@{Wal}}
+\subsubsection[{pad\-To\-Sector\-Boundary}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Wal\-::pad\-To\-Sector\-Boundary}}\label{struct_wal_af10e79ca8fe617d7df706182ebdf7039}
+\hypertarget{struct_wal_a3a4d051c55228e554b36691c5095ed14}{\index{Wal@{Wal}!p\-Db\-Fd@{p\-Db\-Fd}}
+\index{p\-Db\-Fd@{p\-Db\-Fd}!Wal@{Wal}}
+\subsubsection[{p\-Db\-Fd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-file}$\ast$ Wal\-::p\-Db\-Fd}}\label{struct_wal_a3a4d051c55228e554b36691c5095ed14}
+\hypertarget{struct_wal_a5431b060acbc998a7e3710587abaa11e}{\index{Wal@{Wal}!p\-Vfs@{p\-Vfs}}
+\index{p\-Vfs@{p\-Vfs}!Wal@{Wal}}
+\subsubsection[{p\-Vfs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-vfs}$\ast$ Wal\-::p\-Vfs}}\label{struct_wal_a5431b060acbc998a7e3710587abaa11e}
+\hypertarget{struct_wal_aea2a72ead42cfe57e3a6809e80884397}{\index{Wal@{Wal}!p\-Wal\-Fd@{p\-Wal\-Fd}}
+\index{p\-Wal\-Fd@{p\-Wal\-Fd}!Wal@{Wal}}
+\subsubsection[{p\-Wal\-Fd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-file}$\ast$ Wal\-::p\-Wal\-Fd}}\label{struct_wal_aea2a72ead42cfe57e3a6809e80884397}
+\hypertarget{struct_wal_a260550c859ac7224fbdad0586dca664a}{\index{Wal@{Wal}!read\-Lock@{read\-Lock}}
+\index{read\-Lock@{read\-Lock}!Wal@{Wal}}
+\subsubsection[{read\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i16} Wal\-::read\-Lock}}\label{struct_wal_a260550c859ac7224fbdad0586dca664a}
+\hypertarget{struct_wal_a38f0810e34bdc89acdf27574473c0495}{\index{Wal@{Wal}!read\-Only@{read\-Only}}
+\index{read\-Only@{read\-Only}!Wal@{Wal}}
+\subsubsection[{read\-Only}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Wal\-::read\-Only}}\label{struct_wal_a38f0810e34bdc89acdf27574473c0495}
+\hypertarget{struct_wal_ac1382875f5fe049ccf09f1c2d370c429}{\index{Wal@{Wal}!sync\-Flags@{sync\-Flags}}
+\index{sync\-Flags@{sync\-Flags}!Wal@{Wal}}
+\subsubsection[{sync\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Wal\-::sync\-Flags}}\label{struct_wal_ac1382875f5fe049ccf09f1c2d370c429}
+\hypertarget{struct_wal_ae3de9666170c103a835a2c767932d3f9}{\index{Wal@{Wal}!sync\-Header@{sync\-Header}}
+\index{sync\-Header@{sync\-Header}!Wal@{Wal}}
+\subsubsection[{sync\-Header}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Wal\-::sync\-Header}}\label{struct_wal_ae3de9666170c103a835a2c767932d3f9}
+\hypertarget{struct_wal_a901c02626270f4d51db89786e4994da9}{\index{Wal@{Wal}!sz\-First\-Block@{sz\-First\-Block}}
+\index{sz\-First\-Block@{sz\-First\-Block}!Wal@{Wal}}
+\subsubsection[{sz\-First\-Block}]{\setlength{\rightskip}{0pt plus 5cm}int Wal\-::sz\-First\-Block}}\label{struct_wal_a901c02626270f4d51db89786e4994da9}
+\hypertarget{struct_wal_a771c3a8c81326babc7d623255a6034c5}{\index{Wal@{Wal}!sz\-Page@{sz\-Page}}
+\index{sz\-Page@{sz\-Page}!Wal@{Wal}}
+\subsubsection[{sz\-Page}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Wal\-::sz\-Page}}\label{struct_wal_a771c3a8c81326babc7d623255a6034c5}
+\hypertarget{struct_wal_a12870bbe7755271c94c3eb1fd0280c56}{\index{Wal@{Wal}!truncate\-On\-Commit@{truncate\-On\-Commit}}
+\index{truncate\-On\-Commit@{truncate\-On\-Commit}!Wal@{Wal}}
+\subsubsection[{truncate\-On\-Commit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Wal\-::truncate\-On\-Commit}}\label{struct_wal_a12870bbe7755271c94c3eb1fd0280c56}
+\hypertarget{struct_wal_ad7f4ba84f07115b7ce3a6133479c9d24}{\index{Wal@{Wal}!write\-Lock@{write\-Lock}}
+\index{write\-Lock@{write\-Lock}!Wal@{Wal}}
+\subsubsection[{write\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Wal\-::write\-Lock}}\label{struct_wal_ad7f4ba84f07115b7ce3a6133479c9d24}
+\hypertarget{struct_wal_ac54961758701702d67eaf3ce15c69ea5}{\index{Wal@{Wal}!z\-Wal\-Name@{z\-Wal\-Name}}
+\index{z\-Wal\-Name@{z\-Wal\-Name}!Wal@{Wal}}
+\subsubsection[{z\-Wal\-Name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ Wal\-::z\-Wal\-Name}}\label{struct_wal_ac54961758701702d67eaf3ce15c69ea5}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

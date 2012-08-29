@@ -1,0 +1,447 @@
+\hypertarget{class_action_settings}{\section{Action\-Settings Class Reference}
+\label{class_action_settings}\index{Action\-Settings@{Action\-Settings}}
+}
+
+
+Shows action settings dialog and stores information selected on controls.  
+
+
+
+
+{\ttfamily \#include $<$action\-\_\-settings.\-h$>$}
+
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_action_settings_ab981f3119789573325f185abfda7f016}{apply} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_action}{Action} which is performed during clicking on Apply button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_action_settings_aca2bed5c8f16db7ce26e637f497e41cd}{Action\-Settings} ()
+\begin{DoxyCompactList}\small\item\em Creates the dialog with current date. \end{DoxyCompactList}\item 
+\hyperlink{class_action_settings_a3d09369db7e1a2642d73fb23926ada0c}{Action\-Settings} (Q\-Date date)
+\begin{DoxyCompactList}\small\item\em Creates the dialog with the given date. \end{DoxyCompactList}\item 
+void \hyperlink{class_action_settings_ad517be439f1db8afb3ca0cc06cf6c3ca}{set\-Scripts} (const Q\-String\-List \&scripts)
+\begin{DoxyCompactList}\small\item\em Sets list of all scripts which are listed in the combo box of the dialog. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_action_settings_a14b9b342b2abb98cb27b8f642d895ee9}{get\-Script\-Name} () const 
+\item 
+void \hyperlink{class_action_settings_ad3335bd018c920476854c0e64a872d23}{select\-Script} (const Q\-String \&script\-Name)
+\begin{DoxyCompactList}\small\item\em Selects script on the combo box. \end{DoxyCompactList}\item 
+void \hyperlink{class_action_settings_afb0c8ddbe83ec2c52a84c226c46702f5}{set\-Hours} (int hours)
+\begin{DoxyCompactList}\small\item\em Sets hours to the spin box. \end{DoxyCompactList}\item 
+int \hyperlink{class_action_settings_ad1b4adb2da11d11e4d205051d4ad9a7c}{get\-Hours} () const 
+\item 
+void \hyperlink{class_action_settings_ae07a76fe6154e4c566dfa9e8456f7f0b}{set\-Minutes} (int minutes)
+\begin{DoxyCompactList}\small\item\em Sets minutes to the spin box. \end{DoxyCompactList}\item 
+int \hyperlink{class_action_settings_a1c9bc98f4228818443e02c7e7224b05d}{get\-Minutes} () const 
+\item 
+void \hyperlink{class_action_settings_a559f59ec9a8675c3c53272cb791735bd}{set\-Seconds} (int seconds)
+\begin{DoxyCompactList}\small\item\em Sets seconds to the spin box. \end{DoxyCompactList}\item 
+int \hyperlink{class_action_settings_aa15091473a8be5849d29af3ab9497716}{get\-Seconds} () const 
+\item 
+void \hyperlink{class_action_settings_a8e00a0b7449cc2c2e144c035efd6150d}{set\-Is\-X\-Days} (bool \hyperlink{class_action_settings_a8f551339364e7535468bc2418b0d1715}{is\-X\-Days})
+\begin{DoxyCompactList}\small\item\em Sets the check box which specified if the user wants to use repetitions every X days. \end{DoxyCompactList}\item 
+bool \hyperlink{class_action_settings_a8f551339364e7535468bc2418b0d1715}{is\-X\-Days} () const 
+\item 
+void \hyperlink{class_action_settings_a4107237b01a3832e8eadf1cfd172b1db}{set\-X\-Days} (int days)
+\begin{DoxyCompactList}\small\item\em Sets the number of days which determine a repetition every X days. \end{DoxyCompactList}\item 
+int \hyperlink{class_action_settings_a4da2cfe5b881ccf4b217a8f857e898e7}{get\-X\-Days} () const 
+\item 
+void \hyperlink{class_action_settings_a46eaaa89d414c1d13da166d7953760ae}{set\-Days\-Flags} (int mask)
+\begin{DoxyCompactList}\small\item\em Sets the number of days which determine a repetition every X days. \end{DoxyCompactList}\item 
+int \hyperlink{class_action_settings_a16bf753ffb5c9376af53441977bb2d4a}{get\-Days} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{M\-O\-N\-D\-A\-Y} = 1
+\begin{DoxyCompactList}\small\item\em Value for monday. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_action_settings_a387ace15273bbc582a7debc2fc158693}{T\-U\-E\-S\-D\-A\-Y} = 1 $<$$<$ 1
+\begin{DoxyCompactList}\small\item\em Value for tuesday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_action_settings_a3b16f717b4ce866e31827451147485d2}{W\-E\-D\-N\-E\-S\-D\-A\-Y} = 1 $<$$<$ 2
+\begin{DoxyCompactList}\small\item\em Value for wednesday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_action_settings_af4382214fc4cb662884ba314009ed4d6}{T\-H\-U\-R\-S\-D\-A\-Y} = 1 $<$$<$ 3
+\begin{DoxyCompactList}\small\item\em Value for thursday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_action_settings_aa70504579778b73eb6627609d2360bf5}{F\-R\-I\-D\-A\-Y} = 1 $<$$<$ 4
+\begin{DoxyCompactList}\small\item\em Value for friday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_action_settings_ad4e99d88dfbfa0b2d920bf87fe2f9f4c}{S\-A\-T\-U\-R\-D\-A\-Y} = 1 $<$$<$ 5
+\begin{DoxyCompactList}\small\item\em Value for saturday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_action_settings_a84bc1afcb432a8274a028cd21cc416f6}{S\-U\-N\-D\-A\-Y} = 1 $<$$<$ 6
+\begin{DoxyCompactList}\small\item\em Value for sunday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_action_settings_a9725793607519082b0c0bcfae7ccdcaf}{S\-T\-A\-T\-U\-S} \{ \hyperlink{class_action_settings_a9725793607519082b0c0bcfae7ccdcafa5622bebc14d1d7fbb9b29753297d7457}{O\-L\-D} =  0, 
+\hyperlink{class_action_settings_a9725793607519082b0c0bcfae7ccdcafa531446e0f85b69997767554a5e4303f1}{O\-K}
+ \}
+\begin{DoxyCompactList}\small\item\em Values that specify is the date is old or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_action_settings_a81b3b295828d3c513db553bc114bc4de}{check\-Time\-Correctness} ()
+\begin{DoxyCompactList}\small\item\em Check the time whether it's an old date. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\-::action\-Settings\-Dialog \hyperlink{class_action_settings_a426f219e053b2eb7d534fd78cf83d026}{ui}
+\begin{DoxyCompactList}\small\item\em Structure which contains pointers to all controls on the dialog. \end{DoxyCompactList}\item 
+Q\-Date \hyperlink{class_action_settings_a3aa508428dcaa5c930b6a46d6471a770}{m\-\_\-selected\-Date}
+\begin{DoxyCompactList}\small\item\em Date which the action will be added to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Shows action settings dialog and stores information selected on controls. 
+
+Dialog is shown to choose properties for action that will be added. The dialog can be show by methods derived from Q\-Dialog like Q\-Dialog\-::exec(). \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28.\-08.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_action_settings_a9725793607519082b0c0bcfae7ccdcaf}{\index{Action\-Settings@{Action\-Settings}!S\-T\-A\-T\-U\-S@{S\-T\-A\-T\-U\-S}}
+\index{S\-T\-A\-T\-U\-S@{S\-T\-A\-T\-U\-S}!ActionSettings@{Action\-Settings}}
+\subsubsection[{S\-T\-A\-T\-U\-S}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Action\-Settings\-::\-S\-T\-A\-T\-U\-S}\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_settings_a9725793607519082b0c0bcfae7ccdcaf}
+
+
+Values that specify is the date is old or not. 
+
+\begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{O\-L\-D@{O\-L\-D}!Action\-Settings@{Action\-Settings}}\index{Action\-Settings@{Action\-Settings}!O\-L\-D@{O\-L\-D}}\item[{\em 
+\hypertarget{class_action_settings_a9725793607519082b0c0bcfae7ccdcafa5622bebc14d1d7fbb9b29753297d7457}{O\-L\-D}\label{class_action_settings_a9725793607519082b0c0bcfae7ccdcafa5622bebc14d1d7fbb9b29753297d7457}
+}]\index{O\-K@{O\-K}!Action\-Settings@{Action\-Settings}}\index{Action\-Settings@{Action\-Settings}!O\-K@{O\-K}}\item[{\em 
+\hypertarget{class_action_settings_a9725793607519082b0c0bcfae7ccdcafa531446e0f85b69997767554a5e4303f1}{O\-K}\label{class_action_settings_a9725793607519082b0c0bcfae7ccdcafa531446e0f85b69997767554a5e4303f1}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_action_settings_aca2bed5c8f16db7ce26e637f497e41cd}{\index{Action\-Settings@{Action\-Settings}!Action\-Settings@{Action\-Settings}}
+\index{Action\-Settings@{Action\-Settings}!ActionSettings@{Action\-Settings}}
+\subsubsection[{Action\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}Action\-Settings\-::\-Action\-Settings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_action_settings_aca2bed5c8f16db7ce26e637f497e41cd}
+
+
+Creates the dialog with current date. 
+
+Use another version of constructor (\hyperlink{class_action_settings_a3d09369db7e1a2642d73fb23926ada0c}{Action\-Settings\-::\-Action\-Settings( Q\-Date date )}) if you wish to set the date by yourself. See \hyperlink{class_action_settings}{Action\-Settings}\-:m\-\_\-selected\-Date for details. \hypertarget{class_action_settings_a3d09369db7e1a2642d73fb23926ada0c}{\index{Action\-Settings@{Action\-Settings}!Action\-Settings@{Action\-Settings}}
+\index{Action\-Settings@{Action\-Settings}!ActionSettings@{Action\-Settings}}
+\subsubsection[{Action\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}Action\-Settings\-::\-Action\-Settings (
+\begin{DoxyParamCaption}
+\item[{Q\-Date}]{date}
+\end{DoxyParamCaption}
+)}}\label{class_action_settings_a3d09369db7e1a2642d73fb23926ada0c}
+
+
+Creates the dialog with the given date. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_action_settings_ab981f3119789573325f185abfda7f016}{\index{Action\-Settings@{Action\-Settings}!apply@{apply}}
+\index{apply@{apply}!ActionSettings@{Action\-Settings}}
+\subsubsection[{apply}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Settings\-::apply (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{class_action_settings_ab981f3119789573325f185abfda7f016}
+
+
+\hyperlink{class_action}{Action} which is performed during clicking on Apply button. 
+
+The method invalidates all values in controls. \hypertarget{class_action_settings_a81b3b295828d3c513db553bc114bc4de}{\index{Action\-Settings@{Action\-Settings}!check\-Time\-Correctness@{check\-Time\-Correctness}}
+\index{check\-Time\-Correctness@{check\-Time\-Correctness}!ActionSettings@{Action\-Settings}}
+\subsubsection[{check\-Time\-Correctness}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-Settings\-::check\-Time\-Correctness (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_settings_a81b3b295828d3c513db553bc114bc4de}
+
+
+Check the time whether it's an old date. 
+
+To do this the function uses \hyperlink{class_action_settings_a3aa508428dcaa5c930b6a46d6471a770}{Action\-Settings\-::m\-\_\-selected\-Date} field. \begin{DoxyReturn}{Returns}
+One of the value defined in the enumeration \hyperlink{class_action_settings_a9725793607519082b0c0bcfae7ccdcaf}{Action\-Settings\-::\-S\-T\-A\-T\-U\-S}. See \hyperlink{class_action_settings_a9725793607519082b0c0bcfae7ccdcaf}{Action\-Settings\-::\-S\-T\-A\-T\-U\-S} for details. 
+\end{DoxyReturn}
+\hypertarget{class_action_settings_a16bf753ffb5c9376af53441977bb2d4a}{\index{Action\-Settings@{Action\-Settings}!get\-Days@{get\-Days}}
+\index{get\-Days@{get\-Days}!ActionSettings@{Action\-Settings}}
+\subsubsection[{get\-Days}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-Settings\-::get\-Days (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_settings_a16bf753ffb5c9376af53441977bb2d4a}
+Mask is created by using fields of this class\-: \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} etc. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. \begin{DoxyReturn}{Returns}
+Mask which specifies days of the week that has been chosen by the user. 
+\end{DoxyReturn}
+\hypertarget{class_action_settings_ad1b4adb2da11d11e4d205051d4ad9a7c}{\index{Action\-Settings@{Action\-Settings}!get\-Hours@{get\-Hours}}
+\index{get\-Hours@{get\-Hours}!ActionSettings@{Action\-Settings}}
+\subsubsection[{get\-Hours}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-Settings\-::get\-Hours (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_settings_ad1b4adb2da11d11e4d205051d4ad9a7c}
+\begin{DoxyReturn}{Returns}
+Hours from the spin box. 
+\end{DoxyReturn}
+\hypertarget{class_action_settings_a1c9bc98f4228818443e02c7e7224b05d}{\index{Action\-Settings@{Action\-Settings}!get\-Minutes@{get\-Minutes}}
+\index{get\-Minutes@{get\-Minutes}!ActionSettings@{Action\-Settings}}
+\subsubsection[{get\-Minutes}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-Settings\-::get\-Minutes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_settings_a1c9bc98f4228818443e02c7e7224b05d}
+\begin{DoxyReturn}{Returns}
+Minutes from the spin box. 
+\end{DoxyReturn}
+\hypertarget{class_action_settings_a14b9b342b2abb98cb27b8f642d895ee9}{\index{Action\-Settings@{Action\-Settings}!get\-Script\-Name@{get\-Script\-Name}}
+\index{get\-Script\-Name@{get\-Script\-Name}!ActionSettings@{Action\-Settings}}
+\subsubsection[{get\-Script\-Name}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Action\-Settings\-::get\-Script\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_settings_a14b9b342b2abb98cb27b8f642d895ee9}
+\begin{DoxyReturn}{Returns}
+Name of the currently selected (in combo box) script. 
+\end{DoxyReturn}
+\hypertarget{class_action_settings_aa15091473a8be5849d29af3ab9497716}{\index{Action\-Settings@{Action\-Settings}!get\-Seconds@{get\-Seconds}}
+\index{get\-Seconds@{get\-Seconds}!ActionSettings@{Action\-Settings}}
+\subsubsection[{get\-Seconds}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-Settings\-::get\-Seconds (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_settings_aa15091473a8be5849d29af3ab9497716}
+\begin{DoxyReturn}{Returns}
+Seconds from the spin box. 
+\end{DoxyReturn}
+\hypertarget{class_action_settings_a4da2cfe5b881ccf4b217a8f857e898e7}{\index{Action\-Settings@{Action\-Settings}!get\-X\-Days@{get\-X\-Days}}
+\index{get\-X\-Days@{get\-X\-Days}!ActionSettings@{Action\-Settings}}
+\subsubsection[{get\-X\-Days}]{\setlength{\rightskip}{0pt plus 5cm}int Action\-Settings\-::get\-X\-Days (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_settings_a4da2cfe5b881ccf4b217a8f857e898e7}
+\begin{DoxyReturn}{Returns}
+Number of days which determines the \char`\"{}every X days\char`\"{} option. 
+\end{DoxyReturn}
+\hypertarget{class_action_settings_a8f551339364e7535468bc2418b0d1715}{\index{Action\-Settings@{Action\-Settings}!is\-X\-Days@{is\-X\-Days}}
+\index{is\-X\-Days@{is\-X\-Days}!ActionSettings@{Action\-Settings}}
+\subsubsection[{is\-X\-Days}]{\setlength{\rightskip}{0pt plus 5cm}bool Action\-Settings\-::is\-X\-Days (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_action_settings_a8f551339364e7535468bc2418b0d1715}
+\begin{DoxyReturn}{Returns}
+State of the check box. 
+\end{DoxyReturn}
+\hypertarget{class_action_settings_ad3335bd018c920476854c0e64a872d23}{\index{Action\-Settings@{Action\-Settings}!select\-Script@{select\-Script}}
+\index{select\-Script@{select\-Script}!ActionSettings@{Action\-Settings}}
+\subsubsection[{select\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Settings\-::select\-Script (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{script\-Name}
+\end{DoxyParamCaption}
+)}}\label{class_action_settings_ad3335bd018c920476854c0e64a872d23}
+
+
+Selects script on the combo box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em script\-Name} & Name of the script which can be obtained by \hyperlink{class_script_a4fe7b18819eeebb1ed154f6350ba7fef}{Script\-::get\-File\-Name} method. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_settings_a46eaaa89d414c1d13da166d7953760ae}{\index{Action\-Settings@{Action\-Settings}!set\-Days\-Flags@{set\-Days\-Flags}}
+\index{set\-Days\-Flags@{set\-Days\-Flags}!ActionSettings@{Action\-Settings}}
+\subsubsection[{set\-Days\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Settings\-::set\-Days\-Flags (
+\begin{DoxyParamCaption}
+\item[{int}]{mask}
+\end{DoxyParamCaption}
+)}}\label{class_action_settings_a46eaaa89d414c1d13da166d7953760ae}
+
+
+Sets the number of days which determine a repetition every X days. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mask} & Number of days. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_settings_afb0c8ddbe83ec2c52a84c226c46702f5}{\index{Action\-Settings@{Action\-Settings}!set\-Hours@{set\-Hours}}
+\index{set\-Hours@{set\-Hours}!ActionSettings@{Action\-Settings}}
+\subsubsection[{set\-Hours}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Settings\-::set\-Hours (
+\begin{DoxyParamCaption}
+\item[{int}]{hours}
+\end{DoxyParamCaption}
+)}}\label{class_action_settings_afb0c8ddbe83ec2c52a84c226c46702f5}
+
+
+Sets hours to the spin box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hours} & Hours to be set. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_settings_a8e00a0b7449cc2c2e144c035efd6150d}{\index{Action\-Settings@{Action\-Settings}!set\-Is\-X\-Days@{set\-Is\-X\-Days}}
+\index{set\-Is\-X\-Days@{set\-Is\-X\-Days}!ActionSettings@{Action\-Settings}}
+\subsubsection[{set\-Is\-X\-Days}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Settings\-::set\-Is\-X\-Days (
+\begin{DoxyParamCaption}
+\item[{bool}]{is\-X\-Days}
+\end{DoxyParamCaption}
+)}}\label{class_action_settings_a8e00a0b7449cc2c2e144c035efd6150d}
+
+
+Sets the check box which specified if the user wants to use repetitions every X days. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em is\-X\-Days} & State of the check box. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_settings_ae07a76fe6154e4c566dfa9e8456f7f0b}{\index{Action\-Settings@{Action\-Settings}!set\-Minutes@{set\-Minutes}}
+\index{set\-Minutes@{set\-Minutes}!ActionSettings@{Action\-Settings}}
+\subsubsection[{set\-Minutes}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Settings\-::set\-Minutes (
+\begin{DoxyParamCaption}
+\item[{int}]{minutes}
+\end{DoxyParamCaption}
+)}}\label{class_action_settings_ae07a76fe6154e4c566dfa9e8456f7f0b}
+
+
+Sets minutes to the spin box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em minutes} & Minutes to be set. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_settings_ad517be439f1db8afb3ca0cc06cf6c3ca}{\index{Action\-Settings@{Action\-Settings}!set\-Scripts@{set\-Scripts}}
+\index{set\-Scripts@{set\-Scripts}!ActionSettings@{Action\-Settings}}
+\subsubsection[{set\-Scripts}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Settings\-::set\-Scripts (
+\begin{DoxyParamCaption}
+\item[{const Q\-String\-List \&}]{scripts}
+\end{DoxyParamCaption}
+)}}\label{class_action_settings_ad517be439f1db8afb3ca0cc06cf6c3ca}
+
+
+Sets list of all scripts which are listed in the combo box of the dialog. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em scripts} & List of the scripts (scripts names). \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_settings_a559f59ec9a8675c3c53272cb791735bd}{\index{Action\-Settings@{Action\-Settings}!set\-Seconds@{set\-Seconds}}
+\index{set\-Seconds@{set\-Seconds}!ActionSettings@{Action\-Settings}}
+\subsubsection[{set\-Seconds}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Settings\-::set\-Seconds (
+\begin{DoxyParamCaption}
+\item[{int}]{seconds}
+\end{DoxyParamCaption}
+)}}\label{class_action_settings_a559f59ec9a8675c3c53272cb791735bd}
+
+
+Sets seconds to the spin box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em seconds} & Seconds to be set. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_action_settings_a4107237b01a3832e8eadf1cfd172b1db}{\index{Action\-Settings@{Action\-Settings}!set\-X\-Days@{set\-X\-Days}}
+\index{set\-X\-Days@{set\-X\-Days}!ActionSettings@{Action\-Settings}}
+\subsubsection[{set\-X\-Days}]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Settings\-::set\-X\-Days (
+\begin{DoxyParamCaption}
+\item[{int}]{days}
+\end{DoxyParamCaption}
+)}}\label{class_action_settings_a4107237b01a3832e8eadf1cfd172b1db}
+
+
+Sets the number of days which determine a repetition every X days. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em days} & Number of days. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_action_settings_aa70504579778b73eb6627609d2360bf5}{\index{Action\-Settings@{Action\-Settings}!F\-R\-I\-D\-A\-Y@{F\-R\-I\-D\-A\-Y}}
+\index{F\-R\-I\-D\-A\-Y@{F\-R\-I\-D\-A\-Y}!ActionSettings@{Action\-Settings}}
+\subsubsection[{F\-R\-I\-D\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const int Action\-Settings\-::\-F\-R\-I\-D\-A\-Y = 1 $<$$<$ 4\hspace{0.3cm}{\ttfamily [static]}}}\label{class_action_settings_aa70504579778b73eb6627609d2360bf5}
+
+
+Value for friday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. 
+
+\hypertarget{class_action_settings_a3aa508428dcaa5c930b6a46d6471a770}{\index{Action\-Settings@{Action\-Settings}!m\-\_\-selected\-Date@{m\-\_\-selected\-Date}}
+\index{m\-\_\-selected\-Date@{m\-\_\-selected\-Date}!ActionSettings@{Action\-Settings}}
+\subsubsection[{m\-\_\-selected\-Date}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Date Action\-Settings\-::m\-\_\-selected\-Date\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_settings_a3aa508428dcaa5c930b6a46d6471a770}
+
+
+Date which the action will be added to. 
+
+The date is set when creating an object by passing it to the constructor's argument. \hypertarget{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{\index{Action\-Settings@{Action\-Settings}!M\-O\-N\-D\-A\-Y@{M\-O\-N\-D\-A\-Y}}
+\index{M\-O\-N\-D\-A\-Y@{M\-O\-N\-D\-A\-Y}!ActionSettings@{Action\-Settings}}
+\subsubsection[{M\-O\-N\-D\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const int Action\-Settings\-::\-M\-O\-N\-D\-A\-Y = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}
+
+
+Value for monday. 
+
+The values must be remembered in memory to perform bit operations. For example if we want to set a monday and a tuesday we should use M\-O\-N\-D\-A\-Y $|$ T\-U\-E\-S\-D\-A\-Y to get value that indicates these two days. \hypertarget{class_action_settings_ad4e99d88dfbfa0b2d920bf87fe2f9f4c}{\index{Action\-Settings@{Action\-Settings}!S\-A\-T\-U\-R\-D\-A\-Y@{S\-A\-T\-U\-R\-D\-A\-Y}}
+\index{S\-A\-T\-U\-R\-D\-A\-Y@{S\-A\-T\-U\-R\-D\-A\-Y}!ActionSettings@{Action\-Settings}}
+\subsubsection[{S\-A\-T\-U\-R\-D\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const int Action\-Settings\-::\-S\-A\-T\-U\-R\-D\-A\-Y = 1 $<$$<$ 5\hspace{0.3cm}{\ttfamily [static]}}}\label{class_action_settings_ad4e99d88dfbfa0b2d920bf87fe2f9f4c}
+
+
+Value for saturday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. 
+
+\hypertarget{class_action_settings_a84bc1afcb432a8274a028cd21cc416f6}{\index{Action\-Settings@{Action\-Settings}!S\-U\-N\-D\-A\-Y@{S\-U\-N\-D\-A\-Y}}
+\index{S\-U\-N\-D\-A\-Y@{S\-U\-N\-D\-A\-Y}!ActionSettings@{Action\-Settings}}
+\subsubsection[{S\-U\-N\-D\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const int Action\-Settings\-::\-S\-U\-N\-D\-A\-Y = 1 $<$$<$ 6\hspace{0.3cm}{\ttfamily [static]}}}\label{class_action_settings_a84bc1afcb432a8274a028cd21cc416f6}
+
+
+Value for sunday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. 
+
+\hypertarget{class_action_settings_af4382214fc4cb662884ba314009ed4d6}{\index{Action\-Settings@{Action\-Settings}!T\-H\-U\-R\-S\-D\-A\-Y@{T\-H\-U\-R\-S\-D\-A\-Y}}
+\index{T\-H\-U\-R\-S\-D\-A\-Y@{T\-H\-U\-R\-S\-D\-A\-Y}!ActionSettings@{Action\-Settings}}
+\subsubsection[{T\-H\-U\-R\-S\-D\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const int Action\-Settings\-::\-T\-H\-U\-R\-S\-D\-A\-Y = 1 $<$$<$ 3\hspace{0.3cm}{\ttfamily [static]}}}\label{class_action_settings_af4382214fc4cb662884ba314009ed4d6}
+
+
+Value for thursday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. 
+
+\hypertarget{class_action_settings_a387ace15273bbc582a7debc2fc158693}{\index{Action\-Settings@{Action\-Settings}!T\-U\-E\-S\-D\-A\-Y@{T\-U\-E\-S\-D\-A\-Y}}
+\index{T\-U\-E\-S\-D\-A\-Y@{T\-U\-E\-S\-D\-A\-Y}!ActionSettings@{Action\-Settings}}
+\subsubsection[{T\-U\-E\-S\-D\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const int Action\-Settings\-::\-T\-U\-E\-S\-D\-A\-Y = 1 $<$$<$ 1\hspace{0.3cm}{\ttfamily [static]}}}\label{class_action_settings_a387ace15273bbc582a7debc2fc158693}
+
+
+Value for tuesday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. 
+
+\hypertarget{class_action_settings_a426f219e053b2eb7d534fd78cf83d026}{\index{Action\-Settings@{Action\-Settings}!ui@{ui}}
+\index{ui@{ui}!ActionSettings@{Action\-Settings}}
+\subsubsection[{ui}]{\setlength{\rightskip}{0pt plus 5cm}Ui\-::action\-Settings\-Dialog Action\-Settings\-::ui\hspace{0.3cm}{\ttfamily [private]}}}\label{class_action_settings_a426f219e053b2eb7d534fd78cf83d026}
+
+
+Structure which contains pointers to all controls on the dialog. 
+
+\hypertarget{class_action_settings_a3b16f717b4ce866e31827451147485d2}{\index{Action\-Settings@{Action\-Settings}!W\-E\-D\-N\-E\-S\-D\-A\-Y@{W\-E\-D\-N\-E\-S\-D\-A\-Y}}
+\index{W\-E\-D\-N\-E\-S\-D\-A\-Y@{W\-E\-D\-N\-E\-S\-D\-A\-Y}!ActionSettings@{Action\-Settings}}
+\subsubsection[{W\-E\-D\-N\-E\-S\-D\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const int Action\-Settings\-::\-W\-E\-D\-N\-E\-S\-D\-A\-Y = 1 $<$$<$ 2\hspace{0.3cm}{\ttfamily [static]}}}\label{class_action_settings_a3b16f717b4ce866e31827451147485d2}
+
+
+Value for wednesday. See \hyperlink{class_action_settings_a0a99a4562e37a11225063d1a10e0953a}{Action\-Settings\-::\-M\-O\-N\-D\-A\-Y} for details. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{action__settings_8h}{action\-\_\-settings.\-h}\item 
+Do\-For\-Me!/\hyperlink{action__settings_8cpp}{action\-\_\-settings.\-cpp}\end{DoxyCompactItemize}
