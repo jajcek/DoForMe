@@ -149,6 +149,10 @@ int LuaApiEngine::prepareMoveTo( lua_State* state ) {
 }
 
 int LuaApiEngine::prepareSendText( lua_State* state ) {
+	qDebug( "LuaApiEngine::prepareSendText" );
+
+	if( LuaEngine::getInstance()->validateLastParse() ) return 0;
+
 	// moveTo() has 1 argument, arguments are put onto lua's stack
 	const char* _arg = ( const char* )lua_tostring( state, -1 );
 
@@ -162,6 +166,51 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 	}
 	LuaEngine::getInstance()->addCommand( LuaApiEngine::sendText, _args );
 
+	// for all symbols check it's correctness
+	for( int i = 0; i < _symbolsNumber; ++i ) {
+		// get current key
+		char _char = _args.front();
+
+		// we will store a text describing special key that is written in {} brackets in the script
+		// special key is a return key, tabulator etc.
+		QString _specialKey = "";
+		if( _char == '{' ) {
+			// gets text between {} brackets
+			int _symbolsRead = getSpecialKey( _specialKey, _args );
+			if( _symbolsRead == -1 ) {
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unexpected error while parsing sendText() function." );
+				_msg.exec();
+				LuaEngine::getInstance()->setSpecialKeyError();
+				return 0;
+			}
+			
+			// it is needed to increase the iterator with number of elements read
+			i += _symbolsRead;
+
+			// if an error occured (no closing '}' bracket)
+			if( _specialKey == "err" ) {
+				QMessageBox _msg( QMessageBox::Critical, "Error", "There's no closing '}' symbol." );
+				_msg.exec();
+				LuaEngine::getInstance()->setSpecialKeyError();
+				return 0;
+			}
+
+			// check if the value from {} exists in the m_specialKeys map
+			if( m_specialKeys.find( _specialKey ) != m_specialKeys.end() ) {
+				continue;
+			} else {
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Undefined special key." );
+				_msg.exec();
+				LuaEngine::getInstance()->setSpecialKeyError();
+				return 0;
+			}
+		}
+
+		// we took one letter so drop it from the stack
+		_args.pop_front();
+	}
+	
+	LuaEngine::getInstance()->setSpecialKeyError( false );
 	return 0;
 }
 
@@ -263,6 +312,8 @@ void LuaApiEngine::moveTo( std::deque<int> args ) {
 }
 
 void LuaApiEngine::sendText( std::deque<int> args ) {
+	if( LuaEngine::getInstance()->validateLastParse() ) return;
+
 	// store all send events
 	std::vector<INPUT> _inputs;
 	INPUT _in = { 0 };
@@ -279,23 +330,14 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 		if( _char == '{' ) {
 			// gets text between {} brackets
 			int _symbolsRead = getSpecialKey( _specialKey, args );
-			if( _symbolsRead == -1 ) {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "Unexpected error while parsing sendText() function." );
-				_msg.exec();
-
+			if( _symbolsRead == -1 )
 				return;
-			}
 			
 			// it is needed to increase the iterator with number of elements read
 			i += _symbolsRead;
 
 			// if an error occured (no closing '}' bracket)
-			if( _specialKey == "err" ) {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "There's no closing '}' symbol." );
-				_msg.exec();
-
-				return;
-			}
+			if( _specialKey == "err" ) return;
 
 			// check if the value from {} exists in the m_specialKeys map
 			if( m_specialKeys.find( _specialKey ) != m_specialKeys.end() ) {
@@ -306,9 +348,6 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 
 				continue;
 			} else {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "Undefined special key." );
-				_msg.exec();
-
 				return;
 			}
 		}

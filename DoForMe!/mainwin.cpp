@@ -653,13 +653,12 @@ void mainWin::closeEvent( QCloseEvent* e ) {
 			case QMessageBox::Yes:
 				m_pCurrScript->setCode( getCode() );
 				ScriptsManager::saveToFile( m_pCurrScript->getFileName() );
-				e->accept();
 				break;
 			case QMessageBox::No:
-				e->accept();
 				break;
 			case QMessageBox::Cancel:
 				e->ignore();
+				return;
 		}
 	}
 

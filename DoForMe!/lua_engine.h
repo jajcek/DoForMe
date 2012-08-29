@@ -100,6 +100,10 @@ private:
 		5 - error while running the error handler function (defined as LUA_ERRERR in lua.h).
 	*/
 	int m_parseError;
+	/**
+		\brief Determines whether an error occured while parsing special keys in sendText api function.
+	*/
+	bool m_bSpecialKeyError;
 
 	/**
 		\brief Stores exact string which is returned by lua's lua_pcall function.
@@ -179,6 +183,11 @@ public:
 		\return Error code. See luaEngine::m_parseError for more details.
 	*/
 	int validateLastParse();
+	/**
+		\brief Sets error for the parsing special keys in sendText() api function.
+		\param[in] error State of the error.
+	*/
+	void setSpecialKeyError( bool error = true );
 
 	/**
 		\brief Returns error in a text form from last parsed (with LuaEngine::parseScript()) script.

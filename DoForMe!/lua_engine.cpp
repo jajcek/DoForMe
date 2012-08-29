@@ -2,7 +2,7 @@
 
 LuaEngine* LuaEngine::m_object = NULL;
 
-LuaEngine::LuaEngine() : luaState( lua_open() ), m_loadError( 0 ), m_parseError( 0 ), m_textError( "" ),
+LuaEngine::LuaEngine() : luaState( lua_open() ), m_loadError( 0 ), m_parseError( 0 ), m_bSpecialKeyError( false ), m_textError( "" ),
 						 m_timer( new QBasicTimer() ), m_uInterval( 1000 ), m_uGUIInterval( 1000 ), m_bIntervalChanged( false ),
 						 m_isExecuting( false ) {}
 
@@ -35,16 +35,23 @@ int LuaEngine::loadScript( const char* code, int mode ) {
 }
 
 int LuaEngine::parseScript() {
+	qDebug( "LuaEngine::parseScript" );
+
+	// reset value for special key error
+	m_bSpecialKeyError = false;
+
 	// invoke previously loaded script (put commands to the queue by using LuaApiEngine class)
 	m_parseError = lua_pcall( luaState, 0, 0, 0 );
 
 	// get error message if error occured
 	m_textError = lua_tostring( luaState, -1 );
-
-	return m_parseError;
+	
+	return m_parseError + ( int )m_bSpecialKeyError;
 }
 
 bool LuaEngine::run( const char* code, bool onlyParse ) {
+	qDebug( "LuaEngine::run" );
+
 	m_loadError = loadScript( code, LuaEngine::BUFFER );
 	m_parseError = parseScript();
 
@@ -63,7 +70,14 @@ int LuaEngine::validateLastLoad() {
 }
 
 int LuaEngine::validateLastParse() {
-	return m_parseError;
+	return m_parseError | static_cast<int>( m_bSpecialKeyError );
+}
+
+void LuaEngine::setSpecialKeyError( bool error ) {
+	if( error )
+		m_bSpecialKeyError = static_cast<bool>( LUA_ERRRUN );
+	else
+		m_bSpecialKeyError = 0;
 }
 
 QString LuaEngine::getTextError() const {

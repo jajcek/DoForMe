@@ -1,3 +1,10 @@
+Development release 29.08.2012
+===================================================
+Fixes
+---------------------------------------------------
+- Cancel option in closing dialog was closing the app.
+- Parsing script code didn't include parsing special keys in sendText api function.
+
 Development release 28.08.2012
 ===================================================
 Functionalities
