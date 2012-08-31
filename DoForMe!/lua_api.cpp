@@ -167,14 +167,17 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 	LuaEngine::getInstance()->addCommand( LuaApiEngine::sendText, _args );
 
 	// for all symbols check it's correctness
+	char _oldChar = NULL;
+	char _char = NULL;
 	for( int i = 0; i < _symbolsNumber; ++i ) {
 		// get current key
-		char _char = _args.front();
+		_oldChar = _char;
+		_char = _args.front();
 
 		// we will store a text describing special key that is written in {} brackets in the script
 		// special key is a return key, tabulator etc.
 		QString _specialKey = "";
-		if( _char == '{' ) {
+		if( _char == '{' && _oldChar != '/' ) {
 			// gets text between {} brackets
 			int _symbolsRead = getSpecialKey( _specialKey, _args );
 			if( _symbolsRead == -1 ) {
@@ -347,6 +350,10 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 
 			// check if the value from {} exists in the m_specialKeys map
 			if( m_specialKeys.find( _specialKey ) != m_specialKeys.end() ) {
+				// get value for specialKey string and insert the key to _inputs vector
+				// (objects for keys are created in LuaApiEngine::initSpecialKeys()
+				// invoked in mainwin.cpp in the constructor
+				m_specialKeys[_specialKey]->insertKeyTo( _inputs );
 				continue;
 			} else {
 				return;
