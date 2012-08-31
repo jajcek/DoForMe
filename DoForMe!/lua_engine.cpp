@@ -151,5 +151,9 @@ int LuaEngine::getGUIInterval() const {
 }
 
 void LuaEngine::reset() {
+	m_loadError = 0;
+	m_parseError = 0;
+	m_bSpecialKeyError = false;
+	m_isExecuting = false;
 	m_commands.clearCommands();
 }
