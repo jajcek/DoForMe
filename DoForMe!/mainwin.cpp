@@ -254,6 +254,8 @@ void mainWin::saveScript() {
 void mainWin::toTray() {
 	qDebug( "mainWin::toTray" );
 
+	LuaEngine::getInstance()->reset();
+
 	// put current actions to the icon tray context menu
 	ActionCaller::getInstance()->setActions( m_calendar->getActionsForDate( QDate::currentDate() ) );
 
