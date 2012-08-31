@@ -5,120 +5,115 @@
 	m_specialKeys[x"+"] = new Key( y, Key::DOWN );  \
 	m_specialKeys[x"-"] = new Key( y, Key::UP ); 
 
-LuaEngine* LuaApiEngine::m_luaEngine;
 std::map<QString, Key*> LuaApiEngine::m_specialKeys;
 
-void LuaApiEngine::setLuaEngine( LuaEngine* luaEngine ) {
-	m_luaEngine = luaEngine;
-}
-
 int LuaApiEngine::prepareLeftDown( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightDown( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleDown( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftDownAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightDownAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleDownAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleDown ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleDown ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftUp( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightUp( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleUp( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftUpAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightUpAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleUpAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleUp ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleUp ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftClick( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightClick( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleClick( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftClickAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareRightClickAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::rightClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareMiddleClickAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::middleClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftDoubleClick( lua_State* state ) {
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDoubleClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDoubleClick ) );
 	return 0;
 }
 
 int LuaApiEngine::prepareLeftDoubleClickAt( lua_State* state ) {
 	prepareMoveTo( state );
-	m_luaEngine->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDoubleClick ) );
+	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDoubleClick ) );
 	return 0;
 }
 
@@ -131,7 +126,7 @@ int LuaApiEngine::prepareSleep( lua_State* state ) {
 
 	std::deque<int> _args;
 	_args.push_back( _arg );
-	m_luaEngine->addCommand( LuaApiEngine::sleep, _args );
+	LuaEngine::getInstance()->addCommand( LuaApiEngine::sleep, _args );
 
 	return 0;
 }
@@ -148,12 +143,16 @@ int LuaApiEngine::prepareMoveTo( lua_State* state ) {
 	_args.push_back( _arg1 );
 	_args.push_back( _arg2 );
 
-	m_luaEngine->addCommand( LuaApiEngine::moveTo, _args );
+	LuaEngine::getInstance()->addCommand( LuaApiEngine::moveTo, _args );
 
 	return 0;
 }
 
 int LuaApiEngine::prepareSendText( lua_State* state ) {
+	qDebug( "LuaApiEngine::prepareSendText" );
+
+	if( LuaEngine::getInstance()->validateLastParse() ) return 0;
+
 	// moveTo() has 1 argument, arguments are put onto lua's stack
 	const char* _arg = ( const char* )lua_tostring( state, -1 );
 
@@ -165,8 +164,56 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 	for( int i = 0; i < _symbolsNumber; ++i ) {
 		_args.push_back( _arg[i] );
 	}
-	m_luaEngine->addCommand( LuaApiEngine::sendText, _args );
+	LuaEngine::getInstance()->addCommand( LuaApiEngine::sendText, _args );
 
+	// for all symbols check it's correctness
+	char _oldChar = NULL;
+	char _char = NULL;
+	for( int i = 0; i < _symbolsNumber; ++i ) {
+		// get current key
+		_oldChar = _char;
+		_char = _args.front();
+
+		// we will store a text describing special key that is written in {} brackets in the script
+		// special key is a return key, tabulator etc.
+		QString _specialKey = "";
+		if( _char == '{' && _oldChar != '/' ) {
+			// gets text between {} brackets
+			int _symbolsRead = getSpecialKey( _specialKey, _args );
+			if( _symbolsRead == -1 ) {
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unexpected error while parsing sendText() function." );
+				_msg.exec();
+				LuaEngine::getInstance()->setSpecialKeyError();
+				return 0;
+			}
+			
+			// it is needed to increase the iterator with number of elements read
+			i += _symbolsRead;
+
+			// if an error occured (no closing '}' bracket)
+			if( _specialKey == "err" ) {
+				QMessageBox _msg( QMessageBox::Critical, "Error", "There's no closing '}' symbol." );
+				_msg.exec();
+				LuaEngine::getInstance()->setSpecialKeyError();
+				return 0;
+			}
+
+			// check if the value from {} exists in the m_specialKeys map
+			if( m_specialKeys.find( _specialKey ) != m_specialKeys.end() ) {
+				continue;
+			} else {
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Undefined special key." );
+				_msg.exec();
+				LuaEngine::getInstance()->setSpecialKeyError();
+				return 0;
+			}
+		}
+
+		// we took one letter so drop it from the stack
+		_args.pop_front();
+	}
+	
+	LuaEngine::getInstance()->setSpecialKeyError( false );
 	return 0;
 }
 
@@ -237,7 +284,7 @@ void LuaApiEngine::leftDoubleClick() {
 void LuaApiEngine::sleep( std::deque<int> args ) {
 	// set new interval for the lua engine (it will restart itself),
 	// notice that setInterval changes interval only for one command (only for sleep here)
-	m_luaEngine->setInterval( args.front() );
+	LuaEngine::getInstance()->setInterval( args.front() );
 
 	// we 'used' the sleep()'s argument, so remove it from the stack
 	// actually it's not even needed, as the sleep method has only one argument, so
@@ -247,46 +294,57 @@ void LuaApiEngine::sleep( std::deque<int> args ) {
 }
 
 void LuaApiEngine::moveTo( std::deque<int> args ) {
+	// get arguments from lua stack
 	int _x = args.front();
 	args.pop_front();
 	int _y = args.front();
 	args.pop_front();
 	
-	// get values for the current screen
+	// get values for the current screen to be able to calculate real position of the cursor
 	double _fScreenWidth   = GetSystemMetrics( SM_CXSCREEN ) - 1; 
 	double _fScreenHeight  = GetSystemMetrics( SM_CYSCREEN ) - 1; 
-	double _fx = _x * ( 65535.0f / _fScreenWidth );
-	double _fy = _y * ( 65535.0f / _fScreenHeight );
+	double _fx             = _x * ( 65535.0f / _fScreenWidth );
+	double _fy             = _y * ( 65535.0f / _fScreenHeight );
 
-	INPUT  Input = { 0 };
+	INPUT  Input     = { 0 };
 	Input.type       = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE;
-	Input.mi.dx = _fx;
-	Input.mi.dy = _fy;
+	Input.mi.dx      = _fx;
+	Input.mi.dy      = _fy;
 	SendInput( 1, &Input,sizeof( INPUT ) );
 }
 
 void LuaApiEngine::sendText( std::deque<int> args ) {
+	if( LuaEngine::getInstance()->validateLastParse() ) return;
+
 	// store all send events
 	std::vector<INPUT> _inputs;
 	INPUT _in = { 0 };
 
+	// for all symbols
 	int _symbolsNumber = args.size();
+	char _oldChar = NULL;
+	char _char = NULL;
 	for( int i = 0; i < _symbolsNumber; ++i ) {
-		char _char = args.front();
+		// get current key
+		_oldChar = _char;
+		_char = args.front();
 
 		// we will store a text describing special key that is written in {} brackets in the script
 		// special key is a return key, tabulator etc.
 		QString _specialKey = "";
-		if( _char == '{' ) {
-			// gets text between {} brackets, be aware that the getSpecialKey() function changes iterator of the looop
-			_specialKey = getSpecialKey( i, args );
+		if( _char == '{' && _oldChar != '/' ) {
+			// gets text between {} brackets
+			int _symbolsRead = getSpecialKey( _specialKey, args );
+			if( _symbolsRead == -1 ) {
+				return;
+			}
+			
+			// it is needed to increase the iterator with number of elements read
+			i += _symbolsRead;
 
 			// if an error occured (no closing '}' bracket)
 			if( _specialKey == "err" ) {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "There's no closing '}' symbol." );
-				_msg.exec();
-
 				return;
 			}
 
@@ -296,16 +354,16 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 				// (objects for keys are created in LuaApiEngine::initSpecialKeys()
 				// invoked in mainwin.cpp in the constructor
 				m_specialKeys[_specialKey]->insertKeyTo( _inputs );
-
 				continue;
 			} else {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "Undefined special key." );
-				_msg.exec();
-
 				return;
 			}
+		} else if( _char == '{' && _oldChar == '/' ) {
+			_inputs.pop_back();
+			_inputs.pop_back();
 		}
 
+		// if it's not a special key
 		// get virtual code of a character to high byte and its state (e.g. shift) to low byte
 		unsigned short _symbol = VkKeyScan( _char );
 		unsigned short _symbolCode = LOBYTE( _symbol );
@@ -331,8 +389,8 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 	SendInput( _inputs.size(), &_inputs.at( 0 ), sizeof( INPUT ) );
 }
 
-QString LuaApiEngine::getSpecialKey( int& i, std::deque<int>& args ) {
-	QString _specialKey = "";
+int LuaApiEngine::getSpecialKey( QString& specialKey, std::deque<int>& args ) {
+	unsigned int i = 0;
 	// remove '{' and get next symbol (and btw increase an iterator, because we dropped one argument)
 	args.pop_front();
 	++i;
@@ -341,7 +399,7 @@ QString LuaApiEngine::getSpecialKey( int& i, std::deque<int>& args ) {
 	// get everything from the {} brackets into _specialKey
 	while(  _char != '}' ) {
 		// store current symbol
-		_specialKey += _char;
+		specialKey += _char;
 		// current symbol has been stored, so we can remove it from the stack
 		args.pop_front();
 		++i;
@@ -349,7 +407,8 @@ QString LuaApiEngine::getSpecialKey( int& i, std::deque<int>& args ) {
 		// if there are no more symbols on the stack, it means that there's lack of '}' somewhere
 		// otherwise get next symbol
 		if( args.empty() ) {
-			return "err";
+			specialKey = "err";
+			return i;
 		} else {
 			// get next symbol from the stack
 			_char = args.front();
@@ -361,9 +420,11 @@ QString LuaApiEngine::getSpecialKey( int& i, std::deque<int>& args ) {
 	// the code will always go into this if, if not the return "err" from above will end the function
 	if( _char == '}' ) {
 		args.pop_front();
-
-		return _specialKey;
+		return i;
 	}
+
+	// unexpected error, shouldn't reach it
+	return -1;
 }
 
 void LuaApiEngine::initSpecialKeys() {

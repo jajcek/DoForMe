@@ -16,20 +16,20 @@
 	\class LuaEngine lua_engine.h "lua_engine.h"
 	\brief Engine for maintaing LUA's API commands.
 	\details Objects of this class load scripts, check their grammar correctness and store the commands for further executing.
-	As first step after creating an object of this class you have to register your API functions by using LuaEngine::registerFunction method.
-	When all of the functions has been registered you are allowed to load and parse scripts by using LuaEngine::loadScript and LuaEngine::parseScript methods.
-	LuaEngine::loadScript simply loads code to the memory and check its correctness whereas LuaEngine::parseScript runs the script.
+	As first step you have to register your API functions by using LuaEngine::registerFunction method.
+	When all of the functions has been registered you are allowed to load and parse scripts by using LuaEngine::loadScript and LuaEngine::parseScript methods
+	(or using wrapper for them LuaEngine::run, but it is harder to handle potential errors - it is recommended to use when you are sure that the script is correct).
+	LuaEngine::loadScript simply loads code to the memory and check its correctness whereas LuaEngine::parseScript simulates 'running' the script for checking functions existence.
 	During parsing LUA invokes methods which can prepare commands by putting them to a queue. This is done for allowing executing commands with some
 	time interval (we can remove time interval - simply set GUI interval to 0). Check LuaEngine::registerFunction for more details.
 	Next step (optional) is to set a time interval in which the commands will be executed (default is 500 milliseconds) by using LuaEngine::setGUIInterval method.
-	After successful load and parse you need to copy queue and stack to the lua's engine by using LuaEngine::copyData.
 	Last step is to invoke LuaEngine::start() to start executing the commands.
 	Also important thing to mention is LuaEngine::setInterval. Comparing to the GUI version it changes time interval only for the next command.
 	Therefore it should be used for some API functions like sleep().
 	\author Jacek Topolski
 	\version 1.0
 	\date 28.06.2012
-	\example luaEngine_example.cpp
+	\example LuaEngine_example.cpp
 	\brief Example of how to initialize lua's object, register functions for scripts, load the script and run it.
 */
 class LuaEngine : public QObject {
@@ -48,36 +48,39 @@ public:
 
 private:
 	/**
-		\var lua_State *luaState
+		\brief The instance of the singleton.
+	*/
+	static LuaEngine* m_object;
+
+	/**
 		\brief State of the lua's engine. Used by lua's library - don't touch it.
 	*/
 	lua_State *luaState;
 
 	/**
-		\var QBasicTimer* m_timer
 		\brief Timer is used for supporting commands execution in a latency.
 		\details It is possible to execute commands every some time which is specified in LuaEngine::m_uInterval (as milliseconds).
 	*/
 	QBasicTimer* m_timer;
 	/**
-		\var unsigned m_uInterval
 		\brief Stores time (as milliseconds) needed to execute next command that is available in the queue LuaEngine::m_commands.
 		\details This can be changed while calling e.g. sleep() in the script. This value is used in timer event, not the LuaEngine::m_uGUIInterval.
 		Check LuaEngine::m_uGUIInterval for more details.
 	*/
 	unsigned m_uInterval;
 	/**
-		\var unsigned m_uGUIInterval
 		\brief This is the same as LuaEngine::m_uInterval, but it stores value from "Commands time interval" in GUI.
 		\details This shouldn't be changed while calling e.g API sleep() function. This value only depends on value set in the GUI.
 		The value is assigned to m_uInterval if needed to come back from sleep() function used in script.
 	*/
 	unsigned m_uGUIInterval;
 	
+	/**
+		\brief Stores all commands that are executed by the engine. See CommandsManager for more details.
+	*/
 	CommandsManager m_commands;
 
 	/**
-		\var int m_loadError
 		\brief Indicates if there is a syntax/memory error in the loaded lua's script.
 		\details If there is no errors the value is equal to 0, otherwise the value is a number of error code.
 
@@ -88,7 +91,6 @@ private:
 	int m_loadError;
 
 	/**
-		\var int m_parseError
 		\brief Indicates if there is a runtime error in the loaded lua's script.
 		\details If there is no errors the value is equal to 0, otherwise the value is a number of error code.
 
@@ -98,24 +100,44 @@ private:
 		5 - error while running the error handler function (defined as LUA_ERRERR in lua.h).
 	*/
 	int m_parseError;
+	/**
+		\brief Determines whether an error occured while parsing special keys in sendText api function.
+	*/
+	bool m_bSpecialKeyError;
 
 	/**
-		\var QString m_textError
 		\brief Stores exact string which is returned by lua's lua_pcall function.
 		\details In lua 5.1 the string has form like "[string "?"]:1: attempt to call global 'FunctionName' (a nil value)"
 	*/
 	QString m_textError;
 
-	bool m_bIntervalChanged;
-
-public:
 	/**
-		\brief Starts a lua engine, but doesn't load any script.
-		\details  Also initializes LuaEngine::m_loadError and LuaEngine::m_runtimeError to 0, m_uInterval to 500 and creates object for m_timer.
+		\brief Indicates if the interval has been changed by using GUI or sleep() api function.
+		\details If the variable is set to true it means that the sleep() api function is being executed,
+		otherwise the interval has been changed by using GUI.
+	*/
+	bool m_bIntervalChanged;
+	/**
+		\brief Specifies if the negine is currently executing a script.
+		\details The value can be set by using LuaEngine::setExecuting method.
+	*/
+	bool m_isExecuting;
+
+private:
+	/**
+		\brief Private constructor to make the class a singleton.
+		\details Also initializes LuaEngine::m_loadError and LuaEngine::m_runtimeError to 0, m_uInterval to 500 and creates object for m_timer.
 		m_textError is set to "". After that you have to register functions used in the LUA API and load a script by using
 		loadScript() before run it with runScript().
 	*/
 	LuaEngine();
+
+public:
+	/**
+		\brief Gets the only isntance of the object.
+	*/
+	static LuaEngine* getInstance();
+
 	/**
 		\brief Ends lua engine by releasing memory.
 	*/
@@ -141,6 +163,15 @@ public:
 		\return Error code or 0 if there are no errors. See luaEngine::m_parseError for more details.
 	*/
 	int parseScript();
+	/**
+		\brief Runs action.
+		\details This is a wrapper for 3 other functions - LuaEngine::loadScript, LuaEngine::parseScript and LuaEngine::start().
+		\param[in] code Code to be executed.
+		\param[in] onlyParse Wheter the script should be run by the engine, if set to false the method only checks the script correctness.
+		\return Value which informs if the code has been executed without errors.
+		If there was an error get it by using LuaEngine::validateLastLoad and LuaEngine::validateLastParse.
+	*/
+	bool run( const char* code, bool onlyParse = false );
 
 	/**
 		\brief Checks if there was error in the last loaded file.
@@ -148,10 +179,15 @@ public:
 	*/
 	int validateLastLoad();
 	/**
-		\brief Checks if there was error in the last run file.
+		\brief Checks if there was error in the last parsed file.
 		\return Error code. See luaEngine::m_parseError for more details.
 	*/
 	int validateLastParse();
+	/**
+		\brief Sets error for the parsing special keys in sendText() api function.
+		\param[in] error State of the error.
+	*/
+	void setSpecialKeyError( bool error = true );
 
 	/**
 		\brief Returns error in a text form from last parsed (with LuaEngine::parseScript()) script.
@@ -160,19 +196,48 @@ public:
 	*/
 	QString getTextError() const;
 
-	void addCommand( void ( *pCmd )( std::deque<int> ) );
 	/**
 		\brief Puts actions onto stack. See LuaEngine::m_commands for more details.
-		\param[in] pCmd Actions which will be put onto LuaEngine::m_commands stack.
-		\param[in] args Arguments for api functions that will be put onto LuaEngine::m_args stack.
+		\param[in] pCmd Action which is put onto LuaEngine::m_commands stack.
+	*/
+	void addCommand( void ( *pCmd )( std::deque<int> ) );
+	/**
+		\brief Puts actions onto stack with its arguments. See LuaEngine::m_commands for more details.
+		\param[in] pCmd Action which is put onto LuaEngine::m_commands stack.
+		\param[in] args Arguments for api functions that is put onto LuaEngine::m_args stack.
 	*/
 	void addCommand( void ( *pCmd )( std::deque<int> ), std::deque<int> args );
 
-	void timerEvent( QTimerEvent* );
+	/**
+		\brief Funtion which is called by the LuaEngine::m_timer timer.
+		\param[in] e Event which invoked the function.
+	*/
+	void timerEvent( QTimerEvent* e );
+	/**
+		\brief Starts executing commands (actually starts the timer which executes the commands).
+	*/
 	void start();
-	void pause();
+	/**
+		\brief Stops executing commands (stop the LuaEngine::m_timer timer).
+	*/
 	void stop();
+	/**
+		\brief Set time interval for one command (used for sleep() api function).
+		\param[in] interval Time interval.
+	*/
 	void setInterval( int interval );
+	/**
+		\brief Set time time interval for all commands.
+		\param[in] interval Time interval.
+	*/
 	void setGUIInterval( int interval );
+	/**
+		\return Time interval for all commands.
+	*/
 	int getGUIInterval() const;
+	/**
+		\brief Resets lua stack by moving lua to top (lua_settop()).
+	*/
+	void reset();
+
 };

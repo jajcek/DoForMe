@@ -1,0 +1,69 @@
+\hypertarget{struct_func_def}{\section{Func\-Def Struct Reference}
+\label{struct_func_def}\index{Func\-Def@{Func\-Def}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sqlite3_8c_a7b32340f65cd15f029caad258fb3355c}{i16} \hyperlink{struct_func_def_a4ad90c05868ec8ee60c211b6e20299df}{n\-Arg}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_func_def_aa7ed0a0a7d8790a4946ef0dbf85a601c}{i\-Pref\-Enc}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_func_def_aed4dc88e58b7582668bcaf425c4d053f}{flags}
+\item 
+void $\ast$ \hyperlink{struct_func_def_a04fdde2f96be198823a483bebcfd3ae3}{p\-User\-Data}
+\item 
+\hyperlink{struct_func_def}{Func\-Def} $\ast$ \hyperlink{struct_func_def_a1ebe547d000172d9ae44d12eeb433a48}{p\-Next}
+\item 
+void($\ast$ \hyperlink{struct_func_def_a1cfd07fdfe22ff504ea7f36c0752c1da}{x\-Func} )(\hyperlink{structsqlite3__context}{sqlite3\-\_\-context} $\ast$, int, \hyperlink{sqlite3_8c_a5bc19e6eab34ccccd953717c04137d88}{sqlite3\-\_\-value} $\ast$$\ast$)
+\item 
+void($\ast$ \hyperlink{struct_func_def_ab1d1c623844534b17ea3ccce3f815464}{x\-Step} )(\hyperlink{structsqlite3__context}{sqlite3\-\_\-context} $\ast$, int, \hyperlink{sqlite3_8c_a5bc19e6eab34ccccd953717c04137d88}{sqlite3\-\_\-value} $\ast$$\ast$)
+\item 
+void($\ast$ \hyperlink{struct_func_def_a3c649453d5a58c697b7ee54ee999e7ef}{x\-Finalize} )(\hyperlink{structsqlite3__context}{sqlite3\-\_\-context} $\ast$)
+\item 
+char $\ast$ \hyperlink{struct_func_def_a1135e622a3a505c7c463e975846ef926}{z\-Name}
+\item 
+\hyperlink{struct_func_def}{Func\-Def} $\ast$ \hyperlink{struct_func_def_a04561444155a6922d6a2d99a29d35281}{p\-Hash}
+\item 
+\hyperlink{struct_func_destructor}{Func\-Destructor} $\ast$ \hyperlink{struct_func_def_a1bd12675375b838b5c00b1c79c1e6301}{p\-Destructor}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_func_def_aed4dc88e58b7582668bcaf425c4d053f}{\index{Func\-Def@{Func\-Def}!flags@{flags}}
+\index{flags@{flags}!FuncDef@{Func\-Def}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Func\-Def\-::flags}}\label{struct_func_def_aed4dc88e58b7582668bcaf425c4d053f}
+\hypertarget{struct_func_def_aa7ed0a0a7d8790a4946ef0dbf85a601c}{\index{Func\-Def@{Func\-Def}!i\-Pref\-Enc@{i\-Pref\-Enc}}
+\index{i\-Pref\-Enc@{i\-Pref\-Enc}!FuncDef@{Func\-Def}}
+\subsubsection[{i\-Pref\-Enc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Func\-Def\-::i\-Pref\-Enc}}\label{struct_func_def_aa7ed0a0a7d8790a4946ef0dbf85a601c}
+\hypertarget{struct_func_def_a4ad90c05868ec8ee60c211b6e20299df}{\index{Func\-Def@{Func\-Def}!n\-Arg@{n\-Arg}}
+\index{n\-Arg@{n\-Arg}!FuncDef@{Func\-Def}}
+\subsubsection[{n\-Arg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i16} Func\-Def\-::n\-Arg}}\label{struct_func_def_a4ad90c05868ec8ee60c211b6e20299df}
+\hypertarget{struct_func_def_a1bd12675375b838b5c00b1c79c1e6301}{\index{Func\-Def@{Func\-Def}!p\-Destructor@{p\-Destructor}}
+\index{p\-Destructor@{p\-Destructor}!FuncDef@{Func\-Def}}
+\subsubsection[{p\-Destructor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Func\-Destructor}$\ast$ Func\-Def\-::p\-Destructor}}\label{struct_func_def_a1bd12675375b838b5c00b1c79c1e6301}
+\hypertarget{struct_func_def_a04561444155a6922d6a2d99a29d35281}{\index{Func\-Def@{Func\-Def}!p\-Hash@{p\-Hash}}
+\index{p\-Hash@{p\-Hash}!FuncDef@{Func\-Def}}
+\subsubsection[{p\-Hash}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Func\-Def}$\ast$ Func\-Def\-::p\-Hash}}\label{struct_func_def_a04561444155a6922d6a2d99a29d35281}
+\hypertarget{struct_func_def_a1ebe547d000172d9ae44d12eeb433a48}{\index{Func\-Def@{Func\-Def}!p\-Next@{p\-Next}}
+\index{p\-Next@{p\-Next}!FuncDef@{Func\-Def}}
+\subsubsection[{p\-Next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Func\-Def}$\ast$ Func\-Def\-::p\-Next}}\label{struct_func_def_a1ebe547d000172d9ae44d12eeb433a48}
+\hypertarget{struct_func_def_a04fdde2f96be198823a483bebcfd3ae3}{\index{Func\-Def@{Func\-Def}!p\-User\-Data@{p\-User\-Data}}
+\index{p\-User\-Data@{p\-User\-Data}!FuncDef@{Func\-Def}}
+\subsubsection[{p\-User\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Func\-Def\-::p\-User\-Data}}\label{struct_func_def_a04fdde2f96be198823a483bebcfd3ae3}
+\hypertarget{struct_func_def_a3c649453d5a58c697b7ee54ee999e7ef}{\index{Func\-Def@{Func\-Def}!x\-Finalize@{x\-Finalize}}
+\index{x\-Finalize@{x\-Finalize}!FuncDef@{Func\-Def}}
+\subsubsection[{x\-Finalize}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Func\-Def\-::x\-Finalize)({\bf sqlite3\-\_\-context} $\ast$)}}\label{struct_func_def_a3c649453d5a58c697b7ee54ee999e7ef}
+\hypertarget{struct_func_def_a1cfd07fdfe22ff504ea7f36c0752c1da}{\index{Func\-Def@{Func\-Def}!x\-Func@{x\-Func}}
+\index{x\-Func@{x\-Func}!FuncDef@{Func\-Def}}
+\subsubsection[{x\-Func}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Func\-Def\-::x\-Func)({\bf sqlite3\-\_\-context} $\ast$, int, {\bf sqlite3\-\_\-value} $\ast$$\ast$)}}\label{struct_func_def_a1cfd07fdfe22ff504ea7f36c0752c1da}
+\hypertarget{struct_func_def_ab1d1c623844534b17ea3ccce3f815464}{\index{Func\-Def@{Func\-Def}!x\-Step@{x\-Step}}
+\index{x\-Step@{x\-Step}!FuncDef@{Func\-Def}}
+\subsubsection[{x\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Func\-Def\-::x\-Step)({\bf sqlite3\-\_\-context} $\ast$, int, {\bf sqlite3\-\_\-value} $\ast$$\ast$)}}\label{struct_func_def_ab1d1c623844534b17ea3ccce3f815464}
+\hypertarget{struct_func_def_a1135e622a3a505c7c463e975846ef926}{\index{Func\-Def@{Func\-Def}!z\-Name@{z\-Name}}
+\index{z\-Name@{z\-Name}!FuncDef@{Func\-Def}}
+\subsubsection[{z\-Name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Func\-Def\-::z\-Name}}\label{struct_func_def_a1135e622a3a505c7c463e975846ef926}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

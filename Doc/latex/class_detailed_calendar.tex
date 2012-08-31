@@ -9,11 +9,20 @@
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_detailed_calendar_aa9f4a0f1c2ed25b210893081f579a5f8}{Detailed\-Calendar} (Q\-Widget $\ast$p\-Parent)
+\item 
+void \hyperlink{class_detailed_calendar_aa0b23418872fbc7ce6eb23ac3f888384}{add\-Action} (Q\-Date, \hyperlink{class_action}{Action} $\ast$)
+\item 
+Q\-Date \hyperlink{class_detailed_calendar_adeae63eb638d8f105769d0a611dd1ceb}{get\-Selected\-Date} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_detailed_calendar_a9f934d9e6b5f171c5d393add3dd75b4b}{set\-List} (Q\-List\-Widget $\ast$list)
 \end{DoxyCompactItemize}
 \subsection*{Protected Slots}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_detailed_calendar_a43d18804357496ac57b234c0c08dcf30}{select} (const Q\-Date \&)
+void \hyperlink{class_detailed_calendar_a40faf426231571f1bf959b4b4026c8be}{select\-Date} (const Q\-Date \&)
 \item 
 void \hyperlink{class_detailed_calendar_a955c6477aca828d83ff80bc9d3af7ceb}{set\-Current\-Page} (int year, int month)
 \end{DoxyCompactItemize}
@@ -25,7 +34,7 @@ void \hyperlink{class_detailed_calendar_a9dd0c5c754da4f0224c8251545a1ab57}{paint
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_detailed_calendar_a2be0dc0dc0025927c82d2f0d48526e5e}{draw\-Actions} (Q\-Painter $\ast$painter, const Q\-Rect \&rect, unsigned actions\-Number) const 
+void \hyperlink{class_detailed_calendar_ac70f38e1d83091139a3477704b311336}{draw\-Actions\-Num} (Q\-Painter $\ast$painter, const Q\-Rect \&rect, unsigned actions\-Number) const 
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -34,7 +43,12 @@ Q\-Date \hyperlink{class_detailed_calendar_ac9550d3e565e00d53f8861d44e671faf}{m\
 \item 
 int \hyperlink{class_detailed_calendar_a315464b27ed4c2811bccab7079e4ed3f}{m\-\_\-displayed\-Month}
 \item 
-Q\-Map$<$ Q\-Date, Q\-Vector$<$ Q\-String $>$ $>$ \hyperlink{class_detailed_calendar_a5c344d11f9590b2136fce2b0863e9ccf}{m\-\_\-actions}
+Q\-Map$<$ Q\-Date, Q\-Vector$<$ \hyperlink{class_action}{Action} $\ast$ $>$ $>$ \hyperlink{class_detailed_calendar_a93d0855a4f4f046cafee5e1906d01764}{m\-\_\-actions}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Q\-List\-Widget $\ast$ \hyperlink{class_detailed_calendar_a6943c8b22660a5332abab7b84a97bd95}{m\-\_\-list}
 \end{DoxyCompactItemize}
 
 
@@ -49,15 +63,30 @@ Q\-Map$<$ Q\-Date, Q\-Vector$<$ Q\-String $>$ $>$ \hyperlink{class_detailed_cale
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_detailed_calendar_a2be0dc0dc0025927c82d2f0d48526e5e}{\index{Detailed\-Calendar@{Detailed\-Calendar}!draw\-Actions@{draw\-Actions}}
-\index{draw\-Actions@{draw\-Actions}!DetailedCalendar@{Detailed\-Calendar}}
-\subsubsection[{draw\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}void Detailed\-Calendar\-::draw\-Actions (
+\hypertarget{class_detailed_calendar_aa0b23418872fbc7ce6eb23ac3f888384}{\index{Detailed\-Calendar@{Detailed\-Calendar}!add\-Action@{add\-Action}}
+\index{add\-Action@{add\-Action}!DetailedCalendar@{Detailed\-Calendar}}
+\subsubsection[{add\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Detailed\-Calendar\-::add\-Action (
+\begin{DoxyParamCaption}
+\item[{Q\-Date}]{date, }
+\item[{{\bf Action} $\ast$}]{action}
+\end{DoxyParamCaption}
+)}}\label{class_detailed_calendar_aa0b23418872fbc7ce6eb23ac3f888384}
+\hypertarget{class_detailed_calendar_ac70f38e1d83091139a3477704b311336}{\index{Detailed\-Calendar@{Detailed\-Calendar}!draw\-Actions\-Num@{draw\-Actions\-Num}}
+\index{draw\-Actions\-Num@{draw\-Actions\-Num}!DetailedCalendar@{Detailed\-Calendar}}
+\subsubsection[{draw\-Actions\-Num}]{\setlength{\rightskip}{0pt plus 5cm}void Detailed\-Calendar\-::draw\-Actions\-Num (
 \begin{DoxyParamCaption}
 \item[{Q\-Painter $\ast$}]{painter, }
 \item[{const Q\-Rect \&}]{rect, }
 \item[{unsigned}]{actions\-Number}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [private]}}}\label{class_detailed_calendar_a2be0dc0dc0025927c82d2f0d48526e5e}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{class_detailed_calendar_ac70f38e1d83091139a3477704b311336}
+\hypertarget{class_detailed_calendar_adeae63eb638d8f105769d0a611dd1ceb}{\index{Detailed\-Calendar@{Detailed\-Calendar}!get\-Selected\-Date@{get\-Selected\-Date}}
+\index{get\-Selected\-Date@{get\-Selected\-Date}!DetailedCalendar@{Detailed\-Calendar}}
+\subsubsection[{get\-Selected\-Date}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Date Detailed\-Calendar\-::get\-Selected\-Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_detailed_calendar_adeae63eb638d8f105769d0a611dd1ceb}
 \hypertarget{class_detailed_calendar_a9dd0c5c754da4f0224c8251545a1ab57}{\index{Detailed\-Calendar@{Detailed\-Calendar}!paint\-Cell@{paint\-Cell}}
 \index{paint\-Cell@{paint\-Cell}!DetailedCalendar@{Detailed\-Calendar}}
 \subsubsection[{paint\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}void Detailed\-Calendar\-::paint\-Cell (
@@ -67,13 +96,13 @@ Q\-Map$<$ Q\-Date, Q\-Vector$<$ Q\-String $>$ $>$ \hyperlink{class_detailed_cale
 \item[{const Q\-Date \&}]{date}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_detailed_calendar_a9dd0c5c754da4f0224c8251545a1ab57}
-\hypertarget{class_detailed_calendar_a43d18804357496ac57b234c0c08dcf30}{\index{Detailed\-Calendar@{Detailed\-Calendar}!select@{select}}
-\index{select@{select}!DetailedCalendar@{Detailed\-Calendar}}
-\subsubsection[{select}]{\setlength{\rightskip}{0pt plus 5cm}void Detailed\-Calendar\-::select (
+\hypertarget{class_detailed_calendar_a40faf426231571f1bf959b4b4026c8be}{\index{Detailed\-Calendar@{Detailed\-Calendar}!select\-Date@{select\-Date}}
+\index{select\-Date@{select\-Date}!DetailedCalendar@{Detailed\-Calendar}}
+\subsubsection[{select\-Date}]{\setlength{\rightskip}{0pt plus 5cm}void Detailed\-Calendar\-::select\-Date (
 \begin{DoxyParamCaption}
 \item[{const Q\-Date \&}]{date}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}}\label{class_detailed_calendar_a43d18804357496ac57b234c0c08dcf30}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}}\label{class_detailed_calendar_a40faf426231571f1bf959b4b4026c8be}
 \hypertarget{class_detailed_calendar_a955c6477aca828d83ff80bc9d3af7ceb}{\index{Detailed\-Calendar@{Detailed\-Calendar}!set\-Current\-Page@{set\-Current\-Page}}
 \index{set\-Current\-Page@{set\-Current\-Page}!DetailedCalendar@{Detailed\-Calendar}}
 \subsubsection[{set\-Current\-Page}]{\setlength{\rightskip}{0pt plus 5cm}void Detailed\-Calendar\-::set\-Current\-Page (
@@ -82,15 +111,25 @@ Q\-Map$<$ Q\-Date, Q\-Vector$<$ Q\-String $>$ $>$ \hyperlink{class_detailed_cale
 \item[{int}]{month}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}}\label{class_detailed_calendar_a955c6477aca828d83ff80bc9d3af7ceb}
+\hypertarget{class_detailed_calendar_a9f934d9e6b5f171c5d393add3dd75b4b}{\index{Detailed\-Calendar@{Detailed\-Calendar}!set\-List@{set\-List}}
+\index{set\-List@{set\-List}!DetailedCalendar@{Detailed\-Calendar}}
+\subsubsection[{set\-List}]{\setlength{\rightskip}{0pt plus 5cm}void Detailed\-Calendar\-::set\-List (
+\begin{DoxyParamCaption}
+\item[{Q\-List\-Widget $\ast$}]{list}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_detailed_calendar_a9f934d9e6b5f171c5d393add3dd75b4b}
 
 
 \subsection{Member Data Documentation}
-\hypertarget{class_detailed_calendar_a5c344d11f9590b2136fce2b0863e9ccf}{\index{Detailed\-Calendar@{Detailed\-Calendar}!m\-\_\-actions@{m\-\_\-actions}}
+\hypertarget{class_detailed_calendar_a93d0855a4f4f046cafee5e1906d01764}{\index{Detailed\-Calendar@{Detailed\-Calendar}!m\-\_\-actions@{m\-\_\-actions}}
 \index{m\-\_\-actions@{m\-\_\-actions}!DetailedCalendar@{Detailed\-Calendar}}
-\subsubsection[{m\-\_\-actions}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Map$<$Q\-Date, Q\-Vector$<$Q\-String$>$ $>$ Detailed\-Calendar\-::m\-\_\-actions\hspace{0.3cm}{\ttfamily [private]}}}\label{class_detailed_calendar_a5c344d11f9590b2136fce2b0863e9ccf}
+\subsubsection[{m\-\_\-actions}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Map$<$Q\-Date, Q\-Vector$<${\bf Action}$\ast$$>$ $>$ Detailed\-Calendar\-::m\-\_\-actions\hspace{0.3cm}{\ttfamily [private]}}}\label{class_detailed_calendar_a93d0855a4f4f046cafee5e1906d01764}
 \hypertarget{class_detailed_calendar_a315464b27ed4c2811bccab7079e4ed3f}{\index{Detailed\-Calendar@{Detailed\-Calendar}!m\-\_\-displayed\-Month@{m\-\_\-displayed\-Month}}
 \index{m\-\_\-displayed\-Month@{m\-\_\-displayed\-Month}!DetailedCalendar@{Detailed\-Calendar}}
 \subsubsection[{m\-\_\-displayed\-Month}]{\setlength{\rightskip}{0pt plus 5cm}int Detailed\-Calendar\-::m\-\_\-displayed\-Month\hspace{0.3cm}{\ttfamily [private]}}}\label{class_detailed_calendar_a315464b27ed4c2811bccab7079e4ed3f}
+\hypertarget{class_detailed_calendar_a6943c8b22660a5332abab7b84a97bd95}{\index{Detailed\-Calendar@{Detailed\-Calendar}!m\-\_\-list@{m\-\_\-list}}
+\index{m\-\_\-list@{m\-\_\-list}!DetailedCalendar@{Detailed\-Calendar}}
+\subsubsection[{m\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}Q\-List\-Widget $\ast$ Detailed\-Calendar\-::m\-\_\-list\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_detailed_calendar_a6943c8b22660a5332abab7b84a97bd95}
 \hypertarget{class_detailed_calendar_ac9550d3e565e00d53f8861d44e671faf}{\index{Detailed\-Calendar@{Detailed\-Calendar}!m\-\_\-selected\-Date@{m\-\_\-selected\-Date}}
 \index{m\-\_\-selected\-Date@{m\-\_\-selected\-Date}!DetailedCalendar@{Detailed\-Calendar}}
 \subsubsection[{m\-\_\-selected\-Date}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Date Detailed\-Calendar\-::m\-\_\-selected\-Date\hspace{0.3cm}{\ttfamily [private]}}}\label{class_detailed_calendar_ac9550d3e565e00d53f8861d44e671faf}

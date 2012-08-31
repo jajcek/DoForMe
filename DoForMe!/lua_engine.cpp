@@ -1,11 +1,21 @@
 #include "lua_engine.h"
 
-LuaEngine::LuaEngine() : luaState( lua_open() ), m_loadError( 0 ), m_parseError( 0 ), m_textError( "" ),
-						 m_timer( new QBasicTimer() ), m_uInterval( 1000 ), m_uGUIInterval( 1000 ), m_bIntervalChanged( false ) {}
+LuaEngine* LuaEngine::m_object = NULL;
+
+LuaEngine::LuaEngine() : luaState( lua_open() ), m_loadError( 0 ), m_parseError( 0 ), m_bSpecialKeyError( false ), m_textError( "" ),
+						 m_timer( new QBasicTimer() ), m_uInterval( 1000 ), m_uGUIInterval( 1000 ), m_bIntervalChanged( false ),
+						 m_isExecuting( false ) {}
 
 LuaEngine::~LuaEngine() {
 	lua_close( luaState );
 	delete m_timer;
+}
+
+LuaEngine* LuaEngine::getInstance() {
+	if( !m_object )
+		m_object = new LuaEngine();
+
+	return m_object;
 }
 
 void LuaEngine::registerFunction( const char* functionName, lua_CFunction pFunction ) {
@@ -25,13 +35,34 @@ int LuaEngine::loadScript( const char* code, int mode ) {
 }
 
 int LuaEngine::parseScript() {
-	// invoke previously loaded script (put commands to the queue)
+	qDebug( "LuaEngine::parseScript" );
+
+	// reset value for special key error
+	m_bSpecialKeyError = false;
+
+	// invoke previously loaded script (put commands to the queue by using LuaApiEngine class)
 	m_parseError = lua_pcall( luaState, 0, 0, 0 );
 
 	// get error message if error occured
 	m_textError = lua_tostring( luaState, -1 );
+	
+	return m_parseError + ( int )m_bSpecialKeyError;
+}
 
-	return m_parseError;
+bool LuaEngine::run( const char* code, bool onlyParse ) {
+	qDebug( "LuaEngine::run" );
+
+	m_loadError = loadScript( code, LuaEngine::BUFFER );
+	m_parseError = parseScript();
+
+	// if the engine is executing a script we can't invoke start again,
+	// because it will pause the timer for the GUI interval.
+	if( onlyParse == false && !m_isExecuting ) {
+		start();
+		m_isExecuting = true;
+	}
+	
+	return ( m_loadError | m_parseError );
 }
 
 int LuaEngine::validateLastLoad() {
@@ -39,7 +70,14 @@ int LuaEngine::validateLastLoad() {
 }
 
 int LuaEngine::validateLastParse() {
-	return m_parseError;
+	return m_parseError | static_cast<int>( m_bSpecialKeyError );
+}
+
+void LuaEngine::setSpecialKeyError( bool error ) {
+	if( error )
+		m_bSpecialKeyError = static_cast<bool>( LUA_ERRRUN );
+	else
+		m_bSpecialKeyError = 0;
 }
 
 QString LuaEngine::getTextError() const {
@@ -56,12 +94,15 @@ void LuaEngine::addCommand( void ( *pCmd )( std::deque<int> ), std::deque<int> a
 }
 
 void LuaEngine::timerEvent( QTimerEvent* ) {
+	qDebug( "LuaEngine::timerEvent" );
+
 	// check if there are any commands to execute, otherwise stop the timer
 	if( !m_commands.isEmpty() ) {
 		m_commands.executeNext();
 	} else {
 		// stop the timer if there are no more commands to execute
 		stop();
+		m_isExecuting = false;
 	}
 
 	// if the engine's interval has been changed from outside (e.g. by using some of the api function like sleep())
@@ -77,8 +118,7 @@ void LuaEngine::timerEvent( QTimerEvent* ) {
 		// change interval to its previous value
 		m_uInterval = m_uGUIInterval;
 
-		// restart the timer if necessary - we don't use restart() method.
-		// restart() should be used outside the class (e.g. by sleep() api function)
+		// restart the timer if necessary
 		if( _bRestart )
 			start();
 	} else {
@@ -89,10 +129,6 @@ void LuaEngine::timerEvent( QTimerEvent* ) {
 
 void LuaEngine::start() {
 	m_timer->start( m_uInterval, this );
-}
-
-void LuaEngine::pause() {
-	m_timer->stop();
 }
 
 void LuaEngine::stop() {
@@ -112,4 +148,12 @@ void LuaEngine::setGUIInterval( int interval ) {
 
 int LuaEngine::getGUIInterval() const {
 	return m_uGUIInterval;
+}
+
+void LuaEngine::reset() {
+	m_loadError = 0;
+	m_parseError = 0;
+	m_bSpecialKeyError = false;
+	m_isExecuting = false;
+	m_commands.clearCommands();
 }

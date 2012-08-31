@@ -1,0 +1,88 @@
+\hypertarget{struct_mem}{\section{Mem Struct Reference}
+\label{struct_mem}\index{Mem@{Mem}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structsqlite3}{sqlite3} $\ast$ \hyperlink{struct_mem_a478da33d1e83a23931b372f9ddc706f2}{db}
+\item 
+char $\ast$ \hyperlink{struct_mem_a85c51a0b445063ba913693517860f5ea}{z}
+\item 
+double \hyperlink{struct_mem_a89ce926e95eb6d3f75344fd6525229da}{r}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{sqlite3_8c_a2a0f0f4ae7001eb54351f77ea1cdbcfd}{i64} \hyperlink{struct_mem_a48360645ba68c4fbbe651a7b7cd5764a}{i}\\
+\>int \hyperlink{struct_mem_adfee686fb1c3d644b10a498e134eabc2}{nZero}\\
+\>\hyperlink{struct_func_def}{FuncDef} $\ast$ \hyperlink{struct_mem_a4c16fb57d63496d4ba838ed796e24cc4}{pDef}\\
+\>\hyperlink{struct_row_set}{RowSet} $\ast$ \hyperlink{struct_mem_adc33e18036e34fc08c6596d658b5e584}{pRowSet}\\
+\>\hyperlink{struct_vdbe_frame}{VdbeFrame} $\ast$ \hyperlink{struct_mem_a3f903a6d1020c3c013ffb1c59b99e67f}{pFrame}\\
+\} \hyperlink{struct_mem_a5fc7c7c3b04be7ea92e243be42478919}{u}\\
+
+\end{tabbing}\item 
+int \hyperlink{struct_mem_a5a613756e096c221ec68077c28424d84}{n}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_mem_a209bf3317161d1e33af9fe8b512f4974}{flags}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_mem_a6756879ca1e5fa71b12db25f981b7e87}{type}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_mem_af437c99e92b8e729b70f82fa94e96bff}{enc}
+\item 
+void($\ast$ \hyperlink{struct_mem_a081ea2f86933d68a8940785b62f638ef}{x\-Del} )(void $\ast$)
+\item 
+char $\ast$ \hyperlink{struct_mem_a68cd8f196d9dc8ab27845e1b4abbc95c}{z\-Malloc}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_mem_a478da33d1e83a23931b372f9ddc706f2}{\index{Mem@{Mem}!db@{db}}
+\index{db@{db}!Mem@{Mem}}
+\subsubsection[{db}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3}$\ast$ Mem\-::db}}\label{struct_mem_a478da33d1e83a23931b372f9ddc706f2}
+\hypertarget{struct_mem_af437c99e92b8e729b70f82fa94e96bff}{\index{Mem@{Mem}!enc@{enc}}
+\index{enc@{enc}!Mem@{Mem}}
+\subsubsection[{enc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Mem\-::enc}}\label{struct_mem_af437c99e92b8e729b70f82fa94e96bff}
+\hypertarget{struct_mem_a209bf3317161d1e33af9fe8b512f4974}{\index{Mem@{Mem}!flags@{flags}}
+\index{flags@{flags}!Mem@{Mem}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Mem\-::flags}}\label{struct_mem_a209bf3317161d1e33af9fe8b512f4974}
+\hypertarget{struct_mem_a48360645ba68c4fbbe651a7b7cd5764a}{\index{Mem@{Mem}!i@{i}}
+\index{i@{i}!Mem@{Mem}}
+\subsubsection[{i}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i64} Mem\-::i}}\label{struct_mem_a48360645ba68c4fbbe651a7b7cd5764a}
+\hypertarget{struct_mem_a5a613756e096c221ec68077c28424d84}{\index{Mem@{Mem}!n@{n}}
+\index{n@{n}!Mem@{Mem}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}int Mem\-::n}}\label{struct_mem_a5a613756e096c221ec68077c28424d84}
+\hypertarget{struct_mem_adfee686fb1c3d644b10a498e134eabc2}{\index{Mem@{Mem}!n\-Zero@{n\-Zero}}
+\index{n\-Zero@{n\-Zero}!Mem@{Mem}}
+\subsubsection[{n\-Zero}]{\setlength{\rightskip}{0pt plus 5cm}int Mem\-::n\-Zero}}\label{struct_mem_adfee686fb1c3d644b10a498e134eabc2}
+\hypertarget{struct_mem_a4c16fb57d63496d4ba838ed796e24cc4}{\index{Mem@{Mem}!p\-Def@{p\-Def}}
+\index{p\-Def@{p\-Def}!Mem@{Mem}}
+\subsubsection[{p\-Def}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Func\-Def}$\ast$ Mem\-::p\-Def}}\label{struct_mem_a4c16fb57d63496d4ba838ed796e24cc4}
+\hypertarget{struct_mem_a3f903a6d1020c3c013ffb1c59b99e67f}{\index{Mem@{Mem}!p\-Frame@{p\-Frame}}
+\index{p\-Frame@{p\-Frame}!Mem@{Mem}}
+\subsubsection[{p\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vdbe\-Frame}$\ast$ Mem\-::p\-Frame}}\label{struct_mem_a3f903a6d1020c3c013ffb1c59b99e67f}
+\hypertarget{struct_mem_adc33e18036e34fc08c6596d658b5e584}{\index{Mem@{Mem}!p\-Row\-Set@{p\-Row\-Set}}
+\index{p\-Row\-Set@{p\-Row\-Set}!Mem@{Mem}}
+\subsubsection[{p\-Row\-Set}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Row\-Set}$\ast$ Mem\-::p\-Row\-Set}}\label{struct_mem_adc33e18036e34fc08c6596d658b5e584}
+\hypertarget{struct_mem_a89ce926e95eb6d3f75344fd6525229da}{\index{Mem@{Mem}!r@{r}}
+\index{r@{r}!Mem@{Mem}}
+\subsubsection[{r}]{\setlength{\rightskip}{0pt plus 5cm}double Mem\-::r}}\label{struct_mem_a89ce926e95eb6d3f75344fd6525229da}
+\hypertarget{struct_mem_a6756879ca1e5fa71b12db25f981b7e87}{\index{Mem@{Mem}!type@{type}}
+\index{type@{type}!Mem@{Mem}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Mem\-::type}}\label{struct_mem_a6756879ca1e5fa71b12db25f981b7e87}
+\hypertarget{struct_mem_a5fc7c7c3b04be7ea92e243be42478919}{\index{Mem@{Mem}!u@{u}}
+\index{u@{u}!Mem@{Mem}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   Mem\-::u}}\label{struct_mem_a5fc7c7c3b04be7ea92e243be42478919}
+\hypertarget{struct_mem_a081ea2f86933d68a8940785b62f638ef}{\index{Mem@{Mem}!x\-Del@{x\-Del}}
+\index{x\-Del@{x\-Del}!Mem@{Mem}}
+\subsubsection[{x\-Del}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Mem\-::x\-Del)(void $\ast$)}}\label{struct_mem_a081ea2f86933d68a8940785b62f638ef}
+\hypertarget{struct_mem_a85c51a0b445063ba913693517860f5ea}{\index{Mem@{Mem}!z@{z}}
+\index{z@{z}!Mem@{Mem}}
+\subsubsection[{z}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Mem\-::z}}\label{struct_mem_a85c51a0b445063ba913693517860f5ea}
+\hypertarget{struct_mem_a68cd8f196d9dc8ab27845e1b4abbc95c}{\index{Mem@{Mem}!z\-Malloc@{z\-Malloc}}
+\index{z\-Malloc@{z\-Malloc}!Mem@{Mem}}
+\subsubsection[{z\-Malloc}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Mem\-::z\-Malloc}}\label{struct_mem_a68cd8f196d9dc8ab27845e1b4abbc95c}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

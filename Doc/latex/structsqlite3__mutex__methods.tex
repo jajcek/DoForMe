@@ -1,0 +1,64 @@
+\hypertarget{structsqlite3__mutex__methods}{\section{sqlite3\-\_\-mutex\-\_\-methods Struct Reference}
+\label{structsqlite3__mutex__methods}\index{sqlite3\-\_\-mutex\-\_\-methods@{sqlite3\-\_\-mutex\-\_\-methods}}
+}
+
+
+{\ttfamily \#include $<$sqlite3.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int($\ast$ \hyperlink{structsqlite3__mutex__methods_af0a78d79b6029444d4a2ac7c474030d4}{x\-Mutex\-Init} )(void)
+\item 
+int($\ast$ \hyperlink{structsqlite3__mutex__methods_a4963efb4bfede244d4d2a14510dbfe68}{x\-Mutex\-End} )(void)
+\item 
+\hyperlink{structsqlite3__mutex}{sqlite3\-\_\-mutex} $\ast$($\ast$ \hyperlink{structsqlite3__mutex__methods_a1092d5c1659c494c5235e884def5e275}{x\-Mutex\-Alloc} )(int)
+\item 
+void($\ast$ \hyperlink{structsqlite3__mutex__methods_a4e58d446a7225ce91073eb0af91d219a}{x\-Mutex\-Free} )(\hyperlink{structsqlite3__mutex}{sqlite3\-\_\-mutex} $\ast$)
+\item 
+void($\ast$ \hyperlink{structsqlite3__mutex__methods_ac60f7bb165e9770949a8a2b2c2632830}{x\-Mutex\-Enter} )(\hyperlink{structsqlite3__mutex}{sqlite3\-\_\-mutex} $\ast$)
+\item 
+int($\ast$ \hyperlink{structsqlite3__mutex__methods_a45682df41bdfcb267a696090c80ebd06}{x\-Mutex\-Try} )(\hyperlink{structsqlite3__mutex}{sqlite3\-\_\-mutex} $\ast$)
+\item 
+void($\ast$ \hyperlink{structsqlite3__mutex__methods_acfa193f9130bfc68caf7f1849bcd0dac}{x\-Mutex\-Leave} )(\hyperlink{structsqlite3__mutex}{sqlite3\-\_\-mutex} $\ast$)
+\item 
+int($\ast$ \hyperlink{structsqlite3__mutex__methods_a5d30a95c614bc08fe156c9ea0f0d88e8}{x\-Mutex\-Held} )(\hyperlink{structsqlite3__mutex}{sqlite3\-\_\-mutex} $\ast$)
+\item 
+int($\ast$ \hyperlink{structsqlite3__mutex__methods_a7bc1edfd01c67c6dcee26299bc31a7bf}{x\-Mutex\-Notheld} )(\hyperlink{structsqlite3__mutex}{sqlite3\-\_\-mutex} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structsqlite3__mutex__methods_a1092d5c1659c494c5235e884def5e275}{\index{sqlite3\-\_\-mutex\-\_\-methods@{sqlite3\-\_\-mutex\-\_\-methods}!x\-Mutex\-Alloc@{x\-Mutex\-Alloc}}
+\index{x\-Mutex\-Alloc@{x\-Mutex\-Alloc}!sqlite3_mutex_methods@{sqlite3\-\_\-mutex\-\_\-methods}}
+\subsubsection[{x\-Mutex\-Alloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-mutex} $\ast$($\ast$ sqlite3\-\_\-mutex\-\_\-methods\-::x\-Mutex\-Alloc)(int)}}\label{structsqlite3__mutex__methods_a1092d5c1659c494c5235e884def5e275}
+\hypertarget{structsqlite3__mutex__methods_a4963efb4bfede244d4d2a14510dbfe68}{\index{sqlite3\-\_\-mutex\-\_\-methods@{sqlite3\-\_\-mutex\-\_\-methods}!x\-Mutex\-End@{x\-Mutex\-End}}
+\index{x\-Mutex\-End@{x\-Mutex\-End}!sqlite3_mutex_methods@{sqlite3\-\_\-mutex\-\_\-methods}}
+\subsubsection[{x\-Mutex\-End}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ sqlite3\-\_\-mutex\-\_\-methods\-::x\-Mutex\-End)(void)}}\label{structsqlite3__mutex__methods_a4963efb4bfede244d4d2a14510dbfe68}
+\hypertarget{structsqlite3__mutex__methods_ac60f7bb165e9770949a8a2b2c2632830}{\index{sqlite3\-\_\-mutex\-\_\-methods@{sqlite3\-\_\-mutex\-\_\-methods}!x\-Mutex\-Enter@{x\-Mutex\-Enter}}
+\index{x\-Mutex\-Enter@{x\-Mutex\-Enter}!sqlite3_mutex_methods@{sqlite3\-\_\-mutex\-\_\-methods}}
+\subsubsection[{x\-Mutex\-Enter}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ sqlite3\-\_\-mutex\-\_\-methods\-::x\-Mutex\-Enter)({\bf sqlite3\-\_\-mutex} $\ast$)}}\label{structsqlite3__mutex__methods_ac60f7bb165e9770949a8a2b2c2632830}
+\hypertarget{structsqlite3__mutex__methods_a4e58d446a7225ce91073eb0af91d219a}{\index{sqlite3\-\_\-mutex\-\_\-methods@{sqlite3\-\_\-mutex\-\_\-methods}!x\-Mutex\-Free@{x\-Mutex\-Free}}
+\index{x\-Mutex\-Free@{x\-Mutex\-Free}!sqlite3_mutex_methods@{sqlite3\-\_\-mutex\-\_\-methods}}
+\subsubsection[{x\-Mutex\-Free}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ sqlite3\-\_\-mutex\-\_\-methods\-::x\-Mutex\-Free)({\bf sqlite3\-\_\-mutex} $\ast$)}}\label{structsqlite3__mutex__methods_a4e58d446a7225ce91073eb0af91d219a}
+\hypertarget{structsqlite3__mutex__methods_a5d30a95c614bc08fe156c9ea0f0d88e8}{\index{sqlite3\-\_\-mutex\-\_\-methods@{sqlite3\-\_\-mutex\-\_\-methods}!x\-Mutex\-Held@{x\-Mutex\-Held}}
+\index{x\-Mutex\-Held@{x\-Mutex\-Held}!sqlite3_mutex_methods@{sqlite3\-\_\-mutex\-\_\-methods}}
+\subsubsection[{x\-Mutex\-Held}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ sqlite3\-\_\-mutex\-\_\-methods\-::x\-Mutex\-Held)({\bf sqlite3\-\_\-mutex} $\ast$)}}\label{structsqlite3__mutex__methods_a5d30a95c614bc08fe156c9ea0f0d88e8}
+\hypertarget{structsqlite3__mutex__methods_af0a78d79b6029444d4a2ac7c474030d4}{\index{sqlite3\-\_\-mutex\-\_\-methods@{sqlite3\-\_\-mutex\-\_\-methods}!x\-Mutex\-Init@{x\-Mutex\-Init}}
+\index{x\-Mutex\-Init@{x\-Mutex\-Init}!sqlite3_mutex_methods@{sqlite3\-\_\-mutex\-\_\-methods}}
+\subsubsection[{x\-Mutex\-Init}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ sqlite3\-\_\-mutex\-\_\-methods\-::x\-Mutex\-Init)(void)}}\label{structsqlite3__mutex__methods_af0a78d79b6029444d4a2ac7c474030d4}
+\hypertarget{structsqlite3__mutex__methods_acfa193f9130bfc68caf7f1849bcd0dac}{\index{sqlite3\-\_\-mutex\-\_\-methods@{sqlite3\-\_\-mutex\-\_\-methods}!x\-Mutex\-Leave@{x\-Mutex\-Leave}}
+\index{x\-Mutex\-Leave@{x\-Mutex\-Leave}!sqlite3_mutex_methods@{sqlite3\-\_\-mutex\-\_\-methods}}
+\subsubsection[{x\-Mutex\-Leave}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ sqlite3\-\_\-mutex\-\_\-methods\-::x\-Mutex\-Leave)({\bf sqlite3\-\_\-mutex} $\ast$)}}\label{structsqlite3__mutex__methods_acfa193f9130bfc68caf7f1849bcd0dac}
+\hypertarget{structsqlite3__mutex__methods_a7bc1edfd01c67c6dcee26299bc31a7bf}{\index{sqlite3\-\_\-mutex\-\_\-methods@{sqlite3\-\_\-mutex\-\_\-methods}!x\-Mutex\-Notheld@{x\-Mutex\-Notheld}}
+\index{x\-Mutex\-Notheld@{x\-Mutex\-Notheld}!sqlite3_mutex_methods@{sqlite3\-\_\-mutex\-\_\-methods}}
+\subsubsection[{x\-Mutex\-Notheld}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ sqlite3\-\_\-mutex\-\_\-methods\-::x\-Mutex\-Notheld)({\bf sqlite3\-\_\-mutex} $\ast$)}}\label{structsqlite3__mutex__methods_a7bc1edfd01c67c6dcee26299bc31a7bf}
+\hypertarget{structsqlite3__mutex__methods_a45682df41bdfcb267a696090c80ebd06}{\index{sqlite3\-\_\-mutex\-\_\-methods@{sqlite3\-\_\-mutex\-\_\-methods}!x\-Mutex\-Try@{x\-Mutex\-Try}}
+\index{x\-Mutex\-Try@{x\-Mutex\-Try}!sqlite3_mutex_methods@{sqlite3\-\_\-mutex\-\_\-methods}}
+\subsubsection[{x\-Mutex\-Try}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ sqlite3\-\_\-mutex\-\_\-methods\-::x\-Mutex\-Try)({\bf sqlite3\-\_\-mutex} $\ast$)}}\label{structsqlite3__mutex__methods_a45682df41bdfcb267a696090c80ebd06}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8h}{sqlite3.\-h}\end{DoxyCompactItemize}

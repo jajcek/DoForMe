@@ -85,13 +85,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Action Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Engine for maintaing LUA's API commands.  
+<p>Data for action that has been created for calendar.  
  <a href="class_action.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="action_8h_source.html">action.h</a>&gt;</code></p>
@@ -100,154 +102,599 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4f457ccfc8336b565cadca56b36e0271"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a4f457ccfc8336b565cadca56b36e0271">Action</a> ()</td></tr>
-<tr class="memitem:acdb06775d157339256a8ecd55749226c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#acdb06775d157339256a8ecd55749226c">~Action</a> ()</td></tr>
-<tr class="memitem:a8d7527963d293e66cd9d63e4868f07a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a8d7527963d293e66cd9d63e4868f07a4">setPath</a> (QString path)</td></tr>
-<tr class="memitem:aae0058c4c9a79b296b1ef89670da4167"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#aae0058c4c9a79b296b1ef89670da4167">getPath</a> () const </td></tr>
-<tr class="memitem:a5d60106a1c5b9d492f32432e903ba0c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a5d60106a1c5b9d492f32432e903ba0c4">setFileName</a> (QString fileName)</td></tr>
-<tr class="memitem:a6fe79539f83f2af7be05b698dae55d65"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a6fe79539f83f2af7be05b698dae55d65">getFileName</a> () const </td></tr>
-<tr class="memitem:a534682646596250cd8bb98957e423791"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a534682646596250cd8bb98957e423791">setCode</a> (QString code)</td></tr>
-<tr class="memitem:a0cb6822da346dff4514e056547979cdd"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a0cb6822da346dff4514e056547979cdd">getCode</a> () const </td></tr>
+<tr class="memitem:a2da5fdc807e9635c6f9f233f9f05440a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a2da5fdc807e9635c6f9f233f9f05440a">Action</a> (<a class="el" href="class_action.html">Action</a> *pAction)</td></tr>
+<tr class="memdesc:a2da5fdc807e9635c6f9f233f9f05440a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Some kind of copy constructor which creates action on the grounds of another action but eliminates all of the repetitions.  <a href="#a2da5fdc807e9635c6f9f233f9f05440a"></a><br/></td></tr>
+<tr class="memitem:ad8712ab574b1bea904a0cb65f211945b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#ad8712ab574b1bea904a0cb65f211945b">Action</a> (QDate mainDate, const <a class="el" href="class_action_settings.html">ActionSettings</a> &amp;settings)</td></tr>
+<tr class="memdesc:ad8712ab574b1bea904a0cb65f211945b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates action for the given date with the specified settings.  <a href="#ad8712ab574b1bea904a0cb65f211945b"></a><br/></td></tr>
+<tr class="memitem:ab0dcff3e1da9b7bf4ffbc5cb37c56bba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#ab0dcff3e1da9b7bf4ffbc5cb37c56bba">setSetting</a> (const <a class="el" href="class_action_settings.html">ActionSettings</a> &amp;settings)</td></tr>
+<tr class="memdesc:ab0dcff3e1da9b7bf4ffbc5cb37c56bba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets settings for the action. See <a class="el" href="class_action_settings.html" title="Shows action settings dialog and stores information selected on controls.">ActionSettings</a> class for more details.  <a href="#ab0dcff3e1da9b7bf4ffbc5cb37c56bba"></a><br/></td></tr>
+<tr class="memitem:a4c98125d275b28055dd1e96c3091fd52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a4c98125d275b28055dd1e96c3091fd52">setScript</a> (<a class="el" href="class_script.html">Script</a> *pScript)</td></tr>
+<tr class="memdesc:a4c98125d275b28055dd1e96c3091fd52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets script that the action will be invoking.  <a href="#a4c98125d275b28055dd1e96c3091fd52"></a><br/></td></tr>
+<tr class="memitem:aa64040ce289f147ee7240f461f9a14cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_script.html">Script</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#aa64040ce289f147ee7240f461f9a14cc">getScript</a> () const </td></tr>
+<tr class="memitem:ae6de50f8591deacace5528723cfb3511"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#ae6de50f8591deacace5528723cfb3511">excludeDate</a> (QDate date)</td></tr>
+<tr class="memdesc:ae6de50f8591deacace5528723cfb3511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Excludes date from repetitions.  <a href="#ae6de50f8591deacace5528723cfb3511"></a><br/></td></tr>
+<tr class="memitem:a9926c6292dadcbd1ceb35a0d01357dc1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a9926c6292dadcbd1ceb35a0d01357dc1">isExcluded</a> (QDate date) const </td></tr>
+<tr class="memdesc:a9926c6292dadcbd1ceb35a0d01357dc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the given date is exlcluded.  <a href="#a9926c6292dadcbd1ceb35a0d01357dc1"></a><br/></td></tr>
+<tr class="memitem:a55b4a13b734764bf0a9d15af3c92da70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a55b4a13b734764bf0a9d15af3c92da70">setExcludedDates</a> (QVector&lt; QDate &gt; excludedDates)</td></tr>
+<tr class="memdesc:a55b4a13b734764bf0a9d15af3c92da70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets vector of excluded dates. Beware that the method will override the existing excluded dates.  <a href="#a55b4a13b734764bf0a9d15af3c92da70"></a><br/></td></tr>
+<tr class="memitem:aa74c530c5011d58aa43041e5d609fa46"><td class="memItemLeft" align="right" valign="top">QVector&lt; QDate &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#aa74c530c5011d58aa43041e5d609fa46">getExcludedDates</a> () const </td></tr>
+<tr class="memitem:aeccc29bed70c7913583ef291be1c9194"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#aeccc29bed70c7913583ef291be1c9194">getHours</a> () const </td></tr>
+<tr class="memitem:a28e52e595d62dcac10295a26abdfe912"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a28e52e595d62dcac10295a26abdfe912">getMinutes</a> () const </td></tr>
+<tr class="memitem:af912bd24d17ef4b7c5b45ba9d3bf3757"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#af912bd24d17ef4b7c5b45ba9d3bf3757">getSeconds</a> () const </td></tr>
+<tr class="memitem:a04d95a411c835229de0508477ea85457"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a04d95a411c835229de0508477ea85457">getHoursHH</a> () const </td></tr>
+<tr class="memitem:a74526a1d22655318419e9ba8398438d6"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a74526a1d22655318419e9ba8398438d6">getMinutesMM</a> () const </td></tr>
+<tr class="memitem:a158ec4d22a59899c46c79e1c5cdcd214"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a158ec4d22a59899c46c79e1c5cdcd214">getSecondsSS</a> () const </td></tr>
+<tr class="memitem:a01e6fdaabad6d3794f34a6c74b484095"><td class="memItemLeft" align="right" valign="top">QTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a01e6fdaabad6d3794f34a6c74b484095">getTime</a> () const </td></tr>
+<tr class="memitem:a4e95f70f5532330f672ec6d4967cae30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a4e95f70f5532330f672ec6d4967cae30">isXDays</a> () const </td></tr>
+<tr class="memitem:a943b631b783f3f42aa672c059184504d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a943b631b783f3f42aa672c059184504d">getXDays</a> () const </td></tr>
+<tr class="memitem:acae2fa92ecec91baff84c7805db253eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#acae2fa92ecec91baff84c7805db253eb">getDays</a> () const </td></tr>
+<tr class="memitem:a7995fda15f70ce011df7bc490d178c7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a7995fda15f70ce011df7bc490d178c7f">setHighlight</a> (bool state)</td></tr>
+<tr class="memdesc:a7995fda15f70ce011df7bc490d178c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the status of the highlighting action.  <a href="#a7995fda15f70ce011df7bc490d178c7f"></a><br/></td></tr>
+<tr class="memitem:ad9eb6b1f91a99bfdaf1a4f80860e6088"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#ad9eb6b1f91a99bfdaf1a4f80860e6088">isHighlighted</a> () const </td></tr>
+<tr class="memitem:a7994d9000bef4a9d1e9c446d1191403e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a7994d9000bef4a9d1e9c446d1191403e">getId</a> () const </td></tr>
+<tr class="memitem:a35c0fa5853a20c76ea36555652cda3b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a35c0fa5853a20c76ea36555652cda3b9">setMainDate</a> (QDate mainDate)</td></tr>
+<tr class="memdesc:a35c0fa5853a20c76ea36555652cda3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main date for the action from which the repetitions will be created.  <a href="#a35c0fa5853a20c76ea36555652cda3b9"></a><br/></td></tr>
+<tr class="memitem:a815113e01f17c6e579dc772a18cf8de7"><td class="memItemLeft" align="right" valign="top">QDate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a815113e01f17c6e579dc772a18cf8de7">getMainDate</a> () const </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af9455b0812708a8424e0e14bb926d911"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#af9455b0812708a8424e0e14bb926d911">setId</a> (int id)</td></tr>
+<tr class="memdesc:af9455b0812708a8424e0e14bb926d911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets id for the action.  <a href="#af9455b0812708a8424e0e14bb926d911"></a><br/></td></tr>
+<tr class="memitem:ab8af5522ac8a15d382f03626844d7d0a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#ab8af5522ac8a15d382f03626844d7d0a">nextId</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:acdaebb900bcc4fa101b7ad7fcc607e01"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#acdaebb900bcc4fa101b7ad7fcc607e01">m_path</a></td></tr>
-<tr class="memitem:a65a3f717f84c94c351ccff1e4f450816"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a65a3f717f84c94c351ccff1e4f450816">m_fileName</a></td></tr>
-<tr class="memitem:a15cb4f3d394cecf16438d01c05b87c98"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a15cb4f3d394cecf16438d01c05b87c98">m_code</a></td></tr>
+<tr class="memitem:a1a57520ab430ca6241add1e68303fb0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_script.html">Script</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a1a57520ab430ca6241add1e68303fb0c">m_pScript</a></td></tr>
+<tr class="memdesc:a1a57520ab430ca6241add1e68303fb0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to script object which is used in the action. See <a class="el" href="class_script.html" title="Keeps all data for scripts.">Script</a> class for more details.  <a href="#a1a57520ab430ca6241add1e68303fb0c"></a><br/></td></tr>
+<tr class="memitem:a00911e1be6fd7fa990a2a607590edaa9"><td class="memItemLeft" align="right" valign="top">QTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a00911e1be6fd7fa990a2a607590edaa9">m_time</a></td></tr>
+<tr class="memdesc:a00911e1be6fd7fa990a2a607590edaa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time which the action will be called at.  <a href="#a00911e1be6fd7fa990a2a607590edaa9"></a><br/></td></tr>
+<tr class="memitem:a153c3f547daf43271aee2868cadb0762"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a153c3f547daf43271aee2868cadb0762">m_isXDays</a></td></tr>
+<tr class="memdesc:a153c3f547daf43271aee2868cadb0762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value that determines if the actions has "every X days" repetitions.  <a href="#a153c3f547daf43271aee2868cadb0762"></a><br/></td></tr>
+<tr class="memitem:a9ad7c62918ef062c3f593fd3fa7fd308"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a9ad7c62918ef062c3f593fd3fa7fd308">m_XDays</a></td></tr>
+<tr class="memdesc:a9ad7c62918ef062c3f593fd3fa7fd308"><td class="mdescLeft">&#160;</td><td class="mdescRight">How many days have to pass to invoke the action again.  <a href="#a9ad7c62918ef062c3f593fd3fa7fd308"></a><br/></td></tr>
+<tr class="memitem:a646d602d39e2b6c23dc2d398530614d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a646d602d39e2b6c23dc2d398530614d0">m_days</a></td></tr>
+<tr class="memdesc:a646d602d39e2b6c23dc2d398530614d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">which days the action is invoked on.  <a href="#a646d602d39e2b6c23dc2d398530614d0"></a><br/></td></tr>
+<tr class="memitem:aada07b527d172c811c85cd1d0e0de876"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#aada07b527d172c811c85cd1d0e0de876">m_isHighlighted</a></td></tr>
+<tr class="memdesc:aada07b527d172c811c85cd1d0e0de876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the action is highlighted (when a user selects the action on the calendar).  <a href="#aada07b527d172c811c85cd1d0e0de876"></a><br/></td></tr>
+<tr class="memitem:a15acdea3b4df51d6c10d4870797a165b"><td class="memItemLeft" align="right" valign="top">QVector&lt; QDate &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a15acdea3b4df51d6c10d4870797a165b">m_excludedDates</a></td></tr>
+<tr class="memdesc:a15acdea3b4df51d6c10d4870797a165b"><td class="mdescLeft">&#160;</td><td class="mdescRight">What dates should be excluded from the repetitions.  <a href="#a15acdea3b4df51d6c10d4870797a165b"></a><br/></td></tr>
+<tr class="memitem:a0f56dba599957c8a66d808c525cbd243"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a0f56dba599957c8a66d808c525cbd243">m_id</a></td></tr>
+<tr class="memdesc:a0f56dba599957c8a66d808c525cbd243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of the action. If there are actions that might be called at the same time the action with lower id will be performed first.  <a href="#a0f56dba599957c8a66d808c525cbd243"></a><br/></td></tr>
+<tr class="memitem:abb545fb5aae40e818ae95b44d56d7478"><td class="memItemLeft" align="right" valign="top">QDate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#abb545fb5aae40e818ae95b44d56d7478">m_mainDate</a></td></tr>
+<tr class="memdesc:abb545fb5aae40e818ae95b44d56d7478"><td class="mdescLeft">&#160;</td><td class="mdescRight">Date which represents main action from which the repetition are created.  <a href="#abb545fb5aae40e818ae95b44d56d7478"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a00188e362b7f6b7740f514a7464e8eb2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a00188e362b7f6b7740f514a7464e8eb2">m_actionNumber</a> = 0</td></tr>
+<tr class="memdesc:a00188e362b7f6b7740f514a7464e8eb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value used for assigning ids for actions. See <a class="el" href="class_action.html#a0f56dba599957c8a66d808c525cbd243" title="Id of the action. If there are actions that might be called at the same time the action with lower id...">Action::m_id</a>.  <a href="#a00188e362b7f6b7740f514a7464e8eb2"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Engine for maintaing LUA's API commands. </p>
-<p>Objects of this class load scripts, check their grammar correctness and store the commands for further executing. </p>
+<div class="textblock"><p>Data for action that has been created for calendar. </p>
 <dl class="section author"><dt>Author:</dt><dd>Jacek Topolski </dd></dl>
 <dl class="section version"><dt>Version:</dt><dd>1.0 </dd></dl>
-<dl class="section date"><dt>Date:</dt><dd>6.07.2012 </dd></dl>
+<dl class="section date"><dt>Date:</dt><dd>28.07.2012 </dd></dl>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4f457ccfc8336b565cadca56b36e0271"></a>
+<a class="anchor" id="a2da5fdc807e9635c6f9f233f9f05440a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Action::Action </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_action.html">Action</a> *&#160;</td>
+          <td class="paramname"><em>pAction</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Some kind of copy constructor which creates action on the grounds of another action but eliminates all of the repetitions. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pAction</td><td><a class="el" href="class_action.html" title="Data for action that has been created for calendar.">Action</a> to be copied. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a class="anchor" id="acdb06775d157339256a8ecd55749226c"></a>
+<a class="anchor" id="ad8712ab574b1bea904a0cb65f211945b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Action::~Action </td>
+          <td class="memname">Action::Action </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">QDate&#160;</td>
+          <td class="paramname"><em>mainDate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="class_action_settings.html">ActionSettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>settings</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates action for the given date with the specified settings. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mainDate</td><td>Date which the action will be added on. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">settings</td><td>All settings for the action (repetitions, time etc.). See <a class="el" href="class_action_settings.html" title="Shows action settings dialog and stores information selected on controls.">ActionSettings</a> class for more details. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a0cb6822da346dff4514e056547979cdd"></a>
+<a class="anchor" id="ae6de50f8591deacace5528723cfb3511"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString Action::getCode </td>
+          <td class="memname">void Action::excludeDate </td>
+          <td>(</td>
+          <td class="paramtype">QDate&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Excludes date from repetitions. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">date</td><td>Date that needs to be excluded. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="acae2fa92ecec91baff84c7805db253eb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Action::getDays </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Mask for days on which the action will be performed. See <a class="el" href="class_action_settings.html#a0a99a4562e37a11225063d1a10e0953a" title="Value for monday.">ActionSettings::MONDAY</a> for more details. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a6fe79539f83f2af7be05b698dae55d65"></a>
+<a class="anchor" id="aa74c530c5011d58aa43041e5d609fa46"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString Action::getFileName </td>
+          <td class="memname">QVector&lt; QDate &gt; Action::getExcludedDates </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Vector of the excluded dates. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="aae0058c4c9a79b296b1ef89670da4167"></a>
+<a class="anchor" id="aeccc29bed70c7913583ef291be1c9194"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString Action::getPath </td>
+          <td class="memname">int Action::getHours </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Hours from the time at which the action will be performed. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a534682646596250cd8bb98957e423791"></a>
+<a class="anchor" id="a04d95a411c835229de0508477ea85457"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Action::setCode </td>
+          <td class="memname">QString Action::getHoursHH </td>
           <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>code</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Hours as a string in two-digit format from the time at which the action will be performed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7994d9000bef4a9d1e9c446d1191403e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Action::getId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Id of the action. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a815113e01f17c6e579dc772a18cf8de7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QDate Action::getMainDate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Main date for the action from which the repetitions are created. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a28e52e595d62dcac10295a26abdfe912"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Action::getMinutes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Minutes from the time at which the action will be performed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a74526a1d22655318419e9ba8398438d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString Action::getMinutesMM </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Minutes as a string in two-digit format from the time at which the action will be performed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa64040ce289f147ee7240f461f9a14cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_script.html">Script</a> * Action::getScript </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Pointer to the script object that the action uses. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af912bd24d17ef4b7c5b45ba9d3bf3757"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Action::getSeconds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Seconds from the time at which the action will be performed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a158ec4d22a59899c46c79e1c5cdcd214"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString Action::getSecondsSS </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Seconds as a string in two-digit format from the time at which the action will be performed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a01e6fdaabad6d3794f34a6c74b484095"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTime Action::getTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Time at which the action will be performed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a943b631b783f3f42aa672c059184504d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Action::getXDays </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Number of days that needs to pass to execute the action again. Works only if the <a class="el" href="class_action.html#a4e95f70f5532330f672ec6d4967cae30">Action::isXDays()</a> returns true. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9926c6292dadcbd1ceb35a0d01357dc1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Action::isExcluded </td>
+          <td>(</td>
+          <td class="paramtype">QDate&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the given date is exlcluded. </p>
+<dl class="section return"><dt>Returns:</dt><dd>Value which determines if the date is excluded. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad9eb6b1f91a99bfdaf1a4f80860e6088"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Action::isHighlighted </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Checks whether the action is highlighted. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4e95f70f5532330f672ec6d4967cae30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Action::isXDays </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Value which determines if the action has a "every X days" repetition turned on. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab8af5522ac8a15d382f03626844d7d0a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Action::nextId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Next free id for the action. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a55b4a13b734764bf0a9d15af3c92da70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Action::setExcludedDates </td>
+          <td>(</td>
+          <td class="paramtype">QVector&lt; QDate &gt;&#160;</td>
+          <td class="paramname"><em>excludedDates</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets vector of excluded dates. Beware that the method will override the existing excluded dates. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">excludedDates</td><td>Vector of dates that will be excluded. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a class="anchor" id="a5d60106a1c5b9d492f32432e903ba0c4"></a>
+<a class="anchor" id="a7995fda15f70ce011df7bc490d178c7f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Action::setFileName </td>
+          <td class="memname">void Action::setHighlight </td>
           <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the status of the highlighting action. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>State of the highlighting. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a class="anchor" id="a8d7527963d293e66cd9d63e4868f07a4"></a>
+<a class="anchor" id="af9455b0812708a8424e0e14bb926d911"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Action::setId </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets id for the action. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Id to be set to the action. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a35c0fa5853a20c76ea36555652cda3b9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Action::setPath </td>
+          <td class="memname">void Action::setMainDate </td>
           <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>path</em></td><td>)</td>
+          <td class="paramtype">QDate&#160;</td>
+          <td class="paramname"><em>mainDate</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Main date for the action from which the repetitions will be created. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mainDate</td><td>Main date for the action. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4c98125d275b28055dd1e96c3091fd52"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Action::setScript </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_script.html">Script</a> *&#160;</td>
+          <td class="paramname"><em>pScript</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets script that the action will be invoking. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pScript</td><td>Pointer to the script object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab0dcff3e1da9b7bf4ffbc5cb37c56bba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Action::setSetting </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_action_settings.html">ActionSettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>settings</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets settings for the action. See <a class="el" href="class_action_settings.html" title="Shows action settings dialog and stores information selected on controls.">ActionSettings</a> class for more details. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">settings</td><td>Settings for the action. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a15cb4f3d394cecf16438d01c05b87c98"></a>
+<a class="anchor" id="a00188e362b7f6b7740f514a7464e8eb2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -255,7 +702,29 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QString Action::m_code</td>
+          <td class="memname">int Action::m_actionNumber = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Value used for assigning ids for actions. See <a class="el" href="class_action.html#a0f56dba599957c8a66d808c525cbd243" title="Id of the action. If there are actions that might be called at the same time the action with lower id...">Action::m_id</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a646d602d39e2b6c23dc2d398530614d0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Action::m_days</td>
         </tr>
       </table>
   </td>
@@ -265,9 +734,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>which days the action is invoked on. </p>
+
 </div>
 </div>
-<a class="anchor" id="a65a3f717f84c94c351ccff1e4f450816"></a>
+<a class="anchor" id="a15acdea3b4df51d6c10d4870797a165b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -275,7 +746,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QString Action::m_fileName</td>
+          <td class="memname">QVector&lt;QDate&gt; Action::m_excludedDates</td>
         </tr>
       </table>
   </td>
@@ -285,9 +756,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>What dates should be excluded from the repetitions. </p>
+
 </div>
 </div>
-<a class="anchor" id="acdaebb900bcc4fa101b7ad7fcc607e01"></a>
+<a class="anchor" id="a0f56dba599957c8a66d808c525cbd243"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -295,7 +768,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QString Action::m_path</td>
+          <td class="memname">int Action::m_id</td>
         </tr>
       </table>
   </td>
@@ -304,6 +777,140 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Id of the action. If there are actions that might be called at the same time the action with lower id will be performed first. </p>
+
+</div>
+</div>
+<a class="anchor" id="aada07b527d172c811c85cd1d0e0de876"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Action::m_isHighlighted</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether the action is highlighted (when a user selects the action on the calendar). </p>
+
+</div>
+</div>
+<a class="anchor" id="a153c3f547daf43271aee2868cadb0762"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Action::m_isXDays</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Value that determines if the actions has "every X days" repetitions. </p>
+
+</div>
+</div>
+<a class="anchor" id="abb545fb5aae40e818ae95b44d56d7478"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QDate Action::m_mainDate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Date which represents main action from which the repetition are created. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1a57520ab430ca6241add1e68303fb0c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_script.html">Script</a>* Action::m_pScript</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to script object which is used in the action. See <a class="el" href="class_script.html" title="Keeps all data for scripts.">Script</a> class for more details. </p>
+
+</div>
+</div>
+<a class="anchor" id="a00911e1be6fd7fa990a2a607590edaa9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTime Action::m_time</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time which the action will be called at. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9ad7c62918ef062c3f593fd3fa7fd308"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Action::m_XDays</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>How many days have to pass to invoke the action again. </p>
 
 </div>
 </div>
@@ -314,7 +921,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 17 2012 19:15:36 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 29 2012 23:05:30 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

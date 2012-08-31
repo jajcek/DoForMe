@@ -1,0 +1,149 @@
+\hypertarget{struct_bt_shared}{\section{Bt\-Shared Struct Reference}
+\label{struct_bt_shared}\index{Bt\-Shared@{Bt\-Shared}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_pager}{Pager} $\ast$ \hyperlink{struct_bt_shared_ab79703fc47a16446274457588d7eb989}{p\-Pager}
+\item 
+\hyperlink{structsqlite3}{sqlite3} $\ast$ \hyperlink{struct_bt_shared_a93dafa672793f6117a336d5987951c8e}{db}
+\item 
+\hyperlink{struct_bt_cursor}{Bt\-Cursor} $\ast$ \hyperlink{struct_bt_shared_a8f8b52dee390e5606e8e2a8511530de7}{p\-Cursor}
+\item 
+\hyperlink{struct_mem_page}{Mem\-Page} $\ast$ \hyperlink{struct_bt_shared_a296dffd1c698ec175fee109718f32d5d}{p\-Page1}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_bt_shared_a8fbc250e23d7c417ccfec8cceb08329d}{open\-Flags}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_bt_shared_a770c4f6244d4350f27029cb909902a61}{auto\-Vacuum}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_bt_shared_a8d8ba06335a63d8a36294a0f1ae8377a}{incr\-Vacuum}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_bt_shared_aeaa6c0f33b83434ecee4bd8c4c8df48e}{in\-Transaction}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_bt_shared_ae0a261001a5237cd705fa16f0d00ad16}{max1byte\-Payload}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_bt_shared_a287b7749063c63e45518f72d6f9b3c1d}{bts\-Flags}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_bt_shared_a2937d14071841fe0ecae3ce1eb1da96c}{max\-Local}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_bt_shared_affb40500b5c63601ef3ca3600983b12c}{min\-Local}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_bt_shared_a474248f018d24457ec306a7b570d24ce}{max\-Leaf}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_bt_shared_ad57c14f1681d0e86f1c9a9488013eba0}{min\-Leaf}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_bt_shared_a9e42a71e5e3f98ec1e5b30998b27aae0}{page\-Size}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_bt_shared_a3209efe543084a7e60f22913a794f5cb}{usable\-Size}
+\item 
+int \hyperlink{struct_bt_shared_a6101a0e79a95e884ac4dc9c70a947715}{n\-Transaction}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_bt_shared_a8679241243f9043ede97b5c57d20c3ea}{n\-Page}
+\item 
+void $\ast$ \hyperlink{struct_bt_shared_aea3ccb6775c768fbd4f3e29df8cb925d}{p\-Schema}
+\item 
+void($\ast$ \hyperlink{struct_bt_shared_a7c4816c63acea30ed44ffc58b468463e}{x\-Free\-Schema} )(void $\ast$)
+\item 
+\hyperlink{structsqlite3__mutex}{sqlite3\-\_\-mutex} $\ast$ \hyperlink{struct_bt_shared_a454c31d726220bbed43c165e370460c8}{mutex}
+\item 
+\hyperlink{struct_bitvec}{Bitvec} $\ast$ \hyperlink{struct_bt_shared_ace6191dc3f48f9575d7946ab8cf5b919}{p\-Has\-Content}
+\item 
+int \hyperlink{struct_bt_shared_a43d0226fa08d7fae5f992f3a2d72cc08}{n\-Ref}
+\item 
+\hyperlink{struct_bt_shared}{Bt\-Shared} $\ast$ \hyperlink{struct_bt_shared_aaa9dd5c5d4ec2bb79ebe4b37ee926ae3}{p\-Next}
+\item 
+\hyperlink{struct_bt_lock}{Bt\-Lock} $\ast$ \hyperlink{struct_bt_shared_af58c79eec88f99ed5a07d8cabf8a1d1a}{p\-Lock}
+\item 
+\hyperlink{struct_btree}{Btree} $\ast$ \hyperlink{struct_bt_shared_ad8b2679e54027d58a3be3afcca4df1d6}{p\-Writer}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} $\ast$ \hyperlink{struct_bt_shared_a89102c20327da8a304f7e95af557bdf4}{p\-Tmp\-Space}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_bt_shared_a770c4f6244d4350f27029cb909902a61}{\index{Bt\-Shared@{Bt\-Shared}!auto\-Vacuum@{auto\-Vacuum}}
+\index{auto\-Vacuum@{auto\-Vacuum}!BtShared@{Bt\-Shared}}
+\subsubsection[{auto\-Vacuum}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Bt\-Shared\-::auto\-Vacuum}}\label{struct_bt_shared_a770c4f6244d4350f27029cb909902a61}
+\hypertarget{struct_bt_shared_a287b7749063c63e45518f72d6f9b3c1d}{\index{Bt\-Shared@{Bt\-Shared}!bts\-Flags@{bts\-Flags}}
+\index{bts\-Flags@{bts\-Flags}!BtShared@{Bt\-Shared}}
+\subsubsection[{bts\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Bt\-Shared\-::bts\-Flags}}\label{struct_bt_shared_a287b7749063c63e45518f72d6f9b3c1d}
+\hypertarget{struct_bt_shared_a93dafa672793f6117a336d5987951c8e}{\index{Bt\-Shared@{Bt\-Shared}!db@{db}}
+\index{db@{db}!BtShared@{Bt\-Shared}}
+\subsubsection[{db}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3}$\ast$ Bt\-Shared\-::db}}\label{struct_bt_shared_a93dafa672793f6117a336d5987951c8e}
+\hypertarget{struct_bt_shared_a8d8ba06335a63d8a36294a0f1ae8377a}{\index{Bt\-Shared@{Bt\-Shared}!incr\-Vacuum@{incr\-Vacuum}}
+\index{incr\-Vacuum@{incr\-Vacuum}!BtShared@{Bt\-Shared}}
+\subsubsection[{incr\-Vacuum}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Bt\-Shared\-::incr\-Vacuum}}\label{struct_bt_shared_a8d8ba06335a63d8a36294a0f1ae8377a}
+\hypertarget{struct_bt_shared_aeaa6c0f33b83434ecee4bd8c4c8df48e}{\index{Bt\-Shared@{Bt\-Shared}!in\-Transaction@{in\-Transaction}}
+\index{in\-Transaction@{in\-Transaction}!BtShared@{Bt\-Shared}}
+\subsubsection[{in\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Bt\-Shared\-::in\-Transaction}}\label{struct_bt_shared_aeaa6c0f33b83434ecee4bd8c4c8df48e}
+\hypertarget{struct_bt_shared_ae0a261001a5237cd705fa16f0d00ad16}{\index{Bt\-Shared@{Bt\-Shared}!max1byte\-Payload@{max1byte\-Payload}}
+\index{max1byte\-Payload@{max1byte\-Payload}!BtShared@{Bt\-Shared}}
+\subsubsection[{max1byte\-Payload}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Bt\-Shared\-::max1byte\-Payload}}\label{struct_bt_shared_ae0a261001a5237cd705fa16f0d00ad16}
+\hypertarget{struct_bt_shared_a474248f018d24457ec306a7b570d24ce}{\index{Bt\-Shared@{Bt\-Shared}!max\-Leaf@{max\-Leaf}}
+\index{max\-Leaf@{max\-Leaf}!BtShared@{Bt\-Shared}}
+\subsubsection[{max\-Leaf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Bt\-Shared\-::max\-Leaf}}\label{struct_bt_shared_a474248f018d24457ec306a7b570d24ce}
+\hypertarget{struct_bt_shared_a2937d14071841fe0ecae3ce1eb1da96c}{\index{Bt\-Shared@{Bt\-Shared}!max\-Local@{max\-Local}}
+\index{max\-Local@{max\-Local}!BtShared@{Bt\-Shared}}
+\subsubsection[{max\-Local}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Bt\-Shared\-::max\-Local}}\label{struct_bt_shared_a2937d14071841fe0ecae3ce1eb1da96c}
+\hypertarget{struct_bt_shared_ad57c14f1681d0e86f1c9a9488013eba0}{\index{Bt\-Shared@{Bt\-Shared}!min\-Leaf@{min\-Leaf}}
+\index{min\-Leaf@{min\-Leaf}!BtShared@{Bt\-Shared}}
+\subsubsection[{min\-Leaf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Bt\-Shared\-::min\-Leaf}}\label{struct_bt_shared_ad57c14f1681d0e86f1c9a9488013eba0}
+\hypertarget{struct_bt_shared_affb40500b5c63601ef3ca3600983b12c}{\index{Bt\-Shared@{Bt\-Shared}!min\-Local@{min\-Local}}
+\index{min\-Local@{min\-Local}!BtShared@{Bt\-Shared}}
+\subsubsection[{min\-Local}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Bt\-Shared\-::min\-Local}}\label{struct_bt_shared_affb40500b5c63601ef3ca3600983b12c}
+\hypertarget{struct_bt_shared_a454c31d726220bbed43c165e370460c8}{\index{Bt\-Shared@{Bt\-Shared}!mutex@{mutex}}
+\index{mutex@{mutex}!BtShared@{Bt\-Shared}}
+\subsubsection[{mutex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-mutex}$\ast$ Bt\-Shared\-::mutex}}\label{struct_bt_shared_a454c31d726220bbed43c165e370460c8}
+\hypertarget{struct_bt_shared_a8679241243f9043ede97b5c57d20c3ea}{\index{Bt\-Shared@{Bt\-Shared}!n\-Page@{n\-Page}}
+\index{n\-Page@{n\-Page}!BtShared@{Bt\-Shared}}
+\subsubsection[{n\-Page}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Bt\-Shared\-::n\-Page}}\label{struct_bt_shared_a8679241243f9043ede97b5c57d20c3ea}
+\hypertarget{struct_bt_shared_a43d0226fa08d7fae5f992f3a2d72cc08}{\index{Bt\-Shared@{Bt\-Shared}!n\-Ref@{n\-Ref}}
+\index{n\-Ref@{n\-Ref}!BtShared@{Bt\-Shared}}
+\subsubsection[{n\-Ref}]{\setlength{\rightskip}{0pt plus 5cm}int Bt\-Shared\-::n\-Ref}}\label{struct_bt_shared_a43d0226fa08d7fae5f992f3a2d72cc08}
+\hypertarget{struct_bt_shared_a6101a0e79a95e884ac4dc9c70a947715}{\index{Bt\-Shared@{Bt\-Shared}!n\-Transaction@{n\-Transaction}}
+\index{n\-Transaction@{n\-Transaction}!BtShared@{Bt\-Shared}}
+\subsubsection[{n\-Transaction}]{\setlength{\rightskip}{0pt plus 5cm}int Bt\-Shared\-::n\-Transaction}}\label{struct_bt_shared_a6101a0e79a95e884ac4dc9c70a947715}
+\hypertarget{struct_bt_shared_a8fbc250e23d7c417ccfec8cceb08329d}{\index{Bt\-Shared@{Bt\-Shared}!open\-Flags@{open\-Flags}}
+\index{open\-Flags@{open\-Flags}!BtShared@{Bt\-Shared}}
+\subsubsection[{open\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Bt\-Shared\-::open\-Flags}}\label{struct_bt_shared_a8fbc250e23d7c417ccfec8cceb08329d}
+\hypertarget{struct_bt_shared_a9e42a71e5e3f98ec1e5b30998b27aae0}{\index{Bt\-Shared@{Bt\-Shared}!page\-Size@{page\-Size}}
+\index{page\-Size@{page\-Size}!BtShared@{Bt\-Shared}}
+\subsubsection[{page\-Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Bt\-Shared\-::page\-Size}}\label{struct_bt_shared_a9e42a71e5e3f98ec1e5b30998b27aae0}
+\hypertarget{struct_bt_shared_a8f8b52dee390e5606e8e2a8511530de7}{\index{Bt\-Shared@{Bt\-Shared}!p\-Cursor@{p\-Cursor}}
+\index{p\-Cursor@{p\-Cursor}!BtShared@{Bt\-Shared}}
+\subsubsection[{p\-Cursor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bt\-Cursor}$\ast$ Bt\-Shared\-::p\-Cursor}}\label{struct_bt_shared_a8f8b52dee390e5606e8e2a8511530de7}
+\hypertarget{struct_bt_shared_ace6191dc3f48f9575d7946ab8cf5b919}{\index{Bt\-Shared@{Bt\-Shared}!p\-Has\-Content@{p\-Has\-Content}}
+\index{p\-Has\-Content@{p\-Has\-Content}!BtShared@{Bt\-Shared}}
+\subsubsection[{p\-Has\-Content}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bitvec}$\ast$ Bt\-Shared\-::p\-Has\-Content}}\label{struct_bt_shared_ace6191dc3f48f9575d7946ab8cf5b919}
+\hypertarget{struct_bt_shared_af58c79eec88f99ed5a07d8cabf8a1d1a}{\index{Bt\-Shared@{Bt\-Shared}!p\-Lock@{p\-Lock}}
+\index{p\-Lock@{p\-Lock}!BtShared@{Bt\-Shared}}
+\subsubsection[{p\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bt\-Lock}$\ast$ Bt\-Shared\-::p\-Lock}}\label{struct_bt_shared_af58c79eec88f99ed5a07d8cabf8a1d1a}
+\hypertarget{struct_bt_shared_aaa9dd5c5d4ec2bb79ebe4b37ee926ae3}{\index{Bt\-Shared@{Bt\-Shared}!p\-Next@{p\-Next}}
+\index{p\-Next@{p\-Next}!BtShared@{Bt\-Shared}}
+\subsubsection[{p\-Next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bt\-Shared}$\ast$ Bt\-Shared\-::p\-Next}}\label{struct_bt_shared_aaa9dd5c5d4ec2bb79ebe4b37ee926ae3}
+\hypertarget{struct_bt_shared_a296dffd1c698ec175fee109718f32d5d}{\index{Bt\-Shared@{Bt\-Shared}!p\-Page1@{p\-Page1}}
+\index{p\-Page1@{p\-Page1}!BtShared@{Bt\-Shared}}
+\subsubsection[{p\-Page1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mem\-Page}$\ast$ Bt\-Shared\-::p\-Page1}}\label{struct_bt_shared_a296dffd1c698ec175fee109718f32d5d}
+\hypertarget{struct_bt_shared_ab79703fc47a16446274457588d7eb989}{\index{Bt\-Shared@{Bt\-Shared}!p\-Pager@{p\-Pager}}
+\index{p\-Pager@{p\-Pager}!BtShared@{Bt\-Shared}}
+\subsubsection[{p\-Pager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pager}$\ast$ Bt\-Shared\-::p\-Pager}}\label{struct_bt_shared_ab79703fc47a16446274457588d7eb989}
+\hypertarget{struct_bt_shared_aea3ccb6775c768fbd4f3e29df8cb925d}{\index{Bt\-Shared@{Bt\-Shared}!p\-Schema@{p\-Schema}}
+\index{p\-Schema@{p\-Schema}!BtShared@{Bt\-Shared}}
+\subsubsection[{p\-Schema}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Bt\-Shared\-::p\-Schema}}\label{struct_bt_shared_aea3ccb6775c768fbd4f3e29df8cb925d}
+\hypertarget{struct_bt_shared_a89102c20327da8a304f7e95af557bdf4}{\index{Bt\-Shared@{Bt\-Shared}!p\-Tmp\-Space@{p\-Tmp\-Space}}
+\index{p\-Tmp\-Space@{p\-Tmp\-Space}!BtShared@{Bt\-Shared}}
+\subsubsection[{p\-Tmp\-Space}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8}$\ast$ Bt\-Shared\-::p\-Tmp\-Space}}\label{struct_bt_shared_a89102c20327da8a304f7e95af557bdf4}
+\hypertarget{struct_bt_shared_ad8b2679e54027d58a3be3afcca4df1d6}{\index{Bt\-Shared@{Bt\-Shared}!p\-Writer@{p\-Writer}}
+\index{p\-Writer@{p\-Writer}!BtShared@{Bt\-Shared}}
+\subsubsection[{p\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Btree}$\ast$ Bt\-Shared\-::p\-Writer}}\label{struct_bt_shared_ad8b2679e54027d58a3be3afcca4df1d6}
+\hypertarget{struct_bt_shared_a3209efe543084a7e60f22913a794f5cb}{\index{Bt\-Shared@{Bt\-Shared}!usable\-Size@{usable\-Size}}
+\index{usable\-Size@{usable\-Size}!BtShared@{Bt\-Shared}}
+\subsubsection[{usable\-Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Bt\-Shared\-::usable\-Size}}\label{struct_bt_shared_a3209efe543084a7e60f22913a794f5cb}
+\hypertarget{struct_bt_shared_a7c4816c63acea30ed44ffc58b468463e}{\index{Bt\-Shared@{Bt\-Shared}!x\-Free\-Schema@{x\-Free\-Schema}}
+\index{x\-Free\-Schema@{x\-Free\-Schema}!BtShared@{Bt\-Shared}}
+\subsubsection[{x\-Free\-Schema}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Bt\-Shared\-::x\-Free\-Schema)(void $\ast$)}}\label{struct_bt_shared_a7c4816c63acea30ed44ffc58b468463e}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

@@ -3,6 +3,11 @@
 }
 
 
+Stores key code and its mode.  
+
+
+
+
 {\ttfamily \#include $<$key.\-h$>$}
 
 \subsection*{Public Types}
@@ -12,41 +17,63 @@ enum \hyperlink{class_key_a6f8c4beba5584878553ee5b3077be416}{M\-O\-D\-E} \{ \hyp
 \hyperlink{class_key_a6f8c4beba5584878553ee5b3077be416ab0381f960318045ea8221f73863fd499}{D\-O\-W\-N}, 
 \hyperlink{class_key_a6f8c4beba5584878553ee5b3077be416a94528a9df1ce9f0789fb5e33780424f1}{U\-P}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Mode for the key. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_key_a26feef290360ca3bba9b5bb6831de445}{Key} (unsigned short key\-Code, unsigned short mode=0)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates new key with the given key code and mode. \end{DoxyCompactList}\item 
 void \hyperlink{class_key_ab3097a0cdb61e5e7c1e2f3cba6746a37}{insert\-Key\-To} (std\-::vector$<$ I\-N\-P\-U\-T $>$ \&inputs)
-\item 
+\begin{DoxyCompactList}\small\item\em Inserts new key to the specified vector of I\-N\-P\-U\-T objects. \end{DoxyCompactList}\item 
 void \hyperlink{class_key_a2586bfede14e2f7ccc0faf07ec1b6841}{set\-Key\-Code} (unsigned short key\-Code)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets virtual key code. \end{DoxyCompactList}\item 
 unsigned short \hyperlink{class_key_a0acebcc2e10270c2f31c1c5f96395fa7}{get\-Key\-Code} () const 
 \item 
 void \hyperlink{class_key_a87cab00dc5a5e7490e62d48f0560085e}{set\-Mode} (unsigned short mode)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets mode for a key. \end{DoxyCompactList}\item 
 unsigned short \hyperlink{class_key_a3c6d49b9f94672a8e17ebf9f37ad3900}{get\-Mode} () const 
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \hyperlink{class_key_a4e99bf27b8920e8e16f27691efedf9ba}{insert\-Key\-To} (unsigned short key\-Code, unsigned short mode, std\-::vector$<$ I\-N\-P\-U\-T $>$ \&inputs)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Inserts given key with its mode to the specified vector of I\-N\-P\-U\-T objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 unsigned short \hyperlink{class_key_ae6d7c00f3366108e2f45886797e0566d}{m\-\_\-key\-Code}
-\item 
+\begin{DoxyCompactList}\small\item\em Virtual code for the key. \end{DoxyCompactList}\item 
 unsigned short \hyperlink{class_key_a6e6fc320c7ab65b829317223f357d706}{m\-\_\-mode}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Mode for the key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stores key code and its mode. 
+
+The class is used to store keys that are available to users via send\-Text() api function. The key is converted to I\-N\-P\-U\-T structure to be put into Send\-Input function. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28.\-07.\-2012 
+\end{DoxyDate}
 
 
 \subsection{Member Enumeration Documentation}
 \hypertarget{class_key_a6f8c4beba5584878553ee5b3077be416}{\index{Key@{Key}!M\-O\-D\-E@{M\-O\-D\-E}}
 \index{M\-O\-D\-E@{M\-O\-D\-E}!Key@{Key}}
 \subsubsection[{M\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Key\-::\-M\-O\-D\-E}}}\label{class_key_a6f8c4beba5584878553ee5b3077be416}
-\begin{Desc}
+
+
+Mode for the key. 
+
+The value is set to \hyperlink{class_key_a6e6fc320c7ab65b829317223f357d706}{Key\-::m\-\_\-mode} variable. \begin{DoxyVerb}            Possible value:
+            Key::CLICK -> Down + Up,
+            Key::DOWN -> Down,
+            Key::UP -> UP.\end{DoxyVerb}
+ \begin{Desc}
 \item[Enumerator\-: ]\par
 \begin{description}
 \index{C\-L\-I\-C\-K@{C\-L\-I\-C\-K}!Key@{Key}}\index{Key@{Key}!C\-L\-I\-C\-K@{C\-L\-I\-C\-K}}\item[{\em 
@@ -71,6 +98,17 @@ unsigned short \hyperlink{class_key_a6e6fc320c7ab65b829317223f357d706}{m\-\_\-mo
 )}}\label{class_key_a26feef290360ca3bba9b5bb6831de445}
 
 
+Creates new key with the given key code and mode. 
+
+See \hyperlink{class_key_a6f8c4beba5584878553ee5b3077be416}{Key\-::\-M\-O\-D\-E} for more details about modes. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em key\-Code} & Virtual key code. \\
+\hline
+\mbox{\tt in}  & {\em mode} & Mode that the key is created for. \\
+\hline
+\end{DoxyParams}
+
+
 \subsection{Member Function Documentation}
 \hypertarget{class_key_a0acebcc2e10270c2f31c1c5f96395fa7}{\index{Key@{Key}!get\-Key\-Code@{get\-Key\-Code}}
 \index{get\-Key\-Code@{get\-Key\-Code}!Key@{Key}}
@@ -78,14 +116,20 @@ unsigned short \hyperlink{class_key_a6e6fc320c7ab65b829317223f357d706}{m\-\_\-mo
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_key_a0acebcc2e10270c2f31c1c5f96395fa7}
+) const}}\label{class_key_a0acebcc2e10270c2f31c1c5f96395fa7}
+\begin{DoxyReturn}{Returns}
+Virtual key code. 
+\end{DoxyReturn}
 \hypertarget{class_key_a3c6d49b9f94672a8e17ebf9f37ad3900}{\index{Key@{Key}!get\-Mode@{get\-Mode}}
 \index{get\-Mode@{get\-Mode}!Key@{Key}}
 \subsubsection[{get\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Key\-::get\-Mode (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_key_a3c6d49b9f94672a8e17ebf9f37ad3900}
+) const}}\label{class_key_a3c6d49b9f94672a8e17ebf9f37ad3900}
+\begin{DoxyReturn}{Returns}
+Mode for the key. 
+\end{DoxyReturn}
 \hypertarget{class_key_ab3097a0cdb61e5e7c1e2f3cba6746a37}{\index{Key@{Key}!insert\-Key\-To@{insert\-Key\-To}}
 \index{insert\-Key\-To@{insert\-Key\-To}!Key@{Key}}
 \subsubsection[{insert\-Key\-To}]{\setlength{\rightskip}{0pt plus 5cm}void Key\-::insert\-Key\-To (
@@ -93,6 +137,15 @@ unsigned short \hyperlink{class_key_a6e6fc320c7ab65b829317223f357d706}{m\-\_\-mo
 \item[{std\-::vector$<$ I\-N\-P\-U\-T $>$ \&}]{inputs}
 \end{DoxyParamCaption}
 )}}\label{class_key_ab3097a0cdb61e5e7c1e2f3cba6746a37}
+
+
+Inserts new key to the specified vector of I\-N\-P\-U\-T objects. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em inputs} & Vector of I\-N\-P\-U\-T objects which the key is inserted to. \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_key_a4e99bf27b8920e8e16f27691efedf9ba}{\index{Key@{Key}!insert\-Key\-To@{insert\-Key\-To}}
 \index{insert\-Key\-To@{insert\-Key\-To}!Key@{Key}}
 \subsubsection[{insert\-Key\-To}]{\setlength{\rightskip}{0pt plus 5cm}void Key\-::insert\-Key\-To (
@@ -102,30 +155,69 @@ unsigned short \hyperlink{class_key_a6e6fc320c7ab65b829317223f357d706}{m\-\_\-mo
 \item[{std\-::vector$<$ I\-N\-P\-U\-T $>$ \&}]{inputs}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_key_a4e99bf27b8920e8e16f27691efedf9ba}
+
+
+Inserts given key with its mode to the specified vector of I\-N\-P\-U\-T objects. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em key\-Code} & Virtual key code. \\
+\hline
+\mbox{\tt in}  & {\em mode} & Mode of the key. \\
+\hline
+\mbox{\tt in,out}  & {\em inputs} & Vector of I\-N\-P\-U\-T objects which the key is inserted to. \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_key_a2586bfede14e2f7ccc0faf07ec1b6841}{\index{Key@{Key}!set\-Key\-Code@{set\-Key\-Code}}
 \index{set\-Key\-Code@{set\-Key\-Code}!Key@{Key}}
 \subsubsection[{set\-Key\-Code}]{\setlength{\rightskip}{0pt plus 5cm}void Key\-::set\-Key\-Code (
 \begin{DoxyParamCaption}
 \item[{unsigned short}]{key\-Code}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_key_a2586bfede14e2f7ccc0faf07ec1b6841}
+)}}\label{class_key_a2586bfede14e2f7ccc0faf07ec1b6841}
+
+
+Sets virtual key code. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em key\-Code} & Virtual key code to be set. \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_key_a87cab00dc5a5e7490e62d48f0560085e}{\index{Key@{Key}!set\-Mode@{set\-Mode}}
 \index{set\-Mode@{set\-Mode}!Key@{Key}}
 \subsubsection[{set\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void Key\-::set\-Mode (
 \begin{DoxyParamCaption}
 \item[{unsigned short}]{mode}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_key_a87cab00dc5a5e7490e62d48f0560085e}
+)}}\label{class_key_a87cab00dc5a5e7490e62d48f0560085e}
+
+
+Sets mode for a key. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & Mode of the key. \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Data Documentation}
 \hypertarget{class_key_ae6d7c00f3366108e2f45886797e0566d}{\index{Key@{Key}!m\-\_\-key\-Code@{m\-\_\-key\-Code}}
 \index{m\-\_\-key\-Code@{m\-\_\-key\-Code}!Key@{Key}}
 \subsubsection[{m\-\_\-key\-Code}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Key\-::m\-\_\-key\-Code\hspace{0.3cm}{\ttfamily [private]}}}\label{class_key_ae6d7c00f3366108e2f45886797e0566d}
+
+
+Virtual code for the key. 
+
 \hypertarget{class_key_a6e6fc320c7ab65b829317223f357d706}{\index{Key@{Key}!m\-\_\-mode@{m\-\_\-mode}}
 \index{m\-\_\-mode@{m\-\_\-mode}!Key@{Key}}
 \subsubsection[{m\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Key\-::m\-\_\-mode\hspace{0.3cm}{\ttfamily [private]}}}\label{class_key_a6e6fc320c7ab65b829317223f357d706}
 
+
+Mode for the key. 
+
+See \hyperlink{class_key_a6f8c4beba5584878553ee5b3077be416}{Key\-::\-M\-O\-D\-E} for more details. 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

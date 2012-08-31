@@ -1,0 +1,214 @@
+\hypertarget{struct_calendar_tools}{\section{Calendar\-Tools Class Reference}
+\label{struct_calendar_tools}\index{Calendar\-Tools@{Calendar\-Tools}}
+}
+
+
+Pointers for calendar tools.  
+
+
+
+
+{\ttfamily \#include $<$calendar\-\_\-tools.\-h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{struct_calendar_tools_a499725b50479cb7ecbb6e0eb3854970a}{enable\-For\-Action} (\hyperlink{class_action}{Action} $\ast$action)
+\begin{DoxyCompactList}\small\item\em This method is called when an action without repetitions has been selected on the calendar to enable buttons for operating on actions. \end{DoxyCompactList}\item 
+static void \hyperlink{struct_calendar_tools_a107f3ffac6ca0ed79f18cd38cdc0905b}{disable\-For\-Action} ()
+\begin{DoxyCompactList}\small\item\em This method is called when an action with repetitions has been selected on the calendar to enable buttons for operating on actions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Q\-Tool\-Button $\ast$ \hyperlink{struct_calendar_tools_a0ebec6f50027e7bcaa0a7222517c0ec6}{Add\-Button} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the \char`\"{}\-Add\char`\"{} button. \end{DoxyCompactList}\item 
+static Q\-Tool\-Button $\ast$ \hyperlink{struct_calendar_tools_a9104f9618315fc0072bc3004010e5aa4}{Edit\-Button} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the \char`\"{}\-Edit\char`\"{} button. \end{DoxyCompactList}\item 
+static Q\-Tool\-Button $\ast$ \hyperlink{struct_calendar_tools_ab68a7129df2c2d873265d2205bd94de1}{Remove\-Action\-Button} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the \char`\"{}\-Remove\char`\"{} button on the calendar (not the one next to scripts list). \end{DoxyCompactList}\item 
+static Q\-Tool\-Button $\ast$ \hyperlink{struct_calendar_tools_a4c4ae188d97622a4da7b1b0c47f7629d}{Detach\-Action\-Button} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the \char`\"{}\-Detach\char`\"{} button. \end{DoxyCompactList}\item 
+static Q\-Tool\-Button $\ast$ \hyperlink{struct_calendar_tools_a63d3c0ee2fe25cad5f813d23b7dd2a16}{Up\-Button} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the \char`\"{}\-Up\char`\"{} button (blue up arrow). \end{DoxyCompactList}\item 
+static Q\-Tool\-Button $\ast$ \hyperlink{struct_calendar_tools_a9a5b20ba0477c0debcf109039d929eb0}{Down\-Button} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the \char`\"{}\-Down\char`\"{} button (blue down arrow). \end{DoxyCompactList}\item 
+static Q\-Tool\-Button $\ast$ \hyperlink{struct_calendar_tools_ab71ef476286fc32d4279dcb56ba670d5}{Left\-Button} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the \char`\"{}\-Left\char`\"{} button (blue left arrow). \end{DoxyCompactList}\item 
+static Q\-Tool\-Button $\ast$ \hyperlink{struct_calendar_tools_a59954d8547d3129599bd876421dfcc2b}{Right\-Button} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the \char`\"{}\-Right\char`\"{} button (blue right arrow). \end{DoxyCompactList}\item 
+static Q\-Action $\ast$ \hyperlink{struct_calendar_tools_ad4f631aa1cb1476d18ece1e48980b4c8}{New\-Menu} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the New action in the app menu. \end{DoxyCompactList}\item 
+static Q\-Action $\ast$ \hyperlink{struct_calendar_tools_a7f5675473159417f0d1fe16888f105b8}{Edit\-Menu} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the Edit action in the app menu. \end{DoxyCompactList}\item 
+static Q\-Action $\ast$ \hyperlink{struct_calendar_tools_ac969b2f3e0a0b9a6f216775d98e1fa6b}{Remove\-Menu} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the Remove action in the app menu. \end{DoxyCompactList}\item 
+static Q\-Action $\ast$ \hyperlink{struct_calendar_tools_a09210d97a0a3aaf912aaa2389a076ff3}{Detach\-Menu} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the Detach action in the app menu. \end{DoxyCompactList}\item 
+static Q\-Action $\ast$ \hyperlink{struct_calendar_tools_a174a6b8b94ae40062c8524780e62e711}{Move\-Left\-Menu} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the Move left action in the app menu. \end{DoxyCompactList}\item 
+static Q\-Action $\ast$ \hyperlink{struct_calendar_tools_a1cecf21c2b4a9b28c8c75e7dfe6a38c6}{Move\-Up\-Menu} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the Move up action in the app menu. \end{DoxyCompactList}\item 
+static Q\-Action $\ast$ \hyperlink{struct_calendar_tools_a5a19b157c4c77918001ad466460c1a3a}{Move\-Down\-Menu} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the Move down action in the app menu. \end{DoxyCompactList}\item 
+static Q\-Action $\ast$ \hyperlink{struct_calendar_tools_a234dcaec9a66d3dcb95b3d310fe7e166}{Move\-Right\-Menu} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the Move right action in the app menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Pointers for calendar tools. 
+
+Tools used for editing, removing, detaching and positioning actions on the calendar. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+18.\-08.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{struct_calendar_tools_a107f3ffac6ca0ed79f18cd38cdc0905b}{\index{Calendar\-Tools@{Calendar\-Tools}!disable\-For\-Action@{disable\-For\-Action}}
+\index{disable\-For\-Action@{disable\-For\-Action}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{disable\-For\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Calendar\-Tools\-::disable\-For\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a107f3ffac6ca0ed79f18cd38cdc0905b}
+
+
+This method is called when an action with repetitions has been selected on the calendar to enable buttons for operating on actions. 
+
+This method will be called when there are more than once actions on actions list. \hypertarget{struct_calendar_tools_a499725b50479cb7ecbb6e0eb3854970a}{\index{Calendar\-Tools@{Calendar\-Tools}!enable\-For\-Action@{enable\-For\-Action}}
+\index{enable\-For\-Action@{enable\-For\-Action}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{enable\-For\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Calendar\-Tools\-::enable\-For\-Action (
+\begin{DoxyParamCaption}
+\item[{{\bf Action} $\ast$}]{action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a499725b50479cb7ecbb6e0eb3854970a}
+
+
+This method is called when an action without repetitions has been selected on the calendar to enable buttons for operating on actions. 
+
+This method will be called when there is only one action on actions list. 
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_calendar_tools_a0ebec6f50027e7bcaa0a7222517c0ec6}{\index{Calendar\-Tools@{Calendar\-Tools}!Add\-Button@{Add\-Button}}
+\index{Add\-Button@{Add\-Button}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Add\-Button}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Tool\-Button $\ast$ Calendar\-Tools\-::\-Add\-Button = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a0ebec6f50027e7bcaa0a7222517c0ec6}
+
+
+Pointer to the \char`\"{}\-Add\char`\"{} button. 
+
+\hypertarget{struct_calendar_tools_a4c4ae188d97622a4da7b1b0c47f7629d}{\index{Calendar\-Tools@{Calendar\-Tools}!Detach\-Action\-Button@{Detach\-Action\-Button}}
+\index{Detach\-Action\-Button@{Detach\-Action\-Button}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Detach\-Action\-Button}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Tool\-Button $\ast$ Calendar\-Tools\-::\-Detach\-Action\-Button = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a4c4ae188d97622a4da7b1b0c47f7629d}
+
+
+Pointer to the \char`\"{}\-Detach\char`\"{} button. 
+
+\hypertarget{struct_calendar_tools_a09210d97a0a3aaf912aaa2389a076ff3}{\index{Calendar\-Tools@{Calendar\-Tools}!Detach\-Menu@{Detach\-Menu}}
+\index{Detach\-Menu@{Detach\-Menu}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Detach\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Action $\ast$ Calendar\-Tools\-::\-Detach\-Menu = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a09210d97a0a3aaf912aaa2389a076ff3}
+
+
+Pointer to the Detach action in the app menu. 
+
+\hypertarget{struct_calendar_tools_a9a5b20ba0477c0debcf109039d929eb0}{\index{Calendar\-Tools@{Calendar\-Tools}!Down\-Button@{Down\-Button}}
+\index{Down\-Button@{Down\-Button}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Down\-Button}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Tool\-Button $\ast$ Calendar\-Tools\-::\-Down\-Button = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a9a5b20ba0477c0debcf109039d929eb0}
+
+
+Pointer to the \char`\"{}\-Down\char`\"{} button (blue down arrow). 
+
+\hypertarget{struct_calendar_tools_a9104f9618315fc0072bc3004010e5aa4}{\index{Calendar\-Tools@{Calendar\-Tools}!Edit\-Button@{Edit\-Button}}
+\index{Edit\-Button@{Edit\-Button}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Edit\-Button}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Tool\-Button $\ast$ Calendar\-Tools\-::\-Edit\-Button = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a9104f9618315fc0072bc3004010e5aa4}
+
+
+Pointer to the \char`\"{}\-Edit\char`\"{} button. 
+
+\hypertarget{struct_calendar_tools_a7f5675473159417f0d1fe16888f105b8}{\index{Calendar\-Tools@{Calendar\-Tools}!Edit\-Menu@{Edit\-Menu}}
+\index{Edit\-Menu@{Edit\-Menu}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Edit\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Action $\ast$ Calendar\-Tools\-::\-Edit\-Menu = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a7f5675473159417f0d1fe16888f105b8}
+
+
+Pointer to the Edit action in the app menu. 
+
+\hypertarget{struct_calendar_tools_ab71ef476286fc32d4279dcb56ba670d5}{\index{Calendar\-Tools@{Calendar\-Tools}!Left\-Button@{Left\-Button}}
+\index{Left\-Button@{Left\-Button}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Left\-Button}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Tool\-Button $\ast$ Calendar\-Tools\-::\-Left\-Button = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_ab71ef476286fc32d4279dcb56ba670d5}
+
+
+Pointer to the \char`\"{}\-Left\char`\"{} button (blue left arrow). 
+
+\hypertarget{struct_calendar_tools_a5a19b157c4c77918001ad466460c1a3a}{\index{Calendar\-Tools@{Calendar\-Tools}!Move\-Down\-Menu@{Move\-Down\-Menu}}
+\index{Move\-Down\-Menu@{Move\-Down\-Menu}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Move\-Down\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Action $\ast$ Calendar\-Tools\-::\-Move\-Down\-Menu = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a5a19b157c4c77918001ad466460c1a3a}
+
+
+Pointer to the Move down action in the app menu. 
+
+\hypertarget{struct_calendar_tools_a174a6b8b94ae40062c8524780e62e711}{\index{Calendar\-Tools@{Calendar\-Tools}!Move\-Left\-Menu@{Move\-Left\-Menu}}
+\index{Move\-Left\-Menu@{Move\-Left\-Menu}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Move\-Left\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Action $\ast$ Calendar\-Tools\-::\-Move\-Left\-Menu = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a174a6b8b94ae40062c8524780e62e711}
+
+
+Pointer to the Move left action in the app menu. 
+
+\hypertarget{struct_calendar_tools_a234dcaec9a66d3dcb95b3d310fe7e166}{\index{Calendar\-Tools@{Calendar\-Tools}!Move\-Right\-Menu@{Move\-Right\-Menu}}
+\index{Move\-Right\-Menu@{Move\-Right\-Menu}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Move\-Right\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Action $\ast$ Calendar\-Tools\-::\-Move\-Right\-Menu = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a234dcaec9a66d3dcb95b3d310fe7e166}
+
+
+Pointer to the Move right action in the app menu. 
+
+\hypertarget{struct_calendar_tools_a1cecf21c2b4a9b28c8c75e7dfe6a38c6}{\index{Calendar\-Tools@{Calendar\-Tools}!Move\-Up\-Menu@{Move\-Up\-Menu}}
+\index{Move\-Up\-Menu@{Move\-Up\-Menu}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Move\-Up\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Action $\ast$ Calendar\-Tools\-::\-Move\-Up\-Menu = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a1cecf21c2b4a9b28c8c75e7dfe6a38c6}
+
+
+Pointer to the Move up action in the app menu. 
+
+\hypertarget{struct_calendar_tools_ad4f631aa1cb1476d18ece1e48980b4c8}{\index{Calendar\-Tools@{Calendar\-Tools}!New\-Menu@{New\-Menu}}
+\index{New\-Menu@{New\-Menu}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{New\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Action $\ast$ Calendar\-Tools\-::\-New\-Menu = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_ad4f631aa1cb1476d18ece1e48980b4c8}
+
+
+Pointer to the New action in the app menu. 
+
+\hypertarget{struct_calendar_tools_ab68a7129df2c2d873265d2205bd94de1}{\index{Calendar\-Tools@{Calendar\-Tools}!Remove\-Action\-Button@{Remove\-Action\-Button}}
+\index{Remove\-Action\-Button@{Remove\-Action\-Button}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Remove\-Action\-Button}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Tool\-Button $\ast$ Calendar\-Tools\-::\-Remove\-Action\-Button = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_ab68a7129df2c2d873265d2205bd94de1}
+
+
+Pointer to the \char`\"{}\-Remove\char`\"{} button on the calendar (not the one next to scripts list). 
+
+\hypertarget{struct_calendar_tools_ac969b2f3e0a0b9a6f216775d98e1fa6b}{\index{Calendar\-Tools@{Calendar\-Tools}!Remove\-Menu@{Remove\-Menu}}
+\index{Remove\-Menu@{Remove\-Menu}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Remove\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Action $\ast$ Calendar\-Tools\-::\-Remove\-Menu = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_ac969b2f3e0a0b9a6f216775d98e1fa6b}
+
+
+Pointer to the Remove action in the app menu. 
+
+\hypertarget{struct_calendar_tools_a59954d8547d3129599bd876421dfcc2b}{\index{Calendar\-Tools@{Calendar\-Tools}!Right\-Button@{Right\-Button}}
+\index{Right\-Button@{Right\-Button}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Right\-Button}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Tool\-Button $\ast$ Calendar\-Tools\-::\-Right\-Button = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a59954d8547d3129599bd876421dfcc2b}
+
+
+Pointer to the \char`\"{}\-Right\char`\"{} button (blue right arrow). 
+
+\hypertarget{struct_calendar_tools_a63d3c0ee2fe25cad5f813d23b7dd2a16}{\index{Calendar\-Tools@{Calendar\-Tools}!Up\-Button@{Up\-Button}}
+\index{Up\-Button@{Up\-Button}!CalendarTools@{Calendar\-Tools}}
+\subsubsection[{Up\-Button}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Tool\-Button $\ast$ Calendar\-Tools\-::\-Up\-Button = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}}}\label{struct_calendar_tools_a63d3c0ee2fe25cad5f813d23b7dd2a16}
+
+
+Pointer to the \char`\"{}\-Up\char`\"{} button (blue up arrow). 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{calendar__tools_8h}{calendar\-\_\-tools.\-h}\item 
+Do\-For\-Me!/\hyperlink{calendar__tools_8cpp}{calendar\-\_\-tools.\-cpp}\end{DoxyCompactItemize}

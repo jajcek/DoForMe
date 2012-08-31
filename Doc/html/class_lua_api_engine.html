@@ -92,63 +92,108 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>LUA API functions.  
+ <a href="class_lua_api_engine.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="lua__api_8h_source.html">lua_api.h</a>&gt;</code></p>
 
 <p><a href="class_lua_api_engine-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae3642a4f6256f202dd88726b70ed3936"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ae3642a4f6256f202dd88726b70ed3936">setLuaEngine</a> (<a class="el" href="class_lua_engine.html">LuaEngine</a> *luaEngine)</td></tr>
 <tr class="memitem:a7f614e9a85e02951c0a21e694654b83a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a7f614e9a85e02951c0a21e694654b83a">initSpecialKeys</a> ()</td></tr>
+<tr class="memdesc:a7f614e9a85e02951c0a21e694654b83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize all special keys that will be available to users.  <a href="#a7f614e9a85e02951c0a21e694654b83a"></a><br/></td></tr>
 <tr class="memitem:a03308524bb7be3fca0e5865a0eba6c41"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a03308524bb7be3fca0e5865a0eba6c41">prepareSleep</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a03308524bb7be3fca0e5865a0eba6c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts watiting (LuaApiEngie::sleep) command to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a03308524bb7be3fca0e5865a0eba6c41"></a><br/></td></tr>
 <tr class="memitem:a5e6c9c1b66d19a4f65d6c65d6ae849a2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a5e6c9c1b66d19a4f65d6c65d6ae849a2">prepareLeftDown</a> (lua_State *state)</td></tr>
-<tr class="memdesc:a5e6c9c1b66d19a4f65d6c65d6ae849a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts action of pressing left mouse button onto the stack.  <a href="#a5e6c9c1b66d19a4f65d6c65d6ae849a2"></a><br/></td></tr>
+<tr class="memdesc:a5e6c9c1b66d19a4f65d6c65d6ae849a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts left mouse button press command (<a class="el" href="class_lua_api_engine.html#a5942498f999031601960d890b259536b" title="Executes left mouse button press.">LuaApiEngine::leftDown</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a5e6c9c1b66d19a4f65d6c65d6ae849a2"></a><br/></td></tr>
 <tr class="memitem:a9975cd495e847300968ce6149846c2f9"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a9975cd495e847300968ce6149846c2f9">prepareRightDown</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a9975cd495e847300968ce6149846c2f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts right mouse button press command (<a class="el" href="class_lua_api_engine.html#a14df77fdabe3ddf5dd19c35e70acb2d8" title="Executes right mouse button press.">LuaApiEngine::rightDown</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a9975cd495e847300968ce6149846c2f9"></a><br/></td></tr>
 <tr class="memitem:a5cd6791cd7b80bb58c0e917f1c35369c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a5cd6791cd7b80bb58c0e917f1c35369c">prepareMiddleDown</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a5cd6791cd7b80bb58c0e917f1c35369c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts middle mouse button press command (<a class="el" href="class_lua_api_engine.html#abea870a5edb171b0bc2345dd1e1e7b95" title="Executes middle mouse button press.">LuaApiEngine::middleDown</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a5cd6791cd7b80bb58c0e917f1c35369c"></a><br/></td></tr>
 <tr class="memitem:a15078a5e7a8cedb80f088703b587ec81"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a15078a5e7a8cedb80f088703b587ec81">prepareLeftDownAt</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a15078a5e7a8cedb80f088703b587ec81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts left mouse button press command (LuaApiEngine::leftDownAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a15078a5e7a8cedb80f088703b587ec81"></a><br/></td></tr>
 <tr class="memitem:a1798695ce32c9d6526a8818535dbc7cf"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a1798695ce32c9d6526a8818535dbc7cf">prepareRightDownAt</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a1798695ce32c9d6526a8818535dbc7cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts right mouse button press command (LuaApiEngine::rightDownAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a1798695ce32c9d6526a8818535dbc7cf"></a><br/></td></tr>
 <tr class="memitem:a6862d91bd6f2a46f7a86f0a5d19c7545"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a6862d91bd6f2a46f7a86f0a5d19c7545">prepareMiddleDownAt</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a6862d91bd6f2a46f7a86f0a5d19c7545"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts middle mouse button press command (LuaApiEngine::middleDownAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a6862d91bd6f2a46f7a86f0a5d19c7545"></a><br/></td></tr>
 <tr class="memitem:ad60b37dcca8dc42b6a70219b5b9fce95"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ad60b37dcca8dc42b6a70219b5b9fce95">prepareLeftUp</a> (lua_State *state)</td></tr>
+<tr class="memdesc:ad60b37dcca8dc42b6a70219b5b9fce95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts left mouse button releasing command (<a class="el" href="class_lua_api_engine.html#a926f72169c400bb32186737f03208e1c" title="Executes left mouse button release.">LuaApiEngine::leftUp</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#ad60b37dcca8dc42b6a70219b5b9fce95"></a><br/></td></tr>
 <tr class="memitem:a6777e46c87e999bd66c4ae349a9078cf"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a6777e46c87e999bd66c4ae349a9078cf">prepareRightUp</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a6777e46c87e999bd66c4ae349a9078cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts right mouse button releasing command (<a class="el" href="class_lua_api_engine.html#ae8b09733792cc95ca22654be8074bfbf" title="Executes right mouse button release.">LuaApiEngine::rightUp</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a6777e46c87e999bd66c4ae349a9078cf"></a><br/></td></tr>
 <tr class="memitem:a846fe811b326260da13425a8b9b6f908"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a846fe811b326260da13425a8b9b6f908">prepareMiddleUp</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a846fe811b326260da13425a8b9b6f908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts middle mouse button releasing command (<a class="el" href="class_lua_api_engine.html#a2cd4a53a99e262aa9d5e83a2b34b6538" title="Executes middle mouse button release.">LuaApiEngine::middleUp</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a846fe811b326260da13425a8b9b6f908"></a><br/></td></tr>
 <tr class="memitem:a6e63e8131106f5e01d445a564e6569f5"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a6e63e8131106f5e01d445a564e6569f5">prepareLeftUpAt</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a6e63e8131106f5e01d445a564e6569f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts left mouse button releasing command (LuaApiEngine::leftUpAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a6e63e8131106f5e01d445a564e6569f5"></a><br/></td></tr>
 <tr class="memitem:a63574f6087f18f635b1df170d51391a6"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a63574f6087f18f635b1df170d51391a6">prepareRightUpAt</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a63574f6087f18f635b1df170d51391a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts right mouse button releasing command (LuaApiEngine::rightUpAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a63574f6087f18f635b1df170d51391a6"></a><br/></td></tr>
 <tr class="memitem:aba8972c05819c262e4a9d8dec53b7e8f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#aba8972c05819c262e4a9d8dec53b7e8f">prepareMiddleUpAt</a> (lua_State *state)</td></tr>
+<tr class="memdesc:aba8972c05819c262e4a9d8dec53b7e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts middle mouse button releasing command (LuaApiEngine::middleUpAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#aba8972c05819c262e4a9d8dec53b7e8f"></a><br/></td></tr>
 <tr class="memitem:aa4ec049683c5ca8fe5b317f9daa80cf2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#aa4ec049683c5ca8fe5b317f9daa80cf2">prepareLeftClick</a> (lua_State *state)</td></tr>
+<tr class="memdesc:aa4ec049683c5ca8fe5b317f9daa80cf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts left mouse button click command (<a class="el" href="class_lua_api_engine.html#ae857b39d951f50a206989c3422cb5494" title="Executes left mouse button click.">LuaApiEngine::leftClick</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#aa4ec049683c5ca8fe5b317f9daa80cf2"></a><br/></td></tr>
 <tr class="memitem:a516e303be81f5691e5963e6a470a0d6c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a516e303be81f5691e5963e6a470a0d6c">prepareRightClick</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a516e303be81f5691e5963e6a470a0d6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts right mouse button click command (<a class="el" href="class_lua_api_engine.html#a7b3664b6f2593d3bd817edeee61a18e6" title="Executes right mouse button click.">LuaApiEngine::rightClick</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a516e303be81f5691e5963e6a470a0d6c"></a><br/></td></tr>
 <tr class="memitem:a4644c161b4336ff836816a8ecbed562e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a4644c161b4336ff836816a8ecbed562e">prepareMiddleClick</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a4644c161b4336ff836816a8ecbed562e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts middle mouse button click command (<a class="el" href="class_lua_api_engine.html#a633c229323434db2d1af7f66c1517a34" title="Executes middle mouse button click.">LuaApiEngine::middleClick</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a4644c161b4336ff836816a8ecbed562e"></a><br/></td></tr>
 <tr class="memitem:a2109f8d536e8238941ea3d5254feee6e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a2109f8d536e8238941ea3d5254feee6e">prepareLeftClickAt</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a2109f8d536e8238941ea3d5254feee6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts left mouse button click command (LuaApiEngine::leftClickAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a2109f8d536e8238941ea3d5254feee6e"></a><br/></td></tr>
 <tr class="memitem:ac5b06389118f48d5e320b81c3c5ba5d0"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ac5b06389118f48d5e320b81c3c5ba5d0">prepareRightClickAt</a> (lua_State *state)</td></tr>
+<tr class="memdesc:ac5b06389118f48d5e320b81c3c5ba5d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts right mouse button click command (LuaApiEngine::rightClickAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#ac5b06389118f48d5e320b81c3c5ba5d0"></a><br/></td></tr>
 <tr class="memitem:a3ecc218b3b366bde3d8c4e7c8f039f5e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a3ecc218b3b366bde3d8c4e7c8f039f5e">prepareMiddleClickAt</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a3ecc218b3b366bde3d8c4e7c8f039f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts middle mouse button click command (LuaApiEngine::middleClickAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a3ecc218b3b366bde3d8c4e7c8f039f5e"></a><br/></td></tr>
 <tr class="memitem:ab545cafb77e825b84d787d0dbae34bc2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ab545cafb77e825b84d787d0dbae34bc2">prepareLeftDoubleClick</a> (lua_State *state)</td></tr>
+<tr class="memdesc:ab545cafb77e825b84d787d0dbae34bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts left mouse button double click command (<a class="el" href="class_lua_api_engine.html#a2004f3ce56fc785e0276491642e39e7a" title="Executes left mouse button double click.">LuaApiEngine::leftDoubleClick</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#ab545cafb77e825b84d787d0dbae34bc2"></a><br/></td></tr>
 <tr class="memitem:afb3a41719b02c24b851ff53a029207e6"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#afb3a41719b02c24b851ff53a029207e6">prepareLeftDoubleClickAt</a> (lua_State *state)</td></tr>
+<tr class="memdesc:afb3a41719b02c24b851ff53a029207e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts left mouse button double click command (LuaApiEngine::leftDoubleClickAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#afb3a41719b02c24b851ff53a029207e6"></a><br/></td></tr>
 <tr class="memitem:a700aa78e4509bca70b5b23cfe98ce7b3"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a700aa78e4509bca70b5b23cfe98ce7b3">prepareMoveTo</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a700aa78e4509bca70b5b23cfe98ce7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts mouse move command (<a class="el" href="class_lua_api_engine.html#a8512ba309e37218b1586f8a41cae4451" title="Executes mouse movement.">LuaApiEngine::moveTo</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a700aa78e4509bca70b5b23cfe98ce7b3"></a><br/></td></tr>
 <tr class="memitem:a8f327b5c6d5819c9078b53a665842c47"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a8f327b5c6d5819c9078b53a665842c47">prepareSendText</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a8f327b5c6d5819c9078b53a665842c47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts sending text command (<a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169" title="Executes sending text.">LuaApiEngine::sendText</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a8f327b5c6d5819c9078b53a665842c47"></a><br/></td></tr>
 <tr class="memitem:a5942498f999031601960d890b259536b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a5942498f999031601960d890b259536b">leftDown</a> ()</td></tr>
+<tr class="memdesc:a5942498f999031601960d890b259536b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes left mouse button press.  <a href="#a5942498f999031601960d890b259536b"></a><br/></td></tr>
 <tr class="memitem:a14df77fdabe3ddf5dd19c35e70acb2d8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a14df77fdabe3ddf5dd19c35e70acb2d8">rightDown</a> ()</td></tr>
+<tr class="memdesc:a14df77fdabe3ddf5dd19c35e70acb2d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes right mouse button press.  <a href="#a14df77fdabe3ddf5dd19c35e70acb2d8"></a><br/></td></tr>
 <tr class="memitem:abea870a5edb171b0bc2345dd1e1e7b95"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#abea870a5edb171b0bc2345dd1e1e7b95">middleDown</a> ()</td></tr>
+<tr class="memdesc:abea870a5edb171b0bc2345dd1e1e7b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes middle mouse button press.  <a href="#abea870a5edb171b0bc2345dd1e1e7b95"></a><br/></td></tr>
 <tr class="memitem:a926f72169c400bb32186737f03208e1c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a926f72169c400bb32186737f03208e1c">leftUp</a> ()</td></tr>
+<tr class="memdesc:a926f72169c400bb32186737f03208e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes left mouse button release.  <a href="#a926f72169c400bb32186737f03208e1c"></a><br/></td></tr>
 <tr class="memitem:ae8b09733792cc95ca22654be8074bfbf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ae8b09733792cc95ca22654be8074bfbf">rightUp</a> ()</td></tr>
+<tr class="memdesc:ae8b09733792cc95ca22654be8074bfbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes right mouse button release.  <a href="#ae8b09733792cc95ca22654be8074bfbf"></a><br/></td></tr>
 <tr class="memitem:a2cd4a53a99e262aa9d5e83a2b34b6538"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a2cd4a53a99e262aa9d5e83a2b34b6538">middleUp</a> ()</td></tr>
+<tr class="memdesc:a2cd4a53a99e262aa9d5e83a2b34b6538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes middle mouse button release.  <a href="#a2cd4a53a99e262aa9d5e83a2b34b6538"></a><br/></td></tr>
 <tr class="memitem:ae857b39d951f50a206989c3422cb5494"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ae857b39d951f50a206989c3422cb5494">leftClick</a> ()</td></tr>
+<tr class="memdesc:ae857b39d951f50a206989c3422cb5494"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes left mouse button click.  <a href="#ae857b39d951f50a206989c3422cb5494"></a><br/></td></tr>
 <tr class="memitem:a7b3664b6f2593d3bd817edeee61a18e6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a7b3664b6f2593d3bd817edeee61a18e6">rightClick</a> ()</td></tr>
+<tr class="memdesc:a7b3664b6f2593d3bd817edeee61a18e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes right mouse button click.  <a href="#a7b3664b6f2593d3bd817edeee61a18e6"></a><br/></td></tr>
 <tr class="memitem:a633c229323434db2d1af7f66c1517a34"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a633c229323434db2d1af7f66c1517a34">middleClick</a> ()</td></tr>
+<tr class="memdesc:a633c229323434db2d1af7f66c1517a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes middle mouse button click.  <a href="#a633c229323434db2d1af7f66c1517a34"></a><br/></td></tr>
 <tr class="memitem:a2004f3ce56fc785e0276491642e39e7a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a2004f3ce56fc785e0276491642e39e7a">leftDoubleClick</a> ()</td></tr>
+<tr class="memdesc:a2004f3ce56fc785e0276491642e39e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes left mouse button double click.  <a href="#a2004f3ce56fc785e0276491642e39e7a"></a><br/></td></tr>
 <tr class="memitem:a6910c482ffa6327999b49504522991b7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a6910c482ffa6327999b49504522991b7">sleep</a> (std::deque&lt; int &gt; args)</td></tr>
+<tr class="memdesc:a6910c482ffa6327999b49504522991b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes waiting command.  <a href="#a6910c482ffa6327999b49504522991b7"></a><br/></td></tr>
 <tr class="memitem:a8512ba309e37218b1586f8a41cae4451"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a8512ba309e37218b1586f8a41cae4451">moveTo</a> (std::deque&lt; int &gt; args)</td></tr>
+<tr class="memdesc:a8512ba309e37218b1586f8a41cae4451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes mouse movement.  <a href="#a8512ba309e37218b1586f8a41cae4451"></a><br/></td></tr>
 <tr class="memitem:a396ae61c3f7c771f5fe06584cef15169"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169">sendText</a> (std::deque&lt; int &gt; args)</td></tr>
+<tr class="memdesc:a396ae61c3f7c771f5fe06584cef15169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes sending text.  <a href="#a396ae61c3f7c771f5fe06584cef15169"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
-<tr class="memitem:ae6514c96984b4c7eb3068c3a29648f69"><td class="memItemLeft" align="right" valign="top">static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ae6514c96984b4c7eb3068c3a29648f69">getSpecialKey</a> (int &amp;i, std::deque&lt; int &gt; &amp;args)</td></tr>
+<tr class="memitem:ac1b8a6a2ea07065dc1c3f7eed7937d8d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ac1b8a6a2ea07065dc1c3f7eed7937d8d">getSpecialKey</a> (QString &amp;specialKey, std::deque&lt; int &gt; &amp;args)</td></tr>
+<tr class="memdesc:ac1b8a6a2ea07065dc1c3f7eed7937d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function that gets text from {} brackets from <a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169" title="Executes sending text.">LuaApiEngine::sendText()</a> argument.  <a href="#ac1b8a6a2ea07065dc1c3f7eed7937d8d"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:afff2b87b3c828c0904df2d7e6f6bd389"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_lua_engine.html">LuaEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#afff2b87b3c828c0904df2d7e6f6bd389">m_luaEngine</a></td></tr>
 <tr class="memitem:a9fdba2d7f2f8d051453b5d1561435f5e"><td class="memItemLeft" align="right" valign="top">static std::map&lt; QString, <a class="el" href="class_key.html">Key</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a9fdba2d7f2f8d051453b5d1561435f5e">m_specialKeys</a></td></tr>
+<tr class="memdesc:a9fdba2d7f2f8d051453b5d1561435f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Field that maps string to <a class="el" href="class_key.html" title="Stores key code and its mode.">Key</a> object.  <a href="#a9fdba2d7f2f8d051453b5d1561435f5e"></a><br/></td></tr>
 </table>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ae6514c96984b4c7eb3068c3a29648f69"></a>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>LUA API functions. </p>
+<p>Stores all the definitions of API functions available to users. Functions with pattern "prepareX" are the preparing functions that are invoked during lua's engine parsing. The functions put the commands (pointers to functions without 'prepare' prefix) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a> object. See example for <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<dl class="section author"><dt>Author:</dt><dd>Jacek Topolski </dd></dl>
+<dl class="section version"><dt>Version:</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date:</dt><dd>29.06.2012 </dd></dl>
+</div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ac1b8a6a2ea07065dc1c3f7eed7937d8d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -156,10 +201,10 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QString LuaApiEngine::getSpecialKey </td>
+          <td class="memname">int LuaApiEngine::getSpecialKey </td>
           <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
+          <td class="paramtype">QString &amp;&#160;</td>
+          <td class="paramname"><em>specialKey</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -179,6 +224,16 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Helper function that gets text from {} brackets from <a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169" title="Executes sending text.">LuaApiEngine::sendText()</a> argument. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">specialKey</td><td>Variable in which we save text taken from {} brackets. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">args</td><td>Kind of vector which keeps all symbol from the text from <a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169" title="Executes sending text.">LuaApiEngine::sendText()</a> argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>Number of read symbols. </dd></dl>
 
 </div>
 </div>
@@ -203,6 +258,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Initialize all special keys that will be available to users. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a1">LuaEngine_example.cpp</a>.</dd>
+</dl>
 </div>
 </div>
 <a class="anchor" id="ae857b39d951f50a206989c3422cb5494"></a>
@@ -225,6 +283,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Executes left mouse button click. </p>
 
 </div>
 </div>
@@ -249,6 +309,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Executes left mouse button double click. </p>
+
 </div>
 </div>
 <a class="anchor" id="a5942498f999031601960d890b259536b"></a>
@@ -271,7 +333,9 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="lua_engine_example_8cpp-example.html#a5">luaEngine_example.cpp</a>.</dd>
+
+<p>Executes left mouse button press. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a6">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -296,6 +360,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Executes left mouse button release. </p>
+
 </div>
 </div>
 <a class="anchor" id="a633c229323434db2d1af7f66c1517a34"></a>
@@ -318,6 +384,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Executes middle mouse button click. </p>
 
 </div>
 </div>
@@ -342,6 +410,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Executes middle mouse button press. </p>
+
 </div>
 </div>
 <a class="anchor" id="a2cd4a53a99e262aa9d5e83a2b34b6538"></a>
@@ -364,6 +434,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Executes middle mouse button release. </p>
 
 </div>
 </div>
@@ -388,7 +460,15 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="lua_engine_example_8cpp-example.html#a7">luaEngine_example.cpp</a>.</dd>
+
+<p>Executes mouse movement. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Array which contains arguments for the function. In this case there are two arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a8">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -414,6 +494,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts left mouse button click command (<a class="el" href="class_lua_api_engine.html#ae857b39d951f50a206989c3422cb5494" title="Executes left mouse button click.">LuaApiEngine::leftClick</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a2109f8d536e8238941ea3d5254feee6e"></a>
@@ -437,6 +521,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Puts left mouse button click command (LuaApiEngine::leftClickAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Comparing to the <a class="el" href="class_lua_api_engine.html#ad60b37dcca8dc42b6a70219b5b9fce95" title="Puts left mouse button releasing command (LuaApiEngine::leftUp) to the LuaEngine.">LuaApiEngine::prepareLeftUp</a>, this version lets user to define a point that the mouse will move to before clicking. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 
 </div>
 </div>
@@ -462,6 +550,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts left mouse button double click command (<a class="el" href="class_lua_api_engine.html#a2004f3ce56fc785e0276491642e39e7a" title="Executes left mouse button double click.">LuaApiEngine::leftDoubleClick</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="afb3a41719b02c24b851ff53a029207e6"></a>
@@ -485,6 +577,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Puts left mouse button double click command (LuaApiEngine::leftDoubleClickAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Comparing to the <a class="el" href="class_lua_api_engine.html#ab545cafb77e825b84d787d0dbae34bc2" title="Puts left mouse button double click command (LuaApiEngine::leftDoubleClick) to the LuaEngine...">LuaApiEngine::prepareLeftDoubleClick</a>, this version lets user to define a point that the mouse will move to before pressing. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 
 </div>
 </div>
@@ -510,9 +606,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Puts action of pressing left mouse button onto the stack. </p>
-<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="lua_engine_example_8cpp-example.html#a4">luaEngine_example.cpp</a>.</dd>
+<p>Puts left mouse button press command (<a class="el" href="class_lua_api_engine.html#a5942498f999031601960d890b259536b" title="Executes left mouse button press.">LuaApiEngine::leftDown</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a5">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -538,6 +635,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts left mouse button press command (LuaApiEngine::leftDownAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Comparing to the <a class="el" href="class_lua_api_engine.html#a5e6c9c1b66d19a4f65d6c65d6ae849a2" title="Puts left mouse button press command (LuaApiEngine::leftDown) to the LuaEngine.">LuaApiEngine::prepareLeftDown</a>, this version lets user to define a point that the mouse will move to before pressing. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="ad60b37dcca8dc42b6a70219b5b9fce95"></a>
@@ -561,6 +662,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Puts left mouse button releasing command (<a class="el" href="class_lua_api_engine.html#a926f72169c400bb32186737f03208e1c" title="Executes left mouse button release.">LuaApiEngine::leftUp</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 
 </div>
 </div>
@@ -586,6 +691,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts left mouse button releasing command (LuaApiEngine::leftUpAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Comparing to the <a class="el" href="class_lua_api_engine.html#ad60b37dcca8dc42b6a70219b5b9fce95" title="Puts left mouse button releasing command (LuaApiEngine::leftUp) to the LuaEngine.">LuaApiEngine::prepareLeftUp</a>, this version lets user to define a point that the mouse will move to before releasing. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a4644c161b4336ff836816a8ecbed562e"></a>
@@ -609,6 +718,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Puts middle mouse button click command (<a class="el" href="class_lua_api_engine.html#a633c229323434db2d1af7f66c1517a34" title="Executes middle mouse button click.">LuaApiEngine::middleClick</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 
 </div>
 </div>
@@ -634,6 +747,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts middle mouse button click command (LuaApiEngine::middleClickAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Comparing to the <a class="el" href="class_lua_api_engine.html#a846fe811b326260da13425a8b9b6f908" title="Puts middle mouse button releasing command (LuaApiEngine::middleUp) to the LuaEngine.">LuaApiEngine::prepareMiddleUp</a>, this version lets user to define a point that the mouse will move to before clicking. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a5cd6791cd7b80bb58c0e917f1c35369c"></a>
@@ -657,6 +774,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Puts middle mouse button press command (<a class="el" href="class_lua_api_engine.html#abea870a5edb171b0bc2345dd1e1e7b95" title="Executes middle mouse button press.">LuaApiEngine::middleDown</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 
 </div>
 </div>
@@ -682,6 +803,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts middle mouse button press command (LuaApiEngine::middleDownAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Comparing to the <a class="el" href="class_lua_api_engine.html#a5cd6791cd7b80bb58c0e917f1c35369c" title="Puts middle mouse button press command (LuaApiEngine::middleDown) to the LuaEngine.">LuaApiEngine::prepareMiddleDown</a>, this version lets user to define a point that the mouse will move to before pressing. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a846fe811b326260da13425a8b9b6f908"></a>
@@ -705,6 +830,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Puts middle mouse button releasing command (<a class="el" href="class_lua_api_engine.html#a2cd4a53a99e262aa9d5e83a2b34b6538" title="Executes middle mouse button release.">LuaApiEngine::middleUp</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 
 </div>
 </div>
@@ -730,6 +859,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts middle mouse button releasing command (LuaApiEngine::middleUpAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Comparing to the <a class="el" href="class_lua_api_engine.html#a846fe811b326260da13425a8b9b6f908" title="Puts middle mouse button releasing command (LuaApiEngine::middleUp) to the LuaEngine.">LuaApiEngine::prepareMiddleUp</a>, this version lets user to define a point that the mouse will move to before releasing. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a700aa78e4509bca70b5b23cfe98ce7b3"></a>
@@ -753,7 +886,11 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="lua_engine_example_8cpp-example.html#a6">luaEngine_example.cpp</a>.</dd>
+
+<p>Puts mouse move command (<a class="el" href="class_lua_api_engine.html#a8512ba309e37218b1586f8a41cae4451" title="Executes mouse movement.">LuaApiEngine::moveTo</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a7">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -779,6 +916,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts right mouse button click command (<a class="el" href="class_lua_api_engine.html#a7b3664b6f2593d3bd817edeee61a18e6" title="Executes right mouse button click.">LuaApiEngine::rightClick</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="ac5b06389118f48d5e320b81c3c5ba5d0"></a>
@@ -802,6 +943,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Puts right mouse button click command (LuaApiEngine::rightClickAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Comparing to the <a class="el" href="class_lua_api_engine.html#a6777e46c87e999bd66c4ae349a9078cf" title="Puts right mouse button releasing command (LuaApiEngine::rightUp) to the LuaEngine.">LuaApiEngine::prepareRightUp</a>, this version lets user to define a point that the mouse will move to before clicking. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 
 </div>
 </div>
@@ -827,6 +972,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts right mouse button press command (<a class="el" href="class_lua_api_engine.html#a14df77fdabe3ddf5dd19c35e70acb2d8" title="Executes right mouse button press.">LuaApiEngine::rightDown</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a1798695ce32c9d6526a8818535dbc7cf"></a>
@@ -850,6 +999,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Puts right mouse button press command (LuaApiEngine::rightDownAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Comparing to the <a class="el" href="class_lua_api_engine.html#a9975cd495e847300968ce6149846c2f9" title="Puts right mouse button press command (LuaApiEngine::rightDown) to the LuaEngine.">LuaApiEngine::prepareRightDown</a>, this version lets user to define a point that the mouse will move to before pressing. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 
 </div>
 </div>
@@ -875,6 +1028,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts right mouse button releasing command (<a class="el" href="class_lua_api_engine.html#ae8b09733792cc95ca22654be8074bfbf" title="Executes right mouse button release.">LuaApiEngine::rightUp</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a63574f6087f18f635b1df170d51391a6"></a>
@@ -898,6 +1055,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Puts right mouse button releasing command (LuaApiEngine::rightUpAt) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Comparing to the <a class="el" href="class_lua_api_engine.html#a6777e46c87e999bd66c4ae349a9078cf" title="Puts right mouse button releasing command (LuaApiEngine::rightUp) to the LuaEngine.">LuaApiEngine::prepareRightUp</a>, this version lets user to define a point that the mouse will move to before releasing. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 
 </div>
 </div>
@@ -923,6 +1084,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts sending text command (<a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169" title="Executes sending text.">LuaApiEngine::sendText</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>See <a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169" title="Executes sending text.">LuaApiEngine::sendText( std::deque&lt;int&gt; args )</a> for more details about sending text. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a03308524bb7be3fca0e5865a0eba6c41"></a>
@@ -946,7 +1111,11 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="lua_engine_example_8cpp-example.html#a2">luaEngine_example.cpp</a>.</dd>
+
+<p>Puts watiting (LuaApiEngie::sleep) command to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a3">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -971,6 +1140,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Executes right mouse button click. </p>
+
 </div>
 </div>
 <a class="anchor" id="a14df77fdabe3ddf5dd19c35e70acb2d8"></a>
@@ -994,6 +1165,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Executes right mouse button press. </p>
+
 </div>
 </div>
 <a class="anchor" id="ae8b09733792cc95ca22654be8074bfbf"></a>
@@ -1016,6 +1189,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Executes right mouse button release. </p>
 
 </div>
 </div>
@@ -1041,29 +1216,13 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="ae3642a4f6256f202dd88726b70ed3936"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void LuaApiEngine::setLuaEngine </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_lua_engine.html">LuaEngine</a> *&#160;</td>
-          <td class="paramname"><em>luaEngine</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Executes sending text. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Array which contains arguments for the function. In this case every element is a symbol from the given text. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1088,31 +1247,19 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="lua_engine_example_8cpp-example.html#a3">luaEngine_example.cpp</a>.</dd>
+
+<p>Executes waiting command. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Array which contains arguments for the function. In this case there's only one argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a4">LuaEngine_example.cpp</a>.</dd>
 </dl>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="afff2b87b3c828c0904df2d7e6f6bd389"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_lua_engine.html">LuaEngine</a> * LuaApiEngine::m_luaEngine</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a9fdba2d7f2f8d051453b5d1561435f5e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1131,6 +1278,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Field that maps string to <a class="el" href="class_key.html" title="Stores key code and its mode.">Key</a> object. </p>
+<p>String is a special key text (e.g. {tab} which is equal to tabulator symbol on keyboard), whereas key object is a manager for a key on the keyboard. See <a class="el" href="class_key.html" title="Stores key code and its mode.">Key</a> class for more details. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -1140,7 +1290,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 17 2012 19:15:36 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 29 2012 23:05:31 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -1,0 +1,64 @@
+\hypertarget{struct_btree}{\section{Btree Struct Reference}
+\label{struct_btree}\index{Btree@{Btree}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structsqlite3}{sqlite3} $\ast$ \hyperlink{struct_btree_a2b3cfec48b6e9fcfd641d433816ae5c3}{db}
+\item 
+\hyperlink{struct_bt_shared}{Bt\-Shared} $\ast$ \hyperlink{struct_btree_a63bab5d744d48d14368af048dddf2f20}{p\-Bt}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_btree_a50007448960c05dfd1fdc7db3e277685}{in\-Trans}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_btree_a114f157127c76a1fbad8292e4b39c4dd}{sharable}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_btree_a16fc8292bae9a66cfec03f6cb82d06a8}{locked}
+\item 
+int \hyperlink{struct_btree_a97368ea300f0b74b8e80ea07da0cea2a}{want\-To\-Lock}
+\item 
+int \hyperlink{struct_btree_a7a3e7cf38bc9c3021a9e270a54ecfb1e}{n\-Backup}
+\item 
+\hyperlink{struct_btree}{Btree} $\ast$ \hyperlink{struct_btree_a9e6d2ca44c10ed8ef0be004225a74ef5}{p\-Next}
+\item 
+\hyperlink{struct_btree}{Btree} $\ast$ \hyperlink{struct_btree_a0423f1c55c1fe6812161a49bb2bf604f}{p\-Prev}
+\item 
+\hyperlink{struct_bt_lock}{Bt\-Lock} \hyperlink{struct_btree_a943ed8799c9943f753a88cf44f1632dc}{lock}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_btree_a2b3cfec48b6e9fcfd641d433816ae5c3}{\index{Btree@{Btree}!db@{db}}
+\index{db@{db}!Btree@{Btree}}
+\subsubsection[{db}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3}$\ast$ Btree\-::db}}\label{struct_btree_a2b3cfec48b6e9fcfd641d433816ae5c3}
+\hypertarget{struct_btree_a50007448960c05dfd1fdc7db3e277685}{\index{Btree@{Btree}!in\-Trans@{in\-Trans}}
+\index{in\-Trans@{in\-Trans}!Btree@{Btree}}
+\subsubsection[{in\-Trans}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Btree\-::in\-Trans}}\label{struct_btree_a50007448960c05dfd1fdc7db3e277685}
+\hypertarget{struct_btree_a943ed8799c9943f753a88cf44f1632dc}{\index{Btree@{Btree}!lock@{lock}}
+\index{lock@{lock}!Btree@{Btree}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bt\-Lock} Btree\-::lock}}\label{struct_btree_a943ed8799c9943f753a88cf44f1632dc}
+\hypertarget{struct_btree_a16fc8292bae9a66cfec03f6cb82d06a8}{\index{Btree@{Btree}!locked@{locked}}
+\index{locked@{locked}!Btree@{Btree}}
+\subsubsection[{locked}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Btree\-::locked}}\label{struct_btree_a16fc8292bae9a66cfec03f6cb82d06a8}
+\hypertarget{struct_btree_a7a3e7cf38bc9c3021a9e270a54ecfb1e}{\index{Btree@{Btree}!n\-Backup@{n\-Backup}}
+\index{n\-Backup@{n\-Backup}!Btree@{Btree}}
+\subsubsection[{n\-Backup}]{\setlength{\rightskip}{0pt plus 5cm}int Btree\-::n\-Backup}}\label{struct_btree_a7a3e7cf38bc9c3021a9e270a54ecfb1e}
+\hypertarget{struct_btree_a63bab5d744d48d14368af048dddf2f20}{\index{Btree@{Btree}!p\-Bt@{p\-Bt}}
+\index{p\-Bt@{p\-Bt}!Btree@{Btree}}
+\subsubsection[{p\-Bt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bt\-Shared}$\ast$ Btree\-::p\-Bt}}\label{struct_btree_a63bab5d744d48d14368af048dddf2f20}
+\hypertarget{struct_btree_a9e6d2ca44c10ed8ef0be004225a74ef5}{\index{Btree@{Btree}!p\-Next@{p\-Next}}
+\index{p\-Next@{p\-Next}!Btree@{Btree}}
+\subsubsection[{p\-Next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Btree}$\ast$ Btree\-::p\-Next}}\label{struct_btree_a9e6d2ca44c10ed8ef0be004225a74ef5}
+\hypertarget{struct_btree_a0423f1c55c1fe6812161a49bb2bf604f}{\index{Btree@{Btree}!p\-Prev@{p\-Prev}}
+\index{p\-Prev@{p\-Prev}!Btree@{Btree}}
+\subsubsection[{p\-Prev}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Btree}$\ast$ Btree\-::p\-Prev}}\label{struct_btree_a0423f1c55c1fe6812161a49bb2bf604f}
+\hypertarget{struct_btree_a114f157127c76a1fbad8292e4b39c4dd}{\index{Btree@{Btree}!sharable@{sharable}}
+\index{sharable@{sharable}!Btree@{Btree}}
+\subsubsection[{sharable}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Btree\-::sharable}}\label{struct_btree_a114f157127c76a1fbad8292e4b39c4dd}
+\hypertarget{struct_btree_a97368ea300f0b74b8e80ea07da0cea2a}{\index{Btree@{Btree}!want\-To\-Lock@{want\-To\-Lock}}
+\index{want\-To\-Lock@{want\-To\-Lock}!Btree@{Btree}}
+\subsubsection[{want\-To\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}int Btree\-::want\-To\-Lock}}\label{struct_btree_a97368ea300f0b74b8e80ea07da0cea2a}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

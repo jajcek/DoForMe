@@ -1,0 +1,94 @@
+\hypertarget{struct_vdbe_frame}{\section{Vdbe\-Frame Struct Reference}
+\label{struct_vdbe_frame}\index{Vdbe\-Frame@{Vdbe\-Frame}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_vdbe}{Vdbe} $\ast$ \hyperlink{struct_vdbe_frame_a2f6258356959c94398d1d006a740c4ce}{v}
+\item 
+\hyperlink{struct_vdbe_frame}{Vdbe\-Frame} $\ast$ \hyperlink{struct_vdbe_frame_afb11d8aa920f34720333f52737375d59}{p\-Parent}
+\item 
+\hyperlink{sqlite3_8c_af3e8e0a774ea3e53b5d64297468c3298}{Op} $\ast$ \hyperlink{struct_vdbe_frame_a0e5670c52e8eeb7e66bf1e3bff8ce2b5}{a\-Op}
+\item 
+\hyperlink{struct_mem}{Mem} $\ast$ \hyperlink{struct_vdbe_frame_a98b9eabf633e77d4ae2dfe9d13a43fdf}{a\-Mem}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} $\ast$ \hyperlink{struct_vdbe_frame_a92608c14f2aa3be81e65d59000ef8bd8}{a\-Once\-Flag}
+\item 
+\hyperlink{struct_vdbe_cursor}{Vdbe\-Cursor} $\ast$$\ast$ \hyperlink{struct_vdbe_frame_a5d373b3a195dbd1a31f5aa0dbe1822ee}{ap\-Csr}
+\item 
+void $\ast$ \hyperlink{struct_vdbe_frame_a11de10011ea2164995c6b616bba8a576}{token}
+\item 
+\hyperlink{sqlite3_8c_a2a0f0f4ae7001eb54351f77ea1cdbcfd}{i64} \hyperlink{struct_vdbe_frame_af655193217fb53c7acab9d24c94344aa}{last\-Rowid}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_vdbe_frame_af6d743df3f86ff683959562c1b615655}{n\-Cursor}
+\item 
+int \hyperlink{struct_vdbe_frame_aed0e6d8cb1908580a3c2aca04516b46c}{pc}
+\item 
+int \hyperlink{struct_vdbe_frame_acffd5d53fbb5cb55e257c34a547c1762}{n\-Op}
+\item 
+int \hyperlink{struct_vdbe_frame_ab340f2b5f6d6e09a872f5f8a64fec245}{n\-Mem}
+\item 
+int \hyperlink{struct_vdbe_frame_a04707991a2907a48a1c3b76f3da4d26b}{n\-Once\-Flag}
+\item 
+int \hyperlink{struct_vdbe_frame_a833bdf519676567bc3a700cdedc6562d}{n\-Child\-Mem}
+\item 
+int \hyperlink{struct_vdbe_frame_a2d2900348092258d12eb71057812429a}{n\-Child\-Csr}
+\item 
+int \hyperlink{struct_vdbe_frame_a77aacb67d627f4446dd50a795b5a2f0f}{n\-Change}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_vdbe_frame_a98b9eabf633e77d4ae2dfe9d13a43fdf}{\index{Vdbe\-Frame@{Vdbe\-Frame}!a\-Mem@{a\-Mem}}
+\index{a\-Mem@{a\-Mem}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{a\-Mem}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mem}$\ast$ Vdbe\-Frame\-::a\-Mem}}\label{struct_vdbe_frame_a98b9eabf633e77d4ae2dfe9d13a43fdf}
+\hypertarget{struct_vdbe_frame_a92608c14f2aa3be81e65d59000ef8bd8}{\index{Vdbe\-Frame@{Vdbe\-Frame}!a\-Once\-Flag@{a\-Once\-Flag}}
+\index{a\-Once\-Flag@{a\-Once\-Flag}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{a\-Once\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8}$\ast$ Vdbe\-Frame\-::a\-Once\-Flag}}\label{struct_vdbe_frame_a92608c14f2aa3be81e65d59000ef8bd8}
+\hypertarget{struct_vdbe_frame_a0e5670c52e8eeb7e66bf1e3bff8ce2b5}{\index{Vdbe\-Frame@{Vdbe\-Frame}!a\-Op@{a\-Op}}
+\index{a\-Op@{a\-Op}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{a\-Op}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Op}$\ast$ Vdbe\-Frame\-::a\-Op}}\label{struct_vdbe_frame_a0e5670c52e8eeb7e66bf1e3bff8ce2b5}
+\hypertarget{struct_vdbe_frame_a5d373b3a195dbd1a31f5aa0dbe1822ee}{\index{Vdbe\-Frame@{Vdbe\-Frame}!ap\-Csr@{ap\-Csr}}
+\index{ap\-Csr@{ap\-Csr}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{ap\-Csr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vdbe\-Cursor}$\ast$$\ast$ Vdbe\-Frame\-::ap\-Csr}}\label{struct_vdbe_frame_a5d373b3a195dbd1a31f5aa0dbe1822ee}
+\hypertarget{struct_vdbe_frame_af655193217fb53c7acab9d24c94344aa}{\index{Vdbe\-Frame@{Vdbe\-Frame}!last\-Rowid@{last\-Rowid}}
+\index{last\-Rowid@{last\-Rowid}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{last\-Rowid}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i64} Vdbe\-Frame\-::last\-Rowid}}\label{struct_vdbe_frame_af655193217fb53c7acab9d24c94344aa}
+\hypertarget{struct_vdbe_frame_a77aacb67d627f4446dd50a795b5a2f0f}{\index{Vdbe\-Frame@{Vdbe\-Frame}!n\-Change@{n\-Change}}
+\index{n\-Change@{n\-Change}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{n\-Change}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Frame\-::n\-Change}}\label{struct_vdbe_frame_a77aacb67d627f4446dd50a795b5a2f0f}
+\hypertarget{struct_vdbe_frame_a2d2900348092258d12eb71057812429a}{\index{Vdbe\-Frame@{Vdbe\-Frame}!n\-Child\-Csr@{n\-Child\-Csr}}
+\index{n\-Child\-Csr@{n\-Child\-Csr}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{n\-Child\-Csr}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Frame\-::n\-Child\-Csr}}\label{struct_vdbe_frame_a2d2900348092258d12eb71057812429a}
+\hypertarget{struct_vdbe_frame_a833bdf519676567bc3a700cdedc6562d}{\index{Vdbe\-Frame@{Vdbe\-Frame}!n\-Child\-Mem@{n\-Child\-Mem}}
+\index{n\-Child\-Mem@{n\-Child\-Mem}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{n\-Child\-Mem}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Frame\-::n\-Child\-Mem}}\label{struct_vdbe_frame_a833bdf519676567bc3a700cdedc6562d}
+\hypertarget{struct_vdbe_frame_af6d743df3f86ff683959562c1b615655}{\index{Vdbe\-Frame@{Vdbe\-Frame}!n\-Cursor@{n\-Cursor}}
+\index{n\-Cursor@{n\-Cursor}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{n\-Cursor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Vdbe\-Frame\-::n\-Cursor}}\label{struct_vdbe_frame_af6d743df3f86ff683959562c1b615655}
+\hypertarget{struct_vdbe_frame_ab340f2b5f6d6e09a872f5f8a64fec245}{\index{Vdbe\-Frame@{Vdbe\-Frame}!n\-Mem@{n\-Mem}}
+\index{n\-Mem@{n\-Mem}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{n\-Mem}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Frame\-::n\-Mem}}\label{struct_vdbe_frame_ab340f2b5f6d6e09a872f5f8a64fec245}
+\hypertarget{struct_vdbe_frame_a04707991a2907a48a1c3b76f3da4d26b}{\index{Vdbe\-Frame@{Vdbe\-Frame}!n\-Once\-Flag@{n\-Once\-Flag}}
+\index{n\-Once\-Flag@{n\-Once\-Flag}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{n\-Once\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Frame\-::n\-Once\-Flag}}\label{struct_vdbe_frame_a04707991a2907a48a1c3b76f3da4d26b}
+\hypertarget{struct_vdbe_frame_acffd5d53fbb5cb55e257c34a547c1762}{\index{Vdbe\-Frame@{Vdbe\-Frame}!n\-Op@{n\-Op}}
+\index{n\-Op@{n\-Op}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{n\-Op}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Frame\-::n\-Op}}\label{struct_vdbe_frame_acffd5d53fbb5cb55e257c34a547c1762}
+\hypertarget{struct_vdbe_frame_aed0e6d8cb1908580a3c2aca04516b46c}{\index{Vdbe\-Frame@{Vdbe\-Frame}!pc@{pc}}
+\index{pc@{pc}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{pc}]{\setlength{\rightskip}{0pt plus 5cm}int Vdbe\-Frame\-::pc}}\label{struct_vdbe_frame_aed0e6d8cb1908580a3c2aca04516b46c}
+\hypertarget{struct_vdbe_frame_afb11d8aa920f34720333f52737375d59}{\index{Vdbe\-Frame@{Vdbe\-Frame}!p\-Parent@{p\-Parent}}
+\index{p\-Parent@{p\-Parent}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{p\-Parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vdbe\-Frame}$\ast$ Vdbe\-Frame\-::p\-Parent}}\label{struct_vdbe_frame_afb11d8aa920f34720333f52737375d59}
+\hypertarget{struct_vdbe_frame_a11de10011ea2164995c6b616bba8a576}{\index{Vdbe\-Frame@{Vdbe\-Frame}!token@{token}}
+\index{token@{token}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{token}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Vdbe\-Frame\-::token}}\label{struct_vdbe_frame_a11de10011ea2164995c6b616bba8a576}
+\hypertarget{struct_vdbe_frame_a2f6258356959c94398d1d006a740c4ce}{\index{Vdbe\-Frame@{Vdbe\-Frame}!v@{v}}
+\index{v@{v}!VdbeFrame@{Vdbe\-Frame}}
+\subsubsection[{v}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vdbe}$\ast$ Vdbe\-Frame\-::v}}\label{struct_vdbe_frame_a2f6258356959c94398d1d006a740c4ce}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

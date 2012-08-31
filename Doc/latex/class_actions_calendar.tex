@@ -1,0 +1,647 @@
+\hypertarget{class_actions_calendar}{\section{Actions\-Calendar Class Reference}
+\label{class_actions_calendar}\index{Actions\-Calendar@{Actions\-Calendar}}
+}
+
+
+Stores all information about added actions as well as enables possibility to operate on them.  
+
+
+
+
+{\ttfamily \#include $<$calendar.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590}{D\-I\-R} \{ \hyperlink{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590a49d47d7ac31d02ee24068959caa6c7fc}{U\-P} =  0, 
+\hyperlink{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590ad0e20aae882c4df912f5d43aa5898f45}{D\-O\-W\-N}, 
+\hyperlink{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590ad5ac1c3768ea4c94013035ab481be7f3}{L\-E\-F\-T}, 
+\hyperlink{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590a4294fe73b009b4134aa7675eeb7ec9c7}{R\-I\-G\-H\-T}
+ \}
+\begin{DoxyCompactList}\small\item\em Values used to determine direction for the action moving. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_actions_calendar_a10ec91c83206ce7f89d00b4c3a1d87e3}{Actions\-Calendar} (Q\-Widget $\ast$p\-Parent)
+\begin{DoxyCompactList}\small\item\em Constructs calendar object. \end{DoxyCompactList}\item 
+\hyperlink{class_actions_calendar_aa3ab268cb557d50c5cbbb65c34a3b701}{$\sim$\-Actions\-Calendar} ()
+\begin{DoxyCompactList}\small\item\em Removes all actions by freeing its memory. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_a09bd42b81f9208f1370918036eff4284}{add\-Action} (Q\-Date date, \hyperlink{class_action}{Action} $\ast$action)
+\begin{DoxyCompactList}\small\item\em Adds action to the calendar structures. \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_actions_calendar_a26d6b3037086b4794bafaea2e2934256}{get\-Action\-By\-Id} (int id, bool for\-Selected\-Date=true) const 
+\begin{DoxyCompactList}\small\item\em Looks for an action with the given id. \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_actions_calendar_aead746bf37764a0a11e1c0e81040f5c3}{get\-Current\-Action} () const 
+\item 
+void \hyperlink{class_actions_calendar_aeba5e76ac0b5c0811b62e498131760f6}{detach\-Current\-Action} ()
+\begin{DoxyCompactList}\small\item\em Detaches action from the repetition of the currently selected action. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_acb13aa034033c2912c706c895ae740a7}{remove\-Current\-Action} ()
+\begin{DoxyCompactList}\small\item\em Removes currently selected action. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_a0290e65eac7ce79a581ee57af1d0ec22}{remove\-Current\-Actions} ()
+\begin{DoxyCompactList}\small\item\em Removes action and its repetitions. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_ad21b5104f3a37e962c9d4e99fb7f3284}{remove\-All\-Actions} ()
+\begin{DoxyCompactList}\small\item\em Removes all actions by freeing its memory. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_aed09737705fecb2b97c9ce3b61668aca}{move\-Curr\-Action} (int direction)
+\begin{DoxyCompactList}\small\item\em Moves currently selected action to the given direction. \end{DoxyCompactList}\item 
+Q\-Vector$<$ \hyperlink{class_action}{Action} $\ast$ $>$ \hyperlink{class_actions_calendar_ac822864927d26b7b076ce15fc62ef3b8}{get\-Actions\-For\-Date} (Q\-Date date) const 
+\item 
+void \hyperlink{class_actions_calendar_a09cece9ef38174fb5c0abae9281a1a8c}{set\-Current\-Action} (\hyperlink{class_action}{Action} $\ast$action)
+\begin{DoxyCompactList}\small\item\em Sets action as a currently selected action. \end{DoxyCompactList}\item 
+Q\-Date \hyperlink{class_actions_calendar_abc02af256999b1f2a47e10224ae9f92d}{get\-Selected\-Date} () const 
+\item 
+void \hyperlink{class_actions_calendar_abf331faa70595856c2b6259bceea612e}{refresh\-Repetitions} ()
+\begin{DoxyCompactList}\small\item\em Refreshes all actions on the calendar. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_a3c7f468566f0110d27e55d61f7993836}{save\-Data} () const 
+\begin{DoxyCompactList}\small\item\em Saves all actions into database. See \hyperlink{class_database}{Database} class for more details. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_af47fe81bec606206421e41b74a3a4334}{load\-Data} ()
+\begin{DoxyCompactList}\small\item\em Loads actions data from database. See \hyperlink{class_database}{Database} class for more details. \end{DoxyCompactList}\item 
+bool \hyperlink{class_actions_calendar_ae875272daa2c6f660143f6376182a118}{is\-Script\-Used} (\hyperlink{class_script}{Script} $\ast$p\-Script) const 
+\begin{DoxyCompactList}\small\item\em Checks if the script is used in any action added to calendar. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_a9ec94acf58dd114aff11dbf287a574e1}{remove\-Actions\-Using\-Script} (\hyperlink{class_script}{Script} $\ast$p\-Script)
+\begin{DoxyCompactList}\small\item\em Removes all actions and its repetitions that uses given script. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_actions_calendar_a7828ecf11d937851cb946d6b9c400936}{set\-List} (Q\-Table\-Widget $\ast$list)
+\begin{DoxyCompactList}\small\item\em Sets list on which the actions for the selected date will be listed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_actions_calendar_a83e6d5f61b80baa0f2ec87d510dc95ba}{select\-Date} (const Q\-Date \&date)
+\begin{DoxyCompactList}\small\item\em Selects date on the calendar. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_a7d3ca15f64dc55a9f41eed685212280b}{set\-Current\-Page} (int year, int month)
+\begin{DoxyCompactList}\small\item\em Sets the displayed calendar page with the given year and month. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_actions_calendar_a98854bcac5911622fff6672062bb9b79}{paint\-Cell} (Q\-Painter $\ast$painter, const Q\-Rect \&rect, const Q\-Date \&date) const 
+\begin{DoxyCompactList}\small\item\em Overriden method from Q\-Calendar\-Widget. It is responsible for painting each individual cell of the calendar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_actions_calendar_aa795d75595b42669e4367f5a7df5cb5c}{draw\-Actions\-Num} (Q\-Painter $\ast$painter, const Q\-Rect \&rect, unsigned actions\-Number) const 
+\begin{DoxyCompactList}\small\item\em Draws text \char`\"{}\-X actions\char`\"{} if there are any actions. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_a1303b962c0dd55284ed5d67d9ebcedcf}{draw\-Exclamation} (Q\-Painter $\ast$painter, const Q\-Rect \&rect) const 
+\begin{DoxyCompactList}\small\item\em Draws exclamation mark is there are any conflicts. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_a9cbce63eaf560e98255c98b7af1f6bce}{set\-Repetition} (Q\-Date date, \hyperlink{class_action}{Action} $\ast$action)
+\begin{DoxyCompactList}\small\item\em Sets repetitions for an action. \end{DoxyCompactList}\item 
+int \hyperlink{class_actions_calendar_a942fcf56d359d6cb4907bca6eef0ffa4}{find\-Index\-Of} (\hyperlink{class_action}{Action} $\ast$action)
+\begin{DoxyCompactList}\small\item\em Looks for an index of action in the vector of actions in \hyperlink{class_actions_calendar_af0f496503f8aff7dc3edbb0fdf3310b4}{Actions\-Calendar\-::m\-\_\-actions\-All}. \end{DoxyCompactList}\item 
+void \hyperlink{class_actions_calendar_a87c934ef81eef5e2c3ee73d0c0d95387}{move\-Excluded\-Dates} (\hyperlink{class_action}{Action} $\ast$action, const int days)
+\begin{DoxyCompactList}\small\item\em Moves excluded dates. \end{DoxyCompactList}\item 
+int \hyperlink{class_actions_calendar_a54994066a3ea4c7f56cff15bae20a510}{calc\-Time\-For\-New\-Day} () const 
+\begin{DoxyCompactList}\small\item\em Calculates time (in milliseconds) until midnight. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\-Date \hyperlink{class_actions_calendar_a27243b1e4fc38882d61edbba4144d6ba}{m\-\_\-selected\-Date}
+\begin{DoxyCompactList}\small\item\em Selected date on the calendar. \end{DoxyCompactList}\item 
+int \hyperlink{class_actions_calendar_ae56427a30d84117a575881cce12a0df5}{m\-\_\-displayed\-Month}
+\begin{DoxyCompactList}\small\item\em Number of month in a year that is displayed. \end{DoxyCompactList}\item 
+int \hyperlink{class_actions_calendar_a547c91e076bb2e6749163ce7ea56676e}{m\-\_\-displayed\-Year}
+\begin{DoxyCompactList}\small\item\em Current year that is displayed on the calendar. \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_actions_calendar_a5734f7c421b4e06e4f7b5fe29c9707e3}{m\-\_\-p\-Curr\-Action}
+\begin{DoxyCompactList}\small\item\em Pointer to the currently selected action. \end{DoxyCompactList}\item 
+Q\-Map$<$ Q\-Date, Q\-Vector$<$ \hyperlink{class_action}{Action} $\ast$ $>$ $>$ \hyperlink{class_actions_calendar_af0f496503f8aff7dc3edbb0fdf3310b4}{m\-\_\-actions\-All}
+\begin{DoxyCompactList}\small\item\em Map of all actions added to the calendar. The structure maps date into vector of actions for this date. \end{DoxyCompactList}\item 
+Q\-Map$<$ Q\-Date, Q\-Vector$<$ \hyperlink{class_action}{Action} $\ast$ $>$ $>$ \hyperlink{class_actions_calendar_a82967fe853474c848bc2223e4c6985fa}{m\-\_\-actions\-In\-Month}
+\begin{DoxyCompactList}\small\item\em Structure that maps date into vector of actions for this date. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Q\-Table\-Widget $\ast$ \hyperlink{class_actions_calendar_a42812597a2424012a160e7755754effa}{m\-\_\-list} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the list where actions for the selected date are listed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stores all information about added actions as well as enables possibility to operate on them. 
+
+The class is derived from the Q\-Calendar\-Widget class. In this class the paint\-Cell method has been overriden to make a unique way to paint cells (numbers of actions in a day, exclamation marks for conflicts, highlighting actions etc.). \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28.\-07.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590}{\index{Actions\-Calendar@{Actions\-Calendar}!D\-I\-R@{D\-I\-R}}
+\index{D\-I\-R@{D\-I\-R}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{D\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Actions\-Calendar\-::\-D\-I\-R}}}\label{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590}
+
+
+Values used to determine direction for the action moving. 
+
+\begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{U\-P@{U\-P}!Actions\-Calendar@{Actions\-Calendar}}\index{Actions\-Calendar@{Actions\-Calendar}!U\-P@{U\-P}}\item[{\em 
+\hypertarget{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590a49d47d7ac31d02ee24068959caa6c7fc}{U\-P}\label{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590a49d47d7ac31d02ee24068959caa6c7fc}
+}]\index{D\-O\-W\-N@{D\-O\-W\-N}!Actions\-Calendar@{Actions\-Calendar}}\index{Actions\-Calendar@{Actions\-Calendar}!D\-O\-W\-N@{D\-O\-W\-N}}\item[{\em 
+\hypertarget{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590ad0e20aae882c4df912f5d43aa5898f45}{D\-O\-W\-N}\label{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590ad0e20aae882c4df912f5d43aa5898f45}
+}]\index{L\-E\-F\-T@{L\-E\-F\-T}!Actions\-Calendar@{Actions\-Calendar}}\index{Actions\-Calendar@{Actions\-Calendar}!L\-E\-F\-T@{L\-E\-F\-T}}\item[{\em 
+\hypertarget{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590ad5ac1c3768ea4c94013035ab481be7f3}{L\-E\-F\-T}\label{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590ad5ac1c3768ea4c94013035ab481be7f3}
+}]\index{R\-I\-G\-H\-T@{R\-I\-G\-H\-T}!Actions\-Calendar@{Actions\-Calendar}}\index{Actions\-Calendar@{Actions\-Calendar}!R\-I\-G\-H\-T@{R\-I\-G\-H\-T}}\item[{\em 
+\hypertarget{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590a4294fe73b009b4134aa7675eeb7ec9c7}{R\-I\-G\-H\-T}\label{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590a4294fe73b009b4134aa7675eeb7ec9c7}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_actions_calendar_a10ec91c83206ce7f89d00b4c3a1d87e3}{\index{Actions\-Calendar@{Actions\-Calendar}!Actions\-Calendar@{Actions\-Calendar}}
+\index{Actions\-Calendar@{Actions\-Calendar}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{Actions\-Calendar}]{\setlength{\rightskip}{0pt plus 5cm}Actions\-Calendar\-::\-Actions\-Calendar (
+\begin{DoxyParamCaption}
+\item[{Q\-Widget $\ast$}]{p\-Parent}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_a10ec91c83206ce7f89d00b4c3a1d87e3}
+
+
+Constructs calendar object. 
+
+This constructor sets fundamental parts for the Q\-Calendar\-Widget like language, colours, grid, cursor as well as selects current date. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\-Parent} & Parent widget which the calendar belongs to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_aa3ab268cb557d50c5cbbb65c34a3b701}{\index{Actions\-Calendar@{Actions\-Calendar}!$\sim$\-Actions\-Calendar@{$\sim$\-Actions\-Calendar}}
+\index{$\sim$\-Actions\-Calendar@{$\sim$\-Actions\-Calendar}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{$\sim$\-Actions\-Calendar}]{\setlength{\rightskip}{0pt plus 5cm}Actions\-Calendar\-::$\sim$\-Actions\-Calendar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_aa3ab268cb557d50c5cbbb65c34a3b701}
+
+
+Removes all actions by freeing its memory. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_actions_calendar_a09bd42b81f9208f1370918036eff4284}{\index{Actions\-Calendar@{Actions\-Calendar}!add\-Action@{add\-Action}}
+\index{add\-Action@{add\-Action}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{add\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::add\-Action (
+\begin{DoxyParamCaption}
+\item[{Q\-Date}]{date, }
+\item[{{\bf Action} $\ast$}]{action}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_a09bd42b81f9208f1370918036eff4284}
+
+
+Adds action to the calendar structures. 
+
+These structures are\-: \hyperlink{class_actions_calendar_af0f496503f8aff7dc3edbb0fdf3310b4}{Actions\-Calendar\-::m\-\_\-actions\-All} (always) and \hyperlink{class_actions_calendar_a82967fe853474c848bc2223e4c6985fa}{Actions\-Calendar\-::m\-\_\-actions\-In\-Month} (on condition that this date in not an excluded date from the action). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em date} & Date which the action will be added to. \\
+\hline
+\mbox{\tt in}  & {\em action} & Pointer to the action to add. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_a54994066a3ea4c7f56cff15bae20a510}{\index{Actions\-Calendar@{Actions\-Calendar}!calc\-Time\-For\-New\-Day@{calc\-Time\-For\-New\-Day}}
+\index{calc\-Time\-For\-New\-Day@{calc\-Time\-For\-New\-Day}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{calc\-Time\-For\-New\-Day}]{\setlength{\rightskip}{0pt plus 5cm}int Actions\-Calendar\-::calc\-Time\-For\-New\-Day (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_a54994066a3ea4c7f56cff15bae20a510}
+
+
+Calculates time (in milliseconds) until midnight. 
+
+It is used for refreshing calendar at midnight. \hypertarget{class_actions_calendar_aeba5e76ac0b5c0811b62e498131760f6}{\index{Actions\-Calendar@{Actions\-Calendar}!detach\-Current\-Action@{detach\-Current\-Action}}
+\index{detach\-Current\-Action@{detach\-Current\-Action}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{detach\-Current\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::detach\-Current\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_aeba5e76ac0b5c0811b62e498131760f6}
+
+
+Detaches action from the repetition of the currently selected action. 
+
+\hypertarget{class_actions_calendar_aa795d75595b42669e4367f5a7df5cb5c}{\index{Actions\-Calendar@{Actions\-Calendar}!draw\-Actions\-Num@{draw\-Actions\-Num}}
+\index{draw\-Actions\-Num@{draw\-Actions\-Num}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{draw\-Actions\-Num}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::draw\-Actions\-Num (
+\begin{DoxyParamCaption}
+\item[{Q\-Painter $\ast$}]{painter, }
+\item[{const Q\-Rect \&}]{rect, }
+\item[{unsigned}]{actions\-Number}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_aa795d75595b42669e4367f5a7df5cb5c}
+
+
+Draws text \char`\"{}\-X actions\char`\"{} if there are any actions. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em painter} & Pointer to the engine which enables possibility to draw. \\
+\hline
+\mbox{\tt in}  & {\em rect} & Coordinates of the rect in which we will be drawing. \\
+\hline
+\mbox{\tt in}  & {\em actions\-Number} & Number of actions. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_a1303b962c0dd55284ed5d67d9ebcedcf}{\index{Actions\-Calendar@{Actions\-Calendar}!draw\-Exclamation@{draw\-Exclamation}}
+\index{draw\-Exclamation@{draw\-Exclamation}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{draw\-Exclamation}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::draw\-Exclamation (
+\begin{DoxyParamCaption}
+\item[{Q\-Painter $\ast$}]{painter, }
+\item[{const Q\-Rect \&}]{rect}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_a1303b962c0dd55284ed5d67d9ebcedcf}
+
+
+Draws exclamation mark is there are any conflicts. 
+
+Conflict happens when there are at least two actions added for the same time. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em painter} & Pointer to the engine which enables possibility to draw. \\
+\hline
+\mbox{\tt in}  & {\em rect} & Coordinates of the rect in which we will be drawing. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_a942fcf56d359d6cb4907bca6eef0ffa4}{\index{Actions\-Calendar@{Actions\-Calendar}!find\-Index\-Of@{find\-Index\-Of}}
+\index{find\-Index\-Of@{find\-Index\-Of}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{find\-Index\-Of}]{\setlength{\rightskip}{0pt plus 5cm}int Actions\-Calendar\-::find\-Index\-Of (
+\begin{DoxyParamCaption}
+\item[{{\bf Action} $\ast$}]{action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_a942fcf56d359d6cb4907bca6eef0ffa4}
+
+
+Looks for an index of action in the vector of actions in \hyperlink{class_actions_calendar_af0f496503f8aff7dc3edbb0fdf3310b4}{Actions\-Calendar\-::m\-\_\-actions\-All}. 
+
+The method searches the action in \hyperlink{class_actions_calendar_af0f496503f8aff7dc3edbb0fdf3310b4}{Actions\-Calendar\-::m\-\_\-actions\-All} by using as a key \hyperlink{class_action_a815113e01f17c6e579dc772a18cf8de7}{Action\-::get\-Main\-Date} method. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em action} & Pointer to the action we want to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the action. 
+\end{DoxyReturn}
+\hypertarget{class_actions_calendar_a26d6b3037086b4794bafaea2e2934256}{\index{Actions\-Calendar@{Actions\-Calendar}!get\-Action\-By\-Id@{get\-Action\-By\-Id}}
+\index{get\-Action\-By\-Id@{get\-Action\-By\-Id}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{get\-Action\-By\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Actions\-Calendar\-::get\-Action\-By\-Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{bool}]{for\-Selected\-Date = {\ttfamily true}}
+\end{DoxyParamCaption}
+) const}}\label{class_actions_calendar_a26d6b3037086b4794bafaea2e2934256}
+
+
+Looks for an action with the given id. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em id} & Id of the searched action. \\
+\hline
+\mbox{\tt in}  & {\em for\-Selected\-Date} & It will search only in the selected date (see \hyperlink{class_actions_calendar_a27243b1e4fc38882d61edbba4144d6ba}{Actions\-Calendar\-::m\-\_\-selected\-Date}) in \hyperlink{class_actions_calendar_a82967fe853474c848bc2223e4c6985fa}{Actions\-Calendar\-::m\-\_\-actions\-In\-Month} if set to true, otherwise it will be searching over the whole keys in \hyperlink{class_actions_calendar_af0f496503f8aff7dc3edbb0fdf3310b4}{Actions\-Calendar\-::m\-\_\-actions\-All}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the searched action. 
+\end{DoxyReturn}
+\hypertarget{class_actions_calendar_ac822864927d26b7b076ce15fc62ef3b8}{\index{Actions\-Calendar@{Actions\-Calendar}!get\-Actions\-For\-Date@{get\-Actions\-For\-Date}}
+\index{get\-Actions\-For\-Date@{get\-Actions\-For\-Date}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{get\-Actions\-For\-Date}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<$ {\bf Action} $\ast$ $>$ Actions\-Calendar\-::get\-Actions\-For\-Date (
+\begin{DoxyParamCaption}
+\item[{Q\-Date}]{date}
+\end{DoxyParamCaption}
+) const}}\label{class_actions_calendar_ac822864927d26b7b076ce15fc62ef3b8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em date} & Date from which we want to get actions. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of all actions for a specified date. Beware that this looks for actions only in the displayed month and visible days from other months. 
+\end{DoxyReturn}
+\hypertarget{class_actions_calendar_aead746bf37764a0a11e1c0e81040f5c3}{\index{Actions\-Calendar@{Actions\-Calendar}!get\-Current\-Action@{get\-Current\-Action}}
+\index{get\-Current\-Action@{get\-Current\-Action}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{get\-Current\-Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Actions\-Calendar\-::get\-Current\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_actions_calendar_aead746bf37764a0a11e1c0e81040f5c3}
+\begin{DoxyReturn}{Returns}
+Pointer to the currently selected action. 
+\end{DoxyReturn}
+\hypertarget{class_actions_calendar_abc02af256999b1f2a47e10224ae9f92d}{\index{Actions\-Calendar@{Actions\-Calendar}!get\-Selected\-Date@{get\-Selected\-Date}}
+\index{get\-Selected\-Date@{get\-Selected\-Date}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{get\-Selected\-Date}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Date Actions\-Calendar\-::get\-Selected\-Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_actions_calendar_abc02af256999b1f2a47e10224ae9f92d}
+\begin{DoxyReturn}{Returns}
+Date that is currently selected. 
+\end{DoxyReturn}
+\hypertarget{class_actions_calendar_ae875272daa2c6f660143f6376182a118}{\index{Actions\-Calendar@{Actions\-Calendar}!is\-Script\-Used@{is\-Script\-Used}}
+\index{is\-Script\-Used@{is\-Script\-Used}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{is\-Script\-Used}]{\setlength{\rightskip}{0pt plus 5cm}bool Actions\-Calendar\-::is\-Script\-Used (
+\begin{DoxyParamCaption}
+\item[{{\bf Script} $\ast$}]{p\-Script}
+\end{DoxyParamCaption}
+) const}}\label{class_actions_calendar_ae875272daa2c6f660143f6376182a118}
+
+
+Checks if the script is used in any action added to calendar. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\-Script} & Pointer to the script. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em True} & if the given script is used by some actions added to calendar. \\
+\hline
+{\em False} & if the given script is not used by any action added to calendar. \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{class_actions_calendar_af47fe81bec606206421e41b74a3a4334}{\index{Actions\-Calendar@{Actions\-Calendar}!load\-Data@{load\-Data}}
+\index{load\-Data@{load\-Data}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{load\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::load\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_af47fe81bec606206421e41b74a3a4334}
+
+
+Loads actions data from database. See \hyperlink{class_database}{Database} class for more details. 
+
+\hypertarget{class_actions_calendar_aed09737705fecb2b97c9ce3b61668aca}{\index{Actions\-Calendar@{Actions\-Calendar}!move\-Curr\-Action@{move\-Curr\-Action}}
+\index{move\-Curr\-Action@{move\-Curr\-Action}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{move\-Curr\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::move\-Curr\-Action (
+\begin{DoxyParamCaption}
+\item[{int}]{direction}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_aed09737705fecb2b97c9ce3b61668aca}
+
+
+Moves currently selected action to the given direction. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em direction} & Direction of the moving. See \hyperlink{class_actions_calendar_a8cb1843b3b3a5b8554bbeb512f50b590}{Actions\-Calendar\-::\-D\-I\-R} enumeration for details. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_a87c934ef81eef5e2c3ee73d0c0d95387}{\index{Actions\-Calendar@{Actions\-Calendar}!move\-Excluded\-Dates@{move\-Excluded\-Dates}}
+\index{move\-Excluded\-Dates@{move\-Excluded\-Dates}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{move\-Excluded\-Dates}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::move\-Excluded\-Dates (
+\begin{DoxyParamCaption}
+\item[{{\bf Action} $\ast$}]{action, }
+\item[{const int}]{days}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_a87c934ef81eef5e2c3ee73d0c0d95387}
+
+
+Moves excluded dates. 
+
+This is a helper method using in connection with \hyperlink{class_actions_calendar_aed09737705fecb2b97c9ce3b61668aca}{Actions\-Calendar\-::move\-Curr\-Action}. If you move the action you also have to move the excluded days in the same direction. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em action} & Pointer to the action of which we want to move excluded dates. \\
+\hline
+\mbox{\tt in}  & {\em days} & Number of days to add to the excluded dates. See \hyperlink{class_actions_calendar_aed09737705fecb2b97c9ce3b61668aca}{Actions\-Calendar\-::move\-Curr\-Action} for more details. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_a98854bcac5911622fff6672062bb9b79}{\index{Actions\-Calendar@{Actions\-Calendar}!paint\-Cell@{paint\-Cell}}
+\index{paint\-Cell@{paint\-Cell}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{paint\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::paint\-Cell (
+\begin{DoxyParamCaption}
+\item[{Q\-Painter $\ast$}]{painter, }
+\item[{const Q\-Rect \&}]{rect, }
+\item[{const Q\-Date \&}]{date}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_actions_calendar_a98854bcac5911622fff6672062bb9b79}
+
+
+Overriden method from Q\-Calendar\-Widget. It is responsible for painting each individual cell of the calendar. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em painter} & Pointer to the engine that enables possibility to draw on screen. \\
+\hline
+\mbox{\tt in}  & {\em rect} & Coordinates of the rect are used to specify where to draw. \\
+\hline
+\mbox{\tt in}  & {\em date} & Date for the currently drawn cell. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_abf331faa70595856c2b6259bceea612e}{\index{Actions\-Calendar@{Actions\-Calendar}!refresh\-Repetitions@{refresh\-Repetitions}}
+\index{refresh\-Repetitions@{refresh\-Repetitions}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{refresh\-Repetitions}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::refresh\-Repetitions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_abf331faa70595856c2b6259bceea612e}
+
+
+Refreshes all actions on the calendar. 
+
+Refreshing is done by clearing \hyperlink{class_actions_calendar_a82967fe853474c848bc2223e4c6985fa}{Actions\-Calendar\-::m\-\_\-actions\-In\-Month} and recreting it on the grounds of \hyperlink{class_actions_calendar_af0f496503f8aff7dc3edbb0fdf3310b4}{Actions\-Calendar\-::m\-\_\-actions\-All} by using Actions\-Calendar\-::set\-Repetitions method. \hypertarget{class_actions_calendar_a9ec94acf58dd114aff11dbf287a574e1}{\index{Actions\-Calendar@{Actions\-Calendar}!remove\-Actions\-Using\-Script@{remove\-Actions\-Using\-Script}}
+\index{remove\-Actions\-Using\-Script@{remove\-Actions\-Using\-Script}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{remove\-Actions\-Using\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::remove\-Actions\-Using\-Script (
+\begin{DoxyParamCaption}
+\item[{{\bf Script} $\ast$}]{p\-Script}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_a9ec94acf58dd114aff11dbf287a574e1}
+
+
+Removes all actions and its repetitions that uses given script. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\-Script} & Pointer to the script object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_ad21b5104f3a37e962c9d4e99fb7f3284}{\index{Actions\-Calendar@{Actions\-Calendar}!remove\-All\-Actions@{remove\-All\-Actions}}
+\index{remove\-All\-Actions@{remove\-All\-Actions}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{remove\-All\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::remove\-All\-Actions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_ad21b5104f3a37e962c9d4e99fb7f3284}
+
+
+Removes all actions by freeing its memory. 
+
+\hypertarget{class_actions_calendar_acb13aa034033c2912c706c895ae740a7}{\index{Actions\-Calendar@{Actions\-Calendar}!remove\-Current\-Action@{remove\-Current\-Action}}
+\index{remove\-Current\-Action@{remove\-Current\-Action}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{remove\-Current\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::remove\-Current\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_acb13aa034033c2912c706c895ae740a7}
+
+
+Removes currently selected action. 
+
+Note that this doesn't remove all of the repetitions, but only the selected by the cursor, so actually it just sets new date into the excluded dates. If you want to remove also all repetitions use \hyperlink{class_actions_calendar_a0290e65eac7ce79a581ee57af1d0ec22}{Actions\-Calendar\-::remove\-Current\-Actions} method. \hypertarget{class_actions_calendar_a0290e65eac7ce79a581ee57af1d0ec22}{\index{Actions\-Calendar@{Actions\-Calendar}!remove\-Current\-Actions@{remove\-Current\-Actions}}
+\index{remove\-Current\-Actions@{remove\-Current\-Actions}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{remove\-Current\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::remove\-Current\-Actions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_a0290e65eac7ce79a581ee57af1d0ec22}
+
+
+Removes action and its repetitions. 
+
+This method removes all of the highlighted actions and frees its memory (actually it's only one action in the memory and only pointers are repeated). \hypertarget{class_actions_calendar_a3c7f468566f0110d27e55d61f7993836}{\index{Actions\-Calendar@{Actions\-Calendar}!save\-Data@{save\-Data}}
+\index{save\-Data@{save\-Data}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{save\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::save\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_actions_calendar_a3c7f468566f0110d27e55d61f7993836}
+
+
+Saves all actions into database. See \hyperlink{class_database}{Database} class for more details. 
+
+\hypertarget{class_actions_calendar_a83e6d5f61b80baa0f2ec87d510dc95ba}{\index{Actions\-Calendar@{Actions\-Calendar}!select\-Date@{select\-Date}}
+\index{select\-Date@{select\-Date}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{select\-Date}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::select\-Date (
+\begin{DoxyParamCaption}
+\item[{const Q\-Date \&}]{date}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}}\label{class_actions_calendar_a83e6d5f61b80baa0f2ec87d510dc95ba}
+
+
+Selects date on the calendar. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em date} & Date to select. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_a09cece9ef38174fb5c0abae9281a1a8c}{\index{Actions\-Calendar@{Actions\-Calendar}!set\-Current\-Action@{set\-Current\-Action}}
+\index{set\-Current\-Action@{set\-Current\-Action}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{set\-Current\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::set\-Current\-Action (
+\begin{DoxyParamCaption}
+\item[{{\bf Action} $\ast$}]{action}
+\end{DoxyParamCaption}
+)}}\label{class_actions_calendar_a09cece9ef38174fb5c0abae9281a1a8c}
+
+
+Sets action as a currently selected action. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em action} & Pointer to the action you want to set. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_a7d3ca15f64dc55a9f41eed685212280b}{\index{Actions\-Calendar@{Actions\-Calendar}!set\-Current\-Page@{set\-Current\-Page}}
+\index{set\-Current\-Page@{set\-Current\-Page}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{set\-Current\-Page}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::set\-Current\-Page (
+\begin{DoxyParamCaption}
+\item[{int}]{year, }
+\item[{int}]{month}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}}\label{class_actions_calendar_a7d3ca15f64dc55a9f41eed685212280b}
+
+
+Sets the displayed calendar page with the given year and month. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em year} & Year. \\
+\hline
+\mbox{\tt in}  & {\em month} & Month. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_a7828ecf11d937851cb946d6b9c400936}{\index{Actions\-Calendar@{Actions\-Calendar}!set\-List@{set\-List}}
+\index{set\-List@{set\-List}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{set\-List}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::set\-List (
+\begin{DoxyParamCaption}
+\item[{Q\-Table\-Widget $\ast$}]{list}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_actions_calendar_a7828ecf11d937851cb946d6b9c400936}
+
+
+Sets list on which the actions for the selected date will be listed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em list} & Pointer to the Q\-Table\-Widget list. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_actions_calendar_a9cbce63eaf560e98255c98b7af1f6bce}{\index{Actions\-Calendar@{Actions\-Calendar}!set\-Repetition@{set\-Repetition}}
+\index{set\-Repetition@{set\-Repetition}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{set\-Repetition}]{\setlength{\rightskip}{0pt plus 5cm}void Actions\-Calendar\-::set\-Repetition (
+\begin{DoxyParamCaption}
+\item[{Q\-Date}]{date, }
+\item[{{\bf Action} $\ast$}]{action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_a9cbce63eaf560e98255c98b7af1f6bce}
+
+
+Sets repetitions for an action. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em date} & Main date for the action. From this date the repetition will be created. \\
+\hline
+\mbox{\tt in}  & {\em action} & Pointer to the action which we want to repeat. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_actions_calendar_af0f496503f8aff7dc3edbb0fdf3310b4}{\index{Actions\-Calendar@{Actions\-Calendar}!m\-\_\-actions\-All@{m\-\_\-actions\-All}}
+\index{m\-\_\-actions\-All@{m\-\_\-actions\-All}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{m\-\_\-actions\-All}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Map$<$Q\-Date, Q\-Vector$<${\bf Action}$\ast$$>$ $>$ Actions\-Calendar\-::m\-\_\-actions\-All\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_af0f496503f8aff7dc3edbb0fdf3310b4}
+
+
+Map of all actions added to the calendar. The structure maps date into vector of actions for this date. 
+
+The repetitions are not available in this map. \hypertarget{class_actions_calendar_a82967fe853474c848bc2223e4c6985fa}{\index{Actions\-Calendar@{Actions\-Calendar}!m\-\_\-actions\-In\-Month@{m\-\_\-actions\-In\-Month}}
+\index{m\-\_\-actions\-In\-Month@{m\-\_\-actions\-In\-Month}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{m\-\_\-actions\-In\-Month}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Map$<$Q\-Date, Q\-Vector$<${\bf Action}$\ast$$>$ $>$ Actions\-Calendar\-::m\-\_\-actions\-In\-Month\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_a82967fe853474c848bc2223e4c6985fa}
+
+
+Structure that maps date into vector of actions for this date. 
+
+Similar structure to the \hyperlink{class_actions_calendar_af0f496503f8aff7dc3edbb0fdf3310b4}{Actions\-Calendar\-::m\-\_\-actions\-All} with difference that in this map we store actions (also with its repetitions) only for the currently selected month and few days from previous and next month (because these days are visible on the calendar). \hypertarget{class_actions_calendar_ae56427a30d84117a575881cce12a0df5}{\index{Actions\-Calendar@{Actions\-Calendar}!m\-\_\-displayed\-Month@{m\-\_\-displayed\-Month}}
+\index{m\-\_\-displayed\-Month@{m\-\_\-displayed\-Month}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{m\-\_\-displayed\-Month}]{\setlength{\rightskip}{0pt plus 5cm}int Actions\-Calendar\-::m\-\_\-displayed\-Month\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_ae56427a30d84117a575881cce12a0df5}
+
+
+Number of month in a year that is displayed. 
+
+\hypertarget{class_actions_calendar_a547c91e076bb2e6749163ce7ea56676e}{\index{Actions\-Calendar@{Actions\-Calendar}!m\-\_\-displayed\-Year@{m\-\_\-displayed\-Year}}
+\index{m\-\_\-displayed\-Year@{m\-\_\-displayed\-Year}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{m\-\_\-displayed\-Year}]{\setlength{\rightskip}{0pt plus 5cm}int Actions\-Calendar\-::m\-\_\-displayed\-Year\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_a547c91e076bb2e6749163ce7ea56676e}
+
+
+Current year that is displayed on the calendar. 
+
+\hypertarget{class_actions_calendar_a42812597a2424012a160e7755754effa}{\index{Actions\-Calendar@{Actions\-Calendar}!m\-\_\-list@{m\-\_\-list}}
+\index{m\-\_\-list@{m\-\_\-list}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{m\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Table\-Widget $\ast$ Actions\-Calendar\-::m\-\_\-list = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_actions_calendar_a42812597a2424012a160e7755754effa}
+
+
+Pointer to the list where actions for the selected date are listed. 
+
+\hypertarget{class_actions_calendar_a5734f7c421b4e06e4f7b5fe29c9707e3}{\index{Actions\-Calendar@{Actions\-Calendar}!m\-\_\-p\-Curr\-Action@{m\-\_\-p\-Curr\-Action}}
+\index{m\-\_\-p\-Curr\-Action@{m\-\_\-p\-Curr\-Action}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{m\-\_\-p\-Curr\-Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action}$\ast$ Actions\-Calendar\-::m\-\_\-p\-Curr\-Action\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_a5734f7c421b4e06e4f7b5fe29c9707e3}
+
+
+Pointer to the currently selected action. 
+
+\hypertarget{class_actions_calendar_a27243b1e4fc38882d61edbba4144d6ba}{\index{Actions\-Calendar@{Actions\-Calendar}!m\-\_\-selected\-Date@{m\-\_\-selected\-Date}}
+\index{m\-\_\-selected\-Date@{m\-\_\-selected\-Date}!ActionsCalendar@{Actions\-Calendar}}
+\subsubsection[{m\-\_\-selected\-Date}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Date Actions\-Calendar\-::m\-\_\-selected\-Date\hspace{0.3cm}{\ttfamily [private]}}}\label{class_actions_calendar_a27243b1e4fc38882d61edbba4144d6ba}
+
+
+Selected date on the calendar. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{calendar_8h}{calendar.\-h}\item 
+Do\-For\-Me!/\hyperlink{calendar_8cpp}{calendar.\-cpp}\end{DoxyCompactItemize}

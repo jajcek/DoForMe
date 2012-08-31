@@ -1,0 +1,50 @@
+\hypertarget{struct_bitvec}{\section{Bitvec Struct Reference}
+\label{struct_bitvec}\index{Bitvec@{Bitvec}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_bitvec_ab36df8ece98aee080bae6de28c237de8}{i\-Size}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_bitvec_ad6811debae9b972f2d94d667e994e3f6}{n\-Set}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_bitvec_a22cdb23eb424e07b6ce922de018a83d9}{i\-Divisor}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{sqlite3_8c_a1529231c74dd2f84855767bd45a4a128}{BITVEC\_TELEM} \hyperlink{struct_bitvec_ad0c8d2bbafe74c346a007004086fb56d}{aBitmap} \mbox{[}\hyperlink{sqlite3_8c_a88b5a6f3a5220c5b59494a0945b25300}{BITVEC\_NELEM}\mbox{]}\\
+\>\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_bitvec_adcaa47179c109270041bf59f8fe9f8ff}{aHash} \mbox{[}\hyperlink{sqlite3_8c_a6631a81736378abeb3cd82ff1d373c7f}{BITVEC\_NINT}\mbox{]}\\
+\>\hyperlink{struct_bitvec}{Bitvec} $\ast$ \hyperlink{struct_bitvec_ab4942527f1862bbd8e1ffe45486d1541}{apSub} \mbox{[}\hyperlink{sqlite3_8c_ac3a46fc9cd900e383c175cdd5eb3f633}{BITVEC\_NPTR}\mbox{]}\\
+\} \hyperlink{struct_bitvec_a2ef3423696109b6b699aee3e736c4ed6}{u}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_bitvec_ad0c8d2bbafe74c346a007004086fb56d}{\index{Bitvec@{Bitvec}!a\-Bitmap@{a\-Bitmap}}
+\index{a\-Bitmap@{a\-Bitmap}!Bitvec@{Bitvec}}
+\subsubsection[{a\-Bitmap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-I\-T\-V\-E\-C\-\_\-\-T\-E\-L\-E\-M} Bitvec\-::a\-Bitmap\mbox{[}{\bf B\-I\-T\-V\-E\-C\-\_\-\-N\-E\-L\-E\-M}\mbox{]}}}\label{struct_bitvec_ad0c8d2bbafe74c346a007004086fb56d}
+\hypertarget{struct_bitvec_adcaa47179c109270041bf59f8fe9f8ff}{\index{Bitvec@{Bitvec}!a\-Hash@{a\-Hash}}
+\index{a\-Hash@{a\-Hash}!Bitvec@{Bitvec}}
+\subsubsection[{a\-Hash}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Bitvec\-::a\-Hash\mbox{[}{\bf B\-I\-T\-V\-E\-C\-\_\-\-N\-I\-N\-T}\mbox{]}}}\label{struct_bitvec_adcaa47179c109270041bf59f8fe9f8ff}
+\hypertarget{struct_bitvec_ab4942527f1862bbd8e1ffe45486d1541}{\index{Bitvec@{Bitvec}!ap\-Sub@{ap\-Sub}}
+\index{ap\-Sub@{ap\-Sub}!Bitvec@{Bitvec}}
+\subsubsection[{ap\-Sub}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bitvec}$\ast$ Bitvec\-::ap\-Sub\mbox{[}{\bf B\-I\-T\-V\-E\-C\-\_\-\-N\-P\-T\-R}\mbox{]}}}\label{struct_bitvec_ab4942527f1862bbd8e1ffe45486d1541}
+\hypertarget{struct_bitvec_a22cdb23eb424e07b6ce922de018a83d9}{\index{Bitvec@{Bitvec}!i\-Divisor@{i\-Divisor}}
+\index{i\-Divisor@{i\-Divisor}!Bitvec@{Bitvec}}
+\subsubsection[{i\-Divisor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Bitvec\-::i\-Divisor}}\label{struct_bitvec_a22cdb23eb424e07b6ce922de018a83d9}
+\hypertarget{struct_bitvec_ab36df8ece98aee080bae6de28c237de8}{\index{Bitvec@{Bitvec}!i\-Size@{i\-Size}}
+\index{i\-Size@{i\-Size}!Bitvec@{Bitvec}}
+\subsubsection[{i\-Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Bitvec\-::i\-Size}}\label{struct_bitvec_ab36df8ece98aee080bae6de28c237de8}
+\hypertarget{struct_bitvec_ad6811debae9b972f2d94d667e994e3f6}{\index{Bitvec@{Bitvec}!n\-Set@{n\-Set}}
+\index{n\-Set@{n\-Set}!Bitvec@{Bitvec}}
+\subsubsection[{n\-Set}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Bitvec\-::n\-Set}}\label{struct_bitvec_ad6811debae9b972f2d94d667e994e3f6}
+\hypertarget{struct_bitvec_a2ef3423696109b6b699aee3e736c4ed6}{\index{Bitvec@{Bitvec}!u@{u}}
+\index{u@{u}!Bitvec@{Bitvec}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   Bitvec\-::u}}\label{struct_bitvec_a2ef3423696109b6b699aee3e736c4ed6}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

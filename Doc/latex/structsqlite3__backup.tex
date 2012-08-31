@@ -1,0 +1,74 @@
+\hypertarget{structsqlite3__backup}{\section{sqlite3\-\_\-backup Struct Reference}
+\label{structsqlite3__backup}\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structsqlite3}{sqlite3} $\ast$ \hyperlink{structsqlite3__backup_ad9b5074a860e01b31bbf9cb27f3808d9}{p\-Dest\-Db}
+\item 
+\hyperlink{struct_btree}{Btree} $\ast$ \hyperlink{structsqlite3__backup_a9e011336a89274f0ebfefdcede198f71}{p\-Dest}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{structsqlite3__backup_a3f294f50b4ef206452dddd14f2a7cf6a}{i\-Dest\-Schema}
+\item 
+int \hyperlink{structsqlite3__backup_aa0d385678bc5c3fd4da4201ff03a5856}{b\-Dest\-Locked}
+\item 
+\hyperlink{sqlite3_8c_aec0c653e8dd16e4639caf2f8ea54f55c}{Pgno} \hyperlink{structsqlite3__backup_a92454bf354f928aade2b2f92e6cfd088}{i\-Next}
+\item 
+\hyperlink{structsqlite3}{sqlite3} $\ast$ \hyperlink{structsqlite3__backup_a0bcc0528bb3f5ec52eb40c3e7a4f7adc}{p\-Src\-Db}
+\item 
+\hyperlink{struct_btree}{Btree} $\ast$ \hyperlink{structsqlite3__backup_aa48f873d1de446638ff71fdae606e672}{p\-Src}
+\item 
+int \hyperlink{structsqlite3__backup_aab860dbed6181702b4c6b80d43cde411}{rc}
+\item 
+\hyperlink{sqlite3_8c_aec0c653e8dd16e4639caf2f8ea54f55c}{Pgno} \hyperlink{structsqlite3__backup_a4287faa23d4534e8a33915740604d1e1}{n\-Remaining}
+\item 
+\hyperlink{sqlite3_8c_aec0c653e8dd16e4639caf2f8ea54f55c}{Pgno} \hyperlink{structsqlite3__backup_a98599d5a3a13173a6a126242d1fbbaa8}{n\-Pagecount}
+\item 
+int \hyperlink{structsqlite3__backup_af515f0d9265847d820cbaad41cef78ae}{is\-Attached}
+\item 
+\hyperlink{structsqlite3__backup}{sqlite3\-\_\-backup} $\ast$ \hyperlink{structsqlite3__backup_a3a87332e045fe4a477fe262409c6011a}{p\-Next}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structsqlite3__backup_aa0d385678bc5c3fd4da4201ff03a5856}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!b\-Dest\-Locked@{b\-Dest\-Locked}}
+\index{b\-Dest\-Locked@{b\-Dest\-Locked}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{b\-Dest\-Locked}]{\setlength{\rightskip}{0pt plus 5cm}int sqlite3\-\_\-backup\-::b\-Dest\-Locked}}\label{structsqlite3__backup_aa0d385678bc5c3fd4da4201ff03a5856}
+\hypertarget{structsqlite3__backup_a3f294f50b4ef206452dddd14f2a7cf6a}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!i\-Dest\-Schema@{i\-Dest\-Schema}}
+\index{i\-Dest\-Schema@{i\-Dest\-Schema}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{i\-Dest\-Schema}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} sqlite3\-\_\-backup\-::i\-Dest\-Schema}}\label{structsqlite3__backup_a3f294f50b4ef206452dddd14f2a7cf6a}
+\hypertarget{structsqlite3__backup_a92454bf354f928aade2b2f92e6cfd088}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!i\-Next@{i\-Next}}
+\index{i\-Next@{i\-Next}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{i\-Next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pgno} sqlite3\-\_\-backup\-::i\-Next}}\label{structsqlite3__backup_a92454bf354f928aade2b2f92e6cfd088}
+\hypertarget{structsqlite3__backup_af515f0d9265847d820cbaad41cef78ae}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!is\-Attached@{is\-Attached}}
+\index{is\-Attached@{is\-Attached}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{is\-Attached}]{\setlength{\rightskip}{0pt plus 5cm}int sqlite3\-\_\-backup\-::is\-Attached}}\label{structsqlite3__backup_af515f0d9265847d820cbaad41cef78ae}
+\hypertarget{structsqlite3__backup_a98599d5a3a13173a6a126242d1fbbaa8}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!n\-Pagecount@{n\-Pagecount}}
+\index{n\-Pagecount@{n\-Pagecount}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{n\-Pagecount}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pgno} sqlite3\-\_\-backup\-::n\-Pagecount}}\label{structsqlite3__backup_a98599d5a3a13173a6a126242d1fbbaa8}
+\hypertarget{structsqlite3__backup_a4287faa23d4534e8a33915740604d1e1}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!n\-Remaining@{n\-Remaining}}
+\index{n\-Remaining@{n\-Remaining}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{n\-Remaining}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pgno} sqlite3\-\_\-backup\-::n\-Remaining}}\label{structsqlite3__backup_a4287faa23d4534e8a33915740604d1e1}
+\hypertarget{structsqlite3__backup_a9e011336a89274f0ebfefdcede198f71}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!p\-Dest@{p\-Dest}}
+\index{p\-Dest@{p\-Dest}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{p\-Dest}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Btree}$\ast$ sqlite3\-\_\-backup\-::p\-Dest}}\label{structsqlite3__backup_a9e011336a89274f0ebfefdcede198f71}
+\hypertarget{structsqlite3__backup_ad9b5074a860e01b31bbf9cb27f3808d9}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!p\-Dest\-Db@{p\-Dest\-Db}}
+\index{p\-Dest\-Db@{p\-Dest\-Db}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{p\-Dest\-Db}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3}$\ast$ sqlite3\-\_\-backup\-::p\-Dest\-Db}}\label{structsqlite3__backup_ad9b5074a860e01b31bbf9cb27f3808d9}
+\hypertarget{structsqlite3__backup_a3a87332e045fe4a477fe262409c6011a}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!p\-Next@{p\-Next}}
+\index{p\-Next@{p\-Next}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{p\-Next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-backup}$\ast$ sqlite3\-\_\-backup\-::p\-Next}}\label{structsqlite3__backup_a3a87332e045fe4a477fe262409c6011a}
+\hypertarget{structsqlite3__backup_aa48f873d1de446638ff71fdae606e672}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!p\-Src@{p\-Src}}
+\index{p\-Src@{p\-Src}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{p\-Src}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Btree}$\ast$ sqlite3\-\_\-backup\-::p\-Src}}\label{structsqlite3__backup_aa48f873d1de446638ff71fdae606e672}
+\hypertarget{structsqlite3__backup_a0bcc0528bb3f5ec52eb40c3e7a4f7adc}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!p\-Src\-Db@{p\-Src\-Db}}
+\index{p\-Src\-Db@{p\-Src\-Db}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{p\-Src\-Db}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3}$\ast$ sqlite3\-\_\-backup\-::p\-Src\-Db}}\label{structsqlite3__backup_a0bcc0528bb3f5ec52eb40c3e7a4f7adc}
+\hypertarget{structsqlite3__backup_aab860dbed6181702b4c6b80d43cde411}{\index{sqlite3\-\_\-backup@{sqlite3\-\_\-backup}!rc@{rc}}
+\index{rc@{rc}!sqlite3_backup@{sqlite3\-\_\-backup}}
+\subsubsection[{rc}]{\setlength{\rightskip}{0pt plus 5cm}int sqlite3\-\_\-backup\-::rc}}\label{structsqlite3__backup_aab860dbed6181702b4c6b80d43cde411}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

@@ -1,0 +1,284 @@
+\hypertarget{struct_pager}{\section{Pager Struct Reference}
+\label{struct_pager}\index{Pager@{Pager}}
+}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structsqlite3__vfs}{sqlite3\-\_\-vfs} $\ast$ \hyperlink{struct_pager_affa78e08a7f691a4c8f7043e0b4c9212}{p\-Vfs}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_a5cbccc156e07d6226cb65a7ab05ac116}{exclusive\-Mode}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_a9ad7bd09f1c9323d943ee17ddf42e46e}{journal\-Mode}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_af7783f866150d7e322c28cb324ad85d6}{use\-Journal}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_ae943093a3ccbfbf264ccf3c8a52edac1}{no\-Sync}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_abae5c9c3d85120ae266acc4c9a355b86}{full\-Sync}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_a4543ec92953e7bda49b3ed4f0bdab890}{ckpt\-Sync\-Flags}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_aa8c8c2d893e4d2165f089ddde3e85103}{wal\-Sync\-Flags}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_ac7f90d27da63090369a0e44a0bceb525}{sync\-Flags}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_a9caa1abb43f6e839dd9a265c27b0b9e4}{temp\-File}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_ad7a7013309fd80a2a01844e69e8e7398}{read\-Only}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_abca3633b7745075aa5cf432b3fae54f2}{mem\-Db}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_af03ee0ac77cf73453295ffcf43e46b43}{e\-State}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_afcaf60e4b0be0995c926e3357d4bbef0}{e\-Lock}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_a90c86a51ec6805d5702d32e456b0bcdc}{change\-Count\-Done}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_acd7eae0587c98ac41afab04e4b5defcb}{set\-Master}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_a2f6579b3006b692a4ce1e5ad3e9a58ed}{do\-Not\-Spill}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_a227d91995648a4e730d2adecc3533dba}{do\-Not\-Sync\-Spill}
+\item 
+\hyperlink{sqlite3_8c_a74a0f6424ae628af25f23f0a35f6ead3}{u8} \hyperlink{struct_pager_a9205654b516184d84fde5c3b5f72ff77}{subj\-In\-Memory}
+\item 
+\hyperlink{sqlite3_8c_aec0c653e8dd16e4639caf2f8ea54f55c}{Pgno} \hyperlink{struct_pager_afa5d7849190ef0a9a6f85bb15f2444b3}{db\-Size}
+\item 
+\hyperlink{sqlite3_8c_aec0c653e8dd16e4639caf2f8ea54f55c}{Pgno} \hyperlink{struct_pager_a8f9cd11d6ae3fac48182e6eae0810c6a}{db\-Orig\-Size}
+\item 
+\hyperlink{sqlite3_8c_aec0c653e8dd16e4639caf2f8ea54f55c}{Pgno} \hyperlink{struct_pager_a1f8f55f49cb0ec91bfde4dca96a13f13}{db\-File\-Size}
+\item 
+\hyperlink{sqlite3_8c_aec0c653e8dd16e4639caf2f8ea54f55c}{Pgno} \hyperlink{struct_pager_aa99d74d10ef3cdcf61501f9777a0246b}{db\-Hint\-Size}
+\item 
+int \hyperlink{struct_pager_addaf9648a1111d7b6c85166cf7c7a575}{err\-Code}
+\item 
+int \hyperlink{struct_pager_a3a202368c065a43695533503c98f28d9}{n\-Rec}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_pager_ad799667658328a44b471378a1b99623e}{cksum\-Init}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_pager_a670c4c54515c0257c35ddfc07c43763e}{n\-Sub\-Rec}
+\item 
+\hyperlink{struct_bitvec}{Bitvec} $\ast$ \hyperlink{struct_pager_a530ea868337a7c0c4e7c125035f73737}{p\-In\-Journal}
+\item 
+\hyperlink{structsqlite3__file}{sqlite3\-\_\-file} $\ast$ \hyperlink{struct_pager_a005ff1960fc1550a870cd1dae418c99e}{fd}
+\item 
+\hyperlink{structsqlite3__file}{sqlite3\-\_\-file} $\ast$ \hyperlink{struct_pager_a81057c4420b8278e8141cf626abf4f0d}{jfd}
+\item 
+\hyperlink{structsqlite3__file}{sqlite3\-\_\-file} $\ast$ \hyperlink{struct_pager_a8196bcc97f184d480848895f71e080e6}{sjfd}
+\item 
+\hyperlink{sqlite3_8c_a2a0f0f4ae7001eb54351f77ea1cdbcfd}{i64} \hyperlink{struct_pager_ad3cffdc0987965fa6a472b19355f48df}{journal\-Off}
+\item 
+\hyperlink{sqlite3_8c_a2a0f0f4ae7001eb54351f77ea1cdbcfd}{i64} \hyperlink{struct_pager_a7f4a7f5f0245b063a82c185f40bad7f0}{journal\-Hdr}
+\item 
+\hyperlink{structsqlite3__backup}{sqlite3\-\_\-backup} $\ast$ \hyperlink{struct_pager_ae230d34da61bf28178fa1ac142a88c15}{p\-Backup}
+\item 
+\hyperlink{struct_pager_savepoint}{Pager\-Savepoint} $\ast$ \hyperlink{struct_pager_a4d5f4487316c026eceb8461e90fffcfd}{a\-Savepoint}
+\item 
+int \hyperlink{struct_pager_a020adae89ef6c1b28e51fffc3d4b22c9}{n\-Savepoint}
+\item 
+char \hyperlink{struct_pager_acf03a47838eee1cf474bb93dbc834b5f}{db\-File\-Vers} \mbox{[}16\mbox{]}
+\item 
+\hyperlink{sqlite3_8c_a20f2299e322dcbde37cb07b16910b843}{u16} \hyperlink{struct_pager_a44e153b2f756bfb86ab471c25893b3b6}{n\-Extra}
+\item 
+\hyperlink{sqlite3_8c_a7b32340f65cd15f029caad258fb3355c}{i16} \hyperlink{struct_pager_a82581087240713cab679108e3adeaf58}{n\-Reserve}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_pager_a36f3333fe82c70a46a99f2f8f289a971}{vfs\-Flags}
+\item 
+\hyperlink{sqlite3_8c_a03ad5adfaeb9b7640dde78a0cc390319}{u32} \hyperlink{struct_pager_a4a47c73d7c18b803df33ba6c39baa5bf}{sector\-Size}
+\item 
+int \hyperlink{struct_pager_a9cfb910e7eaf8442f5414d722232a6e9}{page\-Size}
+\item 
+\hyperlink{sqlite3_8c_aec0c653e8dd16e4639caf2f8ea54f55c}{Pgno} \hyperlink{struct_pager_ad1d9a508ac764486a5eaef9b4f7781af}{mx\-Pgno}
+\item 
+\hyperlink{sqlite3_8c_a2a0f0f4ae7001eb54351f77ea1cdbcfd}{i64} \hyperlink{struct_pager_ae381db4e0b49f92596b0cdeb279e6bc6}{journal\-Size\-Limit}
+\item 
+char $\ast$ \hyperlink{struct_pager_a2a55a044468f8658b7993e57087a5561}{z\-Filename}
+\item 
+char $\ast$ \hyperlink{struct_pager_ab36ce1f606c407ad3fc56a3651f5a319}{z\-Journal}
+\item 
+int($\ast$ \hyperlink{struct_pager_ac8477f7cc39fefd81b4089994e13d215}{x\-Busy\-Handler} )(void $\ast$)
+\item 
+void $\ast$ \hyperlink{struct_pager_a7a685e7a8dcbcd725c5a982fd8deb91b}{p\-Busy\-Handler\-Arg}
+\item 
+int \hyperlink{struct_pager_a0b3bb8afc7c4c82e0e99f3ad99dd0986}{a\-Stat} \mbox{[}3\mbox{]}
+\item 
+void($\ast$ \hyperlink{struct_pager_a632d3c81743a7f9104337ae3d45af04c}{x\-Reiniter} )(\hyperlink{sqlite3_8c_aa41da1cdeedecb95acdb716e16bd9266}{Db\-Page} $\ast$)
+\item 
+char $\ast$ \hyperlink{struct_pager_a64934188c72599e0be9ae54d3fc1cc92}{p\-Tmp\-Space}
+\item 
+\hyperlink{struct_p_cache}{P\-Cache} $\ast$ \hyperlink{struct_pager_ae2495e45e354e92a858144386f91cab3}{p\-P\-Cache}
+\item 
+\hyperlink{struct_wal}{Wal} $\ast$ \hyperlink{struct_pager_a2c759424108248d8b08e6f400fab14dd}{p\-Wal}
+\item 
+char $\ast$ \hyperlink{struct_pager_ac63ab281e48f9ac8521b85c1a90475b3}{z\-Wal}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_pager_a4d5f4487316c026eceb8461e90fffcfd}{\index{Pager@{Pager}!a\-Savepoint@{a\-Savepoint}}
+\index{a\-Savepoint@{a\-Savepoint}!Pager@{Pager}}
+\subsubsection[{a\-Savepoint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pager\-Savepoint}$\ast$ Pager\-::a\-Savepoint}}\label{struct_pager_a4d5f4487316c026eceb8461e90fffcfd}
+\hypertarget{struct_pager_a0b3bb8afc7c4c82e0e99f3ad99dd0986}{\index{Pager@{Pager}!a\-Stat@{a\-Stat}}
+\index{a\-Stat@{a\-Stat}!Pager@{Pager}}
+\subsubsection[{a\-Stat}]{\setlength{\rightskip}{0pt plus 5cm}int Pager\-::a\-Stat\mbox{[}3\mbox{]}}}\label{struct_pager_a0b3bb8afc7c4c82e0e99f3ad99dd0986}
+\hypertarget{struct_pager_a90c86a51ec6805d5702d32e456b0bcdc}{\index{Pager@{Pager}!change\-Count\-Done@{change\-Count\-Done}}
+\index{change\-Count\-Done@{change\-Count\-Done}!Pager@{Pager}}
+\subsubsection[{change\-Count\-Done}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::change\-Count\-Done}}\label{struct_pager_a90c86a51ec6805d5702d32e456b0bcdc}
+\hypertarget{struct_pager_a4543ec92953e7bda49b3ed4f0bdab890}{\index{Pager@{Pager}!ckpt\-Sync\-Flags@{ckpt\-Sync\-Flags}}
+\index{ckpt\-Sync\-Flags@{ckpt\-Sync\-Flags}!Pager@{Pager}}
+\subsubsection[{ckpt\-Sync\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::ckpt\-Sync\-Flags}}\label{struct_pager_a4543ec92953e7bda49b3ed4f0bdab890}
+\hypertarget{struct_pager_ad799667658328a44b471378a1b99623e}{\index{Pager@{Pager}!cksum\-Init@{cksum\-Init}}
+\index{cksum\-Init@{cksum\-Init}!Pager@{Pager}}
+\subsubsection[{cksum\-Init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Pager\-::cksum\-Init}}\label{struct_pager_ad799667658328a44b471378a1b99623e}
+\hypertarget{struct_pager_a1f8f55f49cb0ec91bfde4dca96a13f13}{\index{Pager@{Pager}!db\-File\-Size@{db\-File\-Size}}
+\index{db\-File\-Size@{db\-File\-Size}!Pager@{Pager}}
+\subsubsection[{db\-File\-Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pgno} Pager\-::db\-File\-Size}}\label{struct_pager_a1f8f55f49cb0ec91bfde4dca96a13f13}
+\hypertarget{struct_pager_acf03a47838eee1cf474bb93dbc834b5f}{\index{Pager@{Pager}!db\-File\-Vers@{db\-File\-Vers}}
+\index{db\-File\-Vers@{db\-File\-Vers}!Pager@{Pager}}
+\subsubsection[{db\-File\-Vers}]{\setlength{\rightskip}{0pt plus 5cm}char Pager\-::db\-File\-Vers\mbox{[}16\mbox{]}}}\label{struct_pager_acf03a47838eee1cf474bb93dbc834b5f}
+\hypertarget{struct_pager_aa99d74d10ef3cdcf61501f9777a0246b}{\index{Pager@{Pager}!db\-Hint\-Size@{db\-Hint\-Size}}
+\index{db\-Hint\-Size@{db\-Hint\-Size}!Pager@{Pager}}
+\subsubsection[{db\-Hint\-Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pgno} Pager\-::db\-Hint\-Size}}\label{struct_pager_aa99d74d10ef3cdcf61501f9777a0246b}
+\hypertarget{struct_pager_a8f9cd11d6ae3fac48182e6eae0810c6a}{\index{Pager@{Pager}!db\-Orig\-Size@{db\-Orig\-Size}}
+\index{db\-Orig\-Size@{db\-Orig\-Size}!Pager@{Pager}}
+\subsubsection[{db\-Orig\-Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pgno} Pager\-::db\-Orig\-Size}}\label{struct_pager_a8f9cd11d6ae3fac48182e6eae0810c6a}
+\hypertarget{struct_pager_afa5d7849190ef0a9a6f85bb15f2444b3}{\index{Pager@{Pager}!db\-Size@{db\-Size}}
+\index{db\-Size@{db\-Size}!Pager@{Pager}}
+\subsubsection[{db\-Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pgno} Pager\-::db\-Size}}\label{struct_pager_afa5d7849190ef0a9a6f85bb15f2444b3}
+\hypertarget{struct_pager_a2f6579b3006b692a4ce1e5ad3e9a58ed}{\index{Pager@{Pager}!do\-Not\-Spill@{do\-Not\-Spill}}
+\index{do\-Not\-Spill@{do\-Not\-Spill}!Pager@{Pager}}
+\subsubsection[{do\-Not\-Spill}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::do\-Not\-Spill}}\label{struct_pager_a2f6579b3006b692a4ce1e5ad3e9a58ed}
+\hypertarget{struct_pager_a227d91995648a4e730d2adecc3533dba}{\index{Pager@{Pager}!do\-Not\-Sync\-Spill@{do\-Not\-Sync\-Spill}}
+\index{do\-Not\-Sync\-Spill@{do\-Not\-Sync\-Spill}!Pager@{Pager}}
+\subsubsection[{do\-Not\-Sync\-Spill}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::do\-Not\-Sync\-Spill}}\label{struct_pager_a227d91995648a4e730d2adecc3533dba}
+\hypertarget{struct_pager_afcaf60e4b0be0995c926e3357d4bbef0}{\index{Pager@{Pager}!e\-Lock@{e\-Lock}}
+\index{e\-Lock@{e\-Lock}!Pager@{Pager}}
+\subsubsection[{e\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::e\-Lock}}\label{struct_pager_afcaf60e4b0be0995c926e3357d4bbef0}
+\hypertarget{struct_pager_addaf9648a1111d7b6c85166cf7c7a575}{\index{Pager@{Pager}!err\-Code@{err\-Code}}
+\index{err\-Code@{err\-Code}!Pager@{Pager}}
+\subsubsection[{err\-Code}]{\setlength{\rightskip}{0pt plus 5cm}int Pager\-::err\-Code}}\label{struct_pager_addaf9648a1111d7b6c85166cf7c7a575}
+\hypertarget{struct_pager_af03ee0ac77cf73453295ffcf43e46b43}{\index{Pager@{Pager}!e\-State@{e\-State}}
+\index{e\-State@{e\-State}!Pager@{Pager}}
+\subsubsection[{e\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::e\-State}}\label{struct_pager_af03ee0ac77cf73453295ffcf43e46b43}
+\hypertarget{struct_pager_a5cbccc156e07d6226cb65a7ab05ac116}{\index{Pager@{Pager}!exclusive\-Mode@{exclusive\-Mode}}
+\index{exclusive\-Mode@{exclusive\-Mode}!Pager@{Pager}}
+\subsubsection[{exclusive\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::exclusive\-Mode}}\label{struct_pager_a5cbccc156e07d6226cb65a7ab05ac116}
+\hypertarget{struct_pager_a005ff1960fc1550a870cd1dae418c99e}{\index{Pager@{Pager}!fd@{fd}}
+\index{fd@{fd}!Pager@{Pager}}
+\subsubsection[{fd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-file}$\ast$ Pager\-::fd}}\label{struct_pager_a005ff1960fc1550a870cd1dae418c99e}
+\hypertarget{struct_pager_abae5c9c3d85120ae266acc4c9a355b86}{\index{Pager@{Pager}!full\-Sync@{full\-Sync}}
+\index{full\-Sync@{full\-Sync}!Pager@{Pager}}
+\subsubsection[{full\-Sync}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::full\-Sync}}\label{struct_pager_abae5c9c3d85120ae266acc4c9a355b86}
+\hypertarget{struct_pager_a81057c4420b8278e8141cf626abf4f0d}{\index{Pager@{Pager}!jfd@{jfd}}
+\index{jfd@{jfd}!Pager@{Pager}}
+\subsubsection[{jfd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-file}$\ast$ Pager\-::jfd}}\label{struct_pager_a81057c4420b8278e8141cf626abf4f0d}
+\hypertarget{struct_pager_a7f4a7f5f0245b063a82c185f40bad7f0}{\index{Pager@{Pager}!journal\-Hdr@{journal\-Hdr}}
+\index{journal\-Hdr@{journal\-Hdr}!Pager@{Pager}}
+\subsubsection[{journal\-Hdr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i64} Pager\-::journal\-Hdr}}\label{struct_pager_a7f4a7f5f0245b063a82c185f40bad7f0}
+\hypertarget{struct_pager_a9ad7bd09f1c9323d943ee17ddf42e46e}{\index{Pager@{Pager}!journal\-Mode@{journal\-Mode}}
+\index{journal\-Mode@{journal\-Mode}!Pager@{Pager}}
+\subsubsection[{journal\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::journal\-Mode}}\label{struct_pager_a9ad7bd09f1c9323d943ee17ddf42e46e}
+\hypertarget{struct_pager_ad3cffdc0987965fa6a472b19355f48df}{\index{Pager@{Pager}!journal\-Off@{journal\-Off}}
+\index{journal\-Off@{journal\-Off}!Pager@{Pager}}
+\subsubsection[{journal\-Off}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i64} Pager\-::journal\-Off}}\label{struct_pager_ad3cffdc0987965fa6a472b19355f48df}
+\hypertarget{struct_pager_ae381db4e0b49f92596b0cdeb279e6bc6}{\index{Pager@{Pager}!journal\-Size\-Limit@{journal\-Size\-Limit}}
+\index{journal\-Size\-Limit@{journal\-Size\-Limit}!Pager@{Pager}}
+\subsubsection[{journal\-Size\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i64} Pager\-::journal\-Size\-Limit}}\label{struct_pager_ae381db4e0b49f92596b0cdeb279e6bc6}
+\hypertarget{struct_pager_abca3633b7745075aa5cf432b3fae54f2}{\index{Pager@{Pager}!mem\-Db@{mem\-Db}}
+\index{mem\-Db@{mem\-Db}!Pager@{Pager}}
+\subsubsection[{mem\-Db}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::mem\-Db}}\label{struct_pager_abca3633b7745075aa5cf432b3fae54f2}
+\hypertarget{struct_pager_ad1d9a508ac764486a5eaef9b4f7781af}{\index{Pager@{Pager}!mx\-Pgno@{mx\-Pgno}}
+\index{mx\-Pgno@{mx\-Pgno}!Pager@{Pager}}
+\subsubsection[{mx\-Pgno}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pgno} Pager\-::mx\-Pgno}}\label{struct_pager_ad1d9a508ac764486a5eaef9b4f7781af}
+\hypertarget{struct_pager_a44e153b2f756bfb86ab471c25893b3b6}{\index{Pager@{Pager}!n\-Extra@{n\-Extra}}
+\index{n\-Extra@{n\-Extra}!Pager@{Pager}}
+\subsubsection[{n\-Extra}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} Pager\-::n\-Extra}}\label{struct_pager_a44e153b2f756bfb86ab471c25893b3b6}
+\hypertarget{struct_pager_ae943093a3ccbfbf264ccf3c8a52edac1}{\index{Pager@{Pager}!no\-Sync@{no\-Sync}}
+\index{no\-Sync@{no\-Sync}!Pager@{Pager}}
+\subsubsection[{no\-Sync}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::no\-Sync}}\label{struct_pager_ae943093a3ccbfbf264ccf3c8a52edac1}
+\hypertarget{struct_pager_a3a202368c065a43695533503c98f28d9}{\index{Pager@{Pager}!n\-Rec@{n\-Rec}}
+\index{n\-Rec@{n\-Rec}!Pager@{Pager}}
+\subsubsection[{n\-Rec}]{\setlength{\rightskip}{0pt plus 5cm}int Pager\-::n\-Rec}}\label{struct_pager_a3a202368c065a43695533503c98f28d9}
+\hypertarget{struct_pager_a82581087240713cab679108e3adeaf58}{\index{Pager@{Pager}!n\-Reserve@{n\-Reserve}}
+\index{n\-Reserve@{n\-Reserve}!Pager@{Pager}}
+\subsubsection[{n\-Reserve}]{\setlength{\rightskip}{0pt plus 5cm}{\bf i16} Pager\-::n\-Reserve}}\label{struct_pager_a82581087240713cab679108e3adeaf58}
+\hypertarget{struct_pager_a020adae89ef6c1b28e51fffc3d4b22c9}{\index{Pager@{Pager}!n\-Savepoint@{n\-Savepoint}}
+\index{n\-Savepoint@{n\-Savepoint}!Pager@{Pager}}
+\subsubsection[{n\-Savepoint}]{\setlength{\rightskip}{0pt plus 5cm}int Pager\-::n\-Savepoint}}\label{struct_pager_a020adae89ef6c1b28e51fffc3d4b22c9}
+\hypertarget{struct_pager_a670c4c54515c0257c35ddfc07c43763e}{\index{Pager@{Pager}!n\-Sub\-Rec@{n\-Sub\-Rec}}
+\index{n\-Sub\-Rec@{n\-Sub\-Rec}!Pager@{Pager}}
+\subsubsection[{n\-Sub\-Rec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Pager\-::n\-Sub\-Rec}}\label{struct_pager_a670c4c54515c0257c35ddfc07c43763e}
+\hypertarget{struct_pager_a9cfb910e7eaf8442f5414d722232a6e9}{\index{Pager@{Pager}!page\-Size@{page\-Size}}
+\index{page\-Size@{page\-Size}!Pager@{Pager}}
+\subsubsection[{page\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int Pager\-::page\-Size}}\label{struct_pager_a9cfb910e7eaf8442f5414d722232a6e9}
+\hypertarget{struct_pager_ae230d34da61bf28178fa1ac142a88c15}{\index{Pager@{Pager}!p\-Backup@{p\-Backup}}
+\index{p\-Backup@{p\-Backup}!Pager@{Pager}}
+\subsubsection[{p\-Backup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-backup}$\ast$ Pager\-::p\-Backup}}\label{struct_pager_ae230d34da61bf28178fa1ac142a88c15}
+\hypertarget{struct_pager_a7a685e7a8dcbcd725c5a982fd8deb91b}{\index{Pager@{Pager}!p\-Busy\-Handler\-Arg@{p\-Busy\-Handler\-Arg}}
+\index{p\-Busy\-Handler\-Arg@{p\-Busy\-Handler\-Arg}!Pager@{Pager}}
+\subsubsection[{p\-Busy\-Handler\-Arg}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Pager\-::p\-Busy\-Handler\-Arg}}\label{struct_pager_a7a685e7a8dcbcd725c5a982fd8deb91b}
+\hypertarget{struct_pager_a530ea868337a7c0c4e7c125035f73737}{\index{Pager@{Pager}!p\-In\-Journal@{p\-In\-Journal}}
+\index{p\-In\-Journal@{p\-In\-Journal}!Pager@{Pager}}
+\subsubsection[{p\-In\-Journal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bitvec}$\ast$ Pager\-::p\-In\-Journal}}\label{struct_pager_a530ea868337a7c0c4e7c125035f73737}
+\hypertarget{struct_pager_ae2495e45e354e92a858144386f91cab3}{\index{Pager@{Pager}!p\-P\-Cache@{p\-P\-Cache}}
+\index{p\-P\-Cache@{p\-P\-Cache}!Pager@{Pager}}
+\subsubsection[{p\-P\-Cache}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-Cache}$\ast$ Pager\-::p\-P\-Cache}}\label{struct_pager_ae2495e45e354e92a858144386f91cab3}
+\hypertarget{struct_pager_a64934188c72599e0be9ae54d3fc1cc92}{\index{Pager@{Pager}!p\-Tmp\-Space@{p\-Tmp\-Space}}
+\index{p\-Tmp\-Space@{p\-Tmp\-Space}!Pager@{Pager}}
+\subsubsection[{p\-Tmp\-Space}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Pager\-::p\-Tmp\-Space}}\label{struct_pager_a64934188c72599e0be9ae54d3fc1cc92}
+\hypertarget{struct_pager_affa78e08a7f691a4c8f7043e0b4c9212}{\index{Pager@{Pager}!p\-Vfs@{p\-Vfs}}
+\index{p\-Vfs@{p\-Vfs}!Pager@{Pager}}
+\subsubsection[{p\-Vfs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-vfs}$\ast$ Pager\-::p\-Vfs}}\label{struct_pager_affa78e08a7f691a4c8f7043e0b4c9212}
+\hypertarget{struct_pager_a2c759424108248d8b08e6f400fab14dd}{\index{Pager@{Pager}!p\-Wal@{p\-Wal}}
+\index{p\-Wal@{p\-Wal}!Pager@{Pager}}
+\subsubsection[{p\-Wal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Wal}$\ast$ Pager\-::p\-Wal}}\label{struct_pager_a2c759424108248d8b08e6f400fab14dd}
+\hypertarget{struct_pager_ad7a7013309fd80a2a01844e69e8e7398}{\index{Pager@{Pager}!read\-Only@{read\-Only}}
+\index{read\-Only@{read\-Only}!Pager@{Pager}}
+\subsubsection[{read\-Only}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::read\-Only}}\label{struct_pager_ad7a7013309fd80a2a01844e69e8e7398}
+\hypertarget{struct_pager_a4a47c73d7c18b803df33ba6c39baa5bf}{\index{Pager@{Pager}!sector\-Size@{sector\-Size}}
+\index{sector\-Size@{sector\-Size}!Pager@{Pager}}
+\subsubsection[{sector\-Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Pager\-::sector\-Size}}\label{struct_pager_a4a47c73d7c18b803df33ba6c39baa5bf}
+\hypertarget{struct_pager_acd7eae0587c98ac41afab04e4b5defcb}{\index{Pager@{Pager}!set\-Master@{set\-Master}}
+\index{set\-Master@{set\-Master}!Pager@{Pager}}
+\subsubsection[{set\-Master}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::set\-Master}}\label{struct_pager_acd7eae0587c98ac41afab04e4b5defcb}
+\hypertarget{struct_pager_a8196bcc97f184d480848895f71e080e6}{\index{Pager@{Pager}!sjfd@{sjfd}}
+\index{sjfd@{sjfd}!Pager@{Pager}}
+\subsubsection[{sjfd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sqlite3\-\_\-file}$\ast$ Pager\-::sjfd}}\label{struct_pager_a8196bcc97f184d480848895f71e080e6}
+\hypertarget{struct_pager_a9205654b516184d84fde5c3b5f72ff77}{\index{Pager@{Pager}!subj\-In\-Memory@{subj\-In\-Memory}}
+\index{subj\-In\-Memory@{subj\-In\-Memory}!Pager@{Pager}}
+\subsubsection[{subj\-In\-Memory}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::subj\-In\-Memory}}\label{struct_pager_a9205654b516184d84fde5c3b5f72ff77}
+\hypertarget{struct_pager_ac7f90d27da63090369a0e44a0bceb525}{\index{Pager@{Pager}!sync\-Flags@{sync\-Flags}}
+\index{sync\-Flags@{sync\-Flags}!Pager@{Pager}}
+\subsubsection[{sync\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::sync\-Flags}}\label{struct_pager_ac7f90d27da63090369a0e44a0bceb525}
+\hypertarget{struct_pager_a9caa1abb43f6e839dd9a265c27b0b9e4}{\index{Pager@{Pager}!temp\-File@{temp\-File}}
+\index{temp\-File@{temp\-File}!Pager@{Pager}}
+\subsubsection[{temp\-File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::temp\-File}}\label{struct_pager_a9caa1abb43f6e839dd9a265c27b0b9e4}
+\hypertarget{struct_pager_af7783f866150d7e322c28cb324ad85d6}{\index{Pager@{Pager}!use\-Journal@{use\-Journal}}
+\index{use\-Journal@{use\-Journal}!Pager@{Pager}}
+\subsubsection[{use\-Journal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::use\-Journal}}\label{struct_pager_af7783f866150d7e322c28cb324ad85d6}
+\hypertarget{struct_pager_a36f3333fe82c70a46a99f2f8f289a971}{\index{Pager@{Pager}!vfs\-Flags@{vfs\-Flags}}
+\index{vfs\-Flags@{vfs\-Flags}!Pager@{Pager}}
+\subsubsection[{vfs\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} Pager\-::vfs\-Flags}}\label{struct_pager_a36f3333fe82c70a46a99f2f8f289a971}
+\hypertarget{struct_pager_aa8c8c2d893e4d2165f089ddde3e85103}{\index{Pager@{Pager}!wal\-Sync\-Flags@{wal\-Sync\-Flags}}
+\index{wal\-Sync\-Flags@{wal\-Sync\-Flags}!Pager@{Pager}}
+\subsubsection[{wal\-Sync\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} Pager\-::wal\-Sync\-Flags}}\label{struct_pager_aa8c8c2d893e4d2165f089ddde3e85103}
+\hypertarget{struct_pager_ac8477f7cc39fefd81b4089994e13d215}{\index{Pager@{Pager}!x\-Busy\-Handler@{x\-Busy\-Handler}}
+\index{x\-Busy\-Handler@{x\-Busy\-Handler}!Pager@{Pager}}
+\subsubsection[{x\-Busy\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ Pager\-::x\-Busy\-Handler)(void $\ast$)}}\label{struct_pager_ac8477f7cc39fefd81b4089994e13d215}
+\hypertarget{struct_pager_a632d3c81743a7f9104337ae3d45af04c}{\index{Pager@{Pager}!x\-Reiniter@{x\-Reiniter}}
+\index{x\-Reiniter@{x\-Reiniter}!Pager@{Pager}}
+\subsubsection[{x\-Reiniter}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Pager\-::x\-Reiniter)({\bf Db\-Page} $\ast$)}}\label{struct_pager_a632d3c81743a7f9104337ae3d45af04c}
+\hypertarget{struct_pager_a2a55a044468f8658b7993e57087a5561}{\index{Pager@{Pager}!z\-Filename@{z\-Filename}}
+\index{z\-Filename@{z\-Filename}!Pager@{Pager}}
+\subsubsection[{z\-Filename}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Pager\-::z\-Filename}}\label{struct_pager_a2a55a044468f8658b7993e57087a5561}
+\hypertarget{struct_pager_ab36ce1f606c407ad3fc56a3651f5a319}{\index{Pager@{Pager}!z\-Journal@{z\-Journal}}
+\index{z\-Journal@{z\-Journal}!Pager@{Pager}}
+\subsubsection[{z\-Journal}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Pager\-::z\-Journal}}\label{struct_pager_ab36ce1f606c407ad3fc56a3651f5a319}
+\hypertarget{struct_pager_ac63ab281e48f9ac8521b85c1a90475b3}{\index{Pager@{Pager}!z\-Wal@{z\-Wal}}
+\index{z\-Wal@{z\-Wal}!Pager@{Pager}}
+\subsubsection[{z\-Wal}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Pager\-::z\-Wal}}\label{struct_pager_ac63ab281e48f9ac8521b85c1a90475b3}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{sqlite3_8c}{sqlite3.\-c}\end{DoxyCompactItemize}

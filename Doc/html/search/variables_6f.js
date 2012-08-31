@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['okonepass',['okOnePass',['../struct_where_info.html#a851aa1747f940f6ab58505f9326fe9c7',1,'WhereInfo']]],
+  ['oldmask',['oldmask',['../struct_parse.html#acda3334b932ac6541f45fa939053e942',1,'Parse']]],
+  ['omit',['omit',['../structsqlite3__index__info_1_1sqlite3__index__constraint__usage.html#ad07fa17d30e4fb3abe23ceaf84edf0ef',1,'sqlite3_index_info::sqlite3_index_constraint_usage']]],
+  ['onerror',['onError',['../struct_index.html#ae8bf87d0414e5c46b86192cfbdd271a7',1,'Index']]],
+  ['op',['op',['../structsqlite3__index__info_1_1sqlite3__index__constraint.html#a362f4ec1f71975cb0ac39a8b5e4b1476',1,'sqlite3_index_info::sqlite3_index_constraint::op()'],['../struct_expr.html#a101c55ddb6c149d95f0327831eb78225',1,'Expr::op()'],['../struct_where_level.html#a0253c213b81cd17481601e495d421706',1,'WhereLevel::op()'],['../struct_select.html#a84506d61248313b5e10f7891cb7482be',1,'Select::op()'],['../struct_trigger.html#a855d6b6a302d8d80e1d30ddd70fd403e',1,'Trigger::op()'],['../struct_trigger_step.html#a20269855c80d869d498fcb93401832fd',1,'TriggerStep::op()'],['../struct_where_clause.html#a7a56a5fe1ab6603e930f3b5372ff2f71',1,'WhereClause::op()']]],
+  ['op2',['op2',['../struct_expr.html#a0eacba0a2a6977e434b096b1cb9d5b9e',1,'Expr']]],
+  ['opcode',['opcode',['../struct_vdbe_op.html#ae12a8e7a8f5f7ba39fa379c9ad287837',1,'VdbeOp::opcode()'],['../struct_vdbe_op_list.html#a9c839a619aed99f91cb5e226487be7be',1,'VdbeOpList::opcode()']]],
+  ['open',['open',['../structsqlite3__api__routines.html#a1d0126d7384e1e4e0975d3084007af89',1,'sqlite3_api_routines']]],
+  ['open16',['open16',['../structsqlite3__api__routines.html#a8394f1e962c0c3172ef7a0b6243303ca',1,'sqlite3_api_routines']]],
+  ['open_5fv2',['open_v2',['../structsqlite3__api__routines.html#ac6da992cdbb490e1d1e856a4864851bf',1,'sqlite3_api_routines']]],
+  ['openflags',['openFlags',['../structsqlite3.html#acfe8618d03dcd195a992886079c3b014',1,'sqlite3::openFlags()'],['../struct_bt_shared.html#a8fbc250e23d7c417ccfec8cceb08329d',1,'BtShared::openFlags()']]],
+  ['opflags',['opflags',['../struct_vdbe_op.html#a169a7bbe99a90c26ee01833723750b1d',1,'VdbeOp']]],
+  ['orconf',['orconf',['../struct_trigger_prg.html#aa475acda58c472b3491f6aa17020bf68',1,'TriggerPrg::orconf()'],['../struct_trigger_step.html#a4ed8b2571fde96e84f637184453e73e3',1,'TriggerStep::orconf()']]],
+  ['orderbyconsumed',['orderByConsumed',['../structsqlite3__index__info.html#a5515d9de0f37f68d7e0930c20a668b29',1,'sqlite3_index_info']]],
+  ['orphantrigger',['orphanTrigger',['../structsqlite3_1_1sqlite3_init_info.html#ac292839cc81d109206133a80949c45a6',1,'sqlite3::sqlite3InitInfo']]],
+  ['overflow',['overflow',['../struct_sum_ctx.html#a3b14a5da00584aff08314d5e9ddbe9ea',1,'SumCtx']]],
+  ['overload_5ffunction',['overload_function',['../structsqlite3__api__routines.html#aae9b181f076ae18804590924aa791101',1,'sqlite3_api_routines']]]
+];

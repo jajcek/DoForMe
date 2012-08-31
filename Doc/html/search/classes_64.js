@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['detailedcalendar',['DetailedCalendar',['../class_detailed_calendar.html',1,'']]]
+  ['database',['Database',['../class_database.html',1,'']]]
 ];
