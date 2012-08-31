@@ -35,6 +35,7 @@ var searchData=
   ['setscripttitle',['setScriptTitle',['../classmain_win.html#aa70a0f3f1c66ffa1a7d4012526b56c44',1,'mainWin']]],
   ['setseconds',['setSeconds',['../class_action_settings.html#a559f59ec9a8675c3c53272cb791735bd',1,'ActionSettings']]],
   ['setsetting',['setSetting',['../class_action.html#ab0dcff3e1da9b7bf4ffbc5cb37c56bba',1,'Action']]],
+  ['setspecialkeyerror',['setSpecialKeyError',['../class_lua_engine.html#a92df2282a9f711f80f034aae6fb26303',1,'LuaEngine']]],
   ['settraytoupdate',['setTrayToUpdate',['../class_action_caller.html#a471b5f266088338d8e7ef6e598316940',1,'ActionCaller']]],
   ['setxdays',['setXDays',['../class_action_settings.html#a4107237b01a3832e8eadf1cfd172b1db',1,'ActionSettings']]],
   ['showabout',['showAbout',['../classmain_win.html#a971bee9dff02167121566f9a4444af4e',1,'mainWin']]],

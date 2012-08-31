@@ -300,14 +300,14 @@ void LuaApiEngine::moveTo( std::deque<int> args ) {
 	// get values for the current screen to be able to calculate real position of the cursor
 	double _fScreenWidth   = GetSystemMetrics( SM_CXSCREEN ) - 1; 
 	double _fScreenHeight  = GetSystemMetrics( SM_CYSCREEN ) - 1; 
-	double _fx = _x * ( 65535.0f / _fScreenWidth );
-	double _fy = _y * ( 65535.0f / _fScreenHeight );
+	double _fx             = _x * ( 65535.0f / _fScreenWidth );
+	double _fy             = _y * ( 65535.0f / _fScreenHeight );
 
-	INPUT  Input = { 0 };
+	INPUT  Input     = { 0 };
 	Input.type       = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE;
-	Input.mi.dx = _fx;
-	Input.mi.dy = _fy;
+	Input.mi.dx      = _fx;
+	Input.mi.dy      = _fy;
 	SendInput( 1, &Input,sizeof( INPUT ) );
 }
 
@@ -320,36 +320,40 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 
 	// for all symbols
 	int _symbolsNumber = args.size();
+	char _oldChar = NULL;
+	char _char = NULL;
 	for( int i = 0; i < _symbolsNumber; ++i ) {
 		// get current key
-		char _char = args.front();
+		_oldChar = _char;
+		_char = args.front();
 
 		// we will store a text describing special key that is written in {} brackets in the script
 		// special key is a return key, tabulator etc.
 		QString _specialKey = "";
-		if( _char == '{' ) {
+		if( _char == '{' && _oldChar != '/' ) {
 			// gets text between {} brackets
 			int _symbolsRead = getSpecialKey( _specialKey, args );
-			if( _symbolsRead == -1 )
+			if( _symbolsRead == -1 ) {
 				return;
+			}
 			
 			// it is needed to increase the iterator with number of elements read
 			i += _symbolsRead;
 
 			// if an error occured (no closing '}' bracket)
-			if( _specialKey == "err" ) return;
+			if( _specialKey == "err" ) {
+				return;
+			}
 
 			// check if the value from {} exists in the m_specialKeys map
 			if( m_specialKeys.find( _specialKey ) != m_specialKeys.end() ) {
-				// get value for specialKey string and insert the key to _inputs vector
-				// (objects for keys are created in LuaApiEngine::initSpecialKeys()
-				// invoked in mainwin.cpp in the constructor
-				m_specialKeys[_specialKey]->insertKeyTo( _inputs );
-
 				continue;
 			} else {
 				return;
 			}
+		} else if( _char == '{' && _oldChar == '/' ) {
+			_inputs.pop_back();
+			_inputs.pop_back();
 		}
 
 		// if it's not a special key

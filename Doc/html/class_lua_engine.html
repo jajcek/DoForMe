@@ -125,6 +125,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab039ca83afd2466f9fe52fcc69adfefb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there was error in the last loaded file.  <a href="#ab039ca83afd2466f9fe52fcc69adfefb"></a><br/></td></tr>
 <tr class="memitem:aed08b6b1d8b4a637bb3e24a397ea1aaf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#aed08b6b1d8b4a637bb3e24a397ea1aaf">validateLastParse</a> ()</td></tr>
 <tr class="memdesc:aed08b6b1d8b4a637bb3e24a397ea1aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there was error in the last parsed file.  <a href="#aed08b6b1d8b4a637bb3e24a397ea1aaf"></a><br/></td></tr>
+<tr class="memitem:a92df2282a9f711f80f034aae6fb26303"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a92df2282a9f711f80f034aae6fb26303">setSpecialKeyError</a> (bool error=true)</td></tr>
+<tr class="memdesc:a92df2282a9f711f80f034aae6fb26303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets error for the parsing special keys in sendText() api function.  <a href="#a92df2282a9f711f80f034aae6fb26303"></a><br/></td></tr>
 <tr class="memitem:af06d49221c25b93c334f9ed49571fa72"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#af06d49221c25b93c334f9ed49571fa72">getTextError</a> () const </td></tr>
 <tr class="memdesc:af06d49221c25b93c334f9ed49571fa72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns error in a text form from last parsed (with <a class="el" href="class_lua_engine.html#a5eae05f78704166f098ea20568c23fd7" title="Puts api functions onto stack - LuaEngine::m_commands - that has been previously loaded by loadScript...">LuaEngine::parseScript()</a>) script.  <a href="#af06d49221c25b93c334f9ed49571fa72"></a><br/></td></tr>
 <tr class="memitem:abeccc6545aa5cde1681cf61780044ab3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#abeccc6545aa5cde1681cf61780044ab3">addCommand</a> (void(*pCmd)(std::deque&lt; int &gt;))</td></tr>
@@ -171,6 +173,8 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:af8dca74620280060399b5b7dd937af44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if there is a syntax/memory error in the loaded lua's script.  <a href="#af8dca74620280060399b5b7dd937af44"></a><br/></td></tr>
 <tr class="memitem:ac7c65e343f73a0dadcbe2d5f1a5842f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ac7c65e343f73a0dadcbe2d5f1a5842f3">m_parseError</a></td></tr>
 <tr class="memdesc:ac7c65e343f73a0dadcbe2d5f1a5842f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if there is a runtime error in the loaded lua's script.  <a href="#ac7c65e343f73a0dadcbe2d5f1a5842f3"></a><br/></td></tr>
+<tr class="memitem:a5cac380e1359eb5a6cf95239e4ad2b19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a5cac380e1359eb5a6cf95239e4ad2b19">m_bSpecialKeyError</a></td></tr>
+<tr class="memdesc:a5cac380e1359eb5a6cf95239e4ad2b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether an error occured while parsing special keys in sendText api function.  <a href="#a5cac380e1359eb5a6cf95239e4ad2b19"></a><br/></td></tr>
 <tr class="memitem:a0cb5dc043a3f9b162ad97245cd7e6956"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a0cb5dc043a3f9b162ad97245cd7e6956">m_textError</a></td></tr>
 <tr class="memdesc:a0cb5dc043a3f9b162ad97245cd7e6956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores exact string which is returned by lua's lua_pcall function.  <a href="#a0cb5dc043a3f9b162ad97245cd7e6956"></a><br/></td></tr>
 <tr class="memitem:add74083d158ee3543d0644c0b6349c5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#add74083d158ee3543d0644c0b6349c5d">m_bIntervalChanged</a></td></tr>
@@ -576,6 +580,30 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a92df2282a9f711f80f034aae6fb26303"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LuaEngine::setSpecialKeyError </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>error</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets error for the parsing special keys in sendText() api function. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">error</td><td>State of the error. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a28e0795b54170d763a929256566fe2b5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -714,6 +742,28 @@ Static Private Attributes</h2></td></tr>
 
 <p>Indicates if the interval has been changed by using GUI or sleep() api function. </p>
 <p>If the variable is set to true it means that the sleep() api function is being executed, otherwise the interval has been changed by using GUI. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5cac380e1359eb5a6cf95239e4ad2b19"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LuaEngine::m_bSpecialKeyError</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines whether an error occured while parsing special keys in sendText api function. </p>
 
 </div>
 </div>
@@ -934,7 +984,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 29 2012 21:14:38 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 29 2012 23:05:31 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

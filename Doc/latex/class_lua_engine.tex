@@ -34,6 +34,8 @@ int \hyperlink{class_lua_engine_ab039ca83afd2466f9fe52fcc69adfefb}{validate\-Las
 \begin{DoxyCompactList}\small\item\em Checks if there was error in the last loaded file. \end{DoxyCompactList}\item 
 int \hyperlink{class_lua_engine_aed08b6b1d8b4a637bb3e24a397ea1aaf}{validate\-Last\-Parse} ()
 \begin{DoxyCompactList}\small\item\em Checks if there was error in the last parsed file. \end{DoxyCompactList}\item 
+void \hyperlink{class_lua_engine_a92df2282a9f711f80f034aae6fb26303}{set\-Special\-Key\-Error} (bool error=true)
+\begin{DoxyCompactList}\small\item\em Sets error for the parsing special keys in send\-Text() api function. \end{DoxyCompactList}\item 
 Q\-String \hyperlink{class_lua_engine_af06d49221c25b93c334f9ed49571fa72}{get\-Text\-Error} () const 
 \begin{DoxyCompactList}\small\item\em Returns error in a text form from last parsed (with \hyperlink{class_lua_engine_a5eae05f78704166f098ea20568c23fd7}{Lua\-Engine\-::parse\-Script()}) script. \end{DoxyCompactList}\item 
 void \hyperlink{class_lua_engine_abeccc6545aa5cde1681cf61780044ab3}{add\-Command} (void($\ast$p\-Cmd)(std\-::deque$<$ int $>$))
@@ -81,6 +83,8 @@ int \hyperlink{class_lua_engine_af8dca74620280060399b5b7dd937af44}{m\-\_\-load\-
 \begin{DoxyCompactList}\small\item\em Indicates if there is a syntax/memory error in the loaded lua's script. \end{DoxyCompactList}\item 
 int \hyperlink{class_lua_engine_ac7c65e343f73a0dadcbe2d5f1a5842f3}{m\-\_\-parse\-Error}
 \begin{DoxyCompactList}\small\item\em Indicates if there is a runtime error in the loaded lua's script. \end{DoxyCompactList}\item 
+bool \hyperlink{class_lua_engine_a5cac380e1359eb5a6cf95239e4ad2b19}{m\-\_\-b\-Special\-Key\-Error}
+\begin{DoxyCompactList}\small\item\em Determines whether an error occured while parsing special keys in send\-Text api function. \end{DoxyCompactList}\item 
 Q\-String \hyperlink{class_lua_engine_a0cb5dc043a3f9b162ad97245cd7e6956}{m\-\_\-text\-Error}
 \begin{DoxyCompactList}\small\item\em Stores exact string which is returned by lua's lua\-\_\-pcall function. \end{DoxyCompactList}\item 
 bool \hyperlink{class_lua_engine_add74083d158ee3543d0644c0b6349c5d}{m\-\_\-b\-Interval\-Changed}
@@ -362,6 +366,22 @@ Set time interval for one command (used for sleep() api function).
 \mbox{\tt in}  & {\em interval} & Time interval. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_lua_engine_a92df2282a9f711f80f034aae6fb26303}{\index{Lua\-Engine@{Lua\-Engine}!set\-Special\-Key\-Error@{set\-Special\-Key\-Error}}
+\index{set\-Special\-Key\-Error@{set\-Special\-Key\-Error}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{set\-Special\-Key\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::set\-Special\-Key\-Error (
+\begin{DoxyParamCaption}
+\item[{bool}]{error = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a92df2282a9f711f80f034aae6fb26303}
+
+
+Sets error for the parsing special keys in send\-Text() api function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em error} & State of the error. \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_lua_engine_a28e0795b54170d763a929256566fe2b5}{\index{Lua\-Engine@{Lua\-Engine}!start@{start}}
 \index{start@{start}!LuaEngine@{Lua\-Engine}}
 \subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::start (
@@ -448,7 +468,14 @@ State of the lua's engine. Used by lua's library -\/ don't touch it.
 
 Indicates if the interval has been changed by using G\-U\-I or sleep() api function. 
 
-If the variable is set to true it means that the sleep() api function is being executed, otherwise the interval has been changed by using G\-U\-I. \hypertarget{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-commands@{m\-\_\-commands}}
+If the variable is set to true it means that the sleep() api function is being executed, otherwise the interval has been changed by using G\-U\-I. \hypertarget{class_lua_engine_a5cac380e1359eb5a6cf95239e4ad2b19}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-b\-Special\-Key\-Error@{m\-\_\-b\-Special\-Key\-Error}}
+\index{m\-\_\-b\-Special\-Key\-Error@{m\-\_\-b\-Special\-Key\-Error}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-b\-Special\-Key\-Error}]{\setlength{\rightskip}{0pt plus 5cm}bool Lua\-Engine\-::m\-\_\-b\-Special\-Key\-Error\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_a5cac380e1359eb5a6cf95239e4ad2b19}
+
+
+Determines whether an error occured while parsing special keys in send\-Text api function. 
+
+\hypertarget{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-commands@{m\-\_\-commands}}
 \index{m\-\_\-commands@{m\-\_\-commands}!LuaEngine@{Lua\-Engine}}
 \subsubsection[{m\-\_\-commands}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Commands\-Manager} Lua\-Engine\-::m\-\_\-commands\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_a86a3f32127e36e1ccce6c5a42a298ad5}
 

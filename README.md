@@ -1,3 +1,16 @@
+Development release 30.08.2012
+===================================================
+Fixes
+---------------------------------------------------
+- Crash in some cases while parsing + runnining a script.
+
+Development release 30.08.2012
+===================================================
+Fixes
+---------------------------------------------------
+- Fixed an inability to print "{" symbol in the sendText api function.
+It is done now by typing "/{". E.g sendText( "/{something}" ) will print "{something}". Notice that you shouldn't put '/' before } symbol.
+
 Development release 29.08.2012
 ===================================================
 Fixes
