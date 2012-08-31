@@ -30,7 +30,7 @@ Release 18.07.2012
 	
 - Keyboard simulation engine
 	- sendText( text )
-	- Ability to use special keys in {} brackets e.g. sendText( "{tab}a{n}b" ) will start with a tabulator and break the line between 'a' and 'b'
+	- ability to use special keys in {} brackets e.g. sendText( "{tab}a{n}b" ) will start with a tabulator and break the line between 'a' and 'b'
 
 - Other commands
 	- sleep( time_in_milliseconds )
