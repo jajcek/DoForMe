@@ -6,6 +6,13 @@ const int Script::CREATE = 2;
 
 Script::Script( const QString& path, int iMode ) : m_strCode( "" ), m_strPath( "" ), m_bModified( false ) {
 	QFile _file( path );
+	QDir _dir;
+
+	// check if "scripts" folder exists
+	int _dirExists = _dir.exists( "scripts" );
+	// if not, create it
+	if( !_dirExists )
+		_dir.mkdir( "scripts" );
 
 	// open file in read mode (and text mode) 
     int _fileOpened = 0;

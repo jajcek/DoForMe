@@ -194,7 +194,7 @@ void mainWin::newFile() {
 	if( _ok ) {
 		// create script object from the file
 		try {
-			Script* _pScript = new Script( CONF::SCRIPT_DIR + _strFileName, Script::CREATE );
+			Script* _pScript = new Script( CONF::SCRIPT_DIR + _strFileName + CONF::EXT, Script::CREATE );
 			if( ScriptsManager::addScript( _pScript ) ) {
 				// add script title to the scripts list to the title and clean the text area
 				ui.scriptsList->addItem( _pScript->getFileName() );
@@ -204,7 +204,7 @@ void mainWin::newFile() {
 			}
 		} catch( int e ) {
 			if( e == Script::FileOpenException ) {
-				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file \"" + CONF::SCRIPT_DIR + _strFileName + "\". Probably wrong name for file.", QMessageBox::Ok );
+				QMessageBox _msg( QMessageBox::Critical, "Error", "Unable to create file \"" + CONF::SCRIPT_DIR + _strFileName + CONF::EXT + "\". Probably wrong name for file.", QMessageBox::Ok );
 				_msg.exec();
 			}
 		}
