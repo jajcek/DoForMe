@@ -4,6 +4,7 @@
 #include <qstring.h>
 #include <qfile.h>
 #include <qmessagebox.h>
+#include <qdir.h>
 #include "conf.h"
 
 /**

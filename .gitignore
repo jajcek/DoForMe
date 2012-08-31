@@ -1,0 +1,33 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Visual Studio files/folders
+*.sdf
+*.suo
+*.opensdf
+ipch
+DoForMe!/Debug
+Win32
+
+# Qt generated files
+DoForMe!/GeneratedFiles
+
+# Doxygen
+Doxyfile
+
+# Some graphics
+*.psd
+
+# App user data
+DoForMe!/scripts
+DoForMe!/actions.db
