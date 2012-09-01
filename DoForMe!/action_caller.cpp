@@ -39,18 +39,14 @@ void ActionCaller::executeNextAction() {
 	m_caller.stop();
 
 	Action* _pAction = m_actions.at( 0 );
-	QMessageBox _msg( QMessageBox::Information, "Information", "An action is coming up. What to do?" );
-	QAbstractButton* runButton     = _msg.addButton( "Run", QMessageBox::YesRole );
-	QAbstractButton* suspendButton = _msg.addButton( "Suspend", QMessageBox::ResetRole );
-	QAbstractButton* ignoreButton  = _msg.addButton( "Ignore", QMessageBox::NoRole );
+	MsgBoxWithDuration _msg( "Information", "An action is coming up. What to do?", 5 );
 	_msg.exec();
-	if( _msg.clickedButton() == runButton ) {
-			qDebug( "wlazlo do yesrole" );
-			LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
-	} else if( _msg.clickedButton() == suspendButton ) {
-
+	if( _msg.buttonClicked() != -1 ) {
+		if( _msg.buttonClicked() == MsgBoxWithDuration::RUN ) {
+				LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
+		}
 	} else {
-		// just do nothing
+		LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
 	}
 	
 	m_actions.remove( 0 );
@@ -112,8 +108,10 @@ void ActionCaller::timerEvent( QTimerEvent* e ) {
 		if( !m_actions.isEmpty() ) {
 			QTime _timeForFirstAction = m_actions.at( 0 )->getTime();
 			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction );
-			if( _milliseconds < 0 )
+			if( _milliseconds < 0 ) {
+				executeNextAction();
 				continue;
+			}
 			m_caller.start( _milliseconds, this );
 		} else {
 			m_caller.stop();

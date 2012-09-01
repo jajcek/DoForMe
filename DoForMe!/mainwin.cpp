@@ -580,7 +580,7 @@ void mainWin::openApp() {
 
 void mainWin::quitApp() {
 	m_tray->hide();
-	exit( 0 );
+	close();
 }
 
 void mainWin::initTraySystem( TraySystem* tray ) {

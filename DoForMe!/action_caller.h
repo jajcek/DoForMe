@@ -4,6 +4,7 @@
 #include "lua_engine.h"
 #include "action.h"
 #include "tray_system.h"
+#include "msg_box_with_duration.h"
 
 /**
 	\class ActionCaller action_caller.h "action_caller.h"

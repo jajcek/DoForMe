@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="mainWin">
+    <file>Resources/actionicon.png</file>
     <file>Resources/tray_icon.png</file>
     <file>Resources/exclamation.png</file>
     <file>Resources/fileimport.ico</file>
