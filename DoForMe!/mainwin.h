@@ -11,6 +11,8 @@
 #include <qformlayout.h>
 #include <qsystemtrayicon.h>
 #include <qevent.h>
+#include <phonon/mediaobject.h>
+#include <phonon/mediasource.h>
 #include "ui_mainwin.h"
 #include "lua_api.h"
 #include "lua_engine.h"

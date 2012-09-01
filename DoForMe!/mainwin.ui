@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>821</width>
-    <height>528</height>
+    <height>508</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,7 +34,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>280</y>
+      <y>260</y>
       <width>651</width>
       <height>201</height>
      </rect>
@@ -75,7 +75,7 @@ QTabBar::tab::selected {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideNone</enum>
@@ -268,152 +268,6 @@ while recording.</string>
      <attribute name="title">
       <string>Reminder</string>
      </attribute>
-     <widget class="QGroupBox" name="groupBox_10">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>471</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Reminder</string>
-      </property>
-      <widget class="QCheckBox" name="signalCheck">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>81</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Signal action</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="signalEdit">
-       <property name="geometry">
-        <rect>
-         <x>92</x>
-         <y>20</y>
-         <width>41</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_8">
-       <property name="geometry">
-        <rect>
-         <x>139</x>
-         <y>21</y>
-         <width>131</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>minutes before execution.</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_11">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>70</y>
-        <width>81</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Message box</string>
-      </property>
-      <widget class="QCheckBox" name="msgCheck">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>61</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Display</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_12">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>130</y>
-        <width>311</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Sound</string>
-      </property>
-      <widget class="QCheckBox" name="soundCheck">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>41</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>On</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="browseSoundButton">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>19</y>
-         <width>75</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Browse...</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="soundPathEdit">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>19</y>
-         <width>171</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D:\dupa.apc</string>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="playSoundButton">
-       <property name="geometry">
-        <rect>
-         <x>343</x>
-         <y>17</y>
-         <width>31</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Play</string>
-       </property>
-      </widget>
-     </widget>
     </widget>
    </widget>
    <widget class="QListWidget" name="scriptsList">
@@ -513,7 +367,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>250</y>
+      <y>230</y>
       <width>151</width>
       <height>22</height>
      </rect>
@@ -582,7 +436,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>272</y>
+      <y>252</y>
       <width>151</width>
       <height>209</height>
      </rect>
@@ -672,7 +526,7 @@ selection-background-color: rgb( 51, 153, 255 );
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>250</y>
+      <y>230</y>
       <width>661</width>
       <height>22</height>
      </rect>
@@ -692,7 +546,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>241</x>
-      <y>250</y>
+      <y>231</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -714,7 +568,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>401</x>
-      <y>250</y>
+      <y>231</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -736,7 +590,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>321</x>
-      <y>250</y>
+      <y>231</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -758,7 +612,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>640</x>
-      <y>250</y>
+      <y>231</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -777,7 +631,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>723</x>
-      <y>252</y>
+      <y>233</y>
       <width>91</width>
       <height>17</height>
      </rect>
@@ -796,7 +650,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>161</x>
-      <y>250</y>
+      <y>231</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -821,7 +675,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>489</x>
-      <y>250</y>
+      <y>231</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -850,7 +704,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>552</x>
-      <y>250</y>
+      <y>231</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -879,7 +733,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>250</y>
+      <y>231</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -908,7 +762,7 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>531</x>
-      <y>250</y>
+      <y>231</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -946,12 +800,6 @@ color: black;</string>
     </property>
     <addaction name="actionAbout"/>
    </widget>
-   <widget class="QMenu" name="menuExecuting">
-    <property name="title">
-     <string>Commands</string>
-    </property>
-    <addaction name="actionExlude_commands"/>
-   </widget>
    <widget class="QMenu" name="menuCustomize">
     <property name="title">
      <string>Customize</string>
@@ -975,13 +823,10 @@ color: black;</string>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
-     <string>View</string>
+     <string>Tools</string>
     </property>
-    <addaction name="actionScript_code"/>
-    <addaction name="actionRecording"/>
-    <addaction name="actionTiming"/>
-    <addaction name="actionRepeating"/>
-    <addaction name="actionReminding"/>
+    <addaction name="actionMenuRecorder"/>
+    <addaction name="actionMenuReminder"/>
    </widget>
    <widget class="QMenu" name="menuScript">
     <property name="title">
@@ -998,7 +843,6 @@ color: black;</string>
    </widget>
    <addaction name="menuScript"/>
    <addaction name="menuActions"/>
-   <addaction name="menuExecuting"/>
    <addaction name="menuCustomize"/>
    <addaction name="menuView"/>
    <addaction name="menuMenu"/>
@@ -1323,6 +1167,16 @@ color: black;</string>
    </property>
    <property name="text">
     <string>Parse</string>
+   </property>
+  </action>
+  <action name="actionMenuRecorder">
+   <property name="text">
+    <string>Recorder...</string>
+   </property>
+  </action>
+  <action name="actionMenuReminder">
+   <property name="text">
+    <string>Reminder...</string>
    </property>
   </action>
  </widget>

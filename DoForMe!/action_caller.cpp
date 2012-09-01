@@ -36,8 +36,23 @@ void ActionCaller::sortByTime( QVector<Action*>& actions ) {
 }
 
 void ActionCaller::executeNextAction() {
+	m_caller.stop();
+
 	Action* _pAction = m_actions.at( 0 );
-	LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
+	QMessageBox _msg( QMessageBox::Information, "Information", "An action is coming up. What to do?" );
+	QAbstractButton* runButton     = _msg.addButton( "Run", QMessageBox::YesRole );
+	QAbstractButton* suspendButton = _msg.addButton( "Suspend", QMessageBox::ResetRole );
+	QAbstractButton* ignoreButton  = _msg.addButton( "Ignore", QMessageBox::NoRole );
+	_msg.exec();
+	if( _msg.clickedButton() == runButton ) {
+			qDebug( "wlazlo do yesrole" );
+			LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
+	} else if( _msg.clickedButton() == suspendButton ) {
+
+	} else {
+		// just do nothing
+	}
+	
 	m_actions.remove( 0 );
 }
 
