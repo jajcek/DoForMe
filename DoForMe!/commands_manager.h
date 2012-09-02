@@ -1,6 +1,7 @@
 #pragma once
 
 #include <deque>
+#include "msg_box_with_duration.h"
 
 /**
 	\class CommandsManager commands_manager.h "commands_manager.h"

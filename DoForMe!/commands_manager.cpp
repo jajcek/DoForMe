@@ -9,10 +9,38 @@ void CommandsManager::executeNext() {
 	void ( *_pCmd )( std::deque<int> ) = m_commands.front();
 	std::deque<int> _args = m_args.front();
 
-	_pCmd( _args );
-
 	m_commands.pop_front();
 	m_args.pop_front();
+
+	if( _pCmd != NULL )
+		_pCmd( _args );
+	else {
+		// get name of the script by converting ascii codes to chars
+		QString _actionName = "";
+		int _size = _args.size();
+		for( int i = 0; i < _size; ++i ) {
+			_actionName += (char)_args.front();
+			_args.pop_front();
+		}
+
+		// show dialog with notification of the new action
+		if( ReminderDialog::getInstance()->isOn() ) {
+			MsgBoxWithDuration _msg( "Information", "An action \"" + _actionName
+									 + "\" is coming up. What to do?", ReminderDialog::getInstance()->timeEarlier() );
+			_msg.exec();
+
+			if( _msg.buttonClicked() == MsgBoxWithDuration::IGNORING ) {
+				// remove the command until next NULL (= until next action)
+				do {
+					_pCmd = m_commands.front();
+					m_commands.pop_front();
+					m_args.pop_front();
+					if( !m_commands.empty() )
+						_pCmd = m_commands.front();
+				} while( _pCmd != NULL && !m_commands.empty() );
+			}
+		}
+	}
 }
 
 bool CommandsManager::isEmpty() const {

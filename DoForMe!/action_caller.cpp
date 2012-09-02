@@ -38,25 +38,14 @@ void ActionCaller::sortByTime( QVector<Action*>& actions ) {
 void ActionCaller::executeNextAction() {
 	Action* _pAction = m_actions.at( 0 );
 
-	bool _shouldRun = false;
-	if( ReminderDialog::getInstance()->isOn() ) {
-		LuaEngine::getInstance()->stop();
-		MsgBoxWithDuration _msg( "Information", "An action \"" + _pAction->getScript()->getFileName()
-							     + "\" is coming up. What to do?", ReminderDialog::getInstance()->timeEarlier() );
-		_msg.exec();
-
-		if( _msg.buttonClicked() != -1 ) {
-			if( _msg.buttonClicked() == MsgBoxWithDuration::RUN )
-				_shouldRun = true;
-		} else
-			_shouldRun = true;
-	} else
-		_shouldRun = true;
-	
-	if( _shouldRun ) {
-		LuaEngine::getInstance()->start();
-		LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
+	// put an action name into a deque by converting char to its ascii code
+	std::deque<int> _actionNameAsArray;
+	QString _actionName = _pAction->getScript()->getFileName();
+	for( int i = 0; i < _actionName.length(); ++i ) {
+		_actionNameAsArray.push_back( (int)_actionName.toStdString().at( i ) );
 	}
+	LuaEngine::getInstance()->addCommand( NULL, _actionNameAsArray );
+	LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
 
 	m_actions.remove( 0 );
 }
