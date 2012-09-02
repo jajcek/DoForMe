@@ -106,9 +106,6 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
-	//Phonon::MediaObject* _music;
-	//_music = Phonon::createPlayer(Phonon::MusicCategory, Phonon::MediaSource("d://a.mp3"));
-	//_music->play();
 	//hook = SetWindowsHookEx( WH_MOUSE_LL, &mouseHook, GetModuleHandle( NULL ), 0 );
 }
 
@@ -581,6 +578,10 @@ void mainWin::openApp() {
 void mainWin::quitApp() {
 	m_tray->hide();
 	close();
+}
+
+void mainWin::showReminderDialog() {
+	ReminderDialog::getInstance()->exec();
 }
 
 void mainWin::initTraySystem( TraySystem* tray ) {

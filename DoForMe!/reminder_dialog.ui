@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>491</width>
+    <width>381</width>
     <height>161</height>
    </rect>
   </property>
@@ -21,18 +21,18 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>491</width>
+    <width>371</width>
     <height>161</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>491</width>
+    <width>390</width>
     <height>161</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Reminder settings</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
@@ -68,7 +68,7 @@
     <rect>
      <x>10</x>
      <y>70</y>
-     <width>471</width>
+     <width>361</width>
      <height>51</height>
     </rect>
    </property>
@@ -96,7 +96,7 @@
      <rect>
       <x>50</x>
       <y>19</y>
-      <width>75</width>
+      <width>71</width>
       <height>20</height>
      </rect>
     </property>
@@ -110,14 +110,14 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>126</x>
       <y>19</y>
-      <width>281</width>
+      <width>181</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string/>
+     <string>notification.mp3</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -129,14 +129,38 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>312</x>
       <y>17</y>
-      <width>41</width>
+      <width>21</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Play</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="mainwin.qrc">
+      <normaloff>:/play_record/Resources/play_on.png</normaloff>:/play_record/Resources/play_on.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stopSoundButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>334</x>
+      <y>17</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="mainwin.qrc">
+      <normaloff>:/play_record/Resources/stop_icon.png</normaloff>:/play_record/Resources/stop_icon.png</iconset>
     </property>
    </widget>
   </widget>
@@ -145,7 +169,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>281</width>
+     <width>361</width>
      <height>51</height>
     </rect>
    </property>
@@ -168,7 +192,7 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>180</x>
       <y>21</y>
       <width>131</width>
       <height>16</height>
@@ -184,9 +208,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>94</x>
+      <x>100</x>
       <y>17</y>
-      <width>51</width>
+      <width>71</width>
       <height>22</height>
      </rect>
     </property>
@@ -197,103 +221,15 @@
      <number>99999</number>
     </property>
     <property name="value">
-     <number>1000</number>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_11">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>10</y>
-     <width>181</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Message</string>
-   </property>
-   <widget class="QCheckBox" name="msgCheck">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>41</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>On</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>22</y>
-      <width>46</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Duration:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>19</y>
-      <width>21</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ms.</string>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="msgDurationSpinBox">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>107</x>
-      <y>18</y>
-      <width>51</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="minimum">
-     <number>1</number>
-    </property>
-    <property name="maximum">
-     <number>99999</number>
-    </property>
-    <property name="value">
-     <number>3000</number>
+     <number>10</number>
     </property>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="mainwin.qrc"/>
+ </resources>
  <connections>
-  <connection>
-   <sender>cancelButton</sender>
-   <signal>clicked()</signal>
-   <receiver>reminderDialog</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>128</x>
-     <y>141</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>245</x>
-     <y>80</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>soundCheck</sender>
    <signal>toggled(bool)</signal>
@@ -343,22 +279,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>msgCheck</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>msgDurationSpinBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>330</x>
-     <y>38</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>432</x>
-     <y>38</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>signalCheck</sender>
    <signal>toggled(bool)</signal>
    <receiver>signalSpinBox</receiver>
@@ -371,6 +291,22 @@
     <hint type="destinationlabel">
      <x>129</x>
      <y>37</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>soundCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>stopSoundButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>40</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>354</x>
+     <y>98</y>
     </hint>
    </hints>
   </connection>

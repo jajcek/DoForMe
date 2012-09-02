@@ -183,9 +183,13 @@ public slots:
 	*/
 	void openApp();
 	/**
-		\brief Terminates the program previously removing tray icon..
+		\brief Terminates the program previously removing tray icon.
 	*/
 	void quitApp();
+	/**
+		\brief Shows dialog with reminder settings.
+	*/
+	void showReminderDialog();
 
 private:
 	/**

@@ -40,18 +40,18 @@ MsgBoxWithDuration::MsgBoxWithDuration( const QString strTitle, const QString st
 
 	setLayout( &_VLay );
 
-	updateTime();
-	
-	// start changing elapsing time down every seconds
-	m_timer.start( 1000, this );
+	startTime();
 }
 
 void MsgBoxWithDuration::stopTime() {
+	ReminderDialog::getInstance()->stopSound();
 	m_timer.stop();
-	//setText( m_strMessage );
+	m_textLabel.setText( m_strMessage );
 }
 
 void MsgBoxWithDuration::startTime() {
+	if( ReminderDialog::getInstance()->isSoundOn() )
+		ReminderDialog::getInstance()->playSound();
 	m_timer.start( 1000, this );
 	updateTime();
 }
@@ -62,24 +62,25 @@ int MsgBoxWithDuration::buttonClicked() const {
 
 void MsgBoxWithDuration::run() {
 	m_buttonClicked = RUN;
+	ReminderDialog::getInstance()->stopSound();
 	close();
 }
 
 void MsgBoxWithDuration::suspend() {
 	m_buttonClicked = SUSPEND;
-	m_timer.stop();
-	m_textLabel.setText( m_strMessage );
+	stopTime();
 }
 
 void MsgBoxWithDuration::ignore() {
 	m_buttonClicked = IGNORING;
+	ReminderDialog::getInstance()->stopSound();
 	close();
 }
 
 void MsgBoxWithDuration::timerEvent( QTimerEvent* e ) {
 	if( m_iWinDuration == 1 ) {
-		// time has elapsed - stop the timer and close the dialog
-		m_timer.stop();
+		// time has elapsed - stop the timer and sound (if on) and close the dialog
+		stopTime();
 		close();
 	} else {
 		--m_iWinDuration;

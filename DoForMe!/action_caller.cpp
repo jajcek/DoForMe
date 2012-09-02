@@ -38,12 +38,17 @@ void ActionCaller::sortByTime( QVector<Action*>& actions ) {
 void ActionCaller::executeNextAction() {
 	Action* _pAction = m_actions.at( 0 );
 
-	MsgBoxWithDuration _msg( "Information", "An action \"" + _pAction->getScript()->getFileName() + "\" is coming up. What to do?", 5 );
-	if( !LuaEngine::getInstance()->isRunning() ) _msg.exec();
+	if( ReminderDialog::getInstance()->isOn() && !LuaEngine::getInstance()->isRunning() ) {
+		MsgBoxWithDuration _msg( "Information", "An action \"" + _pAction->getScript()->getFileName()
+							     + "\" is coming up. What to do?", ReminderDialog::getInstance()->timeEarlier() );
+		_msg.exec();
 
-	if( _msg.buttonClicked() != -1 ) {
-		if( _msg.buttonClicked() == MsgBoxWithDuration::RUN ) {
-				LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
+		if( _msg.buttonClicked() != -1 ) {
+			if( _msg.buttonClicked() == MsgBoxWithDuration::RUN ) {
+					LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
+			}
+		} else {
+			LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
 		}
 	} else {
 		LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
@@ -76,11 +81,13 @@ void ActionCaller::setActions( QVector<Action*> actions ) {
 		int _milliseconds = -1;
 		do {
 			QTime _timeForFirstAction = m_actions.at( 0 )->getTime();
-			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction );
+			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction ) - ReminderDialog::getInstance()->timeEarlier() * 1000;
 
 			if( _milliseconds >= 0 ) {
 				m_caller.start( _milliseconds, this );
 				break;
+			} else {
+				executeNextAction();
 			}
 		} while( !m_actions.isEmpty() );			
 	}
@@ -98,7 +105,7 @@ void ActionCaller::setTrayToUpdate( TraySystem* tray ) {
 }
 
 void ActionCaller::timerEvent( QTimerEvent* e ) {
-	qDebug( "ActionTimer::timerEvent()" );
+	qDebug( "ActionCaller::timerEvent()" );
 
 	// calculate time for the next action
 	int _milliseconds = -1;
@@ -107,8 +114,7 @@ void ActionCaller::timerEvent( QTimerEvent* e ) {
 
 		if( !m_actions.isEmpty() ) {
 			QTime _timeForFirstAction = m_actions.at( 0 )->getTime();
-			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction );
-			qDebug( "to next action: %d", _milliseconds );
+			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction ) - ReminderDialog::getInstance()->timeEarlier() * 1000;
 			if( _milliseconds < 0 ) 
 				continue;
 			m_caller.start( _milliseconds, this );
