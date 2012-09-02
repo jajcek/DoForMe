@@ -25,6 +25,8 @@
 #include "calendar_tools.h"
 #include "tray_system.h"
 #include "action_caller.h"
+#include "recorder_settings.h"
+#include "recorder.h"
 
 /**
 	\class mainWin mainwin.h "mainwin.h"
@@ -122,6 +124,10 @@ public slots:
 	*/
 	void runScript( bool onlyParse = false );
 	/**
+		\brief Start recording a script by putting its commands into currently opened text area.
+	*/
+	void startRecording();
+	/**
 		\brief Method invoked during removing a script from the list (the script is removed from the HD as well).
 	*/
 	void removeScript();
@@ -186,6 +192,10 @@ public slots:
 		\brief Terminates the program previously removing tray icon.
 	*/
 	void quitApp();
+	/**
+		\brief Shows dialog with recorder settings.
+	*/
+	void showRecorderDialog();
 	/**
 		\brief Shows dialog with reminder settings.
 	*/

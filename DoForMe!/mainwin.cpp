@@ -1,19 +1,6 @@
 #include <Windows.h>
 #include "mainwin.h"
 
-HHOOK hook;
-
-LRESULT CALLBACK mouseHook(int code, WPARAM wParam, LPARAM lParam)
-{
-     if(code < 0) return CallNextHookEx(hook, code, wParam, lParam);   
- 
-     if(wParam == WM_LBUTTONDOWN) {
-		qDebug( "\nklik!" );
-	 }
- 
-     return CallNextHookEx (0, code, wParam, lParam);
-}
-
 mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags), m_calendar( NULL ), m_pCurrScript( NULL ), m_tray( NULL )
 {
@@ -32,6 +19,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.actionMenuParseScript, SIGNAL( activated() ), this, SLOT( parseScript() ) );
 	connect( ui.actionRun, SIGNAL( activated() ), this, SLOT( runScript() ) );
 	connect( ui.actionMenuRunScript, SIGNAL( activated() ), this, SLOT( runScript() ) );
+	connect( ui.actionRecord, SIGNAL( activated() ), this, SLOT( startRecording() ) );
 
 	connect( ui.actionTray, SIGNAL( activated() ), this, SLOT( toTray() ) );
 	connect( ui.scriptTextEdit, SIGNAL( textChanged() ), this, SLOT( scriptModified() ) );
@@ -106,7 +94,8 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
-	//hook = SetWindowsHookEx( WH_MOUSE_LL, &mouseHook, GetModuleHandle( NULL ), 0 );
+
+	Recorder::setTextEdit( ui.scriptTextEdit );
 }
 
 void mainWin::loadScripts( const QString& path ) {
@@ -337,6 +326,10 @@ void mainWin::runScript( bool onlyParse ) {
 		// the stack is in the LuaEngine class
 		LuaEngine::getInstance()->start();
 	}
+}
+
+void mainWin::startRecording() {
+	Recorder::startRecording();
 }
 
 void mainWin::removeScript() {
@@ -578,6 +571,10 @@ void mainWin::openApp() {
 void mainWin::quitApp() {
 	m_tray->hide();
 	close();
+}
+
+void mainWin::showRecorderDialog() {
+	RecorderSettings::getInstance()->exec();
 }
 
 void mainWin::showReminderDialog() {
