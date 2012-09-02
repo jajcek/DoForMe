@@ -30,24 +30,6 @@
    <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QCalendarWidget" name="calendarWidget">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>260</y>
-      <width>651</width>
-      <height>201</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">#qt_calendar_navigationbar {
-	background-color: gray;
-}</string>
-    </property>
-    <property name="gridVisible">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QTabWidget" name="tabWidget">
     <property name="enabled">
      <bool>true</bool>
@@ -964,7 +946,7 @@ color: black;</string>
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Remove action</string>
+    <string>Remove</string>
    </property>
   </action>
   <action name="actionMenuDetachAction">
@@ -989,9 +971,6 @@ color: black;</string>
    <property name="toolTip">
     <string>Run</string>
    </property>
-   <property name="shortcut">
-    <string>F5</string>
-   </property>
   </action>
   <action name="actionRecord">
    <property name="icon">
@@ -1003,9 +982,6 @@ color: black;</string>
    </property>
    <property name="toolTip">
     <string>Record</string>
-   </property>
-   <property name="shortcut">
-    <string>F9</string>
    </property>
    <property name="softKeyRole">
     <enum>QAction::NoSoftKey</enum>
@@ -1087,6 +1063,9 @@ color: black;</string>
    <property name="text">
     <string>Move left</string>
    </property>
+   <property name="shortcut">
+    <string>4</string>
+   </property>
   </action>
   <action name="actionMenuMoveUp">
    <property name="enabled">
@@ -1094,6 +1073,9 @@ color: black;</string>
    </property>
    <property name="text">
     <string>Move Up</string>
+   </property>
+   <property name="shortcut">
+    <string>8</string>
    </property>
   </action>
   <action name="actionMenuMoveDown">
@@ -1103,6 +1085,9 @@ color: black;</string>
    <property name="text">
     <string>Move Down</string>
    </property>
+   <property name="shortcut">
+    <string>2</string>
+   </property>
   </action>
   <action name="actionMenuMoveRight">
    <property name="enabled">
@@ -1111,10 +1096,16 @@ color: black;</string>
    <property name="text">
     <string>Move right</string>
    </property>
+   <property name="shortcut">
+    <string>6</string>
+   </property>
   </action>
   <action name="actionMenuNewScript">
    <property name="text">
     <string>New...</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
    </property>
   </action>
   <action name="actionMenuRemoveScript">
@@ -1124,6 +1115,9 @@ color: black;</string>
    <property name="text">
     <string>Remove</string>
    </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
+   </property>
   </action>
   <action name="actionMenuRunScript">
    <property name="enabled">
@@ -1132,6 +1126,9 @@ color: black;</string>
    <property name="text">
     <string>Run</string>
    </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
   </action>
   <action name="actionMenuSaveScript">
    <property name="enabled">
@@ -1139,6 +1136,9 @@ color: black;</string>
    </property>
    <property name="text">
     <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionMenuImportScripts">
@@ -1168,6 +1168,9 @@ color: black;</string>
    <property name="text">
     <string>Parse</string>
    </property>
+   <property name="shortcut">
+    <string>F4</string>
+   </property>
   </action>
   <action name="actionMenuRecorder">
    <property name="text">
@@ -1192,12 +1195,12 @@ color: black;</string>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>548</x>
-     <y>307</y>
+     <x>723</x>
+     <y>296</y>
     </hint>
     <hint type="destinationlabel">
-     <x>459</x>
-     <y>307</y>
+     <x>640</x>
+     <y>298</y>
     </hint>
    </hints>
   </connection>
