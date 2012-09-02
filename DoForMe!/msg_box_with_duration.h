@@ -7,12 +7,13 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <memory>
+#include "ui_notification_dialog.h"
 #include "reminder_dialog.h"
 
 /**
 	\class MsgBoxWithDuration msg_box_with_duration.h "msg_box_with_duration.h"
 	\brief Message box showed when an action is coming up.
-	\details Note that the dialog hasn't been created with QT Designer, evey control on the dialog is created programatically.
+	\details The dialog has been created with QT Designer.
 	\author Jacek Topolski
 	\version 1.0
 	\date 2.09.2012
@@ -43,39 +44,9 @@ private:
 	QBasicTimer m_timer;
 
 	/**
-		\brief Vertical layout for the dialog.
-		\details First element of the layout is MsgBoxWithDuration::_imageTextLay and the second -
-		MsgBoxWithDuration::_buttonsLay.
+		\brief Object containing all controls of the dialog.
 	*/
-	QVBoxLayout _VLay;
-	/**
-		\brief Horizontal layout for the dialog which keeps image and text message.
-	*/
-	QHBoxLayout _imageTextLay;
-	/**
-		\brief Horizontal layout for the dialog which keeps all the buttons.
-	*/
-	QHBoxLayout _buttonsLay;
-	/**
-		\brief Label actually used for displaying... a bitmap.
-	*/
-	QLabel m_pixmap;
-	/**
-		\brief Label used to display MsgBoxWithDuration::m_strMessage.
-	*/
-	QLabel m_textLabel;
-	/**
-		\brief Run button.
-	*/
-	QPushButton m_runButton;
-	/**
-		\brief Suspend button.
-	*/
-	QPushButton m_suspendButton;
-	/**
-		\brief Ignore button.
-	*/
-	QPushButton m_ignoreButton;
+	Ui::notification_dialog ui;
 
 public:
 	/**

@@ -190,6 +190,9 @@
     <CustomBuild Include="reminder_dialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="notification_dialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwin.h">
@@ -235,6 +238,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_reminder_dialog.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_notification_dialog.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
