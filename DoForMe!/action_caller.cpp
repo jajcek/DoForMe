@@ -38,6 +38,7 @@ void ActionCaller::sortByTime( QVector<Action*>& actions ) {
 void ActionCaller::executeNextAction() {
 	Action* _pAction = m_actions.at( 0 );
 
+	bool _shouldRun = false;
 	if( ReminderDialog::getInstance()->isOn() ) {
 		LuaEngine::getInstance()->stop();
 		MsgBoxWithDuration _msg( "Information", "An action \"" + _pAction->getScript()->getFileName()
@@ -45,19 +46,18 @@ void ActionCaller::executeNextAction() {
 		_msg.exec();
 
 		if( _msg.buttonClicked() != -1 ) {
-			if( _msg.buttonClicked() == MsgBoxWithDuration::RUN ) {
-				LuaEngine::getInstance()->start();
-				LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
-			}
-		} else {
-			LuaEngine::getInstance()->start();
-			LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
-		}
-	} else {
+			if( _msg.buttonClicked() == MsgBoxWithDuration::RUN )
+				_shouldRun = true;
+		} else
+			_shouldRun = true;
+	} else
+		_shouldRun = true;
+	
+	if( _shouldRun ) {
 		LuaEngine::getInstance()->start();
 		LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
 	}
-	
+
 	m_actions.remove( 0 );
 }
 
