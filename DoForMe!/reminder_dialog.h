@@ -66,6 +66,14 @@ private slots:
 		\brief Method called when clicking Ok button.
 	*/
 	void pressedCancel();
+	/**
+		\brief Method called when signal check box is turned off.
+	*/
+	void signalUnchecked();
+	/**
+		\brief Method called when sound check box is turned on.
+	*/
+	void soundChecked();
 
 public slots:
 	/**
@@ -76,10 +84,6 @@ public slots:
 		\brief Stops sound.
 	*/
 	void stopSound();
-	/**
-		\brief Method called when sound check box is turned on.
-	*/
-	void soundChecked();
 
 public:
 	/**

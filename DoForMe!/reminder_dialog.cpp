@@ -17,6 +17,7 @@ ReminderDialog::ReminderDialog() {
 	connect( ui.playSoundButton, SIGNAL( clicked() ), this, SLOT( playSound() ) );
 	connect( ui.stopSoundButton, SIGNAL( clicked() ), this, SLOT( stopSound() ) );
 	connect( ui.soundCheck, SIGNAL( clicked() ), this, SLOT( soundChecked() ) );
+	connect( ui.signalCheck, SIGNAL( clicked() ), this, SLOT( signalUnchecked() ) );
 
 	m_sound = new Phonon::MediaObject( this );
 }
@@ -57,6 +58,11 @@ void ReminderDialog::pressedCancel() {
 	ui.soundPathEdit->setText( m_strSoundPath );
 
 	reject();
+}
+
+void ReminderDialog::signalUnchecked() {
+	if( !ui.signalCheck->isChecked() )
+		ui.soundCheck->setChecked( false );
 }
 
 ReminderDialog* ReminderDialog::getInstance() {
