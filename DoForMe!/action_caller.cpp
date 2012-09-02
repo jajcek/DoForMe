@@ -36,11 +36,11 @@ void ActionCaller::sortByTime( QVector<Action*>& actions ) {
 }
 
 void ActionCaller::executeNextAction() {
-	m_caller.stop();
-
 	Action* _pAction = m_actions.at( 0 );
-	MsgBoxWithDuration _msg( "Information", "An action is coming up. What to do?", 5 );
-	_msg.exec();
+
+	MsgBoxWithDuration _msg( "Information", "An action \"" + _pAction->getScript()->getFileName() + "\" is coming up. What to do?", 5 );
+	if( !LuaEngine::getInstance()->isRunning() ) _msg.exec();
+
 	if( _msg.buttonClicked() != -1 ) {
 		if( _msg.buttonClicked() == MsgBoxWithDuration::RUN ) {
 				LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
@@ -108,15 +108,15 @@ void ActionCaller::timerEvent( QTimerEvent* e ) {
 		if( !m_actions.isEmpty() ) {
 			QTime _timeForFirstAction = m_actions.at( 0 )->getTime();
 			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction );
-			if( _milliseconds < 0 ) {
-				executeNextAction();
+			qDebug( "to next action: %d", _milliseconds );
+			if( _milliseconds < 0 ) 
 				continue;
-			}
 			m_caller.start( _milliseconds, this );
-		} else {
-			m_caller.stop();
 		}
 	}
+
+	if( m_actions.isEmpty() )
+		m_caller.stop();
 
 	m_tray->update( m_actions );
 }

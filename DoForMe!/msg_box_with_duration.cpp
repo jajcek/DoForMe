@@ -4,11 +4,11 @@ MsgBoxWithDuration::MsgBoxWithDuration( const QString strTitle, const QString st
 : m_iWinDuration( iWinDuration ), m_strTitle( strTitle ), m_strMessage( strMessage ), m_buttonClicked( -1 ) {
 	setWindowTitle( m_strTitle );
 	// disable close button
-	setWindowFlags(Qt::Dialog | Qt::Desktop);
+	setWindowFlags(Qt::Dialog | Qt::Desktop | Qt::WindowStaysOnTopHint );
 
 	// create text message
-	int _width = 250;
-	int _height = 100;
+	int _width = 300;
+	int _height = 120;
 	setMinimumWidth( _width );
 	setMaximumWidth( _width );
 	setMinimumHeight( _height );

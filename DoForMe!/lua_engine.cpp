@@ -65,6 +65,10 @@ bool LuaEngine::run( const char* code, bool onlyParse ) {
 	return ( m_loadError | m_parseError );
 }
 
+bool LuaEngine::isRunning() const {
+	return m_isExecuting;
+}
+
 int LuaEngine::validateLastLoad() {
 	return m_loadError;
 }

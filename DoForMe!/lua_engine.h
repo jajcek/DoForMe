@@ -172,7 +172,10 @@ public:
 		If there was an error get it by using LuaEngine::validateLastLoad and LuaEngine::validateLastParse.
 	*/
 	bool run( const char* code, bool onlyParse = false );
-
+	/**
+		\return Return true is the engine is currently executing a script, otherwise false.
+	*/
+	bool isRunning() const;
 	/**
 		\brief Checks if there was error in the last loaded file.
 		\return Error code. See luaEngine::m_loadError for more details.
