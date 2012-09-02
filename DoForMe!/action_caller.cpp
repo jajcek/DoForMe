@@ -38,19 +38,23 @@ void ActionCaller::sortByTime( QVector<Action*>& actions ) {
 void ActionCaller::executeNextAction() {
 	Action* _pAction = m_actions.at( 0 );
 
-	if( ReminderDialog::getInstance()->isOn() && !LuaEngine::getInstance()->isRunning() ) {
+	if( ReminderDialog::getInstance()->isOn() ) {
+		LuaEngine::getInstance()->stop();
 		MsgBoxWithDuration _msg( "Information", "An action \"" + _pAction->getScript()->getFileName()
 							     + "\" is coming up. What to do?", ReminderDialog::getInstance()->timeEarlier() );
 		_msg.exec();
 
 		if( _msg.buttonClicked() != -1 ) {
 			if( _msg.buttonClicked() == MsgBoxWithDuration::RUN ) {
-					LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
+				LuaEngine::getInstance()->start();
+				LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
 			}
 		} else {
+			LuaEngine::getInstance()->start();
 			LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
 		}
 	} else {
+		LuaEngine::getInstance()->start();
 		LuaEngine::getInstance()->run( _pAction->getScript()->getCode().toStdString().c_str() );
 	}
 	
