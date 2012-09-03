@@ -148,6 +148,7 @@ void LuaEngine::setInterval( int interval ) {
 void LuaEngine::setGUIInterval( int interval ) {
 	m_uGUIInterval = interval;
 	m_uInterval = interval;
+	m_timer->start( m_uGUIInterval, this );
 }
 
 int LuaEngine::getGUIInterval() const {

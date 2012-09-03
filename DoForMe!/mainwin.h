@@ -128,6 +128,10 @@ public slots:
 	*/
 	void startRecording();
 	/**
+		\brief Stop recording a script.
+	*/
+	void stopRecording();
+	/**
 		\brief Method invoked during removing a script from the list (the script is removed from the HD as well).
 	*/
 	void removeScript();

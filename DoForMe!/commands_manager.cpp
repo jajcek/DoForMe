@@ -14,7 +14,7 @@ void CommandsManager::executeNext() {
 
 	if( _pCmd != NULL )
 		_pCmd( _args );
-	else {
+	else { // new action - we will show dialog box which informs about it
 		// get name of the script by converting ascii codes to chars
 		QString _actionName = "";
 		int _size = _args.size();

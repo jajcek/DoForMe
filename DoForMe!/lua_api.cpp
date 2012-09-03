@@ -117,8 +117,22 @@ int LuaApiEngine::prepareLeftDoubleClickAt( lua_State* state ) {
 	return 0;
 }
 
-int LuaApiEngine::prepareSleep( lua_State* state ) {
+int LuaApiEngine::prepareSetInterval( lua_State* state ) {
 	// moveTo() has 1 argument, arguments are put onto lua's stack
+	int _arg = ( int )lua_tonumber( state, -1 );
+
+	// we took 1 argument from the stack, so we modify pointer to the top of the stack
+	lua_settop( state, -1 );
+
+	std::deque<int> _args;
+	_args.push_back( _arg );
+	LuaEngine::getInstance()->addCommand( LuaApiEngine::setInterval, _args );
+
+	return 0;
+}
+
+int LuaApiEngine::prepareSleep( lua_State* state ) {
+	// sleep() has 1 argument, arguments are put onto lua's stack
 	int _arg = ( int )lua_tonumber( state, -1 );
 
 	// we took 1 argument from the stack, so we modify pointer to the top of the stack
@@ -153,7 +167,7 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 
 	if( LuaEngine::getInstance()->validateLastParse() ) return 0;
 
-	// moveTo() has 1 argument, arguments are put onto lua's stack
+	// it has 1 argument, arguments are put onto lua's stack
 	const char* _arg = ( const char* )lua_tostring( state, -1 );
 
 	// we took 1 argument from the stack, so we modify pointer to the top of the stack
@@ -279,6 +293,16 @@ void LuaApiEngine::leftDoubleClick() {
 	leftUp();
 	leftDown();
 	leftUp();
+}
+
+void LuaApiEngine::setInterval( std::deque<int> args ) {
+	LuaEngine::getInstance()->setGUIInterval( args.front() );
+
+	// we 'used' the setInterval()'s argument, so remove it from the stack
+	// actually it's not even needed, as the sleep method has only one argument, so
+	// we don't need to pop it because we don't need to get to another argument
+	// but for integrity is added
+	args.pop_front();
 }
 
 void LuaApiEngine::sleep( std::deque<int> args ) {

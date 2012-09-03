@@ -776,9 +776,6 @@ color: black;</string>
    <property name="toolTip">
     <string>New script</string>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+N</string>
-   </property>
    <property name="shortcutContext">
     <enum>Qt::ApplicationShortcut</enum>
    </property>
@@ -793,9 +790,6 @@ color: black;</string>
    </property>
    <property name="toolTip">
     <string>Open script</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+O</string>
    </property>
    <property name="shortcutContext">
     <enum>Qt::ApplicationShortcut</enum>
@@ -814,9 +808,6 @@ color: black;</string>
    </property>
    <property name="toolTip">
     <string>Save</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+S</string>
    </property>
    <property name="shortcutContext">
     <enum>Qt::ApplicationShortcut</enum>

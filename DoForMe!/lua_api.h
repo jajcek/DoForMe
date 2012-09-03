@@ -36,6 +36,13 @@ public:
 	static void initSpecialKeys();
 
 	/**
+		\brief Puts changing GUI interval (LuaApiEngie::GUIIntervalChange) command to the LuaEngine.
+		\details Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine.
+		prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (LuaEngine).
+		\return Number of results on the lua's stack (in this class this value is always zero).
+	*/
+	static int prepareSetInterval( lua_State* state );
+	/**
 		\brief Puts watiting (LuaApiEngie::sleep) command to the LuaEngine.
 		\details Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine.
 		prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (LuaEngine).
@@ -260,6 +267,11 @@ public:
 	*/
 	static void leftDoubleClick();
 
+	/**
+		\brief Executes changing GUI interval command.
+		\param[in] args Array which contains arguments for the function. In this case there's only one argument.
+	*/
+	static void setInterval( std::deque<int> args );
 	/**
 		\brief Executes waiting command.
 		\param[in] args Array which contains arguments for the function. In this case there's only one argument.
