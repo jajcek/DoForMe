@@ -14,6 +14,10 @@ private:
 	*/
 	static HHOOK m_mouseHook;
 	/**
+		\brief Hook handle for keyboard.
+	*/
+	static HHOOK m_keyboardHook;
+	/**
 		\brief Pointer to the QTextEdit which the commands will be put into.
 	*/
 	static QTextEdit* m_textEdit;
@@ -21,6 +25,10 @@ private:
 		\brief Timer used for calculating argument for sleep api function.
 	*/
 	static QElapsedTimer* m_timer;
+	/**
+		\brief Map with keys actually pressed.
+	*/
+	static QMap<int, bool> m_keys;
 
 public:
 	/**
@@ -41,7 +49,11 @@ private:
 	/**
 		\brief Hooking procedure which parses all the messages from mouse.
 	*/
-	static LRESULT CALLBACK mouseHook( int code, WPARAM wParam, LPARAM lParam );
+	static LRESULT CALLBACK mouseHookProcedure( int code, WPARAM wParam, LPARAM lParam );
+	/**
+		\brief Hooking procedure which parses all the messages from keyboard.
+	*/
+	static LRESULT CALLBACK keyboardHookProcedure( int code, WPARAM wParam, LPARAM lParam );
 	/**
 		\brief Puts necessary commands into the previously set Recorder::m_textEdit by using Recorder::setTextEdit method.
 		\param[in] cmd String containing the command. Note that sleep() function is always added before the cmd.

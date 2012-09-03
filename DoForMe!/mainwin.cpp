@@ -98,7 +98,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	Recorder::setTextEdit( ui.scriptTextEdit );
 
 	QAction* _stopRecordAction = new QAction( this );
-	_stopRecordAction->setShortcut( QKeySequence( "Ctrl+Shift+End" ) );
+	_stopRecordAction->setShortcut( QKeySequence( "Ctrl+Shift+E" ) );
 	connect( _stopRecordAction, SIGNAL( triggered() ), this, SLOT( stopRecording() ) );
 	QWidget::addAction( _stopRecordAction );
 }

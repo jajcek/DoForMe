@@ -25,5 +25,13 @@ public:
 		\return Pointer to the instance of the class.
 	*/
 	static RecorderSettings* getInstance();
+	/**
+		\return True is the mouse check box is checked, otherwise false.
+	*/
+	bool isMouseOn() const;
+	/**
+		\return True is the keyboard check box is checked, otherwise false.
+	*/
+	bool isKeyboardOn() const;
 
 };
