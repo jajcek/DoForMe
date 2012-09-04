@@ -135,6 +135,9 @@ void mainWin::loadScripts( const QString& path ) {
 			}
 		}
 	}
+
+	// select first script n the list
+	ui.scriptsList->setCurrentRow( 0 );
 }
 
 QString mainWin::getCode() const {
