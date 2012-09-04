@@ -53,7 +53,8 @@ void Recorder::stopRecording() {
 		m_keyboardHook = NULL;
 	}
 
-	m_showMainWindow->trigger();
+	if( RecorderSettings::getInstance()->isTrayOn() )
+		m_showMainWindow->trigger();
 }
 
 void Recorder::setTextEdit( QTextEdit* textEdit ) {

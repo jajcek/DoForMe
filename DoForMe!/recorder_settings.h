@@ -34,6 +34,10 @@ private:
 		\brief Determines whether the keyboard recording is turned on.
 	*/
 	bool m_isKeyboardOn;
+	/**
+		\brief Determines whether the app should hide into tray after starting recording.
+	*/
+	bool m_isTrayOn;
 
 	/**
 		\brief Simple constructor which simply sets fields to its default values.
@@ -48,17 +52,21 @@ public:
 	*/
 	static RecorderSettings* getInstance();
 	/**
-		\return True is the mouse check box is checked, otherwise false.
+		\return True if the mouse check box is checked, otherwise false.
 	*/
 	bool isMouseOn() const;
 	/**
-		\return True is mouse move check box is checked, otherwise false.
+		\return True if mouse move check box is checked, otherwise false.
 	*/
 	bool isMouseMoveOn() const;
 	/**
-		\return True is the keyboard check box is checked, otherwise false.
+		\return True if the keyboard check box is checked, otherwise false.
 	*/
 	bool isKeyboardOn() const;
+	/**
+		\return True if the tray check box is checked, otherwise false.
+	*/
+	bool isTrayOn() const;
 
 private slots:
 	/**

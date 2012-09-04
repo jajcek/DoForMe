@@ -333,7 +333,8 @@ void mainWin::runScript( bool onlyParse ) {
 }
 
 void mainWin::startRecording() {
-	hide();
+	if( RecorderSettings::getInstance()->isTrayOn() )
+		hide();
 	Recorder::startRecording();
 }
 
