@@ -28,6 +28,11 @@ private:
 		whereas key object is a manager for a key on the keyboard. See Key class for more details.
 	*/
 	static std::map<QString, Key*> m_specialKeys;
+	/**
+		\brief Field that maps virtual key code to string key.
+		\details String is a special key text (e.g. {tab} which is equal to tabulator symbol on keyboard).
+	*/
+	static std::map<int, std::string> m_vkCodeToKey;
 
 public:
 	/**
@@ -35,6 +40,10 @@ public:
 	*/
 	static void initSpecialKeys();
 
+	/**
+		\brief Gets string key from m_vkCodeToKey map.
+	*/
+	static std::string getStringKey( int vkCode );
 	/**
 		\brief Puts changing GUI interval (LuaApiEngie::GUIIntervalChange) command to the LuaEngine.
 		\details Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine.

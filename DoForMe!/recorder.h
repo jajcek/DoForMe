@@ -6,6 +6,7 @@
 #include <qtextedit.h>
 #include <qelapsedtimer.h>
 #include "recorder_settings.h"
+#include "lua_api.h"
 
 class Recorder {
 private:

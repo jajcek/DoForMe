@@ -71,19 +71,19 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 	DWORD _isAltOn = reinterpret_cast<KBDLLHOOKSTRUCT*>( lParam )->flags & LLKHF_ALTDOWN;
 
 	QString _symbol = "";
-	if( _vkCode >= 65 )
+	if( _vkCode >= 65 && _vkCode <= 90 )
 		_symbol = ( char )( _vkCode + 32 );
 	else
 		_symbol = ( char )_vkCode;
 
-	qDebug( "code: %d, alt: %d, wparam: %d, lparam: %d", _vkCode, _isAltOn, wParam, lParam );
+	//qDebug( "code: %d, alt: %d, wparam: %d, lparam: %d", _vkCode, _isAltOn, wParam, lParam );
 	if( GetAsyncKeyState( VK_RSHIFT ) && !m_keys[VK_RSHIFT] ) {
 		m_keys[VK_RSHIFT] = true;
 		putCmd( "sendText( \"{rshift+}\" )" );
 	}
 	if( GetAsyncKeyState( VK_LSHIFT ) && !m_keys[VK_LSHIFT] ) {
 		m_keys[VK_LSHIFT] = true;
-		putCmd( "sendText( \"{rshift+}\" )" );
+		putCmd( "sendText( \"{lshift+}\" )" );
 	}
 	if( GetAsyncKeyState( VK_RMENU ) && !m_keys[VK_RMENU] ) {
 		m_keys[VK_RMENU] = true;
@@ -91,7 +91,7 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 	}
 	if( GetAsyncKeyState( VK_LMENU ) && !m_keys[VK_LMENU] ) {
 		m_keys[VK_LMENU] = true;
-		putCmd( "sendText( \"{ralt+}\" )" );
+		putCmd( "sendText( \"{lalt+}\" )" );
 	}
 	if( GetAsyncKeyState( VK_RCONTROL ) && !m_keys[VK_RCONTROL] ) {
 		m_keys[VK_RCONTROL] = true;
@@ -102,8 +102,38 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 		putCmd( "sendText( \"{lctrl+}\" )" );
 	}
 
-	if( _vkCode < 127 && _vkCode > 32 && wParam != WM_KEYUP )
-		putCmd( "sendText( \"" + _symbol + "\" )" );
+	if( wParam != WM_KEYUP ) {
+		QString _strKey = LuaApiEngine::getStringKey( _vkCode ).c_str();
+		if( _vkCode == VK_OEM_4 )
+			putCmd( "sendText( \"[\" )" );
+		else if( _vkCode == VK_OEM_6 )
+			putCmd( "sendText( \"]\" )" );
+		else if( _vkCode == VK_OEM_5 )
+			putCmd( "sendText( \"\\\\\" )" );
+		else if( _vkCode == VK_OEM_1 )
+			putCmd( "sendText( \";\" )" );
+		else if( _vkCode == VK_OEM_7 )
+			putCmd( "sendText( \";\" )" );
+		else if( _vkCode == VK_OEM_3 )
+			putCmd( "sendText( \"`\" )" );
+		else if( _vkCode == VK_OEM_COMMA )
+			putCmd( "sendText( \",\" )" );
+		else if( _vkCode == VK_OEM_PERIOD )
+			putCmd( "sendText( \".\" )" );
+		else if( _vkCode == VK_OEM_2 )
+			putCmd( "sendText( \"/\" )" );
+		else if( _vkCode == VK_OEM_MINUS )
+			putCmd( "sendText( \"-\" )" );
+		else if( _vkCode == VK_OEM_PLUS )
+			putCmd( "sendText( \"+\" )" );
+		else if( _strKey != "" && ( _vkCode != VK_RSHIFT ) && ( _vkCode != VK_LSHIFT ) && ( _vkCode != VK_RMENU ) &&
+							 ( _vkCode != VK_LMENU ) && ( _vkCode != VK_RCONTROL ) && ( _vkCode != VK_LCONTROL )) {
+
+			putCmd( "sendText( \"{" + _strKey + "}\" )" );
+		}
+		if( ( _vkCode >= 65 && _vkCode <= 90 ) || ( _vkCode >= 48 && _vkCode <= 57 ) || _vkCode == VK_SPACE )
+			putCmd( "sendText( \"" + _symbol + "\" )" );
+	}
 
 	switch( wParam ) {
 		case WM_KEYUP:

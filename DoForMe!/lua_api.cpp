@@ -3,9 +3,11 @@
 #define defineKey( x, y )						    \
 	m_specialKeys[x]    = new Key( y, Key::CLICK ); \
 	m_specialKeys[x"+"] = new Key( y, Key::DOWN );  \
-	m_specialKeys[x"-"] = new Key( y, Key::UP ); 
+	m_specialKeys[x"-"] = new Key( y, Key::UP );    \
+	m_vkCodeToKey[y]    = x;
 
 std::map<QString, Key*> LuaApiEngine::m_specialKeys;
+std::map<int, std::string> LuaApiEngine::m_vkCodeToKey;
 
 int LuaApiEngine::prepareLeftDown( lua_State* state ) {
 	LuaEngine::getInstance()->addCommand( reinterpret_cast<void (*)( std::deque<int> )>( LuaApiEngine::leftDown ) );
@@ -451,6 +453,13 @@ int LuaApiEngine::getSpecialKey( QString& specialKey, std::deque<int>& args ) {
 	return -1;
 }
 
+std::string LuaApiEngine::getStringKey( int vkCode ) {
+	if( m_vkCodeToKey.find( vkCode ) != m_vkCodeToKey.end() )
+		return m_vkCodeToKey.find( vkCode )->second;
+	else
+		return "";
+}
+
 void LuaApiEngine::initSpecialKeys() {
 	// check macro 'defineKey' defined at the top of the file
 
@@ -506,4 +515,9 @@ void LuaApiEngine::initSpecialKeys() {
 	defineKey( "numlock", VK_NUMLOCK )
 	defineKey( "rwin", VK_RWIN )
 	defineKey( "lwin", VK_LWIN )
+	defineKey( "pause", VK_PAUSE )
+	defineKey( "esc", VK_ESCAPE )
+	defineKey( "ss", VK_SNAPSHOT )
+	defineKey( "app", VK_APPS )
+	defineKey( "scroll", VK_SCROLL )
 }
