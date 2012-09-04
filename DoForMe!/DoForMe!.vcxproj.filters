@@ -158,6 +158,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_recorder_settings.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="tray_recording.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwin.h">
@@ -265,6 +268,9 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="recorder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tray_recording.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

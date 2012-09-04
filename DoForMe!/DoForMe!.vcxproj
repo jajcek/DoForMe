@@ -158,6 +158,7 @@
     <ClCompile Include="script.cpp" />
     <ClCompile Include="scripts_manager.cpp" />
     <ClCompile Include="sqlite3.c" />
+    <ClCompile Include="tray_recording.cpp" />
     <ClCompile Include="tray_system.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +189,7 @@
   <ItemGroup>
     <ClInclude Include="about_dialog.h" />
     <ClInclude Include="action.h" />
+    <ClInclude Include="tray_recording.h" />
     <CustomBuild Include="tray_system.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing tray_system.h...</Message>

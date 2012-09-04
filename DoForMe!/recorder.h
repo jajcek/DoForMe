@@ -7,7 +7,15 @@
 #include <qelapsedtimer.h>
 #include "recorder_settings.h"
 #include "lua_api.h"
+#include "tray_recording.h"
 
+/**
+	\class Recorder recorder.h "recorder.h"
+	\brief Engine for recording mouse and keyborad.
+	\author Jacek Topolski
+	\version 1.0
+	\date 4.09.2012
+*/
 class Recorder {
 private:
 	/**
@@ -37,7 +45,15 @@ private:
 	/**
 		\brief Determines whether the Esc key is up or down.
 	*/
-	static bool m_isEscOn;
+	static bool m_isF1On;
+	/**
+		\brief Tray object shown while recording is on.
+	*/
+	static TrayRecording m_tray;
+	/**
+		\brief Pointer to the action which can trigger show() method on main window.
+	*/
+	static QAction* m_showMainWindow;
 
 public:
 	/**
@@ -53,6 +69,11 @@ public:
 		\param[in] textEdit Pointer to the QTextEdit object.
 	*/
 	static void setTextEdit( QTextEdit* textEdit );
+	/**
+		\brief Sets pointer to the action which can trigger main window show up.
+		\param[in] pAction Pointer to the action.
+	*/
+	static void setMainWindowAction( QAction* pAction );
 
 private:
 	/**

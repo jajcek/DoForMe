@@ -2,6 +2,14 @@
 
 #include "ui_recorder_settings_dialog.h"
 
+/**
+	\class RecorderSettings recorder_settings.h "recorder_settings.h"
+	\brief Dialog with recorder settings.
+	\details The dialog has been created with QT Designer.
+	\author Jacek Topolski
+	\version 1.0
+	\date 4.09.2012
+*/
 class RecorderSettings : public QDialog {
 	Q_OBJECT
 

@@ -216,8 +216,8 @@
      </rect>
     </property>
     <property name="text">
-     <string>Hide program into tray
-while recording.</string>
+     <string>Hide program while
+recording.</string>
     </property>
     <property name="checked">
      <bool>true</bool>

@@ -6,7 +6,9 @@ QTextEdit* Recorder::m_textEdit = NULL;
 QElapsedTimer* Recorder::m_timer = NULL;
 QMap<int, bool> Recorder::m_keys;
 bool Recorder::m_isTabOn = false;
-bool Recorder::m_isEscOn = false;
+bool Recorder::m_isF1On = false;
+TrayRecording Recorder::m_tray;
+QAction* Recorder::m_showMainWindow = NULL;
 
 void Recorder::startRecording() {
 	// set hooks
@@ -18,13 +20,19 @@ void Recorder::startRecording() {
 	// start calculating elapsed time
 	m_timer = new QElapsedTimer();
 	m_timer->start();
+
+	m_tray.setIcon( ":/play_record/Resources/record_on.png" );
+	m_tray.show();
+	m_tray.start();
 }
 
 void Recorder::stopRecording() {
 	delete m_timer;
 	m_timer = NULL;
 	m_isTabOn = false;
-	m_isEscOn = false;
+	m_isF1On = false;
+
+	m_tray.hide();
 
 	// remove two last lines (sleep and on of the stopping recording key - tab or esc)
 	m_textEdit->moveCursor( QTextCursor::End, QTextCursor::MoveAnchor );
@@ -36,18 +44,24 @@ void Recorder::stopRecording() {
 	QMessageBox _msg( QMessageBox::Information, "Information", "Recording has been stopped." );
 	_msg.exec();
 
-	if( RecorderSettings::getInstance()->isMouseOn() ) {
+	if( m_mouseHook ) {
 		UnhookWindowsHookEx( m_mouseHook );
 		m_mouseHook = NULL;
 	}
-	if( RecorderSettings::getInstance()->isKeyboardOn() ) {
+	if( m_keyboardHook ) {
 		UnhookWindowsHookEx( m_keyboardHook );
 		m_keyboardHook = NULL;
 	}
+
+	m_showMainWindow->trigger();
 }
 
 void Recorder::setTextEdit( QTextEdit* textEdit ) {
 	m_textEdit = textEdit;
+}
+
+void Recorder::setMainWindowAction( QAction* pAction ) {
+	m_showMainWindow = pAction;
 }
 
 LRESULT CALLBACK Recorder::mouseHookProcedure( int code, WPARAM wParam, LPARAM lParam ) {
@@ -97,12 +111,12 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 		m_isTabOn = true;
 	else if( _vkCode == VK_TAB && wParam == WM_KEYUP )
 		m_isTabOn = false;
-	if( _vkCode == VK_ESCAPE && wParam == WM_KEYDOWN )
-		m_isEscOn = true;
-	else if( _vkCode == VK_ESCAPE && wParam == WM_KEYUP )
-		m_isEscOn = false;
+	if( _vkCode == VK_F1 && wParam == WM_KEYDOWN )
+		m_isF1On = true;
+	else if( _vkCode == VK_F1 && wParam == WM_KEYUP )
+		m_isF1On = false;
 
-	if( m_isTabOn && m_isEscOn )
+	if( m_isTabOn && m_isF1On )
 		stopRecording();
 
 	QString _symbol = "";

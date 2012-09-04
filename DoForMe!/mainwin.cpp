@@ -96,6 +96,10 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	initLuaApi();
 
 	Recorder::setTextEdit( ui.scriptTextEdit );
+
+	QAction* _mainWindowAction = new QAction( this );
+	connect( _mainWindowAction, SIGNAL( triggered() ), this, SLOT( openApp() ) );
+	Recorder::setMainWindowAction( _mainWindowAction );
 }
 
 void mainWin::loadScripts( const QString& path ) {
@@ -329,6 +333,7 @@ void mainWin::runScript( bool onlyParse ) {
 }
 
 void mainWin::startRecording() {
+	hide();
 	Recorder::startRecording();
 }
 
