@@ -335,7 +335,8 @@ void mainWin::runScript( bool onlyParse ) {
 
 void mainWin::startRecording() {
 	if( !m_pCurrScript ) {
-		QMessageBox _msg( QMessageBox::Information, "Information", "Create new script file before recording anything." );
+		QMessageBox _msg( QMessageBox::Information, "Information",
+						  "Create a new script file or select an existing one before recording anything." );
 		_msg.exec();
 		return;
 	}
