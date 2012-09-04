@@ -7,7 +7,7 @@ void TrayRecording::setIcon( QString path ) {
 
 void TrayRecording::start() {
 	m_isOn = true;
-	m_timer.start( 1000, this );
+	m_timer.start( 500, this );
 }
 
 void TrayRecording::timerEvent( QTimerEvent* e ) {
