@@ -107,4 +107,7 @@ public:
 	*/
 	QString soundPath() const;
 
+private:
+	void closeEvent( QCloseEvent* e );
+
 };

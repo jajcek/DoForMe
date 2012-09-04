@@ -32,7 +32,7 @@ void ReminderDialog::playSound() {
 	qDebug( "ReminderDialog::playSound" );
 
 	// stop the previous sound to play another (or the same from beginning)
-	m_sound->stop();
+	stopSound();
 	m_sound = Phonon::createPlayer( Phonon::MusicCategory, Phonon::MediaSource( ui.soundPathEdit->text() ) );
 	m_sound->play();
 }
@@ -43,19 +43,19 @@ void ReminderDialog::pressedOk() {
 	m_bIsSoundOn = ui.soundCheck->isChecked();
 	m_strSoundPath = ui.soundPathEdit->text();
 
-	m_sound->stop();
+	stopSound();
 
 	accept();
 }
 
 void ReminderDialog::pressedCancel() {
-	m_sound->stop();
-
 	// set previous values to controls
 	ui.signalCheck->setChecked( m_bIsOn );
 	ui.signalSpinBox->setValue( m_fTimeEarlier );
 	ui.soundCheck->setChecked( m_bIsSoundOn );
 	ui.soundPathEdit->setText( m_strSoundPath );
+
+	stopSound();
 
 	reject();
 }
@@ -100,4 +100,8 @@ void ReminderDialog::stopSound() {
 
 void ReminderDialog::soundChecked() {
 	ui.signalCheck->setChecked( true );
+}
+
+void ReminderDialog::closeEvent( QCloseEvent* e ) {
+	stopSound();
 }
