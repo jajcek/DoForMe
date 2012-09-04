@@ -30,6 +30,14 @@ private:
 		\brief Map with keys actually pressed.
 	*/
 	static QMap<int, bool> m_keys;
+	/**
+		\brief Determines whether the Tab key is up or down.
+	*/
+	static bool m_isTabOn;
+	/**
+		\brief Determines whether the Esc key is up or down.
+	*/
+	static bool m_isEscOn;
 
 public:
 	/**

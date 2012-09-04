@@ -96,11 +96,6 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	initLuaApi();
 
 	Recorder::setTextEdit( ui.scriptTextEdit );
-
-	QAction* _stopRecordAction = new QAction( this );
-	_stopRecordAction->setShortcut( QKeySequence( "Ctrl+Shift+E" ) );
-	connect( _stopRecordAction, SIGNAL( triggered() ), this, SLOT( stopRecording() ) );
-	QWidget::addAction( _stopRecordAction );
 }
 
 void mainWin::loadScripts( const QString& path ) {
@@ -335,12 +330,6 @@ void mainWin::runScript( bool onlyParse ) {
 
 void mainWin::startRecording() {
 	Recorder::startRecording();
-}
-
-void mainWin::stopRecording() {
-	Recorder::stopRecording();
-	QMessageBox _msg( QMessageBox::Information, "Information", "Recording has been stopped." );
-	_msg.exec();
 }
 
 void mainWin::removeScript() {

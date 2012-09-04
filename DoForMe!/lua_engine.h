@@ -74,7 +74,6 @@ private:
 		The value is assigned to m_uInterval if needed to come back from sleep() function used in script.
 	*/
 	unsigned m_uGUIInterval;
-	
 	/**
 		\brief Stores all commands that are executed by the engine. See CommandsManager for more details.
 	*/

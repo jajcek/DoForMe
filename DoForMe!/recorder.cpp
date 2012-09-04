@@ -5,6 +5,8 @@ HHOOK Recorder::m_keyboardHook = NULL;
 QTextEdit* Recorder::m_textEdit = NULL;
 QElapsedTimer* Recorder::m_timer = NULL;
 QMap<int, bool> Recorder::m_keys;
+bool Recorder::m_isTabOn = false;
+bool Recorder::m_isEscOn = false;
 
 void Recorder::startRecording() {
 	// set hooks
@@ -19,12 +21,29 @@ void Recorder::startRecording() {
 }
 
 void Recorder::stopRecording() {
-	UnhookWindowsHookEx( m_mouseHook );
-	UnhookWindowsHookEx( m_keyboardHook );
-	m_mouseHook = NULL;
-	m_keyboardHook = NULL;
 	delete m_timer;
 	m_timer = NULL;
+	m_isTabOn = false;
+	m_isEscOn = false;
+
+	// remove two last lines (sleep and on of the stopping recording key - tab or esc)
+	m_textEdit->moveCursor( QTextCursor::End, QTextCursor::MoveAnchor );
+	m_textEdit->moveCursor( QTextCursor::StartOfLine, QTextCursor::MoveAnchor );
+	m_textEdit->moveCursor( QTextCursor::Up, QTextCursor::MoveAnchor );
+	m_textEdit->moveCursor( QTextCursor::End, QTextCursor::KeepAnchor );
+	m_textEdit->textCursor().removeSelectedText();
+
+	QMessageBox _msg( QMessageBox::Information, "Information", "Recording has been stopped." );
+	_msg.exec();
+
+	if( RecorderSettings::getInstance()->isMouseOn() ) {
+		UnhookWindowsHookEx( m_mouseHook );
+		m_mouseHook = NULL;
+	}
+	if( RecorderSettings::getInstance()->isKeyboardOn() ) {
+		UnhookWindowsHookEx( m_keyboardHook );
+		m_keyboardHook = NULL;
+	}
 }
 
 void Recorder::setTextEdit( QTextEdit* textEdit ) {
@@ -58,6 +77,10 @@ LRESULT CALLBACK Recorder::mouseHookProcedure( int code, WPARAM wParam, LPARAM l
 		case WM_MBUTTONUP:
 			putCmd( "middleUpAt(" + _x + ", " + _y + ")" );
 			break;
+		case WM_MOUSEMOVE:
+			if( RecorderSettings::getInstance()->isMouseMoveOn() )
+				putCmd( "moveTo(" + _x + ", " + _y + ")" );
+			break;
 	}
 
 	return CallNextHookEx( 0, code, wParam, lParam );
@@ -69,6 +92,18 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 
 	DWORD _vkCode = reinterpret_cast<KBDLLHOOKSTRUCT*>( lParam )->vkCode;
 	DWORD _isAltOn = reinterpret_cast<KBDLLHOOKSTRUCT*>( lParam )->flags & LLKHF_ALTDOWN;
+
+	if( _vkCode == VK_TAB && wParam == WM_KEYDOWN )
+		m_isTabOn = true;
+	else if( _vkCode == VK_TAB && wParam == WM_KEYUP )
+		m_isTabOn = false;
+	if( _vkCode == VK_ESCAPE && wParam == WM_KEYDOWN )
+		m_isEscOn = true;
+	else if( _vkCode == VK_ESCAPE && wParam == WM_KEYUP )
+		m_isEscOn = false;
+
+	if( m_isTabOn && m_isEscOn )
+		stopRecording();
 
 	QString _symbol = "";
 	if( _vkCode >= 65 && _vkCode <= 90 )
