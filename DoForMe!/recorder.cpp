@@ -126,7 +126,7 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 	else
 		_symbol = ( char )_vkCode;
 
-	//qDebug( "code: %d, alt: %d, wparam: %d, lparam: %d", _vkCode, _isAltOn, wParam, lParam );
+	qDebug( "code: %d, alt: %d, wparam: %d, lparam: %d", _vkCode, _isAltOn, wParam, lParam );
 	if( GetAsyncKeyState( VK_RSHIFT ) && !m_keys[VK_RSHIFT] ) {
 		m_keys[VK_RSHIFT] = true;
 		putCmd( "sendText( \"{rshift+}\" )" );
@@ -152,7 +152,7 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 		putCmd( "sendText( \"{lctrl+}\" )" );
 	}
 
-	if( wParam != WM_KEYUP ) {
+	if( wParam != WM_KEYUP && wParam != WM_SYSKEYUP ) {
 		QString _strKey = LuaApiEngine::getStringKey( _vkCode ).c_str();
 		if( _vkCode == VK_OEM_4 )
 			putCmd( "sendText( \"[\" )" );
