@@ -367,6 +367,10 @@ void mainWin::removeScript() {
 	// remove the script from the scripts list
 	int _rowSelected = ui.scriptsList->currentRow();
 	delete ui.scriptsList->item( _rowSelected );
+
+	// if there are no more scripts on the list change the title
+	if( ui.scriptsList->count() == 0 )
+		setScriptTitle( "New script" );
 }
 
 void mainWin::scriptSelected( const QString& scriptTitle ) {
