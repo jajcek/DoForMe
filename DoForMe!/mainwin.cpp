@@ -194,6 +194,7 @@ void mainWin::newFile() {
 			if( ScriptsManager::addScript( _pScript ) ) {
 				// add script title to the scripts list to the title and clean the text area
 				ui.scriptsList->addItem( _pScript->getFileName() );
+				ui.scriptsList->item( ui.scriptsList->count() - 1 )->setSelected( true );
 				setScriptTitle( _pScript->getFileName() );
 				// TODO if the area contains modified text, ask if the user wants to save it
 				setCode( "" );
