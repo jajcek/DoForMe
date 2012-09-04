@@ -334,6 +334,12 @@ void mainWin::runScript( bool onlyParse ) {
 }
 
 void mainWin::startRecording() {
+	if( !m_pCurrScript ) {
+		QMessageBox _msg( QMessageBox::Information, "Information", "Create new script file before recording anything." );
+		_msg.exec();
+		return;
+	}
+
 	if( RecorderSettings::getInstance()->isTrayOn() )
 		hide();
 	Recorder::startRecording();
