@@ -194,7 +194,7 @@ void mainWin::newFile() {
 			if( ScriptsManager::addScript( _pScript ) ) {
 				// add script title to the scripts list to the title and clean the text area
 				ui.scriptsList->addItem( _pScript->getFileName() );
-				setScriptTitle( "  " + _pScript->getFileName() );
+				setScriptTitle( _pScript->getFileName() );
 				// TODO if the area contains modified text, ask if the user wants to save it
 				setCode( "" );
 			}
@@ -361,8 +361,11 @@ void mainWin::removeScript() {
 	// remove the script from the scripts manager
 	ScriptsManager::removeScript( _scriptName );
 
+	m_pCurrScript = NULL;
+
 	// remove the script from the scripts list
-	delete ui.scriptsList->item( ui.scriptsList->currentRow() );
+	int _rowSelected = ui.scriptsList->currentRow();
+	delete ui.scriptsList->item( _rowSelected );
 }
 
 void mainWin::scriptSelected( const QString& scriptTitle ) {
@@ -386,20 +389,21 @@ void mainWin::scriptSelected( const QString& scriptTitle ) {
 
 	// find the appropriate script
 	m_pCurrScript = ScriptsManager::getScript( scriptTitle );
+	if( m_pCurrScript ) {
+		// enable buttons/menus after selecting script
+		ui.removeScriptButton->setEnabled( true );
+		ui.actionMenuRemoveScript->setEnabled( true );
+		ui.actionMenuRunScript->setEnabled( true );
+		ui.actionRun->setEnabled( true );
+		ui.actionParseScript->setEnabled( true );
+		ui.actionMenuParseScript->setEnabled( true );
 
-	// enable buttons/menus after selecting script
-	ui.removeScriptButton->setEnabled( true );
-	ui.actionMenuRemoveScript->setEnabled( true );
-	ui.actionMenuRunScript->setEnabled( true );
-	ui.actionRun->setEnabled( true );
-	ui.actionParseScript->setEnabled( true );
-	ui.actionMenuParseScript->setEnabled( true );
+		// put script code to the text edit
+		setCode( m_pCurrScript->getCode() );
 
-	// put script code to the text edit
-	setCode( m_pCurrScript->getCode() );
-
-	// set title above the text edit
-	setScriptTitle( m_pCurrScript->getFileName() );
+		// set title above the text edit
+		setScriptTitle( m_pCurrScript->getFileName() );
+	}
 }
 
 void mainWin::scriptModified() {

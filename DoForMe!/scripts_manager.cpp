@@ -4,6 +4,7 @@
 QMap<QString, Script*> ScriptsManager::m_scripts;
 
 void ScriptsManager::removeScript( QString name ) {
+	delete m_scripts.find( name ).value();
 	m_scripts.remove( name );
 }
 
