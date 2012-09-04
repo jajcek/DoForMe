@@ -194,7 +194,7 @@ void mainWin::newFile() {
 			if( ScriptsManager::addScript( _pScript ) ) {
 				// add script title to the scripts list to the title and clean the text area
 				ui.scriptsList->addItem( _pScript->getFileName() );
-				ui.scriptsList->item( ui.scriptsList->count() - 1 )->setSelected( true );
+				ui.scriptsList->setCurrentRow( ui.scriptsList->count() - 1 );
 				setScriptTitle( _pScript->getFileName() );
 				// TODO if the area contains modified text, ask if the user wants to save it
 				setCode( "" );
@@ -368,9 +368,19 @@ void mainWin::removeScript() {
 	int _rowSelected = ui.scriptsList->currentRow();
 	delete ui.scriptsList->item( _rowSelected );
 
-	// if there are no more scripts on the list change the title
-	if( ui.scriptsList->count() == 0 )
+	// if there are no more scripts on the list change the text areas and disable buttons
+	if( ui.scriptsList->count() == 0 ) {
 		setScriptTitle( "New script" );
+		setCode( "" );
+
+		// disable buttons/menus after removing last script
+		ui.removeScriptButton->setEnabled( false );
+		ui.actionMenuRemoveScript->setEnabled( false );
+		ui.actionMenuRunScript->setEnabled( false );
+		ui.actionRun->setEnabled( false );
+		ui.actionParseScript->setEnabled( false );
+		ui.actionMenuParseScript->setEnabled( false );
+	}
 }
 
 void mainWin::scriptSelected( const QString& scriptTitle ) {
