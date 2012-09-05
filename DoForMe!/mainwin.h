@@ -193,6 +193,10 @@ public slots:
 	*/
 	void quitApp();
 	/**
+		\brief Shows dialog with player settings.
+	*/
+	void showPlayerDialog();
+	/**
 		\brief Shows dialog with recorder settings.
 	*/
 	void showRecorderDialog();

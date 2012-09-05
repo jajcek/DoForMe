@@ -45,6 +45,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.saveButton, SIGNAL( clicked() ), this, SLOT( saveData() ) );
 	connect( ui.actionsTable, SIGNAL( itemClicked( QTableWidgetItem* ) ), this, SLOT( actionSelected( QTableWidgetItem* ) ) );
 
+	connect( ui.actionMenuInterval, SIGNAL( activated() ), this, SLOT( showPlayerDialog() ) );
 	connect( ui.actionMenuRecorder, SIGNAL( activated() ), this, SLOT( showRecorderDialog() ) );
 	connect( ui.actionMenuReminder, SIGNAL( activated() ), this, SLOT( showReminderDialog() ) );
 
@@ -606,6 +607,10 @@ void mainWin::openApp() {
 void mainWin::quitApp() {
 	m_tray->hide();
 	close();
+}
+
+void mainWin::showPlayerDialog() {
+
 }
 
 void mainWin::showRecorderDialog() {
