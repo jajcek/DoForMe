@@ -641,7 +641,7 @@ void mainWin::putCommand( QListWidgetItem* item ) {
 		int _2ndBracketPos = item->text().indexOf( "}" );
 		_cmd = item->text().left( _2ndBracketPos + 1 );
 	} else {
-		_cmd = item->text();
+		_cmd = item->text() + "\n";
 	}
 	_cursor.insertText( _cmd );
 }
