@@ -101,12 +101,11 @@ void LuaEngine::timerEvent( QTimerEvent* ) {
 	qDebug( "LuaEngine::timerEvent" );
 
 	// check if there are any commands to execute, otherwise stop the timer
-	if( !m_commands.isEmpty() ) {
+	if( !m_commands.isEmpty() && !( GetAsyncKeyState( VK_TAB ) && GetAsyncKeyState( VK_F1 ) ) ) {
 		m_commands.executeNext();
 	} else {
 		// stop the timer if there are no more commands to execute
 		stop();
-		m_isExecuting = false;
 	}
 
 	// if the engine's interval has been changed from outside (e.g. by using some of the api function like sleep())
@@ -137,6 +136,8 @@ void LuaEngine::start() {
 
 void LuaEngine::stop() {
 	m_timer->stop();
+	m_isExecuting = false;
+	m_commands.clearCommands();
 }
 
 void LuaEngine::setInterval( int interval ) {
