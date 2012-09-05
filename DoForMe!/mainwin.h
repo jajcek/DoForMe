@@ -27,6 +27,7 @@
 #include "action_caller.h"
 #include "recorder_settings.h"
 #include "recorder.h"
+#include "player_settings.h"
 
 /**
 	\class mainWin mainwin.h "mainwin.h"

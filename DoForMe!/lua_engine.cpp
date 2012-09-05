@@ -25,6 +25,8 @@ void LuaEngine::registerFunction( const char* functionName, lua_CFunction pFunct
 }
 
 int LuaEngine::loadScript( const char* code, int mode ) {
+	setGUIInterval( PlayerSettings::getInstance()->delay() );
+
 	// load script code from a buffer, otherwise from a file
 	if( mode == BUFFER )
 		m_loadError = luaL_loadbuffer( luaState, code, strlen( code ), NULL );
@@ -58,6 +60,7 @@ bool LuaEngine::run( const char* code, bool onlyParse ) {
 	// if the engine is executing a script we can't invoke start again,
 	// because it will pause the timer for the GUI interval.
 	if( onlyParse == false && !m_isExecuting ) {
+		setGUIInterval( PlayerSettings::getInstance()->delay() );
 		start();
 		m_isExecuting = true;
 	}

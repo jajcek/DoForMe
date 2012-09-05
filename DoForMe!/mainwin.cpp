@@ -610,7 +610,7 @@ void mainWin::quitApp() {
 }
 
 void mainWin::showPlayerDialog() {
-
+	PlayerSettings::getInstance()->exec();
 }
 
 void mainWin::showRecorderDialog() {

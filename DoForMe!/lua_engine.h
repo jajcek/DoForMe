@@ -11,6 +11,7 @@
 #include "lua_headers.h"
 #include "commands_manager.h"
 #include <Windows.h>
+#include "player_settings.h"
 
 /**
 	\class LuaEngine lua_engine.h "lua_engine.h"
