@@ -145,7 +145,7 @@ color: black;</string>
      <rect>
       <x>160</x>
       <y>23</y>
-      <width>661</width>
+      <width>511</width>
       <height>198</height>
      </rect>
     </property>
@@ -188,7 +188,7 @@ p, li { white-space: pre-wrap; }
      <rect>
       <x>160</x>
       <y>0</y>
-      <width>661</width>
+      <width>511</width>
       <height>23</height>
      </rect>
     </property>
@@ -551,6 +551,368 @@ color: black;</string>
     <property name="autoRaise">
      <bool>false</bool>
     </property>
+   </widget>
+   <widget class="QToolBox" name="toolBox">
+    <property name="geometry">
+     <rect>
+      <x>671</x>
+      <y>0</y>
+      <width>150</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
+    <property name="midLineWidth">
+     <number>0</number>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <property name="tabSpacing">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>150</width>
+       <height>158</height>
+      </rect>
+     </property>
+     <attribute name="label">
+      <string>Mouse</string>
+     </attribute>
+     <widget class="QListWidget" name="mouseCmdList">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>151</width>
+        <height>160</height>
+       </rect>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <item>
+       <property name="text">
+        <string>moveTo(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftDown()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftDownAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftUp()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftUpAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftClick()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftClickAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftDoubleClick()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftDoubleClickAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightDown()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightDownAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightUp()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightUpAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightClick()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightClickAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>middleDown()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>middleDownAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>middleUp()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>middleUpAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>middleClick()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>middleClickAt(x, y)</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>150</width>
+       <height>158</height>
+      </rect>
+     </property>
+     <attribute name="label">
+      <string>Keyboard</string>
+     </attribute>
+     <widget class="QListWidget" name="keyboardCmdList">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>151</width>
+        <height>160</height>
+       </rect>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <item>
+       <property name="text">
+        <string>{app} - App menu</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{back} - Backspace</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{caps} - Caps lock</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{dec} - Numpad .</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{del} - Delete</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{div} - Numpad /</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{down} - Down arrow</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{end} - End</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{esc} - Escape</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{fX} - FX</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{home} - Home</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{ins} - Insert</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{left} - Left arrow</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{lwin} - Left windows</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{mul} - Numpad *</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{n} - Enter</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{numlock} - Num lock</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{nX} - Numpad X</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{pause} - Pause</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{pdown} - Page down</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{print} - Print</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{pup} - Page up</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{right} - Right arrow</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{rwin} - Right windows</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{scroll} - Scroll lock</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{ss} - Snapshot</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{sub} - Numpad -</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{sum} - Numpad +</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{tab} - Tab</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>{up} - Up arrow</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sendText(&quot;&quot;)</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <attribute name="label">
+      <string>Other</string>
+     </attribute>
+     <widget class="QListWidget" name="otherCmdList">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>151</width>
+        <height>159</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>sleep(x)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>setInterval(x)</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

@@ -49,6 +49,10 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.actionMenuRecorder, SIGNAL( activated() ), this, SLOT( showRecorderDialog() ) );
 	connect( ui.actionMenuReminder, SIGNAL( activated() ), this, SLOT( showReminderDialog() ) );
 
+	connect( ui.mouseCmdList, SIGNAL( itemDoubleClicked( QListWidgetItem* ) ), this, SLOT( putCommand( QListWidgetItem*  ) ) );
+	connect( ui.keyboardCmdList, SIGNAL( itemDoubleClicked( QListWidgetItem* ) ), this, SLOT( putCommand( QListWidgetItem*  ) ) );
+	connect( ui.otherCmdList, SIGNAL( itemDoubleClicked( QListWidgetItem* ) ), this, SLOT( putCommand( QListWidgetItem*  ) ) );
+
 	// initialize pointers to calendar tools
 	CalendarTools::AddButton = ui.addActionButton;
 	CalendarTools::NewMenu = ui.actionMenuNewAction;
@@ -610,15 +614,36 @@ void mainWin::quitApp() {
 }
 
 void mainWin::showPlayerDialog() {
+	qDebug( "mainWin::showPlayerDialog" );
+
 	PlayerSettings::getInstance()->exec();
 }
 
 void mainWin::showRecorderDialog() {
+	qDebug( "mainWin::showRecorderDialog" );
+
 	RecorderSettings::getInstance()->exec();
 }
 
 void mainWin::showReminderDialog() {
+	qDebug( "mainWin::showReminderDialog" );
+
 	ReminderDialog::getInstance()->exec();
+}
+
+void mainWin::putCommand( QListWidgetItem* item ) {
+	qDebug( "mainWin::putCommand" );
+
+	QTextCursor _cursor( ui.scriptTextEdit->textCursor() );
+	QString _cmd = "";
+	// if the string starts with "{" we need to get only the {X} part, otherwise get whole string
+	if( item->text().startsWith( "{" ) ) {
+		int _2ndBracketPos = item->text().indexOf( "}" );
+		_cmd = item->text().left( _2ndBracketPos + 1 );
+	} else {
+		_cmd = item->text();
+	}
+	_cursor.insertText( _cmd );
 }
 
 void mainWin::initTraySystem( TraySystem* tray ) {

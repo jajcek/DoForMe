@@ -494,7 +494,6 @@ void LuaApiEngine::initSpecialKeys() {
 	defineKey( "n7", VK_NUMPAD7 )
 	defineKey( "n8", VK_NUMPAD8 )
 	defineKey( "n9", VK_NUMPAD9 )
-	defineKey( "n0", VK_NUMPAD0 )
 	defineKey( "f1", VK_F1 )
 	defineKey( "f2", VK_F2 )
 	defineKey( "f3", VK_F3 )

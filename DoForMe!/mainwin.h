@@ -205,6 +205,10 @@ public slots:
 		\brief Shows dialog with reminder settings.
 	*/
 	void showReminderDialog();
+	/**
+		\brief Method called while double clicked on command in the list (Mouse, Keyboard and Other lists on the right of the text area)
+	*/
+	void putCommand( QListWidgetItem* item );
 
 private:
 	/**
