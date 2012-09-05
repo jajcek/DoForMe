@@ -240,5 +240,9 @@ private:
 		\brief Method invoked while closing the main window.
 	*/
 	void closeEvent( QCloseEvent* e );
+	/**
+		\brief Method invoked while resizing the main window.
+	*/
+	void resizeEvent( QResizeEvent* e );
 
 };

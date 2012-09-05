@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>821</width>
-    <height>508</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>450</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>DoForMe!</string>
@@ -35,8 +41,8 @@
      <rect>
       <x>0</x>
       <y>23</y>
-      <width>151</width>
-      <height>198</height>
+      <width>181</width>
+      <height>251</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -89,7 +95,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>151</width>
+      <width>181</width>
       <height>23</height>
      </rect>
     </property>
@@ -107,7 +113,7 @@ color: black;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>98</x>
+      <x>128</x>
       <y>1</y>
       <width>51</width>
       <height>21</height>
@@ -123,12 +129,12 @@ color: black;</string>
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="actionsLabel">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>230</y>
-      <width>151</width>
+      <y>280</y>
+      <width>181</width>
       <height>22</height>
      </rect>
     </property>
@@ -143,10 +149,10 @@ color: black;</string>
    <widget class="QTextEdit" name="scriptTextEdit">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>190</x>
       <y>23</y>
-      <width>511</width>
-      <height>198</height>
+      <width>451</width>
+      <height>251</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -186,9 +192,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QLabel" name="scriptTitle">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>190</x>
       <y>0</y>
-      <width>511</width>
+      <width>471</width>
       <height>23</height>
      </rect>
     </property>
@@ -204,9 +210,9 @@ color: black;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>252</y>
-      <width>151</width>
-      <height>209</height>
+      <y>302</y>
+      <width>181</width>
+      <height>251</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -290,275 +296,13 @@ selection-background-color: rgb( 51, 153, 255 );
      </property>
     </column>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QToolBox" name="functionsToolBox">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>230</y>
-      <width>661</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb( 210, 210, 210 );
-color: black;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="editButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>241</x>
-      <y>231</y>
-      <width>80</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Edit</string>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="detachButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>401</x>
-      <y>231</y>
-      <width>80</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Detach</string>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="removeButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>321</x>
-      <y>231</y>
-      <width>80</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Remove</string>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="saveButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>231</y>
-      <width>80</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Save</string>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="saveOnCloseCheck">
-    <property name="geometry">
-     <rect>
-      <x>723</x>
-      <y>233</y>
-      <width>91</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Save on close</string>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="addActionButton">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>161</x>
-      <y>231</y>
-      <width>80</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Add to actions</string>
-    </property>
-    <property name="text">
-     <string>Add</string>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>28</width>
-      <height>28</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="leftButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>489</x>
-      <y>231</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="mainwin.qrc">
-      <normaloff>:/arrows/Resources/1leftarrow.ico</normaloff>:/arrows/Resources/1leftarrow.ico</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>12</width>
-      <height>12</height>
-     </size>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="rightButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>552</x>
-      <y>231</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="mainwin.qrc">
-      <normaloff>:/arrows/Resources/1rightarrow.ico</normaloff>:/arrows/Resources/1rightarrow.ico</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>12</width>
-      <height>12</height>
-     </size>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="upButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>231</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="mainwin.qrc">
-      <normaloff>:/arrows/Resources/1uparrow.ico</normaloff>:/arrows/Resources/1uparrow.ico</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>12</width>
-      <height>12</height>
-     </size>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="downButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>531</x>
-      <y>231</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="mainwin.qrc">
-      <normaloff>:/arrows/Resources/1downarrow.ico</normaloff>:/arrows/Resources/1downarrow.ico</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>12</width>
-      <height>12</height>
-     </size>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QToolBox" name="toolBox">
-    <property name="geometry">
-     <rect>
-      <x>671</x>
+      <x>641</x>
       <y>0</y>
-      <width>150</width>
-      <height>221</height>
+      <width>161</width>
+      <height>274</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -571,7 +315,7 @@ color: black;</string>
      <number>0</number>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="tabSpacing">
      <number>0</number>
@@ -581,8 +325,8 @@ color: black;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>150</width>
-       <height>158</height>
+       <width>161</width>
+       <height>211</height>
       </rect>
      </property>
      <attribute name="label">
@@ -593,8 +337,8 @@ color: black;</string>
        <rect>
         <x>-1</x>
         <y>-1</y>
-        <width>151</width>
-        <height>160</height>
+        <width>161</width>
+        <height>253</height>
        </rect>
       </property>
       <property name="sortingEnabled">
@@ -712,8 +456,8 @@ color: black;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>150</width>
-       <height>158</height>
+       <width>161</width>
+       <height>211</height>
       </rect>
      </property>
      <attribute name="label">
@@ -724,8 +468,8 @@ color: black;</string>
        <rect>
         <x>-1</x>
         <y>-1</y>
-        <width>151</width>
-        <height>160</height>
+        <width>161</width>
+        <height>251</height>
        </rect>
       </property>
       <property name="sortingEnabled">
@@ -897,7 +641,7 @@ color: black;</string>
        <rect>
         <x>-1</x>
         <y>-1</y>
-        <width>151</width>
+        <width>161</width>
         <height>159</height>
        </rect>
       </property>
@@ -914,13 +658,279 @@ color: black;</string>
      </widget>
     </widget>
    </widget>
+   <widget class="QFrame" name="calendarToolsFrame">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>280</y>
+      <width>631</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame {
+background-color: rgb( 210, 210, 210 );
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QToolButton" name="addActionButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>1</y>
+       <width>80</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Add to actions</string>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>28</width>
+       <height>28</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="saveOnCloseCheck">
+     <property name="geometry">
+      <rect>
+       <x>522</x>
+       <y>3</y>
+       <width>91</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save on close</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="saveButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>1</y>
+       <width>80</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+     <property name="autoRaise">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="downButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>369</x>
+       <y>1</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="mainwin.qrc">
+       <normaloff>:/arrows/Resources/1downarrow.ico</normaloff>:/arrows/Resources/1downarrow.ico</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>12</width>
+       <height>12</height>
+      </size>
+     </property>
+     <property name="autoRaise">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="detachButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>1</y>
+       <width>80</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Detach</string>
+     </property>
+     <property name="autoRaise">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="leftButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>327</x>
+       <y>1</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="mainwin.qrc">
+       <normaloff>:/arrows/Resources/1leftarrow.ico</normaloff>:/arrows/Resources/1leftarrow.ico</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>12</width>
+       <height>12</height>
+      </size>
+     </property>
+     <property name="autoRaise">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="upButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>348</x>
+       <y>1</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="mainwin.qrc">
+       <normaloff>:/arrows/Resources/1uparrow.ico</normaloff>:/arrows/Resources/1uparrow.ico</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>12</width>
+       <height>12</height>
+      </size>
+     </property>
+     <property name="autoRaise">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="editButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>1</y>
+       <width>80</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Edit</string>
+     </property>
+     <property name="autoRaise">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="rightButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>1</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="mainwin.qrc">
+       <normaloff>:/arrows/Resources/1rightarrow.ico</normaloff>:/arrows/Resources/1rightarrow.ico</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>12</width>
+       <height>12</height>
+      </size>
+     </property>
+     <property name="autoRaise">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="removeButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>1</y>
+       <width>80</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Remove</string>
+     </property>
+     <property name="autoRaise">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>821</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>
@@ -1341,22 +1351,5 @@ color: black;</string>
  <resources>
   <include location="mainwin.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>saveOnCloseCheck</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>saveButton</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>723</x>
-     <y>296</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>640</x>
-     <y>298</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

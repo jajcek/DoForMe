@@ -86,7 +86,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 
 	ActionsCalendar::setList( ui.actionsTable );
 	m_calendar = new ActionsCalendar( this );
-	m_calendar->setGeometry( ui.actionsTable->width() + 9, height() - 209, width() - ( ui.actionsTable->width() + 9 ), 209 );
+	m_calendar->setGeometry( ui.actionsTable->width() + 9, height() - 250, width() - ( ui.actionsTable->width() + 9 ), 250 );
 	m_calendar->show();
 	
 	//m_lua = new LuaEngine();
@@ -739,6 +739,32 @@ void mainWin::closeEvent( QCloseEvent* e ) {
 	mainWin::~mainWin();
 
 	exit( 0 );
+}
+
+void mainWin::resizeEvent( QResizeEvent* e ) {
+	qDebug( "mainWin::resizeEvent" );
+
+	int _newWidthForTextEdit = width() - ui.scriptsList->width() - 9 - ui.functionsToolBox->width();
+	int _newHeightForTextEdit = height() - m_calendar->height() - 55 - 2 * ui.scriptTitle->height();
+	int _newHeightForFunctionsList = _newHeightForTextEdit + 24;
+	ui.scriptTextEdit->resize( _newWidthForTextEdit, _newHeightForTextEdit );
+	ui.scriptsList->resize( ui.scriptsList->width(), _newHeightForTextEdit );
+	ui.functionsToolBox->move( width() - ui.functionsToolBox->width(), ui.functionsToolBox->y() );
+	ui.functionsToolBox->resize( ui.functionsToolBox->width(), _newHeightForFunctionsList );
+	ui.scriptTitle->resize( _newWidthForTextEdit, ui.scriptTitle->height() );
+	m_calendar->move( ui.actionsTable->width() + 9, height() - 250 );
+	m_calendar->resize( width() - ( ui.actionsTable->width() + 9 ), 250 );
+	ui.calendarToolsFrame->move( ui.calendarToolsFrame->x(), m_calendar->y() - 69 );
+	ui.calendarToolsFrame->resize( m_calendar->width(), ui.calendarToolsFrame->height() );
+	ui.saveButton->move( width() - 4 * ui.saveOnCloseCheck->width() - 5, ui.saveButton->y() );
+	ui.saveOnCloseCheck->move( width() - 3 * ui.saveOnCloseCheck->width() - 10, ui.saveOnCloseCheck->y() );
+	ui.actionsLabel->move( 0, ui.calendarToolsFrame->y() );
+	ui.actionsTable->move( 0, ui.calendarToolsFrame->y() + ui.calendarToolsFrame->height() );
+	int _heightForCmdLists = ui.functionsToolBox->height() - 60;
+	int _widthForCmdLists = ui.mouseCmdList->width();
+	ui.mouseCmdList->resize( _widthForCmdLists, _heightForCmdLists );
+	ui.keyboardCmdList->resize( _widthForCmdLists, _heightForCmdLists );
+	ui.otherCmdList->resize( _widthForCmdLists, _heightForCmdLists );
 }
 
 mainWin::~mainWin() {
