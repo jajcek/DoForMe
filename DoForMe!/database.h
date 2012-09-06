@@ -7,6 +7,9 @@
 #include "action.h"
 #include "scripts_manager.h"
 #include "action_settings.h"
+#include "player_settings.h"
+#include "recorder_settings.h"
+#include "reminder_settings.h"
 
 /**
 	\class Database database.h "database.h"
@@ -61,15 +64,29 @@ public:
 	*/
 	void prepareTableForActions();
 	/**
-		\brief Clears all of the rows in the table (truncates table).
+		\brief Creates table for settings.
 	*/
-	void clearContents();
+	void prepareTableForSettings();
 	/**
-		\brief Inserts action to the database.
+		\brief Clears all of the rows in the actions table (truncates table).
+	*/
+	void clearActions();
+	/**
+		\brief Clears all of the rows in the settings table (truncates table).
+	*/
+	void clearSettings();
+	/**
+		\brief Inserts action into the database.
 		\param[in] date Date for the action.
 		\param[in] action Action to be put into the database.
 	*/
 	void insertAction( QDate date, Action* action );
+	/**
+		\brief Inserts setting into the database.
+		\param[in] key Key needed to be saved.
+		\param[in] value Value of the key.
+	*/
+	void insertSetting( QString key, QString value );
 	/**
 		\return Vector of pairs in which the first element is the date on which the action exists and the second element is the action itself.
 	*/

@@ -8,7 +8,7 @@
 #include <qlayout.h>
 #include <memory>
 #include "ui_notification_dialog.h"
-#include "reminder_dialog.h"
+#include "reminder_settings.h"
 
 /**
 	\class MsgBoxWithDuration msg_box_with_duration.h "msg_box_with_duration.h"

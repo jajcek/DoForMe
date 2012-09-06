@@ -6,25 +6,25 @@
 #include "ui_reminder_dialog.h"
 
 /**
-	\class ReminderDialog reminder_dialog.h "reminder_dialog.h"
+	\class ReminderSettings reminder_settings.h "reminder_settings.h"
 	\brief Settings for actions reminder.
 	\details The dialog has been created with QT Designer.
 	\author Jacek Topolski
 	\version 1.0
 	\date 2.09.2012
 */
-class ReminderDialog : public QDialog {
+class ReminderSettings : public QDialog {
 	Q_OBJECT
 
 private:
 	/**
 		\brief Object containing all controls of the window.
 	*/
-	Ui::reminderDialog ui;
+	Ui::ReminderSettings ui;
 	/**
 		\brief Pointer to the object of this class.
 	*/
-	static ReminderDialog* m_object;
+	static ReminderSettings* m_object;
 	/**
 		\brief Value specifying whether the signaling actions is on.
 	*/
@@ -51,7 +51,7 @@ private:
 		\details The constructor has been put into the private section to prevent creating instances from the class
 		(because the class is a singleton).
 	*/
-	ReminderDialog();
+	ReminderSettings();
 
 private slots:
 	/**
@@ -89,7 +89,7 @@ public:
 	/**
 		\return Pointer to the instance of the class.
 	*/
-	static ReminderDialog* getInstance();
+	static ReminderSettings* getInstance();
 	/**
 		\return True if the notifications are enbaled, otherwise false.
 	*/

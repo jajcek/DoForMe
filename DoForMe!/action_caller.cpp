@@ -74,7 +74,7 @@ void ActionCaller::setActions( QVector<Action*> actions ) {
 		int _milliseconds = -1;
 		do {
 			QTime _timeForFirstAction = m_actions.at( 0 )->getTime();
-			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction ) - ReminderDialog::getInstance()->timeEarlier() * 1000;
+			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction ) - ReminderSettings::getInstance()->timeEarlier() * 1000;
 
 			if( _milliseconds >= 0 ) {
 				m_caller.start( _milliseconds, this );
@@ -107,7 +107,7 @@ void ActionCaller::timerEvent( QTimerEvent* e ) {
 
 		if( !m_actions.isEmpty() ) {
 			QTime _timeForFirstAction = m_actions.at( 0 )->getTime();
-			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction ) - ReminderDialog::getInstance()->timeEarlier() * 1000;
+			_milliseconds = QTime::currentTime().msecsTo( _timeForFirstAction ) - ReminderSettings::getInstance()->timeEarlier() * 1000;
 			if( _milliseconds < 0 ) 
 				continue;
 			m_caller.start( _milliseconds, this );

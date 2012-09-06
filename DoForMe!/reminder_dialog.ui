@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>reminderDialog</class>
- <widget class="QDialog" name="reminderDialog">
+ <class>ReminderSettings</class>
+ <widget class="QDialog" name="ReminderSettings">
   <property name="enabled">
    <bool>true</bool>
   </property>

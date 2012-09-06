@@ -24,9 +24,9 @@ void CommandsManager::executeNext() {
 		}
 
 		// show dialog with notification of the new action
-		if( ReminderDialog::getInstance()->isOn() ) {
+		if( ReminderSettings::getInstance()->isOn() ) {
 			MsgBoxWithDuration _msg( "Information", "An action \"" + _actionName
-									 + "\" is coming up. What to do?", ReminderDialog::getInstance()->timeEarlier() );
+									 + "\" is coming up. What to do?", ReminderSettings::getInstance()->timeEarlier() );
 			_msg.exec();
 
 			if( _msg.buttonClicked() == MsgBoxWithDuration::IGNORING ) {

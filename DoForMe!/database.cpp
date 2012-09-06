@@ -84,14 +84,43 @@ void Database::prepareTableForActions() {
 		sqlite3_free( _errMsg );
 	}
 
-	clearContents();
+	clearActions();
 }
 
-void Database::clearContents() {
+void Database::prepareTableForSettings() {
+	char* _errMsg = NULL;
+	int _res = 0;
+	_res = sqlite3_exec( m_db, "CREATE TABLE IF NOT EXISTS Settings ( id INTEGER PRIMARY KEY,   \
+																	  key TEXT NOT NULL, \
+																	  value TEXT NOT NULL );", NULL, NULL, &_errMsg );
+	if( _res != SQLITE_OK ) {
+		QMessageBox _msg( QMessageBox::Critical, "Error", "SQL error: " + QString( _errMsg ),
+				QMessageBox::Ok );
+		_msg.exec();
+		sqlite3_free( _errMsg );
+	}
+
+	clearSettings();
+}
+
+void Database::clearActions() {
 	char* _errMsg = NULL;
 
 	// truncate table (in sqlite there's no TRUNCATE keyword)
 	int _res = sqlite3_exec( m_db, "DELETE FROM Actions;", NULL, NULL, &_errMsg );
+	if( _res != SQLITE_OK ) {
+		QMessageBox _msg( QMessageBox::Critical, "Error", "SQL error: " + QString( _errMsg ),
+				QMessageBox::Ok );
+		_msg.exec();
+		sqlite3_free( _errMsg );
+	}
+}
+
+void Database::clearSettings() {
+	char* _errMsg = NULL;
+
+	// truncate table (in sqlite there's no TRUNCATE keyword)
+	int _res = sqlite3_exec( m_db, "DELETE FROM Settings;", NULL, NULL, &_errMsg );
 	if( _res != SQLITE_OK ) {
 		QMessageBox _msg( QMessageBox::Critical, "Error", "SQL error: " + QString( _errMsg ),
 				QMessageBox::Ok );
@@ -130,6 +159,25 @@ void Database::insertAction( QDate date, Action* action ) {
 					"'" + action->getHoursHH() + ":" + action->getMinutesMM() + ":" + action->getSecondsSS() + "', " +
 					_XDays + ", " +
 					QString::number( action->getDays()  ) + " );";
+
+	//qDebug( "query: %s", _query.toStdString().c_str() );
+	int _res = sqlite3_exec( m_db, _query.toStdString().c_str(), NULL, NULL, &_errMsg );
+	if( _res != SQLITE_OK ) {
+		QMessageBox _msg( QMessageBox::Critical, "Error", "SQL error: " + QString( _errMsg ),
+				QMessageBox::Ok );
+		_msg.exec();
+		sqlite3_free( _errMsg );
+	}
+}
+
+void Database::insertSetting( QString key, QString value ) {
+	char* _errMsg = NULL;
+
+	// prepare the query
+	QString _query = QString( "INSERT INTO Settings VALUES( " ) +
+					"NULL, " +
+					"'" + key + "', " +
+					"'" + value + "' );";
 
 	//qDebug( "query: %s", _query.toStdString().c_str() );
 	int _res = sqlite3_exec( m_db, _query.toStdString().c_str(), NULL, NULL, &_errMsg );

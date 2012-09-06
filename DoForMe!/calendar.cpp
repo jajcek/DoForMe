@@ -418,10 +418,10 @@ void ActionsCalendar::saveData() const {
 	qDebug( "ActionsCalendar::saveData()" );
 
 	// open database
-	Database* _db = new Database( "actions.db" );
+	Database _db( "actions.db" );
 	// if the table for actions doesn't exists it creates new one,
 	// otherwise it clears the current table content
-	_db->prepareTableForActions();
+	_db.prepareTableForActions();
 
 	// insert all actions
 	QMapIterator<QDate, QVector<Action*> > it( m_actionsAll );
@@ -431,11 +431,9 @@ void ActionsCalendar::saveData() const {
 		int _actionsNumber = it.value().size();
 		for( int i = 0; i < _actionsNumber; ++i ) {
 			Action* _pAction = it.value().at( i );
-			_db->insertAction( it.key(), _pAction );
+			_db.insertAction( it.key(), _pAction );
 		}
 	}
-
-	delete _db;
 }
 
 void ActionsCalendar::loadData() {

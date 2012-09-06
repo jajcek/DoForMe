@@ -16,7 +16,7 @@ MsgBoxWithDuration::MsgBoxWithDuration( const QString strTitle, const QString st
 }
 
 void MsgBoxWithDuration::stopTime() {
-	ReminderDialog::getInstance()->stopSound();
+	ReminderSettings::getInstance()->stopSound();
 	m_timer.stop();
 	ui.textMessage->setText( m_strMessage );
 	ui.suspendButton->setEnabled( false );
@@ -24,8 +24,8 @@ void MsgBoxWithDuration::stopTime() {
 }
 
 void MsgBoxWithDuration::startTime() {
-	if( ReminderDialog::getInstance()->isSoundOn() )
-		ReminderDialog::getInstance()->playSound();
+	if( ReminderSettings::getInstance()->isSoundOn() )
+		ReminderSettings::getInstance()->playSound();
 	m_timer.start( 1000, this );
 	updateTime();
 }
@@ -36,7 +36,7 @@ int MsgBoxWithDuration::buttonClicked() const {
 
 void MsgBoxWithDuration::run() {
 	m_buttonClicked = RUN;
-	ReminderDialog::getInstance()->stopSound();
+	ReminderSettings::getInstance()->stopSound();
 	close();
 }
 
@@ -47,7 +47,7 @@ void MsgBoxWithDuration::suspend() {
 
 void MsgBoxWithDuration::ignore() {
 	m_buttonClicked = IGNORING;
-	ReminderDialog::getInstance()->stopSound();
+	ReminderSettings::getInstance()->stopSound();
 	close();
 }
 

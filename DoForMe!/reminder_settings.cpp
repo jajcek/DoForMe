@@ -1,8 +1,8 @@
-#include "reminder_dialog.h"
+#include "reminder_settings.h"
 
-ReminderDialog* ReminderDialog::m_object = NULL;
+ReminderSettings* ReminderSettings::m_object = NULL;
 
-ReminderDialog::ReminderDialog() {
+ReminderSettings::ReminderSettings() {
 	ui.setupUi( this );
 
 	// it can't be on initialization list, because the ui.setupUi creates the controls
@@ -22,14 +22,14 @@ ReminderDialog::ReminderDialog() {
 	m_sound = new Phonon::MediaObject( this );
 }
 
-void ReminderDialog::browseSound() {
+void ReminderSettings::browseSound() {
 	QString _fileName = QFileDialog::getOpenFileName( this, "Choose sound supported by your system.",
 														 "C:/", "Sound files supported by your OS (*.*)" );
 	ui.soundPathEdit->setText( _fileName );
 }
 
-void ReminderDialog::playSound() {
-	qDebug( "ReminderDialog::playSound" );
+void ReminderSettings::playSound() {
+	qDebug( "ReminderSettings::playSound" );
 
 	// stop the previous sound to play another (or the same from beginning)
 	stopSound();
@@ -37,7 +37,7 @@ void ReminderDialog::playSound() {
 	m_sound->play();
 }
 
-void ReminderDialog::pressedOk() {
+void ReminderSettings::pressedOk() {
 	m_bIsOn = ui.signalCheck->isChecked();
 	m_fTimeEarlier = ui.signalSpinBox->value();
 	m_bIsSoundOn = ui.soundCheck->isChecked();
@@ -48,7 +48,7 @@ void ReminderDialog::pressedOk() {
 	accept();
 }
 
-void ReminderDialog::pressedCancel() {
+void ReminderSettings::pressedCancel() {
 	// set previous values to controls
 	ui.signalCheck->setChecked( m_bIsOn );
 	ui.signalSpinBox->setValue( m_fTimeEarlier );
@@ -60,48 +60,48 @@ void ReminderDialog::pressedCancel() {
 	reject();
 }
 
-void ReminderDialog::signalUnchecked() {
+void ReminderSettings::signalUnchecked() {
 	if( !ui.signalCheck->isChecked() )
 		ui.soundCheck->setChecked( false );
 }
 
-ReminderDialog* ReminderDialog::getInstance() {
+ReminderSettings* ReminderSettings::getInstance() {
 	if( !m_object )
-		m_object = new ReminderDialog();
+		m_object = new ReminderSettings();
 
 	return m_object;
 }
 
-bool ReminderDialog::isOn() const {
+bool ReminderSettings::isOn() const {
 	return m_bIsOn;
 }
 
-int ReminderDialog::timeEarlier() const {
+int ReminderSettings::timeEarlier() const {
 	if( m_bIsOn )
 		return m_fTimeEarlier;
 	else
 		return 0;
 }
 
-bool ReminderDialog::isSoundOn() const {
+bool ReminderSettings::isSoundOn() const {
 	return m_bIsSoundOn;
 }
 
-QString ReminderDialog::soundPath() const {
+QString ReminderSettings::soundPath() const {
 	if( m_bIsSoundOn )
 		return m_strSoundPath;
 	else
 		return "";
 }
 
-void ReminderDialog::stopSound() {
+void ReminderSettings::stopSound() {
 	m_sound->stop();
 }
 
-void ReminderDialog::soundChecked() {
+void ReminderSettings::soundChecked() {
 	ui.signalCheck->setChecked( true );
 }
 
-void ReminderDialog::closeEvent( QCloseEvent* e ) {
+void ReminderSettings::closeEvent( QCloseEvent* e ) {
 	stopSound();
 }

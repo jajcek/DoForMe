@@ -47,7 +47,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 
 	connect( ui.actionMenuInterval, SIGNAL( activated() ), this, SLOT( showPlayerDialog() ) );
 	connect( ui.actionMenuRecorder, SIGNAL( activated() ), this, SLOT( showRecorderDialog() ) );
-	connect( ui.actionMenuReminder, SIGNAL( activated() ), this, SLOT( showReminderDialog() ) );
+	connect( ui.actionMenuReminder, SIGNAL( activated() ), this, SLOT( showReminderSettings() ) );
 
 	connect( ui.mouseCmdList, SIGNAL( itemDoubleClicked( QListWidgetItem* ) ), this, SLOT( putCommand( QListWidgetItem*  ) ) );
 	connect( ui.keyboardCmdList, SIGNAL( itemDoubleClicked( QListWidgetItem* ) ), this, SLOT( putCommand( QListWidgetItem*  ) ) );
@@ -625,10 +625,10 @@ void mainWin::showRecorderDialog() {
 	RecorderSettings::getInstance()->exec();
 }
 
-void mainWin::showReminderDialog() {
-	qDebug( "mainWin::showReminderDialog" );
+void mainWin::showReminderSettings() {
+	qDebug( "mainWin::showReminderSettings" );
 
-	ReminderDialog::getInstance()->exec();
+	ReminderSettings::getInstance()->exec();
 }
 
 void mainWin::putCommand( QListWidgetItem* item ) {
@@ -735,6 +735,22 @@ void mainWin::closeEvent( QCloseEvent* e ) {
 	}
 
 	e->accept();
+
+	// save user settings
+	Database db( "user_settings" );
+	db.prepareTableForSettings();
+
+	// player settings
+	db.insertSetting( "delay", QString::number( PlayerSettings::getInstance()->delay() ) );
+
+	// recorder settings
+	db.insertSetting( "mouse", QString::number( ( int )RecorderSettings::getInstance()->isMouseOn() ) );
+	db.insertSetting( "mouseMove", QString::number( ( int )RecorderSettings::getInstance()->isMouseMoveOn() ) );
+	db.insertSetting( "keyboard", QString::number( ( int )RecorderSettings::getInstance()->isKeyboardOn() ) );
+	db.insertSetting( "tray", QString::number( ( int )RecorderSettings::getInstance()->isTrayOn() ) );
+
+	// reminder settings
+	//db.insertSetting( "keyboard", QString::number( ( int )ReminderSettings::getInstance()->isKeyboardOn() ) );
 
 	mainWin::~mainWin();
 
