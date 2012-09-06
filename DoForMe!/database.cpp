@@ -152,10 +152,16 @@ QVector<QPair<QDate, Action*>>  Database::selectActions() {
 	m_lastSelectedActions.clear();
 	
 	// select new actions
-	sqlite3_exec( m_db, "SELECT * FROM Actions;", getRow, NULL, &_errMsg );
+	int _res = sqlite3_exec( m_db, "SELECT * FROM Actions;", getRow, NULL, &_errMsg );
 
-	// on _errMsg above there is used malloc() so we need to free the memory
-	sqlite3_free( _errMsg );
+	if( _res != SQLITE_OK ) {
+		QMessageBox _msg( QMessageBox::Critical, "Error", "SQL error: " + QString( _errMsg ),
+				QMessageBox::Ok );
+		_msg.exec();
+
+		// on _errMsg above there is used malloc() so we need to free the memory
+		sqlite3_free( _errMsg );
+	}
 
 	return m_lastSelectedActions;
 }
