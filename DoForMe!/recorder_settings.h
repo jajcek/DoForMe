@@ -56,17 +56,37 @@ public:
 	*/
 	bool isMouseOn() const;
 	/**
+		\brief Sets value for the mouse check box.
+		\param[in] state State of the check box.
+	*/
+	void setMouse( bool state );
+	/**
 		\return True if mouse move check box is checked, otherwise false.
 	*/
 	bool isMouseMoveOn() const;
+	/**
+		\brief Sets value for the mouse move check box.
+		\param[in] state State of the check box.
+	*/
+	void setMouseMove( bool state );
 	/**
 		\return True if the keyboard check box is checked, otherwise false.
 	*/
 	bool isKeyboardOn() const;
 	/**
+		\brief Sets value for the keyboard move check box.
+		\param[in] state State of the check box.
+	*/
+	void setKeyboard( bool state );
+	/**
 		\return True if the tray check box is checked, otherwise false.
 	*/
 	bool isTrayOn() const;
+	/**
+		\brief Sets value for the tray move check box.
+		\param[in] state State of the check box.
+	*/
+	void setTray( bool state );
 
 private slots:
 	/**

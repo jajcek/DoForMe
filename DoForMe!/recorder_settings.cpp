@@ -26,16 +26,36 @@ bool RecorderSettings::isMouseOn() const {
 	return m_isMouseOn;
 }
 
+void RecorderSettings::setMouse( bool state ) {
+	m_isMouseOn = state;
+	ui.mouseCheck->setChecked( state );
+}
+
 bool RecorderSettings::isMouseMoveOn() const {
 	return m_isMouseMoveOn;
+}
+
+void RecorderSettings::setMouseMove( bool state ) {
+	m_isMouseMoveOn = state;
+	ui.mouseMoveCheck->setChecked( state );
 }
 
 bool RecorderSettings::isKeyboardOn() const {
 	return m_isKeyboardOn;
 }
 
+void RecorderSettings::setKeyboard( bool state ) {
+	m_isKeyboardOn = state;
+	ui.keyboardCheck->setChecked( state );
+}
+
 bool RecorderSettings::isTrayOn() const {
 	return m_isTrayOn;
+}
+
+void RecorderSettings::setTray( bool state ) {
+	m_isTrayOn = state;
+	ui.trayCheck->setChecked( state );
 }
 
 void RecorderSettings::pressedOk() {

@@ -93,19 +93,39 @@ public:
 	/**
 		\return True if the notifications are enbaled, otherwise false.
 	*/
-	bool isOn() const;
+	bool isReminderOn() const;
+	/**
+		\brief Sets reminder on/off.
+		\param[in] state State of the reminder's check box.
+	*/
+	void setReminder( bool state );
 	/**
 		\return How many seconds before executing an action.
 	*/
 	int timeEarlier() const;
 	/**
+		\brief Sets value for time delay.
+		\param[in] time Time delay in milliseconds.
+	*/
+	void setTimeEarlier( int delay );
+	/**
 		\return True if the sound is on, otherwise false.
 	*/
 	bool isSoundOn() const;
 	/**
+		\brief Sets check box for sound.
+		\param[in] state State of the check box.
+	*/
+	void setSound( bool state );
+	/**
 		\return Path to the sound file.
 	*/
 	QString soundPath() const;
+	/**
+		\brief Sets path for the sound file.
+		\param[in] path Path to the source file.
+	*/
+	void setSoundPath( QString path );
 
 private:
 	void closeEvent( QCloseEvent* e );

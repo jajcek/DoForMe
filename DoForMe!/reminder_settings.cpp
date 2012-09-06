@@ -72,8 +72,13 @@ ReminderSettings* ReminderSettings::getInstance() {
 	return m_object;
 }
 
-bool ReminderSettings::isOn() const {
+bool ReminderSettings::isReminderOn() const {
 	return m_bIsOn;
+}
+
+void ReminderSettings::setReminder( bool state ) {
+	m_bIsOn = state;
+	ui.signalCheck->setChecked( state );
 }
 
 int ReminderSettings::timeEarlier() const {
@@ -83,8 +88,18 @@ int ReminderSettings::timeEarlier() const {
 		return 0;
 }
 
+void ReminderSettings::setTimeEarlier( int delay ) {
+	m_fTimeEarlier = delay;
+	ui.signalSpinBox->setValue( delay );
+}
+
 bool ReminderSettings::isSoundOn() const {
 	return m_bIsSoundOn;
+}
+
+void ReminderSettings::setSound( bool state ) {
+	m_bIsSoundOn = state;
+	ui.soundCheck->setChecked( state );
 }
 
 QString ReminderSettings::soundPath() const {
@@ -92,6 +107,11 @@ QString ReminderSettings::soundPath() const {
 		return m_strSoundPath;
 	else
 		return "";
+}
+
+void ReminderSettings::setSoundPath( QString path ) {
+	m_strSoundPath = path;
+	ui.soundPathEdit->setText( path );
 }
 
 void ReminderSettings::stopSound() {

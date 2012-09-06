@@ -24,7 +24,7 @@ void CommandsManager::executeNext() {
 		}
 
 		// show dialog with notification of the new action
-		if( ReminderSettings::getInstance()->isOn() ) {
+		if( ReminderSettings::getInstance()->isReminderOn() ) {
 			MsgBoxWithDuration _msg( "Information", "An action \"" + _actionName
 									 + "\" is coming up. What to do?", ReminderSettings::getInstance()->timeEarlier() );
 			_msg.exec();

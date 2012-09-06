@@ -32,17 +32,30 @@ private:
 		\brief Vector of the last selected actions.
 	*/
 	static QVector<QPair<QDate, Action*>> m_lastSelectedActions;
+	/**
+		\brief Map of all settings, key is the setting and value its content.
+	*/
+	static QMap<QString, QString> m_lastSelectedSettings;
 
 private:
 	/**
-		\brief Helper function used as callback in sqlite method for getting rows.
+		\brief Helper function used as callback in sqlite method for getting rows for actions.
 		\param[in] notUsed Reserved for SQLite.
 		\param[in] argc Number of rows returned.
 		\param[in] argv Array of returned elements.
 		\param[in] columnName Name of the column.
 		\return Error code. 0 means success.
 	*/
-	static int getRow( void *notUsed, int argc, char** argv , char** columnName );
+	static int getActionRow( void *notUsed, int argc, char** argv , char** columnName );
+	/**
+		\brief Helper function used as callback in sqlite method for getting rows for settings.
+		\param[in] notUsed Reserved for SQLite.
+		\param[in] argc Number of rows returned.
+		\param[in] argv Array of returned elements.
+		\param[in] columnName Name of the column.
+		\return Error code. 0 means success.
+	*/
+	static int getSettingRow( void *notUsed, int argc, char** argv , char** columnName );
 
 public:
 	/**
@@ -91,5 +104,10 @@ public:
 		\return Vector of pairs in which the first element is the date on which the action exists and the second element is the action itself.
 	*/
 	QVector<QPair<QDate, Action*>> selectActions();
+	/**
+		\brief Map of every setting of the program.
+		\details The key is the setting and the value its content.
+	*/
+	QMap<QString, QString> selectSettings();
 
 };

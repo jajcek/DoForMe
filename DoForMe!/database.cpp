@@ -1,8 +1,9 @@
 #include "database.h"
 
 QVector<QPair<QDate, Action*>> Database::m_lastSelectedActions;
+QMap<QString, QString> Database::m_lastSelectedSettings;
 
-int Database::getRow( void *notUsed, int argc, char** argv , char** columnName ) {
+int Database::getActionRow( void *notUsed, int argc, char** argv , char** columnName ) {
 	// get all values from row
 	// script name
 	QString _scriptName = argv[1];
@@ -42,6 +43,16 @@ int Database::getRow( void *notUsed, int argc, char** argv , char** columnName )
 	_pNewAction->setScript( ScriptsManager::getScript( _scriptName ) );
 	_pNewAction->setExcludedDates( _excludedDate );
 	m_lastSelectedActions.push_back( qMakePair( QDate( _year, _month, _day ), _pNewAction ) );
+
+	return 0;
+}
+
+int Database::getSettingRow( void *notUsed, int argc, char** argv , char** columnName ) {
+	// get all values from row
+	QString _key = argv[1];
+	QString _value = argv[2];
+
+	m_lastSelectedSettings.insert( _key, _value );
 
 	return 0;
 }
@@ -189,7 +200,7 @@ void Database::insertSetting( QString key, QString value ) {
 	}
 }
 
-QVector<QPair<QDate, Action*>>  Database::selectActions() {
+QVector<QPair<QDate, Action*>> Database::selectActions() {
 	char* _errMsg = NULL;
 
 	// free memory from last selected actions
@@ -200,7 +211,7 @@ QVector<QPair<QDate, Action*>>  Database::selectActions() {
 	m_lastSelectedActions.clear();
 	
 	// select new actions
-	int _res = sqlite3_exec( m_db, "SELECT * FROM Actions;", getRow, NULL, &_errMsg );
+	int _res = sqlite3_exec( m_db, "SELECT * FROM Actions;", getActionRow, NULL, &_errMsg );
 
 	if( _res != SQLITE_OK ) {
 		QMessageBox _msg( QMessageBox::Critical, "Error", "SQL error: " + QString( _errMsg ),
@@ -212,4 +223,25 @@ QVector<QPair<QDate, Action*>>  Database::selectActions() {
 	}
 
 	return m_lastSelectedActions;
+}
+
+QMap<QString, QString> Database::selectSettings() {
+	char* _errMsg = NULL;
+
+	// clear content of the last selected settings
+	m_lastSelectedSettings.clear();
+	
+	// select new actions
+	int _res = sqlite3_exec( m_db, "SELECT * FROM Settings;", getSettingRow, NULL, &_errMsg );
+
+	if( _res != SQLITE_OK ) {
+		QMessageBox _msg( QMessageBox::Critical, "Error", "SQL error: " + QString( _errMsg ),
+				QMessageBox::Ok );
+		_msg.exec();
+
+		// on _errMsg above there is used malloc() so we need to free the memory
+		sqlite3_free( _errMsg );
+	}
+
+	return m_lastSelectedSettings;
 }

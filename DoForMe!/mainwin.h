@@ -72,11 +72,6 @@ public:
 	*/
 	~mainWin();
 	/**
-		\brief Loads script from the given path and puts the into the scripts list.
-		\param[in] path Path for the directory with the scripts.
-	*/
-	void loadScripts( const QString& path );
-	/**
 		\return Code from the text box.
 	*/
 	QString getCode() const;
@@ -211,6 +206,19 @@ public slots:
 	void putCommand( QListWidgetItem* item );
 
 private:
+	/**
+		\brief Loads script from the given path and puts the into the scripts list.
+		\param[in] path Path for the directory with the scripts.
+	*/
+	void loadScripts( const QString& path );
+	/**
+		\brief Loads user settings.
+	*/
+	void loadUserSettings();
+	/**
+		\brief Saves user settings.
+	*/
+	void saveSettings();
 	/**
 		\brief Initializes all api functions for the scripts.
 	*/

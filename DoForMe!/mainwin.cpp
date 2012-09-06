@@ -84,13 +84,13 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	// scripts for actions
 	loadScripts( CONF::SCRIPT_DIR );
 
+	loadUserSettings();
+
 	ActionsCalendar::setList( ui.actionsTable );
 	m_calendar = new ActionsCalendar( this );
 	m_calendar->setGeometry( ui.actionsTable->width() + 9, height() - 250, width() - ( ui.actionsTable->width() + 9 ), 250 );
 	m_calendar->show();
 	
-	//m_lua = new LuaEngine();
-	//LuaApiEngine::setLuaEngine( m_lua );
 	LuaApiEngine::initSpecialKeys();
 
 	m_tray = new TraySystem( ":/mainWin/logo.png", this );
@@ -100,6 +100,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	// register functions used in lua's scripts for m_lua.
 	initLuaApi();
 
+	// set pointer to the text edit to which the recorder will be putting the commands
 	Recorder::setTextEdit( ui.scriptTextEdit );
 
 	QAction* _mainWindowAction = new QAction( this );
@@ -657,6 +658,48 @@ void mainWin::initTraySystem( TraySystem* tray ) {
 	tray->addQAction( _exitAction );
 }
 
+void mainWin::loadUserSettings() {
+	Database db( "user_settings" );
+
+	auto _settings = db.selectSettings();
+
+	// player settings
+	PlayerSettings::getInstance()->setDelay( _settings["startDelay"].toInt() );
+
+	// recorder settings
+	RecorderSettings::getInstance()->setMouse( _settings["recordMouse"].toInt() );
+	RecorderSettings::getInstance()->setMouseMove( _settings["recordMouseMove"].toInt() );
+	RecorderSettings::getInstance()->setKeyboard( _settings["recordKeyboard"].toInt() );
+	RecorderSettings::getInstance()->setTray( _settings["hideToTray"].toInt() );
+
+	// reminder settings
+	ReminderSettings::getInstance()->setReminder( _settings["signal"].toInt() );
+	ReminderSettings::getInstance()->setTimeEarlier( _settings["signalDelay"].toInt() );
+	ReminderSettings::getInstance()->setSound( _settings["sound"].toInt() );
+	ReminderSettings::getInstance()->setSoundPath( _settings["soundPath"] );
+}
+
+void mainWin::saveSettings() {
+	// save user settings
+	Database db( "user_settings" );
+	db.prepareTableForSettings();
+
+	// player settings
+	db.insertSetting( "startDelay", QString::number( PlayerSettings::getInstance()->delay() ) );
+
+	// recorder settings
+	db.insertSetting( "recordMouse", QString::number( ( int )RecorderSettings::getInstance()->isMouseOn() ) );
+	db.insertSetting( "recordMouseMove", QString::number( ( int )RecorderSettings::getInstance()->isMouseMoveOn() ) );
+	db.insertSetting( "recordKeyboard", QString::number( ( int )RecorderSettings::getInstance()->isKeyboardOn() ) );
+	db.insertSetting( "hideToTray", QString::number( ( int )RecorderSettings::getInstance()->isTrayOn() ) );
+
+	// reminder settings
+	db.insertSetting( "signal", QString::number( ( int )ReminderSettings::getInstance()->isReminderOn() ) );
+	db.insertSetting( "signalDelay", QString::number( ( int )ReminderSettings::getInstance()->timeEarlier() ) );
+	db.insertSetting( "sound", QString::number( ( int )ReminderSettings::getInstance()->isSoundOn() ) );
+	db.insertSetting( "soundPath", ReminderSettings::getInstance()->soundPath() );
+}
+
 void mainWin::initLuaApi() {
 	qDebug( "mainWin::initLuaApi()" );
 
@@ -736,21 +779,7 @@ void mainWin::closeEvent( QCloseEvent* e ) {
 
 	e->accept();
 
-	// save user settings
-	Database db( "user_settings" );
-	db.prepareTableForSettings();
-
-	// player settings
-	db.insertSetting( "delay", QString::number( PlayerSettings::getInstance()->delay() ) );
-
-	// recorder settings
-	db.insertSetting( "mouse", QString::number( ( int )RecorderSettings::getInstance()->isMouseOn() ) );
-	db.insertSetting( "mouseMove", QString::number( ( int )RecorderSettings::getInstance()->isMouseMoveOn() ) );
-	db.insertSetting( "keyboard", QString::number( ( int )RecorderSettings::getInstance()->isKeyboardOn() ) );
-	db.insertSetting( "tray", QString::number( ( int )RecorderSettings::getInstance()->isTrayOn() ) );
-
-	// reminder settings
-	//db.insertSetting( "keyboard", QString::number( ( int )ReminderSettings::getInstance()->isKeyboardOn() ) );
+	saveSettings();
 
 	mainWin::~mainWin();
 

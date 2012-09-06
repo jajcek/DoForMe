@@ -22,6 +22,11 @@ int PlayerSettings::delay() const {
 	return m_iDelay;
 }
 
+void PlayerSettings::setDelay( int delay ) {
+	m_iDelay = delay;
+	ui.delaySpinBox->setValue( delay );
+}
+
 void PlayerSettings::pressedOk() {
 	m_iDelay = ui.delaySpinBox->value();
 

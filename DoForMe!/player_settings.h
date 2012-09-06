@@ -44,6 +44,11 @@ public:
 		\return Delay value.
 	*/
 	int delay() const;
+	/**
+		\brief Sets the given value as the starting delay (this method puts the given value into the spin box).
+		\param[in] delay Delay value.
+	*/
+	void setDelay( int delay );
 
 private slots:
 	/**
