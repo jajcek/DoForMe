@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>628</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -315,7 +315,7 @@ selection-background-color: rgb( 51, 153, 255 );
      <number>0</number>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="tabSpacing">
      <number>0</number>
@@ -346,7 +346,22 @@ selection-background-color: rgb( 51, 153, 255 );
       </property>
       <item>
        <property name="text">
-        <string>moveTo(x, y)</string>
+        <string>leftClick()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftClickAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftDoubleClick()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>leftDoubleClickAt(x, y)</string>
        </property>
       </item>
       <item>
@@ -371,52 +386,12 @@ selection-background-color: rgb( 51, 153, 255 );
       </item>
       <item>
        <property name="text">
-        <string>leftClick()</string>
+        <string>middleClick()</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>leftClickAt(x, y)</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>leftDoubleClick()</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>leftDoubleClickAt(x, y)</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>rightDown()</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>rightDownAt(x, y)</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>rightUp()</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>rightUpAt(x, y)</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>rightClick()</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>rightClickAt(x, y)</string>
+        <string>middleClickAt(x, y)</string>
        </property>
       </item>
       <item>
@@ -441,12 +416,37 @@ selection-background-color: rgb( 51, 153, 255 );
       </item>
       <item>
        <property name="text">
-        <string>middleClick()</string>
+        <string>moveTo(x, y)</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>middleClickAt(x, y)</string>
+        <string>rightClick()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightClickAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightDown()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightDownAt(x, y)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightUp()</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rightUpAt(x, y)</string>
        </property>
       </item>
      </widget>
@@ -617,7 +617,7 @@ selection-background-color: rgb( 51, 153, 255 );
       </item>
       <item>
        <property name="text">
-        <string>{tab} - Tab</string>
+        <string>{t} - Tab</string>
        </property>
       </item>
       <item>
@@ -633,6 +633,14 @@ selection-background-color: rgb( 51, 153, 255 );
      </widget>
     </widget>
     <widget class="QWidget" name="page_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>98</width>
+       <height>28</height>
+      </rect>
+     </property>
      <attribute name="label">
       <string>Other</string>
      </attribute>
