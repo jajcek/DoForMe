@@ -197,9 +197,9 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 			// gets text between {} brackets
 			int _symbolsRead = getSpecialKey( _specialKey, _args );
 			if( _symbolsRead == -1 ) {
+				LuaEngine::getInstance()->setSpecialKeyError();
 				QMessageBox _msg( QMessageBox::Critical, "Error", "Unexpected error while parsing sendText() function." );
 				_msg.exec();
-				LuaEngine::getInstance()->setSpecialKeyError();
 				return 0;
 			}
 			
@@ -208,9 +208,9 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 
 			// if an error occured (no closing '}' bracket)
 			if( _specialKey == "err" ) {
+				LuaEngine::getInstance()->setSpecialKeyError();
 				QMessageBox _msg( QMessageBox::Critical, "Error", "There's no closing '}' symbol." );
 				_msg.exec();
-				LuaEngine::getInstance()->setSpecialKeyError();
 				return 0;
 			}
 
@@ -218,9 +218,9 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 			if( m_specialKeys.find( _specialKey ) != m_specialKeys.end() ) {
 				continue;
 			} else {
+				LuaEngine::getInstance()->setSpecialKeyError();
 				QMessageBox _msg( QMessageBox::Critical, "Error", "Undefined special key." );
 				_msg.exec();
-				LuaEngine::getInstance()->setSpecialKeyError();
 				return 0;
 			}
 		}
