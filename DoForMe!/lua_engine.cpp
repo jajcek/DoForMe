@@ -25,7 +25,7 @@ void LuaEngine::registerFunction( const char* functionName, lua_CFunction pFunct
 }
 
 int LuaEngine::loadScript( const char* code, int mode ) {
-	setGUIInterval( PlayerSettings::getInstance()->delay() );
+	qDebug( "LuaEngine::loadScript( [code], %d )", mode );
 
 	// load script code from a buffer, otherwise from a file
 	if( mode == BUFFER )
@@ -138,6 +138,8 @@ void LuaEngine::start() {
 }
 
 void LuaEngine::stop() {
+	qDebug( "LuaEngine::stop" );
+
 	m_timer->stop();
 	m_isExecuting = false;
 	m_commands.clearCommands();
