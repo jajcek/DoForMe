@@ -418,7 +418,7 @@ void ActionsCalendar::saveData() const {
 	qDebug( "ActionsCalendar::saveData()" );
 
 	// open database
-	Database _db( "actions.db" );
+	Database _db( "actions" );
 	// if the table for actions doesn't exists it creates new one,
 	// otherwise it clears the current table content
 	_db.prepareTableForActions();
@@ -440,7 +440,7 @@ void ActionsCalendar::loadData() {
 	qDebug( "ActionsCalendar::loadData()" );
 
 	// open database
-	Database* _db = new Database( "actions.db" );
+	Database* _db = new Database( "actions" );
 
 	auto _actions = _db->selectActions();
 

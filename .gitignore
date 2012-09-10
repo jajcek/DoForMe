@@ -30,5 +30,5 @@ Doxyfile
 
 # App user data
 DoForMe!/scripts
-DoForMe!/actions.db
+DoForMe!/actions
 DoForMe!/user_settings
