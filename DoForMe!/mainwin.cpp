@@ -677,6 +677,9 @@ void mainWin::loadUserSettings() {
 	ReminderSettings::getInstance()->setTimeEarlier( _settings["signalDelay"].toInt() );
 	ReminderSettings::getInstance()->setSound( _settings["sound"].toInt() );
 	ReminderSettings::getInstance()->setSoundPath( _settings["soundPath"] );
+
+	// save on close checkbox
+	ui.saveOnCloseCheck->setChecked( _settings["saveOnClose"].toInt() );
 }
 
 void mainWin::saveSettings() {
@@ -698,6 +701,9 @@ void mainWin::saveSettings() {
 	db.insertSetting( "signalDelay", QString::number( ( int )ReminderSettings::getInstance()->timeEarlier() ) );
 	db.insertSetting( "sound", QString::number( ( int )ReminderSettings::getInstance()->isSoundOn() ) );
 	db.insertSetting( "soundPath", ReminderSettings::getInstance()->soundPath() );
+
+	// save on close checkbox
+	db.insertSetting( "saveOnClose", QString::number( ( int )ui.saveOnCloseCheck->isChecked() ) );
 }
 
 void mainWin::initLuaApi() {
