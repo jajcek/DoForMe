@@ -519,4 +519,5 @@ void LuaApiEngine::initSpecialKeys() {
 	defineKey( "ss", VK_SNAPSHOT )
 	defineKey( "app", VK_APPS )
 	defineKey( "scroll", VK_SCROLL )
+	defineKey( "space", VK_SPACE )
 }
