@@ -637,8 +637,8 @@ selection-background-color: rgb( 51, 153, 255 );
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>98</width>
-       <height>28</height>
+       <width>161</width>
+       <height>211</height>
       </rect>
      </property>
      <attribute name="label">
@@ -1359,5 +1359,22 @@ background-color: rgb( 210, 210, 210 );
  <resources>
   <include location="mainwin.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>saveOnCloseCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>saveButton</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>757</x>
+     <y>338</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>669</x>
+     <y>338</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
