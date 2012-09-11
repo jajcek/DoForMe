@@ -226,10 +226,19 @@ void mainWin::importScripts() {
 
 	// copy the files into the "scripts" directory
 	int _filesNumber = _files.size();
+	if( _filesNumber > 0 ) {
+		QDir _dir;
+		// check if "scripts" folder exists
+		int _dirExists = _dir.exists( "scripts" );
+		// if not, create it
+		if( !_dirExists )
+			_dir.mkdir( "scripts" );
+	}
+
 	for( int i = 0; i < _filesNumber; ++i ) {
 		QString _strFile = _files.at( i );
 		QFileInfo _fileInfo( _strFile );
-		QFile::copy( _strFile, "scripts/" + _fileInfo.fileName() );
+		QFile::copy( _strFile, CONF::SCRIPT_DIR + _fileInfo.fileName() );
 	}
 
 	loadScripts( CONF::SCRIPT_DIR );
