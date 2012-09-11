@@ -181,7 +181,7 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 
 			putCmd( "sendText( \"{" + _strKey + "}\" )" );
 		}
-		if( ( _vkCode >= 65 && _vkCode <= 90 ) || ( _vkCode >= 48 && _vkCode <= 57 ) || _vkCode == VK_SPACE )
+		if( ( _vkCode >= 65 && _vkCode <= 90 ) || ( _vkCode >= 48 && _vkCode <= 57 ) )
 			putCmd( "sendText( \"" + _symbol + "\" )" );
 	}
 
