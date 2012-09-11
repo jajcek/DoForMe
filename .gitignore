@@ -17,6 +17,7 @@
 *.opensdf
 ipch
 DoForMe!/Debug
+DoForMe!/Release
 Win32
 
 # Qt generated files
