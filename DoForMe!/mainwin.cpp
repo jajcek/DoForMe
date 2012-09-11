@@ -663,6 +663,8 @@ void mainWin::loadUserSettings() {
 
 	auto _settings = db.selectSettings();
 
+	if( _settings.empty() ) return;
+
 	// player settings
 	PlayerSettings::getInstance()->setDelay( _settings["startDelay"].toInt() );
 

@@ -210,17 +210,9 @@ QVector<QPair<QDate, Action*>> Database::selectActions() {
 	}
 	m_lastSelectedActions.clear();
 	
-	// select new actions
-	int _res = sqlite3_exec( m_db, "SELECT * FROM Actions;", getActionRow, NULL, &_errMsg );
-
-	if( _res != SQLITE_OK ) {
-		QMessageBox _msg( QMessageBox::Critical, "Error", "SQL error: " + QString( _errMsg ),
-				QMessageBox::Ok );
-		_msg.exec();
-
-		// on _errMsg above there is used malloc() so we need to free the memory
-		sqlite3_free( _errMsg );
-	}
+	// select new actions (if the table doesn't exists
+	// the returned m_lastSelectedActions will be empty)
+	sqlite3_exec( m_db, "SELECT * FROM Actions;", getActionRow, NULL, &_errMsg );
 
 	return m_lastSelectedActions;
 }
@@ -231,17 +223,9 @@ QMap<QString, QString> Database::selectSettings() {
 	// clear content of the last selected settings
 	m_lastSelectedSettings.clear();
 	
-	// select new actions
-	int _res = sqlite3_exec( m_db, "SELECT * FROM Settings;", getSettingRow, NULL, &_errMsg );
-
-	if( _res != SQLITE_OK ) {
-		QMessageBox _msg( QMessageBox::Critical, "Error", "SQL error: " + QString( _errMsg ),
-				QMessageBox::Ok );
-		_msg.exec();
-
-		// on _errMsg above there is used malloc() so we need to free the memory
-		sqlite3_free( _errMsg );
-	}
+	// select new actions (if the table doesn't exists
+	// the returned m_lastSelectedSettings will be empty)
+	sqlite3_exec( m_db, "SELECT * FROM Settings;", getSettingRow, NULL, &_errMsg );
 
 	return m_lastSelectedSettings;
 }
