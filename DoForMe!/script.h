@@ -88,6 +88,10 @@ public:
 		\return File name (without extension).
 	*/
 	QString getFileName() const;
+	/*
+		brief Sets new file name for the script.
+	*/
+	void setFileName( const QString& fileName );
 
 	/**
 		\brief Changes state of the script (modified/unmodified).

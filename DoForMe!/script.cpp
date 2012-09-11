@@ -57,6 +57,11 @@ QString Script::getFileName() const {
 	return _fileInfo.fileName().left( _fileInfo.fileName().length() - 4 );
 }
 
+void Script::setFileName( const QString& fileName ) {
+	QFile::rename( CONF::SCRIPT_DIR + getFileName() + CONF::EXT, CONF::SCRIPT_DIR + fileName + CONF::EXT );
+	m_strPath = CONF::SCRIPT_DIR + fileName + CONF::EXT;
+}
+
 void Script::setModified( bool isModified ) {
 	m_bModified = isModified;
 }

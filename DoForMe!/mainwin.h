@@ -124,6 +124,10 @@ public slots:
 	*/
 	void startRecording();
 	/**
+		\brief Shows input dialog which allows to change script name.
+	*/
+	void editScript();
+	/**
 		\brief Method invoked during removing a script from the list (the script is removed from the HD as well).
 	*/
 	void removeScript();

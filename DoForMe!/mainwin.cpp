@@ -13,6 +13,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.actionMenuImportScripts, SIGNAL( activated() ), this, SLOT( importScripts() ) );
 	connect( ui.actionSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
 	connect( ui.actionMenuSaveScript, SIGNAL( activated() ), this, SLOT( saveScript() ) );
+	connect( ui.editScriptButton, SIGNAL( clicked() ), this, SLOT( editScript() ) );
 	connect( ui.removeScriptButton, SIGNAL( clicked() ), this, SLOT( removeScript() ) );
 	connect( ui.actionMenuRemoveScript, SIGNAL( activated() ), this, SLOT( removeScript() ) );
 	connect( ui.actionParseScript, SIGNAL( activated() ), this, SLOT( parseScript() ) );
@@ -355,6 +356,35 @@ void mainWin::startRecording() {
 	Recorder::startRecording();
 }
 
+void mainWin::editScript() {
+	qDebug( "mainWin::editScript()" );
+
+	QListWidgetItem* _item = ui.scriptsList->currentItem();
+
+	bool _ok = true;
+	QString _strFileName = "";
+	// try to add new script
+	while( _strFileName == "" && _ok ) {
+		// show input dialog for file name
+		_strFileName = QInputDialog::getText( NULL, "Script file name",
+			"Type file name for script (must not be empty):", QLineEdit::Normal, "", &_ok );
+
+		if( ScriptsManager::getScript( _strFileName ) != NULL ) {
+			QMessageBox _msg( QMessageBox::Critical, "Error", "The file already exists.", QMessageBox::Ok );
+			_msg.exec();
+
+			// make it empty to go through while again
+			_strFileName = "";
+		}
+	}
+
+	if( _ok ) {
+		_item->setText( _strFileName );
+		m_pCurrScript->setFileName( _strFileName );
+		m_calendar->refreshRepetitions();
+	}
+}
+
 void mainWin::removeScript() {
 	qDebug( "mainWin::removeScript()" );
 
@@ -391,6 +421,7 @@ void mainWin::removeScript() {
 
 		// disable buttons/menus after removing last script
 		ui.removeScriptButton->setEnabled( false );
+		ui.editScriptButton->setEnabled( false );
 		ui.actionMenuRemoveScript->setEnabled( false );
 		ui.actionMenuRunScript->setEnabled( false );
 		ui.actionRun->setEnabled( false );
@@ -423,6 +454,7 @@ void mainWin::scriptSelected( const QString& scriptTitle ) {
 	if( m_pCurrScript ) {
 		// enable buttons/menus after selecting script
 		ui.removeScriptButton->setEnabled( true );
+		ui.editScriptButton->setEnabled( true );
 		ui.actionMenuRemoveScript->setEnabled( true );
 		ui.actionMenuRunScript->setEnabled( true );
 		ui.actionRun->setEnabled( true );
