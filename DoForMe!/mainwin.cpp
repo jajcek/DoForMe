@@ -787,9 +787,10 @@ void mainWin::closeEvent( QCloseEvent* e ) {
 
 	e->accept();
 
+	QApplication::setOverrideCursor( Qt::WaitCursor );
 	saveSettings();
-
 	mainWin::~mainWin();
+	QApplication::setOverrideCursor( Qt::ArrowCursor );
 
 	exit( 0 );
 }
