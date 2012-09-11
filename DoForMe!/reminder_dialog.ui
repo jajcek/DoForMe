@@ -188,6 +188,9 @@
     <property name="text">
      <string>Signal action</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
@@ -204,7 +207,7 @@
    </widget>
    <widget class="QSpinBox" name="signalSpinBox">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
