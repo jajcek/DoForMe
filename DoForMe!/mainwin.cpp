@@ -388,8 +388,10 @@ void mainWin::editScript() {
 	}
 
 	if( _ok ) {
-		_item->setText( _strFileName );
+		ScriptsManager::renameScript( _item->text(), _strFileName );
 		m_pCurrScript->setFileName( _strFileName );
+		_item->setText( _strFileName );
+		setScriptTitle( _strFileName );
 		m_calendar->refreshRepetitions();
 	}
 }

@@ -16,6 +16,12 @@ void ScriptsManager::removeScripts() {
 	}
 }
 
+void ScriptsManager::renameScript( QString oldName, QString newName ) {
+	Script* _pScript = m_scripts.find( oldName ).value();
+	m_scripts.remove( oldName );
+	m_scripts.insert( newName, _pScript );
+}
+
 bool ScriptsManager::addScript( Script* script ) {
 	QString _scriptName = script->getFileName();
 

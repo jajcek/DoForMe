@@ -235,15 +235,17 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 
 int LuaApiEngine::prepareRun( lua_State* state ) {
 	// one strong on the stack
-	const char* _arg = lua_tostring( state, -1 );
+	const char* _arg1 = lua_tostring( state, -2 );
+	int _arg2 = ( int )lua_tonumber( state, -1 );
 
 	// we took 1 argument from the stack, so we modify pointer to the top of the stack
-	lua_settop( state, -1 );
+	lua_settop( state, -2 );
 
 	std::deque<int> _args;
-	int _len = strlen( _arg );
+	int _len = strlen( _arg1 );
 	for( int i = 0; i < _len; ++i )
-		_args.push_back( _arg[i] );
+		_args.push_back( _arg1[i] );
+	_args.push_back( _arg2 );
 
 	LuaEngine::getInstance()->addCommand( LuaApiEngine::run, _args );
 
@@ -435,10 +437,10 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 void LuaApiEngine::run( std::deque<int> args ) {
 	QString _path = "";
 	int _size = args.size();
-	for( int i = 0; i < _size; ++i )
+	for( int i = 0; i < _size - 1; ++i )
 		_path += args[i];
 
-	ShellExecuteA(GetDesktopWindow(), "open", _path.toStdString().c_str(), NULL, NULL, SW_SHOWNORMAL);
+	ShellExecuteA( GetDesktopWindow(), "open", _path.toStdString().c_str(), NULL, NULL, args[_size-1] );
 }
 
 int LuaApiEngine::getSpecialKey( QString& specialKey, std::deque<int>& args ) {

@@ -34,6 +34,12 @@ public:
 		\brief Removes all scripts and frees its memory.
 	*/
 	static void removeScripts();
+	/**
+		\brief Renames a script.
+		\param[in] oldName Name of the script that needs to be renamed.
+		\param[in] newName New name for the script.
+	*/
+	static void renameScript( QString oldName, QString newName );
 
 	/**
 		\brief Adds new script to the manager.
@@ -56,6 +62,7 @@ public:
 		\return Pointer to the Script object.
 	*/
 	static Script* getScript( const QString& scriptName );
+
 	/**
 		\return List of scripts names.
 	*/
