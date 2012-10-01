@@ -233,6 +233,23 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 	return 0;
 }
 
+int LuaApiEngine::prepareRun( lua_State* state ) {
+	// one strong on the stack
+	const char* _arg = lua_tostring( state, -1 );
+
+	// we took 1 argument from the stack, so we modify pointer to the top of the stack
+	lua_settop( state, -1 );
+
+	std::deque<int> _args;
+	int _len = strlen( _arg );
+	for( int i = 0; i < _len; ++i )
+		_args.push_back( _arg[i] );
+
+	LuaEngine::getInstance()->addCommand( LuaApiEngine::run, _args );
+
+	return 0;
+}
+
 void LuaApiEngine::leftDown() {
 	INPUT Input = { 0 };
 	Input.type       = INPUT_MOUSE;
@@ -413,6 +430,15 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 
 	// send all symbols from the sendText() api function
 	SendInput( _inputs.size(), &_inputs.at( 0 ), sizeof( INPUT ) );
+}
+
+void LuaApiEngine::run( std::deque<int> args ) {
+	QString _path = "";
+	int _size = args.size();
+	for( int i = 0; i < _size; ++i )
+		_path += args[i];
+
+	ShellExecuteA(GetDesktopWindow(), "open", _path.toStdString().c_str(), NULL, NULL, SW_SHOWNORMAL);
 }
 
 int LuaApiEngine::getSpecialKey( QString& specialKey, std::deque<int>& args ) {

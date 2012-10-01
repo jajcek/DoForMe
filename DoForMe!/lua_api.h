@@ -230,6 +230,14 @@ public:
 	*/
 	static int prepareSendText( lua_State* state );
 
+	/**
+		\brief Puts run command onto the stack.
+		\details Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine.
+		prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (LuaEngine).
+		\return Number of results on the lua's stack (in this class this value is always zero).
+	*/
+	static int prepareRun( lua_State* state );
+
 	// --------------------------------------------------------------------------------------------------
 
 	/**
@@ -298,6 +306,12 @@ public:
 		\param[in] args Array which contains arguments for the function. In this case every element is a symbol from the given text.
 	*/
 	static void sendText( std::deque<int> args );
+
+	/**
+		\brief Runs an external executable application.
+		\param[in] args Array which contains arguments for the function. In this case every element is a symbol from the given text.
+	*/
+	static void run( std::deque<int> args );
 
 private:
 	/**

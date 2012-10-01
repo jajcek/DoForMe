@@ -315,7 +315,7 @@ selection-background-color: rgb( 51, 153, 255 );
      <number>0</number>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <property name="tabSpacing">
      <number>0</number>
@@ -650,7 +650,7 @@ selection-background-color: rgb( 51, 153, 255 );
         <x>-1</x>
         <y>-1</y>
         <width>161</width>
-        <height>159</height>
+        <height>191</height>
        </rect>
       </property>
       <item>
@@ -661,6 +661,11 @@ selection-background-color: rgb( 51, 153, 255 );
       <item>
        <property name="text">
         <string>setInterval(x)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>run(&quot;&quot;)</string>
        </property>
       </item>
      </widget>

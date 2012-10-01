@@ -784,6 +784,8 @@ void mainWin::initLuaApi() {
 	LuaEngine::getInstance()->registerFunction( "moveTo", LuaApiEngine::prepareMoveTo );
 
 	LuaEngine::getInstance()->registerFunction( "sendText", LuaApiEngine::prepareSendText );
+
+	LuaEngine::getInstance()->registerFunction( "run", LuaApiEngine::prepareRun );
 }
 
 QString mainWin::getFuncName( QString textError ) {
