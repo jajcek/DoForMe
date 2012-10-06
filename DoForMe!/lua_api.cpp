@@ -219,6 +219,7 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 				continue;
 			} else {
 				LuaEngine::getInstance()->setSpecialKeyError();
+				LuaEngine::getInstance()->stop();
 				QMessageBox _msg( QMessageBox::Critical, "Error", "Undefined special key." );
 				_msg.exec();
 				return 0;
