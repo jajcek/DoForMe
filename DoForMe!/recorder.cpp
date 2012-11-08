@@ -76,6 +76,8 @@ void Recorder::setMainWindowAction( QAction* pAction ) {
 }
 
 void Recorder::startSelectingFragment() {
+	QApplication::setOverrideCursor( Qt::CrossCursor );
+
 	m_keys[VK_LCONTROL] = false;
 	m_keys[VK_LSHIFT] = false;
 
@@ -112,18 +114,23 @@ LRESULT CALLBACK Recorder::mouseHookProcedure( int code, WPARAM wParam, LPARAM l
 			ScreenSaver::getInstance()->setStartPoint( pt.x, pt.y );
 		}
 		if( wParam == WM_LBUTTONUP ) {
-			m_isScreenSelecting = false;
-			ScreenSaver::getInstance()->close();
-			QString _picFile = ScreenSaver::getInstance()->saveSelectedFragment();
 			putCmd( "setInterval(1000)" );
-			QStringList _lines = m_textEdit->toPlainText().split( "\n" );
-			_lines.removeAt( _lines.size() - 2 );
-			_lines.removeAt( _lines.size() - 2 );
-			m_textEdit->clear();
-			for( int i = 0; i < _lines.size(); ++i )
-				m_textEdit->append( _lines.at( i ) );
+
+			// remove unnecessary sleep before setInterval(); waitForImage();
+			m_textEdit->moveCursor( QTextCursor::End, QTextCursor::MoveAnchor );
+			m_textEdit->moveCursor( QTextCursor::StartOfLine, QTextCursor::MoveAnchor );
+			m_textEdit->moveCursor( QTextCursor::Up, QTextCursor::MoveAnchor );
+			m_textEdit->moveCursor( QTextCursor::Up, QTextCursor::MoveAnchor );
+			m_textEdit->moveCursor( QTextCursor::Down, QTextCursor::KeepAnchor );
+			m_textEdit->moveCursor( QTextCursor::EndOfLine, QTextCursor::KeepAnchor );
+			m_textEdit->textCursor().removeSelectedText();
+
+			QString _picFile = ScreenSaver::getInstance()->saveSelectedFragment();
 			putCmd( "waitForImage(\"" + _picFile + "\")" );
 			putCmd( "setInterval(0)" );
+			ScreenSaver::getInstance()->close();
+			QApplication::restoreOverrideCursor();
+			m_isScreenSelecting = false;
 		}
 
 		return CallNextHookEx( 0, code, wParam, lParam );
