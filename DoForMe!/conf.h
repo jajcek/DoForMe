@@ -24,4 +24,8 @@ struct CONF {
 		\brief Extension for the script files.
 	*/
 	static QString EXT;
+	/**
+		\brief Folder which the fragments of the pictures are kept.
+	*/
+	static QString PICS_DIR;
 };

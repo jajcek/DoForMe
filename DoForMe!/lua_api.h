@@ -7,6 +7,10 @@
 #include <qwidget.h>
 #include <stack>
 #include <qmessagebox.h>
+#include <qimage.h>
+#include <qapplication.h>
+#include <qdesktopwidget.h>
+#include <qrgb.h>
 #include "lua_engine.h"
 #include "key.h"
 
@@ -238,6 +242,14 @@ public:
 	*/
 	static int prepareRun( lua_State* state );
 
+	/**
+		\brief Puts getColor command onto the stack.
+		\details Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine.
+		prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (LuaEngine).
+		\return Number of results on the lua's stack (in this class this value is always zero).
+	*/
+	static int prepareWaitForImage( lua_State* state );
+
 	// --------------------------------------------------------------------------------------------------
 
 	/**
@@ -313,6 +325,12 @@ public:
 	*/
 	static void run( std::deque<int> args );
 
+	/**
+		\brief Gets color at the specified coordinates.
+		\param[in] args Two numbers as coordinates.
+	*/
+	static void waitForImage( std::deque<int> args );
+
 private:
 	/**
 		\brief Helper function that gets text from {} brackets from LuaApiEngine::sendText() argument.
@@ -321,5 +339,16 @@ private:
 		\return Number of read symbols.
 	*/
 	static int getSpecialKey( QString& specialKey, std::deque<int>& args );
+	/**
+		\brief Sets a function as it has been executed correctly, by setting the value in commands manager.
+		\details See CommandsManager::m_shouldRemove for more details.
+	*/
+	static void setFunctionSuccess();
+	/**
+		\brief Sets a function as it hasn't been executed correctly, by setting the value in commands manager.
+		\details See CommandsManager::m_shouldRemove for more details. Invalid function is not removed from the stack
+		to execute it again, until it successes.
+	*/
+	static void setFunctionFailed();
 
 };

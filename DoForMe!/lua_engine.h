@@ -47,6 +47,16 @@ public:
 	*/
 	enum MODE { BUFFER = 0, FILE };
 
+	/**
+		\enum COMMAND_ACTION
+		\brief Values determining which action we are using for the next command.
+		\var REMOVE
+		\brief Value which indicates that the loadScript() function loads from a buffer.
+		\var DONT_REMOVE
+		\brief Value which indicates that the loadScript() function loads from a file.
+	*/
+	enum COMMAND_ACTION { DONT_REMOVE = 0, REMOVE };
+
 private:
 	/**
 		\brief The instance of the singleton.
@@ -242,5 +252,9 @@ public:
 		\brief Resets lua stack by moving lua to top (lua_settop()).
 	*/
 	void reset();
+	/**
+		\brief Sets action (ommit or don't remove from the stack) for the next command.
+	*/
+	void setActionForNextCommand( COMMAND_ACTION action );
 
 };

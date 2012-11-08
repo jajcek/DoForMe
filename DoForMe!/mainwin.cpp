@@ -143,7 +143,7 @@ void mainWin::loadScripts( const QString& path ) {
 		}
 	}
 
-	// select first script n the list
+	// select first script in the list
 	ui.scriptsList->setCurrentRow( 0 );
 }
 
@@ -362,6 +362,8 @@ void mainWin::startRecording() {
 
 	if( RecorderSettings::getInstance()->isTrayOn() )
 		hide();
+	ui.scriptTextEdit->setText( getCode() + "\nsetInterval(0)" );
+
 	Recorder::startRecording();
 }
 
@@ -788,6 +790,8 @@ void mainWin::initLuaApi() {
 	LuaEngine::getInstance()->registerFunction( "sendText", LuaApiEngine::prepareSendText );
 
 	LuaEngine::getInstance()->registerFunction( "run", LuaApiEngine::prepareRun );
+
+	LuaEngine::getInstance()->registerFunction( "waitForImage", LuaApiEngine::prepareWaitForImage );
 }
 
 QString mainWin::getFuncName( QString textError ) {

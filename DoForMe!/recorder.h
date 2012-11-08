@@ -8,6 +8,7 @@
 #include "recorder_settings.h"
 #include "lua_api.h"
 #include "tray_recording.h"
+#include "screen_saver.h"
 
 /**
 	\class Recorder recorder.h "recorder.h"
@@ -39,14 +40,6 @@ private:
 	*/
 	static QMap<int, bool> m_keys;
 	/**
-		\brief Determines whether the Tab key is up or down.
-	*/
-	static bool m_isTabOn;
-	/**
-		\brief Determines whether the Esc key is up or down.
-	*/
-	static bool m_isF1On;
-	/**
 		\brief Tray object shown while recording is on.
 	*/
 	static TrayRecording m_tray;
@@ -54,6 +47,15 @@ private:
 		\brief Pointer to the action which can trigger show() method on main window.
 	*/
 	static QAction* m_showMainWindow;
+
+	/**
+		\brief Value which specifies if the user is in selecting a fragment of the screen mode.
+	*/
+	static bool m_isScreenSelecting;
+	/**
+		\brief Indicates whether the recording has been already stopped.
+	*/
+	static bool m_isRecStopped;
 
 public:
 	/**
@@ -74,6 +76,10 @@ public:
 		\param[in] pAction Pointer to the action.
 	*/
 	static void setMainWindowAction( QAction* pAction );
+	/**
+		\brief Changes recording mode to selecting fragment of the desktop.
+	*/
+	static void startSelectingFragment();
 
 private:
 	/**
@@ -89,5 +95,10 @@ private:
 		\param[in] cmd String containing the command. Note that sleep() function is always added before the cmd.
 	*/
 	static void putCmd( QString cmd );
+	/**
+		\brief Removes last lines where the number is specified as an argument.
+		\param[in] number How many lines need to be removed.
+	*/
+	static void removeXLastLines( int number );
 
 };

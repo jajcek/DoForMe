@@ -1,5 +1,7 @@
 #include "commands_manager.h"
 
+CommandsManager::CommandsManager() : m_shouldRemove( true ) {}
+
 void CommandsManager::addCommand( void ( *pCmd )( std::deque<int> ), std::deque<int> args ) {
 	m_commands.push_back( pCmd );
 	m_args.push_back( args );
@@ -12,9 +14,13 @@ void CommandsManager::executeNext() {
 	m_commands.pop_front();
 	m_args.pop_front();
 
-	if( _pCmd != NULL )
+	if( _pCmd != NULL ) {
 		_pCmd( _args );
-	else { // new action - we will show dialog box which informs about it
+		if( !m_shouldRemove ) {
+			m_commands.push_front( _pCmd );
+			m_args.push_front( _args );
+		}
+	} else { // new action - we will show dialog box which informs about it
 		// get name of the script by converting ascii codes to chars
 		QString _actionName = "";
 		int _size = _args.size();
@@ -50,4 +56,8 @@ bool CommandsManager::isEmpty() const {
 void CommandsManager::clearCommands() {
 	m_commands.clear();
 	m_args.clear();
+}
+
+void CommandsManager::setActionForNextCommand( int action ) {
+	m_shouldRemove = action;
 }

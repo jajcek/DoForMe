@@ -162,6 +162,7 @@
     <ClCompile Include="recorder.cpp" />
     <ClCompile Include="recorder_settings.cpp" />
     <ClCompile Include="reminder_settings.cpp" />
+    <ClCompile Include="screen_saver.cpp" />
     <ClCompile Include="script.cpp" />
     <ClCompile Include="scripts_manager.cpp" />
     <ClCompile Include="sqlite3.c" />
@@ -207,6 +208,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui"</Command>
     </CustomBuild>
+    <ClInclude Include="screen_saver.h" />
     <ClInclude Include="tray_recording.h" />
     <CustomBuild Include="tray_system.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>

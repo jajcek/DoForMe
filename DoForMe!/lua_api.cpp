@@ -235,7 +235,7 @@ int LuaApiEngine::prepareSendText( lua_State* state ) {
 }
 
 int LuaApiEngine::prepareRun( lua_State* state ) {
-	// one strong on the stack
+	// one string on the stack
 	const char* _arg1 = lua_tostring( state, -2 );
 	int _arg2 = ( int )lua_tonumber( state, -1 );
 
@@ -253,11 +253,31 @@ int LuaApiEngine::prepareRun( lua_State* state ) {
 	return 0;
 }
 
+int LuaApiEngine::prepareWaitForImage( lua_State* state ) {
+	// it has 1 argument, arguments are put onto lua's stack
+	const char* _arg = ( const char* )lua_tostring( state, -1 );
+
+	// we took 1 argument from the stack, so we modify pointer to the top of the stack
+	lua_settop( state, -1 );
+	
+	std::deque<int> _args;
+	int _symbolsNumber = strlen( _arg );
+	for( int i = 0; i < _symbolsNumber; ++i ) {
+		_args.push_back( _arg[i] );
+	}
+
+	LuaEngine::getInstance()->addCommand( LuaApiEngine::waitForImage, _args );
+
+	return 0;
+}
+
 void LuaApiEngine::leftDown() {
 	INPUT Input = { 0 };
 	Input.type       = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
 	SendInput( 1, &Input, sizeof( INPUT ) );
+
+	setFunctionSuccess();
 }
 
 void LuaApiEngine::rightDown() {
@@ -265,6 +285,8 @@ void LuaApiEngine::rightDown() {
 	Input.type       = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_RIGHTDOWN;
 	SendInput( 1, &Input, sizeof( INPUT ) );
+
+	setFunctionSuccess();
 }
 
 void LuaApiEngine::middleDown() {
@@ -272,6 +294,8 @@ void LuaApiEngine::middleDown() {
 	Input.type       = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_MIDDLEDOWN;
 	SendInput( 1, &Input, sizeof( INPUT ) );
+
+	setFunctionSuccess();
 }
 
 void LuaApiEngine::leftUp() {
@@ -279,6 +303,8 @@ void LuaApiEngine::leftUp() {
 	Input.type       = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
 	SendInput( 1, &Input, sizeof( INPUT ) );
+
+	setFunctionSuccess();
 }
 
 void LuaApiEngine::rightUp() {
@@ -286,6 +312,8 @@ void LuaApiEngine::rightUp() {
 	Input.type       = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_RIGHTUP;
 	SendInput( 1, &Input, sizeof( INPUT ) );
+
+	setFunctionSuccess();
 }
 
 void LuaApiEngine::middleUp() {
@@ -293,6 +321,8 @@ void LuaApiEngine::middleUp() {
 	Input.type       = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_MIDDLEUP;
 	SendInput( 1, &Input, sizeof( INPUT ) );
+
+	setFunctionSuccess();
 }
 
 void LuaApiEngine::leftClick() {
@@ -325,6 +355,8 @@ void LuaApiEngine::setInterval( std::deque<int> args ) {
 	// we don't need to pop it because we don't need to get to another argument
 	// but for integrity is added
 	args.pop_front();
+
+	setFunctionSuccess();
 }
 
 void LuaApiEngine::sleep( std::deque<int> args ) {
@@ -337,6 +369,8 @@ void LuaApiEngine::sleep( std::deque<int> args ) {
 	// we don't need to pop it because we don't need to get to another argument
 	// but for integrity is added
 	args.pop_front();
+
+	setFunctionSuccess();
 }
 
 void LuaApiEngine::moveTo( std::deque<int> args ) {
@@ -358,6 +392,8 @@ void LuaApiEngine::moveTo( std::deque<int> args ) {
 	Input.mi.dx      = _fx;
 	Input.mi.dy      = _fy;
 	SendInput( 1, &Input,sizeof( INPUT ) );
+
+	setFunctionSuccess();
 }
 
 void LuaApiEngine::sendText( std::deque<int> args ) {
@@ -433,6 +469,8 @@ void LuaApiEngine::sendText( std::deque<int> args ) {
 
 	// send all symbols from the sendText() api function
 	SendInput( _inputs.size(), &_inputs.at( 0 ), sizeof( INPUT ) );
+
+	setFunctionSuccess();
 }
 
 void LuaApiEngine::run( std::deque<int> args ) {
@@ -442,6 +480,56 @@ void LuaApiEngine::run( std::deque<int> args ) {
 		_path += args[i];
 
 	ShellExecuteA( GetDesktopWindow(), "open", _path.toStdString().c_str(), NULL, NULL, args[_size-1] );
+
+	setFunctionSuccess();
+}
+
+void LuaApiEngine::waitForImage( std::deque<int> args ) {
+	bool _isFound = false;
+	bool _goUp = false;
+
+	QImage _desktop = QPixmap::grabWindow( QApplication::desktop()->winId() ).toImage();
+
+	QString _fileName = "";
+	for( int i = 0; i < args.size(); ++i )
+		_fileName += args.at( i );
+	QImage _fragment( _fileName, "BMP" );
+
+	for( int i = 0; i < _desktop.height() - _fragment.height(); ++i ) {
+		for( int j = 0; j < _desktop.width() - _fragment.width(); ++j ) {
+			_goUp = false;
+			for( int k = 0; k < _fragment.height(); ++k ) {
+				for( int l = 0; l < _fragment.width(); ++l ) {
+					if( QColor( _fragment.pixel( l, k ) ).red() == QColor( _desktop.pixel( j + l, i + k ) ).red() &&
+							QColor( _fragment.pixel( l, k ) ).green() == QColor( _desktop.pixel( j + l, i + k ) ).green() && 
+							QColor( _fragment.pixel( l, k ) ).blue() == QColor( _desktop.pixel( j + l, i + k ) ).blue() ) {
+
+						// if it's the last pixel to check
+						if( k == ( _fragment.height() - 1 ) && l == ( _fragment.width() - 1 ) ) {
+							_isFound = true;
+							goto foundPic;
+						}
+					} else {
+							_isFound = false;
+							_goUp = true;
+							break;
+					}
+				}
+				if( _goUp ) 
+					break;
+			}
+		}
+	}
+
+	foundPic:				
+
+	if( _isFound ) {
+		setFunctionSuccess();
+		qDebug( "Picture found!" );
+	} else {
+		setFunctionFailed();
+		qDebug( "No such picture :(" );
+	}
 }
 
 int LuaApiEngine::getSpecialKey( QString& specialKey, std::deque<int>& args ) {
@@ -487,6 +575,16 @@ std::string LuaApiEngine::getStringKey( int vkCode ) {
 		return m_vkCodeToKey.find( vkCode )->second;
 	else
 		return "";
+}
+
+void LuaApiEngine::setFunctionSuccess() {
+	// function was correctly executed so remove it from the stack
+	LuaEngine::getInstance()->setActionForNextCommand( LuaEngine::REMOVE );
+}
+
+void LuaApiEngine::setFunctionFailed() {
+	// function was incorrectly executed so dont remove it from the stack to repeat it
+	LuaEngine::getInstance()->setActionForNextCommand( LuaEngine::DONT_REMOVE );
 }
 
 void LuaApiEngine::initSpecialKeys() {

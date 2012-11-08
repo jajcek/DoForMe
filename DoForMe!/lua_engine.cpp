@@ -104,7 +104,7 @@ void LuaEngine::timerEvent( QTimerEvent* ) {
 	qDebug( "LuaEngine::timerEvent" );
 
 	// check if there are any commands to execute, otherwise stop the timer
-	if( !m_commands.isEmpty() && !( GetAsyncKeyState( VK_TAB ) && GetAsyncKeyState( VK_F1 ) ) ) {
+	if( !m_commands.isEmpty() && !( GetAsyncKeyState( VK_LCONTROL ) && GetAsyncKeyState( VK_LMENU ) ) ) {
 		m_commands.executeNext();
 	} else {
 		// stop the timer if there are no more commands to execute
@@ -167,4 +167,8 @@ void LuaEngine::reset() {
 	m_bSpecialKeyError = false;
 	m_isExecuting = false;
 	m_commands.clearCommands();
+}
+
+void LuaEngine::setActionForNextCommand( COMMAND_ACTION action ) {
+	m_commands.setActionForNextCommand( action );
 }

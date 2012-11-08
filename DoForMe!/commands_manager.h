@@ -25,8 +25,16 @@ private:
 		\brief Queue with all arguments.
 	*/
 	std::deque<std::deque<int> > m_args;
+	/**
+		\brief What to do with next command (remove or not after execution).
+	*/
+	bool m_shouldRemove;
 
 public:
+	/**
+		\brief Constructor which sets fields to its default values.
+	*/
+	CommandsManager();
 	/**
 		\brief Allows to add commands to the queue.
 		\param[in] pCmd Pointer to a function that is intended to be a command.
@@ -48,5 +56,9 @@ public:
 		\brief Removes all commands from the queue.
 	*/
 	void clearCommands();
+	/**
+		\brief Sets action (ommit or don't remove from the stack) for the next command.
+	*/
+	void setActionForNextCommand( int action );
 
 };

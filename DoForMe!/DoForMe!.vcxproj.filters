@@ -170,6 +170,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_reminder_settings.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="screen_saver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwin.h">
@@ -290,6 +293,9 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_player_settings_dialog.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="screen_saver.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
