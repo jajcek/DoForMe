@@ -54,6 +54,8 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	connect( ui.keyboardCmdList, SIGNAL( itemDoubleClicked( QListWidgetItem* ) ), this, SLOT( putCommand( QListWidgetItem*  ) ) );
 	connect( ui.otherCmdList, SIGNAL( itemDoubleClicked( QListWidgetItem* ) ), this, SLOT( putCommand( QListWidgetItem*  ) ) );
 
+	connect( ui.actionHelp, SIGNAL( activated() ), this, SLOT( showHelp() ) );
+
 	// initialize pointers to calendar tools
 	CalendarTools::AddButton = ui.addActionButton;
 	CalendarTools::NewMenu = ui.actionMenuNewAction;
@@ -696,6 +698,12 @@ void mainWin::putCommand( QListWidgetItem* item ) {
 		_cmd = item->text() + "\n";
 	}
 	_cursor.insertText( _cmd );
+}
+
+void mainWin::showHelp() {
+	qDebug( "mainWin::showHelp" );
+
+	ShellExecuteA( GetDesktopWindow(), "open", "user_doc.pdf", NULL, NULL, SW_SHOWMAXIMIZED );
 }
 
 void mainWin::initTraySystem( TraySystem* tray ) {

@@ -208,6 +208,10 @@ public slots:
 		\brief Method called while double clicked on command in the list (Mouse, Keyboard and Other lists on the right of the text area)
 	*/
 	void putCommand( QListWidgetItem* item );
+	/**
+		\brief Method called when clicked on Help->Help... menu.
+	*/
+	void showHelp();
 
 private:
 	/**

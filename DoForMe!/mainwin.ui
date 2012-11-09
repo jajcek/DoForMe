@@ -325,8 +325,8 @@ selection-background-color: rgb( 51, 153, 255 );
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>98</width>
-       <height>28</height>
+       <width>161</width>
+       <height>211</height>
       </rect>
      </property>
      <attribute name="label">
@@ -456,8 +456,8 @@ selection-background-color: rgb( 51, 153, 255 );
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>98</width>
-       <height>28</height>
+       <width>161</width>
+       <height>211</height>
       </rect>
      </property>
      <attribute name="label">
@@ -979,12 +979,7 @@ background-color: rgb( 210, 210, 210 );
      <string>Help</string>
     </property>
     <addaction name="actionAbout"/>
-   </widget>
-   <widget class="QMenu" name="menuCustomize">
-    <property name="title">
-     <string>Customize</string>
-    </property>
-    <addaction name="actionCalendar_colours"/>
+    <addaction name="actionHelp"/>
    </widget>
    <widget class="QMenu" name="menuActions">
     <property name="title">
@@ -1024,7 +1019,6 @@ background-color: rgb( 210, 210, 210 );
    </widget>
    <addaction name="menuScript"/>
    <addaction name="menuActions"/>
-   <addaction name="menuCustomize"/>
    <addaction name="menuView"/>
    <addaction name="menuMenu"/>
   </widget>
@@ -1333,7 +1327,7 @@ background-color: rgb( 210, 210, 210 );
   </action>
   <action name="actionMenuImportScripts">
    <property name="text">
-    <string>Import</string>
+    <string>Import...</string>
    </property>
   </action>
   <action name="actionParseScript">
@@ -1384,6 +1378,14 @@ background-color: rgb( 210, 210, 210 );
    </property>
    <property name="shortcut">
     <string>F6</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help...</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
    </property>
   </action>
  </widget>
