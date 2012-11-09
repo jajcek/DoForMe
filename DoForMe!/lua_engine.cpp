@@ -110,7 +110,7 @@ void LuaEngine::addCommand( void ( *pCmd )( std::deque<int> ), std::deque<int> a
 }
 
 void LuaEngine::timerEvent( QTimerEvent* ) {
-	//qDebug( "LuaEngine::timerEvent" );
+	qDebug( "LuaEngine::timerEvent" );
 
 	// check if there are any commands to execute, otherwise stop the timer
 	if( !m_commands.isEmpty() && !( GetAsyncKeyState( VK_LCONTROL ) && GetAsyncKeyState( VK_LMENU ) ) ) {
@@ -145,7 +145,6 @@ void LuaEngine::timerEvent( QTimerEvent* ) {
 }
 
 void LuaEngine::start() {
-	qDebug( "%d, %d", m_uInterval, m_uGUIInterval );
 	m_timer->start( m_uInterval, this );
 }
 
