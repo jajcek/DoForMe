@@ -4,6 +4,7 @@
 #include <qmap.h>
 #include <qpair.h>
 #include <qdebug.h>
+#include <qtimer.h>
 #include <qbasictimer.h>
 #include <queue>
 #include <qwidget.h>
@@ -132,6 +133,11 @@ private:
 		\details The value can be set by using LuaEngine::setExecuting method.
 	*/
 	bool m_isExecuting;
+	/**
+		\brief Message box with a timeout.
+		\details It is displayed at the end of a script to inform ones that the script has been finished.
+	*/
+	QMessageBox* _timeoutMsg;
 
 private:
 	/**

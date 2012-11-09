@@ -4,7 +4,10 @@ LuaEngine* LuaEngine::m_object = NULL;
 
 LuaEngine::LuaEngine() : luaState( lua_open() ), m_loadError( 0 ), m_parseError( 0 ), m_bSpecialKeyError( false ), m_textError( "" ),
 						 m_timer( new QBasicTimer() ), m_uInterval( 1000 ), m_uGUIInterval( 1000 ), m_bIntervalChanged( false ),
-						 m_isExecuting( false ) {}
+						 m_isExecuting( false ), _timeoutMsg( new QMessageBox() ) {
+		_timeoutMsg->setWindowTitle( "Task is over." );
+		_timeoutMsg->setText( "Task has been ended." );
+}
 
 LuaEngine::~LuaEngine() {
 	lua_close( luaState );
@@ -26,6 +29,10 @@ void LuaEngine::registerFunction( const char* functionName, lua_CFunction pFunct
 
 int LuaEngine::loadScript( const char* code, int mode ) {
 	qDebug( "LuaEngine::loadScript( [code], %d )", mode );
+
+	setGUIInterval( 1000 );
+	setInterval( 1000 );
+	m_bIntervalChanged = false;
 
 	// load script code from a buffer, otherwise from a file
 	if( mode == BUFFER )
@@ -60,7 +67,9 @@ bool LuaEngine::run( const char* code, bool onlyParse ) {
 	// if the engine is executing a script we can't invoke start again,
 	// because it will pause the timer for the GUI interval.
 	if( onlyParse == false && !m_isExecuting ) {
-		setGUIInterval( PlayerSettings::getInstance()->delay() );
+		setGUIInterval( 1000 );
+		setInterval( 1000 );
+		m_bIntervalChanged = false;
 		start();
 		m_isExecuting = true;
 	}
@@ -101,7 +110,7 @@ void LuaEngine::addCommand( void ( *pCmd )( std::deque<int> ), std::deque<int> a
 }
 
 void LuaEngine::timerEvent( QTimerEvent* ) {
-	qDebug( "LuaEngine::timerEvent" );
+	//qDebug( "LuaEngine::timerEvent" );
 
 	// check if there are any commands to execute, otherwise stop the timer
 	if( !m_commands.isEmpty() && !( GetAsyncKeyState( VK_LCONTROL ) && GetAsyncKeyState( VK_LMENU ) ) ) {
@@ -109,6 +118,8 @@ void LuaEngine::timerEvent( QTimerEvent* ) {
 	} else {
 		// stop the timer if there are no more commands to execute
 		stop();
+		_timeoutMsg->show();
+		QTimer::singleShot( 3000, _timeoutMsg, SLOT( hide() ) );
 	}
 
 	// if the engine's interval has been changed from outside (e.g. by using some of the api function like sleep())
@@ -134,6 +145,7 @@ void LuaEngine::timerEvent( QTimerEvent* ) {
 }
 
 void LuaEngine::start() {
+	qDebug( "%d, %d", m_uInterval, m_uGUIInterval );
 	m_timer->start( m_uInterval, this );
 }
 
