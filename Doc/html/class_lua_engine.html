@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,6 +108,10 @@ Public Types</h2></td></tr>
 <a class="el" href="class_lua_engine.html#a70152f6f27278ec4262bd4712823a72daac87617557f4c3f7c559f1aed56a1645">FILE</a>
  }</td></tr>
 <tr class="memdesc:a70152f6f27278ec4262bd4712823a72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values determining which mode we are using <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">loadScript()</a> function in.  <a href="class_lua_engine.html#a70152f6f27278ec4262bd4712823a72d">More...</a><br/></td></tr>
+<tr class="memitem:a3410f0b2ab8ca7641b79653451490d90"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a3410f0b2ab8ca7641b79653451490d90">COMMAND_ACTION</a> { <a class="el" href="class_lua_engine.html#a3410f0b2ab8ca7641b79653451490d90aa7ee4ee2afa5c026aa8b6f709aec6242">DONT_REMOVE</a> =  0, 
+<a class="el" href="class_lua_engine.html#a3410f0b2ab8ca7641b79653451490d90a9c722598745ba82641ffd978d2ad6518">REMOVE</a>
+ }</td></tr>
+<tr class="memdesc:a3410f0b2ab8ca7641b79653451490d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values determining which action we are using for the next command.  <a href="class_lua_engine.html#a3410f0b2ab8ca7641b79653451490d90">More...</a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -121,6 +125,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5eae05f78704166f098ea20568c23fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts api functions onto stack - <a class="el" href="class_lua_engine.html#a86a3f32127e36e1ccce6c5a42a298ad5" title="Stores all commands that are executed by the engine. See CommandsManager for more details...">LuaEngine::m_commands</a> - that has been previously loaded by <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">loadScript()</a>.  <a href="#a5eae05f78704166f098ea20568c23fd7"></a><br/></td></tr>
 <tr class="memitem:a38430b2be86fac999acd740423ec1fc8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a38430b2be86fac999acd740423ec1fc8">run</a> (const char *code, bool onlyParse=false)</td></tr>
 <tr class="memdesc:a38430b2be86fac999acd740423ec1fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs action.  <a href="#a38430b2be86fac999acd740423ec1fc8"></a><br/></td></tr>
+<tr class="memitem:a6187bc7b6aed29babb68b62da1520710"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a6187bc7b6aed29babb68b62da1520710">isRunning</a> () const </td></tr>
 <tr class="memitem:ab039ca83afd2466f9fe52fcc69adfefb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ab039ca83afd2466f9fe52fcc69adfefb">validateLastLoad</a> ()</td></tr>
 <tr class="memdesc:ab039ca83afd2466f9fe52fcc69adfefb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there was error in the last loaded file.  <a href="#ab039ca83afd2466f9fe52fcc69adfefb"></a><br/></td></tr>
 <tr class="memitem:aed08b6b1d8b4a637bb3e24a397ea1aaf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#aed08b6b1d8b4a637bb3e24a397ea1aaf">validateLastParse</a> ()</td></tr>
@@ -146,6 +151,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a613b53ffedc45c8cf800e99aa42408c5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a613b53ffedc45c8cf800e99aa42408c5">getGUIInterval</a> () const </td></tr>
 <tr class="memitem:ab598de2b82cdf3ea3c67244669a31194"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ab598de2b82cdf3ea3c67244669a31194">reset</a> ()</td></tr>
 <tr class="memdesc:ab598de2b82cdf3ea3c67244669a31194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets lua stack by moving lua to top (lua_settop()).  <a href="#ab598de2b82cdf3ea3c67244669a31194"></a><br/></td></tr>
+<tr class="memitem:ac0cfa803159af14022cb08a7442f288b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ac0cfa803159af14022cb08a7442f288b">setActionForNextCommand</a> (<a class="el" href="class_lua_engine.html#a3410f0b2ab8ca7641b79653451490d90">COMMAND_ACTION</a> action)</td></tr>
+<tr class="memdesc:ac0cfa803159af14022cb08a7442f288b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets action (ommit or don't remove from the stack) for the next command.  <a href="#ac0cfa803159af14022cb08a7442f288b"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -181,6 +188,8 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:add74083d158ee3543d0644c0b6349c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if the interval has been changed by using GUI or sleep() api function.  <a href="#add74083d158ee3543d0644c0b6349c5d"></a><br/></td></tr>
 <tr class="memitem:ad2bf267f4030d958e5a6f88a3a19e039"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ad2bf267f4030d958e5a6f88a3a19e039">m_isExecuting</a></td></tr>
 <tr class="memdesc:ad2bf267f4030d958e5a6f88a3a19e039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies if the negine is currently executing a script.  <a href="#ad2bf267f4030d958e5a6f88a3a19e039"></a><br/></td></tr>
+<tr class="memitem:a427a0ecc61c8b6b06bc0b4e86f32ae2d"><td class="memItemLeft" align="right" valign="top">QMessageBox *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a427a0ecc61c8b6b06bc0b4e86f32ae2d">_timeoutMsg</a></td></tr>
+<tr class="memdesc:a427a0ecc61c8b6b06bc0b4e86f32ae2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message box with a timeout.  <a href="#a427a0ecc61c8b6b06bc0b4e86f32ae2d"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -195,6 +204,30 @@ Static Private Attributes</h2></td></tr>
 <dl class="section date"><dt>Date:</dt><dd>28.06.2012 </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#_a0">LuaEngine_example.cpp</a>.</dd>
 </dl></div><hr/><h2>Member Enumeration Documentation</h2>
+<a class="anchor" id="a3410f0b2ab8ca7641b79653451490d90"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_lua_engine.html#a3410f0b2ab8ca7641b79653451490d90">LuaEngine::COMMAND_ACTION</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Values determining which action we are using for the next command. </p>
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a3410f0b2ab8ca7641b79653451490d90aa7ee4ee2afa5c026aa8b6f709aec6242"></a>DONT_REMOVE</em>&nbsp;</td><td>
+<p>Value which indicates that the <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">loadScript()</a> function loads from a file. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a3410f0b2ab8ca7641b79653451490d90a9c722598745ba82641ffd978d2ad6518"></a>REMOVE</em>&nbsp;</td><td>
+<p>Value which indicates that the <a class="el" href="class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700" title="Parses script (prepares for running it) into memory from a specified buffer.">loadScript()</a> function loads from a buffer. </p>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a70152f6f27278ec4262bd4712823a72d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -384,6 +417,22 @@ Static Private Attributes</h2></td></tr>
 </dl>
 </div>
 </div>
+<a class="anchor" id="a6187bc7b6aed29babb68b62da1520710"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LuaEngine::isRunning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>Return true is the engine is currently executing a script, otherwise false. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aab9337ae5ea59bccc1e08c4015d42700"></a>
 <div class="memitem">
 <div class="memproto">
@@ -528,6 +577,24 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Value which informs if the code has been executed without errors. If there was an error get it by using <a class="el" href="class_lua_engine.html#ab039ca83afd2466f9fe52fcc69adfefb" title="Checks if there was error in the last loaded file.">LuaEngine::validateLastLoad</a> and <a class="el" href="class_lua_engine.html#aed08b6b1d8b4a637bb3e24a397ea1aaf" title="Checks if there was error in the last parsed file.">LuaEngine::validateLastParse</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac0cfa803159af14022cb08a7442f288b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LuaEngine::setActionForNextCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_lua_engine.html#a3410f0b2ab8ca7641b79653451490d90">COMMAND_ACTION</a>&#160;</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets action (ommit or don't remove from the stack) for the next command. </p>
 
 </div>
 </div>
@@ -700,6 +767,29 @@ Static Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a427a0ecc61c8b6b06bc0b4e86f32ae2d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMessageBox* LuaEngine::_timeoutMsg</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Message box with a timeout. </p>
+<p>It is displayed at the end of a script to inform ones that the script has been finished. </p>
+
+</div>
+</div>
 <a class="anchor" id="af9593e71b3d33a62cbf9e3080771bff9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -984,7 +1074,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 29 2012 23:05:31 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 9 2012 12:44:56 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

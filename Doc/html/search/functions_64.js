@@ -1,6 +1,7 @@
 var searchData=
 [
   ['database',['Database',['../class_database.html#a6714790c71898430c995668a06350dfe',1,'Database']]],
+  ['delay',['delay',['../class_player_settings.html#a8623e14748ce11be3649970595af6e19',1,'PlayerSettings']]],
   ['detachaction',['detachAction',['../classmain_win.html#a1833795590c91fa73da6a224f31ce5d2',1,'mainWin']]],
   ['detachcurrentaction',['detachCurrentAction',['../class_actions_calendar.html#aeba5e76ac0b5c0811b62e498131760f6',1,'ActionsCalendar']]],
   ['disableforaction',['disableForAction',['../struct_calendar_tools.html#a107f3ffac6ca0ed79f18cd38cdc0905b',1,'CalendarTools']]],

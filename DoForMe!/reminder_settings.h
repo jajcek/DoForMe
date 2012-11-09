@@ -105,7 +105,7 @@ public:
 	int timeEarlier() const;
 	/**
 		\brief Sets value for time delay.
-		\param[in] time Time delay in milliseconds.
+		\param[in] delay Time delay in milliseconds.
 	*/
 	void setTimeEarlier( int delay );
 	/**

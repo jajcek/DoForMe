@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,12 +99,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>CLICK
 : <a class="el" href="class_key.html#a6f8c4beba5584878553ee5b3077be416a921a98871b9bca60fb5abbfb2cbaa4dd">Key</a>
 </li>
+<li>DONT_REMOVE
+: <a class="el" href="class_lua_engine.html#a3410f0b2ab8ca7641b79653451490d90aa7ee4ee2afa5c026aa8b6f709aec6242">LuaEngine</a>
+</li>
 <li>DOWN
-: <a class="el" href="class_actions_calendar.html#a8cb1843b3b3a5b8554bbeb512f50b590ad0e20aae882c4df912f5d43aa5898f45">ActionsCalendar</a>
-, <a class="el" href="class_key.html#a6f8c4beba5584878553ee5b3077be416ab0381f960318045ea8221f73863fd499">Key</a>
+: <a class="el" href="class_key.html#a6f8c4beba5584878553ee5b3077be416ab0381f960318045ea8221f73863fd499">Key</a>
+, <a class="el" href="class_actions_calendar.html#a8cb1843b3b3a5b8554bbeb512f50b590ad0e20aae882c4df912f5d43aa5898f45">ActionsCalendar</a>
 </li>
 <li>FILE
 : <a class="el" href="class_lua_engine.html#a70152f6f27278ec4262bd4712823a72daac87617557f4c3f7c559f1aed56a1645">LuaEngine</a>
+</li>
+<li>IGNORING
+: <a class="el" href="class_msg_box_with_duration.html#a073eed452996a098c2cc5c6e8c4b2d41a655fd2c0a110ea9cfe8179a001c58bac">MsgBoxWithDuration</a>
 </li>
 <li>LEFT
 : <a class="el" href="class_actions_calendar.html#a8cb1843b3b3a5b8554bbeb512f50b590ad5ac1c3768ea4c94013035ab481be7f3">ActionsCalendar</a>
@@ -115,8 +121,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>OLD
 : <a class="el" href="class_action_settings.html#a9725793607519082b0c0bcfae7ccdcafa5622bebc14d1d7fbb9b29753297d7457">ActionSettings</a>
 </li>
+<li>REMOVE
+: <a class="el" href="class_lua_engine.html#a3410f0b2ab8ca7641b79653451490d90a9c722598745ba82641ffd978d2ad6518">LuaEngine</a>
+</li>
 <li>RIGHT
 : <a class="el" href="class_actions_calendar.html#a8cb1843b3b3a5b8554bbeb512f50b590a4294fe73b009b4134aa7675eeb7ec9c7">ActionsCalendar</a>
+</li>
+<li>RUN
+: <a class="el" href="class_msg_box_with_duration.html#a073eed452996a098c2cc5c6e8c4b2d41acb8045d345b814e888163b1786bfc298">MsgBoxWithDuration</a>
+</li>
+<li>SUSPEND
+: <a class="el" href="class_msg_box_with_duration.html#a073eed452996a098c2cc5c6e8c4b2d41a06af0f7bc66bc90b7ff3c4487a82b743">MsgBoxWithDuration</a>
 </li>
 <li>UP
 : <a class="el" href="class_actions_calendar.html#a8cb1843b3b3a5b8554bbeb512f50b590a49d47d7ac31d02ee24068959caa6c7fc">ActionsCalendar</a>
@@ -126,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 29 2012 23:05:31 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 9 2012 12:44:56 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,6 +114,10 @@ Public Slots</h2></td></tr>
 <tr class="memdesc:a2a999b0788004515727182350242d6bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during parsing the script code.  <a href="#a2a999b0788004515727182350242d6bc"></a><br/></td></tr>
 <tr class="memitem:a1971e30e143e696271ee2ec1f1cf998e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a1971e30e143e696271ee2ec1f1cf998e">runScript</a> (bool onlyParse=false)</td></tr>
 <tr class="memdesc:a1971e30e143e696271ee2ec1f1cf998e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs script code from the text box.  <a href="#a1971e30e143e696271ee2ec1f1cf998e"></a><br/></td></tr>
+<tr class="memitem:a3e182f4de7064102158f46c818d4c4bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a3e182f4de7064102158f46c818d4c4bd">startRecording</a> ()</td></tr>
+<tr class="memdesc:a3e182f4de7064102158f46c818d4c4bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start recording a script by putting its commands into currently opened text area.  <a href="#a3e182f4de7064102158f46c818d4c4bd"></a><br/></td></tr>
+<tr class="memitem:aa720b13b10d81cfe3fb13a6d6df375fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#aa720b13b10d81cfe3fb13a6d6df375fb">editScript</a> ()</td></tr>
+<tr class="memdesc:aa720b13b10d81cfe3fb13a6d6df375fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows input dialog which allows to change script name.  <a href="#aa720b13b10d81cfe3fb13a6d6df375fb"></a><br/></td></tr>
 <tr class="memitem:a3ad8d9509ece99d6e322db2d56a9fa51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a3ad8d9509ece99d6e322db2d56a9fa51">removeScript</a> ()</td></tr>
 <tr class="memdesc:a3ad8d9509ece99d6e322db2d56a9fa51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked during removing a script from the list (the script is removed from the HD as well).  <a href="#a3ad8d9509ece99d6e322db2d56a9fa51"></a><br/></td></tr>
 <tr class="memitem:af5eb5f12f6e8bf37e9a293e28d82632c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#af5eb5f12f6e8bf37e9a293e28d82632c">scriptSelected</a> (const QString &amp;scriptTitle)</td></tr>
@@ -145,7 +149,15 @@ Public Slots</h2></td></tr>
 <tr class="memitem:acb51cccbafc4c963ef55ef6d517c60c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#acb51cccbafc4c963ef55ef6d517c60c7">openApp</a> ()</td></tr>
 <tr class="memdesc:acb51cccbafc4c963ef55ef6d517c60c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores main window (used while the program is in tray).  <a href="#acb51cccbafc4c963ef55ef6d517c60c7"></a><br/></td></tr>
 <tr class="memitem:abacc60b864c8156cbeb235b516a3be05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#abacc60b864c8156cbeb235b516a3be05">quitApp</a> ()</td></tr>
-<tr class="memdesc:abacc60b864c8156cbeb235b516a3be05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminates the program previously removing tray icon..  <a href="#abacc60b864c8156cbeb235b516a3be05"></a><br/></td></tr>
+<tr class="memdesc:abacc60b864c8156cbeb235b516a3be05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminates the program previously removing tray icon.  <a href="#abacc60b864c8156cbeb235b516a3be05"></a><br/></td></tr>
+<tr class="memitem:acd3db954dc70fc3617f27c6f9420f17f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#acd3db954dc70fc3617f27c6f9420f17f">showPlayerDialog</a> ()</td></tr>
+<tr class="memdesc:acd3db954dc70fc3617f27c6f9420f17f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows dialog with player settings.  <a href="#acd3db954dc70fc3617f27c6f9420f17f"></a><br/></td></tr>
+<tr class="memitem:af2e858659b60c8d32a04fd0334e051c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#af2e858659b60c8d32a04fd0334e051c6">showRecorderDialog</a> ()</td></tr>
+<tr class="memdesc:af2e858659b60c8d32a04fd0334e051c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows dialog with recorder settings.  <a href="#af2e858659b60c8d32a04fd0334e051c6"></a><br/></td></tr>
+<tr class="memitem:a4e24b67b194285df264d18afaeafcaba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a4e24b67b194285df264d18afaeafcaba">showReminderSettings</a> ()</td></tr>
+<tr class="memdesc:a4e24b67b194285df264d18afaeafcaba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows dialog with reminder settings.  <a href="#a4e24b67b194285df264d18afaeafcaba"></a><br/></td></tr>
+<tr class="memitem:a80442454fb91a3cf4bc4a5dca3d2c99a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a80442454fb91a3cf4bc4a5dca3d2c99a">putCommand</a> (QListWidgetItem *item)</td></tr>
+<tr class="memdesc:a80442454fb91a3cf4bc4a5dca3d2c99a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method called while double clicked on command in the list (Mouse, Keyboard and Other lists on the right of the text area)  <a href="#a80442454fb91a3cf4bc4a5dca3d2c99a"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -153,8 +165,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a837aa6380bc037afd022629b56b7aca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the main window, connects signals to slots and initializes the most important objects.  <a href="#a837aa6380bc037afd022629b56b7aca9"></a><br/></td></tr>
 <tr class="memitem:a70326ccd243eb2060b1b5a3150025a9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a70326ccd243eb2060b1b5a3150025a9d">~mainWin</a> ()</td></tr>
 <tr class="memdesc:a70326ccd243eb2060b1b5a3150025a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees memory of the calendar, scripts and lua engine.  <a href="#a70326ccd243eb2060b1b5a3150025a9d"></a><br/></td></tr>
-<tr class="memitem:a3a1257aa1b06a426b08763a72756f06a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a3a1257aa1b06a426b08763a72756f06a">loadScripts</a> (const QString &amp;path)</td></tr>
-<tr class="memdesc:a3a1257aa1b06a426b08763a72756f06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads script from the given path and puts the into the scripts list.  <a href="#a3a1257aa1b06a426b08763a72756f06a"></a><br/></td></tr>
 <tr class="memitem:abeb1092d0b748df7ceaeb13334a89030"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#abeb1092d0b748df7ceaeb13334a89030">getCode</a> () const </td></tr>
 <tr class="memitem:afe80ea88b1fb5e13d56acfddf6fee0e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#afe80ea88b1fb5e13d56acfddf6fee0e6">setCode</a> (const QString &amp;code)</td></tr>
 <tr class="memdesc:afe80ea88b1fb5e13d56acfddf6fee0e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets code to the text box.  <a href="#afe80ea88b1fb5e13d56acfddf6fee0e6"></a><br/></td></tr>
@@ -165,6 +175,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:a3a1257aa1b06a426b08763a72756f06a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a3a1257aa1b06a426b08763a72756f06a">loadScripts</a> (const QString &amp;path)</td></tr>
+<tr class="memdesc:a3a1257aa1b06a426b08763a72756f06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads script from the given path and puts the into the scripts list.  <a href="#a3a1257aa1b06a426b08763a72756f06a"></a><br/></td></tr>
+<tr class="memitem:ad4278ab4c228ac83a39d5c39f58263c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#ad4278ab4c228ac83a39d5c39f58263c9">loadUserSettings</a> ()</td></tr>
+<tr class="memdesc:ad4278ab4c228ac83a39d5c39f58263c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads user settings.  <a href="#ad4278ab4c228ac83a39d5c39f58263c9"></a><br/></td></tr>
+<tr class="memitem:a1c8c39280d85939c865ea28d9afc7960"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a1c8c39280d85939c865ea28d9afc7960">saveSettings</a> ()</td></tr>
+<tr class="memdesc:a1c8c39280d85939c865ea28d9afc7960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves user settings.  <a href="#a1c8c39280d85939c865ea28d9afc7960"></a><br/></td></tr>
 <tr class="memitem:a9c0cfda2b24fa6259874caf7ccd4b908"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a9c0cfda2b24fa6259874caf7ccd4b908">initLuaApi</a> ()</td></tr>
 <tr class="memdesc:a9c0cfda2b24fa6259874caf7ccd4b908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes all api functions for the scripts.  <a href="#a9c0cfda2b24fa6259874caf7ccd4b908"></a><br/></td></tr>
 <tr class="memitem:aaf15be9a17be251351b2bde08dcb2c21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#aaf15be9a17be251351b2bde08dcb2c21">initTraySystem</a> (<a class="el" href="class_tray_system.html">TraySystem</a> *tray)</td></tr>
@@ -176,6 +192,8 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a63293c7cdab54cf78b86e7c69a3bff7a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a63293c7cdab54cf78b86e7c69a3bff7a">calcTimeForNewDay</a> () const </td></tr>
 <tr class="memitem:add27401cb9db131bbe76cb9501bdd500"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#add27401cb9db131bbe76cb9501bdd500">closeEvent</a> (QCloseEvent *e)</td></tr>
 <tr class="memdesc:add27401cb9db131bbe76cb9501bdd500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked while closing the main window.  <a href="#add27401cb9db131bbe76cb9501bdd500"></a><br/></td></tr>
+<tr class="memitem:a27498d9d87d3db3601e6af3974686fc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain_win.html#a27498d9d87d3db3601e6af3974686fc9">resizeEvent</a> (QResizeEvent *e)</td></tr>
+<tr class="memdesc:a27498d9d87d3db3601e6af3974686fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method invoked while resizing the main window.  <a href="#a27498d9d87d3db3601e6af3974686fc9"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -432,6 +450,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa720b13b10d81cfe3fb13a6d6df375fb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::editScript </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shows input dialog which allows to change script name. </p>
+
+</div>
+</div>
 <a class="anchor" id="abeb1092d0b748df7ceaeb13334a89030"></a>
 <div class="memitem">
 <div class="memproto">
@@ -565,6 +608,9 @@ Private Attributes</h2></td></tr>
 <a class="anchor" id="a3a1257aa1b06a426b08763a72756f06a"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void mainWin::loadScripts </td>
@@ -574,6 +620,11 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Loads script from the given path and puts the into the scripts list. </p>
@@ -583,6 +634,31 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="ad4278ab4c228ac83a39d5c39f58263c9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::loadUserSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Loads user settings. </p>
 
 </div>
 </div>
@@ -761,6 +837,32 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a80442454fb91a3cf4bc4a5dca3d2c99a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::putCommand </td>
+          <td>(</td>
+          <td class="paramtype">QListWidgetItem *&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method called while double clicked on command in the list (Mouse, Keyboard and Other lists on the right of the text area) </p>
+
+</div>
+</div>
 <a class="anchor" id="abacc60b864c8156cbeb235b516a3be05"></a>
 <div class="memitem">
 <div class="memproto">
@@ -782,7 +884,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Terminates the program previously removing tray icon.. </p>
+<p>Terminates the program previously removing tray icon. </p>
 
 </div>
 </div>
@@ -833,6 +935,32 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Method invoked during removing a script from the list (the script is removed from the HD as well). </p>
+
+</div>
+</div>
+<a class="anchor" id="a27498d9d87d3db3601e6af3974686fc9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::resizeEvent </td>
+          <td>(</td>
+          <td class="paramtype">QResizeEvent *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method invoked while resizing the main window. </p>
 
 </div>
 </div>
@@ -915,6 +1043,31 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Method invoked during sacing script. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1c8c39280d85939c865ea28d9afc7960"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::saveSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Saves user settings. </p>
 
 </div>
 </div>
@@ -1046,6 +1199,106 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Shows 'about' dialog. </p>
+
+</div>
+</div>
+<a class="anchor" id="acd3db954dc70fc3617f27c6f9420f17f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::showPlayerDialog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shows dialog with player settings. </p>
+
+</div>
+</div>
+<a class="anchor" id="af2e858659b60c8d32a04fd0334e051c6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::showRecorderDialog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shows dialog with recorder settings. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4e24b67b194285df264d18afaeafcaba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::showReminderSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shows dialog with reminder settings. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3e182f4de7064102158f46c818d4c4bd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mainWin::startRecording </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Start recording a script by putting its commands into currently opened text area. </p>
 
 </div>
 </div>
@@ -1210,7 +1463,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 29 2012 23:05:31 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 9 2012 12:44:56 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

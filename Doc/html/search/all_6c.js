@@ -10,6 +10,7 @@ var searchData=
   ['loaddata',['loadData',['../class_actions_calendar.html#af47fe81bec606206421e41b74a3a4334',1,'ActionsCalendar']]],
   ['loadscript',['loadScript',['../class_lua_engine.html#aab9337ae5ea59bccc1e08c4015d42700',1,'LuaEngine']]],
   ['loadscripts',['loadScripts',['../classmain_win.html#a3a1257aa1b06a426b08763a72756f06a',1,'mainWin']]],
+  ['loadusersettings',['loadUserSettings',['../classmain_win.html#ad4278ab4c228ac83a39d5c39f58263c9',1,'mainWin']]],
   ['logo',['logo',['../class_about_dialog.html#a2c2d0746aeb878e67406fa921ee8cab5',1,'AboutDialog']]],
   ['lua_5fapi_2ecpp',['lua_api.cpp',['../lua__api_8cpp.html',1,'']]],
   ['lua_5fapi_2eh',['lua_api.h',['../lua__api_8h.html',1,'']]],

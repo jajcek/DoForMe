@@ -1,0 +1,269 @@
+\hypertarget{class_recorder}{\section{Recorder Class Reference}
+\label{class_recorder}\index{Recorder@{Recorder}}
+}
+
+
+Engine for recording mouse and keyborad.  
+
+
+
+
+{\ttfamily \#include $<$recorder.\-h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_recorder_ab0532541b2bfb84cb02ad6d666b41f7f}{start\-Recording} ()
+\begin{DoxyCompactList}\small\item\em Starts recording by setting hooks on input devices. \end{DoxyCompactList}\item 
+static void \hyperlink{class_recorder_afb273a3cab6cbadc8448de3faaf4cee4}{stop\-Recording} ()
+\begin{DoxyCompactList}\small\item\em Stops recording by releasing hook. \end{DoxyCompactList}\item 
+static void \hyperlink{class_recorder_a28cae819dd8860adc54c969319802811}{set\-Text\-Edit} (Q\-Text\-Edit $\ast$text\-Edit)
+\begin{DoxyCompactList}\small\item\em Sets text area which the commands will be put into. \end{DoxyCompactList}\item 
+static void \hyperlink{class_recorder_ac277183858e6cb27564a3d44369c71be}{set\-Main\-Window\-Action} (Q\-Action $\ast$p\-Action)
+\begin{DoxyCompactList}\small\item\em Sets pointer to the action which can trigger main window show up. \end{DoxyCompactList}\item 
+static void \hyperlink{class_recorder_a571a3c072d1e3faf3bab13935fe46b29}{start\-Selecting\-Fragment} ()
+\begin{DoxyCompactList}\small\item\em Changes recording mode to selecting fragment of the desktop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static L\-R\-E\-S\-U\-L\-T C\-A\-L\-L\-B\-A\-C\-K \hyperlink{class_recorder_a4baab970c1b426dd37a486278caaf851}{mouse\-Hook\-Procedure} (int code, W\-P\-A\-R\-A\-M w\-Param, L\-P\-A\-R\-A\-M l\-Param)
+\begin{DoxyCompactList}\small\item\em Hooking procedure which parses all the messages from mouse. \end{DoxyCompactList}\item 
+static L\-R\-E\-S\-U\-L\-T C\-A\-L\-L\-B\-A\-C\-K \hyperlink{class_recorder_a3f6a34174b2adab522364a5a1dc2b72e}{keyboard\-Hook\-Procedure} (int code, W\-P\-A\-R\-A\-M w\-Param, L\-P\-A\-R\-A\-M l\-Param)
+\begin{DoxyCompactList}\small\item\em Hooking procedure which parses all the messages from keyboard. \end{DoxyCompactList}\item 
+static void \hyperlink{class_recorder_ab6de951e02844b255a9d506022f623df}{put\-Cmd} (Q\-String cmd)
+\begin{DoxyCompactList}\small\item\em Puts necessary commands into the previously set \hyperlink{class_recorder_a738be0679e1861350cf20e4c7fe0a8af}{Recorder\-::m\-\_\-text\-Edit} by using \hyperlink{class_recorder_a28cae819dd8860adc54c969319802811}{Recorder\-::set\-Text\-Edit} method. \end{DoxyCompactList}\item 
+static void \hyperlink{class_recorder_a924e4a55880d9beaae834998b5653fad}{remove\-X\-Last\-Lines} (int number)
+\begin{DoxyCompactList}\small\item\em Removes last lines where the number is specified as an argument. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static H\-H\-O\-O\-K \hyperlink{class_recorder_afc492637af50f03afea3ee346097bef5}{m\-\_\-mouse\-Hook} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Hook handle for mouse. \end{DoxyCompactList}\item 
+static H\-H\-O\-O\-K \hyperlink{class_recorder_ac75a3adc936900eeba379048a2622215}{m\-\_\-keyboard\-Hook} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Hook handle for keyboard. \end{DoxyCompactList}\item 
+static Q\-Text\-Edit $\ast$ \hyperlink{class_recorder_a738be0679e1861350cf20e4c7fe0a8af}{m\-\_\-text\-Edit} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the Q\-Text\-Edit which the commands will be put into. \end{DoxyCompactList}\item 
+static Q\-Elapsed\-Timer $\ast$ \hyperlink{class_recorder_adb205651c105efc4d6a938be11df443f}{m\-\_\-timer} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Timer used for calculating argument for sleep api function. \end{DoxyCompactList}\item 
+static Q\-Map$<$ int, bool $>$ \hyperlink{class_recorder_ae73e169cfea87f1de570875fd2ed79de}{m\-\_\-keys}
+\begin{DoxyCompactList}\small\item\em Map with keys actually pressed. \end{DoxyCompactList}\item 
+static \hyperlink{class_tray_recording}{Tray\-Recording} \hyperlink{class_recorder_a0377d9a823426d32738d6d8153b59d60}{m\-\_\-tray}
+\begin{DoxyCompactList}\small\item\em Tray object shown while recording is on. \end{DoxyCompactList}\item 
+static Q\-Action $\ast$ \hyperlink{class_recorder_a22859a75275df586d8d7a25b6208e86a}{m\-\_\-show\-Main\-Window} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the action which can trigger show() method on main window. \end{DoxyCompactList}\item 
+static bool \hyperlink{class_recorder_a39b02a441649ab0493b8165ccaf2f707}{m\-\_\-is\-Screen\-Selecting} = false
+\begin{DoxyCompactList}\small\item\em Value which specifies if the user is in selecting a fragment of the screen mode. \end{DoxyCompactList}\item 
+static bool \hyperlink{class_recorder_aecb5b1d60183b86f1980aeb608e08365}{m\-\_\-is\-Rec\-Stopped} = true
+\begin{DoxyCompactList}\small\item\em Indicates whether the recording has been already stopped. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Engine for recording mouse and keyborad. 
+
+\begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+4.\-09.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_recorder_a3f6a34174b2adab522364a5a1dc2b72e}{\index{Recorder@{Recorder}!keyboard\-Hook\-Procedure@{keyboard\-Hook\-Procedure}}
+\index{keyboard\-Hook\-Procedure@{keyboard\-Hook\-Procedure}!Recorder@{Recorder}}
+\subsubsection[{keyboard\-Hook\-Procedure}]{\setlength{\rightskip}{0pt plus 5cm}L\-R\-E\-S\-U\-L\-T C\-A\-L\-L\-B\-A\-C\-K Recorder\-::keyboard\-Hook\-Procedure (
+\begin{DoxyParamCaption}
+\item[{int}]{code, }
+\item[{W\-P\-A\-R\-A\-M}]{w\-Param, }
+\item[{L\-P\-A\-R\-A\-M}]{l\-Param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_a3f6a34174b2adab522364a5a1dc2b72e}
+
+
+Hooking procedure which parses all the messages from keyboard. 
+
+\hypertarget{class_recorder_a4baab970c1b426dd37a486278caaf851}{\index{Recorder@{Recorder}!mouse\-Hook\-Procedure@{mouse\-Hook\-Procedure}}
+\index{mouse\-Hook\-Procedure@{mouse\-Hook\-Procedure}!Recorder@{Recorder}}
+\subsubsection[{mouse\-Hook\-Procedure}]{\setlength{\rightskip}{0pt plus 5cm}L\-R\-E\-S\-U\-L\-T C\-A\-L\-L\-B\-A\-C\-K Recorder\-::mouse\-Hook\-Procedure (
+\begin{DoxyParamCaption}
+\item[{int}]{code, }
+\item[{W\-P\-A\-R\-A\-M}]{w\-Param, }
+\item[{L\-P\-A\-R\-A\-M}]{l\-Param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_a4baab970c1b426dd37a486278caaf851}
+
+
+Hooking procedure which parses all the messages from mouse. 
+
+\hypertarget{class_recorder_ab6de951e02844b255a9d506022f623df}{\index{Recorder@{Recorder}!put\-Cmd@{put\-Cmd}}
+\index{put\-Cmd@{put\-Cmd}!Recorder@{Recorder}}
+\subsubsection[{put\-Cmd}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-::put\-Cmd (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{cmd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_ab6de951e02844b255a9d506022f623df}
+
+
+Puts necessary commands into the previously set \hyperlink{class_recorder_a738be0679e1861350cf20e4c7fe0a8af}{Recorder\-::m\-\_\-text\-Edit} by using \hyperlink{class_recorder_a28cae819dd8860adc54c969319802811}{Recorder\-::set\-Text\-Edit} method. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cmd} & String containing the command. Note that sleep() function is always added before the cmd. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_recorder_a924e4a55880d9beaae834998b5653fad}{\index{Recorder@{Recorder}!remove\-X\-Last\-Lines@{remove\-X\-Last\-Lines}}
+\index{remove\-X\-Last\-Lines@{remove\-X\-Last\-Lines}!Recorder@{Recorder}}
+\subsubsection[{remove\-X\-Last\-Lines}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-::remove\-X\-Last\-Lines (
+\begin{DoxyParamCaption}
+\item[{int}]{number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_a924e4a55880d9beaae834998b5653fad}
+
+
+Removes last lines where the number is specified as an argument. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em number} & How many lines need to be removed. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_recorder_ac277183858e6cb27564a3d44369c71be}{\index{Recorder@{Recorder}!set\-Main\-Window\-Action@{set\-Main\-Window\-Action}}
+\index{set\-Main\-Window\-Action@{set\-Main\-Window\-Action}!Recorder@{Recorder}}
+\subsubsection[{set\-Main\-Window\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-::set\-Main\-Window\-Action (
+\begin{DoxyParamCaption}
+\item[{Q\-Action $\ast$}]{p\-Action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_recorder_ac277183858e6cb27564a3d44369c71be}
+
+
+Sets pointer to the action which can trigger main window show up. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\-Action} & Pointer to the action. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_recorder_a28cae819dd8860adc54c969319802811}{\index{Recorder@{Recorder}!set\-Text\-Edit@{set\-Text\-Edit}}
+\index{set\-Text\-Edit@{set\-Text\-Edit}!Recorder@{Recorder}}
+\subsubsection[{set\-Text\-Edit}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-::set\-Text\-Edit (
+\begin{DoxyParamCaption}
+\item[{Q\-Text\-Edit $\ast$}]{text\-Edit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_recorder_a28cae819dd8860adc54c969319802811}
+
+
+Sets text area which the commands will be put into. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em text\-Edit} & Pointer to the Q\-Text\-Edit object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_recorder_ab0532541b2bfb84cb02ad6d666b41f7f}{\index{Recorder@{Recorder}!start\-Recording@{start\-Recording}}
+\index{start\-Recording@{start\-Recording}!Recorder@{Recorder}}
+\subsubsection[{start\-Recording}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-::start\-Recording (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_recorder_ab0532541b2bfb84cb02ad6d666b41f7f}
+
+
+Starts recording by setting hooks on input devices. 
+
+\hypertarget{class_recorder_a571a3c072d1e3faf3bab13935fe46b29}{\index{Recorder@{Recorder}!start\-Selecting\-Fragment@{start\-Selecting\-Fragment}}
+\index{start\-Selecting\-Fragment@{start\-Selecting\-Fragment}!Recorder@{Recorder}}
+\subsubsection[{start\-Selecting\-Fragment}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-::start\-Selecting\-Fragment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_recorder_a571a3c072d1e3faf3bab13935fe46b29}
+
+
+Changes recording mode to selecting fragment of the desktop. 
+
+\hypertarget{class_recorder_afb273a3cab6cbadc8448de3faaf4cee4}{\index{Recorder@{Recorder}!stop\-Recording@{stop\-Recording}}
+\index{stop\-Recording@{stop\-Recording}!Recorder@{Recorder}}
+\subsubsection[{stop\-Recording}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-::stop\-Recording (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_recorder_afb273a3cab6cbadc8448de3faaf4cee4}
+
+
+Stops recording by releasing hook. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_recorder_aecb5b1d60183b86f1980aeb608e08365}{\index{Recorder@{Recorder}!m\-\_\-is\-Rec\-Stopped@{m\-\_\-is\-Rec\-Stopped}}
+\index{m\-\_\-is\-Rec\-Stopped@{m\-\_\-is\-Rec\-Stopped}!Recorder@{Recorder}}
+\subsubsection[{m\-\_\-is\-Rec\-Stopped}]{\setlength{\rightskip}{0pt plus 5cm}bool Recorder\-::m\-\_\-is\-Rec\-Stopped = true\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_aecb5b1d60183b86f1980aeb608e08365}
+
+
+Indicates whether the recording has been already stopped. 
+
+\hypertarget{class_recorder_a39b02a441649ab0493b8165ccaf2f707}{\index{Recorder@{Recorder}!m\-\_\-is\-Screen\-Selecting@{m\-\_\-is\-Screen\-Selecting}}
+\index{m\-\_\-is\-Screen\-Selecting@{m\-\_\-is\-Screen\-Selecting}!Recorder@{Recorder}}
+\subsubsection[{m\-\_\-is\-Screen\-Selecting}]{\setlength{\rightskip}{0pt plus 5cm}bool Recorder\-::m\-\_\-is\-Screen\-Selecting = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_a39b02a441649ab0493b8165ccaf2f707}
+
+
+Value which specifies if the user is in selecting a fragment of the screen mode. 
+
+\hypertarget{class_recorder_ac75a3adc936900eeba379048a2622215}{\index{Recorder@{Recorder}!m\-\_\-keyboard\-Hook@{m\-\_\-keyboard\-Hook}}
+\index{m\-\_\-keyboard\-Hook@{m\-\_\-keyboard\-Hook}!Recorder@{Recorder}}
+\subsubsection[{m\-\_\-keyboard\-Hook}]{\setlength{\rightskip}{0pt plus 5cm}H\-H\-O\-O\-K Recorder\-::m\-\_\-keyboard\-Hook = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_ac75a3adc936900eeba379048a2622215}
+
+
+Hook handle for keyboard. 
+
+\hypertarget{class_recorder_ae73e169cfea87f1de570875fd2ed79de}{\index{Recorder@{Recorder}!m\-\_\-keys@{m\-\_\-keys}}
+\index{m\-\_\-keys@{m\-\_\-keys}!Recorder@{Recorder}}
+\subsubsection[{m\-\_\-keys}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Map$<$ int, bool $>$ Recorder\-::m\-\_\-keys\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_ae73e169cfea87f1de570875fd2ed79de}
+
+
+Map with keys actually pressed. 
+
+\hypertarget{class_recorder_afc492637af50f03afea3ee346097bef5}{\index{Recorder@{Recorder}!m\-\_\-mouse\-Hook@{m\-\_\-mouse\-Hook}}
+\index{m\-\_\-mouse\-Hook@{m\-\_\-mouse\-Hook}!Recorder@{Recorder}}
+\subsubsection[{m\-\_\-mouse\-Hook}]{\setlength{\rightskip}{0pt plus 5cm}H\-H\-O\-O\-K Recorder\-::m\-\_\-mouse\-Hook = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_afc492637af50f03afea3ee346097bef5}
+
+
+Hook handle for mouse. 
+
+\hypertarget{class_recorder_a22859a75275df586d8d7a25b6208e86a}{\index{Recorder@{Recorder}!m\-\_\-show\-Main\-Window@{m\-\_\-show\-Main\-Window}}
+\index{m\-\_\-show\-Main\-Window@{m\-\_\-show\-Main\-Window}!Recorder@{Recorder}}
+\subsubsection[{m\-\_\-show\-Main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Action $\ast$ Recorder\-::m\-\_\-show\-Main\-Window = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_a22859a75275df586d8d7a25b6208e86a}
+
+
+Pointer to the action which can trigger show() method on main window. 
+
+\hypertarget{class_recorder_a738be0679e1861350cf20e4c7fe0a8af}{\index{Recorder@{Recorder}!m\-\_\-text\-Edit@{m\-\_\-text\-Edit}}
+\index{m\-\_\-text\-Edit@{m\-\_\-text\-Edit}!Recorder@{Recorder}}
+\subsubsection[{m\-\_\-text\-Edit}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Text\-Edit $\ast$ Recorder\-::m\-\_\-text\-Edit = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_a738be0679e1861350cf20e4c7fe0a8af}
+
+
+Pointer to the Q\-Text\-Edit which the commands will be put into. 
+
+\hypertarget{class_recorder_adb205651c105efc4d6a938be11df443f}{\index{Recorder@{Recorder}!m\-\_\-timer@{m\-\_\-timer}}
+\index{m\-\_\-timer@{m\-\_\-timer}!Recorder@{Recorder}}
+\subsubsection[{m\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Elapsed\-Timer $\ast$ Recorder\-::m\-\_\-timer = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_adb205651c105efc4d6a938be11df443f}
+
+
+Timer used for calculating argument for sleep api function. 
+
+\hypertarget{class_recorder_a0377d9a823426d32738d6d8153b59d60}{\index{Recorder@{Recorder}!m\-\_\-tray@{m\-\_\-tray}}
+\index{m\-\_\-tray@{m\-\_\-tray}!Recorder@{Recorder}}
+\subsubsection[{m\-\_\-tray}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tray\-Recording} Recorder\-::m\-\_\-tray\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_a0377d9a823426d32738d6d8153b59d60}
+
+
+Tray object shown while recording is on. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{recorder_8h}{recorder.\-h}\item 
+Do\-For\-Me!/\hyperlink{recorder_8cpp}{recorder.\-cpp}\end{DoxyCompactItemize}

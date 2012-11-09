@@ -1,0 +1,370 @@
+\hypertarget{class_reminder_settings}{\section{Reminder\-Settings Class Reference}
+\label{class_reminder_settings}\index{Reminder\-Settings@{Reminder\-Settings}}
+}
+
+
+Settings for actions reminder.  
+
+
+
+
+{\ttfamily \#include $<$reminder\-\_\-settings.\-h$>$}
+
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_reminder_settings_aaebc21b62262f96a18dd4d7fd8b776b3}{play\-Sound} ()
+\begin{DoxyCompactList}\small\item\em Method called when clicking Play button. \end{DoxyCompactList}\item 
+void \hyperlink{class_reminder_settings_ae3cc184e347e4dccdbc1eff20dbc87b3}{stop\-Sound} ()
+\begin{DoxyCompactList}\small\item\em Stops sound. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_reminder_settings_a087fbeb08e6ca903904dce65b231cadf}{is\-Reminder\-On} () const 
+\item 
+void \hyperlink{class_reminder_settings_a2feb4f5d1ebf3ff0dbf60b425d602c93}{set\-Reminder} (bool state)
+\begin{DoxyCompactList}\small\item\em Sets reminder on/off. \end{DoxyCompactList}\item 
+int \hyperlink{class_reminder_settings_a93cd63fd5a06b13d524f7d3b37d3a314}{time\-Earlier} () const 
+\item 
+void \hyperlink{class_reminder_settings_a95bdf3f076b48923163180432f48f8d1}{set\-Time\-Earlier} (int delay)
+\begin{DoxyCompactList}\small\item\em Sets value for time delay. \end{DoxyCompactList}\item 
+bool \hyperlink{class_reminder_settings_add13263fe45756d27f4a0ba3188f9015}{is\-Sound\-On} () const 
+\item 
+void \hyperlink{class_reminder_settings_acbce9ec5004d38a8371e7bc2df04c109}{set\-Sound} (bool state)
+\begin{DoxyCompactList}\small\item\em Sets check box for sound. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_reminder_settings_a7ebd2228ac62990bc2e0b13a9b418f6f}{sound\-Path} () const 
+\item 
+void \hyperlink{class_reminder_settings_aece7223f9a74a23e1e8043f74f058bc1}{set\-Sound\-Path} (Q\-String path)
+\begin{DoxyCompactList}\small\item\em Sets path for the sound file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_reminder_settings}{Reminder\-Settings} $\ast$ \hyperlink{class_reminder_settings_a4b37dca12a6091c0d9f5b38477905d6e}{get\-Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_reminder_settings_ace19a0c8eb7609c813ea9b1a80a2927e}{browse\-Sound} ()
+\begin{DoxyCompactList}\small\item\em Method called when clicking Browse button. \end{DoxyCompactList}\item 
+void \hyperlink{class_reminder_settings_ac5d4723f0934c9c416d00bba5af2ff07}{pressed\-Ok} ()
+\begin{DoxyCompactList}\small\item\em Method called when clicking Ok button. \end{DoxyCompactList}\item 
+void \hyperlink{class_reminder_settings_a8c4ff4563087376a613cb358454c6519}{pressed\-Cancel} ()
+\begin{DoxyCompactList}\small\item\em Method called when clicking Ok button. \end{DoxyCompactList}\item 
+void \hyperlink{class_reminder_settings_aa059221c469505ff2b7abf8264303c5c}{signal\-Unchecked} ()
+\begin{DoxyCompactList}\small\item\em Method called when signal check box is turned off. \end{DoxyCompactList}\item 
+void \hyperlink{class_reminder_settings_a95cbf65638838f46f5a7b8731ca92114}{sound\-Checked} ()
+\begin{DoxyCompactList}\small\item\em Method called when sound check box is turned on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_reminder_settings_a978cf43b0d5e75cbecc86d9c4a32595d}{Reminder\-Settings} ()
+\begin{DoxyCompactList}\small\item\em Simple constructor which simply sets fields to its default values. \end{DoxyCompactList}\item 
+void \hyperlink{class_reminder_settings_a89932f2ad7630db43cff75838eca7efc}{close\-Event} (Q\-Close\-Event $\ast$e)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\-::\-Reminder\-Settings \hyperlink{class_reminder_settings_a8cb71405093ce262c5568ee0ee1f5365}{ui}
+\begin{DoxyCompactList}\small\item\em Object containing all controls of the window. \end{DoxyCompactList}\item 
+bool \hyperlink{class_reminder_settings_a7c9b7a409f4f113d2cc2207aee5d9881}{m\-\_\-b\-Is\-On}
+\begin{DoxyCompactList}\small\item\em Value specifying whether the signaling actions is on. \end{DoxyCompactList}\item 
+int \hyperlink{class_reminder_settings_ae5a57641e84294e51aa2111c7569bc40}{m\-\_\-f\-Time\-Earlier}
+\begin{DoxyCompactList}\small\item\em How many seconds need to elapse to execute the notification. \end{DoxyCompactList}\item 
+bool \hyperlink{class_reminder_settings_ad0514a60ffede305109f60f671e721a4}{m\-\_\-b\-Is\-Sound\-On}
+\begin{DoxyCompactList}\small\item\em Value specifying whether the sound is on. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_reminder_settings_a3e4a8a906147325c9f299304d7b38c31}{m\-\_\-str\-Sound\-Path}
+\begin{DoxyCompactList}\small\item\em Path to the sound file. \end{DoxyCompactList}\item 
+Phonon\-::\-Media\-Object $\ast$ \hyperlink{class_reminder_settings_ac3cc26f8acada7bfc1b7a8cee3e2551c}{m\-\_\-sound}
+\begin{DoxyCompactList}\small\item\em Object which allows to play sounds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_reminder_settings}{Reminder\-Settings} $\ast$ \hyperlink{class_reminder_settings_adeaec35aa1f8a576bd8793d6e8eeaed3}{m\-\_\-object} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the object of this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Settings for actions reminder. 
+
+The dialog has been created with Q\-T Designer. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2.\-09.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_reminder_settings_a978cf43b0d5e75cbecc86d9c4a32595d}{\index{Reminder\-Settings@{Reminder\-Settings}!Reminder\-Settings@{Reminder\-Settings}}
+\index{Reminder\-Settings@{Reminder\-Settings}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{Reminder\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}Reminder\-Settings\-::\-Reminder\-Settings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_reminder_settings_a978cf43b0d5e75cbecc86d9c4a32595d}
+
+
+Simple constructor which simply sets fields to its default values. 
+
+The constructor has been put into the private section to prevent creating instances from the class (because the class is a singleton). 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_reminder_settings_ace19a0c8eb7609c813ea9b1a80a2927e}{\index{Reminder\-Settings@{Reminder\-Settings}!browse\-Sound@{browse\-Sound}}
+\index{browse\-Sound@{browse\-Sound}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{browse\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::browse\-Sound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_reminder_settings_ace19a0c8eb7609c813ea9b1a80a2927e}
+
+
+Method called when clicking Browse button. 
+
+\hypertarget{class_reminder_settings_a89932f2ad7630db43cff75838eca7efc}{\index{Reminder\-Settings@{Reminder\-Settings}!close\-Event@{close\-Event}}
+\index{close\-Event@{close\-Event}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{close\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::close\-Event (
+\begin{DoxyParamCaption}
+\item[{Q\-Close\-Event $\ast$}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_reminder_settings_a89932f2ad7630db43cff75838eca7efc}
+\hypertarget{class_reminder_settings_a4b37dca12a6091c0d9f5b38477905d6e}{\index{Reminder\-Settings@{Reminder\-Settings}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reminder\-Settings} $\ast$ Reminder\-Settings\-::get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_reminder_settings_a4b37dca12a6091c0d9f5b38477905d6e}
+\begin{DoxyReturn}{Returns}
+Pointer to the instance of the class. 
+\end{DoxyReturn}
+\hypertarget{class_reminder_settings_a087fbeb08e6ca903904dce65b231cadf}{\index{Reminder\-Settings@{Reminder\-Settings}!is\-Reminder\-On@{is\-Reminder\-On}}
+\index{is\-Reminder\-On@{is\-Reminder\-On}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{is\-Reminder\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Reminder\-Settings\-::is\-Reminder\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_reminder_settings_a087fbeb08e6ca903904dce65b231cadf}
+\begin{DoxyReturn}{Returns}
+True if the notifications are enbaled, otherwise false. 
+\end{DoxyReturn}
+\hypertarget{class_reminder_settings_add13263fe45756d27f4a0ba3188f9015}{\index{Reminder\-Settings@{Reminder\-Settings}!is\-Sound\-On@{is\-Sound\-On}}
+\index{is\-Sound\-On@{is\-Sound\-On}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{is\-Sound\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Reminder\-Settings\-::is\-Sound\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_reminder_settings_add13263fe45756d27f4a0ba3188f9015}
+\begin{DoxyReturn}{Returns}
+True if the sound is on, otherwise false. 
+\end{DoxyReturn}
+\hypertarget{class_reminder_settings_aaebc21b62262f96a18dd4d7fd8b776b3}{\index{Reminder\-Settings@{Reminder\-Settings}!play\-Sound@{play\-Sound}}
+\index{play\-Sound@{play\-Sound}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{play\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::play\-Sound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{class_reminder_settings_aaebc21b62262f96a18dd4d7fd8b776b3}
+
+
+Method called when clicking Play button. 
+
+\hypertarget{class_reminder_settings_a8c4ff4563087376a613cb358454c6519}{\index{Reminder\-Settings@{Reminder\-Settings}!pressed\-Cancel@{pressed\-Cancel}}
+\index{pressed\-Cancel@{pressed\-Cancel}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{pressed\-Cancel}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::pressed\-Cancel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_reminder_settings_a8c4ff4563087376a613cb358454c6519}
+
+
+Method called when clicking Ok button. 
+
+\hypertarget{class_reminder_settings_ac5d4723f0934c9c416d00bba5af2ff07}{\index{Reminder\-Settings@{Reminder\-Settings}!pressed\-Ok@{pressed\-Ok}}
+\index{pressed\-Ok@{pressed\-Ok}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{pressed\-Ok}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::pressed\-Ok (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_reminder_settings_ac5d4723f0934c9c416d00bba5af2ff07}
+
+
+Method called when clicking Ok button. 
+
+\hypertarget{class_reminder_settings_a2feb4f5d1ebf3ff0dbf60b425d602c93}{\index{Reminder\-Settings@{Reminder\-Settings}!set\-Reminder@{set\-Reminder}}
+\index{set\-Reminder@{set\-Reminder}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{set\-Reminder}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::set\-Reminder (
+\begin{DoxyParamCaption}
+\item[{bool}]{state}
+\end{DoxyParamCaption}
+)}}\label{class_reminder_settings_a2feb4f5d1ebf3ff0dbf60b425d602c93}
+
+
+Sets reminder on/off. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em state} & State of the reminder's check box. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_reminder_settings_acbce9ec5004d38a8371e7bc2df04c109}{\index{Reminder\-Settings@{Reminder\-Settings}!set\-Sound@{set\-Sound}}
+\index{set\-Sound@{set\-Sound}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{set\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::set\-Sound (
+\begin{DoxyParamCaption}
+\item[{bool}]{state}
+\end{DoxyParamCaption}
+)}}\label{class_reminder_settings_acbce9ec5004d38a8371e7bc2df04c109}
+
+
+Sets check box for sound. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em state} & State of the check box. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_reminder_settings_aece7223f9a74a23e1e8043f74f058bc1}{\index{Reminder\-Settings@{Reminder\-Settings}!set\-Sound\-Path@{set\-Sound\-Path}}
+\index{set\-Sound\-Path@{set\-Sound\-Path}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{set\-Sound\-Path}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::set\-Sound\-Path (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{path}
+\end{DoxyParamCaption}
+)}}\label{class_reminder_settings_aece7223f9a74a23e1e8043f74f058bc1}
+
+
+Sets path for the sound file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em path} & Path to the source file. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_reminder_settings_a95bdf3f076b48923163180432f48f8d1}{\index{Reminder\-Settings@{Reminder\-Settings}!set\-Time\-Earlier@{set\-Time\-Earlier}}
+\index{set\-Time\-Earlier@{set\-Time\-Earlier}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{set\-Time\-Earlier}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::set\-Time\-Earlier (
+\begin{DoxyParamCaption}
+\item[{int}]{delay}
+\end{DoxyParamCaption}
+)}}\label{class_reminder_settings_a95bdf3f076b48923163180432f48f8d1}
+
+
+Sets value for time delay. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em delay} & Time delay in milliseconds. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_reminder_settings_aa059221c469505ff2b7abf8264303c5c}{\index{Reminder\-Settings@{Reminder\-Settings}!signal\-Unchecked@{signal\-Unchecked}}
+\index{signal\-Unchecked@{signal\-Unchecked}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{signal\-Unchecked}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::signal\-Unchecked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_reminder_settings_aa059221c469505ff2b7abf8264303c5c}
+
+
+Method called when signal check box is turned off. 
+
+\hypertarget{class_reminder_settings_a95cbf65638838f46f5a7b8731ca92114}{\index{Reminder\-Settings@{Reminder\-Settings}!sound\-Checked@{sound\-Checked}}
+\index{sound\-Checked@{sound\-Checked}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{sound\-Checked}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::sound\-Checked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_reminder_settings_a95cbf65638838f46f5a7b8731ca92114}
+
+
+Method called when sound check box is turned on. 
+
+\hypertarget{class_reminder_settings_a7ebd2228ac62990bc2e0b13a9b418f6f}{\index{Reminder\-Settings@{Reminder\-Settings}!sound\-Path@{sound\-Path}}
+\index{sound\-Path@{sound\-Path}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{sound\-Path}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Reminder\-Settings\-::sound\-Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_reminder_settings_a7ebd2228ac62990bc2e0b13a9b418f6f}
+\begin{DoxyReturn}{Returns}
+Path to the sound file. 
+\end{DoxyReturn}
+\hypertarget{class_reminder_settings_ae3cc184e347e4dccdbc1eff20dbc87b3}{\index{Reminder\-Settings@{Reminder\-Settings}!stop\-Sound@{stop\-Sound}}
+\index{stop\-Sound@{stop\-Sound}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{stop\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void Reminder\-Settings\-::stop\-Sound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{class_reminder_settings_ae3cc184e347e4dccdbc1eff20dbc87b3}
+
+
+Stops sound. 
+
+\hypertarget{class_reminder_settings_a93cd63fd5a06b13d524f7d3b37d3a314}{\index{Reminder\-Settings@{Reminder\-Settings}!time\-Earlier@{time\-Earlier}}
+\index{time\-Earlier@{time\-Earlier}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{time\-Earlier}]{\setlength{\rightskip}{0pt plus 5cm}int Reminder\-Settings\-::time\-Earlier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_reminder_settings_a93cd63fd5a06b13d524f7d3b37d3a314}
+\begin{DoxyReturn}{Returns}
+How many seconds before executing an action. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_reminder_settings_a7c9b7a409f4f113d2cc2207aee5d9881}{\index{Reminder\-Settings@{Reminder\-Settings}!m\-\_\-b\-Is\-On@{m\-\_\-b\-Is\-On}}
+\index{m\-\_\-b\-Is\-On@{m\-\_\-b\-Is\-On}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{m\-\_\-b\-Is\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Reminder\-Settings\-::m\-\_\-b\-Is\-On\hspace{0.3cm}{\ttfamily [private]}}}\label{class_reminder_settings_a7c9b7a409f4f113d2cc2207aee5d9881}
+
+
+Value specifying whether the signaling actions is on. 
+
+\hypertarget{class_reminder_settings_ad0514a60ffede305109f60f671e721a4}{\index{Reminder\-Settings@{Reminder\-Settings}!m\-\_\-b\-Is\-Sound\-On@{m\-\_\-b\-Is\-Sound\-On}}
+\index{m\-\_\-b\-Is\-Sound\-On@{m\-\_\-b\-Is\-Sound\-On}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{m\-\_\-b\-Is\-Sound\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Reminder\-Settings\-::m\-\_\-b\-Is\-Sound\-On\hspace{0.3cm}{\ttfamily [private]}}}\label{class_reminder_settings_ad0514a60ffede305109f60f671e721a4}
+
+
+Value specifying whether the sound is on. 
+
+\hypertarget{class_reminder_settings_ae5a57641e84294e51aa2111c7569bc40}{\index{Reminder\-Settings@{Reminder\-Settings}!m\-\_\-f\-Time\-Earlier@{m\-\_\-f\-Time\-Earlier}}
+\index{m\-\_\-f\-Time\-Earlier@{m\-\_\-f\-Time\-Earlier}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{m\-\_\-f\-Time\-Earlier}]{\setlength{\rightskip}{0pt plus 5cm}int Reminder\-Settings\-::m\-\_\-f\-Time\-Earlier\hspace{0.3cm}{\ttfamily [private]}}}\label{class_reminder_settings_ae5a57641e84294e51aa2111c7569bc40}
+
+
+How many seconds need to elapse to execute the notification. 
+
+\hypertarget{class_reminder_settings_adeaec35aa1f8a576bd8793d6e8eeaed3}{\index{Reminder\-Settings@{Reminder\-Settings}!m\-\_\-object@{m\-\_\-object}}
+\index{m\-\_\-object@{m\-\_\-object}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{m\-\_\-object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reminder\-Settings} $\ast$ Reminder\-Settings\-::m\-\_\-object = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_reminder_settings_adeaec35aa1f8a576bd8793d6e8eeaed3}
+
+
+Pointer to the object of this class. 
+
+\hypertarget{class_reminder_settings_ac3cc26f8acada7bfc1b7a8cee3e2551c}{\index{Reminder\-Settings@{Reminder\-Settings}!m\-\_\-sound@{m\-\_\-sound}}
+\index{m\-\_\-sound@{m\-\_\-sound}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{m\-\_\-sound}]{\setlength{\rightskip}{0pt plus 5cm}Phonon\-::\-Media\-Object$\ast$ Reminder\-Settings\-::m\-\_\-sound\hspace{0.3cm}{\ttfamily [private]}}}\label{class_reminder_settings_ac3cc26f8acada7bfc1b7a8cee3e2551c}
+
+
+Object which allows to play sounds. 
+
+\hypertarget{class_reminder_settings_a3e4a8a906147325c9f299304d7b38c31}{\index{Reminder\-Settings@{Reminder\-Settings}!m\-\_\-str\-Sound\-Path@{m\-\_\-str\-Sound\-Path}}
+\index{m\-\_\-str\-Sound\-Path@{m\-\_\-str\-Sound\-Path}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{m\-\_\-str\-Sound\-Path}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Reminder\-Settings\-::m\-\_\-str\-Sound\-Path\hspace{0.3cm}{\ttfamily [private]}}}\label{class_reminder_settings_a3e4a8a906147325c9f299304d7b38c31}
+
+
+Path to the sound file. 
+
+\hypertarget{class_reminder_settings_a8cb71405093ce262c5568ee0ee1f5365}{\index{Reminder\-Settings@{Reminder\-Settings}!ui@{ui}}
+\index{ui@{ui}!ReminderSettings@{Reminder\-Settings}}
+\subsubsection[{ui}]{\setlength{\rightskip}{0pt plus 5cm}Ui\-::\-Reminder\-Settings Reminder\-Settings\-::ui\hspace{0.3cm}{\ttfamily [private]}}}\label{class_reminder_settings_a8cb71405093ce262c5568ee0ee1f5365}
+
+
+Object containing all controls of the window. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{reminder__settings_8h}{reminder\-\_\-settings.\-h}\item 
+Do\-For\-Me!/\hyperlink{reminder__settings_8cpp}{reminder\-\_\-settings.\-cpp}\end{DoxyCompactItemize}

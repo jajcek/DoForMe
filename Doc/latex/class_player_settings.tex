@@ -1,0 +1,167 @@
+\hypertarget{class_player_settings}{\section{Player\-Settings Class Reference}
+\label{class_player_settings}\index{Player\-Settings@{Player\-Settings}}
+}
+
+
+Dialog with recorder settings.  
+
+
+
+
+{\ttfamily \#include $<$player\-\_\-settings.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_player_settings_a8623e14748ce11be3649970595af6e19}{delay} () const 
+\item 
+void \hyperlink{class_player_settings_ae25f8572430916f24aa57bd26d080a45}{set\-Delay} (int \hyperlink{class_player_settings_a8623e14748ce11be3649970595af6e19}{delay})
+\begin{DoxyCompactList}\small\item\em Sets the given value as the starting delay (this method puts the given value into the spin box). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_player_settings}{Player\-Settings} $\ast$ \hyperlink{class_player_settings_a28b62d5e7d71353db0c554fea98c7681}{get\-Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_player_settings_adb8d1058a44440fb6658d0b9b2e20e88}{pressed\-Ok} ()
+\begin{DoxyCompactList}\small\item\em Method called when Ok button is clicked. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_settings_a2de1894c53c0862c869eab320fd041d2}{pressed\-Cancel} ()
+\begin{DoxyCompactList}\small\item\em Method called when Cancel button is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_player_settings_a0e73d43f99035a73efd94d51fd79e857}{Player\-Settings} ()
+\begin{DoxyCompactList}\small\item\em Simple constructor which simply sets fields to its default values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\-::player\-\_\-settings\-\_\-dialog \hyperlink{class_player_settings_a165ee7d40a5e19f9930ad852efaecf09}{ui}
+\begin{DoxyCompactList}\small\item\em Object containing all controls of the dialog. \end{DoxyCompactList}\item 
+int \hyperlink{class_player_settings_a3741ec83814a0c32526c79b1d9febe8a}{m\-\_\-i\-Delay}
+\begin{DoxyCompactList}\small\item\em Value determining the starting delay when clicked on Play button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_player_settings}{Player\-Settings} $\ast$ \hyperlink{class_player_settings_ab5a1cadfa2102bf207c5c8f89aba8a9b}{m\-\_\-object} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the object of this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Dialog with recorder settings. 
+
+The dialog has been created with Q\-T Designer. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+4.\-09.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_player_settings_a0e73d43f99035a73efd94d51fd79e857}{\index{Player\-Settings@{Player\-Settings}!Player\-Settings@{Player\-Settings}}
+\index{Player\-Settings@{Player\-Settings}!PlayerSettings@{Player\-Settings}}
+\subsubsection[{Player\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}Player\-Settings\-::\-Player\-Settings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_player_settings_a0e73d43f99035a73efd94d51fd79e857}
+
+
+Simple constructor which simply sets fields to its default values. 
+
+The constructor has been put into the private section to prevent creating instances from the class (because the class is a singleton). 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_player_settings_a8623e14748ce11be3649970595af6e19}{\index{Player\-Settings@{Player\-Settings}!delay@{delay}}
+\index{delay@{delay}!PlayerSettings@{Player\-Settings}}
+\subsubsection[{delay}]{\setlength{\rightskip}{0pt plus 5cm}int Player\-Settings\-::delay (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_player_settings_a8623e14748ce11be3649970595af6e19}
+\begin{DoxyReturn}{Returns}
+Delay value. 
+\end{DoxyReturn}
+\hypertarget{class_player_settings_a28b62d5e7d71353db0c554fea98c7681}{\index{Player\-Settings@{Player\-Settings}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!PlayerSettings@{Player\-Settings}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player\-Settings} $\ast$ Player\-Settings\-::get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_player_settings_a28b62d5e7d71353db0c554fea98c7681}
+\begin{DoxyReturn}{Returns}
+Pointer to the instance of the class. 
+\end{DoxyReturn}
+\hypertarget{class_player_settings_a2de1894c53c0862c869eab320fd041d2}{\index{Player\-Settings@{Player\-Settings}!pressed\-Cancel@{pressed\-Cancel}}
+\index{pressed\-Cancel@{pressed\-Cancel}!PlayerSettings@{Player\-Settings}}
+\subsubsection[{pressed\-Cancel}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-Settings\-::pressed\-Cancel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_player_settings_a2de1894c53c0862c869eab320fd041d2}
+
+
+Method called when Cancel button is clicked. 
+
+\hypertarget{class_player_settings_adb8d1058a44440fb6658d0b9b2e20e88}{\index{Player\-Settings@{Player\-Settings}!pressed\-Ok@{pressed\-Ok}}
+\index{pressed\-Ok@{pressed\-Ok}!PlayerSettings@{Player\-Settings}}
+\subsubsection[{pressed\-Ok}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-Settings\-::pressed\-Ok (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_player_settings_adb8d1058a44440fb6658d0b9b2e20e88}
+
+
+Method called when Ok button is clicked. 
+
+\hypertarget{class_player_settings_ae25f8572430916f24aa57bd26d080a45}{\index{Player\-Settings@{Player\-Settings}!set\-Delay@{set\-Delay}}
+\index{set\-Delay@{set\-Delay}!PlayerSettings@{Player\-Settings}}
+\subsubsection[{set\-Delay}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-Settings\-::set\-Delay (
+\begin{DoxyParamCaption}
+\item[{int}]{delay}
+\end{DoxyParamCaption}
+)}}\label{class_player_settings_ae25f8572430916f24aa57bd26d080a45}
+
+
+Sets the given value as the starting delay (this method puts the given value into the spin box). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em delay} & Delay value. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_player_settings_a3741ec83814a0c32526c79b1d9febe8a}{\index{Player\-Settings@{Player\-Settings}!m\-\_\-i\-Delay@{m\-\_\-i\-Delay}}
+\index{m\-\_\-i\-Delay@{m\-\_\-i\-Delay}!PlayerSettings@{Player\-Settings}}
+\subsubsection[{m\-\_\-i\-Delay}]{\setlength{\rightskip}{0pt plus 5cm}int Player\-Settings\-::m\-\_\-i\-Delay\hspace{0.3cm}{\ttfamily [private]}}}\label{class_player_settings_a3741ec83814a0c32526c79b1d9febe8a}
+
+
+Value determining the starting delay when clicked on Play button. 
+
+\hypertarget{class_player_settings_ab5a1cadfa2102bf207c5c8f89aba8a9b}{\index{Player\-Settings@{Player\-Settings}!m\-\_\-object@{m\-\_\-object}}
+\index{m\-\_\-object@{m\-\_\-object}!PlayerSettings@{Player\-Settings}}
+\subsubsection[{m\-\_\-object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player\-Settings} $\ast$ Player\-Settings\-::m\-\_\-object = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_player_settings_ab5a1cadfa2102bf207c5c8f89aba8a9b}
+
+
+Pointer to the object of this class. 
+
+\hypertarget{class_player_settings_a165ee7d40a5e19f9930ad852efaecf09}{\index{Player\-Settings@{Player\-Settings}!ui@{ui}}
+\index{ui@{ui}!PlayerSettings@{Player\-Settings}}
+\subsubsection[{ui}]{\setlength{\rightskip}{0pt plus 5cm}Ui\-::player\-\_\-settings\-\_\-dialog Player\-Settings\-::ui\hspace{0.3cm}{\ttfamily [private]}}}\label{class_player_settings_a165ee7d40a5e19f9930ad852efaecf09}
+
+
+Object containing all controls of the dialog. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{player__settings_8h}{player\-\_\-settings.\-h}\item 
+Do\-For\-Me!/\hyperlink{player__settings_8cpp}{player\-\_\-settings.\-cpp}\end{DoxyCompactItemize}

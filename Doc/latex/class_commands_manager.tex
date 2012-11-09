@@ -13,6 +13,8 @@ Manager for commands stored in the lua's engine.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{class_commands_manager_a620ebdd3b164ef16266454a719490013}{Commands\-Manager} ()
+\begin{DoxyCompactList}\small\item\em Constructor which sets fields to its default values. \end{DoxyCompactList}\item 
 void \hyperlink{class_commands_manager_a1044e5df37dbb2b174dc9bc6a894d833}{add\-Command} (void($\ast$p\-Cmd)(std\-::deque$<$ int $>$), std\-::deque$<$ int $>$ args)
 \begin{DoxyCompactList}\small\item\em Allows to add commands to the queue. \end{DoxyCompactList}\item 
 void \hyperlink{class_commands_manager_a6de7776ecdf30cb6cf09d11213c0dd29}{execute\-Next} ()
@@ -20,7 +22,9 @@ void \hyperlink{class_commands_manager_a6de7776ecdf30cb6cf09d11213c0dd29}{execut
 bool \hyperlink{class_commands_manager_a1fe3f32d1a8fed15559bc14acc74aceb}{is\-Empty} () const 
 \begin{DoxyCompactList}\small\item\em Checks if there are any commands in the queue. \end{DoxyCompactList}\item 
 void \hyperlink{class_commands_manager_aeda6be0792b5078a4e9c259e00d6456f}{clear\-Commands} ()
-\begin{DoxyCompactList}\small\item\em Removes all commands from the queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Removes all commands from the queue. \end{DoxyCompactList}\item 
+void \hyperlink{class_commands_manager_ae3479cb8bea12e576ae5fcf05f6c6d33}{set\-Action\-For\-Next\-Command} (int action)
+\begin{DoxyCompactList}\small\item\em Sets action (ommit or don't remove from the stack) for the next command. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,7 +32,9 @@ std\-::deque$<$ void($\ast$)(std\-::deque\\*
 $<$ int $>$)$>$ \hyperlink{class_commands_manager_a99e904afc8d341f390efbd2c933c3321}{m\-\_\-commands}
 \begin{DoxyCompactList}\small\item\em Queue with all commands. \end{DoxyCompactList}\item 
 std\-::deque$<$ std\-::deque$<$ int $>$ $>$ \hyperlink{class_commands_manager_a47bce7001c94f824eb8b9acdccd7b1d5}{m\-\_\-args}
-\begin{DoxyCompactList}\small\item\em Queue with all arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Queue with all arguments. \end{DoxyCompactList}\item 
+bool \hyperlink{class_commands_manager_a0732a178dc1347026f7df12b76a0d8de}{m\-\_\-should\-Remove}
+\begin{DoxyCompactList}\small\item\em What to do with next command (remove or not after execution). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -43,6 +49,20 @@ Jacek Topolski
 \begin{DoxyDate}{Date}
 14.\-07.\-2012 
 \end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_commands_manager_a620ebdd3b164ef16266454a719490013}{\index{Commands\-Manager@{Commands\-Manager}!Commands\-Manager@{Commands\-Manager}}
+\index{Commands\-Manager@{Commands\-Manager}!CommandsManager@{Commands\-Manager}}
+\subsubsection[{Commands\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Commands\-Manager\-::\-Commands\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_commands_manager_a620ebdd3b164ef16266454a719490013}
+
+
+Constructor which sets fields to its default values. 
+
 
 
 \subsection{Member Function Documentation}
@@ -105,6 +125,17 @@ Checks if there are any commands in the queue.
 {\em false} & There are no commands. \\
 \hline
 \end{DoxyRetVals}
+\hypertarget{class_commands_manager_ae3479cb8bea12e576ae5fcf05f6c6d33}{\index{Commands\-Manager@{Commands\-Manager}!set\-Action\-For\-Next\-Command@{set\-Action\-For\-Next\-Command}}
+\index{set\-Action\-For\-Next\-Command@{set\-Action\-For\-Next\-Command}!CommandsManager@{Commands\-Manager}}
+\subsubsection[{set\-Action\-For\-Next\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void Commands\-Manager\-::set\-Action\-For\-Next\-Command (
+\begin{DoxyParamCaption}
+\item[{int}]{action}
+\end{DoxyParamCaption}
+)}}\label{class_commands_manager_ae3479cb8bea12e576ae5fcf05f6c6d33}
+
+
+Sets action (ommit or don't remove from the stack) for the next command. 
+
 
 
 \subsection{Member Data Documentation}
@@ -122,7 +153,14 @@ Queue with all arguments.
 
 Queue with all commands. 
 
-It contains pointers to functions with signature void function( std\-::deque$<$int$>$ ) that will be executed in the future. 
+It contains pointers to functions with signature void function( std\-::deque$<$int$>$ ) that will be executed in the future. \hypertarget{class_commands_manager_a0732a178dc1347026f7df12b76a0d8de}{\index{Commands\-Manager@{Commands\-Manager}!m\-\_\-should\-Remove@{m\-\_\-should\-Remove}}
+\index{m\-\_\-should\-Remove@{m\-\_\-should\-Remove}!CommandsManager@{Commands\-Manager}}
+\subsubsection[{m\-\_\-should\-Remove}]{\setlength{\rightskip}{0pt plus 5cm}bool Commands\-Manager\-::m\-\_\-should\-Remove\hspace{0.3cm}{\ttfamily [private]}}}\label{class_commands_manager_a0732a178dc1347026f7df12b76a0d8de}
+
+
+What to do with next command (remove or not after execution). 
+
+
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

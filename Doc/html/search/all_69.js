@@ -1,16 +1,26 @@
 var searchData=
 [
   ['iconactivated',['iconActivated',['../class_tray_system.html#a2971d243ae5826d61b21bdaee9e93d55',1,'TraySystem']]],
+  ['ignore',['ignore',['../class_msg_box_with_duration.html#ad943eace2160d6a804e7e22fe3b8c2a2',1,'MsgBoxWithDuration']]],
+  ['ignoring',['IGNORING',['../class_msg_box_with_duration.html#a073eed452996a098c2cc5c6e8c4b2d41a655fd2c0a110ea9cfe8179a001c58bac',1,'MsgBoxWithDuration']]],
   ['importscripts',['importScripts',['../classmain_win.html#a1de1fce6f04475bd5baf2006ba93f6a0',1,'mainWin']]],
   ['initluaapi',['initLuaApi',['../classmain_win.html#a9c0cfda2b24fa6259874caf7ccd4b908',1,'mainWin']]],
   ['initspecialkeys',['initSpecialKeys',['../class_lua_api_engine.html#a7f614e9a85e02951c0a21e694654b83a',1,'LuaApiEngine']]],
   ['inittraysystem',['initTraySystem',['../classmain_win.html#aaf15be9a17be251351b2bde08dcb2c21',1,'mainWin']]],
   ['insertaction',['insertAction',['../class_database.html#a8b535ecf44b6d41e268750acccf40dc1',1,'Database']]],
   ['insertkeyto',['insertKeyTo',['../class_key.html#ab3097a0cdb61e5e7c1e2f3cba6746a37',1,'Key::insertKeyTo(std::vector&lt; INPUT &gt; &amp;inputs)'],['../class_key.html#a4e99bf27b8920e8e16f27691efedf9ba',1,'Key::insertKeyTo(unsigned short keyCode, unsigned short mode, std::vector&lt; INPUT &gt; &amp;inputs)']]],
+  ['insertsetting',['insertSetting',['../class_database.html#af56fc28d1c9a35ccd8ebe47f2e6ce696',1,'Database']]],
   ['isempty',['isEmpty',['../class_commands_manager.html#a1fe3f32d1a8fed15559bc14acc74aceb',1,'CommandsManager']]],
   ['isexcluded',['isExcluded',['../class_action.html#a9926c6292dadcbd1ceb35a0d01357dc1',1,'Action']]],
   ['ishighlighted',['isHighlighted',['../class_action.html#ad9eb6b1f91a99bfdaf1a4f80860e6088',1,'Action']]],
+  ['iskeyboardon',['isKeyboardOn',['../class_recorder_settings.html#a4e7c5a7f013b04c16d47abe153cd4b3e',1,'RecorderSettings']]],
   ['ismodified',['isModified',['../class_script.html#a4affbe0aa40b4b64ed99a8f5a488aa0f',1,'Script']]],
+  ['ismousemoveon',['isMouseMoveOn',['../class_recorder_settings.html#a8925af6fa99e544ec9e6b8a19135aa73',1,'RecorderSettings']]],
+  ['ismouseon',['isMouseOn',['../class_recorder_settings.html#a91e3abc9690e2383cb201dd6115a4f29',1,'RecorderSettings']]],
+  ['isreminderon',['isReminderOn',['../class_reminder_settings.html#a087fbeb08e6ca903904dce65b231cadf',1,'ReminderSettings']]],
+  ['isrunning',['isRunning',['../class_lua_engine.html#a6187bc7b6aed29babb68b62da1520710',1,'LuaEngine']]],
   ['isscriptused',['isScriptUsed',['../class_actions_calendar.html#ae875272daa2c6f660143f6376182a118',1,'ActionsCalendar']]],
+  ['issoundon',['isSoundOn',['../class_reminder_settings.html#add13263fe45756d27f4a0ba3188f9015',1,'ReminderSettings']]],
+  ['istrayon',['isTrayOn',['../class_recorder_settings.html#a62593e6a3c9f6a732c0a47a17791be4d',1,'RecorderSettings']]],
   ['isxdays',['isXDays',['../class_action.html#a4e95f70f5532330f672ec6d4967cae30',1,'Action::isXDays()'],['../class_action_settings.html#a8f551339364e7535468bc2418b0d1715',1,'ActionSettings::isXDays()']]]
 ];

@@ -1,0 +1,230 @@
+\hypertarget{class_screen_saver}{\section{Screen\-Saver Class Reference}
+\label{class_screen_saver}\index{Screen\-Saver@{Screen\-Saver}}
+}
+
+
+Provides functionality of selecting a fragment of the desktop and save it to a file.  
+
+
+
+
+{\ttfamily \#include $<$screen\-\_\-saver.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_screen_saver_ab3040ba3666934c78eedd1f0beceffa2}{set\-Start\-Point} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Sets starting point -\/ left top point of the rectangle. \end{DoxyCompactList}\item 
+void \hyperlink{class_screen_saver_acb8ee3dffd2bce3341d1f3fd46f7e15b}{set\-End\-Point} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Sets ending point -\/ right bottom point of the rectangle. \end{DoxyCompactList}\item 
+void \hyperlink{class_screen_saver_acba796ba6b48e24aa65ee42687deede3}{set\-Current\-Desktop} ()
+\begin{DoxyCompactList}\small\item\em Gets snapshot of the current desktop and displays it (actually it is displayed in \hyperlink{class_screen_saver_a06d7f1ec63a3c84752d1f0a11c15fe11}{Screen\-Saver\-::paint\-Event} method). \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_screen_saver_a7d636a305825333ab50ed1198f9175b5}{save\-Selected\-Fragment} ()
+\begin{DoxyCompactList}\small\item\em Saves selected fragment to a file. \end{DoxyCompactList}\item 
+void \hyperlink{class_screen_saver_ab031b513dc618b4aeffb768d8ae9bd17}{reset\-Points} ()
+\begin{DoxyCompactList}\small\item\em Sets all of the coordinates fields (m\-\_\-sx etc.) to -\/1 which causes to not draw a red rectangle. \end{DoxyCompactList}\item 
+void \hyperlink{class_screen_saver_a06d7f1ec63a3c84752d1f0a11c15fe11}{paint\-Event} (Q\-Paint\-Event $\ast$p)
+\begin{DoxyCompactList}\small\item\em Engine for drawing snapshots and the red rectangle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_screen_saver}{Screen\-Saver} $\ast$ \hyperlink{class_screen_saver_a01fcce88efebbd86ce9cd0f88b33c706}{get\-Instance} ()
+\begin{DoxyCompactList}\small\item\em Gets the only isntance of the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_screen_saver_a57c7ffe3ed1e7bcc7768a50b012c7831}{Screen\-Saver} ()
+\begin{DoxyCompactList}\small\item\em Private constructor to make the class a singleton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_screen_saver_a492aa831394b15bbdf2c85e99c1af87c}{m\-\_\-sx}
+\begin{DoxyCompactList}\small\item\em Value for the left point of the rectangle. \end{DoxyCompactList}\item 
+int \hyperlink{class_screen_saver_a2a8ec41c3b6fc61e762bd6d8d8f7e347}{m\-\_\-sy}
+\begin{DoxyCompactList}\small\item\em Value for the top point of the rectangle. \end{DoxyCompactList}\item 
+int \hyperlink{class_screen_saver_aa55489d28b7e42b4b75db156bcb3a141}{m\-\_\-ex}
+\begin{DoxyCompactList}\small\item\em Value for the right point of the rectangle. \end{DoxyCompactList}\item 
+int \hyperlink{class_screen_saver_a958952da235541d076867e1ee51b5d5a}{m\-\_\-ey}
+\begin{DoxyCompactList}\small\item\em Value for the bottom point of the rectangle. \end{DoxyCompactList}\item 
+Q\-Image \hyperlink{class_screen_saver_a02d489a9a5ff5777d0aa29f8552efe35}{desktop}
+\begin{DoxyCompactList}\small\item\em Field which keeps image of the entire desktop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_screen_saver}{Screen\-Saver} $\ast$ \hyperlink{class_screen_saver_a2ec2b57eec392500275d7f9afc76859d}{object} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em The instance of the singleton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides functionality of selecting a fragment of the desktop and save it to a file. 
+
+Object of the class is a singleton which provides a form (with attribute 'always on top') which the snapshot of the entire desktop resides on. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+4.\-09.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_screen_saver_a57c7ffe3ed1e7bcc7768a50b012c7831}{\index{Screen\-Saver@{Screen\-Saver}!Screen\-Saver@{Screen\-Saver}}
+\index{Screen\-Saver@{Screen\-Saver}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{Screen\-Saver}]{\setlength{\rightskip}{0pt plus 5cm}Screen\-Saver\-::\-Screen\-Saver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_screen_saver_a57c7ffe3ed1e7bcc7768a50b012c7831}
+
+
+Private constructor to make the class a singleton. 
+
+Also initializes values for left top point of the rectangle. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_screen_saver_a01fcce88efebbd86ce9cd0f88b33c706}{\index{Screen\-Saver@{Screen\-Saver}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Screen\-Saver} $\ast$ Screen\-Saver\-::get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_screen_saver_a01fcce88efebbd86ce9cd0f88b33c706}
+
+
+Gets the only isntance of the object. 
+
+\hypertarget{class_screen_saver_a06d7f1ec63a3c84752d1f0a11c15fe11}{\index{Screen\-Saver@{Screen\-Saver}!paint\-Event@{paint\-Event}}
+\index{paint\-Event@{paint\-Event}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{paint\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void Screen\-Saver\-::paint\-Event (
+\begin{DoxyParamCaption}
+\item[{Q\-Paint\-Event $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{class_screen_saver_a06d7f1ec63a3c84752d1f0a11c15fe11}
+
+
+Engine for drawing snapshots and the red rectangle. 
+
+\hypertarget{class_screen_saver_ab031b513dc618b4aeffb768d8ae9bd17}{\index{Screen\-Saver@{Screen\-Saver}!reset\-Points@{reset\-Points}}
+\index{reset\-Points@{reset\-Points}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{reset\-Points}]{\setlength{\rightskip}{0pt plus 5cm}void Screen\-Saver\-::reset\-Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_screen_saver_ab031b513dc618b4aeffb768d8ae9bd17}
+
+
+Sets all of the coordinates fields (m\-\_\-sx etc.) to -\/1 which causes to not draw a red rectangle. 
+
+\hypertarget{class_screen_saver_a7d636a305825333ab50ed1198f9175b5}{\index{Screen\-Saver@{Screen\-Saver}!save\-Selected\-Fragment@{save\-Selected\-Fragment}}
+\index{save\-Selected\-Fragment@{save\-Selected\-Fragment}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{save\-Selected\-Fragment}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Screen\-Saver\-::save\-Selected\-Fragment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_screen_saver_a7d636a305825333ab50ed1198f9175b5}
+
+
+Saves selected fragment to a file. 
+
+All of the saved files are kept in scripts/pic/ directory where each of them is named pic\-X.\-bmp, where X is an incremental number like pic0.\-bmp, pic1.\-bmp and so on. \hypertarget{class_screen_saver_acba796ba6b48e24aa65ee42687deede3}{\index{Screen\-Saver@{Screen\-Saver}!set\-Current\-Desktop@{set\-Current\-Desktop}}
+\index{set\-Current\-Desktop@{set\-Current\-Desktop}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{set\-Current\-Desktop}]{\setlength{\rightskip}{0pt plus 5cm}void Screen\-Saver\-::set\-Current\-Desktop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_screen_saver_acba796ba6b48e24aa65ee42687deede3}
+
+
+Gets snapshot of the current desktop and displays it (actually it is displayed in \hyperlink{class_screen_saver_a06d7f1ec63a3c84752d1f0a11c15fe11}{Screen\-Saver\-::paint\-Event} method). 
+
+\hypertarget{class_screen_saver_acb8ee3dffd2bce3341d1f3fd46f7e15b}{\index{Screen\-Saver@{Screen\-Saver}!set\-End\-Point@{set\-End\-Point}}
+\index{set\-End\-Point@{set\-End\-Point}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{set\-End\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void Screen\-Saver\-::set\-End\-Point (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{class_screen_saver_acb8ee3dffd2bce3341d1f3fd46f7e15b}
+
+
+Sets ending point -\/ right bottom point of the rectangle. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & Distance from left side of the screen. \\
+\hline
+\mbox{\tt in}  & {\em y} & Distance from top side of the screen. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_screen_saver_ab3040ba3666934c78eedd1f0beceffa2}{\index{Screen\-Saver@{Screen\-Saver}!set\-Start\-Point@{set\-Start\-Point}}
+\index{set\-Start\-Point@{set\-Start\-Point}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{set\-Start\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void Screen\-Saver\-::set\-Start\-Point (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{class_screen_saver_ab3040ba3666934c78eedd1f0beceffa2}
+
+
+Sets starting point -\/ left top point of the rectangle. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & Distance from left side of the screen. \\
+\hline
+\mbox{\tt in}  & {\em y} & Distance from top side of the screen. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_screen_saver_a02d489a9a5ff5777d0aa29f8552efe35}{\index{Screen\-Saver@{Screen\-Saver}!desktop@{desktop}}
+\index{desktop@{desktop}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{desktop}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Image Screen\-Saver\-::desktop\hspace{0.3cm}{\ttfamily [private]}}}\label{class_screen_saver_a02d489a9a5ff5777d0aa29f8552efe35}
+
+
+Field which keeps image of the entire desktop. 
+
+\hypertarget{class_screen_saver_aa55489d28b7e42b4b75db156bcb3a141}{\index{Screen\-Saver@{Screen\-Saver}!m\-\_\-ex@{m\-\_\-ex}}
+\index{m\-\_\-ex@{m\-\_\-ex}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{m\-\_\-ex}]{\setlength{\rightskip}{0pt plus 5cm}int Screen\-Saver\-::m\-\_\-ex\hspace{0.3cm}{\ttfamily [private]}}}\label{class_screen_saver_aa55489d28b7e42b4b75db156bcb3a141}
+
+
+Value for the right point of the rectangle. 
+
+\hypertarget{class_screen_saver_a958952da235541d076867e1ee51b5d5a}{\index{Screen\-Saver@{Screen\-Saver}!m\-\_\-ey@{m\-\_\-ey}}
+\index{m\-\_\-ey@{m\-\_\-ey}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{m\-\_\-ey}]{\setlength{\rightskip}{0pt plus 5cm}int Screen\-Saver\-::m\-\_\-ey\hspace{0.3cm}{\ttfamily [private]}}}\label{class_screen_saver_a958952da235541d076867e1ee51b5d5a}
+
+
+Value for the bottom point of the rectangle. 
+
+\hypertarget{class_screen_saver_a492aa831394b15bbdf2c85e99c1af87c}{\index{Screen\-Saver@{Screen\-Saver}!m\-\_\-sx@{m\-\_\-sx}}
+\index{m\-\_\-sx@{m\-\_\-sx}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{m\-\_\-sx}]{\setlength{\rightskip}{0pt plus 5cm}int Screen\-Saver\-::m\-\_\-sx\hspace{0.3cm}{\ttfamily [private]}}}\label{class_screen_saver_a492aa831394b15bbdf2c85e99c1af87c}
+
+
+Value for the left point of the rectangle. 
+
+\hypertarget{class_screen_saver_a2a8ec41c3b6fc61e762bd6d8d8f7e347}{\index{Screen\-Saver@{Screen\-Saver}!m\-\_\-sy@{m\-\_\-sy}}
+\index{m\-\_\-sy@{m\-\_\-sy}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{m\-\_\-sy}]{\setlength{\rightskip}{0pt plus 5cm}int Screen\-Saver\-::m\-\_\-sy\hspace{0.3cm}{\ttfamily [private]}}}\label{class_screen_saver_a2a8ec41c3b6fc61e762bd6d8d8f7e347}
+
+
+Value for the top point of the rectangle. 
+
+\hypertarget{class_screen_saver_a2ec2b57eec392500275d7f9afc76859d}{\index{Screen\-Saver@{Screen\-Saver}!object@{object}}
+\index{object@{object}!ScreenSaver@{Screen\-Saver}}
+\subsubsection[{object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Screen\-Saver} $\ast$ Screen\-Saver\-::object = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_screen_saver_a2ec2b57eec392500275d7f9afc76859d}
+
+
+The instance of the singleton. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{screen__saver_8h}{screen\-\_\-saver.\-h}\item 
+Do\-For\-Me!/\hyperlink{screen__saver_8cpp}{screen\-\_\-saver.\-cpp}\end{DoxyCompactItemize}

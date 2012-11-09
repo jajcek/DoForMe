@@ -1,0 +1,264 @@
+\hypertarget{class_msg_box_with_duration}{\section{Msg\-Box\-With\-Duration Class Reference}
+\label{class_msg_box_with_duration}\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}}
+}
+
+
+Message box showed when an action is coming up.  
+
+
+
+
+{\ttfamily \#include $<$msg\-\_\-box\-\_\-with\-\_\-duration.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41}{B\-U\-T\-T\-O\-N} \{ \hyperlink{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41acb8045d345b814e888163b1786bfc298}{R\-U\-N} =  0, 
+\hyperlink{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41a06af0f7bc66bc90b7ff3c4487a82b743}{S\-U\-S\-P\-E\-N\-D}, 
+\hyperlink{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41a655fd2c0a110ea9cfe8179a001c58bac}{I\-G\-N\-O\-R\-I\-N\-G}
+ \}
+\begin{DoxyCompactList}\small\item\em Values used to determine the buttons. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_msg_box_with_duration_a7713b19e8ba864a95a602e12e05ac95c}{Msg\-Box\-With\-Duration} (const Q\-String str\-Title, const Q\-String str\-Message, const int i\-Win\-Duration)
+\begin{DoxyCompactList}\small\item\em Constructs dialog with window title, text message and duration. \end{DoxyCompactList}\item 
+void \hyperlink{class_msg_box_with_duration_abf5fd8cee554972bbd35176082e7aab8}{stop\-Time} ()
+\begin{DoxyCompactList}\small\item\em Stops the timer (to not close the dialog after tim duration). \end{DoxyCompactList}\item 
+void \hyperlink{class_msg_box_with_duration_af956a669bce59736d9c5a3d4301fcf77}{start\-Time} ()
+\begin{DoxyCompactList}\small\item\em Starts the timer. \end{DoxyCompactList}\item 
+int \hyperlink{class_msg_box_with_duration_acb6071e4bd54ec3f6280cc0c469317a5}{button\-Clicked} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_msg_box_with_duration_a31849031f1c2ec36acd519f52859b9e6}{run} ()
+\begin{DoxyCompactList}\small\item\em Method called when run button is clicked. \end{DoxyCompactList}\item 
+void \hyperlink{class_msg_box_with_duration_a96b7f825ac6a3d91dc5b44adbb7d2316}{suspend} ()
+\begin{DoxyCompactList}\small\item\em Method called when suspend button is clicked. \end{DoxyCompactList}\item 
+void \hyperlink{class_msg_box_with_duration_ad943eace2160d6a804e7e22fe3b8c2a2}{ignore} ()
+\begin{DoxyCompactList}\small\item\em Method called when ignore button is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_msg_box_with_duration_a4dbdb2e667a57300f94cbd5b0a0d645a}{timer\-Event} (Q\-Timer\-Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Timer which takes care of duration of displaying the dialog. \end{DoxyCompactList}\item 
+void \hyperlink{class_msg_box_with_duration_a6250474fea961afd886f654d716b8a3b}{update\-Time} ()
+\begin{DoxyCompactList}\small\item\em Updates text message by adding some kind of \char`\"{}\-Time elapsed\-: X\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_msg_box_with_duration_afc0d11e89f2bd6e92b50d6ba54ffa8ae}{m\-\_\-i\-Win\-Duration}
+\begin{DoxyCompactList}\small\item\em Duration of the window displaying. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_msg_box_with_duration_ad98c5584c1e572b4dfd2ce93bda0869f}{m\-\_\-str\-Title}
+\begin{DoxyCompactList}\small\item\em Window title. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_msg_box_with_duration_a4d3008361bc8d16dfede02d194054431}{m\-\_\-str\-Message}
+\begin{DoxyCompactList}\small\item\em Window text message. \end{DoxyCompactList}\item 
+int \hyperlink{class_msg_box_with_duration_aa05c4b5b8f0615c52c1dee7c4d00c0ed}{m\-\_\-button\-Clicked}
+\begin{DoxyCompactList}\small\item\em Value determining which button has been clicked (to process it outside the class). \end{DoxyCompactList}\item 
+Q\-Basic\-Timer \hyperlink{class_msg_box_with_duration_a37d6effb60594f9c1a3bd8d640203cf5}{m\-\_\-timer}
+\begin{DoxyCompactList}\small\item\em Time used in connection with \hyperlink{class_msg_box_with_duration_afc0d11e89f2bd6e92b50d6ba54ffa8ae}{Msg\-Box\-With\-Duration\-::m\-\_\-i\-Win\-Duration} value. \end{DoxyCompactList}\item 
+Ui\-::notification\-\_\-dialog \hyperlink{class_msg_box_with_duration_af9d5df1430e9ad3390e7f353fc57f01d}{ui}
+\begin{DoxyCompactList}\small\item\em Object containing all controls of the dialog. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Message box showed when an action is coming up. 
+
+The dialog has been created with Q\-T Designer. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2.\-09.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!B\-U\-T\-T\-O\-N@{B\-U\-T\-T\-O\-N}}
+\index{B\-U\-T\-T\-O\-N@{B\-U\-T\-T\-O\-N}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{B\-U\-T\-T\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Msg\-Box\-With\-Duration\-::\-B\-U\-T\-T\-O\-N}}}\label{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41}
+
+
+Values used to determine the buttons. 
+
+\begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{R\-U\-N@{R\-U\-N}!Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}}\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!R\-U\-N@{R\-U\-N}}\item[{\em 
+\hypertarget{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41acb8045d345b814e888163b1786bfc298}{R\-U\-N}\label{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41acb8045d345b814e888163b1786bfc298}
+}]\index{S\-U\-S\-P\-E\-N\-D@{S\-U\-S\-P\-E\-N\-D}!Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}}\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!S\-U\-S\-P\-E\-N\-D@{S\-U\-S\-P\-E\-N\-D}}\item[{\em 
+\hypertarget{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41a06af0f7bc66bc90b7ff3c4487a82b743}{S\-U\-S\-P\-E\-N\-D}\label{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41a06af0f7bc66bc90b7ff3c4487a82b743}
+}]\index{I\-G\-N\-O\-R\-I\-N\-G@{I\-G\-N\-O\-R\-I\-N\-G}!Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}}\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!I\-G\-N\-O\-R\-I\-N\-G@{I\-G\-N\-O\-R\-I\-N\-G}}\item[{\em 
+\hypertarget{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41a655fd2c0a110ea9cfe8179a001c58bac}{I\-G\-N\-O\-R\-I\-N\-G}\label{class_msg_box_with_duration_a073eed452996a098c2cc5c6e8c4b2d41a655fd2c0a110ea9cfe8179a001c58bac}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_msg_box_with_duration_a7713b19e8ba864a95a602e12e05ac95c}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}}
+\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{Msg\-Box\-With\-Duration}]{\setlength{\rightskip}{0pt plus 5cm}Msg\-Box\-With\-Duration\-::\-Msg\-Box\-With\-Duration (
+\begin{DoxyParamCaption}
+\item[{const Q\-String}]{str\-Title, }
+\item[{const Q\-String}]{str\-Message, }
+\item[{const int}]{i\-Win\-Duration}
+\end{DoxyParamCaption}
+)}}\label{class_msg_box_with_duration_a7713b19e8ba864a95a602e12e05ac95c}
+
+
+Constructs dialog with window title, text message and duration. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em str\-Title} & Title of the window. \\
+\hline
+\mbox{\tt in}  & {\em str\-Message} & Text message for the window. \\
+\hline
+\mbox{\tt in}  & {\em i\-Win\-Duration} & Duration of displaying the window in seconds. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_msg_box_with_duration_acb6071e4bd54ec3f6280cc0c469317a5}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!button\-Clicked@{button\-Clicked}}
+\index{button\-Clicked@{button\-Clicked}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{button\-Clicked}]{\setlength{\rightskip}{0pt plus 5cm}int Msg\-Box\-With\-Duration\-::button\-Clicked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_msg_box_with_duration_acb6071e4bd54ec3f6280cc0c469317a5}
+\begin{DoxyReturn}{Returns}
+Value which specifies which button has been clicked. 
+\end{DoxyReturn}
+\hypertarget{class_msg_box_with_duration_ad943eace2160d6a804e7e22fe3b8c2a2}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!ignore@{ignore}}
+\index{ignore@{ignore}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{ignore}]{\setlength{\rightskip}{0pt plus 5cm}void Msg\-Box\-With\-Duration\-::ignore (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_msg_box_with_duration_ad943eace2160d6a804e7e22fe3b8c2a2}
+
+
+Method called when ignore button is clicked. 
+
+\hypertarget{class_msg_box_with_duration_a31849031f1c2ec36acd519f52859b9e6}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!run@{run}}
+\index{run@{run}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void Msg\-Box\-With\-Duration\-::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_msg_box_with_duration_a31849031f1c2ec36acd519f52859b9e6}
+
+
+Method called when run button is clicked. 
+
+\hypertarget{class_msg_box_with_duration_af956a669bce59736d9c5a3d4301fcf77}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!start\-Time@{start\-Time}}
+\index{start\-Time@{start\-Time}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{start\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void Msg\-Box\-With\-Duration\-::start\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_msg_box_with_duration_af956a669bce59736d9c5a3d4301fcf77}
+
+
+Starts the timer. 
+
+This can be used to re-\/start the timer, because the \hyperlink{class_msg_box_with_duration_afc0d11e89f2bd6e92b50d6ba54ffa8ae}{Msg\-Box\-With\-Duration\-::m\-\_\-i\-Win\-Duration} value is not reseted. See \hyperlink{class_msg_box_with_duration_abf5fd8cee554972bbd35176082e7aab8}{Msg\-Box\-With\-Duration\-::stop\-Time} method for details. \hypertarget{class_msg_box_with_duration_abf5fd8cee554972bbd35176082e7aab8}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!stop\-Time@{stop\-Time}}
+\index{stop\-Time@{stop\-Time}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{stop\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void Msg\-Box\-With\-Duration\-::stop\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_msg_box_with_duration_abf5fd8cee554972bbd35176082e7aab8}
+
+
+Stops the timer (to not close the dialog after tim duration). 
+
+\hypertarget{class_msg_box_with_duration_a96b7f825ac6a3d91dc5b44adbb7d2316}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!suspend@{suspend}}
+\index{suspend@{suspend}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{suspend}]{\setlength{\rightskip}{0pt plus 5cm}void Msg\-Box\-With\-Duration\-::suspend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_msg_box_with_duration_a96b7f825ac6a3d91dc5b44adbb7d2316}
+
+
+Method called when suspend button is clicked. 
+
+\hypertarget{class_msg_box_with_duration_a4dbdb2e667a57300f94cbd5b0a0d645a}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!timer\-Event@{timer\-Event}}
+\index{timer\-Event@{timer\-Event}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{timer\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void Msg\-Box\-With\-Duration\-::timer\-Event (
+\begin{DoxyParamCaption}
+\item[{Q\-Timer\-Event $\ast$}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_msg_box_with_duration_a4dbdb2e667a57300f94cbd5b0a0d645a}
+
+
+Timer which takes care of duration of displaying the dialog. 
+
+\hypertarget{class_msg_box_with_duration_a6250474fea961afd886f654d716b8a3b}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!update\-Time@{update\-Time}}
+\index{update\-Time@{update\-Time}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{update\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void Msg\-Box\-With\-Duration\-::update\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_msg_box_with_duration_a6250474fea961afd886f654d716b8a3b}
+
+
+Updates text message by adding some kind of \char`\"{}\-Time elapsed\-: X\char`\"{}. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_msg_box_with_duration_aa05c4b5b8f0615c52c1dee7c4d00c0ed}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!m\-\_\-button\-Clicked@{m\-\_\-button\-Clicked}}
+\index{m\-\_\-button\-Clicked@{m\-\_\-button\-Clicked}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{m\-\_\-button\-Clicked}]{\setlength{\rightskip}{0pt plus 5cm}int Msg\-Box\-With\-Duration\-::m\-\_\-button\-Clicked\hspace{0.3cm}{\ttfamily [private]}}}\label{class_msg_box_with_duration_aa05c4b5b8f0615c52c1dee7c4d00c0ed}
+
+
+Value determining which button has been clicked (to process it outside the class). 
+
+\hypertarget{class_msg_box_with_duration_afc0d11e89f2bd6e92b50d6ba54ffa8ae}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!m\-\_\-i\-Win\-Duration@{m\-\_\-i\-Win\-Duration}}
+\index{m\-\_\-i\-Win\-Duration@{m\-\_\-i\-Win\-Duration}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{m\-\_\-i\-Win\-Duration}]{\setlength{\rightskip}{0pt plus 5cm}int Msg\-Box\-With\-Duration\-::m\-\_\-i\-Win\-Duration\hspace{0.3cm}{\ttfamily [private]}}}\label{class_msg_box_with_duration_afc0d11e89f2bd6e92b50d6ba54ffa8ae}
+
+
+Duration of the window displaying. 
+
+\hypertarget{class_msg_box_with_duration_a4d3008361bc8d16dfede02d194054431}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!m\-\_\-str\-Message@{m\-\_\-str\-Message}}
+\index{m\-\_\-str\-Message@{m\-\_\-str\-Message}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{m\-\_\-str\-Message}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Msg\-Box\-With\-Duration\-::m\-\_\-str\-Message\hspace{0.3cm}{\ttfamily [private]}}}\label{class_msg_box_with_duration_a4d3008361bc8d16dfede02d194054431}
+
+
+Window text message. 
+
+\hypertarget{class_msg_box_with_duration_ad98c5584c1e572b4dfd2ce93bda0869f}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!m\-\_\-str\-Title@{m\-\_\-str\-Title}}
+\index{m\-\_\-str\-Title@{m\-\_\-str\-Title}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{m\-\_\-str\-Title}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Msg\-Box\-With\-Duration\-::m\-\_\-str\-Title\hspace{0.3cm}{\ttfamily [private]}}}\label{class_msg_box_with_duration_ad98c5584c1e572b4dfd2ce93bda0869f}
+
+
+Window title. 
+
+\hypertarget{class_msg_box_with_duration_a37d6effb60594f9c1a3bd8d640203cf5}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!m\-\_\-timer@{m\-\_\-timer}}
+\index{m\-\_\-timer@{m\-\_\-timer}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{m\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Basic\-Timer Msg\-Box\-With\-Duration\-::m\-\_\-timer\hspace{0.3cm}{\ttfamily [private]}}}\label{class_msg_box_with_duration_a37d6effb60594f9c1a3bd8d640203cf5}
+
+
+Time used in connection with \hyperlink{class_msg_box_with_duration_afc0d11e89f2bd6e92b50d6ba54ffa8ae}{Msg\-Box\-With\-Duration\-::m\-\_\-i\-Win\-Duration} value. 
+
+\hypertarget{class_msg_box_with_duration_af9d5df1430e9ad3390e7f353fc57f01d}{\index{Msg\-Box\-With\-Duration@{Msg\-Box\-With\-Duration}!ui@{ui}}
+\index{ui@{ui}!MsgBoxWithDuration@{Msg\-Box\-With\-Duration}}
+\subsubsection[{ui}]{\setlength{\rightskip}{0pt plus 5cm}Ui\-::notification\-\_\-dialog Msg\-Box\-With\-Duration\-::ui\hspace{0.3cm}{\ttfamily [private]}}}\label{class_msg_box_with_duration_af9d5df1430e9ad3390e7f353fc57f01d}
+
+
+Object containing all controls of the dialog. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{msg__box__with__duration_8h}{msg\-\_\-box\-\_\-with\-\_\-duration.\-h}\item 
+Do\-For\-Me!/\hyperlink{msg__box__with__duration_8cpp}{msg\-\_\-box\-\_\-with\-\_\-duration.\-cpp}\end{DoxyCompactItemize}

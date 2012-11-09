@@ -4,7 +4,7 @@
 #include "ui_player_settings_dialog.h"
 
 /**
-	\class RecorderSettings recorder_settings.h "recorder_settings.h"
+	\class PlayerSettings player_settings.h "player_settings.h"
 	\brief Dialog with recorder settings.
 	\details The dialog has been created with QT Designer.
 	\author Jacek Topolski

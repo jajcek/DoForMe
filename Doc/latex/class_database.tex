@@ -21,17 +21,27 @@ void \hyperlink{class_database_a0d0134e05c8f2dc4fcbbb2f36c02a779}{open} ()
 \begin{DoxyCompactList}\small\item\em Opens the database. \end{DoxyCompactList}\item 
 void \hyperlink{class_database_a7fd3f2692980d3aadd3cb609a5f958c3}{prepare\-Table\-For\-Actions} ()
 \begin{DoxyCompactList}\small\item\em Creates table for actions. \end{DoxyCompactList}\item 
-void \hyperlink{class_database_a704e65b47bb56b36b7ef436a16fdd0a6}{clear\-Contents} ()
-\begin{DoxyCompactList}\small\item\em Clears all of the rows in the table (truncates table). \end{DoxyCompactList}\item 
+void \hyperlink{class_database_a6d5de878d23cd350a4e1de13ed026608}{prepare\-Table\-For\-Settings} ()
+\begin{DoxyCompactList}\small\item\em Creates table for settings. \end{DoxyCompactList}\item 
+void \hyperlink{class_database_a6686882d66f211ad4c92a0188e228b5a}{clear\-Actions} ()
+\begin{DoxyCompactList}\small\item\em Clears all of the rows in the actions table (truncates table). \end{DoxyCompactList}\item 
+void \hyperlink{class_database_a49483f5668fe0627beab7763d6891bbd}{clear\-Settings} ()
+\begin{DoxyCompactList}\small\item\em Clears all of the rows in the settings table (truncates table). \end{DoxyCompactList}\item 
 void \hyperlink{class_database_a8b535ecf44b6d41e268750acccf40dc1}{insert\-Action} (Q\-Date date, \hyperlink{class_action}{Action} $\ast$action)
-\begin{DoxyCompactList}\small\item\em Inserts action to the database. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Inserts action into the database. \end{DoxyCompactList}\item 
+void \hyperlink{class_database_af56fc28d1c9a35ccd8ebe47f2e6ce696}{insert\-Setting} (Q\-String key, Q\-String value)
+\begin{DoxyCompactList}\small\item\em Inserts setting into the database. \end{DoxyCompactList}\item 
 Q\-Vector$<$ Q\-Pair$<$ Q\-Date, \hyperlink{class_action}{Action} $\ast$ $>$ $>$ \hyperlink{class_database_ad796e97b41e4a8707017f70142c6160d}{select\-Actions} ()
-\end{DoxyCompactItemize}
+\item 
+Q\-Map$<$ Q\-String, Q\-String $>$ \hyperlink{class_database_ad4b61d5826ea3eea0b3e539a90b77c04}{select\-Settings} ()
+\begin{DoxyCompactList}\small\item\em Map of every setting of the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static int \hyperlink{class_database_ae6ab1b4da47468a98e480b195d56c17a}{get\-Row} (void $\ast$not\-Used, int argc, char $\ast$$\ast$argv, char $\ast$$\ast$column\-Name)
-\begin{DoxyCompactList}\small\item\em Helper function used as callback in sqlite method for getting rows. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static int \hyperlink{class_database_a1f9290561a0a91c102cb8d923c3fec7e}{get\-Action\-Row} (void $\ast$not\-Used, int argc, char $\ast$$\ast$argv, char $\ast$$\ast$column\-Name)
+\begin{DoxyCompactList}\small\item\em Helper function used as callback in sqlite method for getting rows for actions. \end{DoxyCompactList}\item 
+static int \hyperlink{class_database_a67e6a9023b5d1d829ba5ac68f33cb5b7}{get\-Setting\-Row} (void $\ast$not\-Used, int argc, char $\ast$$\ast$argv, char $\ast$$\ast$column\-Name)
+\begin{DoxyCompactList}\small\item\em Helper function used as callback in sqlite method for getting rows for settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -44,7 +54,9 @@ sqlite3 $\ast$ \hyperlink{class_database_ac64f96c196a98d531cbe18a9fadc3b4b}{m\-\
 \item 
 static Q\-Vector$<$ Q\-Pair$<$ Q\-Date, \\*
 \hyperlink{class_action}{Action} $\ast$ $>$ $>$ \hyperlink{class_database_a235387dc22dc1a6057af86c330440dca}{m\-\_\-last\-Selected\-Actions}
-\begin{DoxyCompactList}\small\item\em Vector of the last selected actions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Vector of the last selected actions. \end{DoxyCompactList}\item 
+static Q\-Map$<$ Q\-String, Q\-String $>$ \hyperlink{class_database_a5196350281ff8662de16ea7fd06c0e8a}{m\-\_\-last\-Selected\-Settings}
+\begin{DoxyCompactList}\small\item\em Map of all settings, key is the setting and value its content. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -95,30 +107,69 @@ Closes the database.
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_database_a704e65b47bb56b36b7ef436a16fdd0a6}{\index{Database@{Database}!clear\-Contents@{clear\-Contents}}
-\index{clear\-Contents@{clear\-Contents}!Database@{Database}}
-\subsubsection[{clear\-Contents}]{\setlength{\rightskip}{0pt plus 5cm}void Database\-::clear\-Contents (
+\hypertarget{class_database_a6686882d66f211ad4c92a0188e228b5a}{\index{Database@{Database}!clear\-Actions@{clear\-Actions}}
+\index{clear\-Actions@{clear\-Actions}!Database@{Database}}
+\subsubsection[{clear\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}void Database\-::clear\-Actions (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{class_database_a704e65b47bb56b36b7ef436a16fdd0a6}
+)}}\label{class_database_a6686882d66f211ad4c92a0188e228b5a}
 
 
-Clears all of the rows in the table (truncates table). 
+Clears all of the rows in the actions table (truncates table). 
 
-\hypertarget{class_database_ae6ab1b4da47468a98e480b195d56c17a}{\index{Database@{Database}!get\-Row@{get\-Row}}
-\index{get\-Row@{get\-Row}!Database@{Database}}
-\subsubsection[{get\-Row}]{\setlength{\rightskip}{0pt plus 5cm}int Database\-::get\-Row (
+\hypertarget{class_database_a49483f5668fe0627beab7763d6891bbd}{\index{Database@{Database}!clear\-Settings@{clear\-Settings}}
+\index{clear\-Settings@{clear\-Settings}!Database@{Database}}
+\subsubsection[{clear\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}void Database\-::clear\-Settings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_database_a49483f5668fe0627beab7763d6891bbd}
+
+
+Clears all of the rows in the settings table (truncates table). 
+
+\hypertarget{class_database_a1f9290561a0a91c102cb8d923c3fec7e}{\index{Database@{Database}!get\-Action\-Row@{get\-Action\-Row}}
+\index{get\-Action\-Row@{get\-Action\-Row}!Database@{Database}}
+\subsubsection[{get\-Action\-Row}]{\setlength{\rightskip}{0pt plus 5cm}int Database\-::get\-Action\-Row (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{not\-Used, }
 \item[{int}]{argc, }
 \item[{char $\ast$$\ast$}]{argv, }
 \item[{char $\ast$$\ast$}]{column\-Name}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_database_ae6ab1b4da47468a98e480b195d56c17a}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_database_a1f9290561a0a91c102cb8d923c3fec7e}
 
 
-Helper function used as callback in sqlite method for getting rows. 
+Helper function used as callback in sqlite method for getting rows for actions. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em not\-Used} & Reserved for S\-Q\-Lite. \\
+\hline
+\mbox{\tt in}  & {\em argc} & Number of rows returned. \\
+\hline
+\mbox{\tt in}  & {\em argv} & Array of returned elements. \\
+\hline
+\mbox{\tt in}  & {\em column\-Name} & Name of the column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code. 0 means success. 
+\end{DoxyReturn}
+\hypertarget{class_database_a67e6a9023b5d1d829ba5ac68f33cb5b7}{\index{Database@{Database}!get\-Setting\-Row@{get\-Setting\-Row}}
+\index{get\-Setting\-Row@{get\-Setting\-Row}!Database@{Database}}
+\subsubsection[{get\-Setting\-Row}]{\setlength{\rightskip}{0pt plus 5cm}int Database\-::get\-Setting\-Row (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{not\-Used, }
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv, }
+\item[{char $\ast$$\ast$}]{column\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_database_a67e6a9023b5d1d829ba5ac68f33cb5b7}
+
+
+Helper function used as callback in sqlite method for getting rows for settings. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -144,13 +195,32 @@ Error code. 0 means success.
 )}}\label{class_database_a8b535ecf44b6d41e268750acccf40dc1}
 
 
-Inserts action to the database. 
+Inserts action into the database. 
 
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em date} & Date for the action. \\
 \hline
 \mbox{\tt in}  & {\em action} & \hyperlink{class_action}{Action} to be put into the database. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_database_af56fc28d1c9a35ccd8ebe47f2e6ce696}{\index{Database@{Database}!insert\-Setting@{insert\-Setting}}
+\index{insert\-Setting@{insert\-Setting}!Database@{Database}}
+\subsubsection[{insert\-Setting}]{\setlength{\rightskip}{0pt plus 5cm}void Database\-::insert\-Setting (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{key, }
+\item[{Q\-String}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_database_af56fc28d1c9a35ccd8ebe47f2e6ce696}
+
+
+Inserts setting into the database. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em key} & \hyperlink{class_key}{Key} needed to be saved. \\
+\hline
+\mbox{\tt in}  & {\em value} & Value of the key. \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_database_a0d0134e05c8f2dc4fcbbb2f36c02a779}{\index{Database@{Database}!open@{open}}
@@ -175,6 +245,17 @@ Opens the database.
 
 Creates table for actions. 
 
+\hypertarget{class_database_a6d5de878d23cd350a4e1de13ed026608}{\index{Database@{Database}!prepare\-Table\-For\-Settings@{prepare\-Table\-For\-Settings}}
+\index{prepare\-Table\-For\-Settings@{prepare\-Table\-For\-Settings}!Database@{Database}}
+\subsubsection[{prepare\-Table\-For\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}void Database\-::prepare\-Table\-For\-Settings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_database_a6d5de878d23cd350a4e1de13ed026608}
+
+
+Creates table for settings. 
+
 \hypertarget{class_database_ad796e97b41e4a8707017f70142c6160d}{\index{Database@{Database}!select\-Actions@{select\-Actions}}
 \index{select\-Actions@{select\-Actions}!Database@{Database}}
 \subsubsection[{select\-Actions}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<$ Q\-Pair$<$ Q\-Date, {\bf Action} $\ast$ $>$ $>$ Database\-::select\-Actions (
@@ -185,7 +266,18 @@ Creates table for actions.
 \begin{DoxyReturn}{Returns}
 Vector of pairs in which the first element is the date on which the action exists and the second element is the action itself. 
 \end{DoxyReturn}
+\hypertarget{class_database_ad4b61d5826ea3eea0b3e539a90b77c04}{\index{Database@{Database}!select\-Settings@{select\-Settings}}
+\index{select\-Settings@{select\-Settings}!Database@{Database}}
+\subsubsection[{select\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Map$<$ Q\-String, Q\-String $>$ Database\-::select\-Settings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_database_ad4b61d5826ea3eea0b3e539a90b77c04}
 
+
+Map of every setting of the program. 
+
+The key is the setting and the value its content. 
 
 \subsection{Member Data Documentation}
 \hypertarget{class_database_ac64f96c196a98d531cbe18a9fadc3b4b}{\index{Database@{Database}!m\-\_\-db@{m\-\_\-db}}
@@ -208,6 +300,13 @@ Name of the database;.
 
 
 Vector of the last selected actions. 
+
+\hypertarget{class_database_a5196350281ff8662de16ea7fd06c0e8a}{\index{Database@{Database}!m\-\_\-last\-Selected\-Settings@{m\-\_\-last\-Selected\-Settings}}
+\index{m\-\_\-last\-Selected\-Settings@{m\-\_\-last\-Selected\-Settings}!Database@{Database}}
+\subsubsection[{m\-\_\-last\-Selected\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Map$<$ Q\-String, Q\-String $>$ Database\-::m\-\_\-last\-Selected\-Settings\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_database_a5196350281ff8662de16ea7fd06c0e8a}
+
+
+Map of all settings, key is the setting and value its content. 
 
 
 

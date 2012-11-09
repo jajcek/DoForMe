@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,6 +112,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a79b3d1c188f66790d4647ce352f978ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get path to the file by which the object has been created.  <a href="#a79b3d1c188f66790d4647ce352f978ab"></a><br/></td></tr>
 <tr class="memitem:a4fe7b18819eeebb1ed154f6350ba7fef"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_script.html#a4fe7b18819eeebb1ed154f6350ba7fef">getFileName</a> () const </td></tr>
 <tr class="memdesc:a4fe7b18819eeebb1ed154f6350ba7fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets file name (without extension) of the script file.  <a href="#a4fe7b18819eeebb1ed154f6350ba7fef"></a><br/></td></tr>
+<tr class="memitem:abc3444fcb6faaa74c348a213d7f031a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_script.html#abc3444fcb6faaa74c348a213d7f031a6">setFileName</a> (const QString &amp;fileName)</td></tr>
 <tr class="memitem:a6d238ee550711d495c720598be7d9f21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_script.html#a6d238ee550711d495c720598be7d9f21">setModified</a> (bool <a class="el" href="class_script.html#a4affbe0aa40b4b64ed99a8f5a488aa0f">isModified</a>)</td></tr>
 <tr class="memdesc:a6d238ee550711d495c720598be7d9f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes state of the script (modified/unmodified).  <a href="#a6d238ee550711d495c720598be7d9f21"></a><br/></td></tr>
 <tr class="memitem:a4affbe0aa40b4b64ed99a8f5a488aa0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_script.html#a4affbe0aa40b4b64ed99a8f5a488aa0f">isModified</a> () const </td></tr>
@@ -312,6 +313,22 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="abc3444fcb6faaa74c348a213d7f031a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Script::setFileName </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a6d238ee550711d495c720598be7d9f21"></a>
 <div class="memitem">
 <div class="memproto">
@@ -477,7 +494,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 29 2012 23:05:31 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 9 2012 12:44:56 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

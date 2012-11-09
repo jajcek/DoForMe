@@ -15,6 +15,10 @@ L\-U\-A A\-P\-I functions.
 \item 
 static void \hyperlink{class_lua_api_engine_a7f614e9a85e02951c0a21e694654b83a}{init\-Special\-Keys} ()
 \begin{DoxyCompactList}\small\item\em Initialize all special keys that will be available to users. \end{DoxyCompactList}\item 
+static std\-::string \hyperlink{class_lua_api_engine_abfc4e4afd5002dddfe5fc2db4519e2fc}{get\-String\-Key} (int vk\-Code)
+\begin{DoxyCompactList}\small\item\em Gets string key from m\-\_\-vk\-Code\-To\-Key map. \end{DoxyCompactList}\item 
+static int \hyperlink{class_lua_api_engine_a0f3ab3263ec793f35bf0797efdb34aaa}{prepare\-Set\-Interval} (lua\-\_\-\-State $\ast$state)
+\begin{DoxyCompactList}\small\item\em Puts changing G\-U\-I interval (Lua\-Api\-Engie\-::\-G\-U\-I\-Interval\-Change) command to the \hyperlink{class_lua_engine}{Lua\-Engine}. \end{DoxyCompactList}\item 
 static int \hyperlink{class_lua_api_engine_a03308524bb7be3fca0e5865a0eba6c41}{prepare\-Sleep} (lua\-\_\-\-State $\ast$state)
 \begin{DoxyCompactList}\small\item\em Puts watiting (Lua\-Api\-Engie\-::sleep) command to the \hyperlink{class_lua_engine}{Lua\-Engine}. \end{DoxyCompactList}\item 
 static int \hyperlink{class_lua_api_engine_a5e6c9c1b66d19a4f65d6c65d6ae849a2}{prepare\-Left\-Down} (lua\-\_\-\-State $\ast$state)
@@ -61,6 +65,10 @@ static int \hyperlink{class_lua_api_engine_a700aa78e4509bca70b5b23cfe98ce7b3}{pr
 \begin{DoxyCompactList}\small\item\em Puts mouse move command (\hyperlink{class_lua_api_engine_a8512ba309e37218b1586f8a41cae4451}{Lua\-Api\-Engine\-::move\-To}) to the \hyperlink{class_lua_engine}{Lua\-Engine}. \end{DoxyCompactList}\item 
 static int \hyperlink{class_lua_api_engine_a8f327b5c6d5819c9078b53a665842c47}{prepare\-Send\-Text} (lua\-\_\-\-State $\ast$state)
 \begin{DoxyCompactList}\small\item\em Puts sending text command (\hyperlink{class_lua_api_engine_a396ae61c3f7c771f5fe06584cef15169}{Lua\-Api\-Engine\-::send\-Text}) to the \hyperlink{class_lua_engine}{Lua\-Engine}. \end{DoxyCompactList}\item 
+static int \hyperlink{class_lua_api_engine_aedff90d60bc2f217557e93c297c2a226}{prepare\-Run} (lua\-\_\-\-State $\ast$state)
+\begin{DoxyCompactList}\small\item\em Puts run command onto the stack. \end{DoxyCompactList}\item 
+static int \hyperlink{class_lua_api_engine_ac79f2f968c53a1d2d29cd40557fd363a}{prepare\-Wait\-For\-Image} (lua\-\_\-\-State $\ast$state)
+\begin{DoxyCompactList}\small\item\em Puts get\-Color command onto the stack. \end{DoxyCompactList}\item 
 static void \hyperlink{class_lua_api_engine_a5942498f999031601960d890b259536b}{left\-Down} ()
 \begin{DoxyCompactList}\small\item\em Executes left mouse button press. \end{DoxyCompactList}\item 
 static void \hyperlink{class_lua_api_engine_a14df77fdabe3ddf5dd19c35e70acb2d8}{right\-Down} ()
@@ -81,22 +89,34 @@ static void \hyperlink{class_lua_api_engine_a633c229323434db2d1af7f66c1517a34}{m
 \begin{DoxyCompactList}\small\item\em Executes middle mouse button click. \end{DoxyCompactList}\item 
 static void \hyperlink{class_lua_api_engine_a2004f3ce56fc785e0276491642e39e7a}{left\-Double\-Click} ()
 \begin{DoxyCompactList}\small\item\em Executes left mouse button double click. \end{DoxyCompactList}\item 
+static void \hyperlink{class_lua_api_engine_a1fd7ea4ba6fe3a396cd1dfff02db1a7c}{set\-Interval} (std\-::deque$<$ int $>$ args)
+\begin{DoxyCompactList}\small\item\em Executes changing G\-U\-I interval command. \end{DoxyCompactList}\item 
 static void \hyperlink{class_lua_api_engine_a6910c482ffa6327999b49504522991b7}{sleep} (std\-::deque$<$ int $>$ args)
 \begin{DoxyCompactList}\small\item\em Executes waiting command. \end{DoxyCompactList}\item 
 static void \hyperlink{class_lua_api_engine_a8512ba309e37218b1586f8a41cae4451}{move\-To} (std\-::deque$<$ int $>$ args)
 \begin{DoxyCompactList}\small\item\em Executes mouse movement. \end{DoxyCompactList}\item 
 static void \hyperlink{class_lua_api_engine_a396ae61c3f7c771f5fe06584cef15169}{send\-Text} (std\-::deque$<$ int $>$ args)
-\begin{DoxyCompactList}\small\item\em Executes sending text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Executes sending text. \end{DoxyCompactList}\item 
+static void \hyperlink{class_lua_api_engine_ab5acad2a0387e17c58ba85c885d8bc55}{run} (std\-::deque$<$ int $>$ args)
+\begin{DoxyCompactList}\small\item\em Runs an external executable application. \end{DoxyCompactList}\item 
+static void \hyperlink{class_lua_api_engine_a865f4456b04ea93d96ba3f380297bf61}{wait\-For\-Image} (std\-::deque$<$ int $>$ args)
+\begin{DoxyCompactList}\small\item\em Gets color at the specified coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static int \hyperlink{class_lua_api_engine_ac1b8a6a2ea07065dc1c3f7eed7937d8d}{get\-Special\-Key} (Q\-String \&special\-Key, std\-::deque$<$ int $>$ \&args)
-\begin{DoxyCompactList}\small\item\em Helper function that gets text from \{\} brackets from \hyperlink{class_lua_api_engine_a396ae61c3f7c771f5fe06584cef15169}{Lua\-Api\-Engine\-::send\-Text()} argument. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Helper function that gets text from \{\} brackets from \hyperlink{class_lua_api_engine_a396ae61c3f7c771f5fe06584cef15169}{Lua\-Api\-Engine\-::send\-Text()} argument. \end{DoxyCompactList}\item 
+static void \hyperlink{class_lua_api_engine_aaf7a65845f4463e07ca453362e6f3879}{set\-Function\-Success} ()
+\begin{DoxyCompactList}\small\item\em Sets a function as it has been executed correctly, by setting the value in commands manager. \end{DoxyCompactList}\item 
+static void \hyperlink{class_lua_api_engine_ad3fe8cc05d66d4fd61266b2f992caeda}{set\-Function\-Failed} ()
+\begin{DoxyCompactList}\small\item\em Sets a function as it hasn't been executed correctly, by setting the value in commands manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 static std\-::map$<$ Q\-String, \hyperlink{class_key}{Key} $\ast$ $>$ \hyperlink{class_lua_api_engine_a9fdba2d7f2f8d051453b5d1561435f5e}{m\-\_\-special\-Keys}
-\begin{DoxyCompactList}\small\item\em Field that maps string to \hyperlink{class_key}{Key} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Field that maps string to \hyperlink{class_key}{Key} object. \end{DoxyCompactList}\item 
+static std\-::map$<$ int, std\-::string $>$ \hyperlink{class_lua_api_engine_a7578ac36e34620f441fd9f828663c36c}{m\-\_\-vk\-Code\-To\-Key}
+\begin{DoxyCompactList}\small\item\em Field that maps virtual key code to string key. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -136,6 +156,17 @@ Helper function that gets text from \{\} brackets from \hyperlink{class_lua_api_
 \begin{DoxyReturn}{Returns}
 Number of read symbols. 
 \end{DoxyReturn}
+\hypertarget{class_lua_api_engine_abfc4e4afd5002dddfe5fc2db4519e2fc}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!get\-String\-Key@{get\-String\-Key}}
+\index{get\-String\-Key@{get\-String\-Key}!LuaApiEngine@{Lua\-Api\-Engine}}
+\subsubsection[{get\-String\-Key}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Lua\-Api\-Engine\-::get\-String\-Key (
+\begin{DoxyParamCaption}
+\item[{int}]{vk\-Code}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_lua_api_engine_abfc4e4afd5002dddfe5fc2db4519e2fc}
+
+
+Gets string key from m\-\_\-vk\-Code\-To\-Key map. 
+
 \hypertarget{class_lua_api_engine_a7f614e9a85e02951c0a21e694654b83a}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!init\-Special\-Keys@{init\-Special\-Keys}}
 \index{init\-Special\-Keys@{init\-Special\-Keys}!LuaApiEngine@{Lua\-Api\-Engine}}
 \subsubsection[{init\-Special\-Keys}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Api\-Engine\-::init\-Special\-Keys (
@@ -549,6 +580,20 @@ Puts right mouse button releasing command (Lua\-Api\-Engine\-::right\-Up\-At) to
 Comparing to the \hyperlink{class_lua_api_engine_a6777e46c87e999bd66c4ae349a9078cf}{Lua\-Api\-Engine\-::prepare\-Right\-Up}, this version lets user to define a point that the mouse will move to before releasing. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepare\-X functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (\hyperlink{class_lua_engine}{Lua\-Engine}). \begin{DoxyReturn}{Returns}
 Number of results on the lua's stack (in this class this value is always zero). 
 \end{DoxyReturn}
+\hypertarget{class_lua_api_engine_aedff90d60bc2f217557e93c297c2a226}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!prepare\-Run@{prepare\-Run}}
+\index{prepare\-Run@{prepare\-Run}!LuaApiEngine@{Lua\-Api\-Engine}}
+\subsubsection[{prepare\-Run}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Api\-Engine\-::prepare\-Run (
+\begin{DoxyParamCaption}
+\item[{lua\-\_\-\-State $\ast$}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_lua_api_engine_aedff90d60bc2f217557e93c297c2a226}
+
+
+Puts run command onto the stack. 
+
+Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepare\-X functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (\hyperlink{class_lua_engine}{Lua\-Engine}). \begin{DoxyReturn}{Returns}
+Number of results on the lua's stack (in this class this value is always zero). 
+\end{DoxyReturn}
 \hypertarget{class_lua_api_engine_a8f327b5c6d5819c9078b53a665842c47}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!prepare\-Send\-Text@{prepare\-Send\-Text}}
 \index{prepare\-Send\-Text@{prepare\-Send\-Text}!LuaApiEngine@{Lua\-Api\-Engine}}
 \subsubsection[{prepare\-Send\-Text}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Api\-Engine\-::prepare\-Send\-Text (
@@ -561,6 +606,20 @@ Number of results on the lua's stack (in this class this value is always zero).
 Puts sending text command (\hyperlink{class_lua_api_engine_a396ae61c3f7c771f5fe06584cef15169}{Lua\-Api\-Engine\-::send\-Text}) to the \hyperlink{class_lua_engine}{Lua\-Engine}. 
 
 See \hyperlink{class_lua_api_engine_a396ae61c3f7c771f5fe06584cef15169}{Lua\-Api\-Engine\-::send\-Text( std\-::deque$<$int$>$ args )} for more details about sending text. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepare\-X functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (\hyperlink{class_lua_engine}{Lua\-Engine}). \begin{DoxyReturn}{Returns}
+Number of results on the lua's stack (in this class this value is always zero). 
+\end{DoxyReturn}
+\hypertarget{class_lua_api_engine_a0f3ab3263ec793f35bf0797efdb34aaa}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!prepare\-Set\-Interval@{prepare\-Set\-Interval}}
+\index{prepare\-Set\-Interval@{prepare\-Set\-Interval}!LuaApiEngine@{Lua\-Api\-Engine}}
+\subsubsection[{prepare\-Set\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Api\-Engine\-::prepare\-Set\-Interval (
+\begin{DoxyParamCaption}
+\item[{lua\-\_\-\-State $\ast$}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_lua_api_engine_a0f3ab3263ec793f35bf0797efdb34aaa}
+
+
+Puts changing G\-U\-I interval (Lua\-Api\-Engie\-::\-G\-U\-I\-Interval\-Change) command to the \hyperlink{class_lua_engine}{Lua\-Engine}. 
+
+Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepare\-X functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (\hyperlink{class_lua_engine}{Lua\-Engine}). \begin{DoxyReturn}{Returns}
 Number of results on the lua's stack (in this class this value is always zero). 
 \end{DoxyReturn}
 \hypertarget{class_lua_api_engine_a03308524bb7be3fca0e5865a0eba6c41}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!prepare\-Sleep@{prepare\-Sleep}}
@@ -580,6 +639,20 @@ Number of results on the lua's stack (in this class this value is always zero).
 \begin{Desc}
 \item[Examples\-: ]\par
 \hyperlink{_lua_engine_example_8cpp-example}{Lua\-Engine\-\_\-example.\-cpp}.\end{Desc}
+\hypertarget{class_lua_api_engine_ac79f2f968c53a1d2d29cd40557fd363a}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!prepare\-Wait\-For\-Image@{prepare\-Wait\-For\-Image}}
+\index{prepare\-Wait\-For\-Image@{prepare\-Wait\-For\-Image}!LuaApiEngine@{Lua\-Api\-Engine}}
+\subsubsection[{prepare\-Wait\-For\-Image}]{\setlength{\rightskip}{0pt plus 5cm}int Lua\-Api\-Engine\-::prepare\-Wait\-For\-Image (
+\begin{DoxyParamCaption}
+\item[{lua\-\_\-\-State $\ast$}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_lua_api_engine_ac79f2f968c53a1d2d29cd40557fd363a}
+
+
+Puts get\-Color command onto the stack. 
+
+Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepare\-X functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (\hyperlink{class_lua_engine}{Lua\-Engine}). \begin{DoxyReturn}{Returns}
+Number of results on the lua's stack (in this class this value is always zero). 
+\end{DoxyReturn}
 \hypertarget{class_lua_api_engine_a7b3664b6f2593d3bd817edeee61a18e6}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!right\-Click@{right\-Click}}
 \index{right\-Click@{right\-Click}!LuaApiEngine@{Lua\-Api\-Engine}}
 \subsubsection[{right\-Click}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Api\-Engine\-::right\-Click (
@@ -613,6 +686,22 @@ Executes right mouse button press.
 
 Executes right mouse button release. 
 
+\hypertarget{class_lua_api_engine_ab5acad2a0387e17c58ba85c885d8bc55}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!run@{run}}
+\index{run@{run}!LuaApiEngine@{Lua\-Api\-Engine}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Api\-Engine\-::run (
+\begin{DoxyParamCaption}
+\item[{std\-::deque$<$ int $>$}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_lua_api_engine_ab5acad2a0387e17c58ba85c885d8bc55}
+
+
+Runs an external executable application. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Array which contains arguments for the function. In this case every element is a symbol from the given text. \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_lua_api_engine_a396ae61c3f7c771f5fe06584cef15169}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!send\-Text@{send\-Text}}
 \index{send\-Text@{send\-Text}!LuaApiEngine@{Lua\-Api\-Engine}}
 \subsubsection[{send\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Api\-Engine\-::send\-Text (
@@ -627,6 +716,44 @@ Executes sending text.
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em args} & Array which contains arguments for the function. In this case every element is a symbol from the given text. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_lua_api_engine_ad3fe8cc05d66d4fd61266b2f992caeda}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!set\-Function\-Failed@{set\-Function\-Failed}}
+\index{set\-Function\-Failed@{set\-Function\-Failed}!LuaApiEngine@{Lua\-Api\-Engine}}
+\subsubsection[{set\-Function\-Failed}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Api\-Engine\-::set\-Function\-Failed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_lua_api_engine_ad3fe8cc05d66d4fd61266b2f992caeda}
+
+
+Sets a function as it hasn't been executed correctly, by setting the value in commands manager. 
+
+See \hyperlink{class_commands_manager_a0732a178dc1347026f7df12b76a0d8de}{Commands\-Manager\-::m\-\_\-should\-Remove} for more details. Invalid function is not removed from the stack to execute it again, until it successes. \hypertarget{class_lua_api_engine_aaf7a65845f4463e07ca453362e6f3879}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!set\-Function\-Success@{set\-Function\-Success}}
+\index{set\-Function\-Success@{set\-Function\-Success}!LuaApiEngine@{Lua\-Api\-Engine}}
+\subsubsection[{set\-Function\-Success}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Api\-Engine\-::set\-Function\-Success (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_lua_api_engine_aaf7a65845f4463e07ca453362e6f3879}
+
+
+Sets a function as it has been executed correctly, by setting the value in commands manager. 
+
+See \hyperlink{class_commands_manager_a0732a178dc1347026f7df12b76a0d8de}{Commands\-Manager\-::m\-\_\-should\-Remove} for more details. \hypertarget{class_lua_api_engine_a1fd7ea4ba6fe3a396cd1dfff02db1a7c}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!set\-Interval@{set\-Interval}}
+\index{set\-Interval@{set\-Interval}!LuaApiEngine@{Lua\-Api\-Engine}}
+\subsubsection[{set\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Api\-Engine\-::set\-Interval (
+\begin{DoxyParamCaption}
+\item[{std\-::deque$<$ int $>$}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_lua_api_engine_a1fd7ea4ba6fe3a396cd1dfff02db1a7c}
+
+
+Executes changing G\-U\-I interval command. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Array which contains arguments for the function. In this case there's only one argument. \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_lua_api_engine_a6910c482ffa6327999b49504522991b7}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!sleep@{sleep}}
@@ -648,6 +775,22 @@ Executes waiting command.
 \begin{Desc}
 \item[Examples\-: ]\par
 \hyperlink{_lua_engine_example_8cpp-example}{Lua\-Engine\-\_\-example.\-cpp}.\end{Desc}
+\hypertarget{class_lua_api_engine_a865f4456b04ea93d96ba3f380297bf61}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!wait\-For\-Image@{wait\-For\-Image}}
+\index{wait\-For\-Image@{wait\-For\-Image}!LuaApiEngine@{Lua\-Api\-Engine}}
+\subsubsection[{wait\-For\-Image}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Api\-Engine\-::wait\-For\-Image (
+\begin{DoxyParamCaption}
+\item[{std\-::deque$<$ int $>$}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_lua_api_engine_a865f4456b04ea93d96ba3f380297bf61}
+
+
+Gets color at the specified coordinates. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Two numbers as coordinates. \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Data Documentation}
@@ -658,7 +801,14 @@ Executes waiting command.
 
 Field that maps string to \hyperlink{class_key}{Key} object. 
 
-String is a special key text (e.\-g. \{tab\} which is equal to tabulator symbol on keyboard), whereas key object is a manager for a key on the keyboard. See \hyperlink{class_key}{Key} class for more details. 
+String is a special key text (e.\-g. \{tab\} which is equal to tabulator symbol on keyboard), whereas key object is a manager for a key on the keyboard. See \hyperlink{class_key}{Key} class for more details. \hypertarget{class_lua_api_engine_a7578ac36e34620f441fd9f828663c36c}{\index{Lua\-Api\-Engine@{Lua\-Api\-Engine}!m\-\_\-vk\-Code\-To\-Key@{m\-\_\-vk\-Code\-To\-Key}}
+\index{m\-\_\-vk\-Code\-To\-Key@{m\-\_\-vk\-Code\-To\-Key}!LuaApiEngine@{Lua\-Api\-Engine}}
+\subsubsection[{m\-\_\-vk\-Code\-To\-Key}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$ int, std\-::string $>$ Lua\-Api\-Engine\-::m\-\_\-vk\-Code\-To\-Key\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_lua_api_engine_a7578ac36e34620f441fd9f828663c36c}
+
+
+Field that maps virtual key code to string key. 
+
+String is a special key text (e.\-g. \{tab\} which is equal to tabulator symbol on keyboard). 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

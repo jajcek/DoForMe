@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,16 +110,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0d0134e05c8f2dc4fcbbb2f36c02a779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the database.  <a href="#a0d0134e05c8f2dc4fcbbb2f36c02a779"></a><br/></td></tr>
 <tr class="memitem:a7fd3f2692980d3aadd3cb609a5f958c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#a7fd3f2692980d3aadd3cb609a5f958c3">prepareTableForActions</a> ()</td></tr>
 <tr class="memdesc:a7fd3f2692980d3aadd3cb609a5f958c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates table for actions.  <a href="#a7fd3f2692980d3aadd3cb609a5f958c3"></a><br/></td></tr>
-<tr class="memitem:a704e65b47bb56b36b7ef436a16fdd0a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#a704e65b47bb56b36b7ef436a16fdd0a6">clearContents</a> ()</td></tr>
-<tr class="memdesc:a704e65b47bb56b36b7ef436a16fdd0a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all of the rows in the table (truncates table).  <a href="#a704e65b47bb56b36b7ef436a16fdd0a6"></a><br/></td></tr>
+<tr class="memitem:a6d5de878d23cd350a4e1de13ed026608"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#a6d5de878d23cd350a4e1de13ed026608">prepareTableForSettings</a> ()</td></tr>
+<tr class="memdesc:a6d5de878d23cd350a4e1de13ed026608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates table for settings.  <a href="#a6d5de878d23cd350a4e1de13ed026608"></a><br/></td></tr>
+<tr class="memitem:a6686882d66f211ad4c92a0188e228b5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#a6686882d66f211ad4c92a0188e228b5a">clearActions</a> ()</td></tr>
+<tr class="memdesc:a6686882d66f211ad4c92a0188e228b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all of the rows in the actions table (truncates table).  <a href="#a6686882d66f211ad4c92a0188e228b5a"></a><br/></td></tr>
+<tr class="memitem:a49483f5668fe0627beab7763d6891bbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#a49483f5668fe0627beab7763d6891bbd">clearSettings</a> ()</td></tr>
+<tr class="memdesc:a49483f5668fe0627beab7763d6891bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all of the rows in the settings table (truncates table).  <a href="#a49483f5668fe0627beab7763d6891bbd"></a><br/></td></tr>
 <tr class="memitem:a8b535ecf44b6d41e268750acccf40dc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#a8b535ecf44b6d41e268750acccf40dc1">insertAction</a> (QDate date, <a class="el" href="class_action.html">Action</a> *action)</td></tr>
-<tr class="memdesc:a8b535ecf44b6d41e268750acccf40dc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts action to the database.  <a href="#a8b535ecf44b6d41e268750acccf40dc1"></a><br/></td></tr>
+<tr class="memdesc:a8b535ecf44b6d41e268750acccf40dc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts action into the database.  <a href="#a8b535ecf44b6d41e268750acccf40dc1"></a><br/></td></tr>
+<tr class="memitem:af56fc28d1c9a35ccd8ebe47f2e6ce696"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#af56fc28d1c9a35ccd8ebe47f2e6ce696">insertSetting</a> (QString key, QString value)</td></tr>
+<tr class="memdesc:af56fc28d1c9a35ccd8ebe47f2e6ce696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts setting into the database.  <a href="#af56fc28d1c9a35ccd8ebe47f2e6ce696"></a><br/></td></tr>
 <tr class="memitem:ad796e97b41e4a8707017f70142c6160d"><td class="memItemLeft" align="right" valign="top">QVector&lt; QPair&lt; QDate, <a class="el" href="class_action.html">Action</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#ad796e97b41e4a8707017f70142c6160d">selectActions</a> ()</td></tr>
+<tr class="memitem:ad4b61d5826ea3eea0b3e539a90b77c04"><td class="memItemLeft" align="right" valign="top">QMap&lt; QString, QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#ad4b61d5826ea3eea0b3e539a90b77c04">selectSettings</a> ()</td></tr>
+<tr class="memdesc:ad4b61d5826ea3eea0b3e539a90b77c04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of every setting of the program.  <a href="#ad4b61d5826ea3eea0b3e539a90b77c04"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
-<tr class="memitem:ae6ab1b4da47468a98e480b195d56c17a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#ae6ab1b4da47468a98e480b195d56c17a">getRow</a> (void *notUsed, int argc, char **argv, char **columnName)</td></tr>
-<tr class="memdesc:ae6ab1b4da47468a98e480b195d56c17a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function used as callback in sqlite method for getting rows.  <a href="#ae6ab1b4da47468a98e480b195d56c17a"></a><br/></td></tr>
+<tr class="memitem:a1f9290561a0a91c102cb8d923c3fec7e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#a1f9290561a0a91c102cb8d923c3fec7e">getActionRow</a> (void *notUsed, int argc, char **argv, char **columnName)</td></tr>
+<tr class="memdesc:a1f9290561a0a91c102cb8d923c3fec7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function used as callback in sqlite method for getting rows for actions.  <a href="#a1f9290561a0a91c102cb8d923c3fec7e"></a><br/></td></tr>
+<tr class="memitem:a67e6a9023b5d1d829ba5ac68f33cb5b7"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#a67e6a9023b5d1d829ba5ac68f33cb5b7">getSettingRow</a> (void *notUsed, int argc, char **argv, char **columnName)</td></tr>
+<tr class="memdesc:a67e6a9023b5d1d829ba5ac68f33cb5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function used as callback in sqlite method for getting rows for settings.  <a href="#a67e6a9023b5d1d829ba5ac68f33cb5b7"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -133,6 +143,8 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a235387dc22dc1a6057af86c330440dca"><td class="memItemLeft" align="right" valign="top">static QVector&lt; QPair&lt; QDate, <br class="typebreak"/>
 <a class="el" href="class_action.html">Action</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#a235387dc22dc1a6057af86c330440dca">m_lastSelectedActions</a></td></tr>
 <tr class="memdesc:a235387dc22dc1a6057af86c330440dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of the last selected actions.  <a href="#a235387dc22dc1a6057af86c330440dca"></a><br/></td></tr>
+<tr class="memitem:a5196350281ff8662de16ea7fd06c0e8a"><td class="memItemLeft" align="right" valign="top">static QMap&lt; QString, QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database.html#a5196350281ff8662de16ea7fd06c0e8a">m_lastSelectedSettings</a></td></tr>
+<tr class="memdesc:a5196350281ff8662de16ea7fd06c0e8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of all settings, key is the setting and value its content.  <a href="#a5196350281ff8662de16ea7fd06c0e8a"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Allows saving and loading actions to/from database. </p>
@@ -193,12 +205,12 @@ Static Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a704e65b47bb56b36b7ef436a16fdd0a6"></a>
+<a class="anchor" id="a6686882d66f211ad4c92a0188e228b5a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Database::clearContents </td>
+          <td class="memname">void Database::clearActions </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -206,11 +218,28 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Clears all of the rows in the table (truncates table). </p>
+<p>Clears all of the rows in the actions table (truncates table). </p>
 
 </div>
 </div>
-<a class="anchor" id="ae6ab1b4da47468a98e480b195d56c17a"></a>
+<a class="anchor" id="a49483f5668fe0627beab7763d6891bbd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Database::clearSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears all of the rows in the settings table (truncates table). </p>
+
+</div>
+</div>
+<a class="anchor" id="a1f9290561a0a91c102cb8d923c3fec7e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -218,7 +247,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Database::getRow </td>
+          <td class="memname">int Database::getActionRow </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>notUsed</em>, </td>
@@ -254,7 +283,65 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Helper function used as callback in sqlite method for getting rows. </p>
+<p>Helper function used as callback in sqlite method for getting rows for actions. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">notUsed</td><td>Reserved for SQLite. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">argc</td><td>Number of rows returned. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">argv</td><td>Array of returned elements. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">columnName</td><td>Name of the column. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>Error code. 0 means success. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a67e6a9023b5d1d829ba5ac68f33cb5b7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Database::getSettingRow </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>notUsed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>columnName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function used as callback in sqlite method for getting rows for settings. </p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">notUsed</td><td>Reserved for SQLite. </td></tr>
@@ -292,11 +379,46 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inserts action to the database. </p>
+<p>Inserts action into the database. </p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">date</td><td>Date for the action. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">action</td><td><a class="el" href="class_action.html" title="Data for action that has been created for calendar.">Action</a> to be put into the database. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af56fc28d1c9a35ccd8ebe47f2e6ce696"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Database::insertSetting </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts setting into the database. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td><a class="el" href="class_key.html" title="Stores key code and its mode.">Key</a> needed to be saved. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Value of the key. </td></tr>
   </table>
   </dd>
 </dl>
@@ -337,6 +459,23 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a6d5de878d23cd350a4e1de13ed026608"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Database::prepareTableForSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates table for settings. </p>
+
+</div>
+</div>
 <a class="anchor" id="ad796e97b41e4a8707017f70142c6160d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -350,6 +489,24 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns:</dt><dd>Vector of pairs in which the first element is the date on which the action exists and the second element is the action itself. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad4b61d5826ea3eea0b3e539a90b77c04"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMap&lt; QString, QString &gt; Database::selectSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Map of every setting of the program. </p>
+<p>The key is the setting and the value its content. </p>
 
 </div>
 </div>
@@ -420,6 +577,28 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a5196350281ff8662de16ea7fd06c0e8a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMap&lt; QString, QString &gt; Database::m_lastSelectedSettings</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map of all settings, key is the setting and value its content. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>DoForMe!/<a class="el" href="database_8h_source.html">database.h</a></li>
 <li>DoForMe!/<a class="el" href="database_8cpp.html">database.cpp</a></li>
@@ -427,7 +606,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 29 2012 23:05:30 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 9 2012 12:44:55 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

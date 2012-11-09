@@ -17,6 +17,8 @@ static void \hyperlink{class_scripts_manager_a99ddfb07ac002907cee3b2a5b102abad}{
 \begin{DoxyCompactList}\small\item\em Removes script with the given file name (without extension) and frees its memory. \end{DoxyCompactList}\item 
 static void \hyperlink{class_scripts_manager_a137f7089f471de89c5d1344d3b5781cd}{remove\-Scripts} ()
 \begin{DoxyCompactList}\small\item\em Removes all scripts and frees its memory. \end{DoxyCompactList}\item 
+static void \hyperlink{class_scripts_manager_a5ac54ad842f4522eca2dbf7bcb6ad19e}{rename\-Script} (Q\-String old\-Name, Q\-String new\-Name)
+\begin{DoxyCompactList}\small\item\em Renames a script. \end{DoxyCompactList}\item 
 static bool \hyperlink{class_scripts_manager_a67b361d78d35092340feaf556b57565d}{add\-Script} (\hyperlink{class_script}{Script} $\ast$script)
 \begin{DoxyCompactList}\small\item\em Adds new script to the manager. \end{DoxyCompactList}\item 
 static bool \hyperlink{class_scripts_manager_ad4cd01aab1d6015db90cbca5fae306cf}{save\-To\-File} (const Q\-String \&script\-Name)
@@ -145,6 +147,25 @@ Removes script with the given file name (without extension) and frees its memory
 
 Removes all scripts and frees its memory. 
 
+\hypertarget{class_scripts_manager_a5ac54ad842f4522eca2dbf7bcb6ad19e}{\index{Scripts\-Manager@{Scripts\-Manager}!rename\-Script@{rename\-Script}}
+\index{rename\-Script@{rename\-Script}!ScriptsManager@{Scripts\-Manager}}
+\subsubsection[{rename\-Script}]{\setlength{\rightskip}{0pt plus 5cm}void Scripts\-Manager\-::rename\-Script (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{old\-Name, }
+\item[{Q\-String}]{new\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_scripts_manager_a5ac54ad842f4522eca2dbf7bcb6ad19e}
+
+
+Renames a script. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em old\-Name} & Name of the script that needs to be renamed. \\
+\hline
+\mbox{\tt in}  & {\em new\-Name} & New name for the script. \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_scripts_manager_ad4cd01aab1d6015db90cbca5fae306cf}{\index{Scripts\-Manager@{Scripts\-Manager}!save\-To\-File@{save\-To\-File}}
 \index{save\-To\-File@{save\-To\-File}!ScriptsManager@{Scripts\-Manager}}
 \subsubsection[{save\-To\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool Scripts\-Manager\-::save\-To\-File (

@@ -1,0 +1,284 @@
+\hypertarget{class_recorder_settings}{\section{Recorder\-Settings Class Reference}
+\label{class_recorder_settings}\index{Recorder\-Settings@{Recorder\-Settings}}
+}
+
+
+Dialog with recorder settings.  
+
+
+
+
+{\ttfamily \#include $<$recorder\-\_\-settings.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_recorder_settings_a91e3abc9690e2383cb201dd6115a4f29}{is\-Mouse\-On} () const 
+\item 
+void \hyperlink{class_recorder_settings_ae39869b2aef7c70585c0bca1fc919747}{set\-Mouse} (bool state)
+\begin{DoxyCompactList}\small\item\em Sets value for the mouse check box. \end{DoxyCompactList}\item 
+bool \hyperlink{class_recorder_settings_a8925af6fa99e544ec9e6b8a19135aa73}{is\-Mouse\-Move\-On} () const 
+\item 
+void \hyperlink{class_recorder_settings_a8bec45dd3188c1a74ffec65aca9d0087}{set\-Mouse\-Move} (bool state)
+\begin{DoxyCompactList}\small\item\em Sets value for the mouse move check box. \end{DoxyCompactList}\item 
+bool \hyperlink{class_recorder_settings_a4e7c5a7f013b04c16d47abe153cd4b3e}{is\-Keyboard\-On} () const 
+\item 
+void \hyperlink{class_recorder_settings_a70626f38c6271ad3bec593ada80a9051}{set\-Keyboard} (bool state)
+\begin{DoxyCompactList}\small\item\em Sets value for the keyboard move check box. \end{DoxyCompactList}\item 
+bool \hyperlink{class_recorder_settings_a62593e6a3c9f6a732c0a47a17791be4d}{is\-Tray\-On} () const 
+\item 
+void \hyperlink{class_recorder_settings_a6f17eef5849611dbe73ae61e0a033063}{set\-Tray} (bool state)
+\begin{DoxyCompactList}\small\item\em Sets value for the tray move check box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_recorder_settings}{Recorder\-Settings} $\ast$ \hyperlink{class_recorder_settings_a84bf47c17de7d6270fe088196aeb5d5e}{get\-Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_recorder_settings_acfc0d09c132e85e92c6971bef2654355}{pressed\-Ok} ()
+\begin{DoxyCompactList}\small\item\em Method called when ok button is clicked. \end{DoxyCompactList}\item 
+void \hyperlink{class_recorder_settings_aff57d6592ef843d215c963cae1c5d9cc}{pressed\-Cancel} ()
+\begin{DoxyCompactList}\small\item\em Method called when cancel button is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_recorder_settings_a05f587beb2af361b273f0688c32072cb}{Recorder\-Settings} ()
+\begin{DoxyCompactList}\small\item\em Simple constructor which simply sets fields to its default values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\-::recorder\-\_\-settings\-\_\-dialog \hyperlink{class_recorder_settings_a340469e3caa419c0ec0ad6de8905fabf}{ui}
+\begin{DoxyCompactList}\small\item\em Object containing all controls of the dialog. \end{DoxyCompactList}\item 
+bool \hyperlink{class_recorder_settings_a746410b0e99f530247dd7146a70e53c4}{m\-\_\-is\-Mouse\-On}
+\begin{DoxyCompactList}\small\item\em Determines whether the mouse recording is turned on. \end{DoxyCompactList}\item 
+bool \hyperlink{class_recorder_settings_a28a563230501520415b36633749276d1}{m\-\_\-is\-Mouse\-Move\-On}
+\begin{DoxyCompactList}\small\item\em Determines whether the mouse move recording is turned on. \end{DoxyCompactList}\item 
+bool \hyperlink{class_recorder_settings_ae0def32c58f09b7bee960fe1ce8e9aaa}{m\-\_\-is\-Keyboard\-On}
+\begin{DoxyCompactList}\small\item\em Determines whether the keyboard recording is turned on. \end{DoxyCompactList}\item 
+bool \hyperlink{class_recorder_settings_a2b5b6ad1d9a307f00556591392dbeae8}{m\-\_\-is\-Tray\-On}
+\begin{DoxyCompactList}\small\item\em Determines whether the app should hide into tray after starting recording. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_recorder_settings}{Recorder\-Settings} $\ast$ \hyperlink{class_recorder_settings_a5724a34a18697325a9c756182c4b5404}{m\-\_\-object} = N\-U\-L\-L
+\begin{DoxyCompactList}\small\item\em Pointer to the object of this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Dialog with recorder settings. 
+
+The dialog has been created with Q\-T Designer. \begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+4.\-09.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_recorder_settings_a05f587beb2af361b273f0688c32072cb}{\index{Recorder\-Settings@{Recorder\-Settings}!Recorder\-Settings@{Recorder\-Settings}}
+\index{Recorder\-Settings@{Recorder\-Settings}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{Recorder\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}Recorder\-Settings\-::\-Recorder\-Settings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_recorder_settings_a05f587beb2af361b273f0688c32072cb}
+
+
+Simple constructor which simply sets fields to its default values. 
+
+The constructor has been put into the private section to prevent creating instances from the class (because the class is a singleton). 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_recorder_settings_a84bf47c17de7d6270fe088196aeb5d5e}{\index{Recorder\-Settings@{Recorder\-Settings}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Recorder\-Settings} $\ast$ Recorder\-Settings\-::get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_recorder_settings_a84bf47c17de7d6270fe088196aeb5d5e}
+\begin{DoxyReturn}{Returns}
+Pointer to the instance of the class. 
+\end{DoxyReturn}
+\hypertarget{class_recorder_settings_a4e7c5a7f013b04c16d47abe153cd4b3e}{\index{Recorder\-Settings@{Recorder\-Settings}!is\-Keyboard\-On@{is\-Keyboard\-On}}
+\index{is\-Keyboard\-On@{is\-Keyboard\-On}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{is\-Keyboard\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Recorder\-Settings\-::is\-Keyboard\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_recorder_settings_a4e7c5a7f013b04c16d47abe153cd4b3e}
+\begin{DoxyReturn}{Returns}
+True if the keyboard check box is checked, otherwise false. 
+\end{DoxyReturn}
+\hypertarget{class_recorder_settings_a8925af6fa99e544ec9e6b8a19135aa73}{\index{Recorder\-Settings@{Recorder\-Settings}!is\-Mouse\-Move\-On@{is\-Mouse\-Move\-On}}
+\index{is\-Mouse\-Move\-On@{is\-Mouse\-Move\-On}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{is\-Mouse\-Move\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Recorder\-Settings\-::is\-Mouse\-Move\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_recorder_settings_a8925af6fa99e544ec9e6b8a19135aa73}
+\begin{DoxyReturn}{Returns}
+True if mouse move check box is checked, otherwise false. 
+\end{DoxyReturn}
+\hypertarget{class_recorder_settings_a91e3abc9690e2383cb201dd6115a4f29}{\index{Recorder\-Settings@{Recorder\-Settings}!is\-Mouse\-On@{is\-Mouse\-On}}
+\index{is\-Mouse\-On@{is\-Mouse\-On}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{is\-Mouse\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Recorder\-Settings\-::is\-Mouse\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_recorder_settings_a91e3abc9690e2383cb201dd6115a4f29}
+\begin{DoxyReturn}{Returns}
+True if the mouse check box is checked, otherwise false. 
+\end{DoxyReturn}
+\hypertarget{class_recorder_settings_a62593e6a3c9f6a732c0a47a17791be4d}{\index{Recorder\-Settings@{Recorder\-Settings}!is\-Tray\-On@{is\-Tray\-On}}
+\index{is\-Tray\-On@{is\-Tray\-On}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{is\-Tray\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Recorder\-Settings\-::is\-Tray\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_recorder_settings_a62593e6a3c9f6a732c0a47a17791be4d}
+\begin{DoxyReturn}{Returns}
+True if the tray check box is checked, otherwise false. 
+\end{DoxyReturn}
+\hypertarget{class_recorder_settings_aff57d6592ef843d215c963cae1c5d9cc}{\index{Recorder\-Settings@{Recorder\-Settings}!pressed\-Cancel@{pressed\-Cancel}}
+\index{pressed\-Cancel@{pressed\-Cancel}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{pressed\-Cancel}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-Settings\-::pressed\-Cancel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_recorder_settings_aff57d6592ef843d215c963cae1c5d9cc}
+
+
+Method called when cancel button is clicked. 
+
+\hypertarget{class_recorder_settings_acfc0d09c132e85e92c6971bef2654355}{\index{Recorder\-Settings@{Recorder\-Settings}!pressed\-Ok@{pressed\-Ok}}
+\index{pressed\-Ok@{pressed\-Ok}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{pressed\-Ok}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-Settings\-::pressed\-Ok (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{class_recorder_settings_acfc0d09c132e85e92c6971bef2654355}
+
+
+Method called when ok button is clicked. 
+
+\hypertarget{class_recorder_settings_a70626f38c6271ad3bec593ada80a9051}{\index{Recorder\-Settings@{Recorder\-Settings}!set\-Keyboard@{set\-Keyboard}}
+\index{set\-Keyboard@{set\-Keyboard}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{set\-Keyboard}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-Settings\-::set\-Keyboard (
+\begin{DoxyParamCaption}
+\item[{bool}]{state}
+\end{DoxyParamCaption}
+)}}\label{class_recorder_settings_a70626f38c6271ad3bec593ada80a9051}
+
+
+Sets value for the keyboard move check box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em state} & State of the check box. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_recorder_settings_ae39869b2aef7c70585c0bca1fc919747}{\index{Recorder\-Settings@{Recorder\-Settings}!set\-Mouse@{set\-Mouse}}
+\index{set\-Mouse@{set\-Mouse}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{set\-Mouse}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-Settings\-::set\-Mouse (
+\begin{DoxyParamCaption}
+\item[{bool}]{state}
+\end{DoxyParamCaption}
+)}}\label{class_recorder_settings_ae39869b2aef7c70585c0bca1fc919747}
+
+
+Sets value for the mouse check box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em state} & State of the check box. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_recorder_settings_a8bec45dd3188c1a74ffec65aca9d0087}{\index{Recorder\-Settings@{Recorder\-Settings}!set\-Mouse\-Move@{set\-Mouse\-Move}}
+\index{set\-Mouse\-Move@{set\-Mouse\-Move}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{set\-Mouse\-Move}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-Settings\-::set\-Mouse\-Move (
+\begin{DoxyParamCaption}
+\item[{bool}]{state}
+\end{DoxyParamCaption}
+)}}\label{class_recorder_settings_a8bec45dd3188c1a74ffec65aca9d0087}
+
+
+Sets value for the mouse move check box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em state} & State of the check box. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_recorder_settings_a6f17eef5849611dbe73ae61e0a033063}{\index{Recorder\-Settings@{Recorder\-Settings}!set\-Tray@{set\-Tray}}
+\index{set\-Tray@{set\-Tray}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{set\-Tray}]{\setlength{\rightskip}{0pt plus 5cm}void Recorder\-Settings\-::set\-Tray (
+\begin{DoxyParamCaption}
+\item[{bool}]{state}
+\end{DoxyParamCaption}
+)}}\label{class_recorder_settings_a6f17eef5849611dbe73ae61e0a033063}
+
+
+Sets value for the tray move check box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em state} & State of the check box. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_recorder_settings_ae0def32c58f09b7bee960fe1ce8e9aaa}{\index{Recorder\-Settings@{Recorder\-Settings}!m\-\_\-is\-Keyboard\-On@{m\-\_\-is\-Keyboard\-On}}
+\index{m\-\_\-is\-Keyboard\-On@{m\-\_\-is\-Keyboard\-On}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{m\-\_\-is\-Keyboard\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Recorder\-Settings\-::m\-\_\-is\-Keyboard\-On\hspace{0.3cm}{\ttfamily [private]}}}\label{class_recorder_settings_ae0def32c58f09b7bee960fe1ce8e9aaa}
+
+
+Determines whether the keyboard recording is turned on. 
+
+\hypertarget{class_recorder_settings_a28a563230501520415b36633749276d1}{\index{Recorder\-Settings@{Recorder\-Settings}!m\-\_\-is\-Mouse\-Move\-On@{m\-\_\-is\-Mouse\-Move\-On}}
+\index{m\-\_\-is\-Mouse\-Move\-On@{m\-\_\-is\-Mouse\-Move\-On}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{m\-\_\-is\-Mouse\-Move\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Recorder\-Settings\-::m\-\_\-is\-Mouse\-Move\-On\hspace{0.3cm}{\ttfamily [private]}}}\label{class_recorder_settings_a28a563230501520415b36633749276d1}
+
+
+Determines whether the mouse move recording is turned on. 
+
+\hypertarget{class_recorder_settings_a746410b0e99f530247dd7146a70e53c4}{\index{Recorder\-Settings@{Recorder\-Settings}!m\-\_\-is\-Mouse\-On@{m\-\_\-is\-Mouse\-On}}
+\index{m\-\_\-is\-Mouse\-On@{m\-\_\-is\-Mouse\-On}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{m\-\_\-is\-Mouse\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Recorder\-Settings\-::m\-\_\-is\-Mouse\-On\hspace{0.3cm}{\ttfamily [private]}}}\label{class_recorder_settings_a746410b0e99f530247dd7146a70e53c4}
+
+
+Determines whether the mouse recording is turned on. 
+
+\hypertarget{class_recorder_settings_a2b5b6ad1d9a307f00556591392dbeae8}{\index{Recorder\-Settings@{Recorder\-Settings}!m\-\_\-is\-Tray\-On@{m\-\_\-is\-Tray\-On}}
+\index{m\-\_\-is\-Tray\-On@{m\-\_\-is\-Tray\-On}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{m\-\_\-is\-Tray\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Recorder\-Settings\-::m\-\_\-is\-Tray\-On\hspace{0.3cm}{\ttfamily [private]}}}\label{class_recorder_settings_a2b5b6ad1d9a307f00556591392dbeae8}
+
+
+Determines whether the app should hide into tray after starting recording. 
+
+\hypertarget{class_recorder_settings_a5724a34a18697325a9c756182c4b5404}{\index{Recorder\-Settings@{Recorder\-Settings}!m\-\_\-object@{m\-\_\-object}}
+\index{m\-\_\-object@{m\-\_\-object}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{m\-\_\-object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Recorder\-Settings} $\ast$ Recorder\-Settings\-::m\-\_\-object = N\-U\-L\-L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_recorder_settings_a5724a34a18697325a9c756182c4b5404}
+
+
+Pointer to the object of this class. 
+
+\hypertarget{class_recorder_settings_a340469e3caa419c0ec0ad6de8905fabf}{\index{Recorder\-Settings@{Recorder\-Settings}!ui@{ui}}
+\index{ui@{ui}!RecorderSettings@{Recorder\-Settings}}
+\subsubsection[{ui}]{\setlength{\rightskip}{0pt plus 5cm}Ui\-::recorder\-\_\-settings\-\_\-dialog Recorder\-Settings\-::ui\hspace{0.3cm}{\ttfamily [private]}}}\label{class_recorder_settings_a340469e3caa419c0ec0ad6de8905fabf}
+
+
+Object containing all controls of the dialog. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{recorder__settings_8h}{recorder\-\_\-settings.\-h}\item 
+Do\-For\-Me!/\hyperlink{recorder__settings_8cpp}{recorder\-\_\-settings.\-cpp}\end{DoxyCompactItemize}

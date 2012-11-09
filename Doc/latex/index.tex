@@ -1,0 +1,11 @@
+The system provides capabilities of automating and planning work in a system (Windows) without a user intervention in the future. The application has ability to facilitate creating scripts which will be a set of commands for the computer (for controlling input devices like mouse or keyboard). The system has features to set day, time and repetitions for created scripts by which the script knows when to execute himself ad how many times.
+
+The system consists of 6 main functionalities\-: Player -\/ Engine which is used for executing written (or recorded) scripts. To create such thing it was necessary to use Lua built-\/in library which helps putting all of the commands onto the stack to start executing them. Moreover the library is able to parse the script under its correctness (but only in the scope of the language grammar!).
+
+Parser -\/ Functionality which is an addition to Lua parser. The subsystem helps parsing arguments passed to functions. For example send\-Text() function takes a string as an argument but Lua doesn't know completely how the string should look like, therefore it was necessary to create an additional parser.
+
+Reminder -\/ A system which creates an ability to inform users about incoming tasks (in order to prevent taking the control when user is doing something important). In the case of incoming task the system will display a message dialog with three options -\/ Run immediately, Suspend or Ignore. When a user doesn't choose any action then the system will execute the script after specified time.
+
+Recording -\/ In other words -\/ a keylogger, however instead of stealing data it allows creating scripts automatically on the ground of the user actions in the system. Besides a user is able to choose what to record (mouse, mouse move, keyboard etc.).
+
+Screen saver -\/ A very important functionality by which a user is able to select some fragment of the desktop and tell the Player to find it before executing some commands. 

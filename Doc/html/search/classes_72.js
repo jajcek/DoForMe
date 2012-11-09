@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['rowset',['RowSet',['../struct_row_set.html',1,'']]],
-  ['rowsetchunk',['RowSetChunk',['../struct_row_set_chunk.html',1,'']]],
-  ['rowsetentry',['RowSetEntry',['../struct_row_set_entry.html',1,'']]]
+  ['recorder',['Recorder',['../class_recorder.html',1,'']]],
+  ['recordersettings',['RecorderSettings',['../class_recorder_settings.html',1,'']]],
+  ['remindersettings',['ReminderSettings',['../class_reminder_settings.html',1,'']]]
 ];

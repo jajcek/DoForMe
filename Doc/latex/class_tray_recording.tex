@@ -1,0 +1,118 @@
+\hypertarget{class_tray_recording}{\section{Tray\-Recording Class Reference}
+\label{class_tray_recording}\index{Tray\-Recording@{Tray\-Recording}}
+}
+
+
+Tray system used while recording (the blinking red dot as tray icon).  
+
+
+
+
+{\ttfamily \#include $<$tray\-\_\-recording.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_tray_recording_acaf01f9d6e73dc62e35620574aff9f02}{set\-Icon} (Q\-String path)
+\begin{DoxyCompactList}\small\item\em Sets icon for the tray system. \end{DoxyCompactList}\item 
+void \hyperlink{class_tray_recording_a6ab1598d46e5707e302fb8e3f6a71762}{start} ()
+\begin{DoxyCompactList}\small\item\em Starts blinking the icon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_tray_recording_a3f2d0de3c0d5894e0a7dacdc5beb2964}{timer\-Event} (Q\-Timer\-Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Method invoked by the \hyperlink{class_tray_recording_a5332c59102a6d37f197c42207a5db0b3}{Tray\-Recording\-::m\-\_\-timer} timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\-Basic\-Timer \hyperlink{class_tray_recording_a5332c59102a6d37f197c42207a5db0b3}{m\-\_\-timer}
+\begin{DoxyCompactList}\small\item\em Simple timer used for showing and hiding the tray icon every second. \end{DoxyCompactList}\item 
+bool \hyperlink{class_tray_recording_a691345e2feccbcdfbe213083d9b5bd9e}{m\-\_\-is\-On}
+\begin{DoxyCompactList}\small\item\em Flag which determines whether the tray icon is shown. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_tray_recording_ae15645f5c2c7965001043b47e9e69293}{m\-\_\-icon\-Path}
+\begin{DoxyCompactList}\small\item\em Path to the icon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tray system used while recording (the blinking red dot as tray icon). 
+
+\begin{DoxyAuthor}{Author}
+Jacek Topolski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+4.\-09.\-2012 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_tray_recording_acaf01f9d6e73dc62e35620574aff9f02}{\index{Tray\-Recording@{Tray\-Recording}!set\-Icon@{set\-Icon}}
+\index{set\-Icon@{set\-Icon}!TrayRecording@{Tray\-Recording}}
+\subsubsection[{set\-Icon}]{\setlength{\rightskip}{0pt plus 5cm}void Tray\-Recording\-::set\-Icon (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{path}
+\end{DoxyParamCaption}
+)}}\label{class_tray_recording_acaf01f9d6e73dc62e35620574aff9f02}
+
+
+Sets icon for the tray system. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em path} & Path to the image which represents icon. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tray_recording_a6ab1598d46e5707e302fb8e3f6a71762}{\index{Tray\-Recording@{Tray\-Recording}!start@{start}}
+\index{start@{start}!TrayRecording@{Tray\-Recording}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void Tray\-Recording\-::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tray_recording_a6ab1598d46e5707e302fb8e3f6a71762}
+
+
+Starts blinking the icon. 
+
+\hypertarget{class_tray_recording_a3f2d0de3c0d5894e0a7dacdc5beb2964}{\index{Tray\-Recording@{Tray\-Recording}!timer\-Event@{timer\-Event}}
+\index{timer\-Event@{timer\-Event}!TrayRecording@{Tray\-Recording}}
+\subsubsection[{timer\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void Tray\-Recording\-::timer\-Event (
+\begin{DoxyParamCaption}
+\item[{Q\-Timer\-Event $\ast$}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_tray_recording_a3f2d0de3c0d5894e0a7dacdc5beb2964}
+
+
+Method invoked by the \hyperlink{class_tray_recording_a5332c59102a6d37f197c42207a5db0b3}{Tray\-Recording\-::m\-\_\-timer} timer. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_tray_recording_ae15645f5c2c7965001043b47e9e69293}{\index{Tray\-Recording@{Tray\-Recording}!m\-\_\-icon\-Path@{m\-\_\-icon\-Path}}
+\index{m\-\_\-icon\-Path@{m\-\_\-icon\-Path}!TrayRecording@{Tray\-Recording}}
+\subsubsection[{m\-\_\-icon\-Path}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Tray\-Recording\-::m\-\_\-icon\-Path\hspace{0.3cm}{\ttfamily [private]}}}\label{class_tray_recording_ae15645f5c2c7965001043b47e9e69293}
+
+
+Path to the icon. 
+
+\hypertarget{class_tray_recording_a691345e2feccbcdfbe213083d9b5bd9e}{\index{Tray\-Recording@{Tray\-Recording}!m\-\_\-is\-On@{m\-\_\-is\-On}}
+\index{m\-\_\-is\-On@{m\-\_\-is\-On}!TrayRecording@{Tray\-Recording}}
+\subsubsection[{m\-\_\-is\-On}]{\setlength{\rightskip}{0pt plus 5cm}bool Tray\-Recording\-::m\-\_\-is\-On\hspace{0.3cm}{\ttfamily [private]}}}\label{class_tray_recording_a691345e2feccbcdfbe213083d9b5bd9e}
+
+
+Flag which determines whether the tray icon is shown. 
+
+\hypertarget{class_tray_recording_a5332c59102a6d37f197c42207a5db0b3}{\index{Tray\-Recording@{Tray\-Recording}!m\-\_\-timer@{m\-\_\-timer}}
+\index{m\-\_\-timer@{m\-\_\-timer}!TrayRecording@{Tray\-Recording}}
+\subsubsection[{m\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Basic\-Timer Tray\-Recording\-::m\-\_\-timer\hspace{0.3cm}{\ttfamily [private]}}}\label{class_tray_recording_a5332c59102a6d37f197c42207a5db0b3}
+
+
+Simple timer used for showing and hiding the tray icon every second. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Do\-For\-Me!/\hyperlink{tray__recording_8h}{tray\-\_\-recording.\-h}\item 
+Do\-For\-Me!/\hyperlink{tray__recording_8cpp}{tray\-\_\-recording.\-cpp}\end{DoxyCompactItemize}

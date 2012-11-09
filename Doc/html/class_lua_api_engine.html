@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -103,6 +103,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7f614e9a85e02951c0a21e694654b83a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a7f614e9a85e02951c0a21e694654b83a">initSpecialKeys</a> ()</td></tr>
 <tr class="memdesc:a7f614e9a85e02951c0a21e694654b83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize all special keys that will be available to users.  <a href="#a7f614e9a85e02951c0a21e694654b83a"></a><br/></td></tr>
+<tr class="memitem:abfc4e4afd5002dddfe5fc2db4519e2fc"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#abfc4e4afd5002dddfe5fc2db4519e2fc">getStringKey</a> (int vkCode)</td></tr>
+<tr class="memdesc:abfc4e4afd5002dddfe5fc2db4519e2fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets string key from m_vkCodeToKey map.  <a href="#abfc4e4afd5002dddfe5fc2db4519e2fc"></a><br/></td></tr>
+<tr class="memitem:a0f3ab3263ec793f35bf0797efdb34aaa"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a0f3ab3263ec793f35bf0797efdb34aaa">prepareSetInterval</a> (lua_State *state)</td></tr>
+<tr class="memdesc:a0f3ab3263ec793f35bf0797efdb34aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts changing GUI interval (LuaApiEngie::GUIIntervalChange) command to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a0f3ab3263ec793f35bf0797efdb34aaa"></a><br/></td></tr>
 <tr class="memitem:a03308524bb7be3fca0e5865a0eba6c41"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a03308524bb7be3fca0e5865a0eba6c41">prepareSleep</a> (lua_State *state)</td></tr>
 <tr class="memdesc:a03308524bb7be3fca0e5865a0eba6c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts watiting (LuaApiEngie::sleep) command to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a03308524bb7be3fca0e5865a0eba6c41"></a><br/></td></tr>
 <tr class="memitem:a5e6c9c1b66d19a4f65d6c65d6ae849a2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a5e6c9c1b66d19a4f65d6c65d6ae849a2">prepareLeftDown</a> (lua_State *state)</td></tr>
@@ -149,6 +153,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a700aa78e4509bca70b5b23cfe98ce7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts mouse move command (<a class="el" href="class_lua_api_engine.html#a8512ba309e37218b1586f8a41cae4451" title="Executes mouse movement.">LuaApiEngine::moveTo</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a700aa78e4509bca70b5b23cfe98ce7b3"></a><br/></td></tr>
 <tr class="memitem:a8f327b5c6d5819c9078b53a665842c47"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a8f327b5c6d5819c9078b53a665842c47">prepareSendText</a> (lua_State *state)</td></tr>
 <tr class="memdesc:a8f327b5c6d5819c9078b53a665842c47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts sending text command (<a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169" title="Executes sending text.">LuaApiEngine::sendText</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>.  <a href="#a8f327b5c6d5819c9078b53a665842c47"></a><br/></td></tr>
+<tr class="memitem:aedff90d60bc2f217557e93c297c2a226"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#aedff90d60bc2f217557e93c297c2a226">prepareRun</a> (lua_State *state)</td></tr>
+<tr class="memdesc:aedff90d60bc2f217557e93c297c2a226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts run command onto the stack.  <a href="#aedff90d60bc2f217557e93c297c2a226"></a><br/></td></tr>
+<tr class="memitem:ac79f2f968c53a1d2d29cd40557fd363a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ac79f2f968c53a1d2d29cd40557fd363a">prepareWaitForImage</a> (lua_State *state)</td></tr>
+<tr class="memdesc:ac79f2f968c53a1d2d29cd40557fd363a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts getColor command onto the stack.  <a href="#ac79f2f968c53a1d2d29cd40557fd363a"></a><br/></td></tr>
 <tr class="memitem:a5942498f999031601960d890b259536b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a5942498f999031601960d890b259536b">leftDown</a> ()</td></tr>
 <tr class="memdesc:a5942498f999031601960d890b259536b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes left mouse button press.  <a href="#a5942498f999031601960d890b259536b"></a><br/></td></tr>
 <tr class="memitem:a14df77fdabe3ddf5dd19c35e70acb2d8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a14df77fdabe3ddf5dd19c35e70acb2d8">rightDown</a> ()</td></tr>
@@ -169,22 +177,34 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a633c229323434db2d1af7f66c1517a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes middle mouse button click.  <a href="#a633c229323434db2d1af7f66c1517a34"></a><br/></td></tr>
 <tr class="memitem:a2004f3ce56fc785e0276491642e39e7a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a2004f3ce56fc785e0276491642e39e7a">leftDoubleClick</a> ()</td></tr>
 <tr class="memdesc:a2004f3ce56fc785e0276491642e39e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes left mouse button double click.  <a href="#a2004f3ce56fc785e0276491642e39e7a"></a><br/></td></tr>
+<tr class="memitem:a1fd7ea4ba6fe3a396cd1dfff02db1a7c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a1fd7ea4ba6fe3a396cd1dfff02db1a7c">setInterval</a> (std::deque&lt; int &gt; args)</td></tr>
+<tr class="memdesc:a1fd7ea4ba6fe3a396cd1dfff02db1a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes changing GUI interval command.  <a href="#a1fd7ea4ba6fe3a396cd1dfff02db1a7c"></a><br/></td></tr>
 <tr class="memitem:a6910c482ffa6327999b49504522991b7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a6910c482ffa6327999b49504522991b7">sleep</a> (std::deque&lt; int &gt; args)</td></tr>
 <tr class="memdesc:a6910c482ffa6327999b49504522991b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes waiting command.  <a href="#a6910c482ffa6327999b49504522991b7"></a><br/></td></tr>
 <tr class="memitem:a8512ba309e37218b1586f8a41cae4451"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a8512ba309e37218b1586f8a41cae4451">moveTo</a> (std::deque&lt; int &gt; args)</td></tr>
 <tr class="memdesc:a8512ba309e37218b1586f8a41cae4451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes mouse movement.  <a href="#a8512ba309e37218b1586f8a41cae4451"></a><br/></td></tr>
 <tr class="memitem:a396ae61c3f7c771f5fe06584cef15169"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169">sendText</a> (std::deque&lt; int &gt; args)</td></tr>
 <tr class="memdesc:a396ae61c3f7c771f5fe06584cef15169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes sending text.  <a href="#a396ae61c3f7c771f5fe06584cef15169"></a><br/></td></tr>
+<tr class="memitem:ab5acad2a0387e17c58ba85c885d8bc55"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ab5acad2a0387e17c58ba85c885d8bc55">run</a> (std::deque&lt; int &gt; args)</td></tr>
+<tr class="memdesc:ab5acad2a0387e17c58ba85c885d8bc55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs an external executable application.  <a href="#ab5acad2a0387e17c58ba85c885d8bc55"></a><br/></td></tr>
+<tr class="memitem:a865f4456b04ea93d96ba3f380297bf61"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a865f4456b04ea93d96ba3f380297bf61">waitForImage</a> (std::deque&lt; int &gt; args)</td></tr>
+<tr class="memdesc:a865f4456b04ea93d96ba3f380297bf61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets color at the specified coordinates.  <a href="#a865f4456b04ea93d96ba3f380297bf61"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:ac1b8a6a2ea07065dc1c3f7eed7937d8d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ac1b8a6a2ea07065dc1c3f7eed7937d8d">getSpecialKey</a> (QString &amp;specialKey, std::deque&lt; int &gt; &amp;args)</td></tr>
 <tr class="memdesc:ac1b8a6a2ea07065dc1c3f7eed7937d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function that gets text from {} brackets from <a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169" title="Executes sending text.">LuaApiEngine::sendText()</a> argument.  <a href="#ac1b8a6a2ea07065dc1c3f7eed7937d8d"></a><br/></td></tr>
+<tr class="memitem:aaf7a65845f4463e07ca453362e6f3879"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#aaf7a65845f4463e07ca453362e6f3879">setFunctionSuccess</a> ()</td></tr>
+<tr class="memdesc:aaf7a65845f4463e07ca453362e6f3879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a function as it has been executed correctly, by setting the value in commands manager.  <a href="#aaf7a65845f4463e07ca453362e6f3879"></a><br/></td></tr>
+<tr class="memitem:ad3fe8cc05d66d4fd61266b2f992caeda"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#ad3fe8cc05d66d4fd61266b2f992caeda">setFunctionFailed</a> ()</td></tr>
+<tr class="memdesc:ad3fe8cc05d66d4fd61266b2f992caeda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a function as it hasn't been executed correctly, by setting the value in commands manager.  <a href="#ad3fe8cc05d66d4fd61266b2f992caeda"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a9fdba2d7f2f8d051453b5d1561435f5e"><td class="memItemLeft" align="right" valign="top">static std::map&lt; QString, <a class="el" href="class_key.html">Key</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a9fdba2d7f2f8d051453b5d1561435f5e">m_specialKeys</a></td></tr>
 <tr class="memdesc:a9fdba2d7f2f8d051453b5d1561435f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Field that maps string to <a class="el" href="class_key.html" title="Stores key code and its mode.">Key</a> object.  <a href="#a9fdba2d7f2f8d051453b5d1561435f5e"></a><br/></td></tr>
+<tr class="memitem:a7578ac36e34620f441fd9f828663c36c"><td class="memItemLeft" align="right" valign="top">static std::map&lt; int, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_api_engine.html#a7578ac36e34620f441fd9f828663c36c">m_vkCodeToKey</a></td></tr>
+<tr class="memdesc:a7578ac36e34620f441fd9f828663c36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Field that maps virtual key code to string key.  <a href="#a7578ac36e34620f441fd9f828663c36c"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>LUA API functions. </p>
@@ -234,6 +254,32 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Number of read symbols. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abfc4e4afd5002dddfe5fc2db4519e2fc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string LuaApiEngine::getStringKey </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>vkCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets string key from m_vkCodeToKey map. </p>
 
 </div>
 </div>
@@ -1062,6 +1108,34 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aedff90d60bc2f217557e93c297c2a226"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LuaApiEngine::prepareRun </td>
+          <td>(</td>
+          <td class="paramtype">lua_State *&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Puts run command onto the stack. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a8f327b5c6d5819c9078b53a665842c47"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1086,6 +1160,34 @@ Static Private Attributes</h2></td></tr>
 
 <p>Puts sending text command (<a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169" title="Executes sending text.">LuaApiEngine::sendText</a>) to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
 <p>See <a class="el" href="class_lua_api_engine.html#a396ae61c3f7c771f5fe06584cef15169" title="Executes sending text.">LuaApiEngine::sendText( std::deque&lt;int&gt; args )</a> for more details about sending text. Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0f3ab3263ec793f35bf0797efdb34aaa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LuaApiEngine::prepareSetInterval </td>
+          <td>(</td>
+          <td class="paramtype">lua_State *&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Puts changing GUI interval (LuaApiEngie::GUIIntervalChange) command to the <a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
 <dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 
 </div>
@@ -1117,6 +1219,34 @@ Static Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_lua_engine_example_8cpp-example.html#a3">LuaEngine_example.cpp</a>.</dd>
 </dl>
+</div>
+</div>
+<a class="anchor" id="ac79f2f968c53a1d2d29cd40557fd363a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LuaApiEngine::prepareWaitForImage </td>
+          <td>(</td>
+          <td class="paramtype">lua_State *&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Puts getColor command onto the stack. </p>
+<p>Parameter state is not explicitly used. The function is passed as a pointer to the lua's engine. prepareX functions load arguments from the api function in scripts and put the appriopriate command to the lua's engine (<a class="el" href="class_lua_engine.html" title="Engine for maintaing LUA&#39;s API commands.">LuaEngine</a>). </p>
+<dl class="section return"><dt>Returns:</dt><dd>Number of results on the lua's stack (in this class this value is always zero). </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a7b3664b6f2593d3bd817edeee61a18e6"></a>
@@ -1194,6 +1324,38 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab5acad2a0387e17c58ba85c885d8bc55"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LuaApiEngine::run </td>
+          <td>(</td>
+          <td class="paramtype">std::deque&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Runs an external executable application. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Array which contains arguments for the function. In this case every element is a symbol from the given text. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a396ae61c3f7c771f5fe06584cef15169"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1220,6 +1382,90 @@ Static Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Array which contains arguments for the function. In this case every element is a symbol from the given text. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad3fe8cc05d66d4fd61266b2f992caeda"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LuaApiEngine::setFunctionFailed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets a function as it hasn't been executed correctly, by setting the value in commands manager. </p>
+<p>See <a class="el" href="class_commands_manager.html#a0732a178dc1347026f7df12b76a0d8de" title="What to do with next command (remove or not after execution).">CommandsManager::m_shouldRemove</a> for more details. Invalid function is not removed from the stack to execute it again, until it successes. </p>
+
+</div>
+</div>
+<a class="anchor" id="aaf7a65845f4463e07ca453362e6f3879"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LuaApiEngine::setFunctionSuccess </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets a function as it has been executed correctly, by setting the value in commands manager. </p>
+<p>See <a class="el" href="class_commands_manager.html#a0732a178dc1347026f7df12b76a0d8de" title="What to do with next command (remove or not after execution).">CommandsManager::m_shouldRemove</a> for more details. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1fd7ea4ba6fe3a396cd1dfff02db1a7c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LuaApiEngine::setInterval </td>
+          <td>(</td>
+          <td class="paramtype">std::deque&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executes changing GUI interval command. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Array which contains arguments for the function. In this case there's only one argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1259,6 +1505,38 @@ Static Private Attributes</h2></td></tr>
 </dl>
 </div>
 </div>
+<a class="anchor" id="a865f4456b04ea93d96ba3f380297bf61"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LuaApiEngine::waitForImage </td>
+          <td>(</td>
+          <td class="paramtype">std::deque&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets color at the specified coordinates. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Two numbers as coordinates. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/><h2>Member Data Documentation</h2>
 <a class="anchor" id="a9fdba2d7f2f8d051453b5d1561435f5e"></a>
 <div class="memitem">
@@ -1283,6 +1561,29 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a7578ac36e34620f441fd9f828663c36c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; int, std::string &gt; LuaApiEngine::m_vkCodeToKey</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Field that maps virtual key code to string key. </p>
+<p>String is a special key text (e.g. {tab} which is equal to tabulator symbol on keyboard). </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>DoForMe!/<a class="el" href="lua__api_8h_source.html">lua_api.h</a></li>
 <li>DoForMe!/<a class="el" href="lua__api_8cpp.html">lua_api.cpp</a></li>
@@ -1290,7 +1591,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 29 2012 23:05:31 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 9 2012 12:44:56 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

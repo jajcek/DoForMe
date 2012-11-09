@@ -1,8 +1,10 @@
 var searchData=
 [
   ['paintcell',['paintCell',['../class_actions_calendar.html#a98854bcac5911622fff6672062bb9b79',1,'ActionsCalendar']]],
-  ['paintevent',['paintEvent',['../class_about_dialog.html#a3bf2e8a107b5c47b29df30931698a819',1,'AboutDialog']]],
+  ['paintevent',['paintEvent',['../class_about_dialog.html#a3bf2e8a107b5c47b29df30931698a819',1,'AboutDialog::paintEvent()'],['../class_screen_saver.html#a06d7f1ec63a3c84752d1f0a11c15fe11',1,'ScreenSaver::paintEvent()']]],
   ['parsescript',['parseScript',['../class_lua_engine.html#a5eae05f78704166f098ea20568c23fd7',1,'LuaEngine::parseScript()'],['../classmain_win.html#a2a999b0788004515727182350242d6bc',1,'mainWin::parseScript()']]],
+  ['playersettings',['PlayerSettings',['../class_player_settings.html#a0e73d43f99035a73efd94d51fd79e857',1,'PlayerSettings']]],
+  ['playsound',['playSound',['../class_reminder_settings.html#aaebc21b62262f96a18dd4d7fd8b776b3',1,'ReminderSettings']]],
   ['prepareleftclick',['prepareLeftClick',['../class_lua_api_engine.html#aa4ec049683c5ca8fe5b317f9daa80cf2',1,'LuaApiEngine']]],
   ['prepareleftclickat',['prepareLeftClickAt',['../class_lua_api_engine.html#a2109f8d536e8238941ea3d5254feee6e',1,'LuaApiEngine']]],
   ['prepareleftdoubleclick',['prepareLeftDoubleClick',['../class_lua_api_engine.html#ab545cafb77e825b84d787d0dbae34bc2',1,'LuaApiEngine']]],
@@ -24,7 +26,15 @@ var searchData=
   ['preparerightdownat',['prepareRightDownAt',['../class_lua_api_engine.html#a1798695ce32c9d6526a8818535dbc7cf',1,'LuaApiEngine']]],
   ['preparerightup',['prepareRightUp',['../class_lua_api_engine.html#a6777e46c87e999bd66c4ae349a9078cf',1,'LuaApiEngine']]],
   ['preparerightupat',['prepareRightUpAt',['../class_lua_api_engine.html#a63574f6087f18f635b1df170d51391a6',1,'LuaApiEngine']]],
+  ['preparerun',['prepareRun',['../class_lua_api_engine.html#aedff90d60bc2f217557e93c297c2a226',1,'LuaApiEngine']]],
   ['preparesendtext',['prepareSendText',['../class_lua_api_engine.html#a8f327b5c6d5819c9078b53a665842c47',1,'LuaApiEngine']]],
+  ['preparesetinterval',['prepareSetInterval',['../class_lua_api_engine.html#a0f3ab3263ec793f35bf0797efdb34aaa',1,'LuaApiEngine']]],
   ['preparesleep',['prepareSleep',['../class_lua_api_engine.html#a03308524bb7be3fca0e5865a0eba6c41',1,'LuaApiEngine']]],
-  ['preparetableforactions',['prepareTableForActions',['../class_database.html#a7fd3f2692980d3aadd3cb609a5f958c3',1,'Database']]]
+  ['preparetableforactions',['prepareTableForActions',['../class_database.html#a7fd3f2692980d3aadd3cb609a5f958c3',1,'Database']]],
+  ['preparetableforsettings',['prepareTableForSettings',['../class_database.html#a6d5de878d23cd350a4e1de13ed026608',1,'Database']]],
+  ['preparewaitforimage',['prepareWaitForImage',['../class_lua_api_engine.html#ac79f2f968c53a1d2d29cd40557fd363a',1,'LuaApiEngine']]],
+  ['pressedcancel',['pressedCancel',['../class_player_settings.html#a2de1894c53c0862c869eab320fd041d2',1,'PlayerSettings::pressedCancel()'],['../class_recorder_settings.html#aff57d6592ef843d215c963cae1c5d9cc',1,'RecorderSettings::pressedCancel()'],['../class_reminder_settings.html#a8c4ff4563087376a613cb358454c6519',1,'ReminderSettings::pressedCancel()']]],
+  ['pressedok',['pressedOk',['../class_player_settings.html#adb8d1058a44440fb6658d0b9b2e20e88',1,'PlayerSettings::pressedOk()'],['../class_recorder_settings.html#acfc0d09c132e85e92c6971bef2654355',1,'RecorderSettings::pressedOk()'],['../class_reminder_settings.html#ac5d4723f0934c9c416d00bba5af2ff07',1,'ReminderSettings::pressedOk()']]],
+  ['putcmd',['putCmd',['../class_recorder.html#ab6de951e02844b255a9d506022f623df',1,'Recorder']]],
+  ['putcommand',['putCommand',['../classmain_win.html#a80442454fb91a3cf4bc4a5dca3d2c99a',1,'mainWin']]]
 ];

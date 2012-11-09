@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -100,6 +100,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a620ebdd3b164ef16266454a719490013"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_commands_manager.html#a620ebdd3b164ef16266454a719490013">CommandsManager</a> ()</td></tr>
+<tr class="memdesc:a620ebdd3b164ef16266454a719490013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor which sets fields to its default values.  <a href="#a620ebdd3b164ef16266454a719490013"></a><br/></td></tr>
 <tr class="memitem:a1044e5df37dbb2b174dc9bc6a894d833"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_commands_manager.html#a1044e5df37dbb2b174dc9bc6a894d833">addCommand</a> (void(*pCmd)(std::deque&lt; int &gt;), std::deque&lt; int &gt; args)</td></tr>
 <tr class="memdesc:a1044e5df37dbb2b174dc9bc6a894d833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to add commands to the queue.  <a href="#a1044e5df37dbb2b174dc9bc6a894d833"></a><br/></td></tr>
 <tr class="memitem:a6de7776ecdf30cb6cf09d11213c0dd29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_commands_manager.html#a6de7776ecdf30cb6cf09d11213c0dd29">executeNext</a> ()</td></tr>
@@ -108,6 +110,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1fe3f32d1a8fed15559bc14acc74aceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are any commands in the queue.  <a href="#a1fe3f32d1a8fed15559bc14acc74aceb"></a><br/></td></tr>
 <tr class="memitem:aeda6be0792b5078a4e9c259e00d6456f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_commands_manager.html#aeda6be0792b5078a4e9c259e00d6456f">clearCommands</a> ()</td></tr>
 <tr class="memdesc:aeda6be0792b5078a4e9c259e00d6456f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all commands from the queue.  <a href="#aeda6be0792b5078a4e9c259e00d6456f"></a><br/></td></tr>
+<tr class="memitem:ae3479cb8bea12e576ae5fcf05f6c6d33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_commands_manager.html#ae3479cb8bea12e576ae5fcf05f6c6d33">setActionForNextCommand</a> (int action)</td></tr>
+<tr class="memdesc:ae3479cb8bea12e576ae5fcf05f6c6d33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets action (ommit or don't remove from the stack) for the next command.  <a href="#ae3479cb8bea12e576ae5fcf05f6c6d33"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -116,6 +120,8 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a99e904afc8d341f390efbd2c933c3321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue with all commands.  <a href="#a99e904afc8d341f390efbd2c933c3321"></a><br/></td></tr>
 <tr class="memitem:a47bce7001c94f824eb8b9acdccd7b1d5"><td class="memItemLeft" align="right" valign="top">std::deque&lt; std::deque&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_commands_manager.html#a47bce7001c94f824eb8b9acdccd7b1d5">m_args</a></td></tr>
 <tr class="memdesc:a47bce7001c94f824eb8b9acdccd7b1d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue with all arguments.  <a href="#a47bce7001c94f824eb8b9acdccd7b1d5"></a><br/></td></tr>
+<tr class="memitem:a0732a178dc1347026f7df12b76a0d8de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_commands_manager.html#a0732a178dc1347026f7df12b76a0d8de">m_shouldRemove</a></td></tr>
+<tr class="memdesc:a0732a178dc1347026f7df12b76a0d8de"><td class="mdescLeft">&#160;</td><td class="mdescRight">What to do with next command (remove or not after execution).  <a href="#a0732a178dc1347026f7df12b76a0d8de"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Manager for commands stored in the lua's engine. </p>
@@ -123,7 +129,25 @@ Private Attributes</h2></td></tr>
 <dl class="section author"><dt>Author:</dt><dd>Jacek Topolski </dd></dl>
 <dl class="section version"><dt>Version:</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date:</dt><dd>14.07.2012 </dd></dl>
-</div><hr/><h2>Member Function Documentation</h2>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a620ebdd3b164ef16266454a719490013"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CommandsManager::CommandsManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor which sets fields to its default values. </p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a1044e5df37dbb2b174dc9bc6a894d833"></a>
 <div class="memitem">
 <div class="memproto">
@@ -218,6 +242,24 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae3479cb8bea12e576ae5fcf05f6c6d33"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandsManager::setActionForNextCommand </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets action (ommit or don't remove from the stack) for the next command. </p>
+
+</div>
+</div>
 <hr/><h2>Member Data Documentation</h2>
 <a class="anchor" id="a47bce7001c94f824eb8b9acdccd7b1d5"></a>
 <div class="memitem">
@@ -264,6 +306,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0732a178dc1347026f7df12b76a0d8de"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CommandsManager::m_shouldRemove</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>What to do with next command (remove or not after execution). </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>DoForMe!/<a class="el" href="commands__manager_8h_source.html">commands_manager.h</a></li>
 <li>DoForMe!/<a class="el" href="commands__manager_8cpp.html">commands_manager.cpp</a></li>
@@ -271,7 +335,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 29 2012 23:05:30 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 9 2012 12:44:55 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>
