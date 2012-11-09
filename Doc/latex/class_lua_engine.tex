@@ -63,7 +63,11 @@ int \hyperlink{class_lua_engine_a613b53ffedc45c8cf800e99aa42408c5}{get\-G\-U\-I\
 void \hyperlink{class_lua_engine_ab598de2b82cdf3ea3c67244669a31194}{reset} ()
 \begin{DoxyCompactList}\small\item\em Resets lua stack by moving lua to top (lua\-\_\-settop()). \end{DoxyCompactList}\item 
 void \hyperlink{class_lua_engine_ac0cfa803159af14022cb08a7442f288b}{set\-Action\-For\-Next\-Command} (\hyperlink{class_lua_engine_a3410f0b2ab8ca7641b79653451490d90}{C\-O\-M\-M\-A\-N\-D\-\_\-\-A\-C\-T\-I\-O\-N} action)
-\begin{DoxyCompactList}\small\item\em Sets action (ommit or don't remove from the stack) for the next command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets action (ommit or don't remove from the stack) for the next command. \end{DoxyCompactList}\item 
+void \hyperlink{class_lua_engine_a7b580bbf545ef24059a038769ede345e}{set\-Main\-Window\-Action} (Q\-Action $\ast$p\-Action)
+\begin{DoxyCompactList}\small\item\em Passes an action that opens the main window when triggered. \end{DoxyCompactList}\item 
+void \hyperlink{class_lua_engine_a9eef31895ab26f484d1ab4cc141a81fe}{set\-Tray\-Mode} (bool state)
+\begin{DoxyCompactList}\small\item\em Sets a value which indicates whether the app is in tray mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -100,7 +104,11 @@ bool \hyperlink{class_lua_engine_add74083d158ee3543d0644c0b6349c5d}{m\-\_\-b\-In
 bool \hyperlink{class_lua_engine_ad2bf267f4030d958e5a6f88a3a19e039}{m\-\_\-is\-Executing}
 \begin{DoxyCompactList}\small\item\em Specifies if the negine is currently executing a script. \end{DoxyCompactList}\item 
 Q\-Message\-Box $\ast$ \hyperlink{class_lua_engine_a427a0ecc61c8b6b06bc0b4e86f32ae2d}{\-\_\-timeout\-Msg}
-\begin{DoxyCompactList}\small\item\em Message box with a timeout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Message box with a timeout. \end{DoxyCompactList}\item 
+Q\-Action $\ast$ \hyperlink{class_lua_engine_ab809b8024722da330a92284b2c01b66a}{m\-\_\-open\-Main\-Window}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_action}{Action} resposible for unhiding main widow. \end{DoxyCompactList}\item 
+bool \hyperlink{class_lua_engine_adf80abf3a5f6528dbe5f57e306f60af0}{m\-\_\-b\-Is\-Tray\-Mode}
+\begin{DoxyCompactList}\small\item\em Value which indicates whether the app is in tray mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -414,6 +422,17 @@ Set time interval for one command (used for sleep() api function).
 \mbox{\tt in}  & {\em interval} & Time interval. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_lua_engine_a7b580bbf545ef24059a038769ede345e}{\index{Lua\-Engine@{Lua\-Engine}!set\-Main\-Window\-Action@{set\-Main\-Window\-Action}}
+\index{set\-Main\-Window\-Action@{set\-Main\-Window\-Action}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{set\-Main\-Window\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::set\-Main\-Window\-Action (
+\begin{DoxyParamCaption}
+\item[{Q\-Action $\ast$}]{p\-Action}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a7b580bbf545ef24059a038769ede345e}
+
+
+Passes an action that opens the main window when triggered. 
+
 \hypertarget{class_lua_engine_a92df2282a9f711f80f034aae6fb26303}{\index{Lua\-Engine@{Lua\-Engine}!set\-Special\-Key\-Error@{set\-Special\-Key\-Error}}
 \index{set\-Special\-Key\-Error@{set\-Special\-Key\-Error}!LuaEngine@{Lua\-Engine}}
 \subsubsection[{set\-Special\-Key\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::set\-Special\-Key\-Error (
@@ -430,6 +449,17 @@ Sets error for the parsing special keys in send\-Text() api function.
 \mbox{\tt in}  & {\em error} & State of the error. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_lua_engine_a9eef31895ab26f484d1ab4cc141a81fe}{\index{Lua\-Engine@{Lua\-Engine}!set\-Tray\-Mode@{set\-Tray\-Mode}}
+\index{set\-Tray\-Mode@{set\-Tray\-Mode}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{set\-Tray\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::set\-Tray\-Mode (
+\begin{DoxyParamCaption}
+\item[{bool}]{state}
+\end{DoxyParamCaption}
+)}}\label{class_lua_engine_a9eef31895ab26f484d1ab4cc141a81fe}
+
+
+Sets a value which indicates whether the app is in tray mode. 
+
 \hypertarget{class_lua_engine_a28e0795b54170d763a929256566fe2b5}{\index{Lua\-Engine@{Lua\-Engine}!start@{start}}
 \index{start@{start}!LuaEngine@{Lua\-Engine}}
 \subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void Lua\-Engine\-::start (
@@ -523,7 +553,14 @@ State of the lua's engine. Used by lua's library -\/ don't touch it.
 
 Indicates if the interval has been changed by using G\-U\-I or sleep() api function. 
 
-If the variable is set to true it means that the sleep() api function is being executed, otherwise the interval has been changed by using G\-U\-I. \hypertarget{class_lua_engine_a5cac380e1359eb5a6cf95239e4ad2b19}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-b\-Special\-Key\-Error@{m\-\_\-b\-Special\-Key\-Error}}
+If the variable is set to true it means that the sleep() api function is being executed, otherwise the interval has been changed by using G\-U\-I. \hypertarget{class_lua_engine_adf80abf3a5f6528dbe5f57e306f60af0}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-b\-Is\-Tray\-Mode@{m\-\_\-b\-Is\-Tray\-Mode}}
+\index{m\-\_\-b\-Is\-Tray\-Mode@{m\-\_\-b\-Is\-Tray\-Mode}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-b\-Is\-Tray\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}bool Lua\-Engine\-::m\-\_\-b\-Is\-Tray\-Mode\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_adf80abf3a5f6528dbe5f57e306f60af0}
+
+
+Value which indicates whether the app is in tray mode. 
+
+\hypertarget{class_lua_engine_a5cac380e1359eb5a6cf95239e4ad2b19}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-b\-Special\-Key\-Error@{m\-\_\-b\-Special\-Key\-Error}}
 \index{m\-\_\-b\-Special\-Key\-Error@{m\-\_\-b\-Special\-Key\-Error}!LuaEngine@{Lua\-Engine}}
 \subsubsection[{m\-\_\-b\-Special\-Key\-Error}]{\setlength{\rightskip}{0pt plus 5cm}bool Lua\-Engine\-::m\-\_\-b\-Special\-Key\-Error\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_a5cac380e1359eb5a6cf95239e4ad2b19}
 
@@ -560,6 +597,13 @@ If there is no errors the value is equal to 0, otherwise the value is a number o
 
 
 The instance of the singleton. 
+
+\hypertarget{class_lua_engine_ab809b8024722da330a92284b2c01b66a}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-open\-Main\-Window@{m\-\_\-open\-Main\-Window}}
+\index{m\-\_\-open\-Main\-Window@{m\-\_\-open\-Main\-Window}!LuaEngine@{Lua\-Engine}}
+\subsubsection[{m\-\_\-open\-Main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Action$\ast$ Lua\-Engine\-::m\-\_\-open\-Main\-Window\hspace{0.3cm}{\ttfamily [private]}}}\label{class_lua_engine_ab809b8024722da330a92284b2c01b66a}
+
+
+\hyperlink{class_action}{Action} resposible for unhiding main widow. 
 
 \hypertarget{class_lua_engine_ac7c65e343f73a0dadcbe2d5f1a5842f3}{\index{Lua\-Engine@{Lua\-Engine}!m\-\_\-parse\-Error@{m\-\_\-parse\-Error}}
 \index{m\-\_\-parse\-Error@{m\-\_\-parse\-Error}!LuaEngine@{Lua\-Engine}}

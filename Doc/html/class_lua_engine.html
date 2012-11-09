@@ -153,6 +153,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab598de2b82cdf3ea3c67244669a31194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets lua stack by moving lua to top (lua_settop()).  <a href="#ab598de2b82cdf3ea3c67244669a31194"></a><br/></td></tr>
 <tr class="memitem:ac0cfa803159af14022cb08a7442f288b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ac0cfa803159af14022cb08a7442f288b">setActionForNextCommand</a> (<a class="el" href="class_lua_engine.html#a3410f0b2ab8ca7641b79653451490d90">COMMAND_ACTION</a> action)</td></tr>
 <tr class="memdesc:ac0cfa803159af14022cb08a7442f288b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets action (ommit or don't remove from the stack) for the next command.  <a href="#ac0cfa803159af14022cb08a7442f288b"></a><br/></td></tr>
+<tr class="memitem:a7b580bbf545ef24059a038769ede345e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a7b580bbf545ef24059a038769ede345e">setMainWindowAction</a> (QAction *pAction)</td></tr>
+<tr class="memdesc:a7b580bbf545ef24059a038769ede345e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passes an action that opens the main window when triggered.  <a href="#a7b580bbf545ef24059a038769ede345e"></a><br/></td></tr>
+<tr class="memitem:a9eef31895ab26f484d1ab4cc141a81fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a9eef31895ab26f484d1ab4cc141a81fe">setTrayMode</a> (bool state)</td></tr>
+<tr class="memdesc:a9eef31895ab26f484d1ab4cc141a81fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a value which indicates whether the app is in tray mode.  <a href="#a9eef31895ab26f484d1ab4cc141a81fe"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -190,6 +194,10 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:ad2bf267f4030d958e5a6f88a3a19e039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies if the negine is currently executing a script.  <a href="#ad2bf267f4030d958e5a6f88a3a19e039"></a><br/></td></tr>
 <tr class="memitem:a427a0ecc61c8b6b06bc0b4e86f32ae2d"><td class="memItemLeft" align="right" valign="top">QMessageBox *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#a427a0ecc61c8b6b06bc0b4e86f32ae2d">_timeoutMsg</a></td></tr>
 <tr class="memdesc:a427a0ecc61c8b6b06bc0b4e86f32ae2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message box with a timeout.  <a href="#a427a0ecc61c8b6b06bc0b4e86f32ae2d"></a><br/></td></tr>
+<tr class="memitem:ab809b8024722da330a92284b2c01b66a"><td class="memItemLeft" align="right" valign="top">QAction *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#ab809b8024722da330a92284b2c01b66a">m_openMainWindow</a></td></tr>
+<tr class="memdesc:ab809b8024722da330a92284b2c01b66a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_action.html" title="Data for action that has been created for calendar.">Action</a> resposible for unhiding main widow.  <a href="#ab809b8024722da330a92284b2c01b66a"></a><br/></td></tr>
+<tr class="memitem:adf80abf3a5f6528dbe5f57e306f60af0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lua_engine.html#adf80abf3a5f6528dbe5f57e306f60af0">m_bIsTrayMode</a></td></tr>
+<tr class="memdesc:adf80abf3a5f6528dbe5f57e306f60af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value which indicates whether the app is in tray mode.  <a href="#adf80abf3a5f6528dbe5f57e306f60af0"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -647,6 +655,24 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a7b580bbf545ef24059a038769ede345e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LuaEngine::setMainWindowAction </td>
+          <td>(</td>
+          <td class="paramtype">QAction *&#160;</td>
+          <td class="paramname"><em>pAction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Passes an action that opens the main window when triggered. </p>
+
+</div>
+</div>
 <a class="anchor" id="a92df2282a9f711f80f034aae6fb26303"></a>
 <div class="memitem">
 <div class="memproto">
@@ -668,6 +694,24 @@ Static Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a9eef31895ab26f484d1ab4cc141a81fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LuaEngine::setTrayMode </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets a value which indicates whether the app is in tray mode. </p>
 
 </div>
 </div>
@@ -835,6 +879,28 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="adf80abf3a5f6528dbe5f57e306f60af0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LuaEngine::m_bIsTrayMode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Value which indicates whether the app is in tray mode. </p>
+
+</div>
+</div>
 <a class="anchor" id="a5cac380e1359eb5a6cf95239e4ad2b19"></a>
 <div class="memitem">
 <div class="memproto">
@@ -946,6 +1012,28 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The instance of the singleton. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab809b8024722da330a92284b2c01b66a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QAction* LuaEngine::m_openMainWindow</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_action.html" title="Data for action that has been created for calendar.">Action</a> resposible for unhiding main widow. </p>
 
 </div>
 </div>
@@ -1074,7 +1162,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 9 2012 12:44:56 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 9 2012 15:16:34 for DoForMe! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>
