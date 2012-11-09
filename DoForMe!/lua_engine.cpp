@@ -4,7 +4,7 @@ LuaEngine* LuaEngine::m_object = NULL;
 
 LuaEngine::LuaEngine() : luaState( lua_open() ), m_loadError( 0 ), m_parseError( 0 ), m_bSpecialKeyError( false ), m_textError( "" ),
 						 m_timer( new QBasicTimer() ), m_uInterval( 1000 ), m_uGUIInterval( 1000 ), m_bIntervalChanged( false ),
-						 m_isExecuting( false ), _timeoutMsg( new QMessageBox() ) {
+						 m_isExecuting( false ), _timeoutMsg( new QMessageBox() ), m_openMainWindow( NULL ), m_bIsTrayMode( false ) {
 		_timeoutMsg->setWindowTitle( "Task is over." );
 		_timeoutMsg->setText( "Task has been ended." );
 }
@@ -30,8 +30,8 @@ void LuaEngine::registerFunction( const char* functionName, lua_CFunction pFunct
 int LuaEngine::loadScript( const char* code, int mode ) {
 	qDebug( "LuaEngine::loadScript( [code], %d )", mode );
 
-	setGUIInterval( 1000 );
-	setInterval( 1000 );
+	m_uInterval = PlayerSettings::getInstance()->delay();
+	m_uGUIInterval = m_uInterval;
 	m_bIntervalChanged = false;
 
 	// load script code from a buffer, otherwise from a file
@@ -67,8 +67,8 @@ bool LuaEngine::run( const char* code, bool onlyParse ) {
 	// if the engine is executing a script we can't invoke start again,
 	// because it will pause the timer for the GUI interval.
 	if( onlyParse == false && !m_isExecuting ) {
-		setGUIInterval( 1000 );
-		setInterval( 1000 );
+		m_uInterval = PlayerSettings::getInstance()->delay();
+		m_uGUIInterval = m_uInterval;
 		m_bIntervalChanged = false;
 		start();
 		m_isExecuting = true;
@@ -113,13 +113,11 @@ void LuaEngine::timerEvent( QTimerEvent* ) {
 	qDebug( "LuaEngine::timerEvent" );
 
 	// check if there are any commands to execute, otherwise stop the timer
-	if( !m_commands.isEmpty() && !( GetAsyncKeyState( VK_LCONTROL ) && GetAsyncKeyState( VK_LMENU ) ) ) {
+	if( !m_commands.isEmpty() && !( GetAsyncKeyState( VK_LCONTROL ) && GetAsyncKeyState( VK_LSHIFT ) && GetAsyncKeyState( 'X' ) ) ) {
 		m_commands.executeNext();
 	} else {
 		// stop the timer if there are no more commands to execute
 		stop();
-		_timeoutMsg->show();
-		QTimer::singleShot( 3000, _timeoutMsg, SLOT( hide() ) );
 	}
 
 	// if the engine's interval has been changed from outside (e.g. by using some of the api function like sleep())
@@ -154,6 +152,13 @@ void LuaEngine::stop() {
 	m_timer->stop();
 	m_isExecuting = false;
 	m_commands.clearCommands();
+
+	if( !m_bIsTrayMode )
+		m_openMainWindow->trigger();
+
+	// show info (with a timeout) that task has been finished
+	_timeoutMsg->show();
+	QTimer::singleShot( 3000, _timeoutMsg, SLOT( hide() ) );
 }
 
 void LuaEngine::setInterval( int interval ) {
@@ -182,4 +187,12 @@ void LuaEngine::reset() {
 
 void LuaEngine::setActionForNextCommand( COMMAND_ACTION action ) {
 	m_commands.setActionForNextCommand( action );
+}
+
+void LuaEngine::setMainWindowAction( QAction* pAction ) {
+	m_openMainWindow = pAction;
+}
+
+void LuaEngine::setTrayMode( bool state ) {
+	m_bIsTrayMode = state;
 }

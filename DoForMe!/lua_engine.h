@@ -139,6 +139,15 @@ private:
 	*/
 	QMessageBox* _timeoutMsg;
 
+	/**
+		\brief Action resposible for unhiding main widow.
+	*/
+	QAction* m_openMainWindow;
+	/**
+		\brief Value which indicates whether the app is in tray mode.
+	*/
+	bool m_bIsTrayMode;
+
 private:
 	/**
 		\brief Private constructor to make the class a singleton.
@@ -262,5 +271,12 @@ public:
 		\brief Sets action (ommit or don't remove from the stack) for the next command.
 	*/
 	void setActionForNextCommand( COMMAND_ACTION action );
-
+	/**
+		\brief Passes an action that opens the main window when triggered.
+	*/
+	void setMainWindowAction( QAction* pAction );
+	/**
+		\brief Sets a value which indicates whether the app is in tray mode.
+	*/
+	void setTrayMode( bool state );
 };

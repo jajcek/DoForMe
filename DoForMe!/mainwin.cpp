@@ -107,6 +107,7 @@ mainWin::mainWin(QWidget *parent, Qt::WFlags flags)
 	QAction* _mainWindowAction = new QAction( this );
 	connect( _mainWindowAction, SIGNAL( triggered() ), this, SLOT( openApp() ) );
 	Recorder::setMainWindowAction( _mainWindowAction );
+	LuaEngine::getInstance()->setMainWindowAction( _mainWindowAction );
 }
 
 void mainWin::loadScripts( const QString& path ) {
@@ -271,6 +272,7 @@ void mainWin::toTray() {
 	qDebug( "mainWin::toTray" );
 
 	LuaEngine::getInstance()->reset();
+	LuaEngine::getInstance()->setTrayMode( true );
 
 	// put current actions to the icon tray context menu
 	ActionCaller::getInstance()->setActions( m_calendar->getActionsForDate( QDate::currentDate() ) );
@@ -302,6 +304,7 @@ void mainWin::runScript( bool onlyParse ) {
 
 	// load and parse script (from text field) by checking its correctness
 	LuaEngine::getInstance()->reset();
+	LuaEngine::getInstance()->setTrayMode( false );
 	switch( LuaEngine::getInstance()->loadScript( getCode().toStdString().c_str(), LuaEngine::BUFFER ) ) {
 		case LUA_ERRSYNTAX: {
 			QMessageBox _msg( QMessageBox::Critical, "Error", "Syntax error in the script." );
@@ -346,6 +349,9 @@ void mainWin::runScript( bool onlyParse ) {
 	}
 
 	if( onlyParse == false ) {
+		// hide app window
+		hide();
+
 		// start script (by taking commands from the lua's stack one by one)
 		// the stack is in the LuaEngine class
 		LuaEngine::getInstance()->start();
