@@ -46,18 +46,19 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 	int _days = action->getDays();
 
 	// go through all days from current date to the end of month
-	// (balance is for previous and next month, because there are some days still visible (max ~15))
+	// (balance is for previous and next month, because there are some days that are still visible)
 	// because at beginning of calendar there are visible some days of previous month
-	// we need to multiply balance in a loop because we subtract it later, so we need to... balance the balance
-	int _iBalance = 31;
-	for( int i = date.day(); i <= _daysNumber + 2  *_iBalance; ++i ) {
+	// we need to multiply balance in a loop because we subtract it later
+	int _otherMonth = 31;
+	for( int i = date.day(); i <= _daysNumber + 2 * _otherMonth; ++i ) {
 		// we will shift date about +1 day per iteration
 		// it is necessary to add days if we have chosen further month on the calendar
 		int _toNextMonths = date.daysTo( QDate( m_displayedYear, m_displayedMonth, 1 ) );
 
 		// we need to correct it to not go before selected date
 		_toNextMonths = _toNextMonths < 0 ? 0 : _toNextMonths;
-		int _shift = i - date.day() + _toNextMonths - _iBalance;
+		int _shift = i - date.day() + _toNextMonths - _otherMonth;
+
 		// and don't select current day (it is set in addAction() and setCurrentPage() in this class)
 		if( _shift <= 0 ) continue;
 
@@ -660,5 +661,28 @@ void ActionsCalendar::setCurrentPage( int year, int month ) {
 	m_displayedMonth = month;
 	m_displayedYear = year;
 
-	refreshRepetitions();
+	// clear before setting actions again (to prevent summing actions)
+	m_actionsInMonth.clear();
+
+	// go through all actions and choose the actions with repetitions
+	QMapIterator<QDate, QVector<Action*> > it( m_actionsAll );
+	while( it.hasNext() ) {
+		it.next();
+
+		// go through all actions for day
+		int _actionsNumber = it.value().size();
+		for( int i = 0; i < _actionsNumber; ++i ) {
+			Action* _pAction = it.value().at( i );
+			if( !_pAction->isExcluded( it.key() ) )
+				m_actionsInMonth[it.key()].push_back( _pAction );
+			setRepetition( it.key(), _pAction );
+		}
+	}
+
+	// we need to clear list and put everything again
+	// we chose the easier way - removing all from the table and recreate it
+	// with new action
+	m_list->clearContents();
+
+	updateCells();
 }
