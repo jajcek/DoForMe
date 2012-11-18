@@ -36,14 +36,7 @@ void Recorder::stopRecording() {
 
 	// remove unnecessary lines
 	if( m_textEdit ) {
-		QStringList _lines = m_textEdit->toPlainText().split( "\n" );
-		if( _lines.at( _lines.size() - 1 ) == "sendText(\"{lshift+}\")" || _lines.at( _lines.size() - 1 ) == "sendText(\"{lctrl+}\")" ) {
-			if( _lines.at( _lines.size() - 3 ) == "sendText(\"{lctrl+}\")" || _lines.at( _lines.size() - 3 ) == "sendText(\"{lshift+}\")" ) {
-				removeXLastLines( 3 );
-			}
-		} else if( _lines.at( _lines.size() - 1 ) == "sendText(\"x\")" || _lines.at( _lines.size() - 2 ) == "sendText(\"x\")" ) {
-			removeXLastLines( 5 );
-		}
+		removeXLastLines( 5 );
 	} else {
 		qDebug( "m_textEdit in Recorder class is a NULL" );
 	}
@@ -83,14 +76,7 @@ void Recorder::startSelectingFragment() {
 
 	// remove unnecessary lines
 	if( m_textEdit ) {
-		QStringList _lines = m_textEdit->toPlainText().split( "\n" );
-		if( _lines.at( _lines.size() - 1 ) == "sendText(\"{lshift+}\")" || _lines.at( _lines.size() - 1 ) == "sendText(\"{lctrl+}\")" ) {
-			if( _lines.at( _lines.size() - 3 ) == "sendText(\"{lctrl+}\")" || _lines.at( _lines.size() - 3 ) == "sendText(\"{lshift+}\")" ) {
-				removeXLastLines( 3 );
-			}
-		} else if( _lines.at( _lines.size() - 1 ) == "sendText(\"z\")" || _lines.at( _lines.size() - 2 ) == "sendText(\"z\")" ) {
-			removeXLastLines( 5 );
-		}
+		removeXLastLines( 5 );
 	} else {
 		qDebug( "m_textEdit in Recorder class is a NULL" );
 	}
