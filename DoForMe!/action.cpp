@@ -100,7 +100,7 @@ int Action::getXDays() const {
 	return m_XDays;
 }
 
-int Action::getDays() const {
+char Action::getDays() const {
 	return m_days;
 }
 

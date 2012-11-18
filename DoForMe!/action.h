@@ -34,7 +34,7 @@ private:
 	/**
 		\brief which days the action is invoked on.
 	*/
-	int m_days;
+	char m_days;
 	/**
 		\brief Whether the action is highlighted (when a user selects the action on the calendar).
 	*/
@@ -152,7 +152,7 @@ public:
 	/**
 		\return Mask for days on which the action will be performed. See ActionSettings::MONDAY for more details.
 	*/
-	int getDays() const;
+	char getDays() const;
 	/**
 		\brief Sets the status of the highlighting action.
 		\param[in] state State of the highlighting.

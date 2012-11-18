@@ -34,7 +34,7 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 	if( !action->isXDays() && action->getDays() == 0 ) return;
 
 	// how many days has the current month
-	int _daysNumber = date.daysInMonth();
+	//int _daysNumber = date.daysInMonth();
 
 	int _XDays = 0;
 	// if the user set "every X days" option get its value
@@ -50,15 +50,16 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 	// because at beginning of calendar there are visible some days of previous month
 	// we need to multiply balance in a loop because we subtract it later
 	int _otherMonth = 31;
-	for( int i = date.day(); i <= _daysNumber + 2 * _otherMonth; ++i ) {
+	for( int i = date.day(); i <= 3 * _otherMonth; ++i ) {
 		// we will shift date about +1 day per iteration
 		// it is necessary to add days if we have chosen further month on the calendar
 		int _toNextMonths = date.daysTo( QDate( m_displayedYear, m_displayedMonth, 1 ) );
-
+		
 		// we need to correct it to not go before selected date
 		_toNextMonths = _toNextMonths < 0 ? 0 : _toNextMonths;
+		qDebug( "_toNextMonth: %d", _toNextMonths );
 		int _shift = i - date.day() + _toNextMonths - _otherMonth;
-
+		qDebug( "_shift: %d", _shift );
 		// and don't select current day (it is set in addAction() and setCurrentPage() in this class)
 		if( _shift <= 0 ) continue;
 
@@ -199,7 +200,7 @@ void ActionsCalendar::addAction( QDate date, Action* action ) {
 }
 
 Action* ActionsCalendar::getActionById( int id, bool forSelectedDate ) const {
-	qDebug( "ActionsCalendar::getAction()" );
+	qDebug( "ActionsCalendar::getActionById()" );
 
 	if( forSelectedDate ) {
 		auto _actions = m_actionsInMonth.find( m_selectedDate ).value();

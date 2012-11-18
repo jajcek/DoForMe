@@ -1,12 +1,12 @@
 #include "action_settings.h"
 
-const int ActionSettings::MONDAY = 1;
-const int ActionSettings::TUESDAY = 1 << 1;
-const int ActionSettings::WEDNESDAY = 1 << 2;
-const int ActionSettings::THURSDAY = 1 << 3;
-const int ActionSettings::FRIDAY = 1 << 4;
-const int ActionSettings::SATURDAY = 1 << 5;
-const int ActionSettings::SUNDAY = 1 << 6;
+const char ActionSettings::MONDAY = 1;
+const char ActionSettings::TUESDAY = 1 << 1;
+const char ActionSettings::WEDNESDAY = 1 << 2;
+const char ActionSettings::THURSDAY = 1 << 3;
+const char ActionSettings::FRIDAY = 1 << 4;
+const char ActionSettings::SATURDAY = 1 << 5;
+const char ActionSettings::SUNDAY = 1 << 6;
 
 int ActionSettings::checkTimeCorrectness() {
 	QDate _currentDate = QDate::currentDate();
@@ -103,7 +103,7 @@ int ActionSettings::getXDays() const {
 	return ui.daysSpin->value();
 }
 
-void ActionSettings::setDaysFlags( int mask ) {
+void ActionSettings::setDaysFlags( char mask ) {
 	if( mask & MONDAY )
 		ui.mondayCheck->setChecked( true );
 	if( mask & TUESDAY )
@@ -144,6 +144,14 @@ int ActionSettings::getDays() const {
 void ActionSettings::apply() {
 	// get script and try to execute it
 	Script* _pScript = ScriptsManager::getScript( getScriptName() );
+
+	if( !_pScript ) {
+		QMessageBox _msg( QMessageBox::Information, "Information", "There are no scripts available. Create a new script first.",
+				QMessageBox::Ok );
+		_msg.exec();
+		return;
+	}
+
 	LuaEngine::getInstance()->reset();
 	bool _isInvalid = LuaEngine::getInstance()->run( _pScript->getCode().toStdString().c_str(), true );
 

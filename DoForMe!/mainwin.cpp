@@ -619,12 +619,10 @@ void mainWin::editAction() {
 		_pAction->setSetting( _actionSettings );
 	}
 
-	// to reselect it after refreshRepetitions (because it will unselect it it there are > 1 action in that day)
+	// to reselect it after refreshRepetitions (because it will unselect it if there are > 1 action in that day)
 	int _id = _pAction->getId();
 
 	m_calendar->refreshRepetitions();
-
-	m_calendar->setCurrentAction( m_calendar->getActionById( _id ) );
 }
 
 void mainWin::saveData() {

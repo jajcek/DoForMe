@@ -15,8 +15,8 @@ void Recorder::startRecording() {
 	//if( RecorderSettings::getInstance()->isMouseOn() )
 	m_isRecStopped = false;
 	m_mouseHook = SetWindowsHookEx( WH_MOUSE_LL, &mouseHookProcedure, GetModuleHandle( NULL ), 0 );
-	if( RecorderSettings::getInstance()->isKeyboardOn() )
-		m_keyboardHook = SetWindowsHookEx( WH_KEYBOARD_LL, &keyboardHookProcedure, GetModuleHandle( NULL ), 0 );
+	//if( RecorderSettings::getInstance()->isKeyboardOn() )
+	m_keyboardHook = SetWindowsHookEx( WH_KEYBOARD_LL, &keyboardHookProcedure, GetModuleHandle( NULL ), 0 );
 
 	// start calculating elapsed time
 	m_timer = new QElapsedTimer();
@@ -41,7 +41,7 @@ void Recorder::stopRecording() {
 			if( _lines.at( _lines.size() - 3 ) == "sendText(\"{lctrl+}\")" || _lines.at( _lines.size() - 3 ) == "sendText(\"{lshift+}\")" ) {
 				removeXLastLines( 3 );
 			}
-		} else if( _lines.at( _lines.size() - 1 ) == "sendText(\"x\")" ) {
+		} else if( _lines.at( _lines.size() - 1 ) == "sendText(\"x\")" || _lines.at( _lines.size() - 2 ) == "sendText(\"x\")" ) {
 			removeXLastLines( 5 );
 		}
 	} else {
@@ -88,7 +88,7 @@ void Recorder::startSelectingFragment() {
 			if( _lines.at( _lines.size() - 3 ) == "sendText(\"{lctrl+}\")" || _lines.at( _lines.size() - 3 ) == "sendText(\"{lshift+}\")" ) {
 				removeXLastLines( 3 );
 			}
-		} else if( _lines.at( _lines.size() - 1 ) == "sendText(\"z\")" ) {
+		} else if( _lines.at( _lines.size() - 1 ) == "sendText(\"z\")" || _lines.at( _lines.size() - 2 ) == "sendText(\"z\")" ) {
 			removeXLastLines( 5 );
 		}
 	} else {
@@ -182,11 +182,7 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 		return CallNextHookEx( 0, code, wParam, lParam );
 	}
 
-	if( m_keys[VK_LCONTROL] && m_keys[VK_LSHIFT] && _vkCode == 'X' && !m_isRecStopped )
-		stopRecording();
-	if( m_keys[VK_LCONTROL] && m_keys[VK_LSHIFT] && _vkCode == 'Z' && !m_isScreenSelecting )
-		startSelectingFragment();
-	if( m_isScreenSelecting ) 
+	if( m_isScreenSelecting || !RecorderSettings::getInstance()->isKeyboardOn() ) 
 		return CallNextHookEx( 0, code, wParam, lParam );
 
 	QString _symbol = "";
@@ -252,6 +248,12 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 		}
 		if( ( _vkCode >= 65 && _vkCode <= 90 ) || ( _vkCode >= 48 && _vkCode <= 57 ) )
 			putCmd( "sendText(\"" + _symbol + "\")" );
+
+
+		if( m_keys[VK_LCONTROL] && m_keys[VK_LSHIFT] && _vkCode == 'X' && !m_isRecStopped )
+			stopRecording();
+		if( m_keys[VK_LCONTROL] && m_keys[VK_LSHIFT] && _vkCode == 'Z' && !m_isScreenSelecting )
+			startSelectingFragment();
 	}
 
 	switch( wParam ) {

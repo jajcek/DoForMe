@@ -33,6 +33,10 @@ private:
 	*/
 	static QVector<QPair<QDate, Action*>> m_lastSelectedActions;
 	/**
+		\brief Vector of the last selected excluded dates.
+	*/
+	static QVector<QPair<int, QDate>> m_lastSelectedExcludedDates;
+	/**
 		\brief Map of all settings, key is the setting and value its content.
 	*/
 	static QMap<QString, QString> m_lastSelectedSettings;
@@ -47,6 +51,15 @@ private:
 		\return Error code. 0 means success.
 	*/
 	static int getActionRow( void *notUsed, int argc, char** argv , char** columnName );
+	/**
+		\brief Helper function used as callback in sqlite method for getting rows for excluded dates.
+		\param[in] notUsed Reserved for SQLite.
+		\param[in] argc Number of rows returned.
+		\param[in] argv Array of returned elements.
+		\param[in] columnName Name of the column.
+		\return Error code. 0 means success.
+	*/
+	static int getExcludedDate( void *notUsed, int argc, char** argv , char** columnName );
 	/**
 		\brief Helper function used as callback in sqlite method for getting rows for settings.
 		\param[in] notUsed Reserved for SQLite.

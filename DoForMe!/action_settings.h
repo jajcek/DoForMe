@@ -43,31 +43,31 @@ public:
 		\details The values must be remembered in memory to perform bit operations.
 		For example if we want to set a monday and a tuesday we should use MONDAY | TUESDAY to get value that indicates these two days.
 	*/
-	static const int MONDAY;
+	static const char MONDAY;
 	/**
 		\brief Value for tuesday. See ActionSettings::MONDAY for details.
 	*/
-	static const int TUESDAY;
+	static const char TUESDAY;
 	/**
 		\brief Value for wednesday. See ActionSettings::MONDAY for details.
 	*/
-	static const int WEDNESDAY;
+	static const char WEDNESDAY;
 	/**
 		\brief Value for thursday. See ActionSettings::MONDAY for details.
 	*/
-	static const int THURSDAY;
+	static const char THURSDAY;
 	/**
 		\brief Value for friday. See ActionSettings::MONDAY for details.
 	*/
-	static const int FRIDAY;
+	static const char FRIDAY;
 	/**
 		\brief Value for saturday. See ActionSettings::MONDAY for details.
 	*/
-	static const int SATURDAY;
+	static const char SATURDAY;
 	/**
 		\brief Value for sunday. See ActionSettings::MONDAY for details.
 	*/
-	static const int SUNDAY;
+	static const char SUNDAY;
 
 private:
 	/**
@@ -154,7 +154,7 @@ public:
 		\brief Sets the number of days which determine a repetition every X days.
 		\param[in] mask Number of days.
 	*/
-	void setDaysFlags( int mask );
+	void setDaysFlags( char mask );
 	/**
 		\details Mask is created by using fields of this class: ActionSettings::MONDAY etc. See ActionSettings::MONDAY for details.
 		\return Mask which specifies days of the week that has been chosen by the user.

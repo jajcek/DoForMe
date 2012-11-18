@@ -500,9 +500,7 @@ void LuaApiEngine::waitForImage( std::deque<int> args ) {
 			_goUp = false;
 			for( int k = 0; k < _fragment.height(); ++k ) {
 				for( int l = 0; l < _fragment.width(); ++l ) {
-					if( QColor( _fragment.pixel( l, k ) ).red() == QColor( _desktop.pixel( j + l, i + k ) ).red() &&
-							QColor( _fragment.pixel( l, k ) ).green() == QColor( _desktop.pixel( j + l, i + k ) ).green() && 
-							QColor( _fragment.pixel( l, k ) ).blue() == QColor( _desktop.pixel( j + l, i + k ) ).blue() ) {
+					if( QColor( _fragment.pixel( l, k ) ) == QColor( _desktop.pixel( j + l, i + k ) ) ) {
 
 						// if it's the last pixel to check
 						if( k == ( _fragment.height() - 1 ) && l == ( _fragment.width() - 1 ) ) {
