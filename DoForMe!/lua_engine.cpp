@@ -7,6 +7,7 @@ LuaEngine::LuaEngine() : luaState( lua_open() ), m_loadError( 0 ), m_parseError(
 						 m_isExecuting( false ), _timeoutMsg( new QMessageBox() ), m_openMainWindow( NULL ), m_bIsTrayMode( false ) {
 		_timeoutMsg->setWindowTitle( "Task is over." );
 		_timeoutMsg->setText( "Task has been ended." );
+		luaL_openlibs( luaState );
 }
 
 LuaEngine::~LuaEngine() {

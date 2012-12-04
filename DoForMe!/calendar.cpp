@@ -57,9 +57,9 @@ void ActionsCalendar::setRepetition( QDate date, Action* action ) {
 		
 		// we need to correct it to not go before selected date
 		_toNextMonths = _toNextMonths < 0 ? 0 : _toNextMonths;
-		qDebug( "_toNextMonth: %d", _toNextMonths );
+		//qDebug( "_toNextMonth: %d", _toNextMonths );
 		int _shift = i - date.day() + _toNextMonths - _otherMonth;
-		qDebug( "_shift: %d", _shift );
+		//qDebug( "_shift: %d", _shift );
 		// and don't select current day (it is set in addAction() and setCurrentPage() in this class)
 		if( _shift <= 0 ) continue;
 

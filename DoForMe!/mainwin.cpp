@@ -329,7 +329,7 @@ void mainWin::runScript( bool onlyParse ) {
 					QString _funcName = getFuncName( _error );
 
 					// and show the info about it
-					QMessageBox _msg( QMessageBox::Critical, "Error", "The function '" + _funcName + "' doesn't exists in the API." );
+					QMessageBox _msg( QMessageBox::Critical, "Error", _error );
 					_msg.exec();
 					break;
 				}
@@ -352,7 +352,10 @@ void mainWin::runScript( bool onlyParse ) {
 
 	if( onlyParse == false ) {
 		// hide app window
-		hide();
+		if(!(LuaEngine::getInstance()->validateLastParse() + LuaEngine::getInstance()->validateLastLoad()))
+			hide();
+		else
+			return;
 
 		// start script (by taking commands from the lua's stack one by one)
 		// the stack is in the LuaEngine class
