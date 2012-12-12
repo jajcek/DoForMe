@@ -480,6 +480,7 @@ void LuaApiEngine::run( std::deque<int> args ) {
 		_path += args[i];
 
 	ShellExecuteA( GetDesktopWindow(), "open", _path.toStdString().c_str(), NULL, NULL, args[_size-1] );
+	//ShellExecuteA( GetDesktopWindow(), "open", "C:\\Users\\cos.png", NULL, NULL, 0 );
 
 	setFunctionSuccess();
 }
