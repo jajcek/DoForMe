@@ -35,10 +35,10 @@ void Recorder::stopRecording() {
 	m_tray.hide();
 
 	// remove unnecessary lines
-	if( m_textEdit ) {
-		removeXLastLines( 5 );
+	if( m_textEdit && RecorderSettings::getInstance()->isKeyboardOn() ) {
+		removeXLastLines( 3 );
 	} else {
-		qDebug( "m_textEdit in Recorder class is a NULL" );
+		qDebug( "m_textEdit in Recorder class is a NULL or keyboard hook off" );
 	}
 
 	QMessageBox _msg( QMessageBox::Information, "Information", "Recording has been stopped." );
@@ -75,10 +75,10 @@ void Recorder::startSelectingFragment() {
 	m_keys[VK_LSHIFT] = false;
 
 	// remove unnecessary lines
-	if( m_textEdit ) {
-		removeXLastLines( 5 );
+	if( m_textEdit && RecorderSettings::getInstance()->isKeyboardOn() ) {
+		removeXLastLines( 3 );
 	} else {
-		qDebug( "m_textEdit in Recorder class is a NULL" );
+		qDebug( "m_textEdit in Recorder class is a NULL or keyboard hook off" );
 	}
 
 	m_isScreenSelecting = true;
@@ -168,6 +168,11 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 		return CallNextHookEx( 0, code, wParam, lParam );
 	}
 
+	if( GetAsyncKeyState( VK_LCONTROL ) && GetAsyncKeyState( VK_LSHIFT ) && _vkCode == 'X' && !m_isRecStopped )
+			stopRecording();
+	if( GetAsyncKeyState( VK_LCONTROL ) && GetAsyncKeyState( VK_LSHIFT ) && _vkCode == 'Z' && !m_isScreenSelecting )
+			startSelectingFragment();
+
 	if( m_isScreenSelecting || !RecorderSettings::getInstance()->isKeyboardOn() ) 
 		return CallNextHookEx( 0, code, wParam, lParam );
 
@@ -234,12 +239,6 @@ LRESULT CALLBACK Recorder::keyboardHookProcedure( int code, WPARAM wParam, LPARA
 		}
 		if( ( _vkCode >= 65 && _vkCode <= 90 ) || ( _vkCode >= 48 && _vkCode <= 57 ) )
 			putCmd( "sendText(\"" + _symbol + "\")" );
-
-
-		if( m_keys[VK_LCONTROL] && m_keys[VK_LSHIFT] && _vkCode == 'X' && !m_isRecStopped )
-			stopRecording();
-		if( m_keys[VK_LCONTROL] && m_keys[VK_LSHIFT] && _vkCode == 'Z' && !m_isScreenSelecting )
-			startSelectingFragment();
 	}
 
 	switch( wParam ) {
