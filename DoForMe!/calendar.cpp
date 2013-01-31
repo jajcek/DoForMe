@@ -203,12 +203,14 @@ Action* ActionsCalendar::getActionById( int id, bool forSelectedDate ) const {
 	qDebug( "ActionsCalendar::getActionById()" );
 
 	if( forSelectedDate ) {
-		auto _actions = m_actionsInMonth.find( m_selectedDate ).value();
-		int _actionsNumber = _actions.size();
-		for( int i = 0; i < _actionsNumber; ++i ) {
-			Action* _pAction = _actions.at( i );
-			if( _pAction->getId() == id )
-				return _pAction;
+		if( m_actionsInMonth.find( m_selectedDate ) != m_actionsInMonth.end() ) {
+			auto _actions = m_actionsInMonth.find( m_selectedDate ).value();
+			int _actionsNumber = _actions.size();
+			for( int i = 0; i < _actionsNumber; ++i ) {
+				Action* _pAction = _actions.at( i );
+				if( _pAction->getId() == id )
+					return _pAction;
+			}
 		}
 	} else {
 		QMapIterator<QDate, QVector<Action*>> it( m_actionsAll );
@@ -357,6 +359,8 @@ void ActionsCalendar::moveCurrAction( int direction ) {
 
 void ActionsCalendar::setCurrentAction( Action* action ) {
 	qDebug( "ActionsCalendar::setCurrentAction()" );
+
+	if( !action ) return;
 
 	m_pCurrAction = action;
 	m_pCurrAction->setHighlight( true );
